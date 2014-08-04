@@ -236,7 +236,7 @@ nav {
 .site-header h1 {
   text-align: center;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 2.5em;
   font-family: serif;
 }
 
@@ -456,13 +456,13 @@ nav {
 
 @media screen and (max-width: 842px) {
 
-  .wrapper { margin: 80px auto; padding: 0 80px;max-width: 500px;}
+  .wrapper { margin: 80px auto; padding: 0 80px;max-width: 720px;}
 
 }
 
 @media screen and (max-width: 640px) {
   body { background: rgb(180,210,250); }
-  .wrapper { margin: 80px auto; padding: 0 20px;max-width: 400px;}
+  .wrapper { margin: 80px auto; padding: 0 20px;max-width: 560px;}
   .post-content h1 { font-size: 36px; }
   .post-content h2 { font-size: 28px; }
   .post-content h3 { font-size: 22px; }

@@ -57,7 +57,7 @@ tags: [杭州的桥,  文晖大桥, 西兴大桥, 复兴大桥]
 
 非机动车道也和钱江大桥一样的窄，私以为比钱江大桥更加危险，真的是一骑就停不下来，以下是一次骑车过桥的全程，我用手机拍了下来。
 
-<link href="/assets/video-js/video-js.css" rel="stylesheet" type="text/css"><script src="/assets/video-js/video.js"></script><script>videojs.options.flash.swf = "/assets/video-js/video-js.swf";</script><video id="xixing" class="video-js vjs-default-skin" controls preload="none" width="580" height="580" poster="http://pic.yupoo.com/fooleap_v/DPHy8AJj/11MSlC.jpg" data-setup="{}"><source src="http://vwecam.tc.qq.com/1006_3426f93eabdf4cdd86c8add8eb3b5489.f20.mp4" type='video/mp4' /></video>
+<link href="/js/video-js/video-js.css" rel="stylesheet" type="text/css"><script src="/js/video-js/video.js"></script><script>videojs.options.flash.swf = "/js/video-js/video-js.swf";</script><video id="xixing" class="video-js vjs-default-skin" controls preload="none" width="580" height="580" poster="http://pic.yupoo.com/fooleap_v/DPHy8AJj/11MSlC.jpg" data-setup="{}"><source src="http://vwecam.tc.qq.com/1006_3426f93eabdf4cdd86c8add8eb3b5489.f20.mp4" type='video/mp4' /></video>
 
 ###复兴大桥###
     

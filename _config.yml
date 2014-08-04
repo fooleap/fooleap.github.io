@@ -9,4 +9,4 @@ weibo_username: fooleap
 markdown: kramdown
 permalink: /:title.html 
 highlighter: true
-paginate: 10
+paginate: 8

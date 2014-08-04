@@ -1,6 +1,5 @@
 ---
 layout: page
-group: navigation
 title: 关于
 description: "关于页面，关于本博，关于 Fooleap"
 tags: [关于, 博客, fooleap, blog]
@@ -49,4 +48,5 @@ tags: [关于, 博客, fooleap, blog]
 * 2012-03-18 博客从 Wordpress 平台转到 Jekyll 平台，托管于 GitHub
 * 2013-01-19 转移到 VPS 上
 * 2014-01-10 所用的 Host700 卷铺走人，重新转移到 GitHub
-* 2014-06-29 升级 Bootstrap 框架为3.2 
+* 2014-06-29 升级 Bootstrap 框架为 3.2 
+* 2014-08-05 放弃 Bootstrap 框架，参考他人博客弄了个简洁的模板，暂时部署到 VPS 上 
