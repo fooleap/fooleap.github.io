@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<div class="post">
+
+  <time>
+    {{ page.date | date: "%b %-d, %Y" }}
+  </time>
+  
+  <article class="post-content">
+  {{ content }}
+  </article>
+
+  <script type="text/javascript" id="wumiiRelatedItems"></script>
+  <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = ""; //请用代码生成文章标题
+    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiSitePrefix = "http://blog.fooleap.org/";
+    var wumiiParams = "&num=5&mode=1&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'fooleap'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+    
+</div>

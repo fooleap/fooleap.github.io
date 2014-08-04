@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Thinkpad X30 上的 Windows 7 | Fooleap's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="A foolish man could not always lose!">
+    <meta name="keywords" content="ThinkPad, X30, QQ旋风, 离线下载, 网络叠加, 负载均衡" />
+    <link rel="canonical" href="http://blog.fooleap.org/win7-for-thinkpad-x30.html">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/modernizr.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/js.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1>
+        Thinkpad X30 上的 Windows 7
+      </h1>
+    </header>
+
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/" class="navigation-item">Fooleap's Blog</a></li>
+            <li><a href="/about.html" class="navigation-item">About</a></li>
+            <li><a href="/guestbook.html" class="navigation-item">Guestbook</a></li>
+            <li><a href="http://feed.fooleap.org/" target="_blank" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+	    <li><a href="/links.html"  class="navigation-item icon-home">Blogroll</a></li>
+        </ul>
+        <img src="/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <section class="page-content">
+      <div class="post">
+
+  <time>
+    Sep 23, 2011
+  </time>
+  
+  <article class="post-content">
+  <p>XP 毕竟该退休了，而单 Linux 又显得有点不切实际，无聊的搜了一下是否有人在 X30 上安装 Win 7 成功，大部分都说是显驱安装失败，Google 搜到的一篇文章（<a href="http://f.pil.tw/thread-887189-1-1.html">老筆電跑 Windows 7 - IBM ThinkPad X30</a>）让我很想试试，既然都有人把显驱安装上了，那就试试吧，根在 X30 上装了 Win 7，当然不是原版，根据那篇文章，找了颇有名气的精简版 Tiny 7，用的是国内网友打包的包括东亚语言支持的 <a href="http://hi.baidu.com/txwdchina/blog/item/992c0def5df696deb21cb14e.html">Tiny7-Rev01 中文 PE 安装版</a>，当然安装时地区语言选择还是按默认的选择。</p>
+
+<p>安装很快很顺利，按文章说的，根据这篇文章 <a href="http://www.tabletpcbuzz.com/showthread.php?36937-Window-7-video-driver-for-ST4110-20-21">Window 7 video driver for ST4110/20/21</a> 所说的步骤，折腾了许久，终于安上了显驱，桌面右键菜单也出来了，但不知为何，一重启就在也进不了桌面了，安全模式也是如此，无奈只能作罢。</p>
+
+<p>既然说到 Windows，不妨也谈谈下载工具，目前网速还很慢，分享精神还是欠缺，也只能用用下载工具来提高下载速度。现在对迅雷的印象很差，已经好久没用迅雷了，之前一直用的都是 5.7.12.493 版本，在同学高配置的电脑上使用新版迅雷感觉一卡一卡的，若用的是路由，只要有机器开迅雷，它抢占网速的霸气体现得淋漓尽致。</p>
+
+<p>而腾讯的 QQ 旋风感觉良好，界面也简洁，关键是<a href="http://act.vip.qq.com/xuanfeng/act.html">离线下载免费</a>，这个相对于迅雷很有优势，等级升到 8 级离线空间即可达到 25 G，实在令人眼馋，还有，很多同学 QQ 会员 6 级的离线空间已经达到 60 G了。</p>
+
+<p>下面说说 QQ 旋风的离线下载及获取积分的技巧：</p>
+
+<ol>
+  <li>在 QQ 旋风客户端里添加的离线任务，可以到<a href="http://lixian.qq.com">网页版离线下载</a>任务管理里把任务删除，客户端里面的任务离线下载状态不变，只要在客户端重新登录帐号就又有3G的离线空间，这样就能在只用 3G 离线空间的状态下，添加多个 3G 以下的任务，同时下载。</li>
+  <li>有点不道德的刷积分，我们不会为了几个积分而让电脑连续待机多天吧。只是为了8级，对于自己来说，无非也就为了以后下载 3G 以上的文件方便点，无需让电脑待机太久，而且在 Linux 也可以通过网页离线下载来下载资源少的大文件。</li>
+  <li>这里，按每天下载文件积分的 200 分算，要达到八级 22000 积分，需要 110 天。每天仅需几分钟甚至几秒时间，并不浪费时间。其实这个方法也没什么，很简单。</li>
+</ol>
+
+<p>第一步，下载一个超过 2G 的文件，将它下载到 99% 左右，就是快好的时候，暂停它，会自动生成一个 qud.cfg 格式的文件。</p>
+
+<p><img src="http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/2011-09-21_132015.png" alt="QQ旋风1" /></p>
+
+<p>第二步，把这两个文件备份起来，只要过了一天，把它们复制一下，导入旋风下载完毕即可，一天 200 积分收入囊中。当然前一天先复制，第二天一导入也就几秒的事情。</p>
+
+<p><img src="http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/2011-09-21_132635.png" alt="QQ旋风2" /></p>
+
+<p>宿舍有两台路由器，一台无线一台有线，一直想使用负载均衡，把网络叠加起来使用，试了多个软件都效果不佳，后来找到一个很老的批处理脚本，现共享，Win 7 需要管理员权限。<a href="http://dl.dbank.com/c0bbx3bzhv">下载</a></p>
+
+<p>用了它，2m + 4m 的宽带速度可以达到（重启即失效）</p>
+
+<p><img src="http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/2011-09-21_173442.png" alt="网络叠加" /></p>
+
+<p><strong>本文历史</strong></p>
+
+<ul>
+  <li>2011年09月23日  创建文章</li>
+</ul>
+
+  </article>
+
+  <script type="text/javascript" id="wumiiRelatedItems"></script>
+  <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = ""; //请用代码生成文章标题
+    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiSitePrefix = "http://blog.fooleap.org/";
+    var wumiiParams = "&num=5&mode=1&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'fooleap'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+    
+</div>
+
+    </section>
+
+    <footer class="site-footer">
+      <p>2011-2014 Proudly powered by Jekyll</p>
+    </footer>
+  </div>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16717905-7']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    //Baidu
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ffa7ec982118ebd236663169678264582' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+
+  </body>
+</html>

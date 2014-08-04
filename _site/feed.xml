@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fooleap&#39;s Blog</title>
+    <description>A foolish man could not always lose!</description>
+    <link>http://blog.fooleap.org/</link>
+    <atom:link href="http://blog.fooleap.org/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 05 Aug 2014 00:59:32 +0800</pubDate>
+    <lastBuildDate>Tue, 05 Aug 2014 00:59:32 +0800</lastBuildDate>
+    <generator>Jekyll v2.2.0</generator>
+    
+      <item>
+        <title>固态硬盘印象</title>
+        <description>&lt;p&gt;上次说到机械键盘，也顺带提了下固态硬盘，那这篇就来谈谈固态硬盘，和机械键盘一样，固态硬盘也是提升用户体验的硬件。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;为什么要固态硬盘？&lt;/h3&gt;
+
+&lt;p&gt;关于机械硬盘和固态硬盘的对比，在这里就不过多描述，快、静或许是固态硬盘最明显的两个优点，而贵则是固态硬盘的缺点之一。&lt;/p&gt;
+
+&lt;p&gt;市面上的固态硬盘比传统的机械键盘要贵得多得多，目前 500G 的机械键盘可能 300RMB 即可拿下，倘若这 500G 换成 SSD，那另一个对应的数字将是 2K。&lt;/p&gt;
+
+&lt;p&gt;其实大学期间听说固态硬盘就像尝鲜，可惜学生党口袋空空，且固态硬盘并非必要的装备。今年三月换了工作，工作中不少时候需要用到 Photoshop 等软件，鄙人的 T410 这些软件的初始化、运行速度实在有限，性能提升无非内存、硬盘。而笔记本在购买之初已加上白菜价的内存条，因此性能突破在硬盘。&lt;/p&gt;
+
+&lt;p&gt;没有过多的挑选比价，购买了京东最热销的三星 840EVO 系列 120G 版本，发现目前的售价已经比起购买时便宜 60RMB 左右，降价幅度还是可观的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/ssd-1.jpg&quot; alt=&quot;三星 840EVO 120G&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;固态硬盘要怎么装？&lt;/h3&gt;
+
+&lt;p&gt;在购买之前已经了解了笔记本加装固态硬盘的方法，由于现在需要用到光驱的次数少之又少，所以固态硬盘一般通过光驱位硬盘托架安装在光驱的位置。我在订购固态硬盘的同时，还亚马逊买了一个光驱位硬盘托架，奇怪的是那天送货的是个阿姨，并且爬楼梯上七楼，气喘吁吁的敲门。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/ssd-2.jpg&quot; alt=&quot;光驱位硬盘托架&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;很多笔记本取光驱都是不用拧一颗螺丝，鄙人的 T410 亦是，所以安装十分方便&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/ssd-3.jpg&quot; alt=&quot;光驱位硬盘托架和 SSD&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;将固态硬盘装进光驱位硬盘托架&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/ssd-4.jpg&quot; alt=&quot;装进 SSD&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;硬件安装完，软件部分即是将系统安装在固态硬盘上，我将 120G 分为两个分区，一个装 Windows，一个装 Linux。机械硬盘数据转移后重新全盘格式化为一个分区，一切搞定之后，就是大喊一声: Perfect！&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2014年08月02日 完成初稿 &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 02 Aug 2014 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/ssd.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/ssd.html</guid>
+        
+        <category>固态硬盘</category>
+        
+        <category>SSD</category>
+        
+        <category>硬盘</category>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>雨雪天气的杭州交通</title>
+        <description>&lt;p&gt;在杭城的游荡已有一年之久，对杭州的公共交通感觉很满意，各种服务相当到位。不得不提的是杭州公共自行车，在国内它敢认第二，估计没其他城市敢称第一。而另一面，杭州的雨雪天气，还是该塞车的塞车，十分令人唾弃。&lt;/p&gt;
+
+&lt;p&gt;7月26号下午，杭州遭遇一次雷雨天气，下面就记下那天的流水帐，当天刚好公司提前半小时下班，本想可以早点返回住处，还在琢磨着晚上吃啥好。由于公交月票剩余金额还不少，因此选择坐公交而非地铁。&lt;/p&gt;
+
+&lt;p&gt;下班时分滨江雨开始下，和同事以迅雷不及掩耳之速跑到公交站，平时要等挺久的B支6也很快到来，和同事告别之后便坐上公交。&lt;/p&gt;
+
+&lt;p&gt;刷微博看到有网友说杭州的天空乌云密布，抬头一看，还真是乌云一大片，只不过在江北不在滨江。同时三里亭的基友说暴雨进行中，市民中心附近工作的一个朋友说钱江的浪很大。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/about-transportation_-01.jpg&quot; alt=&quot;滨江乌云&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;公车行驶到西兴大桥时还不见滨江的地湿，而公交通过大桥驶到江干时，眼见地已湿透且有部分积水。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/about-transportation_-02.jpg&quot; alt=&quot;钱江新城地已湿&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;采荷新村，乌云之下的城东大雨滂沱，公交站路边积水面积不小，等待二十来分钟之后湿身一半的我上了64路公交。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/about-transportation_-03.jpg&quot; alt=&quot;采荷新村大雨滂沱&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;公车经过在建高架的秋涛北路，平时半个小时车程开了近三个小时，公车上无奈的等待不想更多描述。下图为当晚到站下车，雨后空气清新，石桥路。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/about-transportation_-04.jpg&quot; alt=&quot;采荷新村大雨滂沱&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;是的，我又想起了以前一次从柳州回桂林的火车上，一样是雨天，只不过雨并没有那么大，坐在火车暖气口，冷暖之间，加上原本三个小时的火车走了六个小时，事实上很冷。&lt;/p&gt;
+
+&lt;p&gt;在我的记忆中，上下班高峰杭州交通一直很堵，雨雪天气的杭州交通，有些路段可能用“瘫痪”来形容更为恰当。&lt;/p&gt;
+
+&lt;p&gt;还记得年初的2月10号，周一，当天凌晨下了雪，傍晚下班时，路面的雪早已融化，考虑到天冷公交不好等，固先食饭。饱腹后，在文三路口站（现已改名文三马塍路口站）等74路开往三里亭，车一辆一辆到站，没勇气上前，也深知根本挤不上去，一直等到第五辆才上了车。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/about-transportation_-05.jpg&quot; alt=&quot;采荷新村大雨滂沱&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;去年9月份一次下班，暴雨已下很多并还在下，城西已经沦陷，那时的公交车已不抱希望。大雨中和一同事选择公共自行车，虽路途险阻，但还是庆幸肯定比公交车快。下图是骑过文晖大桥下桥见的“惨状”，多辆轿车抛锚，大家在摸鱼么？&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/about-transportation_-06.jpg&quot; alt=&quot;采荷新村大雨滂沱&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;类似的事情很多，我相信同在杭城的伙伴或多或少都有感受吧，尤其是住在低洼地带下雨被淹的小伙伴们。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2014年07月28日 完成初稿&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 28 Jul 2014 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/about-the-road-traffic-in-hangzhou-when-its-raining-or-snowing.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/about-the-road-traffic-in-hangzhou-when-its-raining-or-snowing.html</guid>
+        
+        <category>暴雨</category>
+        
+        <category>杭州交通</category>
+        
+        <category>杭州</category>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>机械键盘印象——Poker II</title>
+        <description>&lt;p&gt;机械键盘这既古老又新鲜的玩意，大概是上大学之后才有一定的认识，而一直到最近一个月，我才买了一个 Poker II，开始了全新的键盘体验生活。&lt;/p&gt;
+
+&lt;p&gt;跟机械硬盘和固态硬盘的对比类似，薄膜键盘和机械键盘的区别是这样的：薄膜键盘便宜，使用体验一般；机械键盘的比较贵，使用体验比起薄膜键盘要好得太多。大学期间，由于自己并没有收入，电脑配置止于够用，固态硬盘和机械键盘对于鄙人来说，就是相当奢侈的玩意。&lt;/p&gt;
+
+&lt;p&gt;时间飞逝，如今，鄙人工作已有一年，虽收入很一般，今年还是把曾经想要的固态硬盘和机械键盘都收了进来，经过一段时间的使用，体验确实很棒，钱花得并不冤枉。&lt;/p&gt;
+
+&lt;p&gt;大学几年，基本上用的是 ThinkPad 自带键盘，个人觉得很舒服，特别是那个小红点，有了它我就用不着鼠标，键盘使用的体验比起其他薄膜键盘要好一点，联想也将它做成成品单独售卖。&lt;/p&gt;
+
+&lt;p&gt;由于自己对机械键盘的认识不深，毕竟用都没用过，固只能从网上搜索入门帖，V2EX 上对机械键盘的讨论不少，一番搜索了解之后，我想要的目标已经锁定。鉴于经济能力有限，加上个人喜好，最终选择购买 iKBC Poker II，这款比较迷你，价格相对合适的键盘。&lt;/p&gt;
+
+&lt;p&gt;买的是黑色茶轴，茶轴估计是很多新手买机械键盘的首选，声音不大，使用起来也不会不习惯，也一样有按键的快感。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/poker2-1.jpg&quot; alt=&quot;iKBC Poker II&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;配有几个额外的彩色按键，数据线，清理键盘的工具等等。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/poker2-2.jpg&quot; alt=&quot;iKBC Poker II&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;键盘小巧，按键不多，只有正常键盘的60%，鄙人属 Vimer，使用起来还算习惯，入手即用，也没去了解何所谓的编程，到现在一个月左右，使用感觉很棒，比起 ThinkPad 键盘要好很多。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/poker2-3.jpg&quot; alt=&quot;iKBC Poker II&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由于鄙人用完并没收起来的，灰尘等还是很明显的，配备的清理工具用着也还行，以后还是用完收起可能会比较好点。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.fooleap.org/blog/poker2-4.jpg&quot; alt=&quot;iKBC Poker II&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我不知道该如何描写用它打字的感觉，但是我想说大多数从薄膜键盘转打机械键盘的小伙伴们，会被机械键盘打字的流畅所折服，爱上码字，从此过上幸福的生活。&lt;/p&gt;
+
+&lt;p&gt;互联网上专业的测评文章数不胜数，加上自己对机械键盘的不甚了解，就不再班门弄斧，就此罢文，过段时间有什么感受再追加进来。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2014年7月19日 完成初稿 &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 19 Jul 2014 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/poker-2.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/poker-2.html</guid>
+        
+        <category>机械键盘</category>
+        
+        <category>Poker II</category>
+        
+        <category>键盘</category>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>ThinkPad T410 的键盘问题</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;问题描述&lt;/h3&gt;
+
+&lt;p&gt;去年夏天，我经历了杭州几十年来最热的一个夏天，最高温甚至破历史记录，变态般达到 41.6 摄氏度。在那个夏天，我是在没有空调的寝室度过的，每天睡前一个澡，睡醒满身汗再一个澡。&lt;/p&gt;
+
+&lt;p&gt;而我的笔记本 ThinkPad T410，在高温且没有散热器的环境下，运行还算良好。我记得去年夏天只有一天因为温度太高而自动关机。令我头疼的是在某天，我坐在床上，把笔记本放腿上准备码字的时候，发现一按 E 会出现 poiurewq 这样的症状，3、D、C 键甚至是 F3 键一样也有类似的情况，那整一列都出现映射错误的情况。&lt;/p&gt;
+
+&lt;p&gt;发现不正常后我就拿到桌子上放好，再测试又恢复正常。后来，多次测试结果表明，只要机子放平，键盘按键就能正常，若机子有一点点的不平，那几个按键都会出错。有时候干活比较急，碰到按键冲突真的很烦躁，甚至还有过小时候拍打电视般的意识，想通过用力击打键盘使它好起来。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;解决过程&lt;/h3&gt;
+
+&lt;p&gt;当按键冲突愈来愈频繁的时候，我就想这么也不是个办法，再说机子从买到现在还没好好清理过一次，所以我就买了套工具，自己动手一颗颗螺丝拧开，键盘拆开出来之后，发现里面好像也不脏，所以就不打算整体肢解，键盘清理干净之后又重新装上，没想到问题依旧。&lt;/p&gt;
+
+&lt;p&gt;因自己使用习惯趋向于把笔记本放家当台式机，键盘也不至于不能用，得过且过。一直到一个月前，我才开始考虑这个问题是不是 T410 的通病，找到万能的 Google，一搜，果然如此，症状相同的小伙伴还真不少，找到台湾同胞写的&lt;a href=&quot;http://im5481.wordpress.com/2013/12/04/lenovo-thinkpad-t410-%E9%8D%B5%E7%9B%A4%E6%8C%89%E9%8D%B5-3edc%E9%8C%AF%E8%AA%A4%E4%BA%82%E7%A2%BC%E5%95%8F%E9%A1%8C/&quot;&gt;相应的原因解析及解决方法&lt;/a&gt;（需翻墙），但我手头上没有铝箔。&lt;/p&gt;
+
+&lt;p&gt;去附近的联华超市看了下，只有一种且价格并不便宜，买了可能没其他用途，只能作罢，考虑重新找替代品。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DSe9UiKg/8zLrn.jpg&quot; alt=&quot;铝箔&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;后来在附近的另一家超市找到锡纸，价格相对比较合适，于是就买回来，动手开工。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DSe9Vmsp/mdy4r.jpg&quot; alt=&quot;锡纸&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;准备好螺丝刀&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DSe9UHoH/KKGyb.jpg&quot; alt=&quot;螺丝刀&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;根据教程，仅仅拧开两颗螺丝就可将键盘取出&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DSe9IZ5h/HHFEU.jpg&quot; alt=&quot;拧螺丝&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;里面具体都是些什么我也不清楚&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DSe9V1qx/13mvrL.jpg&quot; alt=&quot;笔记本内部&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;照葫芦画瓢，就是这个样子，干完收工&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DSe9VzoB/gSbaC.jpg&quot; alt=&quot;放上锡纸&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;经过这么简单的步骤之后，笔记本键盘再也不会映射错误了，无论是放在大腿上或者直接拿在手上，都能很轻松地打出想打的字符。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;题后废言&lt;/h3&gt;
+
+&lt;p&gt;个人觉得，T410 的键盘做工并不如以前 IBM 时代的 ThinkPad 键盘，至少我以前的 X30 键盘用起来似乎比 T410 的还要好。&lt;/p&gt;
+
+&lt;p&gt;去年在键盘映射错误的同时，还有一个问题一直困扰着我，那就是声音外放问题，使用笔记本本身的喇叭进行外放声音的时候，它会放着放着就自动静音，虽可重新手动开启声音，但不一会又静音，而使用耳机则不会。无论 Windows 或者 Linux 都一样，意味着并不是软件问题，这依然是一个无大碍而伤大雅的问题。&lt;/p&gt;
+
+&lt;p&gt;其实我以为放上锡纸之后，键盘问题好了，声音问题也该好，事实证明我失算了，在网上也暂时找不到有效解决这个问题的办法。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;参考资料&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://im5481.wordpress.com/2013/12/04/lenovo-thinkpad-t410-%E9%8D%B5%E7%9B%A4%E6%8C%89%E9%8D%B5-3edc%E9%8C%AF%E8%AA%A4%E4%BA%82%E7%A2%BC%E5%95%8F%E9%A1%8C/&quot;&gt;Lenovo ThinkPad T410 鍵盤按鍵 3EDC錯誤亂碼問題&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2014年07月01日 完成初稿&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 01 Jul 2014 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/the-keyboard-problem-with-thinkpad-t410.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/the-keyboard-problem-with-thinkpad-t410.html</guid>
+        
+        <category>T410</category>
+        
+        <category>键盘</category>
+        
+        <category>映射错误</category>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>蓝牙耳机 Avantree Jogger Pro</title>
+        <description>&lt;p&gt;前几天，我的一个耳塞又坏掉了，这一两年都不知道虐坏掉几个耳机，包括手机附带的以及买过的一些低端耳机。&lt;/p&gt;
+
+&lt;p&gt;耳机之所以会坏，虽然耳机质量也有一定的关系，但主要原因个人觉得还是在佩戴习惯上的问题，鄙人一般有以下几个场景用到耳塞：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在寝室上网时&lt;/li&gt;
+  &lt;li&gt;上下班坐公车、地铁时&lt;/li&gt;
+  &lt;li&gt;骑车、跑步时&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;除了寝室上网相对安全一点，其他的佩戴场景，耳塞似乎都很容易受到伤害。尤其是骑车、跑步的时候，稍不小心耳塞就会遭到我的拉扯。拉扯过后它又好像没事，但再用过一段时间之后，它就会出现一个响，一个不响的情况。&lt;/p&gt;
+
+&lt;p&gt;这种情况一旦发生，就感觉很不爽，自己没修理的能力，由于耳机是廉价的，也没有拿去修理的必要。&lt;/p&gt;
+
+&lt;p&gt;于是又买了一副新的，又坏掉，这样的事情循环着，每次买耳塞心里都默念着这个要用久一点，但往往不出半年又坏掉，这该何时是头啊。&lt;/p&gt;
+
+&lt;p&gt;开头就有提到的，我一直佩戴着跑步的耳塞 AKG K309 坏掉了，由于 iPhone 自带的耳塞比较小，戴着跑步很容易脱落，鄙人就想买一个耳机可以跑步时佩戴，加上已经坏掉了不少的耳塞，所以我就想买个不容易坏的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DQGBf6oA/kl4hQ.jpg&quot; alt=&quot;AKG K309&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;鉴于经济能力有限，也没法花钱买太好的耳塞，也怕好的耳塞被我那般暴力使用也不会好到哪里去。&lt;/p&gt;
+
+&lt;p&gt;其实大概去年开始，我不时会关注一下 smzdm 上一些运动耳机的特价信息，比如挂耳类型的等，大多数还是有线的，少数蓝牙耳机。&lt;/p&gt;
+
+&lt;p&gt;我心想，我在跑步这种剧烈运动时，手机是握在手上的，耳塞的线缆会乱飘，所以较容易损坏，那如果是蓝牙耳机呢？是否会好很多？加上朋友的鼎力推荐，我把关注的重心转移到蓝牙耳机上来。&lt;/p&gt;
+
+&lt;p&gt;看了不少的蓝牙耳机，了解到由于通过蓝牙传输，在音质上一般没有线耳机的好，且大多数蓝牙耳机产品还是为了手机通话方便而打造的。&lt;/p&gt;
+
+&lt;p&gt;在 smzdm 上搜刮了一遍，终于让我找到一款看起来真的适合运动，并且价格也相对比较合适的耳机 &lt;a href=&quot;http://fx.smzdm.com/detail/231447&quot;&gt;Avantree Jogger Pro&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;经过一些心理上的挣扎之后，我决定撤资买这么一款耳机。虽然亚马逊第三方卖家提供，但也是亚马逊物流配送，很快就收到货。&lt;/p&gt;
+
+&lt;p&gt;其包装颇简单，不过该有的都有了。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DQGDvj6S/RN20D.jpg&quot; alt=&quot;Avantree Jogger Pro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;第一次买蓝牙耳机，也是第一次戴这样的耳机。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DQGEnvGX/15hOzD.jpg&quot; alt=&quot;Avantree Jogger Pro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这个塑胶套，不经说明书真的不知道是装上去应该怎么用的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DQGEUMAn/ZkOLY.jpg&quot; alt=&quot;Avantree Jogger Pro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;事实上这个耳机是戴上去后，那个尖的地方插到耳朵里，戴起来有一定的不适感，不过还在忍受范围内，如果是运动时佩戴，基本没什么感觉。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DQGGoaeW/iHQQU.jpg&quot; alt=&quot;Avantree Jogger Pro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;充电孔使用这种设计，需要充电的时候只需轻轻拨开即可。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DQGGIhux/ycywx.jpg&quot; alt=&quot;Avantree Jogger Pro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;很普通的充电线，和大多数电子产品一样，也是没有配备充电器。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DQGHpvxO/kODKy.jpg&quot; alt=&quot;Avantree Jogger Pro&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到目前为止，这款耳机我使用了一个星期，怎么说呢？感受最直接的就是方便了！现在打电话，不需要拿着手机贴在耳旁，也不需要如同使用有线耳机一样拿着手机，接通了之后，手机可以放一边，活动自由。&lt;/p&gt;
+
+&lt;p&gt;这个耳机是蓝牙4.0，理论上传输距离挺长的。但我感觉一旦隔墙，传输效果很差，基本上会断开。平时使用偶有断续，不过是在不影响使用的范围内。&lt;/p&gt;
+
+&lt;p&gt;更方便的还数骑车、跑步，再也不用担心耳机很容易坏，活动也会更加自如，妈妈再也不用担心我的耳机会因为跑步而坏掉了！&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2014年06月21日 完成初稿&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sat, 21 Jun 2014 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/avantree-jogger-pro.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/avantree-jogger-pro.html</guid>
+        
+        <category>蓝牙耳机</category>
+        
+        <category>运动耳机</category>
+        
+        <category>骑车</category>
+        
+        <category>跑步</category>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>杭州的桥</title>
+        <description>&lt;p&gt;这题目看起来范围有点广，杭州的桥，既可以是有江南特色的古代桥梁，又可以是近现代交通而新建的公路桥、铁路桥，甚至可以是目前杭州多地还在架起的高架桥。&lt;/p&gt;
+
+&lt;p&gt;在此文中，我可能没法列举杭州太多的桥，只能从自己的角度上，对杭州一小部分桥进行再认识，这些桥是我比较熟悉的一些。&lt;/p&gt;
+
+&lt;p&gt;在杭州这一年多的时间里，到处去逛的次数并不是很多，所以比较熟悉的桥一般是上班路上所经过的桥，到目前为止，印象较深的，按照时间排序有如下几座：文晖大桥、钱塘江大桥、西兴大桥、复兴大桥。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;文晖大桥&lt;/h3&gt;
+
+&lt;p&gt;首先讲讲文晖大桥，这座桥我的印象比较深，文晖大桥不长，而它可能是我碰到的第一座因铁路经过而修建架在铁路上方的桥，桥下则是艮山门火车站。桥名是乔石同志提的，它是属于什么桥暂且不提，在我印象中，它是我走过的第一座机动车和非机动车道分开的桥。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPEq7FPo/wJyrL.jpg&quot; alt=&quot;文晖大桥&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;刚来杭州时住在闸弄口新村，前往文三路工作，开始坐B支1公交，后来坐156路等。看地图知道文三路那边只需直走过来文晖路，然后再转机场路就能到闸弄口新村，于是有一天我就直接走回来，当时好像用了一个小时左右。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPGVTPEx/eKhzF.png&quot; alt=&quot;路径图&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当天走到文晖大桥时没路了，所以就知道该往桥上走，那也是我第一次走过文晖大桥，大概是去年3月6日。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPGVUr9U/jXyjB.jpg&quot; alt=&quot;文晖大桥晚上&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;文晖大桥机动车非机动车分开，非机动车驾驶员安全有保障，即便这样，也还是有不少非机动车驾驶员贪图方便直接冲上机动车道。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPGZvfJP/3WYyJ.jpg&quot; alt=&quot;文晖大桥上&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;钱塘江大桥&lt;/h3&gt;
+
+&lt;p&gt;钱塘江大桥印象中就经过一次，那天骑上去感觉这桥建设年代一定相当久远，一样的机动非机动分开，不过非机动车道有点小，容不得你停下来，要停下来你得靠着边上。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPH0TGuE/jevwc.jpg&quot; alt=&quot;钱塘江大桥&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;那次大概是我第一次骑车经过钱塘江，钱塘江杭州市区段还算挺宽的，起码比起家乡几条韩江入海支流要更宽一些，估计钱塘江大桥建成之前，钱江两岸都是通过摆渡过江。&lt;/p&gt;
+
+&lt;p&gt;这让我联想到，在古代，钱塘江也是一道天然的屏障，若躲避战乱到杭州，是否首选之地是钱江以南。不过话说回来，杭州历史悠久，躲避战乱那会可能不是往这边迁。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;西兴大桥&lt;/h3&gt;
+
+&lt;p&gt;西兴大桥，也就是俗话说的三桥，你不会想到我正在桥上行走的公交车上码这段话。这是我目前上班除了地铁之外，其他交通方式很可能要经过的一座桥。去年刚来杭州，火车到站是萧山的杭州南站，当时也是坐公交经过此桥到达北岸的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPH3GtEe/CeFNk.jpg&quot; alt=&quot;西兴大桥&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;前面提到有一次骑车通过钱江大桥，那次过滨江，想从钱江三桥回来，可是找了很久都找不到非机动车上桥的地方，最后选择搭公交回去。一直到我今年到滨江工作之后，才去找到了上桥的楼梯，还以为和机动车上桥处差不多地方，真没想到找了那么久原来是在江边。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPH8xvWs/6Uykt.jpg&quot; alt=&quot;西兴大桥上桥楼梯&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;前些天在网上看到西兴大桥未验收、一直处于试运行的状态，几年前也发生过一次事故。先不说西兴大桥质量如何，我觉得它的上桥楼梯现在很糟糕，我看过有些大叔电车推到中间歪了，前几天还在修补，现在不知道完成了没。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPHmM1QL/bGzc9.jpg&quot; alt=&quot;西兴大桥修补&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;非机动车道也和钱江大桥一样的窄，私以为比钱江大桥更加危险，真的是一骑就停不下来，以下是一次骑车过桥的全程，我用手机拍了下来。&lt;/p&gt;
+
+&lt;link href=&quot;/assets/video-js/video-js.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;script src=&quot;/assets/video-js/video.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;videojs.options.flash.swf = &quot;/assets/video-js/video-js.swf&quot;;&lt;/script&gt;
+&lt;video id=&quot;xixing&quot; class=&quot;video-js vjs-default-skin&quot; controls=&quot;&quot; preload=&quot;none&quot; width=&quot;580&quot; height=&quot;580&quot; poster=&quot;http://pic.yupoo.com/fooleap_v/DPHy8AJj/11MSlC.jpg&quot; data-setup=&quot;{}&quot;&gt;&lt;source src=&quot;http://vwecam.tc.qq.com/1006_3426f93eabdf4cdd86c8add8eb3b5489.f20.mp4&quot; type=&quot;video/mp4&quot; /&gt;&lt;/video&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;复兴大桥&lt;/h3&gt;
+
+&lt;p&gt;俗话的钱江四桥，这座桥我只骑过一次，不过我觉得它比起前面的任何一座桥都要更加高端一些，从结构设计，美观度等，有两层结构，下层还预留了轻轨（地铁）通道，上层连接中河高架快速路，自行车走的是下层，不用楼梯，车道也很宽，不用担心后面的车辆超车。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPHrxfej/P9NZe.jpg&quot; alt=&quot;复兴大桥&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在桥中间还有平台方便人们观江景、钓鱼等&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPHsFyBU/isrw2.jpg&quot; alt=&quot;观景台&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;北岸过桥江边有楼梯下去接之江路&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPHtJcFd/xRVbZ.jpg&quot; alt=&quot;复兴大桥下桥楼梯&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;当然你也可直接往前骑下坡一直爽到秋涛路&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DPHund9E/4YAis.jpg&quot; alt=&quot;复兴大桥下桥&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;关于杭州的桥，就先这么简单介绍一下，这篇文章中说的可能不一定全对，但这是我目前所了解的。我相信随着时间的推移，见识会更多，了解也更全面，博文还会继续完善。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2014年06月15日 完成初稿&lt;/li&gt;
+  &lt;li&gt;2014年06月23日 修改视频为一比一宽高比&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 15 Jun 2014 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/bridge-in-hangzhou.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/bridge-in-hangzhou.html</guid>
+        
+        <category>杭州的桥</category>
+        
+        <category>文晖大桥</category>
+        
+        <category>西兴大桥</category>
+        
+        <category>复兴大桥</category>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>解决 iPhone 上应用程序的“等待中”</title>
+        <description>&lt;p&gt;自从工作以后，感觉已经没有时间继续折腾，连手机也换成大众街机开箱即用的 iPhone，昨天在网上无意中看到这个网站——&lt;a href=&quot;http://fir.im/&quot;&gt;Fly It Remotely&lt;/a&gt;，大致理解为提供 APP 内测版本发布的地方，具体可以看其关于页面。&lt;/p&gt;
+
+&lt;p&gt;就像当年频繁更新软件版本一样，就是喜欢尝鲜。就在里面我手机上固有的软件，想安装个试试，QQ空间来一炮。下载完，安装到最后竟然安装不了，重启之后就一直停在 Waiting… 状态，原因不明。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DJfiYiRl/QMFiT.gif&quot; alt=&quot;QQ空间测试版安装不上&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;遇到问题没辙，只能 Google 先，检索到的大多数结果都是针对在 App Store 安装软件遇到的问题，回答也都差不多，都说网络问题，明显我的这种情况不属于网络问题。隐约看到有人建议用 iTunes 下载原来的 APP 同步，于是试一下，果然见效，解决问题。&lt;/p&gt;
+
+&lt;p&gt;至于图片，暂时没有想好要以什么形式展示，日后再说。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2014年5月3日 完成初稿&lt;/p&gt;
+</description>
+        <pubDate>Fri, 02 May 2014 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/solved-waiting-with-app-of-iphone.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/solved-waiting-with-app-of-iphone.html</guid>
+        
+        <category>iPhone</category>
+        
+        <category>iOS</category>
+        
+        <category>APP</category>
+        
+        <category>Waiting</category>
+        
+        
+        <category>tech</category>
+        
+      </item>
+    
+      <item>
+        <title>原来，我也有梦想</title>
+        <description>&lt;p&gt;做了一年的 SEO 让我感觉是混日子般地生存着，生活缺少了挑战和激情，多了一些没营养的忙碌。看《拖延心理学》知道，拖延的深层是恐惧，而不是一种习惯。&lt;/p&gt;
+
+&lt;p&gt;一直想搞开发，还是学生的时候很崇拜各路牛人，也学过一些东西。我知道两年前的那次爱情失败对自己的打击不只是一点点，自己的惰性亦使毕业后的我，在杭州这个似乎熟悉而又从未领悟过其气候的城市里堕落了一段时间，我知道这种行为该制止了，只因为人生已经过去三分之一。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DBOP1pHj/oN4Ao.jpg&quot; alt=&quot;黎明&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;将人生的时间比作一天，其实现在也只是清晨时分&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;每天除却工作，时间并不多，不知哪天开始，尝试挤出时间学英语，上班公交上背单词，学生时代读英文都不流畅的我，开始用起了英语流利说，从最简单的开始一句一句读出来。&lt;/p&gt;
+
+&lt;p&gt;到现在也有一些时间，我似乎又明白了些什么，利用业余时间学英语，有点死板，虽与我想从事的行业很有关系，但从时间上来讲已经不允许我从头专一学英语，目前来说应该是尽快入坑，再硬啃的同时学英语。&lt;/p&gt;
+
+&lt;p&gt;春节后的求职季节从没那么短暂，在今天，摆在面前的有两条路，一条是向网络推广方面发展，这和技术挂钩并不是很大；另一条则是进一步学习开发以朝自己的梦想前进。&lt;/p&gt;
+
+&lt;p&gt;未曾想过其中一条路原来已经冒出梦想字眼。  &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2014年03月16日 完成初稿&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 16 Mar 2014 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/originally-i-also-have-a-dream.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/originally-i-also-have-a-dream.html</guid>
+        
+        <category>工作</category>
+        
+        <category>学习</category>
+        
+        <category>梦想</category>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>2013 年个人总结</title>
+        <description>&lt;p&gt;一年又一年，怎么感觉每一年的现在，回忆起过去的一年，原本想要的年度总结都成为年度检讨。&lt;/p&gt;
+
+&lt;p&gt;回想起去年的今天，也是这么的冷，那会我在南宁蜷缩着，而今年的最后一天，早晨五点多，气温接近零度，我已经在杭州的大马路上奔跑，很冷，跑完还是满身的汗。&lt;/p&gt;
+
+&lt;p&gt;每一年都把总结当检讨使，确实对不起心底的某种愿景，2013 年是我正式踏入社会的一年，在这个阶段我的状态并不理想。&lt;/p&gt;
+
+&lt;p&gt;没有什么强项的我，第一份工作选择了技术性较低的企业站百度 SEO(误打误撞)，工作除了有规可循的繁忙之外，更多的是莫名其妙。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;杭城一年印象&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;2013 年我的大部分时间都是在杭州度过的，杭州这座城市是我在高中时候就比较向往的城市，在某年听说了杭州的公共自行车之后，加深对它的向往。我曾觉得它的人文、气候等，都挺适合人类居住。&lt;/p&gt;
+
+&lt;p&gt;杭州的文明程度确实比我之前呆过一段时间的任何一座城市都要好得多，就算是有不少朋友看到的偷抢事件，至今我还没看到。马路人行道前，私家车让行人只有少数，但公交车的态度极好。&lt;/p&gt;
+
+&lt;p&gt;杭州公共自行车确实很方便，基本免费的服务，遍布大街小巷的服务点，解决最后一公里的同时，也给不愿挤公交的小伙伴提供了另一种公共交通出行方式。曾经有一天早上晚起，七点半上公交，车厢快被挤爆的同时还长距离塞车，最后终于在八点十分左右受不了（若不下车，必将迟到），下车骑车，安然到达公司。&lt;/p&gt;
+
+&lt;p&gt;而这一年，全国大范围高温、全国大范围雾霾期间杭州都是“重灾区”，八月份更是经历了有记录历史以来的高温之最，这个夏天，所住之屋没有空调的我，不说睡眠缺少，似乎每夜都在汗水中度过。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;业余正能量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;开始工作就感觉得到上学的时光确实是最美好的，回想起来无疑浪费得最多的。&lt;/p&gt;
+
+&lt;p&gt;工作第一年，我没看多少书，这是不可取的，对于不满足现状的我来说这一点很致命，少年不努力，老大徒伤悲。目前虽然已经毕业，但工作之外的业余时间应该努力利用起来，学习一些利于自己的工作生活的知识。&lt;/p&gt;
+
+&lt;p&gt;在一直记得当年我很喜欢的一篇课文是朱光潜的《朝抵抗力最大的路径走》。2014 年我将尽自己最大努力，利用业余时间，甚至是时间碎片，阅读一些书，获取一些有益的知识，学习掌握自己喜欢的技能。&lt;/p&gt;
+
+&lt;p&gt;11 月份，参加了杭州马拉松，虽然在九月份有过一次超 20 公里的跑步，但毕竟没参加过马拉松，选择了短马，完赛之后发现确实不够长。由于夏季的高温及冬季的雾霾加上一直存在的惰性，跑步不大积极，2013 年跑步长度目标实现了，2014 年的目标将是全马里程。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/DrhPw8DE/137hpW.jpg&quot; alt=&quot;2013杭州国际马拉松&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2013 年度关键词：&lt;/strong&gt;找工作 SEO 毕业 40℃ 马拉松 PM&lt;sub&gt;2.5&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2013 年度城市：&lt;/strong&gt;南宁 汕头 杭州 桂林&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2013 年度图书：&lt;/strong&gt;《1991：潮汕分市纪事》&lt;/p&gt;
+
+&lt;!--![《1991：潮汕分市纪事》](http://pic.yupoo.com/fooleap_v/DrhKdPC2/10Ukxv.jpg)--&gt;
+
+&lt;p&gt;&lt;strong&gt;2013 年度音乐：&lt;/strong&gt;《再见二丁目》&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2013 年度电影：&lt;/strong&gt;《中国合伙人》&lt;/p&gt;
+
+&lt;!--![6月5日，《中国合伙人》](http://pic.yupoo.com/fooleap_v/DrhHSA0h/Ht6BI.jpg)--&gt;
+
+&lt;p&gt;&lt;strong&gt;2013 年度最长跑步距离：&lt;/strong&gt;21.5km &lt;/p&gt;
+
+&lt;!--![9月28日，跑步21.5公里](http://pic.yupoo.com/fooleap_v/DrhBDHzh/fOI5V.png)--&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2013年12月31日 完成开头&lt;/li&gt;
+  &lt;li&gt;2014年01月05日 完成初稿&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 31 Dec 2013 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/2013-personal-review.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/2013-personal-review.html</guid>
+        
+        <category>年度总结</category>
+        
+        <category>生活</category>
+        
+        <category>工作</category>
+        
+        <category>杭州</category>
+        
+        <category>跑步</category>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+      <item>
+        <title>最近生活小记</title>
+        <description>&lt;p&gt;现在已经是十月份了，也已经有半年多没写博客，刚过不久的中秋节，是第四个没在家过的中秋节，国庆亦是。此前都是在广西，而现在的我，在杭州。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;杭州&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/Ddw1Vell/xh5gb.jpg&quot; alt=&quot;西湖&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;为什么要来杭州，我现在还是不能给出一个合理的解释，来了，就是来了。有时候做人做事没有目的，没有目标，很可怕。&lt;/p&gt;
+
+&lt;p&gt;在杭州的生活已经过去了大半年，杭州的夏天很热。大概五月份，聊起杭州的夏天，“杭州夏天一般最高气温38摄氏度以上”，同事说到，起初我还不大相信，而今年我经历了杭州有记录以来最热的一个夏天，最高40摄氏度以上的气温最长持续了八天，我真的信了。三十四五度加上蝉叫声，就是杭州的夏日夜晚，沐浴露挤出来都是热的，不管是不是蓝瓶的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;吃货&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/Ddw1UOsY/cjH7F.jpg&quot; alt=&quot;鱼脯虾脯&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这几天自己做了卤肉，感觉很不错，很有家乡的味道。前两天家里寄来的东西收到了，欣喜万分，里面有爷爷奶奶弄的虾脯鱼脯茶叶等。曾记去年暑假，爷爷买了很多虾，一起除去内脏，然后奶奶煮，晒干带到学校。离去年暑假已经整整一年，时间过得真快。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;慢跑&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://pic.yupoo.com/fooleap_v/Ddw1V5tR/ebSQu.jpg&quot; alt=&quot;第一个半马&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;杭州的夏天不适合跑步，天气太热，这也让我足足颓废了几个月，肚子都大起来了，一直到九月底，我才重新开始了有跑步的生活。&lt;/p&gt;
+
+&lt;table&gt;
+&lt;caption&gt;九月份跑量统计&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;日期&lt;/th&gt;
+&lt;th&gt;距离/公里&lt;/th&gt;
+&lt;th&gt;时间/分钟&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;9月15日&lt;/td&gt;
+&lt;td&gt;4.68&lt;/td&gt;
+&lt;td&gt;33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9月25日&lt;/td&gt;
+&lt;td&gt;5.00&lt;/td&gt;
+&lt;td&gt;34&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9月26日&lt;/td&gt;
+&lt;td&gt;5.06&lt;/td&gt;
+&lt;td&gt;34&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9月27日&lt;/td&gt;
+&lt;td&gt;5.01&lt;/td&gt;
+&lt;td&gt;26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9月28日&lt;/td&gt;
+&lt;td&gt;21.51&lt;/td&gt;
+&lt;td&gt;131&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9月30日&lt;/td&gt;
+&lt;td&gt;5.00&lt;/td&gt;
+&lt;td&gt;29&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9月份&lt;/td&gt;
+&lt;td&gt;46.26&lt;/td&gt;
+&lt;td&gt;287&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;
+&amp;lt;td colspan=3&amp;gt;
+注：数据来自手机咕咚，或许有些误差。
+
+&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;
+
+&lt;p&gt;九月份，一共跑了6次，跑量是46.26公里，用时287分钟，平均每公里用时6分钟12秒。速度很慢，但你没有看错的是，9月28日那天，我大概跑了个半马，我相信我能的，正在看此文的你也是能的！&lt;/p&gt;
+
+&lt;p&gt;我报名参加了11月份的杭马，短程马拉松。&lt;/p&gt;
+
+&lt;p&gt;这些天在坚持一个习惯是早睡早起慢跑，目前看来执行力堪忧。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;推荐一个QQ群：幸福进化俱乐部&lt;/li&gt;
+  &lt;li&gt;推荐一款应用：youchongchi.com&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;时间过去了半年，发生的各种事情很多，心理可能也有些变化，在这就先说到这里了，其它的慢慢再续。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;本文历史&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2013年10月07日 完成初稿&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 07 Oct 2013 00:00:00 +0800</pubDate>
+        <link>http://blog.fooleap.org/recent-life.html</link>
+        <guid isPermaLink="true">http://blog.fooleap.org/recent-life.html</guid>
+        
+        <category>夏天</category>
+        
+        <category>杭州</category>
+        
+        <category>生活</category>
+        
+        <category>慢跑</category>
+        
+        
+        <category>life</category>
+        
+      </item>
+    
+  </channel>
+</rss>

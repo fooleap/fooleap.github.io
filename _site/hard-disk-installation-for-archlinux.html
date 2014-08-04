@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>硬盘安装 Arch Linux | Fooleap's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="A foolish man could not always lose!">
+    <meta name="keywords" content="ArchLinux, 硬盘安装" />
+    <link rel="canonical" href="http://blog.fooleap.org/hard-disk-installation-for-archlinux.html">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/modernizr.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/js.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1>
+        硬盘安装 Arch Linux
+      </h1>
+    </header>
+
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/" class="navigation-item">Fooleap's Blog</a></li>
+            <li><a href="/about.html" class="navigation-item">About</a></li>
+            <li><a href="/guestbook.html" class="navigation-item">Guestbook</a></li>
+            <li><a href="http://feed.fooleap.org/" target="_blank" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+	    <li><a href="/links.html"  class="navigation-item icon-home">Blogroll</a></li>
+        </ul>
+        <img src="/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <section class="page-content">
+      <div class="post">
+
+  <time>
+    Jan 15, 2013
+  </time>
+  
+  <article class="post-content">
+  <p>Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux 的自由，于是切换回 Arch Linux，新版本的安装方式和以前稍有区别，下面一步一步来完成 Arch Linux 的安装。</p>
+
+<h3 id="section">安装前的准备</h3>
+
+<p>此前使用 Chakra Linux，其启动引导器为 <a href="https://wiki.archlinux.org/index.php/Burg">BURG</a>，它是基于 <a href="https://wiki.archlinux.org/index.php/GRUB2">GRUB2</a> 使用 Ruby 重写而来的，所以 <a href="http://www.gnu.org/software/grub/manual/grub.html#Commands">GRUB 命令</a>同样适用。</p>
+
+<blockquote>
+  <p>如果安装 Arch Linux 的时候没有网络，下面的方法可能适合你，首先下载一个 core 仓库镜像</p>
+
+  <pre><code>$ mkdir core &amp;&amp; cd core
+$ wget http://mirrors.163.com/archlinux/core/os/x86_64/
+$ awk '{sub(/.*="/,"http://mirrors.163.com/archlinux/core/os/x86_64/"); {sub(/".*/,"")} if(NR&gt;=5 &amp;&amp; NR&lt;=399)print}' index.html | xargs wget -c
+# pacman -Sw fuse freetype2 --cachedir . 
+</code></pre>
+
+  <ul>
+    <li>创建一个名为“core”的文件夹</li>
+    <li>会下载到一个 index.html 文件，即网易源 64 位 core 仓库的页面 html 文件</li>
+    <li>使用 awk 对 index.html 文件的内容做下替换，输出传给 wget 下载</li>
+    <li>下载 fuse freetype2 这两个属于 extra 仓的包，这是 grub 的依赖</li>
+  </ul>
+</blockquote>
+
+<p>把下载而来的 <a href="http://mirrors.163.com/archlinux/iso/latest/">archlinux-(version)-dual.iso</a> 复制到U盘的根目录，重启机器。</p>
+
+<p>进入 BURG 引导界面，按 C 进入命令行模式。</p>
+
+<pre><code>loopback loop (hd1,msdos1)/archlinux-2012.11.01-dual.iso
+linux (loop)/arch/boot/x86_64/vmlinuz archisolabel=ARCH2012_11
+initrd (loop)/arch/boot/x86_64/archiso.img
+boot
+</code></pre>
+
+<ul>
+  <li>loopback 把镜像挂载为 loop 设备，在此将其 iso 挂为 loop (可自定义)</li>
+  <li>linux 指定内核，具体见 <a href="http://zh.wikipedia.org/zh-cn/Vmlinux">vmlinux</a></li>
+  <li>initrd 指定临时文件系统，具体见 <a href="http://zh.wikipedia.org/zh-cn/initrd">initrd</a></li>
+  <li>boot 启动</li>
+</ul>
+
+<p>启动过程提示找不到，得到一个 Shell，进行下面的操作</p>
+
+<pre><code># mkdir/udisk
+# mount -r -t vfat /dev/sdb1 /udisk
+# modprobe loop
+# losetup /dev/loop6 /udisk/archlinux-2012.11.01-dual.iso
+# ln -s /dev/loop6 /dev/disk/by-label/ARCH2012_11
+# exit
+</code></pre>
+
+<ul>
+  <li>创建 /udisk 目录</li>
+  <li>把 U 盘挂载到 /udisk 目录</li>
+  <li>载入 loop 模块</li>
+  <li>把 ISO 映射为 loop 设备</li>
+  <li>把 /dev/disk/by-label/ARCH2012_11 软链接到刚创建的 loop 设备</li>
+  <li>退出 Shell</li>
+</ul>
+
+<p>一切没有问题将会自动以 root 登录，目前 Arch Linux 的安装方式和 Gentoo 差不多，都通过 Change Root。</p>
+
+<h3 id="section-1">安装基本系统</h3>
+
+<p><strong>硬盘分区</strong></p>
+
+<p>鄙人认为，个人计算机硬盘分区个数越少越好，最好只有一个，这也是微软和苹果所提倡的。</p>
+
+<p>由于还有换系统的可能，除了根目录，我把 /home 独立出来成为一个分区，内存够用，就没考虑到 Swap 分区，沿用以前的分区设置。假如需要分区，可以使用 cfdisk，使用的时候要注意。</p>
+
+<pre><code># mkfs.ext4 /dev/sda1
+# mount /dev/sda1 /mnt
+# mkdir /mnt/home
+# mount /dev/sda2 /mnt/home
+</code></pre>
+
+<ul>
+<li>格式化根分区</li>
+<li>挂载根分区到 /mnt 目录</li>
+<li>创建 /mnt/home 目录</li>
+<li>挂载 home 分区到 /mnt/home 目录</li>
+</ul>
+
+<p><strong>配置网络</strong></p>
+
+<p>我使用的是无线路由，比较方便，通过自带的 Netcfg 连接网络。</p>
+
+<pre><code># wifi-menu wlan0
+</code></pre>
+
+<p>搜索 Wifi 热点，并进行认证连接</p>
+
+<p>选择 pacman 的首选镜像</p>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.d/mirrorlist</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch</code></pre>
+
+<blockquote>
+  <p>若没有网络，那下载而来的 core 仓库在此时就用上了，可以按以下步骤使用本地仓</p>
+
+  <pre><code># mkdir /mnt/repo
+# cp -R /path/to/core /mnt/repo &lt;pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"&gt;&lt;code&gt;/etc/pacman.conf&lt;/code&gt;&lt;/pre&gt; &lt;pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"&gt;&lt;code&gt;[core] SigLevel = PackageRequired Server = file:///mnt/repo/core \# 并把默认的 core, extra, community 注释掉 &lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+</blockquote>
+
+<pre><code>pacman -Sy
+</code></pre>
+
+<p><strong>安装系统</strong></p>
+
+<p>通过 pacstrap 安装基本系统</p>
+
+<pre><code># pacstrap -i /mnt base base-devel
+</code></pre>
+
+<p>生成 fstab 配置</p>
+
+<pre><code># genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre>
+
+<p>chroot 到刚安装的新系统</p>
+
+<pre><code># arch-chroot /mnt
+</code></pre>
+
+<p>现在已经根目录已经切换到刚安装的系统，所进行的一切操作也即是对新系统的。</p>
+
+<p>安装 Grub</p>
+
+<blockquote>
+  <p>无网络状态怎么安装呢？还记得刚开始下载的两个包 fuse, freetype2 吗？</p>
+
+  <pre><code># pacman —U /path/to/fuse&lt;version&gt;.pkg.tar.xz /path/to/freetype2&lt;version&gt;.pkg.tar.xz
+</code></pre>
+
+  <ul>
+    <li>把他们安装上之后就可以正常的安装 Grub</li>
+  </ul>
+</blockquote>
+
+<pre><code># pacman -S grub-bios
+# grub-install --recheck /dev/sda
+# cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+# grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+
+<h3 id="section-2">配置系统</h3>
+
+<p>修改 Locale，定义用户所使用的语言及字符集。</p>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/locale.gen</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>en_US.UTF-8 UTF-8
+zh_CN.GB18030 GB18030
+zh_CN.GBK GBK
+zh_CN.UTF-8 UTF-8
+zh_CN GB2312</code></pre>
+
+<pre><code># locale-gen
+# echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
+# export LANG=en_US.UTF-8
+</code></pre>
+
+<p>配置时区及硬件时间</p>
+
+<pre><code># ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# hwclock --systohc --utc
+</code></pre>
+
+<p>设置 hostname</p>
+
+<pre><code># echo arch.fooleap.org &gt; /etc/hostname
+</code></pre>
+
+<p>配置网络</p>
+
+<pre><code># pacman -S wireless_tools wpa_supplicant wpa_actiond dialog
+# wifi-menu wlan0
+# systemctl enable net-auto-wireless.service
+</code></pre>
+
+<p>配置 pacman，启用 multilib 源，此源可在 Arch Linux 64 位系统上运行 32 位的程序</p>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.conf</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>[multilib]
+SigLevel = PackageRequired
+Include = /etc/pacman.d/mirrorlist</code></pre>
+
+<p>安装 <a href="http://archlinux.fr/yaourt-en">Yaourt</a>，方便未进官方源软件的安装</p>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.conf</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>[archlinuxfr]
+Server = http://repo.archlinux.fr/$arch </code></pre>
+
+<pre><code># pacman -Sy yaourt
+</code></pre>
+
+<p>修改 root 密码</p>
+
+<pre><code># passwd
+</code></pre>
+
+<p>创建用户，并设置密码</p>
+
+<pre><code># useradd -m -g users -s /bin/bash fooleap
+# passwd fooleap
+</code></pre>
+
+<p>安装并配置顺手的 Sudo</p>
+
+<pre><code># pacman -S sudo
+</code></pre>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/sudoers</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>root ALL=(ALL)ALL
+fooleap ALL=(ALL)ALL</code></pre>
+
+<p>至此完成基本的配置，重启继续折腾</p>
+
+<p><strong>配置声音</strong></p>
+
+<p>安装 ALSA，驱动声卡</p>
+
+<pre><code># pacman -S alsa-utils
+</code></pre>
+
+<p>使用 alsamixer 调整声音或通过下面命令来取消静音</p>
+
+<pre><code># amixer sset Master unmute
+</code></pre>
+
+<p>测试以判断声卡是否工作</p>
+
+<pre><code># speaker-test -c 2
+</code></pre>
+
+<p>屏蔽 Beep 声音（滴），做全局屏蔽，详细可参考：<a href="https://wiki.archlinux.org/index.php/Disable_PC_Speaker_Beep">Disable PC Speaker Beep</a></p>
+
+<pre><code># echo "blacklist pcspkr" &gt; /etc/modprobe.d/nobeep.conf
+</code></pre>
+
+<p>把用户添加到 audio 组</p>
+
+<pre><code># gpasswd -a fooleap audio
+</code></pre>
+
+<p><strong>配置显示</strong></p>
+
+<p>安装 Xorg</p>
+
+<pre><code># pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils
+# pacman -S mesa
+# pacman -S xf86-video-intel  lib32-intel-dri  xf86-video-vesa
+</code></pre>
+
+<p>配置触摸板</p>
+
+<pre><code># pacman -S xf86-input-synaptics
+</code></pre>
+
+<p>使用 ThinkPad，习惯了小红点，选择禁用触摸板</p>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/X11/xorg.conf.d/10-synaptics.conf</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>Section "InputClass"
+        ...
+        Option "TouchpadOff" "1"
+EndSection</code></pre>
+
+<p>测试启动 X</p>
+
+<pre><code># pacman -S xorg-twm xorg-xclock xterm
+# startx
+</code></pre>
+
+<p>把用户添加到 video 组</p>
+
+<pre><code># gpasswd -a fooleap video
+</code></pre>
+
+<p><strong>配置字体</strong></p>
+
+<p>安装字体</p>
+
+<pre><code># pacman -S wqy-bitmapfont wqy-zenhei wqy-microhei
+</code></pre>
+
+<p>使用 Ubuntu 的字体渲染</p>
+
+<pre><code>$ yaourt -S cairo-ubuntu
+</code></pre>
+
+<p>字体配置可以通过文泉驿的 <a href="http://wenq.org/cloud/fcdesigner.html">Fontconfig Designer</a> 生成 fonts.conf 文件并修改
+&lt;pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"&gt;<code>~/.fonts.conf</code>&lt;/pre&gt;
+&lt;pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"&gt;<code>&lt;?xml version='1.0'?&gt;
+&lt;!DOCTYPE fontconfig SYSTEM 'fonts.dtd'&gt;
+&lt;fontconfig&gt;
+ ...
+ &lt;match target="font"&gt;
+  &lt;edit mode="assign" name="rgba"&gt;
+   &lt;const&gt;rgb&lt;/const&gt;
+  &lt;/edit&gt;
+ &lt;/match&gt;
+ &lt;match target="font"&gt;
+  &lt;edit mode="assign" name="hinting"&gt;
+   &lt;bool&gt;true&lt;/bool&gt;
+  &lt;/edit&gt;
+ &lt;/match&gt;
+ &lt;match target="font"&gt;
+  &lt;edit mode="assign" name="hintstyle"&gt;
+   &lt;const&gt;hintslight&lt;/const&gt;
+  &lt;/edit&gt;
+ &lt;/match&gt;
+ &lt;match target="font"&gt;
+  &lt;edit mode="assign" name="antialias"&gt;
+   &lt;bool&gt;true&lt;/bool&gt;
+  &lt;/edit&gt;
+ &lt;/match&gt;
+ &lt;match target="font"&gt;
+  &lt;edit mode="assign" name="lcdfilter"&gt;
+   &lt;const&gt;lcddefault&lt;/const&gt;
+  &lt;/edit&gt;
+ &lt;/match&gt;
+&lt;/fontconfig&gt;
+</code>&lt;/pre&gt;</p>
+
+<p><strong>配置 i3</strong></p>
+
+<p>安装 i3 窗口管理器及 dmenu 软件启动器，并配置</p>
+
+<pre><code># pacman -S i3 dmenu
+$ cp /etc/i3/config ~/.i3/config
+</code></pre>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.i3/config</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>font xft:WenQuanYi Bitmap Song 10</code></pre>
+
+<p>使用 Windows 徽标键作为 i3 的 Mod 键</p>
+
+<pre><code>sed "s/Mod1/\$mod/g;20 aset \$mod Mod4" -i ~/.i3/config 
+</code></pre>
+
+<ul>
+  <li>将 Mod1 替换成 $mod 并指定变量为 Mod4（即 Windows 徽标键）</li>
+</ul>
+
+<p><strong>配置输入法</strong></p>
+
+<p>安装 Fcitx 并配置</p>
+
+<pre><code># pacman -S fcitx fcitx-gtk2 fcitx-gtk3 fcitx-qt
+</code></pre>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.xinitrc</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE=<del>xim</del>fcitx
+export GTK_IM_MODULE=<del>xim</del>fcitx
+fcitx&#38;</code></pre>
+
+<ul>
+  <li>目前在 FF 中使用 xim，会导致菜单无法弹出的 bug，所以暂时绕开 xim</li>
+</ul>
+
+<p>安装 Firefox 及 Flash 插件</p>
+
+<pre><code># pacman -S firefox flashplugin
+</code></pre>
+
+<p>安装 Zathura</p>
+
+<pre><code># pacman -S zathura zathura-pdf-mupdf
+</code></pre>
+
+<p><strong>本文历史</strong></p>
+
+<ul>
+  <li>2011年09月25日  创建文章</li>
+  <li>2011年11月14日  添加修改配置以识别声卡及取消滴滴声</li>
+  <li>2012年02月17日  重新整理</li>
+  <li>2012年11月23日  重写完成初稿</li>
+  <li>2012年12月04日  FF 和输入法冲突问题</li>
+  <li>2012年12月13日  Ubuntu 字体渲染</li>
+  <li>2013年01月15日  添加本地镜像安装基本系统部分</li>
+</ul>
+
+  </article>
+
+  <script type="text/javascript" id="wumiiRelatedItems"></script>
+  <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = ""; //请用代码生成文章标题
+    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiSitePrefix = "http://blog.fooleap.org/";
+    var wumiiParams = "&num=5&mode=1&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'fooleap'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+    
+</div>
+
+    </section>
+
+    <footer class="site-footer">
+      <p>2011-2014 Proudly powered by Jekyll</p>
+    </footer>
+  </div>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16717905-7']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    //Baidu
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ffa7ec982118ebd236663169678264582' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+
+  </body>
+</html>

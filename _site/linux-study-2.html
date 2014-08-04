@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Linux学习笔记(2) | Fooleap's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="A foolish man could not always lose!">
+    <meta name="keywords" content="Linux, Pidgin, 初学, 学习, 小小输入法, 小鹤, 笔记, 超级玛莉" />
+    <link rel="canonical" href="http://blog.fooleap.org/linux-study-2.html">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/modernizr.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/js.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1>
+        Linux学习笔记(2)
+      </h1>
+    </header>
+
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/" class="navigation-item">Fooleap's Blog</a></li>
+            <li><a href="/about.html" class="navigation-item">About</a></li>
+            <li><a href="/guestbook.html" class="navigation-item">Guestbook</a></li>
+            <li><a href="http://feed.fooleap.org/" target="_blank" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+	    <li><a href="/links.html"  class="navigation-item icon-home">Blogroll</a></li>
+        </ul>
+        <img src="/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <section class="page-content">
+      <div class="post">
+
+  <time>
+    Apr 19, 2011
+  </time>
+  
+  <article class="post-content">
+  <p>用了十天左右的 Fedora 14 Lxde ，感觉比 Ubuntu 要更加舒服，只不过它在我这小机子上表现不是很好。某天不觉进了一下 XP，感觉它比 Fedora 14 要轻巧得多，于是又想起了 Debian。装了下 Debian，Debian自带的东西很少，要装的很多，没想到配置好了一半重启进入图形界面的时候花屏了，我在想，这机子如果要正常使用 Linux 的话，不想麻烦应该还是 Lubuntu 比较适合，于是乎，又装了个 Lubuntu。确实，比 Fedora 轻巧了好多，不过 Fedora 的使用还是挺有帮助的，现在已经可以感觉到码命令的速度越来越快了，起码比前段时间使用 Lubuntu 快。</p>
+
+<p>下面把自己装 Lubuntu 之后所安装配置的软件等大致说一遍。</p>
+
+<p><strong>神器在手，天下任我走</strong></p>
+
+<p>自带 Vi，还没有 Vim，于是</p>
+
+<pre><code>sudo apt-get install vim
+</code></pre>
+
+<p>中文乱码解决：</p>
+
+<pre><code>~/.vimrc
+set encoding=utf-8
+set termencoding=utf-8
+set fencs=ucs-bom,utf-8,gb18030,gbk,gb2312,big5,euc-jp,euc-kr,latin1,cp936
+</code></pre>
+
+<p>源于 http://www.nonozone.net/solve-vim-chinese-garbled.html</p>
+
+<p>关于神器的配置，更多请 Google</p>
+
+<p><strong>输入法，作为一个中国人，必须的</strong></p>
+
+<p>由于安装使用英文，所以先在 Preferences-Language Support 添加语言 Chinese(simplified)</p>
+
+<p>然后安装输入法，我使用的是<a href="http://yong.uueasy.com">小小输入法</a>，并挂载小鹤双拼配置</p>
+
+<p>下载后发现是 7z 压缩包，于是</p>
+
+<pre><code>sudo apt-get install p7zip-full
+</code></pre>
+
+<p>解压</p>
+
+<pre><code>7za e * yong
+</code></pre>
+
+<p>解压后把文件夹复制到 /opt 目录</p>
+
+<pre><code>sudo cp -r yong /opt
+</code></pre>
+
+<p>进入目录</p>
+
+<pre><code>cd /opt/yong
+</code></pre>
+
+<p>安装</p>
+
+<pre><code>sudo ./yong-tool.sh --install      //安装需要 root 权限
+</code></pre>
+
+<p>设置默认</p>
+
+<pre><code>./yong-tool.sh --select            //平时使用还是普通权限
+</code></pre>
+
+<p>配置小鹤双拼，这里只配置音码部分 
+.yong 目录如果没有 mb 文件夹</p>
+
+<pre><code>sudo cp -r /opt/yong/mb home/yourname/.yong
+</code></pre>
+
+<p>记得第一次安装的时候我是在这一步出错的，因为使用的是 root 管理员账户，复制后文件夹属于 root 的，我们登录的用户无权访问此文件夹的配置文件，所以输入法会出错。可以使用 chown 命令来修改此文件夹的主人：</p>
+
+<pre><code>sudo chown -R fooleap:fooleap /home/fooleap/.yong/mb
+</code></pre>
+
+<p>亦可以复制先前解压的得到的 mb 文件夹而不使用已复制到 /opt 目录下的文件夹。</p>
+
+<p>在 ~/.yong 下创建文件 xiaohe.sp，内容可参考<a href="http://yong.uueasy.com/read-htm-tid-1475.html">这里</a></p>
+
+<pre><code>vim ~/.yong/yong.ini
+...... 
+[IM] 
+default=8 
+0=yong 
+1=wubi 
+2=zhengma 
+3=erbi 
+4=english 
+5=gbk 
+6=pinyin 
+7=wbpy 
+8=xiaohe
+....... 
+[xiaohe] 
+name=小鹤 
+engine=libmb.so
+arg=mb/pinyin.txt 
+overlay=mb/sp.ini 
+sp=xiaohe
+</code></pre>
+
+<p>如果 overlay=mb/pinyin.ini 而不是 sp.ini 的话，必须修改 pinyin.ini，屏蔽掉 u,v 快捷键，即在其前加 “!” 就可以了。
+ 配置完毕注销即可，即重启进程生效。</p>
+
+<p><strong>安装 LibreOffice</strong></p>
+
+<p>此前先安装 Java，下载 <a href="http://javadl.sun.com/webapps/download/AutoDL?BundleId=47143">Linux
+ （自解压文件）</a>，<a href="http://www.java.com/zh_CN/download/help/linux_install.xml#selfextracting">安装说明</a></p>
+
+<p>然后在 <a href="http://www.libreoffice.org/">LibreOffice 官网</a>下载相关的安装包，语言包，sudo
+dpkg -i .deb 进行安装</p>
+
+<p><strong>安装 Pidgin 插件</strong></p>
+
+<p>使其支持 QQ，飞信，新浪微博，对应的插件为 <a href="http://code.google.com/p/libqq-pidgin/">libqq</a>，<a href="http://code.google.com/p/ofetion/">libopenfetion</a>，<a href="http://code.google.com/p/libpurple-microblog-sina/">libtsina</a>，还有发送图片的插件 <a href="http://code.google.com/p/pidgin-sendscreenshot/">Send Srceenshot</a>，显示视频图片的插件 Pidgin Embedded Video</p>
+
+<p>提供 libqq，openfetion，tsina的 so 文件<a href="http://dl.dbank.com/c0oxhxdivc">下载点我</a></p>
+
+<p>复制至 /usr/lib/purple-2 或 ~/.purple/plugins 即可，没有文件夹请新建</p>
+
+<p><strong>使用下载工具</strong></p>
+
+<p>现在一般的下载我用 Firefox 自带的下载(自用的 Firefox 有两个插件，一个是 Pentadactyl，用上就离不开了，一个是 ABP)，还有 Axel 备用，BT 用 rtorrent， benliud，相对来说 benliud 的下载速度快且稳定</p>
+
+<p>附上 benliud 的 DEB 包（<a href="http://dl.dbank.com/c0167dei9g">下载</a>），中文语言文件不全，有些地方显示 Fail，可往 /usr/local/share/benliud/language 删除语言文件以回归英文界面</p>
+
+<p><strong>在英文环境下要配置 Gimp 显示中文，则可运行</strong></p>
+
+<pre><code>LANGUAGE=zh\_CN.utf8 gimp
+</code></pre>
+
+<p>可新建个 Shell 脚本，扩展名为 sh，内容为</p>
+
+<pre><code>#!/bin/bash
+LANGUAGE=zh_CN.utf8 gimp
+</code></pre>
+
+<p>并往 /usr/share/applications 修改菜单的快捷方式指向它就可以了，类似的软件亦可通过此方法解决</p>
+
+<p>**影音我用 Mplayer **</p>
+
+<p>没什么追求，能放即可有时候想家也可</p>
+
+<pre><code>mplayer mms://chdt.hepan.net.cn/chdt
+</code></pre>
+
+<p>个人配置文件为 ~/.mplayer/config</p>
+
+<p><strong>关于游戏</strong></p>
+
+<p>有时候放松一下也没什么不可，于是</p>
+
+<pre><code>sudo apt-get install gfceu
+</code></pre>
+
+<p>再下个 SuperMario.nes（<a href="http://dl.dbank.com/c0ubzkgcib">下载</a>）</p>
+
+<p><a href="http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/supermario.png" title="SuperMario"><img src="http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/supermario.png" alt="SuperMario" /></a></p>
+
+<p>啊哈，小霸王其乐无穷啊~</p>
+
+<p>嘘，“小霸王”可是敏感词=。=</p>
+
+<p>作为一个新手，让我感觉最深刻的还是 chown 和 chmod 这两个命令，没有了权限，什么都是扯淡。</p>
+
+<p>就先说到这里吧，相信大多数新手都和鄙人一样，学习 Linux 的也是其乐无穷的~</p>
+
+<p><strong>解决问题三步走</strong></p>
+
+<ol>
+  <li>根据提示自己解决</li>
+  <li>Google</li>
+  <li>论坛发帖求助</li>
+</ol>
+
+<p>一般问题到第二步的时候已经解决了</p>
+
+<p><strong>本文历史</strong></p>
+
+<ul>
+  <li>2011年04月19日 创建文章</li>
+</ul>
+
+  </article>
+
+  <script type="text/javascript" id="wumiiRelatedItems"></script>
+  <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = ""; //请用代码生成文章标题
+    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiSitePrefix = "http://blog.fooleap.org/";
+    var wumiiParams = "&num=5&mode=1&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'fooleap'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+    
+</div>
+
+    </section>
+
+    <footer class="site-footer">
+      <p>2011-2014 Proudly powered by Jekyll</p>
+    </footer>
+  </div>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16717905-7']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    //Baidu
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ffa7ec982118ebd236663169678264582' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+
+  </body>
+</html>

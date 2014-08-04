@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Arch Linux 下的 ADSL 拨号上网 | Fooleap's Blog</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="A foolish man could not always lose!">
+    <meta name="keywords" content="ArchLinux, ADSL, Netcfg, RP-PPPoE, pppd" />
+    <link rel="canonical" href="http://blog.fooleap.org/using-archlinux-with-adsl.html">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/modernizr.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/js.js"></script>
+  </head>
+  <body>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1>
+        Arch Linux 下的 ADSL 拨号上网
+      </h1>
+    </header>
+
+    <nav class="navigation hide">
+        <ul class="navigation-list">
+            <li><a href="/" class="navigation-item">Fooleap's Blog</a></li>
+            <li><a href="/about.html" class="navigation-item">About</a></li>
+            <li><a href="/guestbook.html" class="navigation-item">Guestbook</a></li>
+            <li><a href="http://feed.fooleap.org/" target="_blank" class="navigation-item">RSS</a></li>
+            <li><a href="#" id="top" class="navigation-item icon-arrow-up">Top</a></li>
+	    <li><a href="/links.html"  class="navigation-item icon-home">Blogroll</a></li>
+        </ul>
+        <img src="/img/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
+    </nav>
+
+    <section class="page-content">
+      <div class="post">
+
+  <time>
+    Jan 2, 2013
+  </time>
+  
+  <article class="post-content">
+  <p>前几天拉了网，普通的 ADSL 宽带，由于没有路由器，因此只能通过自身的拨号。</p>
+
+<p>在 Arch Linux 下，可以通过自带的 Netcfg 来连接，可以通过 RP-PPPoE 来连接，也可直接配置 pppd 实现拨号。</p>
+
+<h3 id="netcfg">Netcfg</h3>
+
+<p>这款软件，从它需要安装，到 Arch 自带，功能不断地增强，使用越来越方便，现在已经支持 ADSL 拨号，简单快速。</p>
+
+<p>从实例中复制 pppoe 作为 adsl 拨号的配置</p>
+
+<pre><code># cp /etc/network.d/examples/pppoe /etc/network.d/fooleap
+</code></pre>
+
+<p>只需修改这两行中的用户名和密码</p>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/network.d/fooleap</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>USER='example@yourprovider.com'
+PASSWORD='very secret'</code></pre>
+
+<p>尝试拨号</p>
+
+<pre><code># netcfg fooleap
+</code></pre>
+
+<p>添加守护进程实现自动联网</p>
+
+<pre><code># systemctl enable netcfg@fooleap
+</code></pre>
+
+<h3 id="rp-pppoe">RP-PPPoE</h3>
+
+<p>安装 rp-pppoe</p>
+
+<pre><code># pacman -S rp-pppoe
+</code></pre>
+
+<p>启动配置程序，按提示，一般填上用户名、密码、 DNS 服务器即可</p>
+
+<pre><code># pppoe-setup
+</code></pre>
+
+<p>拨号</p>
+
+<pre><code># pppoe-start
+</code></pre>
+
+<p>作为守护进程启动</p>
+
+<pre><code># systemctl enable adsl
+</code></pre>
+
+<p>注：若在 pppoe-setup 没有设定 DNS 服务器，记得手动搞定 /etc/resolv.conf</p>
+
+<h3 id="pppd">pppd</h3>
+
+<p>仔细观察，不难发现，通过 Netcfg 及 RP-PPPoE 拨号后，都是启用了 pppd 进程，所以 Netcfg、RP-PPPoE 只是配角，提供自动化脚本方便使用 pppd，真正的主角是 pppd，手动配置 pppd 理论上更省资源。</p>
+
+<p>在 /etc/ppp/peers 这个目录下创建一个文件，如 fooleap，内容如下，其实一般只需改“帐号”，即宽带帐号</p>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/ppp/peers/fooleap</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>plugin rp-pppoe.so
+# 不需要安装 rp-pppoe 这个包
+eth0
+name "帐号"
+usepeerdns
+persist
+defaultroute
+hide-password
+noauth</code></pre>
+
+<p>编辑 /etc/ppp/pap-secrets</p>
+
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/ppp/pap-secrets</code></pre>
+<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>"帐号" * "密码"</code></pre>
+
+<p>pap-secrets 文件的权限设为 600</p>
+
+<pre><code># chmod 600 /etc/ppp/pap-secrets
+</code></pre>
+
+<p>拨号，只需使用 pppd call your_provider，your_provider 即刚创建于 /etc/ppp/peers 下的文件名，此例中是</p>
+
+<pre><code># pppd call fooleap
+</code></pre>
+
+<p>若没有连上，检查 eth0 端口有没激活</p>
+
+<pre><code>$ ifconfig eth0 | grep UP
+</code></pre>
+
+<p>没返回即没被激活，可以使用下面命令激活 eth0 端口</p>
+
+<pre><code># ifconfig eth0 up
+</code></pre>
+
+<p>连接也可以使用 pon ( 这脚本藏在 /usr/bin/pon )</p>
+
+<pre><code># pon fooleap
+</code></pre>
+
+<p>断开连接可以使用 poff</p>
+
+<pre><code># poff fooleap
+</code></pre>
+
+<p>也可以直接 kill 它</p>
+
+<pre><code># killall pppd
+</code></pre>
+
+<p>做软链接 /etc/ppp/peers/provider，就可以直接通过 pon 这个命令拨号，断开链接也就可以直接使用 poff 啦</p>
+
+<pre><code># ln -s /etc/ppp/peers/fooleap /etc/ppp/peers/provider
+</code></pre>
+
+<p>设置为守护进程</p>
+
+<p>自动加载 ppp_generic 模块</p>
+
+<pre><code># echo "ppp_generic" &gt; /etc/modules-load.d/ppp.conf
+</code></pre>
+
+<p>添加守护进程</p>
+
+<pre><code># systemctl enable ppp@fooleap
+</code></pre>
+
+<p>注：可以用 systemd 将激活端口及拨号作为守护进程，实现自动拨号，参考 <a href="http://www.linuxsir.org/bbs/thread382947.html">systemd 初体验</a></p>
+
+<p>鄙人折腾了许久，还是没成功，不知道是 Arch 和 Gentoo 有区别，还是哪里出现问题，搞定告知哈～</p>
+
+<p><strong>参考资料</strong></p>
+
+<ul>
+  <li>pppd: <a href="https://wiki.archlinux.org/index.php/pppd">https://wiki.archlinux.org/index.php/pppd</a></li>
+  <li>Direct Modem Connection: <a href="https://wiki.archlinux.org/index.php/Direct_Modem_Connection">https://wiki.archlinux.org/index.php/Direct_Modem_Connection</a></li>
+</ul>
+
+<p><strong>本文历史</strong></p>
+
+<ul>
+  <li>2013年01月02日 完成初稿</li>
+</ul>
+
+  </article>
+
+  <script type="text/javascript" id="wumiiRelatedItems"></script>
+  <script type="text/javascript">
+    var wumiiPermaLink = ""; //请用代码生成文章永久的链接
+    var wumiiTitle = ""; //请用代码生成文章标题
+    var wumiiTags = ""; //请用代码生成文章标签，以英文逗号分隔，如："标签1,标签2"
+    var wumiiSitePrefix = "http://blog.fooleap.org/";
+    var wumiiParams = "&num=5&mode=1&pf=JAVASCRIPT";
+  </script>
+  <script type="text/javascript" src="http://widget.wumii.com/ext/relatedItemsWidget"></script>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'fooleap'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+    
+</div>
+
+    </section>
+
+    <footer class="site-footer">
+      <p>2011-2014 Proudly powered by Jekyll</p>
+    </footer>
+  </div>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16717905-7']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    //Baidu
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ffa7ec982118ebd236663169678264582' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+
+  </body>
+</html>

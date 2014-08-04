@@ -1,0 +1,12 @@
+title: Fooleap's Blog
+email: fooleap@gmail.com
+description: "A foolish man could not always lose!"
+baseurl: ""
+url: "http://blog.fooleap.org"
+twitter_username: fooleap
+github_username: fooleap
+weibo_username: fooleap
+markdown: kramdown
+permalink: /:title.html 
+highlighter: true
+paginate: 10
