@@ -10,8 +10,7 @@ html, body { height: 100%; }
 .clear { clear: both;}
 
 body {
-  background: url('http://img.fooleap.org/blog/background-2.jpg') no-repeat top center fixed;
-  background-color: rgb(240,240,240);
+  background: rgb(180,210,250);
   font-weight: 300;
   font-size: 16px;
   font-family: Arial, sans-serif;
@@ -236,7 +235,7 @@ nav {
 .site-header h1 {
   text-align: center;
   font-weight: 600;
-  font-size: 2.5em;
+  font-size: 2em;
   font-family: serif;
 }
 

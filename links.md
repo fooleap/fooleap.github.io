@@ -1,17 +1,18 @@
 ---
 layout: page
-title: 友情链接&推荐站点
+title: Blogroll
 ---
 
 ###推荐站点###
 
 * [Ruby China](http://ruby-china.org/) 国内最权威的 Ruby 社区
 * [V2EX](http://v2ex.com/) 创意工作者们的社区
-* [番茄土豆](https://pomotodo.com/) 开始完成了不起的工作
 * [HappyCasts](http://happycasts.net/) Web 开发小技巧
+* [番茄土豆](https://pomotodo.com/) 开始完成了不起的工作
 * [善用佳软](http://xbeta.info/) 最经典免费软件，最实用软件技巧
 * [阳志平的网志](http://www.yangzhiping.com/) 阳志平的个人网志
-* [Rei](http://chloerei.com/) Ruby 程序员
+* [阮一峰的个人网站](http://www.ruanyifeng.com/) 
+* [Rei](http://chloerei.com/)
 
 ###友情链接###
 

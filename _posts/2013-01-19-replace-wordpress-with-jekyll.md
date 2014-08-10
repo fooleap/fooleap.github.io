@@ -70,6 +70,8 @@ Jekyll 原生解决了上文一系列问题
 最后还是要大赞一下 Jekyll，下面套用一句广告词：
 自从用了 Jekyll，腰不酸了，腿也不疼了，一口气写上一千字，嘿！不费劲～
 
+如果您有兴趣，可戳[如何搭建 Jekyll 写作环境](http://blog.fooleap.org/how-to-install-jekyll.html)
+
 **本文历史**
 
 * 2013年01月19日 完成初稿
