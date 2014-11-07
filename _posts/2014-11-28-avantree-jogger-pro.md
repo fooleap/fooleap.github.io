@@ -4,7 +4,7 @@ title:  蓝牙耳机 Avantree Jogger Pro
 description: "前几天，我的一个耳塞又坏掉了，这一两年都不知道虐坏掉几个耳机，包括手机附带的以及买过的一些低端耳机。耳机之所以会坏，虽然耳机质量也有一定的关系，但主要原因个人觉得还是在佩戴习惯上的问题。"
 thumbnail: "http://pic.yupoo.com/fooleap_v/DQGMO9yl/KpBQU.jpg"
 category: life
-tags: [蓝牙耳机, 运动耳机, 骑车, 跑步]
+tags: [蓝牙耳机, 运动耳机, 跑步耳机, 骑车, 跑步, Avantree]
 ---
 
 前几天，我的一个耳塞又坏掉了，这一两年都不知道虐坏掉几个耳机，包括手机附带的以及买过的一些低端耳机。
@@ -23,7 +23,7 @@ tags: [蓝牙耳机, 运动耳机, 骑车, 跑步]
 
 开头就有提到的，我一直佩戴着跑步的耳塞 AKG K309 坏掉了，由于 iPhone 自带的耳塞比较小，戴着跑步很容易脱落，鄙人就想买一个耳机可以跑步时佩戴，加上已经坏掉了不少的耳塞，所以我就想买个不容易坏的。
 
-![AKG K309](http://pic.yupoo.com/fooleap_v/DQGBf6oA/kl4hQ.jpg)
+![AKG K309](http://fooleap.qiniudn.com/avantree-jogger-pro-01.jpg)
 
 鉴于经济能力有限，也没法花钱买太好的耳塞，也怕好的耳塞被我那般暴力使用也不会好到哪里去。
 
@@ -39,40 +39,55 @@ tags: [蓝牙耳机, 运动耳机, 骑车, 跑步]
 
 其包装颇简单，不过该有的都有了。
 
-![Avantree Jogger Pro](http://pic.yupoo.com/fooleap_v/DQGDvj6S/RN20D.jpg)
+![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-02.jpg)
 
 第一次买蓝牙耳机，也是第一次戴这样的耳机。
 
-![Avantree Jogger Pro](http://pic.yupoo.com/fooleap_v/DQGEnvGX/15hOzD.jpg)
+![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-03.jpg)
 
-这个塑胶套，不经说明书真的不知道是装上去应该怎么用的。
+这个塑胶耳塞，不经说明书真的不知道是装上去应该怎么用的。
 
-![Avantree Jogger Pro](http://pic.yupoo.com/fooleap_v/DQGEUMAn/ZkOLY.jpg)
+![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-04.jpg)
 
 事实上这个耳机是戴上去后，那个尖的地方插到耳朵里，戴起来有一定的不适感，不过还在忍受范围内，如果是运动时佩戴，基本没什么感觉。
 
-![Avantree Jogger Pro](http://pic.yupoo.com/fooleap_v/DQGGoaeW/iHQQU.jpg)
+![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-05.jpg)
 
 充电孔使用这种设计，需要充电的时候只需轻轻拨开即可。
 
-![Avantree Jogger Pro](http://pic.yupoo.com/fooleap_v/DQGGIhux/ycywx.jpg)
+![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-06.jpg)
 
 很普通的充电线，和大多数电子产品一样，也是没有配备充电器。
 
-![Avantree Jogger Pro](http://pic.yupoo.com/fooleap_v/DQGHpvxO/kODKy.jpg)
+![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-07.jpg)
 
 到目前为止，这款耳机我使用了一个星期，怎么说呢？感受最直接的就是方便了！现在打电话，不需要拿着手机贴在耳旁，也不需要如同使用有线耳机一样拿着手机，接通了之后，手机可以放一边，活动自由。
 
-这个耳机是蓝牙4.0，理论上传输距离挺长的。但我感觉一旦隔墙，传输效果很差，基本上会断开。平时使用偶有断续，不过是在不影响使用的范围内。
-
 更方便的还数骑车、跑步，再也不用担心耳机很容易坏，活动也会更加自如，妈妈再也不用担心我的耳机会因为跑步而坏掉了！
+
+下面说说该耳机的缺点，或者说不足。
+
+这个耳机是蓝牙4.0，理论上传输距离挺长的。但我感觉一旦隔墙，传输效果很差，基本上会断开。平时使用偶有断续，不过是在不影响使用的范围内。音质一般，鄙人的木耳已感觉不错。
+
+耳机硅胶部分容易脱落，耳机和电线连接的硅胶很容易脱落，不过这部分就算脱落也不会掉下。
+
+![硅胶脱落](http://fooleap.qiniudn.com/avantree-jogger-pro-08.jpg)
+
+鄙人在里面贴了双面胶后再套上去，终于再也不脱落，不过夏天流汗多可能不适合这么做。
+
+说起硅胶脱落问题，最主要的是其硅胶耳塞，从六月份到十一月份，鄙人已将所附赠的四个耳塞丢了三个，原因可能是因为粗心，且耳塞本身容易掉，若流汗更容易。
+
+没了耳塞，这个耳机可以说是残了。所以必须寻找这种耳塞，翻遍了万能的某宝，并没找到这种耳塞，有类似的，但不完全一样，也担心买回来不能用或者用着不爽。
+
+在寻找耳塞期间，鄙人也发现 Avantree 官方在某喵的旗舰店已经开了，但官方并没售卖耳塞这种小配件。抱着试一试的态度问了下客服，没想到这么爽快免费赠送一套耳塞，赞一个！
+
+![Avantree客服聊天记录](http://fooleap.qiniudn.com/avantree-jogger-pro-09.png)
+
+等待了几天，终于拿到几个耳塞。
+
+![四个硅胶耳塞](http://fooleap.qiniudn.com/avantree-jogger-pro-10.jpg)
 
 **本文历史**
 
 * 2014年06月21日 完成初稿
-
-
-
-
-
-
+* 2014年11月28日 更新不足部分
