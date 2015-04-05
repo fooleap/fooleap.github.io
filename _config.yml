@@ -8,5 +8,5 @@ github_username: fooleap
 weibo_username: fooleap
 markdown: kramdown
 permalink: /:title.html 
-highlighter: true
+highlighter: pygments
 paginate: 8
