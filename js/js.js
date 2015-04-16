@@ -50,3 +50,23 @@ jQuery(document).ready(function($){
     };
     $('body > a[href$="dashboard/"]').css(styles);
 });
+
+$(window).load(function(){ 
+    var img_cont=($('.post').find('img')).length; 
+    if (img_cont != 0) { 
+        var maxwidth=640; 
+        for (var i=0;i<=img_cont-1;i++) { 
+            var post_img=$('.post img').eq(i);
+	    var _w = parseInt($(window).width());
+            var realwidth=post_img.width();
+	    if (realwidth >= maxwidth||_w<800) { 
+	    var img_src=post_img.prop('src');
+	    post_img.addClass('max_width_img').removeAttr("width").removeAttr("height").css({"cursor":"pointer","width":"100%","height":"auto"});
+	    //click(function(){window.open(img_src,'_blank')});
+            }
+	    else {
+	       post_img.css({"margin":"0 auto"});
+	       }
+        } 
+    } 
+});

@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-html, body { height: 100%; }
+html, body { height: 100%; font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;}
 
 .pull-left { display: block; float: left; }
 .pull-right { display: block; float: right; }
@@ -31,7 +31,7 @@ a:hover   { color: rgb(0,0,0); text-decoration: underline; }
   margin: 80px auto;
   padding: 0 101px;
   max-width: 640px;
-  background-color: rgba(251,251,251,0.8);
+  background-color: rgb(251,251,251);
   zoom: 1;
 }
 
@@ -348,7 +348,7 @@ nav {
 .post-content ol { padding-left: 20px; }
 
 .post p img {
-  width: 100%;
+  display:block;
 }
 
 .post pre,
@@ -469,5 +469,16 @@ nav {
   .post-content blockquote { padding-left: 10px; }
   .post-content ul,
   .post-content ol { padding-left: 10px; }
-
 }
+@media screen and (max-width: 360px) {
+  body { background: rgb(180,210,250); }
+  .wrapper { margin: 60px auto; padding: 0 10px;max-width: 320px;}
+  .post-content h1 { font-size: 26px; }
+  .post-content h2 { font-size: 24px; }
+  .post-content h3 { font-size: 22px; }
+  .post-content h4 { font-size: 18px; }
+  .post-content blockquote { padding-left: 10px; }
+  .post-content ul,
+  .post-content ol { padding-left: 10px; }
+}
+.wumii-footer{display:none;}
