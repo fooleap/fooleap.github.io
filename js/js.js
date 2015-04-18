@@ -69,4 +69,12 @@ $(window).load(function(){
 	       }
         } 
     } 
+   var canonical=document.querySelector("link[rel='canonical']").href;
+   $('#qrcode').qrcode({
+   	size: 100,
+   	text: canonical 
+   });	
+   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+     $('#qrcode').css({"display":"none"});
+   }
 });

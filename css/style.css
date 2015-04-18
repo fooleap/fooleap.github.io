@@ -13,7 +13,6 @@ body {
   background: rgb(180,210,250);
   font-weight: 300;
   font-size: 16px;
-  font-family: Arial, sans-serif;
   line-height: 1.5;
 }
 
@@ -303,7 +302,7 @@ nav {
   text-align: center;
 }
 
-.post-content { margin: 0 0 30px; }
+.post-content { margin: 0 0 50px; position: relative; }
 
 .post-content > * { margin: 20px 0; }
 
@@ -383,6 +382,11 @@ nav {
 }
 
 .post pre.terminal code { background-color: rgb(50,50,50); }
+.post-content #qrcode{
+  position: absolute;
+  right: 0px;
+  bottom: -50px;
+}
 
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
