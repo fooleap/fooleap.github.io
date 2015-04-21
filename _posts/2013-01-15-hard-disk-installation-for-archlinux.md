@@ -70,12 +70,10 @@ Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux
     # mkdir /mnt/home
     # mount /dev/sda2 /mnt/home
 
-<ul>
-<li>格式化根分区</li>
-<li>挂载根分区到 /mnt 目录</li>
-<li>创建 /mnt/home 目录</li>
-<li>挂载 home 分区到 /mnt/home 目录</li>
-</ul>
+* 格式化根分区
+* 挂载根分区到 /mnt 目录
+* 创建 /mnt/home 目录
+* 挂载 home 分区到 /mnt/home 目录
 
 **配置网络**
 
@@ -87,14 +85,17 @@ Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux
 
 选择 pacman 的首选镜像
 
-<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.d/mirrorlist</code></pre>
+<pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.d/mirrorlist
+</code></pre>
 <pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
-Server = http://mirrors.163.com/archlinux/$repo/os/$arch</code></pre>
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+</code></pre>
 
 >若没有网络，那下载而来的 core 仓库在此时就用上了，可以按以下步骤使用本地仓
 >
 >     # mkdir /mnt/repo
 >     # cp -R /path/to/core /mnt/repo
+>
 ><pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.conf</code></pre>
 ><pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>[core]
 >SigLevel = PackageRequired
@@ -259,6 +260,7 @@ EndSection</code></pre>
     $ yaourt -S cairo-ubuntu
 
 字体配置可以通过文泉驿的 [Fontconfig Designer](http://wenq.org/cloud/fcdesigner.html) 生成 fonts.conf 文件并修改
+
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.fonts.conf</code></pre>
 <pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>&lt;?xml version='1.0'?&gt;
 &lt;!DOCTYPE fontconfig SYSTEM 'fonts.dtd'&gt;
