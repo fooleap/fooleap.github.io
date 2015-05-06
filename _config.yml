@@ -10,3 +10,5 @@ markdown: kramdown
 permalink: /:title.html 
 highlighter: pygments
 paginate: 8
+gems:
+  - jekyll-sitemap
