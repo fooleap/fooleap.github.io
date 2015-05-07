@@ -11,7 +11,9 @@ tags: [桂林, 徒步]
 
 对桂林不熟悉，也不知道哪里是自己想去的地方，只知道自己一直生活在桂林市区东郊，东对西，没错，往西走，路不认识，都是乱走的。公车停下的时间是3点，步行到达十字街公车站的时间是6点，走了3个小时。总算多认识了几条路，一路简短描述及图片皆在下面的地图中，还不是很完善。
 
-[查看大图](http://ditu.google.com/maps/ms?ie=UTF8&hl=zh-CN&brcurrent=3,0x36a4f5b5d7e74195:0x482bfe30a4f8a78c,0,0x36a4f43675215133:0xff86c1191d704ae1%3B5,0,0&msa=0&msid=203176056751949258154.0004a3ed97ea46a79e163&ll=25.270102,110.284382&spn=0.022148,0.026844&source=embed)
+<iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.kpgcyVnOE0tw" width="640" height="427"></iframe>
+
+<iframe width="640" height="427" src="http://s951.photobucket.com/user/Fooleap/embed/slideshow/Blog/Fooleap/05-22-2011"></iframe>
 
 今天下午下课后又跑出市区步行了，两个小时~桂林的两江四湖风景很好~
 
@@ -21,3 +23,4 @@ tags: [桂林, 徒步]
 
 * 2011年05月24日  创建文章
 * 2011年06月08日  添加相册
+* 2015年05月07日 修复地图及图片

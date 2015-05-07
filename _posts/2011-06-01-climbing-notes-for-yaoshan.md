@@ -13,7 +13,7 @@ tags: [尧山, 桂林, 爬山]
 
 从没爬过这么高的山，尧山海拔909.3米，相对高度约760米，之前一直以为尧山五六百米高，爬到山顶才知道尧山有这么高，而在脚下也已经150米左右了，但是比起青海哥他家2000多米的海拔，明显是小巫见大巫，想起家里只有几米的海拔，有趣。从小到大，爬过的山也屈指可数，连离家最近的[塔山](http://www.hudong.com/wiki/塔山风景区)都未曾爬过，只爬过[礐石山](http://www.queshi.com/)，[莲花山](http://zh.wikipedia.org/wiki/莲花山_(汕头))，还有海边那堆小山丘~在那可以直接看到近处的凤山(凤屿)和远处的南澳岛，真怀念去那煏卵的日子...下面的图片都是去年照的，而去年春节去礐石还抓拍到惊险的一幕，详见[此处](http://fooleap.blogbus.com/logs/64749512.html)后三张，投递给汕头台今日视线之图片新闻，于去年国庆期间播出，详情[点我](http://v.youku.com/v_show/id_XMjEyMzUyMTcy.html)，在视频的20分50秒。莲花山的网上没备份，没办法。
 
-在较大的地图中查看[以前爬过的山](http://ditu.google.com/maps/ms?ie=UTF8&hl=zh-CN&brcurrent=3,0x3411ea636569fac7:0x5b4fa990f9cb4b0c,0,0x3411db9e8912d61d:0x1fb0f60e1dab02c5%3B5,0,0&t=h&msa=0&msid=203176056751949258154.0004a492c9592c5285b90&ll=23.494736,116.776428&spn=0.462211,0.753937&z=10&source=embed)
+<iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.kjxvvPw-gNxA" width="640" height="427"></iframe>
 
 [![礐石风景区](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/14022010479.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/14022010479.jpg)
 
@@ -62,3 +62,4 @@ tags: [尧山, 桂林, 爬山]
 **本文历史**
 
 2011年06月01日  创建文章
+2015年05月07日  修复地图

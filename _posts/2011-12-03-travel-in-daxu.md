@@ -13,10 +13,7 @@ tags: [hosts, 大圩, 桂林, 骑行]
 
 刚开学不久买了辆自行车，不过不怎么骑，大二的课比较多，周六日又喜欢窝宿舍，罪过。[阳朔之游](http://blog.fooleap.org/travel-in-yangshuo.html)说过，在桂林期间，大圩古镇可以不去，不过我还是去了，还是骑车去的，那是11月27日，从学校骑到大圩用了2个半小时，二十公里左右。
 
-<center>
-<iframe width="550" height="367" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://ditu.google.com/maps/ms?msa=0&amp;msid=203176056751949258154.0004b32766b87edcc0e4a&amp;brcurrent=3,0x36a475ab2a69c4f5:0xf379417adc286a74,0,0x36a4f43675215133:0xff86c1191d704ae1%3B5,0,0&amp;hl=zh-CN&amp;ie=UTF8&amp;t=m&amp;vpsrc=6&amp;ll=25.234448,110.379295&amp;spn=0.149069,0.219727&amp;z=12&amp;iwloc=0004b32774ade0732fb15&amp;output=embed">
-</iframe>
-<br /><small>View <a href="http://ditu.google.com/maps/ms?msa=0&amp;msid=203176056751949258154.0004b32766b87edcc0e4a&amp;brcurrent=3,0x36a475ab2a69c4f5:0xf379417adc286a74,0,0x36a4f43675215133:0xff86c1191d704ae1%3B5,0,0&amp;ie=UTF8&amp;t=m&amp;vpsrc=6&amp;ll=25.234448,110.379295&amp;spn=0.149069,0.219727&amp;z=12&amp;iwloc=0004b32774ade0732fb15&amp;source=embed" style="color:#0000FF;text-align:left">2011年11月27日</a> in a larger map</small></center>
+<iframe src="https://www.google.cn/maps/d/embed?mid=zFVCPErrCRCw.k4f-9qadVq-k" width="640" height="427"></iframe>
 
 
 * 08:00-11:00  从学校出发到大圩
@@ -35,3 +32,4 @@ tags: [hosts, 大圩, 桂林, 骑行]
 **本文历史**
 
 * 2011年12月03日  创建文章
+* 2015年05月07日  修复地图
