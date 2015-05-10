@@ -21,32 +21,31 @@ tags: [Grub, Linux, 学习, 笔记, 重装]
  
 学习 Linux 的过程中，我相信大部分人都看过：
 
-1. 王垠的《完全用GNU/Linux工作》[查看](http://www.chinaunix.net/jh/4/16102.html)
-2. 纪录片 Revolution OS
+* 王垠的《完全用GNU/Linux工作》[查看](http://www.chinaunix.net/jh/4/16102.html)
+* 纪录片 Revolution OS
    
-eD2k 链接：[视频文件](ed2k://|file|Revolution.OS.2001.DVDRip.XviD-RETRO.avi|735442944|4df0329803e34c9fa868d97e6c33b14a|h=TBJDWURXWBRNDIMYPEKWUIERL3LRZGCJ|/)  [中文字幕](ed2k://|file|Revolution.OS.2001.DVDRip.XviD-RETRO.gb.srt|173754|4b6394055bc1395be8b50b0994f61ed1|/)  [英文字幕](ed2k://|file|Revolution.OS.2001.DVDRip.XviD-RETRO.en.srt|131269|9f46d04d92f480d4f60354724e5f78e3|/)
+eD2k 链接：
+[视频文件](ed2k://\|file\|Revolution.OS.2001.DVDRip.XviD-RETRO.avi\|735442944\|4df0329803e34c9fa868d97e6c33b14a\|h=TBJDWURXWBRNDIMYPEKWUIERL3LRZGCJ\|/)  [中文字幕](ed2k://\|file\|Revolution.OS.2001.DVDRip.XviD-RETRO.gb.srt\|173754\|4b6394055bc1395be8b50b0994f61ed1\|/)  [英文字幕](ed2k://\|file\|Revolution.OS.2001.DVDRip.XviD-RETRO.en.srt\|131269\|9f46d04d92f480d4f60354724e5f78e3\|/)
 
 BT种子：[下载](http://dl.dbank.com/c0xkyrgpje)
 
 网盘下载：[视频文件](http://u.115.com/file/f6809e2b24)  [英文字幕](http://u.115.com/file/f62e193aa0)  [简体中文字幕](http://u.115.com/file/f6c4b7dd95)  [繁体中文字幕](http://u.115.com/file/f644a97ddd)
 
-3. 纪录片 The Code - Linux
+* 纪录片 The Code - Linux
 
-eD2k链接：[视频文件](ed2k://|file|%5B%E4%BB%A3%E7%A0%81%5D.The.Code.-.Linux.2001.TVRip.DivX.Linux_Documentary.avi|629690368|28ee139448197791814)  [中文字幕](ed2k://|file|%5B%E4%BB%A3%E7%A0%81%5D.The.Code.-.Linux.2001.TVRip.DivX.Linux_Documentary.chs.srt|69669|c4de2bc7acabf6a5d634b1b)
+eD2k链接：[视频文件](ed2k://\|file\|%5B%E4%BB%A3%E7%A0%81%5D.The.Code.-.Linux.2001.TVRip.DivX.Linux_Documentary.avi\|629690368\|28ee139448197791814)  [中文字幕](ed2k://\|file\|%5B%E4%BB%A3%E7%A0%81%5D.The.Code.-.Linux.2001.TVRip.DivX.Linux_Documentary.chs.srt\|69669\|c4de2bc7acabf6a5d634b1b)
 
 BT种子：[下载](http://dl.dbank.com/c0opkvt2nh)
 
 网盘下载：[视频文件](http://u.115.com/file/f6e797cf91)  [中文字幕](http://u.115.com/file/f6f892d00c)
 
-**注**
+**注**：GeeXboX提供Windows安装器geexbox-win32-installer，可以直接使用它选择自己喜欢的安装方式（安装到硬盘并添加到启动菜单或安装到其他磁盘）进行安装。
 
-1. GeeXboX提供Windows安装器geexbox-win32-installer，可以直接使用它选择自己喜欢的安装方式（安装到硬盘并添加到启动菜单或安装到其他磁盘）进行安装。
+![GeeXboX-Installer]({{site.IMG_PATH}}/linux-study-3.png)
 
-[![GeeXboX-Installer](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/geexbox-installer.png)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/geexbox-installer.png)
-
-[网盘下载](http://dl.dbank.com/c0aey0lm42)
 
 **本文历史**
 
 * 2011年04月29日 创建文章
 * 2011年11月06日 修正grub2启动硬盘上xp的命令
+* 2015年05月10日 换图床

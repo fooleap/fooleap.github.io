@@ -11,7 +11,7 @@ tags: [年度总结, 爱情, 工作]
 
 ###情感###
 
-![火车票](http://pic.yupoo.com/fooleap_v/CwWG4ZYu/HXWAS.jpg)
+![火车票]({{site.IMG_PATH}}/2012-personal-review-01.jpg)
 *——火车票*
 
 一年伊始是元旦，很无奈，但我很开心。短暂的拥抱之后，当火车的汽笛声再次响起时，我就知道那将是一次漫长的离别，一段感情的成败与否或许就在那一段时间。于是收起心，坚持着自己的信念，做自己该做的，等待并盼望着，我相信她会给我一个完美的答案。
@@ -24,7 +24,7 @@ tags: [年度总结, 爱情, 工作]
 
 ###学习###
 
-![简历](http://pic.yupoo.com/fooleap_v/CwWGo3bZ/ZufgZ.png)
+![简历]({{site.IMG_PATH}}/2012-personal-review-02.png)
 *——简历局部*
 
 浑浑噩噩的生活，想要做什么工作该学习什么自己很清楚，但该学习的课程没有系统化存入脑里，尤其是后半年，情感给自己的沉重打击也影响到学习计划的执行。
@@ -33,7 +33,7 @@ tags: [年度总结, 爱情, 工作]
 
 ###运动###
 
-![骑车](http://pic.yupoo.com/fooleap_v/CwWG5AIx/hGoeE.jpg)
+![骑车]({{site.IMG_PATH}}/2012-personal-review-03.jpg)
 *——骑车*
 
 第一次去[南澳](travel-in-nanao.html)，那是难忘的一天。
@@ -44,7 +44,7 @@ tags: [年度总结, 爱情, 工作]
 
 ###读书###
 
-![正能量](http://pic.yupoo.com/fooleap_v/CwWG67zD/l3EAD.jpg)
+![正能量]({{site.IMG_PATH}}/2012-personal-review-04.jpg)
 *——正能量*
 
 看自己的豆瓣读书[页面](http://book.douban.com/people/fooleap)，一目了然，自己想读的书太多，读过的寥寥无几，记得特别清楚的是，几天看完一本《这一生，至少当一次傻瓜》，还有一本《阿甘正传》。
@@ -53,7 +53,7 @@ tags: [年度总结, 爱情, 工作]
 
 ###期望###
 
-![天空](http://pic.yupoo.com/fooleap_v/CwWG4iiM/qJLsj.jpg)
+![天空]({{site.IMG_PATH}}/2012-personal-review-05.jpg)
 *——天依然是那么蓝*
 
 谈及对来年的期待，我相信老天对每个孩子都是公平的，有些事情是命中注定的，无法改变就只能接受。有时候缘分很重要，但自己的意愿也重要。[七仙姐](http://v.youku.com/v_show/id_XNTY2NTAwNzY=.html)说了，命不可违，运却可变。

@@ -34,7 +34,7 @@ tags: [年度总结, 生活, 工作, 杭州, 跑步]
 
 11 月份，参加了杭州马拉松，虽然在九月份有过一次超 20 公里的跑步，但毕竟没参加过马拉松，选择了短马，完赛之后发现确实不够长。由于夏季的高温及冬季的雾霾加上一直存在的惰性，跑步不大积极，2013 年跑步长度目标实现了，2014 年的目标将是全马里程。
 
-![2013杭州国际马拉松](http://pic.yupoo.com/fooleap_v/DrhPw8DE/137hpW.jpg)
+![2013杭州国际马拉松]({{site.IMG_PATH}}/2013-personal-review-01.jpg)
 
 **2013 年度关键词：**找工作 SEO 毕业 40℃ 马拉松 PM<sub>2.5</sub>
 
@@ -42,17 +42,17 @@ tags: [年度总结, 生活, 工作, 杭州, 跑步]
 
 **2013 年度图书：**《1991：潮汕分市纪事》
 
-<!--![《1991：潮汕分市纪事》](http://pic.yupoo.com/fooleap_v/DrhKdPC2/10Ukxv.jpg)-->
+![《1991：潮汕分市纪事》]({{site.IMG_PATH}}/2013-personal-review-02.jpg)
 
 **2013 年度音乐：**《再见二丁目》
 
 **2013 年度电影：**《中国合伙人》
 
-<!--![6月5日，《中国合伙人》](http://pic.yupoo.com/fooleap_v/DrhHSA0h/Ht6BI.jpg)-->
+![6月5日，《中国合伙人》]({{site.IMG_PATH}}/2013-personal-review-03.jpg)
 
 **2013 年度最长跑步距离：**21.5km 
 
-<!--![9月28日，跑步21.5公里](http://pic.yupoo.com/fooleap_v/DrhBDHzh/fOI5V.png)-->
+![9月28日，跑步21.5公里]({{site.IMG_PATH}}/2013-personal-review-04.jpg?imageView2/2/w/640/q/90)
 
 **本文历史**
 

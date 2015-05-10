@@ -9,6 +9,7 @@ weibo_username: fooleap
 markdown: kramdown
 permalink: /:title.html 
 highlighter: pygments
-paginate: 8
+paginate: 10
+IMG_PATH: http://fooleap.qiniudn.com
 gems:
   - jekyll-sitemap

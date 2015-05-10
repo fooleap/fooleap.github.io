@@ -131,6 +131,10 @@ nav {
   };
 }
 
+.navigation .navigation-list li{
+  height: 30px;
+}
+
 .navigation .navigation-list li:first-child a {
   color: white;
 }

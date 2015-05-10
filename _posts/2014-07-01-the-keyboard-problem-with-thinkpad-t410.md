@@ -23,27 +23,27 @@ tags: [T410, 键盘, 映射错误]
 
 去附近的联华超市看了下，只有一种且价格并不便宜，买了可能没其他用途，只能作罢，考虑重新找替代品。
 
-![铝箔](http://pic.yupoo.com/fooleap_v/DSe9UiKg/8zLrn.jpg)
+![铝箔]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-01.jpg)
 
 后来在附近的另一家超市找到锡纸，价格相对比较合适，于是就买回来，动手开工。
 
-![锡纸](http://pic.yupoo.com/fooleap_v/DSe9Vmsp/mdy4r.jpg)
+![锡纸]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-02.jpg)
 
 准备好螺丝刀
 
-![螺丝刀](http://pic.yupoo.com/fooleap_v/DSe9UHoH/KKGyb.jpg)
+![螺丝刀]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-03.jpg)
 
 根据教程，仅仅拧开两颗螺丝就可将键盘取出
 
- ![拧螺丝](http://pic.yupoo.com/fooleap_v/DSe9IZ5h/HHFEU.jpg)
+ ![拧螺丝]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-04.jpg)
 
 里面具体都是些什么我也不清楚
 
- ![笔记本内部](http://pic.yupoo.com/fooleap_v/DSe9V1qx/13mvrL.jpg)
+ ![笔记本内部]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-05.jpg)
 
 照葫芦画瓢，就是这个样子，干完收工
 
- ![放上锡纸](http://pic.yupoo.com/fooleap_v/DSe9VzoB/gSbaC.jpg)
+ ![放上锡纸]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-06.jpg)
 
 经过这么简单的步骤之后，笔记本键盘再也不会映射错误了，无论是放在大腿上或者直接拿在手上，都能很轻松地打出想打的字符。
 

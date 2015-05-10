@@ -15,19 +15,19 @@ tags: [暴雨, 杭州交通, 杭州]
 
 刷微博看到有网友说杭州的天空乌云密布，抬头一看，还真是乌云一大片，只不过在江北不在滨江。同时三里亭的基友说暴雨进行中，市民中心附近工作的一个朋友说钱江的浪很大。
 
-![滨江乌云](http://fooleap.qiniudn.com/about-transportaion-1.jpg)
+![滨江乌云]({{site.IMG_PATH}}/about-transportaion-1.jpg)
 
 公车行驶到西兴大桥时还不见滨江的地湿，而公交通过大桥驶到江干时，眼见地已湿透且有部分积水。
 
-![钱江新城地已湿](http://fooleap.qiniudn.com/about-transportaion-2.jpg)
+![钱江新城地已湿]({{site.IMG_PATH}}/about-transportaion-2.jpg)
 
 采荷新村，乌云之下的城东大雨滂沱，公交站路边积水面积不小，等待二十来分钟之后湿身一半的我上了64路公交。
 
-![采荷新村大雨滂沱](http://fooleap.qiniudn.com/about-transportaion-3.jpg)
+![采荷新村大雨滂沱]({{site.IMG_PATH}}/about-transportaion-3.jpg)
 
 公车经过在建高架的秋涛北路，平时半个小时车程开了近三个小时，公车上无奈的等待不想更多描述。下图为当晚到站下车，雨后空气清新，石桥路。
 
-![采荷新村大雨滂沱](http://fooleap.qiniudn.com/about-transportaion-4.jpg)
+![采荷新村大雨滂沱]({{site.IMG_PATH}}/about-transportaion-4.jpg)
 
 是的，我又想起了以前一次从柳州回桂林的火车上，一样是雨天，只不过雨并没有那么大，坐在火车暖气口，冷暖之间，加上原本三个小时的火车走了六个小时，事实上很冷。
 
@@ -35,11 +35,11 @@ tags: [暴雨, 杭州交通, 杭州]
 
 还记得年初的2月10号，周一，当天凌晨下了雪，傍晚下班时，路面的雪早已融化，考虑到天冷公交不好等，固先食饭。饱腹后，在文三路口站（现已改名文三马塍路口站）等74路开往三里亭，车一辆一辆到站，没勇气上前，也深知根本挤不上去，一直等到第五辆才上了车。
 
-![采荷新村大雨滂沱](http://fooleap.qiniudn.com/about-transportaion-5.jpg)
+![采荷新村大雨滂沱]({{site.IMG_PATH}}/about-transportaion-5.jpg)
 
 去年9月份一次下班，暴雨已下很多并还在下，城西已经沦陷，那时的公交车已不抱希望。大雨中和一同事选择公共自行车，虽路途险阻，但还是庆幸肯定比公交车快。下图是骑过文晖大桥下桥见的“惨状”，多辆轿车抛锚，大家在摸鱼么？
 
-![采荷新村大雨滂沱](http://fooleap.qiniudn.com/about-transportaion-6.jpg)
+![采荷新村大雨滂沱]({{site.IMG_PATH}}/about-transportaion-6.jpg)
 
 类似的事情很多，我相信同在杭城的伙伴或多或少都有感受吧，尤其是住在低洼地带下雨被淹的小伙伴们。
 

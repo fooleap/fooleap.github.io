@@ -20,8 +20,9 @@ tags: [Fedora, Linux, Ubuntu, 初学, 学习, 笔记]
 
 目前我所知道的，最好的入门教程还是[《鳥哥的 Linux 私房菜》](http://linux.vbird.org/)，注意原版和大陆改编版有区别，原版语言活泼生趣；论坛首推 [Ubuntu 中文论坛](http://forum.ubuntu.org.cn/)；桌面发行版推荐 [Ubuntu Linux](http://www.ubuntu.com/) 和 [Linux Deepin](http://linux.deepin.org/)。
 
-[![Ubuntu_Linux](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/Ubuntu_Linux_by_Designologer_660.jpg)](http://www.ubuntu.org.cn)
+![Ubuntu_Linux]({{site.IMG_PATH}}/linux-study-1.jpg?imageView2/2/w/640/q/90)
 
 **本文历史**
 
 * 2011年04月09日 创建文章
+* 2015年05月10日 换图床

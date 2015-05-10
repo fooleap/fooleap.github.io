@@ -15,45 +15,42 @@ tags: [尧山, 桂林, 爬山]
 
 <iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.kjxvvPw-gNxA" width="640" height="427"></iframe>
 
-[![礐石风景区](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/14022010479.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/14022010479.jpg)
+![礐石风景区]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-01.jpg?imageView2/2/w/640/q/90)
 
-[![海边的小山丘](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/18022010661.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/18022010661.jpg)
+![海边的小山丘]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-02.jpg?imageView2/2/w/640/q/90)
 
-[![煏卵](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/18022010720.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/18022010720.jpg)
 
 回过头来说说那天爬的尧山，三十多度晴的天气，从没爬过尧山的我和富哥决定从西边爬上去，那条路明显没有南边的小道好走，石块碎石多，到高处比较陡，而且那天是在烈日之下，到了后面真的没走几步就休息一会，适合休息的阴凉处又不多……
 
-[![尧山景区](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3597.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3597.jpg)
+![尧山景区]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-03.jpg?imageView2/2/w/640/q/90)
 
-[![尧山索道](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3600.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3600.jpg)
+![尧山索道]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-04.jpg?imageView2/2/w/640/q/90)
 
-[![尧山之路](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3604.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3604.jpg)
+![尧山之路]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-05.jpg?imageView2/2/w/640/q/90)
 
-[![爬山之路](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3656.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3656.jpg)
+![爬山之路]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-06.jpg?imageView2/2/w/640/q/90)
 
-[![爬山者](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3662.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3662.jpg)
+![爬山者]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-07.jpg?imageView2/2/w/640/q/90)
 
 到达山顶那是豁然开朗，那时已经是下午四点左右了，山顶游客不多，且陆续下山了，大部分游客上山都通过尧山缆车。
 
-[![桂林第一山](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3668.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3668.jpg)
+![桂林第一山]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-08.jpg?imageView2/2/w/640/q/90)
 
-[![尧山](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3770.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3770.jpg)
-
-[![景色](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3755.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3755.jpg)
+![景色]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-09.jpg?imageView2/2/w/640/q/90)
 
 山上景色不错，就是能见度低点
 
-[![一群人](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3720.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3720.jpg)
+![一群人]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-10.jpg?imageView2/2/w/640/q/90)
 
 这一群人所说的话一点也听不懂，大概是东南亚人
 
-[![老少](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3727.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3727.jpg)
+![老少]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-11.jpg?imageView2/2/w/640/q/90)
 
 老一对少一对，真羡慕
 
-[![示意图](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3748.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3748.jpg)
+![示意图]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-12.jpg?imageView2/2/w/640/q/90)
 
-[![指向](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3761.jpg)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/05-28-2011/DSCF3761.jpg)
+![指向]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-13.jpg?imageView2/2/w/640/q/90)
 
 景区的标识文字都是繁中和英文
 
@@ -61,5 +58,6 @@ tags: [尧山, 桂林, 爬山]
 
 **本文历史**
 
-2011年06月01日  创建文章
-2015年05月07日  修复地图
+* 2011年06月01日 创建文章
+* 2015年05月07日 修复地图
+* 2015年05月10日 换图床

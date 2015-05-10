@@ -144,7 +144,7 @@ dpkg -i .deb 进行安装
 
 再下个 SuperMario.nes（[下载](http://dl.dbank.com/c0ubzkgcib)）
 
-[![SuperMario](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/supermario.png)](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/supermario.png "SuperMario")
+![SuperMario]({{site.IMG_PATH}}/linux-study-2.png)
 
 啊哈，小霸王其乐无穷啊~
 
@@ -165,3 +165,4 @@ dpkg -i .deb 进行安装
 **本文历史**
 
 * 2011年04月19日 创建文章
+* 2015年05月10日 换图床

@@ -25,7 +25,7 @@ tags: [蓝牙耳机, 运动耳机, 跑步耳机, 骑车, 跑步, Avantree]
 
 开头就有提到的，我一直佩戴着跑步的耳塞 AKG K309 坏掉了，由于 iPhone 自带的耳塞比较小，戴着跑步很容易脱落，鄙人就想买一个耳机可以跑步时佩戴，加上已经坏掉了不少的耳塞，所以我就想买个不容易坏的。
 
-![AKG K309](http://fooleap.qiniudn.com/avantree-jogger-pro-01.jpg)
+![AKG K309]({{site.IMG_PATH}}/avantree-jogger-pro-01.jpg)
 
 鉴于经济能力有限，也没法花钱买太好的耳塞，也怕好的耳塞被我那般暴力使用也不会好到哪里去。
 
@@ -43,27 +43,27 @@ tags: [蓝牙耳机, 运动耳机, 跑步耳机, 骑车, 跑步, Avantree]
 
 其包装颇简单，不过该有的都有了。
 
-![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-02.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-02.jpg)
 
 第一次买蓝牙耳机，也是第一次戴这样的耳机。
 
-![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-03.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-03.jpg)
 
 这个塑胶耳塞，不经说明书真的不知道是装上去应该怎么用的。
 
-![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-04.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-04.jpg)
 
 事实上这个耳机是戴上去后，那个尖的地方插到耳朵里，戴起来有一定的不适感，不过还在忍受范围内，如果是运动时佩戴，基本没什么感觉。
 
-![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-05.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-05.jpg)
 
 充电孔使用这种设计，需要充电的时候只需轻轻拨开即可。
 
-![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-06.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-06.jpg)
 
 很普通的充电线，和大多数电子产品一样，也是没有配备充电器。
 
-![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-07.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-07.jpg)
 
 到目前为止，这款耳机我使用了一个星期，怎么说呢？感受最直接的就是方便了！现在打电话，不需要拿着手机贴在耳旁，也不需要如同使用有线耳机一样拿着手机，接通了之后，手机可以放一边，活动自由。
 
@@ -80,15 +80,15 @@ tags: [蓝牙耳机, 运动耳机, 跑步耳机, 骑车, 跑步, Avantree]
 3. 打开手机蓝牙功能，搜索设备。
 4. 按照手机所提示的步奏完成对检索到的“Avantree Jogger Pro”进行匹配，有些手机需要输入密码，即为“0000”。
 
-![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-11.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-11.jpg)
 
 以上，可以在[其说明书](http://www.avantree.com/media/user_manual/AS6P-user-manual.pdf)里找到，由于说明书只有英文（至少我买到时只有英文），所以在此贴上简单使用教程。更为复杂的使用，请看说明书~
 
-PS：如果你看不懂英文，某剽窃商倒是有一份粗糙的中文版，鄙人扒下来去掉恶心的信息之后，[可点此下载](http://fooleap.qiniudn.com/jogger.pdf)。
+PS：如果你看不懂英文，某剽窃商倒是有一份粗糙的中文版，鄙人扒下来去掉恶心的信息之后，[可点此下载]({{site.IMG_PATH}}/jogger.pdf)。
 
 耳机连接到 iPhone 时，iPhone 可以显示其电量，耳机电量不足耳机也会有声音提示，这个我觉得很贴心。
 
-![Avantree Jogger Pro](http://fooleap.qiniudn.com/avantree-jogger-pro-12.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-12.jpg)
 
 ###Avantree Jogger Pro 有什么不足？###
 
@@ -96,7 +96,7 @@ PS：如果你看不懂英文，某剽窃商倒是有一份粗糙的中文版，
 
 耳机硅胶部分容易脱落，耳机和电线连接的硅胶很容易脱落，不过这部分就算脱落也不会掉下。
 
-![硅胶脱落](http://fooleap.qiniudn.com/avantree-jogger-pro-08.jpg)
+![硅胶脱落]({{site.IMG_PATH}}/avantree-jogger-pro-08.jpg)
 
 鄙人在里面贴了双面胶后再套上去，终于再也不脱落，不过夏天流汗多可能不适合这么做。
 
@@ -106,11 +106,11 @@ PS：如果你看不懂英文，某剽窃商倒是有一份粗糙的中文版，
 
 在寻找耳塞期间，鄙人也发现 Avantree 官方在某喵的旗舰店已经开了，但官方并没售卖耳塞这种小配件。抱着试一试的态度问了下客服，没想到这么爽快免费赠送一套耳塞，赞一个！
 
-![Avantree客服聊天记录](http://fooleap.qiniudn.com/avantree-jogger-pro-09.png)
+![Avantree客服聊天记录]({{site.IMG_PATH}}/avantree-jogger-pro-09.png)
 
 等待了几天，终于拿到几个耳塞。
 
-![四个硅胶耳塞](http://fooleap.qiniudn.com/avantree-jogger-pro-10.jpg)
+![四个硅胶耳塞]({{site.IMG_PATH}}/avantree-jogger-pro-10.jpg)
 
 **本文历史**
 
