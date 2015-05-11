@@ -2,7 +2,6 @@
 layout: post
 title: ThinkPad T410 的键盘问题
 description: "去年夏天，我经历了杭州几十年来最热的一个夏天，最高温甚至破历史记录，变态般达到 41.6 摄氏度。在那个夏天，我是在没有空调的寝室度过的，每天睡前一个澡，睡醒满身汗再一个澡。"
-thumbnail: "http://img.fooleap.org/blog/the-keyboard_-thumb.jpg"
 category: tech
 tags: [T410, 键盘, 映射错误]
 ---
@@ -23,27 +22,27 @@ tags: [T410, 键盘, 映射错误]
 
 去附近的联华超市看了下，只有一种且价格并不便宜，买了可能没其他用途，只能作罢，考虑重新找替代品。
 
-![铝箔]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-01.jpg)
+![铝箔]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-01.jpg_640)
 
 后来在附近的另一家超市找到锡纸，价格相对比较合适，于是就买回来，动手开工。
 
-![锡纸]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-02.jpg)
+![锡纸]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-02.jpg_640)
 
 准备好螺丝刀
 
-![螺丝刀]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-03.jpg)
+![螺丝刀]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-03.jpg_640)
 
 根据教程，仅仅拧开两颗螺丝就可将键盘取出
 
- ![拧螺丝]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-04.jpg)
+ ![拧螺丝]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-04.jpg_640)
 
 里面具体都是些什么我也不清楚
 
- ![笔记本内部]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-05.jpg)
+ ![笔记本内部]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-05.jpg_640)
 
 照葫芦画瓢，就是这个样子，干完收工
 
- ![放上锡纸]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-06.jpg)
+ ![放上锡纸]({{site.IMG_PATH}}/the-keyboard-problem-with-thinkpad-t410-06.jpg_640)
 
 经过这么简单的步骤之后，笔记本键盘再也不会映射错误了，无论是放在大腿上或者直接拿在手上，都能很轻松地打出想打的字符。
 

@@ -15,42 +15,42 @@ tags: [尧山, 桂林, 爬山]
 
 <iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.kjxvvPw-gNxA" width="640" height="427"></iframe>
 
-![礐石风景区]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-01.jpg?imageView2/2/w/640/q/90)
+![礐石风景区]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-01.jpg_640)
 
-![海边的小山丘]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-02.jpg?imageView2/2/w/640/q/90)
+![海边的小山丘]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-02.jpg_640)
 
 
 回过头来说说那天爬的尧山，三十多度晴的天气，从没爬过尧山的我和富哥决定从西边爬上去，那条路明显没有南边的小道好走，石块碎石多，到高处比较陡，而且那天是在烈日之下，到了后面真的没走几步就休息一会，适合休息的阴凉处又不多……
 
-![尧山景区]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-03.jpg?imageView2/2/w/640/q/90)
+![尧山景区]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-03.jpg_640)
 
-![尧山索道]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-04.jpg?imageView2/2/w/640/q/90)
+![尧山索道]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-04.jpg_640)
 
-![尧山之路]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-05.jpg?imageView2/2/w/640/q/90)
+![尧山之路]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-05.jpg_640)
 
-![爬山之路]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-06.jpg?imageView2/2/w/640/q/90)
+![爬山之路]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-06.jpg_640)
 
-![爬山者]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-07.jpg?imageView2/2/w/640/q/90)
+![爬山者]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-07.jpg_640)
 
 到达山顶那是豁然开朗，那时已经是下午四点左右了，山顶游客不多，且陆续下山了，大部分游客上山都通过尧山缆车。
 
-![桂林第一山]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-08.jpg?imageView2/2/w/640/q/90)
+![桂林第一山]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-08.jpg_640)
 
-![景色]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-09.jpg?imageView2/2/w/640/q/90)
+![景色]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-09.jpg_640)
 
 山上景色不错，就是能见度低点
 
-![一群人]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-10.jpg?imageView2/2/w/640/q/90)
+![一群人]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-10.jpg_640)
 
 这一群人所说的话一点也听不懂，大概是东南亚人
 
-![老少]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-11.jpg?imageView2/2/w/640/q/90)
+![老少]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-11.jpg_640)
 
 老一对少一对，真羡慕
 
-![示意图]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-12.jpg?imageView2/2/w/640/q/90)
+![示意图]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-12.jpg_640)
 
-![指向]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-13.jpg?imageView2/2/w/640/q/90)
+![指向]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-13.jpg_640)
 
 景区的标识文字都是繁中和英文
 

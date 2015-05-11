@@ -90,7 +90,7 @@ FSCapture 界面始终保持简单的浮动控制小窗口，简洁耐看，便�
 2. 设置很人性化，比如随系统启动，启动时最小化，保存图像时关闭编辑器等等。
 下面是FSCapture的设置界面：
 
-![FSCapture-Setting]({{site.IMG_PATH}}/fscapture-picpick-06.png?imageView2/2/w/640/q/90)
+![FSCapture-Setting]({{site.IMG_PATH}}/fscapture-picpick-06.png_640)
 
 Fooleap 对 FSCapture 的编辑器很有感觉，感觉很稳重，而且功能强大，在截图后用不着打开如 PS 等强大图像编辑软件，而自带的画图又功能简单的条件下，FSCapture 的编辑器是一种好选择。
 

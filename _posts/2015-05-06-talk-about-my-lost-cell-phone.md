@@ -10,51 +10,51 @@ tags: [手机,金鸿公路,宝奥城]
 
 每次回家都会出去骑车玩玩，感受家乡的新变化，而又常常会选择离村子较近的，环境略好的“大公路”金鸿公路骑。今年春节回家，这条路毫无悬念也在骑行计划中，去那也是想看看近几年区里的大项目宝奥城到底弄成怎么样了。 
 
-![2012年的宝奥城工地]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-01.jpg?imageView2/2/w/640/q/90)
+![2012年的宝奥城工地]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-01.jpg_640)
 ▲2012年的宝奥城工地
 
-![2012年夏天的金鸿公路]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-02.jpg?imageView2/2/w/640/q/90)
+![2012年夏天的金鸿公路]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-02.jpg_640)
 ▲2012年夏天的金鸿公路
 
 修了十几年，建成于2006年的金鸿公路，当年看起来是多么的高大上，而出门之后才发现，其实也就是一条普通的快速路。经过近十年发展，澄海农村路段道路两旁还是挺荒凉的，但它对于道路交通并不完善的澄海来说，却是相当重要的一条大动脉。咳咳，扯远了。
 
 言归正传，还是来说说丢手机的事情。大年初二早晨，背上包带上相机，从家里出去，第一站是去几乎每次回家都会去的初中校园，也不知何时开始，学校不对外开放了，于是只能在校门口看看，看起来变化并不是很大，但是一些细节上的变化还是看得很清楚的。
 
-![湾头中学门口]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-03.jpg?imageView2/2/w/640/q/90)
+![湾头中学门口]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-03.jpg_640)
 ▲湾头中学门口
 
 到金鸿路，开始假作认真地拿起相机，手中的手机和平常一样顺手塞在背包最大一格中，感觉是那么深的背包，所以很自信并没有拉上拉链。但是和平常不一样的是 ，所骑自行车没有车篮。因为习惯单背着，当时的情景是这样的：手持相机骑着车并单背着没有拉上拉链的背包。
 
-![金鸿公路]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-04.jpg?imageView2/2/w/640/q/90)
+![金鸿公路]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-04.jpg_640)
 ▲金鸿公路
 
 走走停停拍拍，绕了一圈骑到传说中的宝奥城，记得上一次到这边还啥都没，现在虽然规模不算大，但也算有所进展，到处看看，大概过了半个小时左右，在货运超市附近看到一只死掉的大老鼠，心想，用手机拍拍发到网上分享分享，没想到怎么也找不到。
 
-![西华客运站工地]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-05.jpg?imageView2/2/w/640/q/90)
+![西华客运站工地]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-05.jpg_640)
 ▲西华客运站工地
 
-![宝奥城内道路]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-06.jpg?imageView2/2/w/640/q/90)
+![宝奥城内道路]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-06.jpg_640)
 ▲宝奥城内道路
 
-![卜蜂莲花配送中心]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-07.jpg?imageView2/2/w/640/q/90)
+![卜蜂莲花配送中心]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-07.jpg_640)
 ▲卜蜂莲花配送中心
 
-![宝奥货运超市]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-08.jpg?imageView2/2/w/640/q/90)
+![宝奥货运超市]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-08.jpg_640)
 ▲宝奥货运超市
 
-![大老鼠]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-09.jpg?imageView2/2/w/640/q/90)
+![大老鼠]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-09.jpg_640)
 ▲大老鼠
 
 心一下子凉下来了，自己怎么这么粗心，附近也没找到。想想一定是骑车过程中一些震荡把手机给震出来，可是把手机放包里到发现手机不见至少有四十分钟以上，五公里多的距离，就算知道在哪掉的，估计也被人捡走，何况还不知道到底在哪里掉的。于是我就开始在想怎么将损失降到最小，用了一年多的 4s ，手机本身并不值钱，卖二手估计不到五百大洋，关键是手机上的一些个人信息，包括支付宝、微信帐号等等是否安全。本想到附近凤洲朋友家把各种密码改掉，可是想到新年头，连两粒大吉都没带，也没好意思去。
 
 也罢，回家吃糜吧，准备好挨老妈一顿教育，虽然找回的概率很低，但梦想总是有的，万一实现了呢！边沿着原路用高度近视的小眼睛搜索着路边。没想到还碰到以前上学路上经常能见的跑步阿伯，寻机心切并没意识到拍，拿起相机时他已经跑远，拉起焦距拍了一张。
 
-![一直在跑步的阿伯]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-10.jpg?imageView2/2/w/640/q/90)
+![一直在跑步的阿伯]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-10.jpg_640)
 ▲一直在跑步的阿伯
 
 老天不负苦心人，我竟然在刚上金鸿路不远的路边发现我的手机！！除了些许的磨花之外，手机一切完好。真没想到在这个治安并不是很好，鄙人以前跑步路上都被打劫过的地方，丢了那么久的手机还没人捡（呃，这好像和治安也没啥关系）。仔细想想，大年初二一大早骑车到这里的也只有像我这样的奇葩，路上几乎都是汽车及摩托车，跑得快不会注意路边的小东西。
 
-![失而复得的手机]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-11.jpg?imageView2/2/w/640/q/90)
+![失而复得的手机]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-11.jpg_640)
 ▲失而复得的手机
 
 不久，老妈来电话叫回家吃饭，此事到此结束，算是一个小插曲，遗憾的是，因手机丢失，没有好好看看宝奥城，顺便贴一个示意地图。

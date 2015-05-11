@@ -42,7 +42,7 @@ tags: [旅游, 桂林, 漓江, 西街, 阳朔, 骑行]
 
 杨堤路口有大妈拉杨堤到兴坪竹筏的，说要三人一船每人需要60元。班车上有大妈说60元贵了，都可以讲价的，每人40左右即可。到了杨堤渡口，随便问了一个，讲了下价，每人45元，即135元一只竹筏。
 
-![杨堤渡口]({{site.IMG_PATH}}/travel-in-yangshuo-01.jpg?imageView2/2/w/640/q/90)
+![杨堤渡口]({{site.IMG_PATH}}/travel-in-yangshuo-01.jpg_640)
 ▲杨堤渡口
 
 漓江杨堤到兴坪段确实是风景如画，被称为“漓江精华段”，比起桂林市区那接近干涸的漓江相比，这段确实对得起山水甲天下的名号。竹筏上的船夫会当起导游，一路解说， 童子拜观音，八仙过海，九马画山等等，到了兴坪码头，20元人民币背景全景，不解释。
@@ -51,69 +51,69 @@ tags: [旅游, 桂林, 漓江, 西街, 阳朔, 骑行]
 
 看地图，一靠岸就是20元背景全景，没错的，可一上岸就被拉客拉上，会问要去古镇还是车站（兴坪古镇也是阳朔的一个景点），上了车，下面的那张是在车上拍到的，到后来看照片时才发现。
 
-![漓江风景一]({{site.IMG_PATH}}/travel-in-yangshuo-02.jpg?imageView2/2/w/640/q/90)
+![漓江风景一]({{site.IMG_PATH}}/travel-in-yangshuo-02.jpg_640)
 ▲漓江风景一
 
-![漓江风景二]({{site.IMG_PATH}}/travel-in-yangshuo-03.jpg?imageView2/2/w/640/q/90)
+![漓江风景二]({{site.IMG_PATH}}/travel-in-yangshuo-03.jpg_640)
 ▲漓江风景二
 
-![漓江风景三]({{site.IMG_PATH}}/travel-in-yangshuo-04.jpg?imageView2/2/w/640/q/90)
+![漓江风景三]({{site.IMG_PATH}}/travel-in-yangshuo-04.jpg_640)
 ▲漓江风景三
 
-![蛋炒饭]({{site.IMG_PATH}}/travel-in-yangshuo-05.jpg?imageView2/2/w/640/q/90)
+![蛋炒饭]({{site.IMG_PATH}}/travel-in-yangshuo-05.jpg_640)
 漓江边上10元的蛋炒饭
 
-![九马画山]({{site.IMG_PATH}}/travel-in-yangshuo-06.jpg?imageView2/2/w/640/q/90)
+![九马画山]({{site.IMG_PATH}}/travel-in-yangshuo-06.jpg_640)
 ▲九马画山
 
-![20元人民币背景全景]({{site.IMG_PATH}}/travel-in-yangshuo-07.jpg?imageView2/2/w/640/q/90)
+![20元人民币背景全景]({{site.IMG_PATH}}/travel-in-yangshuo-07.jpg_640)
 ▲20元人民币背景全景
 
-![20元背景全景最佳拍摄点]({{site.IMG_PATH}}/travel-in-yangshuo-08.jpg?imageView2/2/w/640/q/90)
+![20元背景全景最佳拍摄点]({{site.IMG_PATH}}/travel-in-yangshuo-08.jpg_640)
 ▲传说中的20元背景全景最佳拍摄点
 
 到了兴坪车站，这下要坐车到阳朔县城，似乎还要半个多一个小时左右，7元，人很多。当时还在兴坪车站听到有人讲潮汕话，很亲切。
 
-![兴坪车站]({{site.IMG_PATH}}/travel-in-yangshuo-09.jpg?imageView2/2/w/640/q/90)
+![兴坪车站]({{site.IMG_PATH}}/travel-in-yangshuo-09.jpg_640)
 ▲兴坪车站
 
 此前毫无计划，只知道要去的是阳朔，没去之前还以为景点全部在阳朔县城，去了才知道，阳朔的景点分散在全县各乡镇，但无疑都在江边路边。来到阳朔县城，西街一定得去。洋人街，酒吧很多，晚上的西街，可谓人山人海，只可惜相机不给力。
 
-![夜晚的西街]({{site.IMG_PATH}}/travel-in-yangshuo-10.jpg?imageView2/2/w/640/q/90)
+![夜晚的西街]({{site.IMG_PATH}}/travel-in-yangshuo-10.jpg_640)
 
 ▲夜晚的西街
 
 住宿方面，选择离西街汽车站远的宾馆比较便宜，蟠桃路尾，大村门路那边是一个选择（因为我们就住那）。
 
-![大村门路]({{site.IMG_PATH}}/travel-in-yangshuo-11.jpg?imageView2/2/w/640/q/90)
+![大村门路]({{site.IMG_PATH}}/travel-in-yangshuo-11.jpg_640)
 ▲大村门路
 
-![大村门路]({{site.IMG_PATH}}/travel-in-yangshuo-12.jpg?imageView2/2/w/640/q/90)
+![大村门路]({{site.IMG_PATH}}/travel-in-yangshuo-12.jpg_640)
 ▲大村门路
 
 第二天，吃完早餐，大家意见统一，租车骑去。阳朔县城街上有很多出租自行车的，可以租辆自行车游遍离县城较近的景点。比较旧的包括杂牌买菜车5元一辆，山地车及新买菜车10元一辆，也有很多双人的，押金100元，可以一直到天黑才还车。也可以让一个阿姨带着，免押金，还可照看自行车。骑车的人很多，也很不错，留个销魂的背影吧（明显胖了...），我们的目标是大榕树。
 
-![自行车出租]({{site.IMG_PATH}}/travel-in-yangshuo-13.jpg?imageView2/2/w/640/q/90)
+![自行车出租]({{site.IMG_PATH}}/travel-in-yangshuo-13.jpg_640)
 ▲自行车出租
 
-![骑车]({{site.IMG_PATH}}/travel-in-yangshuo-14.jpg?imageView2/2/w/640/q/90)
+![骑车]({{site.IMG_PATH}}/travel-in-yangshuo-14.jpg_640)
 ▲骑车
 
-![大榕树]({{site.IMG_PATH}}/travel-in-yangshuo-15.jpg?imageView2/2/w/640/q/90)
+![大榕树]({{site.IMG_PATH}}/travel-in-yangshuo-15.jpg_640)
 ▲大榕树
 
 骑回县城，其他景点门票都比较贵，据说都被人包了，听说几个景点的门票一起买可以便宜很多，看时间也比较晚了，再逛西街吧。听到西街上拉客上漓江竹筏的大妈操着流利的英语，感觉自己弱爆了。
 
-![白天的西街口]({{site.IMG_PATH}}/travel-in-yangshuo-16.jpg?imageView2/2/w/640/q/90)
+![白天的西街口]({{site.IMG_PATH}}/travel-in-yangshuo-16.jpg_640)
 ▲白天的西街口
 
-![白天的西街一]({{site.IMG_PATH}}/travel-in-yangshuo-17.jpg?imageView2/2/w/640/q/90)
+![白天的西街一]({{site.IMG_PATH}}/travel-in-yangshuo-17.jpg_640)
 ▲白天的西街一
 
-![白天的西街二]({{site.IMG_PATH}}/travel-in-yangshuo-18.jpg?imageView2/2/w/640/q/90)
+![白天的西街二]({{site.IMG_PATH}}/travel-in-yangshuo-18.jpg_640)
 ▲白天的西街二
 
-![白天的西街三]({{site.IMG_PATH}}/travel-in-yangshuo-19.jpg?imageView2/2/w/640/q/90)
+![白天的西街三]({{site.IMG_PATH}}/travel-in-yangshuo-19.jpg_640)
 ▲白天的西街三
 
 到此结束，似乎成图册了，这次到阳朔没去多少景点，兴坪古镇，遇龙河漂流，月亮山，图腾古道，世外桃源等，当然还有《印象刘三姐》，都没时间去，打算明年暑假再去一次。阳朔旅游的地方很多，整个县都发展旅游，景点比桂林市区亮，资金还是比较欠缺。

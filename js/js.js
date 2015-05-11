@@ -32,7 +32,7 @@ jQuery(document).ready(function($){
 	  var realwidth=$(this).width();
 	  var imgsrc=$(this).attr('src');
           if (realwidth >= maxwidth||_w<800) { 
-	    $(this).css({"cursor":"pointer","width":"100%","height":"auto"}).click(function(){window.open(imgsrc.split("?")[0],"_blank");});
+	    $(this).css({"cursor":"pointer","width":"100%","height":"auto"}).click(function(){window.open(imgsrc.split(/(\?|\_)/)[0],"_blank");});
 	    }
 	   });
 	}
@@ -47,4 +47,9 @@ jQuery(document).ready(function($){
    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
      $('#qrcode').css({"display":"none"});
    }
+   
+   //链接
+   $("a[href*='http://']:not([href*='"+location.hostname+"']),[href*='https://']:not([href*='"+location.hostname+"'])")
+   .addClass("external")
+   .attr("target","_blank");
 });
