@@ -13,20 +13,6 @@ html,body {
   background: rgb(180, 210, 250);
 }
 
-.pull-left {
-  display: block;
-  float: left;
-}
-
-.pull-right {
-  display: block;
-  float: right;
-}
-
-.clear {
-  clear: both;
-}
-
 h1,h2,h3,h4,h5,h6 {
   font-size: 100%;
   font-weight: 400;
@@ -327,7 +313,7 @@ nav {
 }
 /* Post styles */
 
-.post time {
+ .page-content time {
   display: block;
   width: 100%;
   height: 30px;
@@ -379,12 +365,12 @@ nav {
   padding-left: 20px;
 }
 
-.post p img {
+.post-content p img {
   display: block;
 }
 
-.post pre,
-.post code {
+.post-content pre,
+.post-content code {
   font-size: 15px;
   overflow: auto;
   padding: 8px 12px;
@@ -394,23 +380,23 @@ nav {
   border-radius: 3px;
 }
 
-.post code {
+.post-content code {
   padding: 1px 5px;
 }
 
-.post ul,
-.post ol {
+.post-content ul,
+.post-content ol {
   margin-left: 1.35em;
 }
 
-.post pre code {
+.post-content pre code {
   padding-right: 0;
   padding-left: 0;
   border: 0;
 }
 /* terminal */
 
-.post pre.terminal {
+.post-content pre.terminal {
   color: rgb(255, 255, 255);
   border: 1px solid rgb(0, 0, 0);
   -webkit-border-radius: 3px;
@@ -418,14 +404,19 @@ nav {
   border-radius: 3px;
 }
 
-.post pre.terminal code {
+.post-content pre.terminal code {
   background-color: rgb(50, 50, 50);
 }
 
 .post-content #qrcode {
   position: absolute;
   right: 0;
-  bottom: -50px;
+  bottom: -30px;
+  margin: 0;
+}
+
+.post-content .comment{
+  display:none;
 }
 /* media queries */
 
