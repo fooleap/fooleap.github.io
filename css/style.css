@@ -415,9 +415,32 @@ nav {
   margin: 0;
 }
 
-.post-content .comment{
-  display:none;
+.comment{
+  text-align: center;
 }
+.comment .comment-toggle{
+  background-color: #eee;
+  border: none;
+  border-radius: 0;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  padding: 0 40px;
+  margin: 5px;
+  display: inline-block;
+  appearance: none;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+}
+
 /* media queries */
 
 @media screen and (max-width: 842px) {
