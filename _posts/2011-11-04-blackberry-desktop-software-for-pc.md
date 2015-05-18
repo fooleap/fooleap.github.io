@@ -15,11 +15,11 @@ Windows平台上有官方的桌面管理器，可以有刷机，同步，备份�
 
 使用BBerSMSManager可将短信保存为txt或者excel文件：先用官方桌面管理器将短信及电话簿分别导出备份为ipd文件，然后在BBerSMSManager里导入备份文件进行保存。
 
-![备份短信](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/blackberry8700/backupsms.png)
+![备份短信]({{site.IMG_PATH}}/blackberry-desktop-software-for-pc.png)
 
 以上软件均可在此下载：[http://dl.dbank.com/c0t9va2u9u](http://dl.dbank.com/c0t9va2u9u)
 
-也可在此共享找到：[http://www.dbank.com/share/blackberry8700](http://www.dbank.com/share/blackberry8700)
+<del>也可在此共享找到：[http://www.dbank.com/share/blackberry8700](http://www.dbank.com/share/blackberry8700)</del>
 
 Linux平台上主要使用barry对黑莓进行管理，linberry我没用过。barry的安装使用等可参考felonwan的这两篇文章：
 
@@ -69,3 +69,4 @@ bjavaloader的功能和javaloader.exe差不多，可进行对\*.cod的加载删�
 **本文历史**
 
 * 2011年11月04日 创建文章
+* 2015年05月24日 换图床

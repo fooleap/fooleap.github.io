@@ -2,16 +2,15 @@
 layout: post
 title: "五月份，计划的执行情况"
 description: "上个月我在此文中说道，要每天早起，每天慢跑，每周一徒步。今天是6月1日，这一个月来，计划执行的情况到底是咋样的呢？下面一起来算算账。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/C0GlRgzF/small.jpg"
 category: life
 tags: [早起, 慢跑, 徒步]
 ---
 
 上个月我在[此文](http://blog.fooleap.org/early-rising-running-and-walking.html)中说道，要每天早起，每天慢跑，每周一徒步。今天是6月1日，这一个月来，计划执行的情况到底是咋样的呢？下面一起来算算账。
 
-关于早起和慢跑的状况，暂时可以在这里找到：[http://fooleap.org/running.html](http://fooleap.org/running.html)
+<del>关于早起和慢跑的状况，暂时可以在这里找到：[http://fooleap.org/running.html](http://fooleap.org/running.html)</del>
 
-###早起
+## 早起
 
 起床时间大多在6点到7点之间，比之前早了不少，但不够稳定。能早起，大概有以下几个原因：
 
@@ -19,7 +18,7 @@ tags: [早起, 慢跑, 徒步]
 * 跑步各种激情啊，怎么舍得睡觉呢？特别喜欢跑步后流汗的舒坦。
 * [早起联盟](http://amybox.com/group/199)真心有效。因为鄙人没有设备支持所提供的 APP，所以每次 Check-in 都迟到了，有时候甚至是下午才去签到哈哈。
 
-###慢跑
+## 慢跑
 
 粗略的算了一下，这个月跑量为54.8公里，平均每天1.8公里左右。这是鄙人第一次有记录的跑步，感觉良好。唯一遗憾的是刚起步就受伤不得不闭关修养。
 
@@ -29,8 +28,8 @@ tags: [早起, 慢跑, 徒步]
 
 受伤了，意识到穿着布鞋跑步并不明智，趁促销买的迪卡侬。
 
-![KALENJI EKD75 M](http://pic.yupoo.com/fooleap_v/C0GlRgzF/YvEGv.jpg)
-*——KALENJI EKD75 M*
+![KALENJI EKD75 M]({{site.IMG_PATH}}/implementation-of-the-plan-in-may-01.jpg_640)
+▲KALENJI EKD75 M
 
 想通过自己的努力治好这个膝盖，看了不少关于保护膝盖，恢复膝盖的文章、视频。
 
@@ -64,14 +63,14 @@ tags: [早起, 慢跑, 徒步]
 
 虽说不是很严重，估计几个月内跑步这类运动估计就没法进行了。
 
-###徒步
+## 徒步
 
 这个完成得不好，有且仅有一次徒步，到下旬是因为膝盖的问题。是的，若每天有跑步，运动量还是足的，不过徒步更有乐趣~
 
 为了惩罚自己，在此自曝一下，这可是第一次自曝，猥琐程度自辨哈，4月22日在净瓶山大桥：
 
-![2012年4月22日](http://pic.yupoo.com/fooleap_v/C0GpRMUe/6xxea.jpg)
-*——2012年4月22日*
+![2012年4月22日]({{site.IMG_PATH}}/implementation-of-the-plan-in-may-02.jpg_640)
+▲2012年4月22日
 
 计划没有完成得很好，总的来说也进步不少。意想不到的是，跑步二十天左右，瘦了六斤。生命需要运动、生活需要激情，动起来总不会错的！
 
@@ -79,3 +78,4 @@ tags: [早起, 慢跑, 徒步]
 
 * 2012年06月01日 创建文章
 * 2012年06月08日 添加BTV和斯坦福公开课相关内容，及损伤情况。
+* 2015年05月24日 换图床

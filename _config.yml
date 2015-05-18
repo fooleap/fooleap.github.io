@@ -1,3 +1,4 @@
+encoding: utf-8
 title: Fooleap's Blog
 email: fooleap@gmail.com
 description: "A foolish man could not always lose!"
@@ -8,8 +9,6 @@ github_username: fooleap
 weibo_username: fooleap
 markdown: kramdown
 permalink: /:title.html 
-highlighter: pygments
+highlighter: rouge
 paginate: 10
 IMG_PATH: http://fooleap.qiniudn.com
-gems:
-  - jekyll-sitemap

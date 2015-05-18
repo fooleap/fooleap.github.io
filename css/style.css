@@ -41,7 +41,7 @@ a:hover {
   zoom: 1;
   max-width: 640px;
   margin: 80px auto;
-  padding: 0 101px;
+  padding: 0 100px;
   background-color: rgb(251, 251, 251);
 }
 
@@ -103,12 +103,12 @@ nav {
   transform-origin: 140px 20px;
   text-indent: 0;
   color: rgb(100, 100, 100);
-  -webkit-border-radius: 2px 20px 2px 2px;
-  -moz-border-radius: 2px 20px 2px 2px;
-  border-radius: 2px 20px 2px 2px;
   background: rgb(10, 10, 10);
+  -moz-border-radius: 2px 20px 2px 2px;
+  -webkit-border-radius: 2px 20px 2px 2px;
   -ms-border-radius: 2px 20px 2px 2px;
   -o-border-radius: 2px 20px 2px 2px;
+  border-radius: 2px 20px 2px 2px;
 }
 
 @media screen and (max-width: 34em) {
@@ -174,6 +174,14 @@ nav {
 }
 
 .navigation.hide .navigation-list li:first-child .navigation-item {
+  -webkit-transform: translateX(150px);
+  -moz-transform: translateX(150px);
+  -ms-transform: translateX(150px);
+  -o-transform: translateX(150px);
+  transform: translateX(150px);
+}
+
+.navigation.hide .navigation-list li:nth-child(2) .navigation-item {
   -webkit-transform: translateX(200px);
   -moz-transform: translateX(200px);
   -ms-transform: translateX(200px);
@@ -181,7 +189,23 @@ nav {
   transform: translateX(200px);
 }
 
-.navigation.hide .navigation-list li:nth-child(2) .navigation-item {
+.navigation.hide .navigation-list li:nth-child(3) .navigation-item {
+  -webkit-transform: translateX(250px);
+  -moz-transform: translateX(250px);
+  -ms-transform: translateX(250px);
+  -o-transform: translateX(250px);
+  transform: translateX(250px);
+}
+
+.navigation.hide .navigation-list li:nth-child(4) .navigation-item {
+  -webkit-transform: translateX(300px);
+  -moz-transform: translateX(300px);
+  -ms-transform: translateX(300px);
+  -o-transform: translateX(300px);
+  transform: translateX(300px);
+}
+
+.navigation.hide .navigation-list li:nth-child(5) .navigation-item {
   -webkit-transform: translateX(350px);
   -moz-transform: translateX(350px);
   -ms-transform: translateX(350px);
@@ -189,28 +213,12 @@ nav {
   transform: translateX(350px);
 }
 
-.navigation.hide .navigation-list li:nth-child(3) .navigation-item {
-  -webkit-transform: translateX(450px);
-  -moz-transform: translateX(450px);
-  -ms-transform: translateX(450px);
-  -o-transform: translateX(450px);
-  transform: translateX(450px);
-}
-
-.navigation.hide .navigation-list li:nth-child(4) .navigation-item {
-  -webkit-transform: translateX(600px);
-  -moz-transform: translateX(600px);
-  -ms-transform: translateX(600px);
-  -o-transform: translateX(600px);
-  transform: translateX(600px);
-}
-
-.navigation.hide .navigation-list li:nth-child(5) .navigation-item {
-  -webkit-transform: translateX(800px);
-  -moz-transform: translateX(800px);
-  -ms-transform: translateX(800px);
-  -o-transform: translateX(800px);
-  transform: translateX(800px);
+.navigation.hide .navigation-list li:nth-child(6) .navigation-item {
+  -webkit-transform: translateX(400px);
+  -moz-transform: translateX(400px);
+  -ms-transform: translateX(400px);
+  -o-transform: translateX(400px);
+  transform: translateX(400px);
 }
 
 .navigation.show .navigation-list {
@@ -364,11 +372,61 @@ nav {
 .post-content ol {
   padding-left: 20px;
 }
-
-.post-content p img {
-  display: block;
+.post-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width:100%;
+}
+.post-content th {
+  font-size: 14px;
+  font-weight: normal;
+  color: #000;
+  border-bottom: 2px solid #B4D2FA;
+  padding: 10px 8px;
+}
+.post-content td {
+  border-bottom: 1px solid #CCC;
+  color: #333;
+  padding: 6px 8px;
 }
 
+
+.post-content img {
+  display: block;
+  width:100%;
+}
+figure {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+figure img {
+  position: relative;
+}
+figcaption {
+  position: absolute;
+  top:0 ;
+  background:#333;
+  height: 18px;
+  line-height:18px;
+  padding-left:3px;
+  color:#fff;
+  font-family:serif;
+  font-size:12px;
+  width: 100%;
+  overflow:hidden;
+}
+figure:hover figcaption {
+  opacity: 0.8;
+  -moz-transition: transform .8s, opacity .8s;
+  -webkit-transition: transform .8s, opacity .8s;
+  -o-transition: transform .8s, opacity .8s;
+  transition: transform .8s, opacity .8s;
+}
+
+iframe {
+  border:none;
+}
 .post-content pre,
 .post-content code {
   font-size: 15px;
@@ -446,7 +504,7 @@ nav {
 @media screen and (max-width: 842px) {
   .wrapper {
     max-width: 720px;
-    margin: 80px auto;
+    margin: 60px auto;
     padding: 0 80px;
   };
 }
@@ -458,7 +516,7 @@ nav {
 
   .wrapper {
     max-width: 560px;
-    margin: 80px auto;
+    margin: 0;
     padding: 0 20px;
   }
 
@@ -498,7 +556,6 @@ nav {
 
   .wrapper {
     max-width: 320px;
-    margin: 60px auto;
     padding: 0 10px;
   }
 

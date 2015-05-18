@@ -2,7 +2,6 @@
 layout: post
 title: "记南澳一游"
 description: "谨以此文迎接今年的十一八！"
-thumbnail: "http://pic.yupoo.com/fooleap_v/ClySln64/small.jpg"
 category: life
 tags: [南澳, 骑行, 人生]
 ---
@@ -25,17 +24,17 @@ tags: [南澳, 骑行, 人生]
 
 虽然看看地图就明了，但是以前从没去过，连莱芜都没去过，暑假有时间，7月31日，我一个人去了一趟莱芜码头熟悉熟悉一下路径。
 
-![莲阳河](http://pic.yupoo.com/fooleap_v/ClvN0mRO/6hwnu.jpg)
-*——金鸿公路的桥上看莲阳河*
+![莲阳河]({{site.IMG_PATH}}/travel-in-nanao-o1.jpg_640)
+▲金鸿公路的桥上看莲阳河
 
-![这条路通往南澳大桥](http://pic.yupoo.com/fooleap_v/ClvMZX5z/gMmCF.jpg)
-*——这条路通往南澳大桥*
+![这条路通往南澳大桥]({{site.IMG_PATH}}/travel-in-nanao-o2.jpg_640)
+▲这条路通往南澳大桥
 
-![售票处](http://pic.yupoo.com/fooleap_v/ClvN06ql/ayWQ9.jpg)
-*——售票处*
+![售票处]({{site.IMG_PATH}}/travel-in-nanao-o3.jpg_640)
+▲售票处
 
-![莱芜码头](http://pic.yupoo.com/fooleap_v/ClvMZH9f/1367WA.jpg)
-*——莱芜码头*
+![莱芜码头]({{site.IMG_PATH}}/travel-in-nanao-o4.jpg_640)
+▲莱芜码头
 
 原本打算8月24日去的，看台风“天秤”越来越近，怕到时候停航什么的各种不方便，就决定8月23日就走，早上去傍晚回，能环就环，不能的话骑到青澳湾然后回去。
 
@@ -45,8 +44,8 @@ tags: [南澳, 骑行, 人生]
 
 第二天一早到后江码头(6)乘坐前往东里(7)的货船回家，一切都很顺利，24日早上十点左右，平安地回到家(8)。
 
-![路径图](http://pic.yupoo.com/fooleap_v/Clw8drOf/Udc8E.jpg)
-*——这次骑行的路径图*
+![路径图]({{site.IMG_PATH}}/travel-in-nanao-o0.jpg_640)
+▲这次骑行的路径图
 
 <table>
   	<thead>
@@ -83,110 +82,149 @@ tags: [南澳, 骑行, 人生]
 	</tfoot>
 </table>
 
-![船票](http://pic.yupoo.com/fooleap_v/Clxbjcgk/PBp0A.jpg)
-*——船票，两人两脚车来回八十*
+![莱芜这段路好爽]({{site.IMG_PATH}}/travel-in-nanao-05.jpg_640)
+▲莱芜这段路好爽
 
-![船](http://pic.yupoo.com/fooleap_v/Clxbjov2/ZTbO5.jpg)
-*——我们说傍晚回，大叔说，中午就得回来，要不没船*
+![船票]({{site.IMG_PATH}}/travel-in-nanao-06.jpg_640)
+▲船票，两人两脚车来回八十*
 
-![码头](http://pic.yupoo.com/fooleap_v/ClxbUhnF/Q0yjh.jpg)
-*——离开莱芜码头*
+![船]({{site.IMG_PATH}}/travel-in-nanao-07.jpg_640)
+▲我们说傍晚回，大叔说，中午就得回来，要不没船
 
-![船上](http://pic.yupoo.com/fooleap_v/ClxclOPs/wypJh.jpg)
-*——苦逼脸啦，掩面*
+![码头]({{site.IMG_PATH}}/travel-in-nanao-08.jpg_640)
+▲离开莱芜码头
 
-![南澳岛](http://pic.yupoo.com/fooleap_v/ClxbjvPu/uLEOH.jpg)
-*——能见度不是很好，岛上方也没有云*
+![船上]({{site.IMG_PATH}}/travel-in-nanao-09.jpg_640)
+▲苦逼脸啦，掩面
 
-![呃](http://pic.yupoo.com/fooleap_v/Clxbk1bn/Jkegn.jpg)
-*——呃。。。*
+![南澳岛]({{site.IMG_PATH}}/travel-in-nanao-10.jpg_640)
+▲能见度不是很好，岛上方也没有云
 
-![南澳大桥](http://pic.yupoo.com/fooleap_v/ClxbksOn/c9MUd.jpg)
-*——建设中的南澳大桥*
+![呃]({{site.IMG_PATH}}/travel-in-nanao-11.jpg_640)
+▲呃。。。
 
-![登岛](http://pic.yupoo.com/fooleap_v/ClySl2ow/sLiDV.jpg)
-*——登岛，南澳岛生态旅游区欢迎您*
+![南澳大桥]({{site.IMG_PATH}}/travel-in-nanao-12.jpg_640)
+▲建设中的南澳大桥
 
-![蓝色的大海](http://pic.yupoo.com/fooleap_v/ClySln64/fYuJX.jpg)
-*——终于见到蓝色的大海，为什么近海更蓝呢？*
+![即将登岛]({{site.IMG_PATH}}/travel-in-nanao-13.jpg_640)
+▲即将登岛
 
-![苦逼脸](http://pic.yupoo.com/fooleap_v/ClySlwZV/FJZkc.jpg)
-*——苦逼脸哈哈哈~~*
+![登岛]({{site.IMG_PATH}}/travel-in-nanao-14.jpg_640)
+▲登岛，南澳岛生态旅游区欢迎您
 
-![环岛公路](http://pic.yupoo.com/fooleap_v/ClySmch3/Dglpn.jpg)
-*——环岛公路*
+![蓝色的大海]({{site.IMG_PATH}}/travel-in-nanao-15.jpg_640)
+▲终于见到蓝色的大海，为什么近海更蓝呢？
 
-![后方](http://pic.yupoo.com/fooleap_v/ClySmcRP/Gvtmk.jpg)
-*——有时候也要往回看*
+![苦逼脸]({{site.IMG_PATH}}/travel-in-nanao-16.jpg_640)
+▲苦逼脸哈哈哈~~
 
-![钱澳湾](http://pic.yupoo.com/fooleap_v/ClySmQWn/GaAf9.jpg)
-*——到站了，拍拍身子擦擦汗，然后继续往前行*
+![环岛公路]({{site.IMG_PATH}}/travel-in-nanao-17.jpg_640)
+▲环岛公路
 
-![晒鱿鱼](http://pic.yupoo.com/fooleap_v/ClAwLhde/K6Jbv.jpg)
-*——到达县城后宅，晒鱿鱼的好多*
+![后方]({{site.IMG_PATH}}/travel-in-nanao-18.jpg_640)
+▲有时候也要往回看
 
-![武帝庙前](http://pic.yupoo.com/fooleap_v/ClAwLx5H/vN7SD.jpg)
-*——面向大海的武帝庙前*
+![钱澳湾]({{site.IMG_PATH}}/travel-in-nanao-19.jpg_640)
+▲到站了，拍拍身子擦擦汗，然后继续往前行
 
-![上坡](http://pic.yupoo.com/fooleap_v/ClAwMcyc/KYGMo.jpg)
-*——这个连续的上坡。。。*
+![晒鱿鱼]({{site.IMG_PATH}}/travel-in-nanao-20.jpg_640)
+▲到达县城后宅，晒鱿鱼的好多
 
-![急弯下坡](http://pic.yupoo.com/fooleap_v/ClAwM8qj/bin0g.jpg)
-*——急弯下坡400米*
+![武帝庙前]({{site.IMG_PATH}}/travel-in-nanao-21.jpg_640)
+▲面向大海的武帝庙前
 
-![赤石湾](http://pic.yupoo.com/fooleap_v/ClAwModW/ZmjwD.jpg)
-*——在展南亭上看赤石湾*
+![上坡]({{site.IMG_PATH}}/travel-in-nanao-22.jpg_640)
+▲这个连续的上坡。。。
 
-![展南亭上](http://pic.yupoo.com/fooleap_v/ClAwMYSw/fZ8Mv.jpg)
-*——展南亭上*
+![急弯下坡]({{site.IMG_PATH}}/travel-in-nanao-23.jpg_640)
+▲急弯下坡400米
 
-![上坡](http://pic.yupoo.com/fooleap_v/ClAwNFDQ/VqneE.jpg)
-*——无尽的上坡，具体情况具体分析，不再前行*
+![展南亭]({{site.IMG_PATH}}/travel-in-nanao-24.jpg_640)
+▲展南亭
 
-![云澳店铺](http://pic.yupoo.com/fooleap_v/ClAwNMn5/GzUTm.jpg)
-*——这段在云澳*
+![赤石湾]({{site.IMG_PATH}}/travel-in-nanao-25.jpg_640)
+▲在展南亭上看赤石湾
 
-![下坡](http://pic.yupoo.com/fooleap_v/ClAwOr4H/RniK4.jpg)
-*——这个下坡爽呀*
+![展南亭上]({{site.IMG_PATH}}/travel-in-nanao-26.jpg_640)
+▲展南亭上
 
-![县城](http://pic.yupoo.com/fooleap_v/ClAyGJ6h/LdHeo.jpg)
-*——在此热心阿姨大喊告知停航*
+![规划中的云澳中心渔港]({{site.IMG_PATH}}/travel-in-nanao-27.jpg_640)
+▲规划中的云澳中心渔港
 
-![小艇](http://pic.yupoo.com/fooleap_v/ClAU4aNn/MNkhn.jpg)
-*——这风夹浪带雨，这种小艇，每人150元，实在不敢尝试*
+![云澳中学]({{site.IMG_PATH}}/travel-in-nanao-28.jpg_640)
+▲云澳中学
 
-![热汤](http://pic.yupoo.com/fooleap_v/ClAU4B32/mHITc.jpg)
-*——回到县城，热汤一碗*
+![云澳的菜园]({{site.IMG_PATH}}/travel-in-nanao-29.jpg_640)
+▲云澳的菜园
 
-![南澳新闻](http://pic.yupoo.com/fooleap_v/ClAU4tUW/15yCsl.jpg)
-*——南澳新闻，这辈子估计也看不了多少次*
+![上坡]({{site.IMG_PATH}}/travel-in-nanao-30.jpg_640)
+▲无尽的上坡，具体情况具体分析，不再前行
 
-![后江码头](http://pic.yupoo.com/fooleap_v/ClB7EmaO/L62zo.jpg)
-*——五点四十的后江码头*
+![云澳店铺]({{site.IMG_PATH}}/travel-in-nanao-31.jpg_640)
+▲这段在云澳
 
-![搬运工](http://pic.yupoo.com/fooleap_v/ClB7F6Ih/iz6vF.jpg)
-*——辛苦的搬运工*
+![下坡]({{site.IMG_PATH}}/travel-in-nanao-32.jpg_640)
+▲这个下坡爽呀
 
-![晨曦](http://pic.yupoo.com/fooleap_v/ClB7EN2E/sqrOF.jpg)
+![县城]({{site.IMG_PATH}}/travel-in-nanao-33.jpg_640)
+▲在此热心阿姨大喊告知停航*
+
+![长山尾码头]({{site.IMG_PATH}}/travel-in-nanao-34.jpg_640)
+▲长山尾码头
+
+![小艇]({{site.IMG_PATH}}/travel-in-nanao-35.jpg_640)
+▲这风夹浪带雨，这种小艇，每人150元，实在不敢尝试
+
+![热汤]({{site.IMG_PATH}}/travel-in-nanao-36.jpg_640)
+▲回到县城，热汤一碗
+
+![南澳新闻]({{site.IMG_PATH}}/travel-in-nanao-37.jpg_640)
+▲南澳新闻，这辈子估计也看不了多少次
+
+![五点半的大街上]({{site.IMG_PATH}}/travel-in-nanao-38.jpg_640)
+▲五点半的大街上
+
+![后江码头]({{site.IMG_PATH}}/travel-in-nanao-39.jpg_640)
+▲五点四十的后江码头
+
+![搬运工]({{site.IMG_PATH}}/travel-in-nanao-40.jpg_640)
+▲辛苦的搬运工
+
+![认真的船长]({{site.IMG_PATH}}/travel-in-nanao-41.jpg_640)
+▲认真的船长
+
+![晨曦]({{site.IMG_PATH}}/travel-in-nanao-42.jpg_640)
 *——刚爬上南澳山顶的太阳*
 
-![装备](http://pic.yupoo.com/fooleap_v/ClB7Fq7S/7TnOS.jpg)
-*——感谢一直以来的陪伴*
+![小灯塔？]({{site.IMG_PATH}}/travel-in-nanao-43.jpg_640)
+▲小灯塔？
 
-![工夫茶](http://pic.yupoo.com/fooleap_v/ClB7FNmi/zgrVF.jpg)
-*——在船上，还是那一壶茶*
+![装备]({{site.IMG_PATH}}/travel-in-nanao-44.jpg_640)
+▲感谢一直以来的陪伴
 
-![小岛](http://pic.yupoo.com/fooleap_v/ClB7GcNP/M5PQf.jpg)
-*——面朝大海，春暖花开*
+![工夫茶]({{site.IMG_PATH}}/travel-in-nanao-o5.jpg_640)
+▲在船上，还是那一壶茶
 
-![渔民](http://pic.yupoo.com/fooleap_v/ClB7Gx8A/VckIw.jpg)
-*——渔民*
+![做渔船感觉和大海更加亲近]({{site.IMG_PATH}}/travel-in-nanao-45.jpg_640)
+▲做渔船感觉和大海更加亲近
 
-![东里](http://pic.yupoo.com/fooleap_v/ClB7HrGM/iPQdk.jpg)
-*——到达东里*
+![海鸥]({{site.IMG_PATH}}/travel-in-nanao-46.jpg_640)
+▲海鸥
 
-![粿条](http://pic.yupoo.com/fooleap_v/ClB7Hrxu/8hi4P.jpg)
-*——永新，一碗粿条，葱珠朥，爽*
+![小岛]({{site.IMG_PATH}}/travel-in-nanao-47.jpg_640)
+▲面朝大海，春暖花开
+
+![渔民]({{site.IMG_PATH}}/travel-in-nanao-48.jpg_640)
+▲渔民
+
+![东里]({{site.IMG_PATH}}/travel-in-nanao-49.jpg_640)
+▲到达东里
+
+![东里]({{site.IMG_PATH}}/travel-in-nanao-50.jpg_640)
+▲东里民居
+
+![粿条]({{site.IMG_PATH}}/travel-in-nanao-51.jpg_640)
+▲永新，一碗粿条，葱珠朥，爽
 
 这次旅程，虽不完美，却很难忘。景点，几乎没去过，青澳湾还没看到。一上岛，首先感觉到的是空气的清新，心也静下来了，每每看到美丽的景色，心里却总伴随着些失落。
 
@@ -203,6 +241,7 @@ tags: [南澳, 骑行, 人生]
 **本文历史**
 
 * 2012年10月17日 完成初稿
+* 2015年05月23日 换图床
 
 [1]: http://zh.wikipedia.org/wiki/南澳县 "南澳"
 [2]: http://zh.wikipedia.org/wiki/南澳跨海大桥 "南澳跨海大桥"

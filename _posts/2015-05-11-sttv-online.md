@@ -40,9 +40,10 @@ $("#sttv01 img").click(function(){
 
 下载了 APP，画风是小清新的，但感觉很粗糙，连[下载页面](http://st.cutv.com/app/appdown.html)也做得那么随便，不过，总算是能通过手机看本地电视直播了。
 
-![汕头橄榄台APP]({{site.IMG_PATH}}/sttv-online-03.png?imageView2/1/w/640/h/427/q/90)
+![汕头橄榄台APP]({{site.IMG_PATH}}/sttv-online-03.jpg_640)
 ▲汕头橄榄台APP
 
 **本文历史**
 
 * 2015年05月11日 完成初稿
+* 2015年05月22日 换图片

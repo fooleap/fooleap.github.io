@@ -2,7 +2,6 @@
 layout: post
 title: 免费截图软件 FSCapture 5.3 和 PicPick
 description: "为什么要屏幕截图？简单来说是为了分享屏幕。软件简介一般都会有 Screenshot ，这需要截图。初学者是电脑出现问题时可以把屏幕共享给能解决问题的人，助人者则是为了教导网络上其他人正确的使用软件等，更进一步是图片教程教学。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCEbDI4B/small.jpg"
 category: tech
 tags: [免费, 截图, 软件]
 ---
@@ -48,7 +47,7 @@ tags: [免费, 截图, 软件]
 
 FSCapture 全名 FastStone Capture，是国人开发的截图软件，目前已是共享软件，5.3 版本是最后的免费版本，更新于 2007 年 2 月 12 日。它是 Fooleap 使用时间最长的截图软件，此前用过不少截图软件，当第一次使用 FSCapture 的时候，感觉很舒坦，此后一直使用着这款软件，但有一段时间使用了破解版，做下检讨=。=
 
-![FSCapture]({{site.IMG_PATH}}/fscapture-picpick-04.png)
+![FSCapture]({{site.IMG_PATH}}/fscapture-picpick-04.jpg)
 
 软件名称：FastStone Capture
 

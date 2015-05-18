@@ -20,7 +20,7 @@ tags: [桂林, 徒步]
 
 <iframe width="640" height="427" src="http://s951.photobucket.com/user/Fooleap/embed/slideshow/Blog/05-29-2011"></iframe>
 
-地图及图片可能需翻墙访问。
+地图及图片可能需科学上网访问。
 
 **本文历史**
 

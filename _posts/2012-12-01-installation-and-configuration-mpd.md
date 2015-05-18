@@ -2,7 +2,6 @@
 layout: post
 title: "安装和配置 MPD"
 description: "使用 i3 窗口管理器，感觉很舒服，更有帅帅的 i3status 点缀之，在 GitHub 搜了下，发现有个 i3status 修改版，可以显示 MPD 的播放状态，于是又用起 MPD。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CsoTzarg/small.jpg"
 category: tech
 tags: [MPD, MPC, 播放器]
 ---
@@ -93,8 +92,7 @@ pcm.!default {
 
     $ alsamixer -D equal
 
-![Alsaequal](http://pic.yupoo.com/fooleap_v/CuwYddO3/p82aA.png)
-
+![Alsaequal]({{site.IMG_PATH}}/installation-and-configuration-mpd-01.png)
 配置 MPD
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.mpdconf</code></pre>
@@ -198,10 +196,11 @@ keycode 123 = XF86AudioRaiseVolume</code></pre>
 
 将 xmodmap ~/.Xmodmap & 添加到 ~/.xinitrc 使其随 X 启动
 
-![i3status with mpd](http://pic.yupoo.com/fooleap_v/CsoTzarg/pbFZZ.png)
+![i3status with mpd]({{site.IMG_PATH}}/installation-and-configuration-mpd-02.png)
 
 **本文历史**
 
 * 2012年12月01日 创建文章
 * 2012年12月02日 修正 mpc 歌曲列表部分的错误
 * 2012年12月15日 添加配置均衡器
+* 2015年05月24日 换图床

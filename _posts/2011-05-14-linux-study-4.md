@@ -2,7 +2,6 @@
 layout: post
 title: Linux学习笔记(4)
 description: "一直以来都对 Arch Linux 十分向往，而 Arch Linux 硬盘安装是十分折腾的，此次安装栽在安装源的设置，宿舍网络情况并不好，把 iso 文件挂载在 /src 目录下，不行，也还没找到相关信息。这我想起了 Archboot，而无意中却碰到了 ArchBang 这个图形界面的 Live CD。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCDIxdWU/small.png" 
 category: tech
 tags: [ArchBang, ArchLinux, Linux, locale, NetworkManager, 小小输入法, 硬盘安装, 笔记]
 ---

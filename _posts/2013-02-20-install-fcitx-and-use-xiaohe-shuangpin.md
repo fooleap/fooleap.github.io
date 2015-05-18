@@ -2,7 +2,6 @@
 layout: post
 title: "安装 Fcitx 输入法，使用小鹤双拼"
 description: "为了提高中文打字速度，从 2010 年开始使用双拼输入法。双拼，顾名思义，所有音节都只需输入 2 键，即所有汉字只需按两个键。虽然“音码 + 形码”更能提高打字速度，图个方便就没有使用这种方式，仅仅是纯双拼。起初使用自然码双拼方案，后来换为小鹤双拼。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CEHdpz1L/small.jpg" 
 category: tech
 tags: [Fcitx, 小鹤, 输入法, 双拼, Linux, ArchLinux]
 ---

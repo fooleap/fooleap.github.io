@@ -16,24 +16,22 @@ title: Blogroll
 
 ###友情链接###
 
-<ul>
-  <li><a href="http://ashat.org" title="@四川">Anton&#039;s Blog</a></li>
-  <li><a href="http://dong4a.sinaapp.com/" title="梁东宇@广州">anoulin2009</a></li>
-  <li><a href="http://blog.conan06.com/" title="Conan06@北京">Conan06&#039;s blog</a></li>
-  <li><a href="http://mugbya.cn/">Mugbya's Blog</a></li>
-  <li><a href="http://www.wuhuting.com/" title="吴胡婷@北京">misshu</a>
-  <li><a href="http://songtl.com/" title="宋廷龙@桂林">Terence's Blog</a></li>
-  <li><a href="http://terrychen.info/" title="陈敏@北京">Terry&#039;s Blog</a></li>
-  <li><a href="http://www.ubuntusoft.com/" title="刘樟宏@深圳">UbuntuSoft</a></li>
-  <li><a href="http://blog.jiangqiwen.cn/" title="@浙江">大喇叭</a></li>
-  <li><a href="http://gubo.org" title="许凯@郑州">古博</a></li>
-  <li><a href="http://www.gxlinux.com" title="广西大学Linux协会">广西大学Linux协会</a></li>
-  <li><a href="http://mrkod.com" title="MR.KOD@杭州">乱步集</a></li>
-  <li><a href="http://www.nenew.net/" title="奶牛@淄博">奶牛博客</a></li>
-  <li><a href="http://bzdiao.com/" title="Bruse@西安">软件小子</a></li>
-  <li><a href="http://since1989.org/" title="王亚平@上海">我是王掌柜</a></li>
-  <li><a href="http://linhaicaoyuan.org/" title="石明鑫@昆明">以梦为马，奔向远方</a></li>
-  <li><a href="http://www.zhanggang.net/" title="张刚@长沙">张刚的博客</a></li>
-  <li><a href="http://www.makiller.com/" title="马震南@南宁">贼头&#039;s Blog</a></li>
-</ul>
 
+* [Anton's Blog](http://ashat.org){:title="@四川"}
+* [anoulin2009](http://blog.twodong.com/){:title="梁东宇@梧州"}
+* [Conan06's blog](http://blog.conan06.com/){:title="Conan06@北京"}
+* [Mugbya's Blog](http://mugbya.cn/)
+* [misshu](http://www.wuhuting.com/){:title="吴胡婷@北京"}
+* [Terence's Blog](http://songtl.com/){:title="宋廷龙@桂林"}
+* [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
+* [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
+* [大喇叭](http://blog.jiangqiwen.cn/){:title="@浙江"}
+* [古博](http://gubo.org){:title="许凯@郑州"}
+* [广西大学Linux协会](http://www.gxlinux.com){:title="广西大学Linux协会"}
+* [乱步集](http://mrkod.com){:title="MR.KOD@杭州"}
+* [奶牛博客](http://www.nenew.net){:title="奶牛@淄博"}
+* [软件小子](http://bzdiao.com){:title="Bruse@西安"}
+* [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
+* [以梦为马，奔向远方](http://linhaicaoyuan.org){:title="石明鑫@昆明"}
+* [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
+* [贼头's Blog](http://www.makiller.com){:title="马震南@南宁"}

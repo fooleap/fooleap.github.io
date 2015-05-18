@@ -2,7 +2,6 @@
 layout: post
 title: 我的黑莓8700之应用篇
 description: "想在老机8700上拍照看视频是不可能的事，用它听歌玩游戏也不会好选择，因为它只有16M的RAM和64M的ROM。这个配置大大落后于现在的热门机型，廉颇老矣，尚能饭否？目前手机上的大多数应用都是基于互联网，使用手机便捷上网十分流行，特别是微博客，即时通信等服务。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCpNVu47/small.jpg"
 categories: tech
 tags: [手机, 黑莓, 黑莓8700]
 ---
@@ -11,7 +10,7 @@ tags: [手机, 黑莓, 黑莓8700]
 
 都说用黑莓就是折腾，事实并非如此，熟悉黑莓之后，手机里的设置及软件变动会很少很少，我手机里的软件大半年没有变化了。下面是已安装有图标的软件截图：
 
-![8700所安装的软件](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/blackberry8700/softwareusing.png )
+![8700所安装的软件]({{site.IMG_PATH}}/software-for-blackberry-8700.png)
 
 **系统辅助**
 
@@ -56,7 +55,7 @@ tags: [手机, 黑莓, 黑莓8700]
 
 以上软件均可在此下载：[http://dl.dbank.com/c0yy54muhv](http://dl.dbank.com/c0yy54muhv)
 
-若鄙人知道有软件更新，会更新网盘里的文件，也可在此共享找到：[http://www.dbank.com/share/blackberry8700](http://www.dbank.com/share/blackberry8700)
+~~若鄙人知道有软件更新，会更新网盘里的文件，也可在此共享找到：[http://www.dbank.com/share/blackberry8700](http://www.dbank.com/share/blackberry8700)~~
 
 当然还有更多的应用，满足鄙人现在需求，这些软件已足够，仅仅娱乐功能欠缺，其他功能不亚于普通智能机吧？姜还是老的辣~~
 
@@ -76,3 +75,4 @@ tags: [手机, 黑莓, 黑莓8700]
 * 2011年11月03日 更新UCBrowser为8.0正式版
 * 2011年11月08日 添加Google Sync,黑莓飞信精灵
 * 2011年11月10日 卸载了SwooshPhotos,从网盘去除,反对盗版
+* 2015年05月24日 换图床

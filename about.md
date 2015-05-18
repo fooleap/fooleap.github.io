@@ -10,7 +10,9 @@ tags: [关于, 博客, fooleap, blog]
 * 博客网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * RSS 订阅：[http://feed.fooleap.org](http://feed.fooleap.org)
 
-这是 Fooleap 的个人博客，记录学习工作生活的点点滴滴，话题方向在于 Linux，跑步，旅行
+这是 Fooleap 的个人博客，记录学习工作生活的点点滴滴，话题方向在于 Linux，跑步，旅行。
+
+本博客采用 [Jekyll](http://jekyllrb.com/) 搭建，托管于 [GitCafe](https://gitcafe.com/fooleap/fooleap) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。
 
 **关于版权**
 
@@ -52,3 +54,5 @@ tags: [关于, 博客, fooleap, blog]
 * 2014-08-05 放弃 Bootstrap 框架，参考他人博客弄了个简洁的模板
 * 2015-04-18 给文章页面添加二维码
 * 2015-05-18 评论改为点击加载
+* 2015-05-20 图片悬停显示EXIF
+* 2015-05-23 增加远程 GitCafe 分支，DNSPod 设置国内访问 GitCafe，国外访问 GitHub。

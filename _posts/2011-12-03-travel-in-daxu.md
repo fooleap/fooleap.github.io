@@ -2,7 +2,6 @@
 layout: post
 title: 记大圩一游
 description: "我热爱体育，但不经常做运动。对于手脚笨拙的我而言，跑步和骑车是所喜爱的两项运动，球类运动一般不碰，一直不喜欢竞技运动，相对来说更适合做观众，而且是闷骚的观众，只会静静地看着而不会加油助威的。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCqoD1Ai/small.jpg"
 category: life
 tags: [hosts, 大圩, 桂林, 骑行]
 ---
@@ -22,14 +21,12 @@ tags: [hosts, 大圩, 桂林, 骑行]
 
 从东二环转到七里店一直到桂磨一级，那条路很宽敞，各种产业园也在那遍地开花。大圩新镇区和普通城镇没啥区别，古镇不大，房子也很老，就像家乡农村的老厝区，好多房子都已经没人住了，居住的大多是老人，小孩，有点像留守儿童。就不贴照片了，几张图片都放[picasa相册](https://picasaweb.google.com/fooleap/XTBtUB?authuser=0&authkey=Gv1sRgCP6eicW6zYutEw)。
 
-若因大墙无法访问，可[在此](http://hosts.fgqi.net/)（亦可[在此](http://dl.dbank.com/c0i0yxkute)）获取FGQI制作的hosts更新脚本，也可以使用Smarthosts更新hosts，地址：[https://code.google.com/p/smarthosts](https://code.google.com/p/smarthosts/)，备份镜像：[https://smarthosts.sinaapp.com](https://smarthosts.sinaapp.com/)。
-
 像我这样农村的孩子，下面这张图有没感觉到亲切呢？
 
-![一电子铺](http://pic.yupoo.com/fooleap_v/CCqoD1Ai/SWD3h.jpg)
+![一电子铺](http://fooleap.qiniudn.com/travel-in-daxu.jpg_640)
 
 
 **本文历史**
 
-* 2011年12月03日  创建文章
-* 2015年05月07日  修复地图
+* 2011年12月03日 创建文章
+* 2015年05月07日 修复地图

@@ -2,7 +2,6 @@
 layout: post
 title: 我的黑莓8700之使用篇
 description: "此前说过，黑莓是先结婚后恋爱的手机，刚开始使用黑莓那是相当不适应，慢慢的各种操作上手熟悉后，用起来就相当顺手了。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCpNVu47/small.jpg"
 category: tech
 tags: [手机, 工程模式, 热键大师, 黑莓8700]
 ---
@@ -47,7 +46,7 @@ tags: [手机, 工程模式, 热键大师, 黑莓8700]
 
 一款功能简单又强大的系统功能扩展软件，启动程序更加方便了，一些功能的实现如下(设置空格键为启动热键大师快捷键)
 
-![黑莓热键大师](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/blackberry8700/keymaster.png)
+![黑莓热键大师]({{site.IMG_PATH}}/use-of-blackberry8700-01.png)
 
 启动应用程序
 
@@ -71,10 +70,11 @@ tags: [手机, 工程模式, 热键大师, 黑莓8700]
 
 如下图依此按下Alt，Shift，h键时，启动help me，进入获取[eScreen Unlock Code](http://www.bber.info/escreen.htm)的网站（源码：http://dl.getdropbox.com/u/1911810/sha1.htm，BerryBox等软件亦提供）获取解锁码，在help me界面依次输入即可，更多可见[黑莓工程模式(eScreen)详解](http://www.bber.info/post/blackberry_escreen)。
 
-![黑莓工程模式](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/blackberry8700/es.png)
+![黑莓工程模式]({{site.IMG_PATH}}/use-of-blackberry8700-02.png)
 
-待完善...
+<del>待完善...</del>
 
 **本文历史**
 
 * 2011年11月18日 创建文章
+* 2015年05月24日 换图床

@@ -2,7 +2,6 @@
 layout: post
 title: Thinkpad X30 上的 Windows 7
 description: "XP 毕竟该退休了，而单 Linux 又显得有点不切实际，无聊的搜了一下是否有人在 X30 上安装 Win 7 成功，大部分都说是显驱安装失败，Google 搜到的一篇文章（老筆電跑 Windows 7）让我很想试试，既然都有人把显驱安装上了，那就试试吧。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCqMunsU/small.jpg"
 category: tech
 tags: [ThinkPad, X30, QQ旋风, 离线下载, 网络叠加, 负载均衡]
 ---
@@ -23,18 +22,19 @@ XP 毕竟该退休了，而单 Linux 又显得有点不切实际，无聊的搜�
 
 第一步，下载一个超过 2G 的文件，将它下载到 99% 左右，就是快好的时候，暂停它，会自动生成一个 qud.cfg 格式的文件。
 
-![QQ旋风1](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/2011-09-21_132015.png)
+![QQ旋风1]({{site.IMG_PATH}}/win7-for-thinkpad-x30-01.png)
 
 第二步，把这两个文件备份起来，只要过了一天，把它们复制一下，导入旋风下载完毕即可，一天 200 积分收入囊中。当然前一天先复制，第二天一导入也就几秒的事情。
 
-![QQ旋风2](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/2011-09-21_132635.png)
+![QQ旋风2]({{site.IMG_PATH}}/win7-for-thinkpad-x30-02.png)
 
 宿舍有两台路由器，一台无线一台有线，一直想使用负载均衡，把网络叠加起来使用，试了多个软件都效果不佳，后来找到一个很老的批处理脚本，现共享，Win 7 需要管理员权限。[下载](http://dl.dbank.com/c0bbx3bzhv)
 
 用了它，2m + 4m 的宽带速度可以达到（重启即失效）
 
-![网络叠加](http://i951.photobucket.com/albums/ad353/Fooleap/Blog/Fooleap/2011-09-21_173442.png)
+![网络叠加]({{site.IMG_PATH}}/win7-for-thinkpad-x30-03.png)
 
 **本文历史**
 
-* 2011年09月23日  创建文章
+* 2011年09月23日 创建文章
+* 2015年05月24日 换图床 

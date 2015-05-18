@@ -2,7 +2,6 @@
 layout: post
 title: "初到杭城"
 description: "又到周末雨落时，手脚笨拙，表达能力较弱的我，也只能选择在这个时候，倾听雨声写写博客，显然有股小时写周记的味道，而思想心境却再也回不到过去。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CJtzVqJn/small.jpg"
 category: life 
 tags: [杭州, 工作]
 ---

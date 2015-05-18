@@ -2,7 +2,6 @@
 layout: post
 title:  杭州的桥
 description: "这题目看起来范围有点广，杭州的桥，既可以是有江南特色的古代桥梁，又可以是近现代交通而新建的公路桥、铁路桥，甚至可以是目前杭州多地还在架起的高架桥。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/DPHzCpy3/small.jpg"
 category: life
 tags: [杭州的桥,  文晖大桥, 西兴大桥, 复兴大桥]
 ---
