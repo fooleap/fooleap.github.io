@@ -4,14 +4,24 @@
   padding: 0;
 }
 
+strong, b {
+  font-weight: bold;
+  color: #000;
+}
+
 html,body {
-  font-family: Georgia,"Bitstream Charter",MingLiU,serif;
   height: 100%;
+  font-family: Helvetica,Arial,"Microsoft Yahei",sans-serif;
   font-size: 16px;
   font-weight: 300;
+  color:#333;
   line-height: 1.5;
   background: rgb(180, 210, 250);
 }
+
+header, section, footer, aside, nav, main, article, figure {
+    display: block;
+} 
 
 h1,h2,h3,h4,h5,h6 {
   font-size: 100%;
@@ -85,7 +95,6 @@ nav {
 }
 
 .navigation .navigation-list {
-  font-family: Trebuchet MS, Gill sans, lucida grande, lucida sans, verdana, sans-serif;
   font-size: .75em;
   position: absolute;
   top: 0;
@@ -118,6 +127,7 @@ nav {
 }
 
 .navigation .navigation-list li{
+  display: inline;
   height: 30px;
 }
 
@@ -345,17 +355,17 @@ nav {
 }
 
 .post-content h2 {
-  font-size: 32px;
+  font-size: 25px;
   letter-spacing: -1.25px;
 }
 
 .post-content h3 {
-  font-size: 26px;
+  font-size: 22px;
   letter-spacing: -1px;
 }
 
 .post-content h4 {
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: -1px;
 }
 
@@ -429,13 +439,15 @@ iframe {
 }
 .post-content pre,
 .post-content code {
-  font-size: 15px;
+  font-size: 14px;
+  font-family: Consolas;
   overflow: auto;
   padding: 8px 12px;
   border: 1px solid rgb(213, 213, 233);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  background:#efefef;
 }
 
 .post-content code {
@@ -525,19 +537,19 @@ iframe {
   }
 
   .post-content h1 {
-    font-size: 30px;
-  }
-
-  .post-content h2 {
     font-size: 25px;
   }
 
+  .post-content h2 {
+    font-size: 22px;
+  }
+
   .post-content h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .post-content h4 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .post-content blockquote {
@@ -564,19 +576,19 @@ iframe {
   }
 
   .post-content h1 {
-    font-size: 26px;
-  }
-
-  .post-content h2 {
-    font-size: 24px;
-  }
-
-  .post-content h3 {
     font-size: 22px;
   }
 
-  .post-content h4 {
+  .post-content h2 {
+    font-size: 20px;
+  }
+
+  .post-content h3 {
     font-size: 18px;
+  }
+
+  .post-content h4 {
+    font-size: 16px;
   }
 
   .post-content blockquote {

@@ -7,8 +7,9 @@ url: "http://blog.fooleap.org"
 twitter_username: fooleap
 github_username: fooleap
 weibo_username: fooleap
+timezone: Asia/Shanghai
 markdown: kramdown
 permalink: /:title.html 
-highlighter: rouge
+highlighter: pygments
 paginate: 10
 IMG_PATH: http://fooleap.qiniudn.com

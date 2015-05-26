@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 在 Windows 上搭建 Jekyll 写作环境
+date: 2015-05-27 09:00:00 +0800
 description: "曾几何时，别说是 Jekyll，Windows 用户想要好好用一会 Ruby 也相当麻烦，安装时各种出错，但现在想在 Windows 上搭建一个可用的 Jekyll 写作环境还是挺简单的。"
 category: tech
 tags: [Jekyll, Ruby, Windows, wdm, 博客]
@@ -16,7 +17,7 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
  
 安装的时候注意勾选“Add Ruby executables to your PATH”，设置环境变量，这样一来，你将能在 Windows 命令行直接使用 Ruby 的相关命令。
 
-![Add Ruby executables to your PATH]({{site.IMG_PATH}}/run-jekyll-on-windows.png)
+![Add Ruby executables to your PATH]({{site.IMG_PATH}}/run-jekyll-on-windows-01.png)
 ▲勾选 Add Ruby executables to your PATH
  
 ##安装 Ruby DevKit
@@ -25,8 +26,8 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
  
 这是一个压缩包， 为它建个目录（永久）并解压进去，例如 ```C:\RubyDevKit```，进入此目录并初始化。
 
-    > cd C:\RubyDevKit
-    > ruby dk.rb init
+    cd C:\RubyDevKit
+    ruby dk.rb init
 
 若它不能自动获取 Ruby 目录时，需编辑其目录下的 ```config.yml``` 文件手动照葫芦画飘在后面加上
 
@@ -34,29 +35,38 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
 
 最后安装 DevKit
 
-    > ruby dk.rb install
+    ruby dk.rb install
 
 ##安装 Jekyll
 
 和 Linux 一样，在 Windows 上安装 Jekyll 仅需在命令行输入
 
-    > gem install jekyll
+    gem install jekyll
 
 等待安装后，你就可以使用 Jekyll，使用 ```jekyll new``` 命令即可简单生成一个默认的博客，例如
 
-    > jekyll new blog
+    jekyll new blog
 
 ##语法高亮(可选)
 
 Jekyll 的语法高亮默认采用 Pygments，不过你可以使用 Rouge，安装
 
-    > gem install rouge
+    gem install rouge
 
 在配置中启用
 
-     highlighter: rouge
+    highlighter: rouge
 
-若你还是想用 Pygments ，则还需要部署 Python，具体见可 [Install a Syntax Highlighter](http://jekyll-windows.juthilo.com/3-syntax-highlighting/)。
+不过，若你的博客托管在 GitHub，则需要安装 Pygments，因为目前 GitHub Pages 仅支持 Pyments，Pyments 基于 Python，所以你还需要安装 Python。
+
+首先到 [Download Python](https://www.python.org/downloads/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
+
+![Python 设置环境变量]({{site.IMG_PATH}}/run-jekyll-on-windows-02.png)
+▲Python 设置环境变量
+
+Python 目前安装包集成 pip（类似于 gem 之于 Ruby），可以直接安装 ```pygments```
+
+    pip install pygments
 
 ##安装 wdm（可选）
 
@@ -70,17 +80,18 @@ Jekyll 的语法高亮默认采用 Pygments，不过你可以使用 Rouge，安�
 
 于是强迫症发，只好安装
 
-    > gem install wdm
+    gem install wdm
 
 不过问题来了，wdm 死活安装不上，Google 了一下，据此 [Issus](https://github.com/Maher4Ever/wdm/issues/18)，大概是与 Ruby 版本兼容问题，这个分支 [HaiderRazvi/wdm](https://github.com/HaiderRazvi/wdm) 可以被装上
 
-    > git clone https://github.com/HaiderRazvi/wdm.git
-    > cd wdm
-    > gem build wdm.gemspec
-    > gem install wdm-0.1.0.gem
+    git clone https://github.com/HaiderRazvi/wdm.git
+    cd wdm
+    gem build wdm.gemspec
+    gem install wdm-0.1.0.gem
 
 当然，关于 gem，你也可以通过 Bundler 来管理，在 ```Gemfile``` 文件中指定，具体可以看看[这篇文章](http://blog.leanote.com/post/551ab4c438f41114e80014af)。
 
 **本文历史**
 
 * 2015年05月26日 完成初稿
+* 2015年05月27日 加入 pygment 安装说明

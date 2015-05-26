@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
     <script type="text/javascript" src="/js/modernizr.js"></script>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <!--[if lte IE 9]>
+      <script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script type="text/javascript">
+        document.createElement('main');
+      </script>
+    <![endif]-->
     <!--[if lte IE 8]>
       <script src="http://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
     <![endif]-->
@@ -39,7 +45,7 @@
       <img src="{{site.IMG_PATH}}/avatar.jpg" width="40" height="40" class="avatar" title="Navigation"/>
   </nav>
   
-  <main class="wrapper">
+  <main class="wrapper" role="main">
     <header class="site-header">
       <h1>
         {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
