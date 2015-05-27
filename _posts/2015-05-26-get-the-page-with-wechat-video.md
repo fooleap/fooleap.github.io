@@ -20,12 +20,12 @@ tags: [微信, 腾讯视频, 网址]
 
 腾讯视频直接搜“澄海新闻”，搜到大部分是澄缘似海 @澄海bigeye 的。不乱找了，这样瞎找何不直接通过微信里的视频去获取地址，那么应该如何获取微信文章中腾讯视频的网址呢？
 
-首先，将微信文章地址复制到电脑上用浏览器打开后，查看源码我们便可获取视频地址，如下图中 ```http://v.qq.com/iframe/player.html?vid=k0154l11os1``` 便是，很多公众号便是通过这步将别人的视频贴到自己的文章里。
+首先，将微信文章地址复制到电脑上用浏览器打开后，查看源码我们便可获取视频地址，如下图中 `http://v.qq.com/iframe/player.html?vid=k0154l11os1` 便是，很多公众号便是通过这步将别人的视频贴到自己的文章里。
 
 ![微信视频地址]({{site.IMG_PATH}}/get-the-page-with-wechat-video-02.png)
 ▲微信视频地址
 
-而鄙人需要的是其腾讯视频页面网址，仅需在那个地址后面加个参数 tiny 值为 0（默认是1），即 ```http://v.qq.com/iframe/player.html?vid=k0154l11os1&tiny=0```，接下来呢？自然是点击右下角腾讯视频的 Logo 便是视频页面网址。
+而鄙人需要的是其腾讯视频页面网址，仅需在那个地址后面加个参数 tiny 值为 0（默认是1），即 `http://v.qq.com/iframe/player.html?vid=k0154l11os1&tiny=0`，接下来呢？自然是点击右下角腾讯视频的 Logo 便是视频页面网址。
 
 ![腾讯视频地址]({{site.IMG_PATH}}/get-the-page-with-wechat-video-03.png)
 ▲腾讯视频地址

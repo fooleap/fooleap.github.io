@@ -2,7 +2,6 @@
 layout: post
 title: 原来，我也有梦想
 description: "做了一年的 SEO 也让我感觉是混日子般地生存着，生活缺少了挑战和激情，多了一些没营养的忙碌。看《拖延心理学》知道，拖延的深层是恐惧，而不是一种习惯。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/DBOP1pHj/small.jpg"
 category: life
 tags: [工作, 学习, 梦想]
 ---

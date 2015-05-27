@@ -2,10 +2,12 @@
 layout: post
 title: "2012 年个人总结"
 description: "这是我第一次写年度总结，2012 年我过得好么？是，塞翁失马，焉知非福。若坦白地说，这年过得极其糟糕。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CwWG4ZYu/small.jpg"
 category: life
 tags: [年度总结, 爱情, 工作]
 ---
+
+* toc
+{:toc}
 
 这是我第一次写年度总结，2012 年我过得好么？是，塞翁失马，焉知非福。若坦白地说，这年过得极其糟糕。
 

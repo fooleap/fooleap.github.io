@@ -1,21 +1,20 @@
 ---
 layout: page
-title: 存档
-description: "存档"
-tags: [存档]
+title: 归档
+tags: [归档]
 ---
 
-<div class="post-category">
+<section class="post-category">
   <h2>生活</h2>
   <ul>
   {% for post in site.categories.life %}
-    <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date:"%Y-%m-%d" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
   </ul>
   <h2>技术</h2>
   <ul>
   {% for post in site.categories.tech %}
-    <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+    <li><span>{{ post.date | date:"%Y-%m-%d" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
   </ul>
-</div>
+</section>

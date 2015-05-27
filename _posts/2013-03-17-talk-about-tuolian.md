@@ -2,7 +2,6 @@
 layout: post
 title: "谈谈《鮀恋》"
 description: "不知何时开始，《鮀恋》在微博上的宣传吸引了我，看完预告片更是让我兴趣大增，一直等待网络视频的发布。而视频发布后，却一直没把它看完，直至上个周末，才完整地看了一遍。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CIvcZGHz/small.jpg" 
 category: life 
 tags: [爱情, 潮汕]
 ---

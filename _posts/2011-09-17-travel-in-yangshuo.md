@@ -2,7 +2,6 @@
 layout: post
 title: 记阳朔一游
 description: "话说桂林山水甲天下，阳朔山水甲桂林。来桂林，乐满地可以不去，大圩古镇可以不去，龙胜漂流也可以不去，但似乎找不到任何理由不去阳朔，何况在桂林已经呆了一年还没去过，所以有了9月11日到12日，宿舍六人阳朔游之说。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCqSg2gj/small.jpg"
 category: life
 tags: [旅游, 桂林, 漓江, 西街, 阳朔, 骑行]
 ---

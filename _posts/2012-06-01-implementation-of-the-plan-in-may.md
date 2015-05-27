@@ -6,6 +6,9 @@ category: life
 tags: [早起, 慢跑, 徒步]
 ---
 
+* toc
+{:toc}
+
 上个月我在[此文](http://blog.fooleap.org/early-rising-running-and-walking.html)中说道，要每天早起，每天慢跑，每周一徒步。今天是6月1日，这一个月来，计划执行的情况到底是咋样的呢？下面一起来算算账。
 
 <del>关于早起和慢跑的状况，暂时可以在这里找到：[http://fooleap.org/running.html](http://fooleap.org/running.html)</del>

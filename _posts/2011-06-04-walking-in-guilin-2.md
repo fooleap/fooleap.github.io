@@ -2,8 +2,7 @@
 layout: post
 title: 步行桂林市区之二
 description: "5月29日下午，再次去桂林市区步行，越来越发现这种方式的好处，更多的好处还是锻炼身体，何乐而不为呢？虽然不是跑，不过走得也不慢，5个小时16公里。水喝多了，那天下午足足喝了三瓶水，记得爬尧山的过程三瓶半。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCDzv5z0/small.jpg"
-categories: life
+category: life
 tags: [桂林, 徒步]
 ---
 

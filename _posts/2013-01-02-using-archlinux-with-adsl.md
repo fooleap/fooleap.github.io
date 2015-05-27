@@ -2,10 +2,12 @@
 layout: post
 title: "Arch Linux 下的 ADSL 拨号上网"
 description: "前几天拉了网，普通的 ADSL 宽带，由于没有路由器，因此只能通过自身的拨号。在 Arch Linux 下，可以通过自带的 Netcfg 来连接，可以通过 RP-PPPoE 来连接，也可直接配置 pppd 实现拨号。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCpuJG8L/small.jpg"
 category: tech
 tags: [ArchLinux, ADSL, Netcfg, RP-PPPoE, pppd]
 ---
+
+* toc
+{:toc}
 
 前几天拉了网，普通的 ADSL 宽带，由于没有路由器，因此只能通过自身的拨号。
 
@@ -22,7 +24,7 @@ tags: [ArchLinux, ADSL, Netcfg, RP-PPPoE, pppd]
 只需修改这两行中的用户名和密码
 
 <pre style='margin-bottom: 0; border-bottom:none; padding-bottom:8px;'><code>/etc/network.d/fooleap</code></pre>
-<pre style='margin-top: 0; border-top-style:dashed; padding-top:8px;'><code>USER='example@yourprovider.com'
+<pre style='margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;'><code>USER='example@yourprovider.com'
 PASSWORD='very secret'</code></pre>
 
 尝试拨号
@@ -61,7 +63,7 @@ PASSWORD='very secret'</code></pre>
 在 /etc/ppp/peers 这个目录下创建一个文件，如 fooleap，内容如下，其实一般只需改“帐号”，即宽带帐号
 
 <pre style='margin-bottom: 0; border-bottom:none; padding-bottom:8px;'><code>/etc/ppp/peers/fooleap</code></pre>
-<pre style='margin-top: 0; border-top-style:dashed; padding-top:8px;'><code>plugin rp-pppoe.so
+<pre style='margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;'><code>plugin rp-pppoe.so
 # 不需要安装 rp-pppoe 这个包
 eth0
 name "帐号"
@@ -74,7 +76,7 @@ noauth</code></pre>
 编辑 /etc/ppp/pap-secrets
 
 <pre style='margin-bottom: 0; border-bottom:none; padding-bottom:8px;'><code>/etc/ppp/pap-secrets</code></pre>
-<pre style='margin-top: 0; border-top-style:dashed; padding-top:8px;'><code>"帐号" * "密码"</code></pre>
+<pre style='margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;'><code>"帐号" * "密码"</code></pre>
 
 pap-secrets 文件的权限设为 600
 

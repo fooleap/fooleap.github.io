@@ -13,3 +13,5 @@ permalink: /:title.html
 highlighter: pygments
 paginate: 10
 IMG_PATH: http://fooleap.qiniudn.com
+kramdown: 
+  toc_levels: "2,3" 

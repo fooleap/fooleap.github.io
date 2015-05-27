@@ -2,10 +2,12 @@
 layout: post
 title: "Vim 与系统剪切板交互"
 description: "很多时候使用 Vim 编辑文本，总需要复制里面的东西出来，粘贴到其他地方，比如说网页，聊天窗口等等，而有些时候有需要从网页等地方复制文字过来粘贴到 Vim 正在编辑的文件里。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCqAJhY1/small.jpg"
 category: tech
 tags: [Vim, 剪切板, ArchLinux]
 ---
+
+* toc
+{:toc}
 
 很多时候使用 Vim 编辑文本，总需要复制里面的东西出来，粘贴到其他地方，比如说网页，聊天窗口等等，而有些时候有需要从网页等地方复制文字过来粘贴到 Vim 正在编辑的文件里。这个两个过程应该怎么完成呢？
 

@@ -19,7 +19,7 @@ tags: [Fcitx, 小鹤, 输入法, 双拼, Linux, ArchLinux]
     # pacman -S fcitx-gtk2 fcitx-gtk3 fcitx-qt
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.xinitrc</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>export XMODIFIERS="@im=fcitx"
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>export XMODIFIERS="@im=fcitx"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 fcitx&</code></pre>
@@ -37,7 +37,7 @@ fcitx&</code></pre>
 返回结果显示 conf/fcitx-pinyin.config 这个文件有 XiaoHe 这个字符串，也看到其他的双拼方案名称，基本上确定可以在此配置双拼方案，编辑这个文件
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.config/fcitx/conf/fcitx-pinyin.config</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>#DefaultShuangpinSchema=Ziranma
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>#DefaultShuangpinSchema=Ziranma
 # 注意到如上一行，可以看到默认是自然码，取消注释并设置为小鹤
 DefaultShuangpinSchema=XiaoHe</code></pre>
 

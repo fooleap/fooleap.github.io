@@ -6,6 +6,9 @@ category: tech
 tags: [Jekyll, Ruby, 博客]
 ---
 
+* toc
+{:toc}
+
 Windows 用户可前往[在 Windows 上搭建 Jekyll 写作环境](run-jekyll-on-windows.html)
 
 在好久好久以前，我提到了我[从 WordPress 切换到 Jekyll 的缘由](http://blog.fooleap.org/replace-wordpress-with-jekyll.html)。自从使用 Jekyll 写博，到现在也已经有两年半左右的时间，Jekyll 也日趋成熟，使用起来也相当舒畅，无过多的不适感。

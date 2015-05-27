@@ -2,7 +2,6 @@
 layout: post
 title: 爬尧山记
 description: "来到桂林的第八个月的一天，5月28日下午，终于去爬了尧山，完成了早就应该去做，必要的事件。只因为尧山是桂林第一山，只因为尧山就在我们学校后面，因为……越来越喜欢旅游了，或者不是叫做旅游，而是锻炼，可以说每一次旅游都让自己原本属宅男的身躯得到锻炼。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCr5GBS6/small.jpg"
 category: life
 tags: [尧山, 桂林, 爬山]
 ---

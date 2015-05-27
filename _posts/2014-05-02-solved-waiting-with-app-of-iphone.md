@@ -2,7 +2,6 @@
 layout: post
 title: "解决 iPhone 上应用程序的“等待中”"
 description: "自从工作以后，感觉已经没有时间继续折腾，连手机也换成大众街机开箱即用的 iPhone，昨天在网上无意中看到这个网站——Fly It Remotely，大致理解为提供 APP 内测版本发布的地方，具体可以看其关于页面。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/DJfipXVe/10etng.png"
 category: tech
 tags: [iPhone, iOS, APP, Waiting]
 ---

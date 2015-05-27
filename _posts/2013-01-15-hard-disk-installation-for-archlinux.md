@@ -2,7 +2,6 @@
 layout: post
 title: "硬盘安装 Arch Linux"
 description: "Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux 的自由，于是切换回 Arch Linux，新版本的安装方式和以前稍有区别，下面一步一步来完成 Arch Linux 的安装。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCpuJG8L/small.jpg"
 category: tech
 tags: [ArchLinux, 硬盘安装]
 ---
@@ -87,7 +86,7 @@ Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.d/mirrorlist
 </code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 </code></pre>
 
@@ -97,7 +96,7 @@ Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 >     # cp -R /path/to/core /mnt/repo
 >
 ><pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.conf</code></pre>
-><pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>[core]
+><pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>[core]
 >SigLevel = PackageRequired
 >Server = file:///mnt/repo/core
 >\# 并把默认的 core, extra, community 注释掉 </code></pre>
@@ -139,7 +138,7 @@ chroot 到刚安装的新系统
 修改 Locale，定义用户所使用的语言及字符集。
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/locale.gen</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>en_US.UTF-8 UTF-8
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>en_US.UTF-8 UTF-8
 zh_CN.GB18030 GB18030
 zh_CN.GBK GBK
 zh_CN.UTF-8 UTF-8
@@ -167,14 +166,14 @@ zh_CN GB2312</code></pre>
 配置 pacman，启用 multilib 源，此源可在 Arch Linux 64 位系统上运行 32 位的程序
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.conf</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>[multilib]
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>[multilib]
 SigLevel = PackageRequired
 Include = /etc/pacman.d/mirrorlist</code></pre>
 
 安装 [Yaourt](http://archlinux.fr/yaourt-en)，方便未进官方源软件的安装
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/pacman.conf</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>[archlinuxfr]
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>[archlinuxfr]
 Server = http://repo.archlinux.fr/$arch </code></pre>
 
     # pacman -Sy yaourt
@@ -193,7 +192,7 @@ Server = http://repo.archlinux.fr/$arch </code></pre>
     # pacman -S sudo
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/sudoers</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>root ALL=(ALL)ALL
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>root ALL=(ALL)ALL
 fooleap ALL=(ALL)ALL</code></pre>
 
 至此完成基本的配置，重启继续折腾
@@ -235,7 +234,7 @@ fooleap ALL=(ALL)ALL</code></pre>
 使用 ThinkPad，习惯了小红点，选择禁用触摸板
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/X11/xorg.conf.d/10-synaptics.conf</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>Section "InputClass"
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>Section "InputClass"
         ...
         Option "TouchpadOff" "1"
 EndSection</code></pre>
@@ -262,7 +261,7 @@ EndSection</code></pre>
 字体配置可以通过文泉驿的 [Fontconfig Designer](http://wenq.org/cloud/fcdesigner.html) 生成 fonts.conf 文件并修改
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.fonts.conf</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>&lt;?xml version='1.0'?&gt;
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>&lt;?xml version='1.0'?&gt;
 &lt;!DOCTYPE fontconfig SYSTEM 'fonts.dtd'&gt;
 &lt;fontconfig&gt;
  ...
@@ -302,7 +301,7 @@ EndSection</code></pre>
     $ cp /etc/i3/config ~/.i3/config
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.i3/config</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>font xft:WenQuanYi Bitmap Song 10</code></pre>
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>font xft:WenQuanYi Bitmap Song 10</code></pre>
 
 使用 Windows 徽标键作为 i3 的 Mod 键
 
@@ -317,7 +316,7 @@ EndSection</code></pre>
     # pacman -S fcitx fcitx-gtk2 fcitx-gtk3 fcitx-qt
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.xinitrc</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>export XMODIFIERS="@im=fcitx"
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE=<del>xim</del>fcitx
 export GTK_IM_MODULE=<del>xim</del>fcitx
 fcitx&#38;</code></pre>

@@ -2,7 +2,6 @@
 layout: post
 title: "雨雪天气的杭州交通" 
 description: "在杭城的游荡已有一年之久，对杭州的公共交通感觉很满意，各种服务相当到位。不得不提的是杭州公共自行车，在国内它敢认第二，估计没其他城市敢称第一。而另一面，杭州的雨雪天气，还是该塞车的塞车，十分令人唾弃。"
-thumbnail: "http://img.fooleap.org/blog/about-transportation_-thumb.jpg"
 category: life
 tags: [暴雨, 杭州交通, 杭州]
 ---

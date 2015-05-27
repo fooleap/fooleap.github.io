@@ -2,10 +2,12 @@
 layout: post
 title: "使用 Git 管理静态网站"
 description: "本博使用 GitHub Pages，很喜欢使用 Git 这种方式管理网站，下面就一起来看看如何使用 Git 来管理静态网站"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CCpGLimU/small.jpg"
 category: tech
 tags: [Git, SSH, VPS]
 ---
+
+* toc
+{:toc}
 
 本博使用 GitHub Pages，很喜欢使用 Git 这种方式管理网站，下面就一起来看看如何使用 Git 来管理静态网站
 
@@ -29,7 +31,7 @@ tags: [Git, SSH, VPS]
 可以在本地的 ~/.ssh/config 文件定义 host git 对应的主机名及用户名
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.ssh/config</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>host git
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>host git
 hostname fooleap.org
 user git</code></pre>
 
@@ -43,7 +45,7 @@ user git</code></pre>
 * 初始化，添加 bare 参数是为了创建一个裸仓库，即不包含工作目录
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>./hooks/post-receive</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>#!/bin/sh
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>#!/bin/sh
 GIT_WORK_TREE=~/web git checkout -f</code></pre>
 
     $ chmod +x hooks/post-receive
@@ -61,7 +63,7 @@ GIT_WORK_TREE=~/web git checkout -f</code></pre>
 为用户 git 指定一个专用的 shell
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>/etc/passwd</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>- git:x:1001:1000:,,,:/home/git:/bin/bash
+<pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>- git:x:1001:1000:,,,:/home/git:/bin/bash
 + git:x:1001:1000:,,,:/home/git:/usr/bin/git-shell</code></pre>
 
 * 将默认的 shell: bash 替换为 git-shell

@@ -2,7 +2,6 @@
 layout: post
 title: "从头再来"
 description: "去年 12 月份，我从桂林跑到南宁，在那度过了一个多月，原以为会在那里呆个一两年，最终却还是选择了离开。在南宁期间，我投了很多简历，并去了几场招聘会，前往一些公司面试，笔试，但直到离开，还是没有一个公司要我。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/CHgP6wYd/Fs9Cs.jpg" 
 category: life 
 tags: [工作, 爱情, 南宁]
 ---

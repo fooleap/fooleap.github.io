@@ -2,13 +2,14 @@
 layout: default
 ---
 
-<div class="home">
+<section class="home">
 	
   <h2 class="description">
     {{ site.description }}
   </h2>
 	
-  <ul class="posts">
+<section class="articles">
+  <ul>
     {% for post in paginator.posts %}
       <li>
         <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
@@ -16,22 +17,25 @@ layout: default
       </li>
     {% endfor %}
   </ul>
+</section>
 
-  <div class="pagination">
+<nav class="pagination">
+  <ul>
+    {% if paginator.next_page %}
+    <li class="older"><a href="/page{{paginator.next_page}}">&larr; Older posts</a></li>
+    {% else %}
+    {% endif %}
+    <li class="number">{{paginator.page}} / {{paginator.total_pages}}</li>
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
-      <div class="newer"><a href="/">Newer posts &rarr;</a></div>
+    <li class="newer"><a href="/">Newer posts &rarr;</a></li>
       {% else %}
-      <div class="newer"><a href="/page{{paginator.previous_page}}/">Newer posts &rarr;</a></div>
+    <li class="newer"><a href="/page{{paginator.previous_page}}/">Newer posts &rarr;</a></li>
       {% endif %}
     {% else %}
-      <div class="newer">&nbsp;</div>
+    <li class="newer"></li>
     {% endif %}
-    <div class="number">{{paginator.page}} / {{paginator.total_pages}}</div>
-    {% if paginator.next_page %}
-    <div class="older"><a href="/page{{paginator.next_page}}">&larr; Older posts</a></div>
-    {% else %}
-    {% endif %}
-  </div>
-  <div class="clear"></div>
-</div>
+  </ul>
+</nav>
+
+</section>

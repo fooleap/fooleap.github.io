@@ -9,13 +9,12 @@ jQuery(document).ready(function($){
       _nav.removeClass('show').addClass('hide'); 
     };
   });
+
   _nav.click(function(event){
     event.stopPropagation();
-    if (event.target.id == 'top'){
-      $(this).removeClass('show').addClass('hide');
-    };
   });
-  $('.avatar').click(function(event){
+
+  $('.avatar').click(function(){
     if(_nav.hasClass('hide')){
       _nav.removeClass('hide').addClass('show');
     } else {
@@ -23,6 +22,7 @@ jQuery(document).ready(function($){
     };
   });
    
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
   //图片
   var maxwidth=640; 
   var post_img=$('.post-content img');
@@ -34,11 +34,13 @@ jQuery(document).ready(function($){
       real_img.src = $(this).attr('src');
       var realwidth = real_img.width;
       $(this).parent().addClass('image');
-      $(this).wrap("<figure></figure>");
       if (realwidth >= maxwidth||_w<800){ 
-        $(this).css('cursor','pointer').click(function(){window.open(real_img.src.split(/(\?|\_)/)[0],'_blank');});
-      }else{
-        $(this).css('width','auto');
+        if($('html').hasClass('lte9')){
+          $(this).wrap("<div class='figure'/>");
+        }else{
+          $(this).wrap("<figure/>");
+        };
+        $(this).css({'cursor':'pointer','width':'100%'}).click(function(){window.open(real_img.src.split(/(\?|\_)/)[0],'_blank');});
       };
     });
     //EXIF
@@ -57,7 +59,14 @@ jQuery(document).ready(function($){
                 fnu = (exif["FNumber"] != undefined) ? (exif.FNumber.val.split(/\//)[1]) : "无";
                 extime = (exif["ExposureTime"] != undefined) ? (exif.ExposureTime.val.split(/\s/)[0] + "秒") : "无";
                 iso = (exif["ISOSpeedRatings"] != undefined) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : "无";
-                setTimeout(function(){hover_img.after("<figcaption>"+"日期:" + date + " 器材:" + model + " 光圈:" + fnu + " 快门:" + extime + " ISO:" + iso + "</figcaption>")}, 800);
+                flength = (exif["FocalLength"] != undefined) ? (exif.FocalLength.val) : "无";
+                setTimeout(function(){
+                  if($('html').hasClass('lte9')){
+	     	        hover_img.after("<div class='figcaption'/>").html("日期:" + date + " 器材:" + model + " 光圈:" + fnu + " 快门:" + extime + " ISO:" + iso + " 焦距:" + flength);
+		          }else{
+		           hover_img.after("<figcaption>"+"日期:" + date + " 器材:" + model + " 光圈:" + fnu + " 快门:" + extime + " ISO:" + iso + " 焦距:" + flength + "</figcaption>");
+		          }
+		        }, 800);
                 delete datetime,date,model,fnu,extime,iso;
             }},
             error: function (msg) {
@@ -71,13 +80,12 @@ jQuery(document).ready(function($){
    window.onload = imgload;
   
   //二维码
-  var canonical=document.querySelector("link[rel='canonical']").href;
-  $('#qrcode').qrcode({
-    size: 100,
-    text: canonical 
-  });	
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    $('#qrcode').css('display','none');
+    var canonical=document.querySelector("link[rel='canonical']").href;
+    $('#qrcode').qrcode({
+      width: 80,
+      height: 80,
+      text: canonical 
+    });	
   }
 
   //评论
@@ -91,5 +99,18 @@ jQuery(document).ready(function($){
       dataType: "script",
       cache: true
     });
+  });
+
+  //返回顶部
+  $('#gototop').css('display', 'none');
+  $(window).scroll(function(){
+    if($(window).scrollTop() > $(window).height() ){
+      $('#gototop').css({'display':'', 'cursor':'pointer'});
+    } else {
+      $('#gototop').fadeOut('slow');
+    }
+  });
+  $('#gototop').click(function(){
+    $('html, body').animate({scrollTop:0},'slow');
   });
 });

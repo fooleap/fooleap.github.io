@@ -2,12 +2,14 @@
 layout: post
 title:  蓝牙耳机 Avantree Jogger Pro
 description: "前几天，我的一个耳塞又坏掉了，这一两年都不知道虐坏掉几个耳机，包括手机附带的以及买过的一些低端耳机。耳机之所以会坏，虽然耳机质量也有一定的关系，但主要原因个人觉得还是在佩戴习惯上的问题。"
-thumbnail: "http://pic.yupoo.com/fooleap_v/DQGMO9yl/KpBQU.jpg"
 category: life
 tags: [蓝牙耳机, 运动耳机, 跑步耳机, 骑车, 跑步, Avantree]
 ---
 
-###为什么买 Avantree Jogger Pro？###
+* toc
+{:toc}
+
+##为什么买 Avantree Jogger Pro？##
 
 前几天，我的一个耳塞又坏掉了，这一两年都不知道虐坏掉几个耳机，包括手机附带的以及买过的一些低端耳机。
 
@@ -39,7 +41,7 @@ tags: [蓝牙耳机, 运动耳机, 跑步耳机, 骑车, 跑步, Avantree]
 
 经过一些心理上的挣扎之后，我决定斥资买这么一款耳机。虽然亚马逊第三方卖家提供，但也是亚马逊物流配送，很快就收到货。
 
-###Avantree Jogger Pro 怎么样？###
+##Avantree Jogger Pro 怎么样？##
 
 其包装颇简单，不过该有的都有了。
 
@@ -69,7 +71,7 @@ tags: [蓝牙耳机, 运动耳机, 跑步耳机, 骑车, 跑步, Avantree]
 
 更方便的还数骑车、跑步，再也不用担心耳机很容易坏，活动也会更加自如，妈妈再也不用担心我的耳机会因为跑步而坏掉了！
 
-###Avantree Jogger Pro 怎么用？###
+##Avantree Jogger Pro 怎么用？##
 
 货到手上，若没用过蓝牙耳机，应该怎么用呢？首先，肯定先把硅胶套套上，其次，打开手机蓝牙功能进行匹配。
 
@@ -90,7 +92,7 @@ PS：如果你看不懂英文，某剽窃商倒是有一份粗糙的中文版，
 
 ![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-12.jpg)
 
-###Avantree Jogger Pro 有什么不足？###
+##Avantree Jogger Pro 有什么不足？##
 
 这个耳机是蓝牙4.0，理论上传输距离挺长的。但我感觉一旦隔墙，传输效果很差，基本上会断开。平时使用偶有断续，不过是在不影响使用的范围内。音质一般，鄙人的木耳已感觉不错。
 

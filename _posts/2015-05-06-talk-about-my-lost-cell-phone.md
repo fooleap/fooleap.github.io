@@ -1,8 +1,8 @@
 ---
 layout: post
-category: life
 title: 我那丢了的手机
 description: "有时候不得不承认自己在记的都是流水账，那么这次，且听我聊聊关于那次手机丢了的事。"
+category: life
 tags: [手机,金鸿公路,宝奥城]
 ---
 
@@ -67,8 +67,8 @@ tags: [手机,金鸿公路,宝奥城]
 * 2015年05月06日 完成初稿
 
 <style>
-#map {width:100%;}
-.BMap_cpyCtrl,.anchorBL,.anchorBR{display:none;}
+#map {width:100%;max-width: 640px;}
+.BMap_cpyCtrl,.anchorBL{display:none;}
 </style>
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de"></script>
@@ -108,7 +108,7 @@ tags: [手机,金鸿公路,宝奥城]
     var label2= new BMap.Label("湾头中学",{offset:new BMap.Size(20,-10)});
     var label3= new BMap.Label("宝奥城",{offset:new BMap.Size(20,-10)});
     var label4= new BMap.Label("丢手机地方",{offset:new BMap.Size(20,-10)});
-    map.addOverlay(marker1);   
+    map.addOverlay(marker1);
     map.addOverlay(marker2); 
     map.addOverlay(marker3); 
     map.addOverlay(marker4); 
@@ -116,7 +116,7 @@ tags: [手机,金鸿公路,宝奥城]
     marker2.setLabel(label2);
     marker3.setLabel(label3);
     marker4.setLabel(label4);
-    map.addOverlay(polyline);   
+    map.addOverlay(polyline);
     map.addControl(new BMap.NavigationControl({type: BMAP_NAVIGATION_CONTROL_ZOOM}));
     map.addControl(new BMap.ScaleControl({offset: new BMap.Size(80, 3)}));
     var dis = BMapLib.GeoUtils.getPolylineDistance(polyline);
