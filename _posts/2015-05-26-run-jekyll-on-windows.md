@@ -59,7 +59,7 @@ Jekyll 的语法高亮默认采用 Pygments，不过你可以使用 Rouge，安�
 
 不过，若你的博客托管在 GitHub，则需要安装 Pygments，因为目前 GitHub Pages 仅支持 Pyments，Pyments 基于 Python，所以你还需要安装 Python。
 
-首先到 [Download Python](https://www.python.org/downloads/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
+首先到 [Python Releases for Windows](https://www.python.org/downloads/windows/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
 
 ![Python 设置环境变量]({{site.IMG_PATH}}/run-jekyll-on-windows-02.png)
 ▲Python 设置环境变量
