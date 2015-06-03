@@ -33,11 +33,11 @@
   
   <nav class="navigation hide">
       <ul class="navigation-list">
-          <li><a href="/" class="navigation-item">首页</a></li>
-          <li><a href="/about.html" class="navigation-item">关于</a></li>
-          <li><a href="/archive.html" class="navigation-item">归档</a></li>
-          <li><a href="/links.html" class="navigation-item">链接</a></li>
-          <li><a href="/guestbook.html" class="navigation-item">留言本</a></li>
+          <li><a href="/" class="navigation-item{% if page.url == '/index.html' %} active{% endif %}">首页</a></li>
+          <li><a href="/about.html" class="navigation-item{% if page.url == '/about.html' %} active{% endif %}">关于</a></li>
+          <li><a href="/archive.html" class="navigation-item{% if page.url == '/archive.html' %} active{% endif %}">归档</a></li>
+          <li><a href="/links.html" class="navigation-item{% if page.url == '/links.html' %} active{% endif %}">链接</a></li>
+          <li><a href="/guestbook.html" class="navigation-item{% if page.url == '/guestbook.html' %} active{% endif %}">留言本</a></li>
       </ul>
       <img src="{{site.IMG_PATH}}/avatar.jpg?imageView2/2/w/40" width="40" height="40" class="avatar" title="fooleap"/>
   </nav>

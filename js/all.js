@@ -33,7 +33,6 @@ jQuery(document).ready(function($){
       var real_img = new Image();
       real_img.src = $(this).attr('src');
       var realwidth = real_img.width;
-      $(this).parent().addClass('image');
       if (realwidth >= maxwidth||_w<800){ 
         if($('html').hasClass('lte9')){
           $(this).wrap("<div class='figure'/>");

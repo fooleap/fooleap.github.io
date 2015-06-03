@@ -127,7 +127,7 @@ nav {
   display: inline;
 }
 
-.navigation .navigation-list li:first-child a {
+.navigation .navigation-list li a.active{
   color: rgb(255, 255, 255);
 }
 
@@ -402,10 +402,6 @@ nav {
   padding: .7rem .8rem;
 }
 
-.post-content .image {
-  max-width: 64rem;
-}
-
 .post-content img {
   display: block;
   max-width: 100%;
@@ -414,6 +410,7 @@ nav {
 }
 
 figure, .figure {
+  max-width: 64rem;
   margin: 0;
   position: relative;
   overflow: hidden;
@@ -779,7 +776,7 @@ iframe {
   .wrapper {
     max-width: 80rem;
   }
-  .post-content .image {
+  figure, .figure {
     max-width: 640px;
   }
 }
