@@ -42,6 +42,8 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
 
 ##安装 Jekyll
 
+假如你打算将博客托管到 GitHub 上，建议直接跳到 [github-pages](#github-pages-ruby-gem)
+
 和 Linux 一样，在 Windows 上安装 Jekyll 仅需在命令行输入
 
     gem install jekyll
@@ -50,26 +52,35 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
 
     jekyll new blog
 
+##GitHub Pages Ruby Gem
+
+GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem，方便我们本地搭建和 GitHub Pages 线上相同的 [Jekyll 环境](https://pages.github.com/versions/)，包括 Jekyll、少部分插件、Markdown 渲染引擎等等。
+
+安装 gem
+
+    gem install github-pages
+
+或许版本不够新，但一定最适合将博客托管在 GitHub Pages 的你。
+
+
 ##语法高亮(可选)
 
-Jekyll 的语法高亮默认采用 Pygments，不过你可以使用 Rouge，安装
+若你的博客托管在 GitHub，需要安装 Python。到 [Python Releases for Windows](https://www.python.org/downloads/windows/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
+
+![Python 设置环境变量]({{site.IMG_PATH}}/run-jekyll-on-windows-02.png)
+▲Python 设置环境变量
+
+在配置中启用
+
+    highlighter: pygments
+
+你也可以使用 Rouge，安装
 
     gem install rouge
 
 在配置中启用
 
     highlighter: rouge
-
-不过，若你的博客托管在 GitHub，则需要安装 Pygments，因为目前 GitHub Pages 仅支持 Pyments，Pyments 基于 Python，所以你还需要安装 Python。
-
-首先到 [Python Releases for Windows](https://www.python.org/downloads/windows/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
-
-![Python 设置环境变量]({{site.IMG_PATH}}/run-jekyll-on-windows-02.png)
-▲Python 设置环境变量
-
-Python 目前安装包集成 pip（类似于 gem 之于 Ruby），可以直接安装 `pygments`
-
-    pip install pygments
 
 ##安装 wdm（可选）
 
@@ -97,4 +108,5 @@ Python 目前安装包集成 pip（类似于 gem 之于 Ruby），可以直接�
 **本文历史**
 
 * 2015年05月26日 完成初稿
-* 2015年05月27日 加入 pygment 安装说明
+* 2015年05月27日 加入语法高亮
+* 2015年06月03日 GitHub Pages Gem
