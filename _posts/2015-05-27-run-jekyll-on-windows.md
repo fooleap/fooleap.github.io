@@ -65,7 +65,7 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 
 ##语法高亮(可选)
 
-若你的博客托管在 GitHub，需要安装 Python。到 [Python Releases for Windows](https://www.python.org/downloads/windows/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
+若你的博客托管在 GitHub，又想使用语法高亮（pygments），那么你需要安装 Python。到 [Python Releases for Windows](https://www.python.org/downloads/windows/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
 
 ![Python 设置环境变量]({{site.IMG_PATH}}/run-jekyll-on-windows-02.png)
 ▲Python 设置环境变量

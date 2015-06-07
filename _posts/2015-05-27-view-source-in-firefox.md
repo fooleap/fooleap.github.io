@@ -37,9 +37,9 @@ Chrome 等浏览器查看源代码是在新的标签页中显示的（如图）�
 ![Chrome新标签页显示源代码]({{site.IMG_PATH}}/view-source-in-firefox-03.png)
 ▲Chrome新标签页显示源代码
 
-可是 Firefox 默认弹出一个窗口显示，这个窗口甚至可以替换成第三方编辑器，这种体验鄙人感觉不如 Chrome，不过强大的 Firefox 肯定也是能实现一样的功能，随便一搜就有第三方插件支持，比如 [Source Viewer Tab](https://addons.mozilla.org/en-US/firefox/addon/source-viewer-tab/)。
+可是 Firefox 默认弹出一个窗口显示，这个窗口甚至可以替换成第三方编辑器，这种体验鄙人感觉不如 Chrome，不过强大的 Firefox 肯定也是能实现一样的功能，随便一搜就有第三方扩展支持，比如 [Source Viewer Tab](https://addons.mozilla.org/en-US/firefox/addon/source-viewer-tab/)。
 
-为实现一个简单的功能去安装一个插件诚然有些不值，还是另寻它径吧，书签支持 JavaScript，那么可以获取当前页面的地址，采用 `window.open()` 方法即可实现新标签页打开。
+为实现一个简单的功能去安装一个扩展诚然有些不值，还是另寻它径吧，书签支持 JavaScript，那么可以获取当前页面的地址，采用 `window.open()` 方法即可实现新标签页打开。
 
 {% highlight javascript %}
 javascript:window.open("view-source:"+top.location);
@@ -64,7 +64,7 @@ com! view-source exe "t view-source:" + top.content.location;
 map vs :view-source<Return>
 {% endhighlight %}
 
-别问我为什么要加 `content`，Firefox 插件们需要这么干。`:rehash` 之后，`v` `s` 便是新标签查看源码的快捷键。
+别问我为什么要加 `content`，Firefox 扩展们需要这么干。`:rehash` 之后，`v` `s` 便是新标签查看源码的快捷键。
 
 另外，Pentadactyl 自身也提供一个命令 `:viewsource` 可当前页面查看源码，`:dia[log] selectionsource` 则是查看选中部分源码，不妨也给其绑定一快捷键 `s` `s`。
 

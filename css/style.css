@@ -122,13 +122,13 @@ nav {
   box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.15);
 }
 
-
 .navigation .navigation-list li {
   display: inline;
 }
 
 .navigation .navigation-list li a.active{
   color: rgb(255, 255, 255);
+  font-weight: 500;
 }
 
 .navigation .navigation-list .navigation-item {
@@ -815,21 +815,25 @@ iframe {
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 414px) {
   html {
     font-size: 8px;
   }
+  body,.navigation .navigation-list .navigation-item, .home h2{
+    font-size: 1.8rem;
+  }
   .wrapper {
-    width: 96%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  ul, .post-content p {
     padding: 0 2%;
   }
-  .site-header h1{
-    text-align: left;
+  .post-content p.image {
+    padding: 0;
   }
-  .home h2 {
-     text-align: left;
-  }
-  .page-content time{
-    text-align: left;
+  .site-header h1, .home h2, .page-content time{
+    left: 2%;
   }
 }

@@ -22,7 +22,6 @@ jQuery(document).ready(function($){
     };
   });
    
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
   //图片
   var maxwidth=640; 
   var post_img=$('.post-content img');
@@ -33,11 +32,12 @@ jQuery(document).ready(function($){
       var real_img = new Image();
       real_img.src = $(this).attr('src');
       var realwidth = real_img.width;
-      if (realwidth >= maxwidth||_w<800){ 
+      if (realwidth >= maxwidth){ 
         if($('html').hasClass('lte9')){
           $(this).wrap("<div class='figure'/>");
         }else{
           $(this).wrap("<figure/>");
+          $('figure').parent().addClass('image');
         };
         $(this).css({'cursor':'pointer','width':'100%'}).click(function(){window.open(real_img.src.split(/(\?|\_)/)[0],'_blank');});
       };
@@ -51,7 +51,7 @@ jQuery(document).ready(function($){
             url: img_exif,
             dataType: "json",
             success: function (exif) {
-            if(exif["DateTimeOriginal"] != undefined){
+              if(exif["DateTimeOriginal"] != undefined){
                 datetime = exif.DateTimeOriginal.val.split(/\:|\s/);
                 date = datetime[0] + "-" + datetime[1] + "-" + datetime[2];
                 model = (exif["Model"] != undefined) ? (exif.Model.val) : "无";
@@ -60,29 +60,27 @@ jQuery(document).ready(function($){
                 iso = (exif["ISOSpeedRatings"] != undefined) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : "无";
                 flength = (exif["FocalLength"] != undefined) ? (exif.FocalLength.val) : "无";
                 setTimeout(function(){
-                  if($('html').hasClass('lte9')){
-	     	        hover_img.after("<div class='figcaption'/>").html("日期:" + date + " 器材:" + model + " 光圈:" + fnu + " 快门:" + extime + " ISO:" + iso + " 焦距:" + flength);
-		          }else{
-		           hover_img.after("<figcaption>"+"日期:" + date + " 器材:" + model + " 光圈:" + fnu + " 快门:" + extime + " ISO:" + iso + " 焦距:" + flength + "</figcaption>");
-		          }
+		          hover_img.after("<figcaption class='exif'>"+"日期:" + date + " 器材:" + model + " 光圈:" + fnu + " 快门:" + extime + " ISO:" + iso + " 焦距:" + flength + "</figcaption>");
 		        }, 800);
-                delete datetime,date,model,fnu,extime,iso;
-            }},
+                delete datetime,date,model,fnu,extime,iso,flength;
+              }},
             error: function (msg) {
             }
       });
     },function(){
-      $('figcaption').remove();
+        $('figcaption').remove()
     });  
    };
    }
    window.onload = imgload;
   
   //二维码
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
     var canonical=document.querySelector("link[rel='canonical']").href;
     $('#qrcode').qrcode({
       width: 80,
       height: 80,
+      correctLevel : 1,
       text: canonical 
     });	
   }
