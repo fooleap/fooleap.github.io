@@ -13,6 +13,7 @@ strong, b {
 html {
   font-size: 10px;
 }
+
 body {
   height: 100%;
   font-family: Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
@@ -489,7 +490,7 @@ iframe {
 .post-content #qrcode {
   position: absolute;
   right: 0;
-  bottom: -2rem;
+  bottom: -.6rem;
   margin: 0;
 }
 
@@ -768,18 +769,6 @@ iframe {
 }
 
 /* media queries */
-
-@media screen and (min-width: 1600px) {
-  html {
-    font-size: 11px;
-  }
-  .wrapper {
-    max-width: 80rem;
-  }
-  figure, .figure {
-    max-width: 640px;
-  }
-}
 
 @media screen and (max-width: 852px) {
   body {

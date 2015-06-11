@@ -78,8 +78,8 @@ jQuery(document).ready(function($){
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
     var canonical=document.querySelector("link[rel='canonical']").href;
     $('#qrcode').qrcode({
-      width: 80,
-      height: 80,
+      width: 65,
+      height: 65,
       correctLevel : 1,
       text: canonical 
     });	
