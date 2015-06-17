@@ -242,8 +242,6 @@ nav {
   behavior: url(css/PIE.htc);
 }
 
-
-
 /* Home styles */
 
 .home h2 {
@@ -444,6 +442,7 @@ figure:hover figcaption, .figure:hover .figcaption {
 
 iframe {
   border: none;
+  width: 100%;
 }
 
 .post-content pre, .post-content code {
