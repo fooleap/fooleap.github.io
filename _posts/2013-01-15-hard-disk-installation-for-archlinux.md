@@ -3,28 +3,28 @@ layout: post
 title: "硬盘安装 Arch Linux"
 description: "Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux 的自由，于是切换回 Arch Linux，新版本的安装方式和以前稍有区别，下面一步一步来完成 Arch Linux 的安装。"
 category: tech
-tags: [ArchLinux, 硬盘安装]
+tags: ["Arch Linux", 硬盘安装]
 ---
 
 Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux 的自由，于是切换回 Arch Linux，新版本的安装方式和以前稍有区别，下面一步一步来完成 Arch Linux 的安装。
 
 ###安装前的准备
 
-此前使用 Chakra Linux，其启动引导器为 [BURG](https://wiki.archlinux.org/index.php/Burg)，它是基于 [GRUB2](https://wiki.archlinux.org/index.php/GRUB2) 使用 Ruby 重写而来的，所以 [GRUB 命令](http://www.gnu.org/software/grub/manual/grub.html#Commands)同样适用。
+此前使用 Chakra Linux，其启动引导器为 [BURG](https://wiki.archlinux.org/index.php/Burg)，它是基于 [GRUB2](https://wiki.archlinux.org/index.php/GRUB2) 使用 Ruby 重写而来的，所以 [GRUB 命令](http://www.gnu.org/software/grub/manual/grub.html#Commands) 同样适用。
 
 > 如果安装 Arch Linux 的时候没有网络，下面的方法可能适合你，首先下载一个 core 仓库镜像
 >
 >     $ mkdir core && cd core
 >     $ wget http://mirrors.163.com/archlinux/core/os/x86_64/
 >     $ awk '{sub(/.*="/,"http://mirrors.163.com/archlinux/core/os/x86_64/"); {sub(/".*/,"")} if(NR>=5 && NR<=399)print}' index.html | xargs wget -c
->     # pacman -Sw fuse freetype2 --cachedir . 
+>     # pacman -Sw fuse freetype2 --cachedir .
 >
 >* 创建一个名为“core”的文件夹
 >* 会下载到一个 index.html 文件，即网易源 64 位 core 仓库的页面 html 文件
 >* 使用 awk 对 index.html 文件的内容做下替换，输出传给 wget 下载
 >* 下载 fuse freetype2 这两个属于 extra 仓的包，这是 grub 的依赖
 
-把下载而来的 [archlinux-(version)-dual.iso](http://mirrors.163.com/archlinux/iso/latest/) 复制到U盘的根目录，重启机器。
+把下载而来的 [archlinux-(version)-dual.iso](http://mirrors.163.com/archlinux/iso/latest/) 复制到 U 盘的根目录，重启机器。
 
 进入 BURG 引导界面，按 C 进入命令行模式。
 
@@ -33,7 +33,7 @@ Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux
     initrd (loop)/arch/boot/x86_64/archiso.img
     boot
 
-* loopback 把镜像挂载为 loop 设备，在此将其 iso 挂为 loop (可自定义)
+* loopback 把镜像挂载为 loop 设备，在此将其 iso 挂为 loop （可自定义）
 * linux 指定内核，具体见 [vmlinux](http://zh.wikipedia.org/zh-cn/Vmlinux)
 * initrd 指定临时文件系统，具体见 [initrd](http://zh.wikipedia.org/zh-cn/initrd)
 * boot 启动
@@ -305,7 +305,7 @@ EndSection</code></pre>
 
 使用 Windows 徽标键作为 i3 的 Mod 键
 
-    sed "s/Mod1/\$mod/g;20 aset \$mod Mod4" -i ~/.i3/config 
+    sed "s/Mod1/\$mod/g;20 aset \$mod Mod4" -i ~/.i3/config
 
 * 将 Mod1 替换成 $mod 并指定变量为 Mod4（即 Windows 徽标键）
 
@@ -333,10 +333,10 @@ fcitx&#38;</code></pre>
 
 **本文历史**
 
-* 2011年09月25日  创建文章
-* 2011年11月14日  添加修改配置以识别声卡及取消滴滴声
-* 2012年02月17日  重新整理
-* 2012年11月23日  重写完成初稿
-* 2012年12月04日  FF 和输入法冲突问题
-* 2012年12月13日  Ubuntu 字体渲染
-* 2013年01月15日  添加本地镜像安装基本系统部分
+* 2011 年 09 月 25 日  创建文章
+* 2011 年 11 月 14 日  添加修改配置以识别声卡及取消滴滴声
+* 2012 年 02 月 17 日  重新整理
+* 2012 年 11 月 23 日  重写完成初稿
+* 2012 年 12 月 04 日  FF 和输入法冲突问题
+* 2012 年 12 月 13 日  Ubuntu 字体渲染
+* 2013 年 01 月 15 日  添加本地镜像安装基本系统部分

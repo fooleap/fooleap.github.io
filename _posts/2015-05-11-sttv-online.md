@@ -3,47 +3,57 @@ layout: post
 title: 汕头台也能网上看直播
 description: "看电视，或许是一种悠闲的生活 ，对于很多人来说，动画片似乎是小时候的最爱，而在我的印象里，从小就跟着爷爷饭后一壶茶从新闻联播看到汕头新闻。"
 category: life
-tags: [今日视线,网上直播,汕头电视台,橄榄台]
+tags: [今日视线, 网上直播, 汕头电视台, 橄榄台]
 ---
+
+* toc
+{:toc}
 
 看电视，或许是一种悠闲的生活 ，对于很多人来说，动画片似乎是小时候的最爱，而在我的印象里，从小就跟着爷爷饭后一壶茶从新闻联播看到汕头新闻。
 
-我的一些兴趣爱好，或许都离不开这个习惯的养成，一是地理，电视的新闻节目后是天气预报，中央台的天气让我把中国版图印在脑海，而广东台的天气，更是让我熟透广东21地市。后来甚至专门去记住全国地级以上行政区，当然现在应该有些遗忘，总之，是天气预报让我爱上地图，地理。二则是喜欢看家乡新闻，了解家乡的大事。
+我的一些兴趣爱好，或许都离不开这个习惯的养成，一是地理，电视的新闻节目后是天气预报，中央台的天气让我把中国版图印在脑海，而广东台的天气，更是让我熟透广东 21 地市。后来甚至专门去记住全国地级以上行政区，当然现在应该有些遗忘，总之，是天气预报让我爱上地图，地理。二则是喜欢看家乡新闻，了解家乡的大事。
 
 从我读初三开始，汕头台开播的《今日视线》节目成为人们茶余饭后的必备，记得开播那一天，报道的正是我村的事。而今年，也是《今日视线》的第十个年头，希望它能越来越给力。
 
-高中时，汕头电视台的官网叫“汕头声屏网”，偶尔会上去点播一下《今日视线》。后来，到外地上大学，“声屏网”也改版成“一潮网”。偶尔想看看家乡的电视台，可是，它还是并没有网上直播，只有画质渣得可以还卡的点播，所以也没啥想看的欲望。看到潮州台都可在网上看直播，对汕头台还真是失望。
+## 过去的汕头广电网上平台
 
-记得前几年，有个潮声卫视，后来改名[潮商卫视](http://zh.wikipedia.org/wiki/潮商衛視)，虽然网上也仅是点播，但节目总体质量还不错，偶尔喜欢上去点播，多了解了解家乡，而后来因为啥啥，也停止了运营，不过[网站](http://www.ecstv.com/)还是在的。
+以前，汕头电视台的官网叫“汕头声屏网”，偶尔会上去点播一下《今日视线。后来，到外地上大学，“声屏网”也改版成“一潮网”。偶尔想看看家乡的电视台，可是，它还是并没有网上直播，只有画质渣得可以还卡的点播，所以也没啥想看的欲望。看到潮州台都可在网上看直播，对汕头台还真是失望。
 
-前几天，偶然在 CUTV 上发现有[汕头电视台的直播](http://tv.cutv.com/index.html?tv=sttv)，应该是和汕头电视台合作，查看了点播列表得知，大概三四月份才上线的，画质比一潮网要好。
+记得前几年，有个潮声卫视，后来改名 [潮商卫视](http://zh.wikipedia.org/wiki/ 潮商衛視），虽然网上也仅是点播，但节目总体质量还不错，偶尔喜欢上去点播，多了解了解家乡，而后来因为啥啥，也停止了运营，不过 [网站](http://www.ecstv.com/) 还是在的。
 
-<div id="sttv01"><img src="{{site.IMG_PATH}}/sttv-online-01.jpg?20150512&q/90" alt="汕头台新闻综合频道" style="margin:0 auto;display:block;cursor:pointer;"/></div>
+## 汕头电视台网上直播
 
-▲汕头台新闻综合频道(电脑可点击上图播放)
+前几天，偶然在 CUTV 上发现有 [汕头电视台的直播](http://tv.cutv.com/index.html?tv=sttv)，应该是和汕头电视台合作，查看了点播列表得知，大概三四月份才上线的，画质比一潮网要好。
 
-<script>
-$("#sttv01 img").click(function(){
-    $("#sttv01").html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=lKGXIQa&autoplay=false' type='application/x-shockwave-flash' height='512' width='640'>");
-    });
-</script>
+<div id="sttv01"><img src="{{site.IMG_PATH}}/sttv-online-01.jpg" alt="汕头台新闻综合频道" style="display:block;cursor:pointer;"/></div>
+
+▲汕头台新闻综合频道（电脑可点击上图播放）
+
+## 汕头橄榄台 App
 
 网页直播有了，手机呢？iOS 并不支持 Flash 播放，CUTV 明显也是有手机客户端的，装上看看，然而这并没有什么卵用，版本太老，各种闪退，没有汕头台。
-
-![CUTV客户端]({{site.IMG_PATH}}/sttv-online-01.png?imageView2/1/w/640/h/427/q/90)
-▲CUTV客户端
 
 而最近汕头电视台在推“橄榄台”，看了下得知是手机 APP，也打算将“一潮网”改版成“[橄榄网](http://st.cutv.com/)”，感觉橄榄这个名字起得挺好的，有特色。
 
 ![一潮网改版]({{site.IMG_PATH}}/sttv-online-02.jpg?q/90)
 ▲一潮网改版（via st.cutv.com）
 
-下载了 APP，画风是小清新的，但感觉很粗糙，连[下载页面](http://st.cutv.com/app/appdown.html)也做得那么随便，不过，总算是能通过手机看本地电视直播了。
+下载了 APP，画风是小清新的，但感觉很粗糙，连 [下载页面](http://st.cutv.com/app/appdown.html) 也做得那么随便，不过，总算是能通过手机看本地电视直播了。
 
-![汕头橄榄台APP]({{site.IMG_PATH}}/sttv-online-03.jpg_640)
-▲汕头橄榄台APP
+![汕头橄榄台 APP]({{site.IMG_PATH}}/sttv-online-03.jpg_640)
+▲汕头橄榄台 APP
+
+6 月 19 日，该 App 在 App Store 上架：[下载](https://itunes.apple.com/app/shantou-gan-lan-tai/id958459439?ls=0){:style="border-radius:3px;text-decoration:none;background:#333;color:#fff;padding:5px 10px;" title="不会自动打开 iTunes"}
 
 **本文历史**
 
-* 2015年05月11日 完成初稿
-* 2015年05月22日 换图片
+* 2015 年 05 月 11 日 完成初稿
+* 2015 年 05 月 22 日 换图片
+* 2015 年 06 月 20 日 更新 App Store 相关内容
+* 2015 年 06 月 24 日 小改排版
+
+<script>
+$("#sttv01 img").click(function(){
+    $("#sttv01").html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=lKGXIQa&autoplay=false' type='application/x-shockwave-flash' height='512' width='640'>");
+    });
+</script>

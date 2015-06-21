@@ -24,7 +24,7 @@ Jekyll 是针对博客平台的静态网站生成器，目前你所看到的博�
 
 针对这些问题，也有了解决的方法
 
-* 使用简洁主题，如我的[老博客](http://old.fooleap.org/)
+* 使用简洁主题，如我的 [老博客](http://old.fooleap.org/)
 * 伪静态插件及评论托管平台，如 [WP Super Cache](http://wordpress.org/extend/plugins/wp-super-cache/), [友言](http://www.uyan.cc/)
 * Markdown 语法插件，如 [WP-Markdown](http://wordpress.org/extend/plugins/wp-markdown/)
 * 使用离线写博工具，如 [Zoundry Raven](http://www.zoundryraven.com)
@@ -32,7 +32,7 @@ Jekyll 是针对博客平台的静态网站生成器，目前你所看到的博�
 所谓治标不治本，这一堆插件，工具，先不提学习成本，使用不是更不方便了么？到底有没有一个可以一次性解决所有烦恼的博客平台呢？答案远在天边，近在眼前。
 
 ![Jekyll]({{site.IMG_PATH}}/replace-wordpress-with-jekyll.jpg)
-▲Jekyll(来自官网)
+▲Jekyll（来自官网）
 
 [Jekyll](http://jekyllrb.com/) 是 GitHub 创始人之一 [Tom Preston-Werner](http://tom.preston-werner.com/) 使用 Ruby 写成，GitHub Pages 上自带 Jekyll，因此更新博客只需推送源文件到 GitHub 即可，服务器端会自动生成 HTML，也可部署到自己的 VPS 上实现一样的功能。
 
@@ -61,7 +61,7 @@ Jekyll 原生解决了上文一系列问题
 
 或许您会留意到，小博很久之前就已经换成 Jekyll 了，为啥现在才来写关于它的文章呢？因为网上介绍它的文章实在太多，下面摘取一些供大家参考
 
-* [Jekyll世界](http://yihui.name/cn/2012/02/hello-jekyll/)
+* [Jekyll 世界](http://yihui.name/cn/2012/02/hello-jekyll/)
 * [迁移博客系统到 Jekyll](http://qixinglu.com/post/migrate_blog_system_to_jekyll.html)
 * [Blogging Like a Hacker](http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html)
 * [理想的写作环境：git+github+markdown+jekyll](http://www.yangzhiping.com/tech/writing-space.html)
@@ -69,9 +69,9 @@ Jekyll 原生解决了上文一系列问题
 最后还是要大赞一下 Jekyll，下面套用一句广告词：
 自从用了 Jekyll，腰不酸了，腿也不疼了，一口气写上一千字，嘿！不费劲～
 
-如果您有兴趣，可戳[如何搭建 Jekyll 写作环境](http://blog.fooleap.org/how-to-install-jekyll.html)
+如果您有兴趣，可戳 [如何搭建 Jekyll 写作环境](http://blog.fooleap.org/how-to-install-jekyll.html)
 
 **本文历史**
 
-* 2013年01月19日 完成初稿
-* 2015年02月24日 换图床
+* 2013 年 01 月 19 日 完成初稿
+* 2015 年 02 月 24 日 换图床

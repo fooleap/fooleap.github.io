@@ -75,7 +75,7 @@ GIT_WORK_TREE=~/web git checkout -f</code></pre>
     $ mkdir web && cd web
     $ git init
     $ echo "Hello World" > index.html
-    $ git add . 
+    $ git add .
     $ git commit -m "add index.html"
     $ git remote add web git@fooleap.org:web.git
     $ git push web +master:refs/heads/master
@@ -91,9 +91,9 @@ GIT_WORK_TREE=~/web git checkout -f</code></pre>
 **参考资料**
 
 * typeof.net: [实战：用 git 搭建静态网站](http://typeof.net/mechanix/static-website-using-git-in-actions.html)
-* Pro Git: [4.4 服务器上的 Git - 架设服务器](http://git-scm.com/book/zh/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E6%9E%B6%E8%AE%BE%E6%9C%8D%E5%8A%A1%E5%99%A8) [7.3 自定义 Git - Git挂钩](http://git-scm.com/book/zh/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git%E6%8C%82%E9%92%A9#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%8C%82%E9%92%A9) 
+* Pro Git: [4.4 服务器上的 Git - 架设服务器](http://git-scm.com/book/zh/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E6%9E%B6%E8%AE%BE%E6%9C%8D%E5%8A%A1%E5%99%A8) [7.3 自定义 Git - Git 挂钩](http://git-scm.com/book/zh/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-Git%E6%8C%82%E9%92%A9#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%8C%82%E9%92%A9)
 * man githooks: [githooks(5)](http://www.kernel.org/pub/software/scm/git/docs/githooks.html#post-receive)
 
 **本文历史**
 
-* 2013年01月10日 完成初稿
+* 2013 年 01 月 10 日 完成初稿

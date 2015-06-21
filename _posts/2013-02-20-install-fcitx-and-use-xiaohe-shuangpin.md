@@ -3,7 +3,7 @@ layout: post
 title: "安装 Fcitx 输入法，使用小鹤双拼"
 description: "为了提高中文打字速度，从 2010 年开始使用双拼输入法。双拼，顾名思义，所有音节都只需输入 2 键，即所有汉字只需按两个键。虽然“音码 + 形码”更能提高打字速度，图个方便就没有使用这种方式，仅仅是纯双拼。起初使用自然码双拼方案，后来换为小鹤双拼。"
 category: tech
-tags: [Fcitx, 小鹤, 输入法, 双拼, Linux, ArchLinux]
+tags: [Fcitx, 小鹤, 输入法, 双拼, Linux, "Arch Linux"]
 ---
 
 为了提高中文打字速度，从 2010 年开始使用双拼输入法。双拼，顾名思义，所有音节都只需输入 2 键，即所有汉字只需按两个键。虽然“音码 + 形码”更能提高打字速度，图个方便就没有使用这种方式，仅仅是纯双拼。起初使用自然码双拼方案，后来换为小鹤双拼。
@@ -43,7 +43,7 @@ DefaultShuangpinSchema=XiaoHe</code></pre>
 
 重启输入法即可
 
-若你使用的是全拼，建议安装 Google 拼音( fcitx-googlepinyin )支持，网络状况尚可使用云拼音词库( fcitx-cloudpinyin )也是不错的
+若你使用的是全拼，建议安装 Google 拼音 ( fcitx-googlepinyin ) 支持，网络状况尚可使用云拼音词库 ( fcitx-cloudpinyin ) 也是不错的
 
 使用了双拼两年，效率确实比全拼输入法快点，推荐使用。首先记忆键位放一张键位对应表在旁边，坚持使用下去没几天便会熟悉习惯，熟练之后就是条件反射了。
 
@@ -56,7 +56,7 @@ DefaultShuangpinSchema=XiaoHe</code></pre>
 
 **参考资料**
 
-* [Fcitx (简体中文) - ArchWiki](https://wiki.archlinux.org/index.php/Fcitx_\(简体中文\))
+* [Fcitx （简体中文） - ArchWiki](https://wiki.archlinux.org/index.php/Fcitx_\（简体中文、))
 * [Fcitx - 维基百科](http://zh.wikipedia.org/zh-cn/FCITX)
 * [小企鹅输入法 (Fcitx)](http://fcitx-im.org/)
 * [fcitx - A Flexible Input Method Framework](https://code.google.com/p/fcitx/)
@@ -64,4 +64,4 @@ DefaultShuangpinSchema=XiaoHe</code></pre>
 
 **本文历史**
 
-* 2013年02月20日 完成初稿
+* 2013 年 02 月 20 日 完成初稿

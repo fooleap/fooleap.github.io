@@ -34,7 +34,7 @@ tags: ["Google Earth", hosts, 科学上网]
 ![诊断测试]({{site.IMG_PATH}}/google-earth-hosts-03.png)
 ▲诊断测试
 
-根据引导，最后可以看到 Google Earth 使用的相关服务器网址，也就是说只要那些网址能够正常访问，Google Earth 便可正常使用，我尝试更改 [PAC](http://zh.wikipedia.org/zh/代理自动配置) 文件，但是结果没能成功。
+根据引导，最后可以看到 Google Earth 使用的相关服务器网址，也就是说只要那些网址能够正常访问，Google Earth 便可正常使用，我尝试更改 [PAC](http://zh.wikipedia.org/zh/ 代理自动配置) 文件，但是结果没能成功。
 
 ## 科学使用 Google Earth
 
@@ -58,4 +58,4 @@ tags: ["Google Earth", hosts, 科学上网]
 
 **本文历史**
 
-* 2015年06月07日 完成初稿
+* 2015 年 06 月 07 日 完成初稿

@@ -10,7 +10,7 @@ tags: [Veer, 小巧, 手机]
 
 小弟以为 8700 够用，基本不关注手机的行情，但很早就听说， HP 去年抛售的 [Veer](http://en.wikipedia.org/wiki/HP_Veer) 有极高的性价比。目前全新黑色才六百左右，仍靠父母吃饭的我，还是感觉太奢侈，于是打起求购于二手市场的念头，随即有了下文。
 
-嗯，在 V2EX 上[发帖](http://www.v2ex.com/t/34487)， 至于为什么在那而不是[煮机网](http://www.zoopda.com/)，我想也不用在此解释。后来花了420块大洋收了一只黑色小 Veer，不带点金石。
+嗯，在 V2EX 上 [发帖](http://www.v2ex.com/t/34487)， 至于为什么在那而不是 [煮机网](http://www.zoopda.com/)，我想也不用在此解释。后来花了 420 块大洋收了一只黑色小 Veer，不带点金石。
 
 HP Veer 吸引我的是其外观的小巧、 QWERTY 键盘、非主流的 webOS 系统，这完全符合我的要求。
 
@@ -18,10 +18,10 @@ HP Veer 吸引我的是其外观的小巧、 QWERTY 键盘、非主流的 webOS 
 
 * 这大概是每一个看到这手机的人的感觉吧，小，出奇的小！五月份跑步，为了记录跑步时间，总会握着卡片机，因为 8700 太大了，相机还可以拍下沿途的风景。而拿到 Veer 后，果断换成它，拍照记时两不误，握在手里感觉很好。 Veer 有相应的跑步应用，由于信号流量问题，弃之。
 
-![手里的Veer]({{site.IMG_PATH}}/small-but-complete-01.jpg_640)
-▲手里的Veer
+![手里的 Veer]({{site.IMG_PATH}}/small-but-complete-01.jpg_640)
+▲手里的 Veer
 
-![与8700对比]({{site.IMG_PATH}}/small-but-complete-02.jpg_640)
+![与 8700 对比]({{site.IMG_PATH}}/small-but-complete-02.jpg_640)
 ▲与黑莓 8700 的对比
 
 * webOS 的“卡片系统”很爽，手势区很强大，这让我感到， webOS 是相当先进的系统，它应该比鄙人没用过 Android 和 iOS 体验都要好。
@@ -52,12 +52,12 @@ HP Veer 吸引我的是其外观的小巧、 QWERTY 键盘、非主流的 webOS 
 
 * [HP Veer](http://en.wikipedia.org/wiki/HP_Veer)
 * [webOS](http://en.wikipedia.org/wiki/WebOS)
-* [麻雀虽小五脏全 超值webOS HP Veer 4G评测](http://mobile.zol.com.cn/252/2525007_all.html)
-* [ATT版惠普Veer外媒超详尽评测](http://www.weboshome.com/2011/05/review-att-hp-veer-4g/)
-* [HP Veer初体验：外观和webOS](http://imtx.me/archives/1664.html)
+* [麻雀虽小五脏全 超值 webOS HP Veer 4G 评测](http://mobile.zol.com.cn/252/2525007_all.html)
+* [ATT 版惠普 Veer 外媒超详尽评测](http://www.weboshome.com/2011/05/review-att-hp-veer-4g/)
+* [HP Veer 初体验：外观和 webOS](http://imtx.me/archives/1664.html)
 * [HP Veer 4G 使用小记](http://lightcss.com/hp-veer-app/)
 
 **本文历史**
 
-* 2012年07月04日 创建文章
-* 2015年05月24日 换图床
+* 2012 年 07 月 04 日 创建文章
+* 2015 年 05 月 24 日 换图床

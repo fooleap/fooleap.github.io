@@ -38,18 +38,18 @@ tags: [年度总结, 爱情, 工作]
 ![骑车]({{site.IMG_PATH}}/2012-personal-review-03.jpg)
 *——骑车*
 
-第一次去[南澳](travel-in-nanao.html)，那是难忘的一天。
+第一次去 [南澳](travel-in-nanao.html)，那是难忘的一天。
 
-第一次月跑量[超 100 公里](running-notes-in-september.html)，没想到自己也能。
+第一次月跑量 [超 100 公里](running-notes-in-september.html)，没想到自己也能。
 
-完成了[桂林环城](hiking-along-the-ring-road-of-guilin.html)的徒步，看来全马也不是那么容易。
+完成了 [桂林环城](hiking-along-the-ring-road-of-guilin.html) 的徒步，看来全马也不是那么容易。
 
 ###读书###
 
 ![正能量]({{site.IMG_PATH}}/2012-personal-review-04.jpg)
 *——正能量*
 
-看自己的豆瓣读书[页面](http://book.douban.com/people/fooleap)，一目了然，自己想读的书太多，读过的寥寥无几，记得特别清楚的是，几天看完一本《这一生，至少当一次傻瓜》，还有一本《阿甘正传》。
+看自己的豆瓣读书 [页面](http://book.douban.com/people/fooleap)，一目了然，自己想读的书太多，读过的寥寥无几，记得特别清楚的是，几天看完一本《这一生，至少当一次傻瓜，还有一本《阿甘正传。
 
 买了个 Kindle 4 升级版，相信它能给我带来更多的知识及智慧，多一点做人做事的道理，做事先做人，人品最重要。
 
@@ -58,10 +58,10 @@ tags: [年度总结, 爱情, 工作]
 ![天空]({{site.IMG_PATH}}/2012-personal-review-05.jpg)
 *——天依然是那么蓝*
 
-谈及对来年的期待，我相信老天对每个孩子都是公平的，有些事情是命中注定的，无法改变就只能接受。有时候缘分很重要，但自己的意愿也重要。[七仙姐](http://v.youku.com/v_show/id_XNTY2NTAwNzY=.html)说了，命不可违，运却可变。
+谈及对来年的期待，我相信老天对每个孩子都是公平的，有些事情是命中注定的，无法改变就只能接受。有时候缘分很重要，但自己的意愿也重要。[七仙姐](http://v.youku.com/v_show/id_XNTY2NTAwNzY=.html) 说了，命不可违，运却可变。
 
 无论如何，都要以乐观的心态面对，目前的窘境大概也是老天所安排的，兵来将挡，水来土掩。出来混的，总要还的。努力学习自己该学的知识，尽快找到工作，以学习更多的知识，不说报效祖国，感恩社会，先把自己养起再说。
 
 **本文历史**
 
-* 2012年12月31日 完成初稿
+* 2012 年 12 月 31 日 完成初稿

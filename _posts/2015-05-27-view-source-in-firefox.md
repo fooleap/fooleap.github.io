@@ -12,7 +12,7 @@ tags: [Firefox, view-source, 源代码, 新标签页]
 
 在[小熊猫 Firefox](firefox.html){:title="小熊猫 Firefox"} 中，我提到了 Firefox 查看源代码功能。
 
-Firefox查看源码最简单的办法就是右键点击“查看页面源代码（View Page Source）”，你还可以使用快捷键 `Ctrl`+`u` 以快速查看。
+Firefox 查看源码最简单的办法就是右键点击“查看页面源代码（View Page Source）”，你还可以使用快捷键 `Ctrl`+`u` 以快速查看。
 
 ##Firefox 查看源码特色功能
 
@@ -34,8 +34,8 @@ Firefox查看源码最简单的办法就是右键点击“查看页面源代码�
 
 Chrome 等浏览器查看源代码是在新的标签页中显示的（如图），实践发现 Firefox 也是通过 `view-source:`+`URL` 这个地址即可查看源代码。
 
-![Chrome新标签页显示源代码]({{site.IMG_PATH}}/view-source-in-firefox-03.png)
-▲Chrome新标签页显示源代码
+![Chrome 新标签页显示源代码]({{site.IMG_PATH}}/view-source-in-firefox-03.png)
+▲Chrome 新标签页显示源代码
 
 可是 Firefox 默认弹出一个窗口显示，这个窗口甚至可以替换成第三方编辑器，这种体验鄙人感觉不如 Chrome，不过强大的 Firefox 肯定也是能实现一样的功能，随便一搜就有第三方扩展支持，比如 [Source Viewer Tab](https://addons.mozilla.org/en-US/firefox/addon/source-viewer-tab/)。
 
@@ -95,4 +95,4 @@ map vs :view-source<Return>
 
 **本文历史**
 
-* 2015年05月27日 完成初稿
+* 2015 年 05 月 27 日 完成初稿

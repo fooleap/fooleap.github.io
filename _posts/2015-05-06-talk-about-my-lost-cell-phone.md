@@ -3,20 +3,20 @@ layout: post
 title: 我那丢了的手机
 description: "有时候不得不承认自己在记的都是流水账，那么这次，且听我聊聊关于那次手机丢了的事。"
 category: life
-tags: [手机,金鸿公路,宝奥城]
+tags: [手机, 金鸿公路, 宝奥城]
 ---
 
 有时候不得不承认自己在记的都是流水账，那么这次，且听我聊聊关于那次手机丢了的事。
 
-每次回家都会出去骑车玩玩，感受家乡的新变化，而又常常会选择离村子较近的，环境略好的“大公路”金鸿公路骑。今年春节回家，这条路毫无悬念也在骑行计划中，去那也是想看看近几年区里的大项目宝奥城到底弄成怎么样了。 
+每次回家都会出去骑车玩玩，感受家乡的新变化，而又常常会选择离村子较近的，环境略好的“大公路”金鸿公路骑。今年春节回家，这条路毫无悬念也在骑行计划中，去那也是想看看近几年区里的大项目宝奥城到底弄成怎么样了。
 
-![2012年的宝奥城工地]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-01.jpg_640)
-▲2012年的宝奥城工地
+![2012 年的宝奥城工地]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-01.jpg_640)
+▲2012 年的宝奥城工地
 
-![2012年夏天的金鸿公路]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-02.jpg_640)
-▲2012年夏天的金鸿公路
+![2012 年夏天的金鸿公路]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-02.jpg_640)
+▲2012 年夏天的金鸿公路
 
-修了十几年，建成于2006年的金鸿公路，当年看起来是多么的高大上，而出门之后才发现，其实也就是一条普通的快速路。经过近十年发展，澄海农村路段道路两旁还是挺荒凉的，但它对于道路交通并不完善的澄海来说，却是相当重要的一条大动脉。咳咳，扯远了。
+修了十几年，建成于 2006 年的金鸿公路，当年看起来是多么的高大上，而出门之后才发现，其实也就是一条普通的快速路。经过近十年发展，澄海农村路段道路两旁还是挺荒凉的，但它对于道路交通并不完善的澄海来说，却是相当重要的一条大动脉。咳咳，扯远了。
 
 言归正传，还是来说说丢手机的事情。大年初二早晨，背上包带上相机，从家里出去，第一站是去几乎每次回家都会去的初中校园，也不知何时开始，学校不对外开放了，于是只能在校门口看看，看起来变化并不是很大，但是一些细节上的变化还是看得很清楚的。
 
@@ -52,7 +52,7 @@ tags: [手机,金鸿公路,宝奥城]
 ![一直在跑步的阿伯]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-10.jpg_640)
 ▲一直在跑步的阿伯
 
-老天不负苦心人，我竟然在刚上金鸿路不远的路边发现我的手机！！除了些许的磨花之外，手机一切完好。真没想到在这个治安并不是很好，鄙人以前跑步路上都被打劫过的地方，丢了那么久的手机还没人捡（呃，这好像和治安也没啥关系）。仔细想想，大年初二一大早骑车到这里的也只有像我这样的奇葩，路上几乎都是汽车及摩托车，跑得快不会注意路边的小东西。
+老天不负苦心人，我竟然在刚上金鸿路不远的路边发现我的手机！除了些许的磨花之外，手机一切完好。真没想到在这个治安并不是很好，鄙人以前跑步路上都被打劫过的地方，丢了那么久的手机还没人捡（呃，这好像和治安也没啥关系）。仔细想想，大年初二一大早骑车到这里的也只有像我这样的奇葩，路上几乎都是汽车及摩托车，跑得快不会注意路边的小东西。
 
 ![失而复得的手机]({{site.IMG_PATH}}/talk-about-my-lost-cell-phone-11.jpg_640)
 ▲失而复得的手机
@@ -64,7 +64,7 @@ tags: [手机,金鸿公路,宝奥城]
 
 **本文历史**
 
-* 2015年05月06日 完成初稿
+* 2015 年 05 月 06 日 完成初稿
 
 <style>
 #map {width:100%;max-width: 640px;}
@@ -81,25 +81,25 @@ tags: [手机,金鸿公路,宝奥城]
     }else{
         $("#map").height(mwidth*2/3);
     }
-    var map = new BMap.Map("map"); 
-    var point = new BMap.Point(116.8397,23.4817); 
-    map.centerAndZoom(point, 14); 
+    var map = new BMap.Map("map");
+    var point = new BMap.Point(116.8397,23.4817);
+    map.centerAndZoom(point, 14);
     var point01 = new BMap.Point(116.820472,23.484385);
-    var point02 = new BMap.Point(116.819772,23.482590); 
-    var point03 = new BMap.Point(116.820552,23.482263); 
-    var point04 = new BMap.Point(116.819902,23.480267); 
-    var point05 = new BMap.Point(116.822676,23.479354); 
-    var point06 = new BMap.Point(116.823955,23.481099); 
-    var point07 = new BMap.Point(116.838247,23.475691); 
-    var point08 = new BMap.Point(116.839915,23.475578); 
-    var point09 = new BMap.Point(116.834267,23.464955); 
-    var point10 = new BMap.Point(116.834457,23.464886); 
-    var point11 = new BMap.Point(116.849850,23.493820); 
-    var point12 = new BMap.Point(116.852079,23.492824); 
+    var point02 = new BMap.Point(116.819772,23.482590);
+    var point03 = new BMap.Point(116.820552,23.482263);
+    var point04 = new BMap.Point(116.819902,23.480267);
+    var point05 = new BMap.Point(116.822676,23.479354);
+    var point06 = new BMap.Point(116.823955,23.481099);
+    var point07 = new BMap.Point(116.838247,23.475691);
+    var point08 = new BMap.Point(116.839915,23.475578);
+    var point09 = new BMap.Point(116.834267,23.464955);
+    var point10 = new BMap.Point(116.834457,23.464886);
+    var point11 = new BMap.Point(116.849850,23.493820);
+    var point12 = new BMap.Point(116.852079,23.492824);
     var point13 = new BMap.Point(116.854431,23.496883);
     var point14 = new BMap.Point(116.837586,23.471335);
     var points = [point01, point02, point03, point04, point05, point06, point07, point08, point09, point10, point11, point12, point13, point12, point11, point10, point09, point08, point07, point02, point01];
-    var polyline = new BMap.Polyline(points, {strokeWeight:2}); 
+    var polyline = new BMap.Polyline(points, {strokeWeight:2});
     var marker1 = new BMap.Marker(point01);  // 村里
     var marker2 = new BMap.Marker(point05);  // 湾中
     var marker3 = new BMap.Marker(point13);  // 宝奥城
@@ -109,9 +109,9 @@ tags: [手机,金鸿公路,宝奥城]
     var label3= new BMap.Label("宝奥城",{offset:new BMap.Size(20,-10)});
     var label4= new BMap.Label("丢手机地方",{offset:new BMap.Size(20,-10)});
     map.addOverlay(marker1);
-    map.addOverlay(marker2); 
-    map.addOverlay(marker3); 
-    map.addOverlay(marker4); 
+    map.addOverlay(marker2);
+    map.addOverlay(marker3);
+    map.addOverlay(marker4);
     marker1.setLabel(label1);
     marker2.setLabel(label2);
     marker3.setLabel(label3);
@@ -122,7 +122,7 @@ tags: [手机,金鸿公路,宝奥城]
     var dis = BMapLib.GeoUtils.getPolylineDistance(polyline);
     var lushu = new BMapLib.LuShu(map, points, {
         defaultContent: "",
-        autoView: true, 
+        autoView: true,
 	speed:800,
         icon: new BMap.Icon('{{site.IMG_PATH}}/mountain_biking.png', new BMap.Size(30, 30), { anchor: new BMap.Size(15, 15) }),
         enableRotation: true,

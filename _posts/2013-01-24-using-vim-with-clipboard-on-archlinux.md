@@ -19,7 +19,7 @@ tags: [Vim, 剪切板, ArchLinux]
 
 但 Vim 设置显示行号，多窗口使用，或者使用 Tmux 这类有利于提高效率的工具的时候，这样选择未必行的通。
 
-这时候，需要鼠标可以选中 Vim 单个窗口且不包含行号的文本，可以使用 :set mouse=a，让 Vim 支持鼠标选择，大概事情就可以解决，这样的感觉也挺爽的，赶紧把 set mouse=a 加入你的 .vimrc 文件:)
+这时候，需要鼠标可以选中 Vim 单个窗口且不包含行号的文本，可以使用 :set mouse=a，让 Vim 支持鼠标选择，大概事情就可以解决，这样的感觉也挺爽的，赶紧把 set mouse=a 加入你的 .vimrc 文件：)
 
 **粘贴文本**
 
@@ -59,8 +59,8 @@ Vim 不是通过 Ctrl-C, Ctrl-X, Ctrl-V 来实现复制、剪切、粘贴的，�
     "+y2j
 
 选择后复制
-    
-    Vjj"+y 
+
+    Vjj"+y
 
 复制到 Primary 和复制到 Clipboard 差不多，这里就不再详述，而粘贴则是加 p，自然还有剪切 d。
 
@@ -98,7 +98,7 @@ pkgname=('vim'<del> 'gvim' 'vim-runtime'</del>)
     $ makepkg -s
 
 安装 Vim
-   
+
     # pacman -U vim-7.3.754-1-x86_64.pkg.tar.xz
 
 重新进行验证，果然生效
@@ -111,4 +111,4 @@ pkgname=('vim'<del> 'gvim' 'vim-runtime'</del>)
 
 **本文历史**
 
-* 2013年01月24日 完成初稿
+* 2013 年 01 月 24 日 完成初稿

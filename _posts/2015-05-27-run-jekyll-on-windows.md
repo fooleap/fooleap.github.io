@@ -14,19 +14,19 @@ tags: [Jekyll, Ruby, Windows, wdm, 博客]
 
 Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用了 Julian Thilo 的介绍 [Run Jekyll on Windows](http://jekyll-windows.juthilo.com/)，部署的过程如下。
 
-##安装 Ruby 
+##安装 Ruby
 
 首先，按需到 [RubyInstallers](http://rubyinstaller.org/downloads) 下载一个 Ruby 安装包，根据实际需求，鄙人选择“Ruby 2.2.2 (x64)”。
- 
+
 安装的时候注意勾选“Add Ruby executables to your PATH”，设置环境变量，这样一来，你将能在 Windows 命令行直接使用 Ruby 的相关命令。
 
 ![Add Ruby executables to your PATH]({{site.IMG_PATH}}/run-jekyll-on-windows-01.png)
 ▲勾选 Add Ruby executables to your PATH
- 
+
 ##安装 Ruby DevKit
 
-除此，由于 Jekyll 的一些依赖需要支持（例如 yajl-ruby），还需要安装一个 Ruby DevKit，Ruby  的开发工具包，一样[在此](http://rubyinstaller.org/downloads)按需获取，鄙人选择 `DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe`。
- 
+除此，由于 Jekyll 的一些依赖需要支持（例如 yajl-ruby），还需要安装一个 Ruby DevKit，Ruby  的开发工具包，一样[在此](http://rubyinstaller.org/downloads) 按需获取，鄙人选择 `DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe`。
+
 这是一个压缩包， 为它建个目录（永久）并解压进去，例如 `C:\RubyDevKit`，进入此目录并初始化。
 
     cd C:\RubyDevKit
@@ -63,7 +63,7 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 或许版本不够新，但一定最适合将博客托管在 GitHub Pages 的你。
 
 
-##语法高亮(可选)
+##语法高亮（可选）
 
 若你的博客托管在 GitHub，又想使用语法高亮（pygments），那么你需要安装 Python。到 [Python Releases for Windows](https://www.python.org/downloads/windows/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
 
@@ -84,11 +84,11 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 
 ##安装 wdm（可选）
 
-从 v2.4.0 开始，Jekyll 本地部署时，会相当于以前版本加 `--watch` 一样，监听其源文件的变化，而 Windows 似乎有时候并不会奏效，不过鄙人使用并没碰到。当然你若碰到，可安装 wdm (Windows Directory Monitor )来改善这个问题。
+从 v2.4.0 开始，Jekyll 本地部署时，会相当于以前版本加 `--watch` 一样，监听其源文件的变化，而 Windows 似乎有时候并不会奏效，不过鄙人使用并没碰到。当然你若碰到，可安装 wdm (Windows Directory Monitor ) 来改善这个问题。
 
 鄙人本不想安装，但运行 `jekyll s` 时，会有以下提醒
 
-    Please add the following to your Gemfile to avoid polling for changes:   
+    Please add the following to your Gemfile to avoid polling for changes:
       gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 
@@ -107,6 +107,6 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 
 **本文历史**
 
-* 2015年05月26日 完成初稿
-* 2015年05月27日 加入语法高亮
-* 2015年06月03日 GitHub Pages Gem
+* 2015 年 05 月 26 日 完成初稿
+* 2015 年 05 月 27 日 加入语法高亮
+* 2015 年 06 月 03 日 GitHub Pages Gem

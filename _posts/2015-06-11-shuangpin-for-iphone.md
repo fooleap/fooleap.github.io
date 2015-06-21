@@ -28,22 +28,33 @@ tags: [双拼, "iPhone 4s", "SPi 双拼输入法", "WI 输入法"]
 
 ## iOS 8 的双拼
 
+### WI 输入法
+
 尝试了好几款输入法后，个人认为，在免费 App 里面，[WI 输入法](http://www.wicld.com/) 体验还算不错，由哈工大所造，界面简洁，该有的功能都有，在 4s 上的激活速度尚可。
 
 ![WI 输入法界面]({{site.IMG_PATH}}/shuangpin-for-iphone-02.png?imageView2/2/w/480)
 ▲WI 输入法界面
 
-而在付费 App 里面，由上文提到的 SPi 插件同一开发者 @gviridis 所开发的 [SPi 双拼输入法](http://spiim.com/) 正和我意，界面和自带拼音输入法差不多，功能单一，或许这也是在 iOS 中文输入法中唯一一款无需“完全访问”的，价格 ¥18，看似有些小贵，相对于饭价，真正需要尚可接受。
+相比其他各大厂输入法，WI 输入法算是鄙人看起来比较顺眼的一款，支持 emoji 表情，可通过文字输入少部分的 emoji 表情（没有自带的全面），数字键盘支持锁定等小功能还是很贴心的。
 
-![SPi 双拼输入法界面]({{site.IMG_PATH}}/shuangpin-for-iphone-03.png?imageView2/2/w/480)
+![输入 emoji 表情]({{site.IMG_PATH}}/shuangpin-for-iphone-03.png?imageView2/2/w/480)
+▲输入 emoji 表情
+
+###SPi 双拼输入法
+
+在付费 App 里面，由上文提到的 SPi 插件同一开发者 @gviridis 所开发的 [SPi 双拼输入法](http://spiim.com/)，界面和自带拼音输入法差不多，功能单一，或许这也是在 iOS 中文输入法中唯一一款无需“完全访问”的，价格 ¥18，看似有些小贵，相对于饭价，真正需要尚可接受。
+
+![SPi 双拼输入法界面]({{site.IMG_PATH}}/shuangpin-for-iphone-04.png?imageView2/2/w/480)
 ▲SPi 双拼输入法界面
 
 iOS 第三方输入法令开发者头疼的可能是[拼音应该放哪](http://weibo.com/5444469904/BEiJfFEse)，SPi 双拼输入法也提供了两种显示方式供选择。
 
-![SPi 双拼输入法设置]({{site.IMG_PATH}}/shuangpin-for-iphone-04.png?imageView2/2/w/480)
+![SPi 双拼输入法设置]({{site.IMG_PATH}}/shuangpin-for-iphone-05.png?imageView2/2/w/480)
 ▲SPi 双拼输入法设置
 
+使用 SPi 双拼输入法过程中，可能会遇到的问题有：不支持按键音（需完全访问），不支持 emoji 表情，部分常见生僻字无法打出，比如“呾”。
 
 **本文历史**
 
-* 2015年06月11日 完成初稿
+* 2015 年 06 月 11 日 完成初稿
+* 2015 年 06 月 24 日 补充部分优缺点
