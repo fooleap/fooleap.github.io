@@ -11,6 +11,10 @@ tags: [双拼, "iPhone 4s", "SPi 双拼输入法", "WI 输入法"]
 
 作为双拼输入法用户，我总是希望在哪都能使用双拼，手机也不例外。记得当年在诺基亚手机上，都使用起点讯输入法的双拼功能，没错，那便是九宫格的双拼。
 
+## iOS 6 的双拼
+
+[滚回 iOS 6.1.3](/downgrade-iphone-4s-to-ios-613.html) 后，自然也会找 iOS 6 的输入法，百度之流用着也都还流畅，不过我还是选择后面所提到的输入法，SPi 插件试用了一下，不知道什么回事，系统自带的应用可以正常使用，其他应用却打的还是全拼输入。所以我还是用 WI 输入法，由于官方如今无提供原越狱版的下载，在[这边](http://bbs.feng.com/forum.php?mod=viewthread&tid=7297745) 下载了 v2.1-1413 版本，不知道怎么回事，软件的“关于”里还是显示 v2.02-1320，不过功能上确实是 [最新版本](http://wi.hit.edu.cn/updatelog.html#updatelog-iphone) 的。
+
 ## iOS 7 的双拼
 
 如今，在 iPhone 上，自带拼音输入法并没有双拼功能，之前使用 iOS 7 时，要使用双拼输入法就只能越狱，但是装上搜狗、百度等流行输入法后，界面不简洁等缺点让我没用多久便速速卸载，直接修改自带拼音输入法的 [SPi](http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=spiDp) 插件当时貌似不支持 iOS 7，所以我还是滚回自带拼音输入法。
@@ -47,7 +51,7 @@ tags: [双拼, "iPhone 4s", "SPi 双拼输入法", "WI 输入法"]
 ![SPi 双拼输入法界面]({{site.IMG_PATH}}/shuangpin-for-iphone-04.png?imageView2/2/w/480)
 ▲SPi 双拼输入法界面
 
-iOS 第三方输入法令开发者头疼的可能是[拼音应该放哪](http://weibo.com/5444469904/BEiJfFEse)，SPi 双拼输入法也提供了两种显示方式供选择。
+iOS 第三方输入法令开发者头疼的可能是 [拼音应该放哪](http://weibo.com/5444469904/BEiJfFEse)，SPi 双拼输入法也提供了两种显示方式供选择。
 
 ![SPi 双拼输入法设置]({{site.IMG_PATH}}/shuangpin-for-iphone-05.png?imageView2/2/w/480)
 ▲SPi 双拼输入法设置
@@ -58,3 +62,4 @@ iOS 第三方输入法令开发者头疼的可能是[拼音应该放哪](http://
 
 * 2015 年 06 月 11 日 完成初稿
 * 2015 年 06 月 24 日 补充部分优缺点
+* 2015 年 07 月 03 日 更新 iOS 6 部分
