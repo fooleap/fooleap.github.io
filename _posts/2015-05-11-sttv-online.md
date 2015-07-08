@@ -29,7 +29,7 @@ tags: [今日视线, 网上直播, 汕头电视台, 橄榄台]
 
 ▲汕头台新闻综合频道（电脑可点击上图播放）
 
-## 汕头橄榄台 App
+## 汕头橄榄台
 
 网页直播有了，手机呢？iOS 并不支持 Flash 播放，CUTV 明显也是有手机客户端的，装上看看，然而这并没有什么卵用，版本太老，各种闪退，没有汕头台。
 
@@ -43,7 +43,9 @@ tags: [今日视线, 网上直播, 汕头电视台, 橄榄台]
 ![汕头橄榄台 APP]({{site.IMG_PATH}}/sttv-online-03.jpg_640)
 ▲汕头橄榄台 APP
 
-6 月 19 日，该 App 在 App Store 上架：[下载](https://itunes.apple.com/app/shantou-gan-lan-tai/id958459439?ls=0){:style="border-radius:3px;text-decoration:none;background:#333;color:#fff;padding:5px 10px;" title="不会自动打开 iTunes"}
+6 月 19 日，该 App 在 App Store 上架：[App Store 下载](https://itunes.apple.com/app/shantou-gan-lan-tai/id958459439?ls=0){:style="border-radius:3px;text-decoration:none;background:#333;color:#fff;padding:5px 10px;" title="不会自动打开 iTunes"}
+
+顺便给个 Android 版本的地址：[应用宝下载](http://android.myapp.com/myapp/detail.htm?apkName=com.cutv.shakeshakestglt){:style="border-radius:3px;text-decoration:none;background:#333;color:#fff;padding:5px 10px;"}
 
 **本文历史**
 

@@ -40,38 +40,44 @@ iOS 6.1.3 可采用 [p0sixspwn](http://p0sixspwn.com/) 进行越狱，不过 Win
 具体步骤可参考这篇文章：[How To Fix p0sixspwn Requires iTunes 9 Or Above & Untethered iOS 6.1.6 Jailbreak](http://www.inati0n.com/how-to-fix-p0sixspwn-requires-itunes-9-or-above-untethered-ios-6-1-6-jailbreak/)。
 
 
-## 安装的软插件列表
+## 安装的软插件
 
 越狱之后，我装了那些插件？
 
-  * Accelerate(BigBoss)：加快程序中的动画（Cydia 搜不到，遂：[accelerate_2.0-1.deb](http://files14.thebigboss.org/repofiles/cydia/debs2.0/accelerate_2.0-1.deb)）
-  * AccountChanger(BigBoss)：在 App Store 快速切换 Apple ID
-  * Activator(BigBoss)：手势增强
-  * Burst Mode(BigBoss)：照相连拍
-  * Chinese Calendar for NotificationCenter(BigBoss)：通知中心添加农历
-  * f.lux(Telesphoreo)：自动调节屏幕色温（[官网](https://justgetflux.com/)）
-  * FakeClockUp([modyashi](http://hitoriblog.com/apt/))：加快程序外的动画
-  * iCleaner(BigBoss)：清理缓存垃圾
-  * KuaiDial([kuaidial](http://kuaidial.googlecode.com/svn/deb))：号码归属地
-  * NCSettings(ModMyi)：通知界面开关
-  * No keyboard Spotlight(BigBoss)：Spotlight 界面不自动跳出键盘
-  * OpenSSH(Telesphoreo)：SSH 服务
-  * Poof(BigBoss)：隐藏图标，配合 Activator 使用
-  * Pull TO Dismiss(BigBoss)：下滑关闭键盘
-  * ShadowSocks(BigBoss)：科学上网利器
-  * ShadowSocks Per-App Plugin(BigBoss)：设置程序内代理
-  * Speedy Homey(ModMyi)：屏蔽双击 Home 键打开后台，加快单击 Home 速度，配合 Activator 使用
-  * SwipeAway(ModMyi)：滑动关闭后台程序，配合 Activator 使用
-  * SwipeShiftCaret(BigBoss)：方便移动光标
-  * WI-InputMethod：WI 输入法（[wiinputmethod-ios-2.1-1413.deb](http://att6.weiphone.net/temp16/201311/21/5/wiinputmethod-ios-2.1-1413.deb)）
-  * Yahoo!Weather is Better(BigBoss)：雅虎天气取代内置天气
+|    插件   |    源    |  说明  | 
+|-----------|----------|--------|
+|[AccountChanger](cydia://package/kr.typostudio.accountchanger)|BigBoss|在 App Store 快速切换 Apple ID|
+|[Activator](cydia://package/libactivator)|BigBoss|手势增强|
+|[Actual Battery](cydia://package/com.pw5a29.actualbattery)|ModMyi|显示实际电量|
+|[<s>Burst Mode</s>](cydia://package/org.thebigboss.burstmode)|BigBoss|照相连拍|
+|[f.lux](cydia://package/org.herf.flux)|Telesphoreo|自动调节屏幕色温（[官网](https://justgetflux.com/)）|
+|[iCleaner](cydia://package/org.altervista.exilecom.icleaner)|BigBoss|清理缓存|
+|[InstaSnap](cydia://package/com.ravirajm.instasnap)|ModMyi|通知中心快速启动 Instagram 拍照界面|
+|[KuaiDial](cydia://package/kuaidial-beta)|[kuaidial](cydia://url/https://cydia.saurik.com/api/share#?source=http://kuaidial.googlecode.com/svn/deb)|号码归属地|
+|[NCSettings](cydia://package/com.jamied360.ncsettings)|ModMyi|通知中心开关|
+|[No keyboard Spotlight](cydia://package/com.itaysoft.nokeyspotlight)|BigBoss|Spotlight 界面不自动跳出键盘|
+|[OpenSSH](cydia://package/openssh)|Telesphoreo|SSH 服务|
+|[PreferenceOrganizer 2](cydia://package/net.angelxwind.preferenceorganizer2)|[Karen's Pineapple](cydia://url/https://cydia.saurik.com/api/share#?source=http://cydia.angelxwind.net/)|自动归类设置里的插件和应用|
+|[Poof](cydia://package/com.bigboss.poof)|BigBoss|隐藏图标，配合 Activator|
+|[Pull To Dismiss](cydia://package/com.rpetrich.pulltodismiss)|BigBoss|下滑关闭键盘|
+|[ShadowSocks](cydia://package/com.linusyang.shadowsocks)|BigBoss|科学上网利器|
+|[ShadowSocks Per-App Plugin](cydia://package/com.linusyang.ssperapp)|BigBoss|设置程序内代理|
+|[Speed Intensifier](cydia://package/com.pw5a29.speedintensifier)|[pw5a29](cydia://url/https://cydia.saurik.com/api/share#?source=https://pw5a29.github.io/)|加快动画|
+|[Speedy Homey](cydia://package/com.pw5a29.speedyhomey) |ModMyi|屏蔽双击 Home 键，配合 Activator|
+|[SPi](cydia://package/com.gviridis.spi)|BigBoss|原生双拼输入法，可免费试用 7 天|
+|[SwipeNav](cydia://package/me.devbug.swipenav)|BigBoss|滑动返回|
+|[SwipeSelection](cydia://package/com.iky1e.swipeselection)|[pw5a29](cydia://url/https://cydia.saurik.com/api/share#?source=https://pw5a29.github.io/)|方便移动光标，可在键盘区域滑动|
+|[SwitcherCleaner](cydia://package/jp.r-plus.switchcleaner)|BigBoss|快速关闭程序，配合 Activator|
+|[<s>WI-InputMethod</s>](cydia://package/wiim-iphone)||WI 输入法（[deb 文件](http://att6.weiphone.net/temp16/201311/21/5/wiinputmethod-ios-2.1-1413.deb)）|
+|[Yahoo!Weather is Better](cydia://package/com.ba.yahooweatherisbetter)|BigBoss|雅虎天气取代内置天气|
 
-*.deb 文件可以使用 [iFunbox](http://www.i-funbox.com/) 移入手机安装。
+在已越狱装有 Cydia 的 iPhone 中可直接点击插件名链接进行安装，点击源链接添加源。*.deb 文件可以使用 [iFunbox](http://www.i-funbox.com/) 移入手机安装。
 
-不少插件有可替代的类似插件，Accelerate 和 FakeClockUp 据我使用的感受是如上所说明，所以两款都装。值得一提的是 Activator，这款插件让我有了 [webOS](/small-but-complete.html) 的感觉，虽然滑动是在屏幕内，目前我的配置也仅在于实现手势打开后台（上滑）、打开拍照、锁屏界面打开闪光灯等。
+不少插件有可替代的类似插件，值得一提的是 Activator，这款插件让我有了 [webOS](/small-but-complete.html) 的感觉，虽然滑动是在屏幕内，目前我的配置也仅在于实现手势模拟点击 Home 键（程序中下滑），打开后台（除锁屏上滑）、打开拍照、锁屏界面打开闪光灯等。
 
-以上全为免费插件，拒绝盗版插件，拒绝盗版源从我做起。
+以上除 SPi 外，全为免费插件，拒绝盗版插件，拒绝盗版源从我做起。
 
 **本文历史**
 
 * 2015 年 07 月 06 日 完成初稿
+* 2015 年 07 月 08 日 修改排版，完善列表

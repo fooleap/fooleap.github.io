@@ -17,10 +17,10 @@ html {
 body {
   height: 100%;
   font-family: Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 300;
   color: rgb(51, 51, 51);
-  line-height: 1.4;
+  line-height: 1.5;
   background: rgb(180, 210, 250);
 }
 
@@ -376,23 +376,26 @@ nav {
 }
 
 .post-content table {
+  font-size: 1.4rem;
+  text-align: left;
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
 }
 
 .post-content th {
-  font-size: 1.4rem;
-  font-weight: normal;
-  color: rgb(0, 0, 0);
-  border-bottom: .2rem solid rgb(180, 210, 250);
+  font-weight: bold;
   padding: 1rem .9rem;
+  color: rgb(51, 51, 51);
+  border: .15rem solid rgb(194, 196, 197);
+  background: rgb(228, 230, 232);
 }
 
 .post-content td {
-  border-bottom: .15rem solid rgb(205, 205, 205);
-  color: rgb(50, 50, 50);
   padding: .7rem .8rem;
+  color: rgb(79, 51, 51);
+  border: .15rem solid rgb(194, 196, 197);
+  background: rgb(249, 249, 249);
 }
 
 .post-content img {
