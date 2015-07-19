@@ -68,14 +68,14 @@ iOS 6.1.3 可采用 [p0sixspwn](http://p0sixspwn.com/) 进行越狱，不过 Win
 |[SwipeNav](cydia://package/me.devbug.swipenav)|BigBoss|滑动返回|
 |[SwipeSelection](cydia://package/com.iky1e.swipeselection)|[pw5a29](cydia://url/https://cydia.saurik.com/api/share#?source=https://pw5a29.github.io/)|方便移动光标，可在键盘区域滑动|
 |[SwitcherCleaner](cydia://package/jp.r-plus.switchcleaner)|BigBoss|快速关闭程序，配合 Activator|
-|[<s>WI-InputMethod</s>](cydia://package/wiim-iphone)||WI 输入法（[deb 文件](http://att6.weiphone.net/temp16/201311/21/5/wiinputmethod-ios-2.1-1413.deb)）|
+|[<s>WI-InputMethod</s>](cydia://package/wiim-iphone)|[wiim](cydia://url/https://cydia.saurik.com/api/share#?source=http://cydia.myrepospace.com/wiim/){:title="不知为何，添加了并没有发现 for iPhone 的包"}|WI 输入法（[deb 文件](http://www.wicld.com/down_load/ios/WIInputMethod-ios-2.1-1413.deb)）|
 |[Yahoo!Weather is Better](cydia://package/com.ba.yahooweatherisbetter)|BigBoss|雅虎天气取代内置天气|
 
-在已越狱装有 Cydia 的 iPhone 中可直接点击插件名链接进行安装，点击源链接添加源。*.deb 文件可以使用 [iFunbox](http://www.i-funbox.com/) 移入手机安装。
+在已越狱装有 Cydia 的 iPhone 中可直接点击插件名链接进行安装，点击源链接添加源。`*.deb` 文件可以使用 [iFunbox](http://www.i-funbox.com/) 移入手机安装。
 
 不少插件有可替代的类似插件，值得一提的是 Activator，这款插件让我有了 [webOS](/small-but-complete.html) 的感觉，虽然滑动是在屏幕内，目前我的配置也仅在于实现手势模拟点击 Home 键（程序中下滑），打开后台（除锁屏上滑）、打开拍照、锁屏界面打开闪光灯等。
 
-以上除 SPi 外，全为免费插件，拒绝盗版插件，拒绝盗版源从我做起。
+以上除 SPi 外，全为免费插件，不装 XX 助手、拒绝盗版插件，远离盗版源从我做起。
 
 **本文历史**
 

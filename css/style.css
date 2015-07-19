@@ -16,12 +16,12 @@ html {
 
 body {
   height: 100%;
-  font-family: Helvetica, Arial, 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
-  font-size: 1.55rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.4rem;
   font-weight: 300;
   color: rgb(51, 51, 51);
   line-height: 1.5;
-  background: rgb(180, 210, 250);
+  background: rgb(80, 160, 240);
 }
 
 header, section, footer, aside, nav, main, article, figure, small {
@@ -30,12 +30,17 @@ header, section, footer, aside, nav, main, article, figure, small {
 
 a {
   text-decoration: none;
-  color: rgb(79, 130, 189);
+  color: rgb(80, 130, 190);
 }
 
 a:hover {
   text-decoration: underline;
   color: rgb(51, 51, 51);
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+  color: rgb(7, 108, 210);
 }
 
 .wrapper:before, .wrapper:after {
@@ -51,10 +56,10 @@ a:hover {
   position: relative;
   zoom: 1;
   max-width: 64rem;
-  width: 60%;
-  padding: 0 7%;
-  \width: 60%;
-  margin: 6% auto;
+  width: 65%;
+  padding: 0 5%;
+  \width: 65%;
+  margin: 3% auto;
   background-color: rgb(252, 251, 247);
   box-shadow: 0 .1rem .2rem rgba(0, 0, 0, 0.15);
 }
@@ -72,9 +77,9 @@ nav {
 
 .navigation {
   position: fixed;
-  z-index: 1000;
-  top: 3rem;
-  right: 3rem;
+  z-index: 999;
+  top: 1.5rem;
+  right: 1.5rem;
 }
 
 .navigation .avatar {
@@ -212,7 +217,7 @@ nav {
 }
 
 .site-header h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 500;
   text-align: center;
 }
@@ -254,13 +259,13 @@ nav {
 }
 
 .articles ul .post-link {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 1.3;
 }
 
 .articles ul .post-date {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-style: italic;
   color: rgb(150, 150, 150);
 }
@@ -302,9 +307,9 @@ nav {
 
 .site-header h2 {
   display: block;
-  color: rgb(100, 100, 100);
-  font-size: 1.5rem;
-  font-weight: normal;
+  color: rgb(150, 150, 150);
+  font-size: 1.3rem;
+  font-weight: 300;
   width: 100%;
   height: 3rem;
   text-align: center;
@@ -321,7 +326,7 @@ nav {
 }
 
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   margin: 2.5rem 0 1.2rem;
 }
@@ -376,7 +381,7 @@ nav {
 }
 
 .post-content table {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   text-align: left;
   border-collapse: collapse;
   border-spacing: 0;
@@ -495,18 +500,17 @@ iframe {
 }
 
 .comment .comment-toggle {
-  background-color: rgb(238, 238, 238);
-  color: rgb(100, 100, 100);
+  background-color: rgb(245, 245, 245);
+  color: rgb(150, 150, 150);
   border: none;
   -moz-border-radius: 0;
        border-radius: 0;
-  font-size: 1.8rem;
-  font-family: 'Hiragino Sans GB', 'Hiragino Sans GB W3', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;
+  font-size: 1.5rem;
   text-decoration: none;
   text-align: center;
-  line-height: 2;
-  height: 4rem;
-  padding: 0 5rem;
+  line-height: 1.8;
+  height: 3.6rem;
+  padding: 0 3rem;
   margin: .3rem;
   display: inline-block;
   cursor: pointer;
@@ -533,8 +537,6 @@ iframe {
 .source {
   background: rgba(200, 200, 200, .5);
   padding: 1rem 4rem;
-  font-size: 1.4rem;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: absolute;
   bottom: 1rem;
   right: -2rem;
@@ -546,7 +548,10 @@ iframe {
 }
 .source a {
   color: rgb(100, 100, 100);
+}
+.source a:hover {
   text-decoration: none;
+  color: rgb(100, 100, 100);
 }
 
 /* highlight */

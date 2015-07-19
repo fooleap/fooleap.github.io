@@ -16,7 +16,7 @@ tags: [图床, 七牛云]
 
 1、SkyDrive，微软旗下的网盘，现在已改名“OneDrive”。优点在于可以在本地编辑以同步，支持外链，我是直接点击“查看原件”复制其 URL。
 
-![例图一](https://b7x4rg.by3302.livefilestore.com/y3pO0oJGGPuwnpY_-mBTlxhtvhgtQGtig12IofuNyyx24rsIsl3FwpWURJztceynytlAhVIq2cWSYUBaWYsjUNu81TthIXKkPUeHogNm3TqirFm80daQp58kuX9CLquSNspHZYCi3wLuvhpzjt9efEC_yjMiPSx0JJvHML6pXJM77w/image-hosting.jpg)
+![例图一](https://b7x4rg.by3302.livefilestore.com/y3p6j2KbLqm8ekbQ4GskI0agfyuSzcwnopP2q267krb_rl7D30ar-ERXV9CXRLTJDGgjSJplRm1YWSpQNjvbzG2rIqItgR0ZxJk7DytGDPd85clmeDri8D8MGeAOW4nVPr9EGA9-rj_XpMTSJOqHJoXZd8uKieZGyL62SEJOg8BAsA/image-hosting.jpg)
 ▲例图一
 
 是的，文件名保留了，但是 URL 太丑太长，只能链接原文件，弃用。

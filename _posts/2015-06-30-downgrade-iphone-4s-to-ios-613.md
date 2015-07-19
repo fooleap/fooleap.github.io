@@ -29,21 +29,15 @@ tags: ["iPhone 4s", "iOS 6.1.3", 降级, odysseusOTA, Beehind]
 
 看了下降级视频，感觉挺简单的，[odysseusOTA](https://youtu.be/Wo7mGdMcjxw) 看样子是 [@tihmstar](https://twitter.com/tihmstar) 基于 [@daytonhasty](https://twitter.com/daytonhasty) 的 [Odysseus](http://dayt0n.github.io/articles/Odysseus/) 重新打包方便使用的。
 
-odysseusOTA 可以在 Mac OS 及 Linux 64 位上使用，对于一些依赖问题 Mac OS 可执行以下命令，前提是装了 [Homebrew](http://brew.sh/)。
+odysseusOTA 可以在 Mac OS 及 Linux 64 位上使用，对于一些依赖问题，Mac OS 下需要安装的有以下这些。
 
     brew install usbmuxd automake autoconf libtool pkg-config libplist libzip openssl
-    mkdir idevicerestore_build && cd idevicerestore_build
-    git clone https://github.com/xerub/libirecovery.git && cd ./libirecovery && bash autogen.sh && make install
-    cd ..
-    git clone https://github.com/libimobiledevice/libusbmuxd.git && cd ./libusbmuxd && bash autogen.sh && make install
-    cd ..
-    git clone https://github.com/libimobiledevice/libimobiledevice.git && cd ./libimobiledevice && bash ./autogen.sh && make install
-    cd ..
-    git clone https://github.com/xerub/idevicerestore.git && cd ./idevicerestore && bash autogen.sh && make install
+
+并按顺序编译安装 [libirecovery](https://github.com/xerub/libirecovery.git)、[libusbmuxd](https://github.com/libimobiledevice/libusbmuxd.git)、[libimobiledevice](https://github.com/libimobiledevice/libimobiledevice.git)、[idevicerestore](https://github.com/xerub/idevicerestore.git)，可参考[这里](http://www.reddit.com/r/jailbreak/comments/3bfrd5/release_odysseusota_downgrade_iphone4s_or_ipad2/csm408n)。
 
 Ubuntu 等一些 DEB 系的 Linux 发行版，则可以通过 [@daytonhasty](https://twitter.com/daytonhasty) 的 [OdysseusLinuxSetup](https://github.com/dayt0n/OdysseusLinuxSetup) 安装依赖。
 
-依赖装完之后，将 odysseusOTA（[odysseusOTA-v1.0.2.zip](https://www.dropbox.com/s/fg6ri2yh7qez1w5/odysseusOTA-v1.0.2.zip)）及 iPhone 4s 的 iOS 6.1.3 固件（[iPhone4,1_6.1.3_10B329_Restore.ipsw](http://appldnld.apple.com/iOS6.1/091-2611.20130319.Fr54r/iPhone4,1_6.1.3_10B329_Restore.ipsw)）下载好，就可以根据 odysseusOTA 的 README.txt 开搞。
+依赖装完之后，将 odysseusOTA（[odysseusOTA-v2.3.zip](https://www.dropbox.com/s/zmol1g84msi4aih/odysseusOTA-v2.3.zip)）及 iPhone 4s 的 iOS 6.1.3 固件（[iPhone4,1_6.1.3_10B329_Restore.ipsw](http://appldnld.apple.com/iOS6.1/091-2611.20130319.Fr54r/iPhone4,1_6.1.3_10B329_Restore.ipsw)）下载好，就可以根据 odysseusOTA 的 README.txt 开搞。
 
 在此需要提醒的是，若是在 Windows 上使用虚拟机的话，请采用 VMWare。
 
@@ -71,3 +65,4 @@ Ubuntu 等一些 DEB 系的 Linux 发行版，则可以通过 [@daytonhasty](htt
 
 * 2015 年 07 月 02 日 完成初稿
 * 2015 年 07 月 02 日 更新 @cpvideomaker 的共享
+* 2015 年 07 月 21 日 更新
