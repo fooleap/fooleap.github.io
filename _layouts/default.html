@@ -11,12 +11,12 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="stylesheet" href="{{ "/css/fontello.css" | prepend: site.baseurl }}">
     <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
     <script type="text/javascript" src="/js/modernizr.js"></script>
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <!--[if lte IE 9]>
       <script src="/js/html5shiv.min.js"></script>
-      <script src="/js/rem.min.js"></script>
       <script type="text/javascript">
         document.createElement('main');
       </script>
@@ -35,13 +35,13 @@
   
   <nav class="navigation hide">
       <ul class="navigation-list">
-          <li><a href="/" class="navigation-item{% if page.url == '/index.html' %} active{% endif %}">首页</a></li>
-          <li><a href="/about.html" class="navigation-item{% if page.url == '/about.html' %} active{% endif %}">关于</a></li>
-          <li><a href="/archive.html" class="navigation-item{% if page.url == '/archive.html' %} active{% endif %}">归档</a></li>
-          <li><a href="/links.html" class="navigation-item{% if page.url == '/links.html' %} active{% endif %}">链接</a></li>
-          <li><a href="/guestbook.html" class="navigation-item{% if page.url == '/guestbook.html' %} active{% endif %}">留言本</a></li>
+          <li><a href="/" class="navigation-item{% if page.url == '/index.html' %} active{% endif %}"><i class="icon-home"></i> 首页</a></li>
+          <li><a href="/about.html" class="navigation-item{% if page.url == '/about.html' %} active{% endif %}"><i class="icon-user"></i> 关于</a></li>
+          <li><a href="/archive.html" class="navigation-item{% if page.url == '/archive.html' %} active{% endif %}"><i class="icon-box"></i> 归档</a></li>
+          <li><a href="/links.html" class="navigation-item{% if page.url == '/links.html' %} active{% endif %}"><i class="icon-link"></i> 链接</a></li>
+          <li><a href="/guestbook.html" class="navigation-item{% if page.url == '/guestbook.html' %} active{% endif %}"><i class="icon-chat-empty"></i> 留言本</a></li>
       </ul>
-      <img src="{{site.IMG_PATH}}/avatar.jpg?imageView2/2/w/40" width="40" height="40" class="avatar" title="fooleap" />
+      <i class="icon icon-menu menu"></i>
   </nav>
   
   <main class="wrapper">
@@ -62,14 +62,14 @@
    
 
     {% if page.category %}
-    <div class="source">
-      <a href="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.url | remove: '/' | remove:'.html'}}.md" title="在 GitHub 查看页面源码">Source</a>
+    <div class="code">
+      <a href="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.url | remove: '/' | remove:'.html'}}.md" title="在 GitHub 查看页面源码"><i class="icon-code"></i> Code</a>
     </div>
     {% endif %}
   </main>
 
   <div id="gototop">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAJCAMAAAA1k+1bAAAAD1BMVEUAAACqqqq7u7vJysj///81vRM2AAAAAXRSTlMAQObYZgAAAC5JREFUeNpdx1ESACAIQsGQ+9/Z5pXmxAew6ySCKUnD1o6H8JOp1j91jDDPV7wEGaoAc5MwVncAAAAASUVORK5CYII=" />
+        <i class="icon-up-big"></i>
   </div>
 
   <script type="text/javascript" src="/js/jquery.qrcode.min.js"></script>

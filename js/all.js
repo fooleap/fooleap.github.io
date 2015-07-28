@@ -10,11 +10,17 @@ jQuery(document).ready(function($){
     };
   });
 
+  $('.wrapper').on( "touchstart", function(){
+    if( _nav.hasClass('show') ){
+      _nav.removeClass('show').addClass('hide'); 
+    };
+  });
+
   _nav.click(function(event){
     event.stopPropagation();
   });
 
-  $('.avatar').click(function(){
+  $('.menu').click(function(){
     if(_nav.hasClass('hide')){
       _nav.removeClass('hide').addClass('show');
     } else {
@@ -89,10 +95,9 @@ jQuery(document).ready(function($){
   $('.comment-toggle').click(function(){
     $(this).fadeOut(1500);
     $('.comment').attr('id','disqus_thread');
-    var disqus_shortname = 'fooleap'; 
     $.ajax({
       type: "GET",
-      url: "http://" + disqus_shortname + ".disqus.com/embed.js",
+      url: "https://fooleap.disqus.com/embed.js",
       dataType: "script",
       cache: true
     });
