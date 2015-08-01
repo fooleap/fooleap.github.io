@@ -17,7 +17,7 @@ body {
   font-weight: 300;
   color: rgb(51, 51, 51);
   line-height: 1.5;
-  background: rgb(80, 160, 240);
+  background: url(/css/restaurant.png) repeat fixed;
 }
 
 header, section, footer, aside, nav, main, article, figure, small {
@@ -26,12 +26,12 @@ header, section, footer, aside, nav, main, article, figure, small {
 
 a {
   text-decoration: none;
-  color: rgb(80, 130, 190);
+  color: rgb(50, 160, 200);
 }
 
 a:hover {
   text-decoration: underline;
-  color: rgb(51, 51, 51);
+  color: rgb(51, 51, 51)`;
 }
 
 .wrapper a:hover {
@@ -57,6 +57,16 @@ a:hover {
   margin: 30px auto;
   background-color: rgb(252, 251, 247);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Search */
+.search {
+  position: fixed;
+  z-index: 999;
+  top: 1%;
+  left: 1%;
+  font-size: 20px;
+  color: rgb(252, 251, 247);
 }
 
 /* Navigation */
@@ -251,7 +261,6 @@ nav {
 
 .post-content {
   position: relative;
-  margin-bottom: 50px;
   text-align: justify;
 }
 
@@ -285,8 +294,8 @@ nav {
 
 .post-content #markdown-toc:before {
   content: "目录";
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .post-content #markdown-toc {
@@ -295,8 +304,8 @@ nav {
   margin: 10px 20px;
   padding: 20px 30px;
   background: rgb(240, 240, 240);
-  -moz-border-radius: 10px;
-       border-radius: 10px;
+  -moz-border-radius: 5px;
+       border-radius: 5px;
   behavior: url(css/PIE.htc);
 }
 
@@ -385,6 +394,8 @@ iframe {
   font-family: Consolas, 'Microsoft Yahei';
   background-color: rgb(233, 233, 233);
   overflow: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   -moz-border-radius: 3px;
        border-radius: 3px;
   behavior: url(css/PIE.htc);
@@ -421,12 +432,39 @@ iframe {
   background-color: rgb(50, 50, 50);
 }
 
-.post-content #qrcode {
+.post-content #share {
+  font-size: 20px;
   position: absolute;
   right: 0;
-  bottom: -6px;
+  bottom: 0;
   margin: 0;
-  font-size: 16px;
+}
+
+.post-content #share a {
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+}
+
+.post-content #share a#wechat:hover, .post-content #share a#wechat.light {
+  color: rgb(81, 195, 50);
+}
+
+.post-content #share a#weibo:hover {
+  color: rgb(231, 44, 64);
+}
+
+.post-content #share #qrcode {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: -10px;
+  bottom: 30px;
+  background: rgb(238, 238, 238);
+  padding: 5px;
+  border: 1px solid rgb(245, 245, 245);
+  -moz-border-radius: 5px;
+       border-radius: 5px;
+  behavior: url(css/PIE.htc);
 }
 
 .comment {
@@ -737,7 +775,7 @@ iframe {
   .navigation .navigation-list {
     width: 160px;
   }
-  .post-content #markdown-toc{
+  .post-content #markdown-toc, .post-content #share {
     display: none;
   }
   #gototop {
@@ -746,6 +784,9 @@ iframe {
 }
 
 @media screen and (max-width: 414px) {
+  .site-header h1{
+    font-size: 20px;
+  }
   body, .site-header h2{
     font-size: 16px;
   }
@@ -759,8 +800,5 @@ iframe {
   }
   .post-content p.image {
     padding: 0;
-  }
-  .site-header h1, .site-header h2 {
-    left: 2%;
   }
 }

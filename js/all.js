@@ -6,7 +6,7 @@ jQuery(document).ready(function($){
   _nav = $('.navigation');
   $('html').click(function() {
     if( _nav.hasClass('show') ){
-      _nav.removeClass('show').addClass('hide'); 
+      _nav.removeClass('show').addClass('hide');
     };
   });
 
@@ -82,18 +82,31 @@ jQuery(document).ready(function($){
   
   //二维码
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
-    var canonical=document.querySelector("link[rel='canonical']").href;
-    $('#qrcode').qrcode({
-      width: 65,
-      height: 65,
-      correctLevel : 1,
-      text: canonical 
-    });	
+   $('#wechat').click(function(){
+   if( $('#qrcode').length > 0 ){
+     $('#qrcode').remove();
+     $(this).removeAttr ("class").attr("title","分享到微信");
+   } else {
+     var qrcode = "js/jquery.qrcode.min.js";
+     $.getScript( qrcode, function() {
+       $('#wechat').before('<div id="qrcode"></div>').addClass('light').attr("title","点击隐藏二维码");
+       var canonical=document.querySelector("link[rel='canonical']").href;
+       $('#qrcode').qrcode({
+         width: 70,
+         height: 70,
+         background: '#eee',
+         foreground: '#000',
+         correctLevel: 1,
+         text: canonical 
+       });	
+     }, true);
+   }
+  });
   }
 
   //评论
   $('.comment-toggle').click(function(){
-    $(this).fadeOut(1500);
+    $(this).fadeOut(500);
     $('.comment').attr('id','disqus_thread');
     $.ajax({
       type: "GET",

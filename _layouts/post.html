@@ -5,7 +5,13 @@ layout: default
     
 {{ content }}
 
-  <span id="qrcode"></span>
+  <div id="tags">
+    <i class="icon-tags"></i> {{ page.tags | join: '，'}}
+  </div>
+  <div id="share">
+    <a id="wechat" title="分享到微信" href="javascript:void(0);"><i class="icon-wechat"></i></a>
+    <a id="weibo" title="分享到微博" href="http://service.weibo.com/share/share.php?title={{ page.title }} | {{ site.title }}&url={{ site.url }}{{ page.url }}&ralateUid=null&searchPic=true&style=number" target="_blank"><i class="icon-weibo"></i></a>
+  </div>
 
 </article>
 
