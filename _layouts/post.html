@@ -5,12 +5,23 @@ layout: default
     
 {{ content }}
 
-  <div id="tags">
+  <div id="random-posts" class="posts"></div>
+  <div id="recent-posts" class="posts">
+  <strong>最近文章</strong>
+  <ul>
+  {% for post in site.posts | limit:5 %}
+   <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} </a></li>
+  {% endfor %}
+  </ul>
+  </div>
+
+  <div id="info" class="{{ page.categories }}">
     <i class="icon-tags"></i> {{ page.tags | join: '，'}}
   </div>
+
   <div id="share">
     <a id="wechat" title="分享到微信" href="javascript:void(0);"><i class="icon-wechat"></i></a>
-    <a id="weibo" title="分享到微博" href="http://service.weibo.com/share/share.php?title={{ page.title }} | {{ site.title }}&url={{ site.url }}{{ page.url }}&ralateUid=null&searchPic=true&style=number" target="_blank"><i class="icon-weibo"></i></a>
+    <a id="weibo" title="分享到微博" href="http://service.weibo.com/share/share.php?title={{ page.title }} | {{ site.title }}&url={{ page.url }}&ralateUid=null&searchPic=true&style=number" target="_blank"><i class="icon-weibo"></i></a>
   </div>
 
 </article>
@@ -18,15 +29,3 @@ layout: default
 <div class="comment">
   <button class="comment-toggle"><i class="icon-chat"></i> 查看评论</button>
 </div>
-
-<nav class="article-nav">
-  <ul>
-{% if page.previous %}
-    <li class="older"><a href="{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; {{ page.previous.title }}</a></li>
-{% endif %}
-
-{% if page.next %}
-    <li class="newer"><a href="{{ page.next.url }}" title="{{ page.previous.title }}">{{ page.next.title }} &rarr;</a></li>
-{% endif %}
-  </ul>
-</nav>

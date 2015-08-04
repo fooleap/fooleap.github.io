@@ -5,8 +5,8 @@ layout: default
   <ul>
     {% for post in paginator.posts %}
       <li>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <h3><a class="post-title" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+        <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y 年 %m 月 %d 日" }}</abbr>
       </li>
     {% endfor %}
   </ul>
@@ -15,15 +15,15 @@ layout: default
 <nav class="pagination">
   <ul>
     {% if paginator.next_page %}
-    <li class="older"><a href="/page{{paginator.next_page}}">&larr; Older posts</a></li>
+    <li class="older"><a href="/page{{paginator.next_page}}">&laquo; 较旧文章</a></li>
     {% else %}
     {% endif %}
     <li class="number">{{paginator.page}} / {{paginator.total_pages}}</li>
     {% if paginator.previous_page %}
       {% if paginator.previous_page == 1 %}
-    <li class="newer"><a href="/">Newer posts &rarr;</a></li>
+    <li class="newer"><a href="/">较新文章 &raquo;</a></li>
       {% else %}
-    <li class="newer"><a href="/page{{paginator.previous_page}}/">Newer posts &rarr;</a></li>
+    <li class="newer"><a href="/page{{paginator.previous_page}}/">较新文章 &raquo;</a></li>
       {% endif %}
     {% else %}
     <li class="newer"></li>

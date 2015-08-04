@@ -83,7 +83,7 @@ Vim 不是通过 Ctrl-C, Ctrl-X, Ctrl-V 来实现复制、剪切、粘贴的，�
 修改 PKGBUILD 文件
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>PKGBUILD</code></pre>
-<pre style="margin-top: 0; border-top-style:dashed; padding-top:8px;"><code>...
+<pre style="margin-top: 0; border-top: 1px dashed #ddd; padding-top:8px;"><code>...
 pkgname=('vim'<del> 'gvim' 'vim-runtime'</del>)
 # 去除不需要编译的包
 # 至于编译依赖，不了解可以像我一样选择不取消

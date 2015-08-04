@@ -27,7 +27,7 @@ jQuery(document).ready(function($){
       _nav.removeClass('show').addClass('hide');
     };
   });
-   
+  
   //图片
   var maxwidth=640; 
   var post_img=$('.post-content img');
@@ -103,14 +103,50 @@ jQuery(document).ready(function($){
    }
   });
   }
+  
+  //随机同类文章
+  function generateRandomPosts(jsonfile){
+    $.getJSON( jsonfile, function(data) {
+      var postsCount = data.length;
+      var posts = data;
+      var randomIndexUsed = [];
+      var counter = 0;
+      var numberOfPosts = 5;
+      $("#random-posts").append('<strong>猜你喜欢</strong>');
+      $("#random-posts").append('<ul>');
+      var divRandomPosts = $("#random-posts ul");
+      while (counter < numberOfPosts) {
+        var randomIndex = Math.floor(Math.random() * postsCount);
+        if (randomIndexUsed.indexOf(randomIndex) == "-1") {
+        var postHREF = posts[randomIndex].href;
+        var postTitle = posts[randomIndex].title;
+        if (counter == (numberOfPosts - 1)) {
+          divRandomPosts.append('<li><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></li>');
+        } else {
+          divRandomPosts.append('<li><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></li>');
+        }
+        randomIndexUsed.push(randomIndex);
+        counter++;
+        }
+      } 
+    });
+  }
+  if ($('#info').hasClass('tech')){
+    var postsJson = 'js/tech.json';
+    generateRandomPosts(postsJson);
+  } else if ($('#info').hasClass('life')){
+    var postsJson = 'js/life.json';
+    generateRandomPosts(postsJson);
+  };
 
   //评论
   $('.comment-toggle').click(function(){
     $(this).fadeOut(500);
     $('.comment').attr('id','disqus_thread');
+    var disqus_shortname = 'fooleap';
     $.ajax({
       type: "GET",
-      url: "https://fooleap.disqus.com/embed.js",
+      url: "https://" + disqus_shortname + ".disqus.com/embed.js",
       dataType: "script",
       cache: true
     });

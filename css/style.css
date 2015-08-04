@@ -1,3 +1,88 @@
+﻿/* Fonts */
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: normal;
+  font-weight: 400;
+  src: local('RobotoDraft'), local('RobotoDraft-Regular'), local('Roboto-Regular'), url(../font/RobotoDraftRegular.woff2) format('woff2'), url(../font/RobotoDraftRegular.woff) format('woff');
+}
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: normal;
+  font-weight: 500;
+  src: local('RobotoDraft Medium'), local('RobotoDraft-Medium'), local('Roboto-Medium'), url(../font/RobotoDraftMedium.woff2) format('woff2'), url(../font/RobotoDraftMedium.woff) format('woff');
+}
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: normal;
+  font-weight: 700;
+  src: local('RobotoDraft Bold'), local('RobotoDraft-Bold'), local('Roboto-Bold'), url(../font/RobotoDraftBold.woff2) format('woff2'), url(../font/RobotoDraftBold.woff) format('woff');
+}
+@font-face {
+  font-family: 'RobotoDraft';
+  font-style: italic;
+  font-weight: 400;
+  src: local('RobotoDraft Italic'), local('RobotoDraft-Italic'), local('Roboto-Italic'), url(../font/RobotoDraftItalic.woff2) format('woff2'), url(../font/RobotoDraftItalic.woff) format('woff');
+}
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?27750317');
+  src: url('../font/fontello.eot?27750317#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?27750317') format('woff'),
+       url('../font/fontello.ttf?27750317') format('truetype'),
+       url('../font/fontello.svg?27750317#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-user:before { content: '\e800'; } /* '' */
+.icon-search:before { content: '\e801'; } /* '' */
+.icon-tag:before { content: '\e802'; } /* '' */
+.icon-tags:before { content: '\e803'; } /* '' */
+.icon-code:before { content: '\e804'; } /* '' */
+.icon-comment:before { content: '\e805'; } /* '' */
+.icon-chat:before { content: '\e806'; } /* '' */
+.icon-chat-empty:before { content: '\e807'; } /* '' */
+.icon-comment-empty:before { content: '\e808'; } /* '' */
+.icon-folder-open:before { content: '\e809'; } /* '' */
+.icon-menu:before { content: '\e80a'; } /* '' */
+.icon-down-open:before { content: '\e80b'; } /* '' */
+.icon-down-big:before { content: '\e80c'; } /* '' */
+.icon-left-big:before { content: '\e80d'; } /* '' */
+.icon-left-open:before { content: '\e80e'; } /* '' */
+.icon-right-open:before { content: '\e80f'; } /* '' */
+.icon-right-big:before { content: '\e810'; } /* '' */
+.icon-up-big:before { content: '\e811'; } /* '' */
+.icon-up-open:before { content: '\e812'; } /* '' */
+.icon-box:before { content: '\e813'; } /* '' */
+.icon-folder-empty:before { content: '\e814'; } /* '' */
+.icon-folder-open-empty:before { content: '\e815'; } /* '' */
+.icon-folder:before { content: '\e816'; } /* '' */
+.icon-weibo:before { content: '\e817'; } /* '' */
+.icon-wechat:before { content: '\e818'; } /* '' */
+.icon-info:before { content: '\e819'; } /* '' */
+.icon-info-circled:before { content: '\e81a'; } /* '' */
+.icon-link:before { content: '\e81b'; } /* '' */
+.icon-home:before { content: '\e81c'; } /* '' */
+.icon-attach:before { content: '\e81d'; } /* '' */
+
 /* Utility */
 
 * {
@@ -12,31 +97,43 @@ strong, b {
 
 body {
   height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  color: rgb(51, 51, 51);
-  line-height: 1.5;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(34, 34, 34);
+  line-height: 1.7;
   background: url(/css/restaurant.png) repeat fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 header, section, footer, aside, nav, main, article, figure, small {
   display: block;
 } 
 
+acronym, abbr {
+  text-decoration: none;
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+
+abbr {
+  cursor: help;
+}
+
 a {
   text-decoration: none;
-  color: rgb(50, 160, 200);
+  color: rgb(80, 160, 240);;
 }
 
 a:hover {
   text-decoration: underline;
-  color: rgb(51, 51, 51)`;
+  color: rgb(34, 34, 34);
 }
 
 .wrapper a:hover {
   text-decoration: underline;
-  color: rgb(7, 108, 210);
+  color: rgb(60, 120, 240);
 }
 
 .wrapper:before, .wrapper:after {
@@ -202,15 +299,15 @@ nav {
   margin-bottom: 30px;
 }
 
-.articles ul .post-link {
+.articles ul .post-title {
+  font-weight: normal;
   font-size: 16px;
   line-height: 1.3;
 }
 
 .articles ul .post-date {
-  display: block;
-  font-size: 14px;
-  font-style: italic;
+  font-size: 12px;
+  word-spacing: -2px;
   color: rgb(150, 150, 150);
 }
 
@@ -249,7 +346,7 @@ nav {
 
 /* Post styles */
 
-.site-header h2 {
+.site-header .sub-heading {
   display: block;
   color: rgb(150, 150, 150);
   font-size: 13px;
@@ -261,10 +358,9 @@ nav {
 
 .post-content {
   position: relative;
-  text-align: justify;
 }
 
-.post-content>* {
+.post-content>*, .posts>* {
   margin: 18px 0;
 }
 
@@ -276,19 +372,19 @@ nav {
 
 .post-content h2 {
   font-size: 20px;
-  border-left: 8px solid;
+  border-left: 5px solid rgb(80, 160, 240);;
   padding-left: 8px;
 }
 
 .post-content h3 {
   font-size: 18px;
-  border-left: 7px solid;
+  border-left: 5px solid rgb(80, 160, 240);;
   padding-left: 7px;
 }
 
 .post-content h4 {
   font-size: 16px;
-  border-left: 6px solid;
+  border-left: 5px solid rgb(80, 160, 240);;
   padding-left: 6px;
 }
 
@@ -394,8 +490,11 @@ iframe {
   font-family: Consolas, 'Microsoft Yahei';
   background-color: rgb(233, 233, 233);
   overflow: auto;
-  white-space: pre-wrap;
   word-wrap: break-word;
+  white-space: pre-wrap; 
+  white-space: -moz-pre-wrap; 
+  white-space: -pre-wrap; 
+  white-space: -o-pre-wrap; 
   -moz-border-radius: 3px;
        border-radius: 3px;
   behavior: url(css/PIE.htc);
@@ -405,7 +504,7 @@ iframe {
   padding: 1px 5px;
 }
 
-.post-content ul, .post-content ol {
+.post-content ul, .post-content ol, .posts ul{
   margin-left: 15px;
 }
 
@@ -430,6 +529,15 @@ iframe {
 
 .post-content pre.terminal code {
   background-color: rgb(50, 50, 50);
+}
+
+.post-content .posts {
+  width: 50%;
+  float: left;
+}
+
+.post-content #info {
+  clear: both;
 }
 
 .post-content #share {
@@ -457,7 +565,7 @@ iframe {
   width: 70px;
   height: 70px;
   position: absolute;
-  right: -10px;
+  right: 0;
   bottom: 30px;
   background: rgb(238, 238, 238);
   padding: 5px;
@@ -475,8 +583,7 @@ iframe {
   background-color: rgb(245, 245, 245);
   color: rgb(150, 150, 150);
   border: none;
-  -moz-border-radius: 0;
-       border-radius: 0;
+  font-family: sans-serif;
   font-size: 15px;
   text-decoration: none;
   text-align: center;
@@ -488,26 +595,17 @@ iframe {
   cursor: pointer;
 }
 
-/* Article Nav */
-
-.article-nav {
-  margin: 15px 0 5px;
-}
-
-.article-nav ul .newer {
-  width: 50%;
-  float: right;
-  text-align: right;
-}
-
-.article-nav ul .older {
-  width: 50%;
-  float: left;
-  text-align: left;
+#disqus_thread {
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  word-wrap: break-word;
+  white-space: pre-wrap; 
+  white-space: -moz-pre-wrap; 
+  white-space: -pre-wrap; 
+  white-space: -o-pre-wrap; 
 }
 
 .code {
-  background: rgba(200, 200, 200, .5);
+  background: rgba(240, 240, 240, .5);
   padding: 8px 30px;
   position: absolute;
   bottom: 10px;
@@ -518,9 +616,11 @@ iframe {
        -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+
 .code a {
   color: rgb(100, 100, 100);
 }
+
 .code a:hover {
   text-decoration: none;
   color: rgb(100, 100, 100);
@@ -532,214 +632,69 @@ iframe {
  * Courtesy of GitHub.com
  */
 
-.highlight pre, pre, .highlight .hll {
-  padding: 6px 8px;
-  border-radius: 3px;
-  behavior: url(css/PIE.htc);
-}
-.highlight .c {
-  color: #999988;
-  font-style: italic;
-}
-.highlight .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-.highlight .k {
-  font-weight: bold;
-}
-.highlight .o {
-  font-weight: bold;
-}
-.highlight .cm {
-  color: #999988;
-  font-style: italic;
-}
-.highlight .cp {
-  color: #999999;
-  font-weight: bold;
-}
-.highlight .c1 {
-  color: #999988;
-  font-style: italic;
-}
-.highlight .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-.highlight .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-.highlight .gd .x {
-  color: #000000;
-  background-color: #ffaaaa;
-}
-.highlight .ge {
-  font-style: italic;
-}
-.highlight .gr {
-  color: #aa0000;
-}
-.highlight .gh {
-  color: #999999;
-}
-.highlight .gi {
-  color: #000000;
-  background-color: #ddffdd;
-}
-.highlight .gi .x {
-  color: #000000;
-  background-color: #aaffaa;
-}
-.highlight .go {
-  color: #888888;
-}
-.highlight .gp {
-  color: #555555;
-}
-.highlight .gs {
-  font-weight: bold;
-}
-.highlight .gu {
-  color: #800080;
-  font-weight: bold;
-}
-.highlight .gt {
-  color: #aa0000;
-}
-.highlight .kc {
-  font-weight: bold;
-}
-.highlight .kd {
-  font-weight: bold;
-}
-.highlight .kn {
-  font-weight: bold;
-}
-.highlight .kp {
-  font-weight: bold;
-}
-.highlight .kr {
-  font-weight: bold;
-}
-.highlight .kt {
-  color: #445588;
-  font-weight: bold;
-}
-.highlight .m {
-  color: #009999;
-}
-.highlight .s {
-  color: #dd1144;
-}
-.highlight .n {
-  color: #333333;
-}
-.highlight .na {
-  color: teal;
-}
-.highlight .nb {
-  color: #0086b3;
-}
-.highlight .nc {
-  color: #445588;
-  font-weight: bold;
-}
-.highlight .no {
-  color: teal;
-}
-.highlight .ni {
-  color: purple;
-}
-.highlight .ne {
-  color: #990000;
-  font-weight: bold;
-}
-.highlight .nf {
-  color: #990000;
-  font-weight: bold;
-}
-.highlight .nn {
-  color: #555555;
-}
-.highlight .nt {
-  color: navy;
-}
-.highlight .nv {
-  color: teal;
-}
-.highlight .ow {
-  font-weight: bold;
-}
-.highlight .w {
-  color: #bbbbbb;
-}
-.highlight .mf {
-  color: #009999;
-}
-.highlight .mh {
-  color: #009999;
-}
-.highlight .mi {
-  color: #009999;
-}
-.highlight .mo {
-  color: #009999;
-}
-.highlight .sb {
-  color: #dd1144;
-}
-.highlight .sc {
-  color: #dd1144;
-}
-.highlight .sd {
-  color: #dd1144;
-}
-.highlight .s2 {
-  color: #dd1144;
-}
-.highlight .se {
-  color: #dd1144;
-}
-.highlight .sh {
-  color: #dd1144;
-}
-.highlight .si {
-  color: #dd1144;
-}
-.highlight .sx {
-  color: #dd1144;
-}
-.highlight .sr {
-  color: #009926;
-}
-.highlight .s1 {
-  color: #dd1144;
-}
-.highlight .ss {
-  color: #990073;
-}
-.highlight .bp {
-  color: #999999;
-}
-.highlight .vc {
-  color: teal;
-}
-.highlight .vg {
-  color: teal;
-}
-.highlight .vi {
-  color: teal;
-}
-.highlight .il {
-  color: #009999;
-}
-.highlight .gc {
-  color: #999999;
-  background-color: #eaf2f5;
-}
+.highlight pre, pre, .highlight .hll { padding: 6px 8px; border-radius: 3px; behavior: url(css/PIE.htc); }
+.highlight .c { color: #999988; font-style: italic; }
+.highlight .err { color: #a61717; background-color: #e3d2d2; }
+.highlight .k { font-weight: bold; }
+.highlight .o { font-weight: bold; }
+.highlight .cm { color: #999988; font-style: italic; }
+.highlight .cp { color: #999999; font-weight: bold; }
+.highlight .c1 { color: #999988; font-style: italic; }
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic; }
+.highlight .gd { color: #000000; background-color: #ffdddd; }
+.highlight .gd .x { color: #000000; background-color: #ffaaaa; }
+.highlight .ge { font-style: italic; }
+.highlight .gr { color: #aa0000; }
+.highlight .gh { color: #999999; }
+.highlight .gi { color: #000000; background-color: #ddffdd; }
+.highlight .gi .x { color: #000000; background-color: #aaffaa;}
+.highlight .go { color: #888888; }
+.highlight .gp { color: #555555; }
+.highlight .gs { font-weight: bold; }
+.highlight .gu { color: #800080; font-weight: bold; }
+.highlight .gt { color: #aa0000; }
+.highlight .kc { font-weight: bold; }
+.highlight .kd { font-weight: bold; }
+.highlight .kn { font-weight: bold; }
+.highlight .kp { font-weight: bold; }
+.highlight .kr { font-weight: bold; }
+.highlight .kt { color: #445588; font-weight: bold; }
+.highlight .m { color: #009999; }
+.highlight .s { color: #dd1144; }
+.highlight .n { color: #333333; }
+.highlight .na { color: teal; }
+.highlight .nb { color: #0086b3; }
+.highlight .nc { color: #445588; font-weight: bold; }
+.highlight .no { color: teal; }
+.highlight .ni { color: purple; }
+.highlight .ne { color: #990000; font-weight: bold; }
+.highlight .nf { color: #990000; font-weight: bold; }
+.highlight .nn { color: #555555; }
+.highlight .nt { color: navy; }
+.highlight .nv { color: teal; }
+.highlight .ow { font-weight: bold; }
+.highlight .w { color: #bbbbbb; }
+.highlight .mf { color: #009999; }
+.highlight .mh { color: #009999; }
+.highlight .mi { color: #009999; }
+.highlight .mo { color: #009999; }
+.highlight .sb { color: #dd1144; }
+.highlight .sc { color: #dd1144; }
+.highlight .sd { color: #dd1144; }
+.highlight .s2 { color: #dd1144; }
+.highlight .se { color: #dd1144; }
+.highlight .sh { color: #dd1144; }
+.highlight .si { color: #dd1144; }
+.highlight .sx { color: #dd1144; }
+.highlight .sr { color: #009926; }
+.highlight .s1 { color: #dd1144; }
+.highlight .ss { color: #990073; }
+.highlight .bp { color: #999999; }
+.highlight .vc { color: teal; }
+.highlight .vg { color: teal; }
+.highlight .vi { color: teal; }
+.highlight .il { color: #009999; }
+.highlight .gc { color: #999999; background-color: #eaf2f5; }
 
 /* media queries */
 
@@ -781,13 +736,17 @@ iframe {
   #gototop {
     opacity: .6;
   }
+  .post-content .posts {
+    width: auto;
+    float: none;
+  }
 }
 
 @media screen and (max-width: 414px) {
   .site-header h1{
     font-size: 20px;
   }
-  body, .site-header h2{
+  body, .site-header .sub-heading {
     font-size: 16px;
   }
   .wrapper {
@@ -798,7 +757,13 @@ iframe {
   ul, .post-content p {
     padding: 0 2%;
   }
+  .post-content pre, .post-content code {
+     border-radius: 0;
+  }
   .post-content p.image {
     padding: 0;
+  }
+  #disqus_thread {
+    padding: 8px;
   }
 }

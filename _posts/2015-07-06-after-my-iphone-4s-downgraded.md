@@ -57,8 +57,9 @@ iOS 6.1.3 可采用 [p0sixspwn](http://p0sixspwn.com/) 进行越狱，不过 Win
 |[NCSettings](cydia://package/com.jamied360.ncsettings)|ModMyi|通知中心开关|
 |[No keyboard Spotlight](cydia://package/com.itaysoft.nokeyspotlight)|BigBoss|Spotlight 界面不自动跳出键盘|
 |[OpenSSH](cydia://package/openssh)|Telesphoreo|SSH 服务|
-|[PreferenceOrganizer 2](cydia://package/net.angelxwind.preferenceorganizer2)|[Karen's Pineapple](cydia://url/https://cydia.saurik.com/api/share#?source=http://cydia.angelxwind.net/)|自动归类设置里的插件和应用|
+|[PasswordPilot](cydia://package/com.filippobiga.passwordpilot)|BigBoss|自动填充 AppStore 密码|
 |[Poof](cydia://package/com.bigboss.poof)|BigBoss|隐藏图标，配合 Activator|
+|[PreferenceOrganizer 2](cydia://package/net.angelxwind.preferenceorganizer2)|[Karen's Pineapple](cydia://url/https://cydia.saurik.com/api/share#?source=http://cydia.angelxwind.net/)|自动归类设置里的插件和应用|
 |[Pull To Dismiss](cydia://package/com.rpetrich.pulltodismiss)|BigBoss|下滑关闭键盘|
 |[ShadowSocks](cydia://package/com.linusyang.shadowsocks)|BigBoss|科学上网利器|
 |[ShadowSocks Per-App Plugin](cydia://package/com.linusyang.ssperapp)|BigBoss|设置程序内代理|

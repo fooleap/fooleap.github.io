@@ -4,6 +4,7 @@ title: 我那丢了的手机
 description: "有时候不得不承认自己在记的都是流水账，那么这次，且听我聊聊关于那次手机丢了的事。"
 category: life
 tags: [手机, 金鸿公路, 宝奥城]
+jquery: true
 ---
 
 有时候不得不承认自己在记的都是流水账，那么这次，且听我聊聊关于那次手机丢了的事。
@@ -100,10 +101,11 @@ tags: [手机, 金鸿公路, 宝奥城]
     var point14 = new BMap.Point(116.837586,23.471335);
     var points = [point01, point02, point03, point04, point05, point06, point07, point08, point09, point10, point11, point12, point13, point12, point11, point10, point09, point08, point07, point02, point01];
     var polyline = new BMap.Polyline(points, {strokeWeight:2});
-    var marker1 = new BMap.Marker(point01);  // 村里
-    var marker2 = new BMap.Marker(point05);  // 湾中
-    var marker3 = new BMap.Marker(point13);  // 宝奥城
-    var marker4 = new BMap.Marker(point14);  // 丢手机地方
+	var myIcon = new BMap.Icon("{{site.IMG_PATH}}/marker.png", new BMap.Size(19,25),{anchor: new BMap.Size(9, 25)});
+    var marker1 = new BMap.Marker(point01,{icon:myIcon});  // 村里
+    var marker2 = new BMap.Marker(point05,{icon:myIcon});  // 湾中
+    var marker3 = new BMap.Marker(point13,{icon:myIcon});  // 宝奥城
+    var marker4 = new BMap.Marker(point14,{icon:myIcon});  // 丢手机地方
     var label1= new BMap.Label("村里",{offset:new BMap.Size(20,-10)});
     var label2= new BMap.Label("湾头中学",{offset:new BMap.Size(20,-10)});
     var label3= new BMap.Label("宝奥城",{offset:new BMap.Size(20,-10)});

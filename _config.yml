@@ -2,7 +2,6 @@ encoding: utf-8
 title: Fooleap's Blog
 email: fooleap@gmail.com
 description: "A foolish man could not always lose!"
-baseurl: ""
 url: "http://blog.fooleap.org"
 twitter_username: fooleap
 github_username: fooleap
@@ -11,7 +10,7 @@ timezone: Asia/Shanghai
 permalink: /:title.html 
 highlighter: pygments
 paginate: 10
-IMG_PATH: http://fooleap.qiniudn.com
+IMG_PATH: http://7fv9cr.com1.z0.glb.clouddn.com
 markdown: kramdown
 kramdown: 
   toc_levels: "2,3" 
