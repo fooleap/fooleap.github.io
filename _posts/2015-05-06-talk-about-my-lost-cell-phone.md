@@ -61,15 +61,17 @@ jquery: true
 不久，老妈来电话叫回家吃饭，此事到此结束，算是一个小插曲，遗憾的是，因手机丢失，没有好好看看宝奥城，顺便贴一个示意地图。
 
 <div id="map"></div>
-<button id="run">启动骑行</button> <span id="distance"></span>
+<div id="map-control"><button id="run">启动骑行</button> <span id="distance"></span></div>
 
 **本文历史**
 
 * 2015 年 05 月 06 日 完成初稿
 
 <style>
-#map {width:100%;max-width: 640px;}
-.BMap_cpyCtrl,.anchorBL{display:none;}
+#map {width:100%;max-width:640px;margin:18px 0 0 0}
+#map-control {margin:0;padding:0}
+#map-control button{color: #333; background: rgb(255,255,255);padding: 2px; border: 1px solid #ddd; margin: 2px; cursor: pointer; border-radius: 2px; text-transform: uppercase; text-decoration: none;}
+.BMap_cpyCtrl,.anchorBL,.anchorBR{display:none;}
 </style>
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de"></script>
@@ -123,12 +125,16 @@ jquery: true
     map.addControl(new BMap.ScaleControl({offset: new BMap.Size(80, 3)}));
     var dis = BMapLib.GeoUtils.getPolylineDistance(polyline);
     var lushu = new BMapLib.LuShu(map, points, {
-        defaultContent: "",
+        defaultContent: "骑行线路",
         autoView: true,
 	speed:800,
         icon: new BMap.Icon('{{site.IMG_PATH}}/mountain_biking.png', new BMap.Size(30, 30), { anchor: new BMap.Size(15, 15) }),
         enableRotation: true,
-        landmarkPois: []
+        landmarkPois: [
+          { lng: point14.lng, lat: point14.lat, html: '手机掉了', pauseTime: 1 },
+          { lng: point13.lng, lat: point13.lat, html: '手机找不着', pauseTime: 1 },
+          { lng: point14.lng, lat: point14.lat, html: '手机找到了', pauseTime: 1 },
+        ]
     });
     $("#run").click(function(){
         lushu.start();

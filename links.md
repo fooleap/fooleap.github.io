@@ -25,6 +25,7 @@ title: 链接
 * [Terence's Blog](http://songtl.com/){:title="宋廷龙@桂林"}
 * [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
+* [Weidan's Blog](http://liweidan.cn/)
 * [大喇叭](http://blog.jiangqiwen.cn/){:title="@浙江"}
 * [古博](http://gubo.org){:title="许凯@郑州"}
 * [广西大学Linux协会](http://www.gxlinux.com){:title="广西大学Linux协会"}
