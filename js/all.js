@@ -4,28 +4,26 @@ jQuery(document).ready(function($){
   
   //菜单
   nav = $('.navigation');
-  $('html').click(function() {
-    if( nav.hasClass('show') ){
-      nav.removeClass('show').addClass('hide');
-    };
-  });
 
   $('.wrapper').on( "touchstart", function(){
     if( nav.hasClass('show') ){
       nav.removeClass('show').addClass('hide'); 
     };
   });
-
-  nav.click(function(event){
-    event.stopPropagation();
-  });
-
-  $('.menu').click(function(){
+  
+  $('.menu').on( "touchstart", function(){
     if(nav.hasClass('hide')){
       nav.removeClass('hide').addClass('show');
     } else {
       nav.removeClass('show').addClass('hide');
     };
+  });
+
+  nav.mouseover(function(){
+    nav.removeClass('hide').addClass('show');
+  });
+  nav.mouseout(function(){
+    nav.removeClass('show').addClass('hide');
   });
   
   //图片
@@ -98,7 +96,7 @@ jQuery(document).ready(function($){
          correctLevel: 1,
          text: canonical 
         });	
-     }, true);
+     }, false);
    }
   });
   $('html').click(function() {
@@ -110,6 +108,23 @@ jQuery(document).ready(function($){
   }
   
   //随机同类文章
+  if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function(elt /*, from*/) {
+    var len = this.length >>> 0;
+    var from = Number(arguments[1]) || 0;
+    from = (from < 0)
+         ? Math.ceil(from)
+         : Math.floor(from);
+    if (from < 0)
+      from += len;
+    for (; from < len; from++){
+      if (from in this &&
+          this[from] === elt)
+        return from;
+    }
+    return -1;
+    };
+  }
   function generateRandomPosts(jsonfile){
     $.getJSON( jsonfile, function(data) {
       var postsCount = data.length;
@@ -151,11 +166,9 @@ jQuery(document).ready(function($){
       $('.source').remove();
       $(this).attr('title','查看内容源码').html('<i class="icon-code"></i> 源码');
     } else {
-      $('.main-content').addClass('hide');
       var source = $(this).attr('data');
-      $.get(source).success(function(content){ 
-        $('.main-content').before('<textarea class="source" readonly>' + content + '</textarea>');
-      });
+      $('.main-content').addClass('hide').after('<textarea class="source" readonly>');
+      $('.source').load(source);
       $(this).attr('title','返回文章内容').html('<i class="icon-doc"></i> 内容');
     }
   });

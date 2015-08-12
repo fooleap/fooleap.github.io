@@ -313,16 +313,31 @@ nav {
 }
 
 .articles ul li {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.articles ul .thumbnail {
+  float: left;
+  margin-right: 15px;
+  padding: 2px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgb(200, 200, 200);
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  behavior: url(css/PIE.htc);
 }
 
 .articles ul .post-title {
   font-weight: normal;
   font-size: 16px;
-  line-height: 1.3;
+  height: 28px;
+  line-height: 28px;
 }
 
 .articles ul .post-date {
+  height: 25px
+  line-height: 25px
   font-size: 12px;
   word-spacing: -2px;
   color: rgb(150, 150, 150);
