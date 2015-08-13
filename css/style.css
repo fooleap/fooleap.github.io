@@ -125,7 +125,6 @@ header, section, footer, aside, nav, main, article, figure, small {
 
 acronym, abbr {
   text-decoration: none;
-  border-bottom: 1px dotted;
   font-variant: normal;
 }
 
@@ -135,7 +134,7 @@ abbr {
 
 a {
   text-decoration: none;
-  color: rgb(80, 160, 240);;
+  color: rgb(80, 160, 240);
 }
 
 a:hover {
@@ -165,10 +164,7 @@ a:hover {
   padding: 0 70px;
   margin: 30px auto;
   background-color: rgb(252, 251, 247);
-  border: 1px solid rgb(225, 232, 237);
-  -moz-border-radius: 2px;
-       border-radius: 2px;
-  behavior: url(css/PIE.htc);
+  border-radius: 2px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -226,9 +222,7 @@ nav {
   text-indent: 0;
   color: rgb(100, 100, 100);
   background: rgb(35, 35, 35);
-  -moz-border-radius: 2px;
-       border-radius: 2px;
-  behavior: url(css/PIE.htc);
+  border-radius: 2px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -300,9 +294,7 @@ nav {
   line-height: 2;
   font-size: 15px;
   opacity: .8;
-  -moz-border-radius: 5px;
-       border-radius: 5px;
-  behavior: url(css/PIE.htc);
+  border-radius: 5px;
 }
 
 /* Home styles */
@@ -318,28 +310,25 @@ nav {
 
 .articles ul .thumbnail {
   float: left;
-  margin-right: 15px;
-  padding: 2px;
-  width: 50px;
-  height: 50px;
-  border: 1px solid rgb(200, 200, 200);
-  -moz-border-radius: 3px;
-       border-radius: 3px;
-  behavior: url(css/PIE.htc);
+  margin-right: 10px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
 .articles ul .post-title {
+  height: 24px;
+  line-height: 24px;
   font-weight: normal;
-  font-size: 16px;
-  height: 28px;
-  line-height: 28px;
+  font-size: 15px;
 }
 
 .articles ul .post-date {
-  height: 25px
-  line-height: 25px
+  height: 24px;
+  line-height: 24px;
   font-size: 12px;
-  word-spacing: -2px;
+  word-spacing: -1px;
   color: rgb(150, 150, 150);
 }
 
@@ -445,9 +434,7 @@ nav {
   margin: 10px 20px;
   padding: 20px 30px;
   background: rgb(240, 240, 240);
-  -moz-border-radius: 5px;
-       border-radius: 5px;
-  behavior: url(css/PIE.htc);
+  border-radius: 5px;
 }
 
 .post-content blockquote {
@@ -519,10 +506,6 @@ figcaption, .figcaption {
 
 figure:hover figcaption, .figure:hover .figcaption {
   opacity: .8;
-  -webkit-transition: transform .8s, opacity .8s;
-     -moz-transition: transform .8s, opacity .8s;
-       -o-transition: transform .8s, opacity .8s;
-          transition: transform .8s, opacity .8s;
 }
 
 iframe {
@@ -540,9 +523,7 @@ iframe {
   white-space: -moz-pre-wrap; 
   white-space: -pre-wrap; 
   white-space: -o-pre-wrap; 
-  -moz-border-radius: 3px;
-       border-radius: 3px;
-  behavior: url(css/PIE.htc);
+  border-radius: 3px;
 }
 
 .post-content code {
@@ -567,9 +548,7 @@ iframe {
 .post-content pre.terminal {
   color: rgb(255, 255, 255);
   border: 1px solid rgb(0, 0, 0);
-  -moz-border-radius: 3px;
-       border-radius: 3px;
-  behavior: url(css/PIE.htc);
+  border-radius: 3px;
 }
 
 .post-content pre.terminal code {
@@ -628,9 +607,7 @@ iframe {
   background: rgb(255, 255, 255);
   padding: 5px;
   border: 1px solid rgb(245, 245, 245);
-  -moz-border-radius: 5px;
-       border-radius: 5px;
-  behavior: url(css/PIE.htc);
+  border-radius: 5px;
   box-shadow: 1px 1px 2px rgb(150, 150, 150);
 }
 
@@ -669,7 +646,7 @@ iframe {
  * Courtesy of GitHub.com
  */
 
-.highlight pre, pre, .highlight .hll { padding: 6px 8px; border-radius: 3px; behavior: url(css/PIE.htc); }
+.highlight pre, pre, .highlight .hll { padding: 6px 8px; border-radius: 3px; }
 .highlight .c { color: #999988; font-style: italic; }
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
 .highlight .k { font-weight: bold; }
@@ -764,6 +741,28 @@ iframe {
   .navigation .navigation-list {
     width: 160px;
   }
+  .articles ul .thumbnail {
+    float: left;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+  }
+
+  .articles ul .post-title {
+    height: 20px;
+    line-height: 20px;
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+  .articles ul .post-date {
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    word-spacing: -2px;
+    color: rgb(150, 150, 150);
+  }
   .post-content #markdown-toc, .post-content #share, .post-content .view-code {
     display: none;
   }
@@ -781,12 +780,34 @@ iframe {
     font-size: 20px;
   }
   body, .site-header .sub-heading {
-    font-size: 16px;
+    font-size: 15px;
   }
   .wrapper {
     width: 100%;
     max-width: 100%;
     padding: 0;
+  }
+  .articles ul .thumbnail {
+    float: left;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+  }
+
+  .articles ul .post-title {
+    height: 20px;
+    line-height: 20px;
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+  .articles ul .post-date {
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    word-spacing: -2px;
+    color: rgb(150, 150, 150);
   }
   ul, .post-content p {
     padding: 0 2%;

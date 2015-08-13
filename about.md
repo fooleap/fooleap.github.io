@@ -1,17 +1,17 @@
 ---
 layout: page
 title: 关于
-tags: [关于, 博客, fooleap, blog]
+tags: [关于, 网志, fooleap, blog]
 ---
 
-* 博客网址：[http://blog.fooleap.org](http://blog.fooleap.org)
+* 网志网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)
 
-这是 fooleap 的个人博客，记录点滴。
+这是 fooleap 的个人网志，记录点滴。
 
-本博客采用 [Jekyll](http://jekyllrb.com/) 搭建，托管于 [GitCafé](https://gitcafe.com/fooleap/fooleap) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。
+本网志采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [GitCafé](https://gitcafe.com/fooleap/fooleap) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。
 
-本博客的原创内容，均采用知识共享组织（Creative Commons）的“公有领域”（[Public Domain](http://creativecommons.org/about/pdm)）许可。
+本网志的原创内容，均采用知识共享组织（Creative Commons）的“公有领域”（[Public Domain](http://creativecommons.org/about/pdm)）许可。
 
 **博主**
 
@@ -28,11 +28,11 @@ tags: [关于, 博客, fooleap, blog]
 * 豆瓣: [@fooleap](http://douban.com/people/fooleap)
 * 知乎: [@fooleap](http://zhihu.com/people/fooleap)
 
-**博客进程**
+**网志进程**
 
-* 2011-02-09 博客建立，名字为“Fooleap”
-* 2011-10-28 博客网址改为二级域名 blog.fooleap.org ，主域做了重定向，博客改名为“Fooleap&#039;s Blog”
-* 2012-03-18 博客从 WordPress 平台转到 Jekyll 平台，托管于 GitHub
+* 2011-02-09 网志建立，名字为“Fooleap”
+* 2011-10-28 网志网址改为二级域名 blog.fooleap.org ，主域做了重定向，网志改名为“Fooleap&#039;s Blog”
+* 2012-03-18 网志从 WordPress 平台转到 Jekyll 平台，托管于 GitHub
 * 2013-01-19 转移到 VPS 上
 * 2014-01-10 所用的 Host700 卷铺走人，重新转移到 GitHub
 * 2014-06-29 升级 Bootstrap 框架为 3.2 

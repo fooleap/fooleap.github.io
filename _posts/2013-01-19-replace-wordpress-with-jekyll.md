@@ -31,7 +31,7 @@ Jekyll 是针对博客平台的静态网站生成器，目前你所看到的博�
 
 所谓治标不治本，这一堆插件，工具，先不提学习成本，使用不是更不方便了么？到底有没有一个可以一次性解决所有烦恼的博客平台呢？答案远在天边，近在眼前。
 
-![Jekyll]({{site.IMG_PATH}}/replace-wordpress-with-jekyll.jpg)
+![Jekyll]({{site.IMG_PATH}}/replace-wordpress-with-jekyll.png)
 ▲Jekyll（来自官网）
 
 [Jekyll](http://jekyllrb.com/) 是 GitHub 创始人之一 [Tom Preston-Werner](http://tom.preston-werner.com/) 使用 Ruby 写成，GitHub Pages 上自带 Jekyll，因此更新博客只需推送源文件到 GitHub 即可，服务器端会自动生成 HTML，也可部署到自己的 VPS 上实现一样的功能。

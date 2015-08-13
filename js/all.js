@@ -162,13 +162,14 @@ jQuery(document).ready(function($){
   //查看源码
   $('.view-code').click(function(){
     if ($('.main-content').hasClass('hide')){
-      $('.main-content').removeClass('hide');
+      $('.main-content, .posts').removeClass('hide');
       $('.source').remove();
       $(this).attr('title','查看内容源码').html('<i class="icon-code"></i> 源码');
     } else {
       var source = $(this).attr('data');
-      $('.main-content').addClass('hide').after('<textarea class="source" readonly>');
-      $('.source').load(source);
+      $('.main-content, .posts').addClass('hide')
+      $('.main-content').after('<textarea class="source" readonly>');
+      $('.source').html( '读取中...' ).load(source);
       $(this).attr('title','返回文章内容').html('<i class="icon-doc"></i> 内容');
     }
   });

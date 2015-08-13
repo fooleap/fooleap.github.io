@@ -4,20 +4,10 @@ layout: default
 <section class="articles">
   <ul>
   {% for post in paginator.posts %}
-    <li>{% comment %}
-    {% if post.content contains 'img' %}
-    {% assign images = post.content | split:"<img " %}
-      {% for image in images %}
-      {% if image contains 'src=' %}
-        {% assign imageMarkup = image | split:">" | first | remove:'_640' | replace:'jpg',"jpg?imageView2/1/w/50/h/50/q/90" | replace:'png',"png?imageView2/1/w/50/h/50/q/90" %}
-        <img class="thumbnail" {{ imageMarkup }} >{% break %}
-      {% endif %}
-      {% endfor %}
-      {% else %}
-        <img class="thumbnail" src="{{ site.IMG_PATH }}/avatar.jpg" />
-      {% endif %}{% endcomment %}
-        <h3><a class="post-title" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-        <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y 年 %m 月 %d 日" }}</abbr>
+    <li>
+    {% if post.content contains site.IMG_PATH %}{% assign images = post.content | split:"<img " %}{% for image in images %}{% if image contains site.IMG_PATH %}{% if image contains 'imageView'%}{% assign thumbnail = image | split:"?imageView" | first | replace:'jpg',"jpg?imageView2/1/w/48/h/48/q/90" | replace:'png',"png?imageView2/1/w/48/h/48/q/90" |append:'"' %}{% else %}{% assign thumbnail = image | split:">" | first | remove:'_640' | replace:'jpg',"jpg?imageView2/1/w/48/h/48/q/90" | replace:'png',"png?imageView2/1/w/48/h/48/q/90" %}{% endif %}<img class="thumbnail" {{ thumbnail | split:' alt' | first }} alt="{{ post.title }}" />{% break %}{% endif %}{% endfor %}{% else %}<img class="thumbnail"  src="{{ site.IMG_PATH }}/avatar.jpg" alt="{{ post.title }}" />{% endif %}
+    <h3 class="post-title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+    <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y 年 %m 月 %d 日" }}</abbr>
     </li>
   {% endfor %}
 </ul>

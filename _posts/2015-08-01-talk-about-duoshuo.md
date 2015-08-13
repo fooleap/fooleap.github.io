@@ -33,7 +33,7 @@ tags: [多说, Jekyll, Disqus, JavaScript]
 ![多说的文章管理]({{site.IMG_PATH}}/talk-about-duoshuo-01.png)
 ▲多说的文章管理
 
-转换后导入，多说后台的文章管理中，可以看到比较“迷茫”的 `Thread Key`，看起来并不美观，而看了多说在 [文档](http://dev.duoshuo.com/docs/5003ecd94cab3e7250000008/){:title="评论框调用代码参数说明"} 里也说 `data-thread-key` 是文章的唯一表示，要正确的显示当前页的评论靠的是这个参数。
+转换后导入，多说后台的文章管理中，可以看到比较“迷茫”的 `Thread Key`，看起来并不美观，而看了多说在 [文档](http://dev.duoshuo.com/docs/5003ecd94cab3e7250000008/){:title="评论框调用代码参数说明"} 里也说 `data-thread-key` 是文章的唯一标识，要正确的显示当前页的评论靠的是这个参数，这不同于以页面 URL 为唯一标识的 Disqus。
 
 在 Jekyll 中，据 [Jekyll 文档](http://jekyllrb.com/docs/variables/){:title="Variables - Jekyll"} 页面 ID 可以用 `page.id` 这个变量，意味着在多说中原来的 `Thread Key` 便要一个一个改过，可以从后台改，也可以从后台导出文章数据后编辑完再导入，显然后者效率较高，倘若文章较多，恐怕手动修改是不可取的（太费时间）。
 

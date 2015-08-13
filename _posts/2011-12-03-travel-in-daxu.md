@@ -23,7 +23,7 @@ tags: [hosts, 大圩, 桂林, 骑行]
 
 像我这样农村的孩子，下面这张图有没感觉到亲切呢？
 
-![一电子铺](http://fooleap.qiniudn.com/travel-in-daxu.jpg_640)
+![一电子铺]({{ site.IMG_PATH }}/travel-in-daxu.jpg_640)
 
 
 **本文历史**
