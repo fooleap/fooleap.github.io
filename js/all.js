@@ -175,7 +175,7 @@ jQuery(document).ready(function($){
   });
 
   //评论
-  $('.comment-toggle').click(function(){
+  function display_comment(){
     $(this).fadeOut(500);
     $('.comment').attr('id','disqus_thread');
     var disqus_shortname = 'fooleap';
@@ -185,7 +185,11 @@ jQuery(document).ready(function($){
       dataType: "script",
       cache: true
     });
-  });
+  }
+  $('.comment-toggle').click(display_comment);
+  if( location.hash == "#disqus_thread" ){
+    $(".comment-toggle").trigger("click").animate({scrollTop: $("#disqus_thread").offset().top}, 1000);
+  };
 
   //返回顶部
   $('#gototop').css('display', 'none');

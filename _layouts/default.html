@@ -69,9 +69,23 @@
   </div>
   {% endunless %}
   {% if page.jquery != true %}
-  <script type="text/javascript" src="/js/jquery.min.js"></script>{% endif%}{% if paginator %}
-  <script type="text/javascript" src="/js/jquery.timeago.min.js"></script>{% endif %}
-  <script type="text/javascript" src="/js/all.js"></script>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>{% endif%}  
+  <script type="text/javascript" src="/js/all.js"></script>{% if paginator %}
+  <script type="text/javascript" src="/js/jquery.timeago.min.js"></script>
+  <script type="text/javascript">
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == true ) {
+      $('.comment-count').remove();
+  } else {
+    var disqus_shortname = 'fooleap';
+    (function() {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  }
+  </script>{% endif %}
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-16717905-7']);
