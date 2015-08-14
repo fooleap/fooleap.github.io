@@ -109,7 +109,7 @@ strong, b {
 
 body {
   height: 100%;
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: rgb(34, 34, 34);
@@ -135,11 +135,13 @@ abbr {
 a {
   text-decoration: none;
   color: rgb(80, 160, 240);
+  outline: none;
 }
 
 a:hover {
   text-decoration: underline;
   color: rgb(34, 34, 34);
+  position: relative;
 }
 
 .wrapper a:hover {
@@ -147,12 +149,25 @@ a:hover {
   color: rgb(50, 160, 215);
 }
 
+.wrapper:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transform: skew(3deg, 2deg);
+  box-shadow: 0px 15px 5px rgba(0, 0, 0, 0.2);
+  height: 60px;
+  bottom: 15px;
+  right: 0;
+  max-width: 50%;
+  width: 50%;
+}
+
 .wrapper:before, .wrapper:after {
   display: table;
   content: '';
 }
 
-.wraper:after {
+.wrapper:after {
   clear: both;
 }
 
@@ -163,10 +178,11 @@ a:hover {
   \width: 640px;
   padding: 0 70px;
   margin: 30px auto;
-  background-color: rgb(252, 251, 247);
-  border-radius: 2px;
+  background-color: rgb(255, 255, 255);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
+
+
 
 /* Search */
 .search {
@@ -264,7 +280,7 @@ nav {
 
 .site-header {
   min-height: 30px;
-  margin-top: 40px;
+  padding-top: 30px;
 }
 
 .site-header h1 {
@@ -355,7 +371,6 @@ nav {
   color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: 14px;
-  overflow: hidden;
   line-height: 18px;
   border-radius: 10px;
   background: rgb(150, 215, 245);
@@ -420,7 +435,7 @@ nav {
 
 .post-content .source {
   display: block;
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", sans-serif;
   font-size: 12px;
   border: 1px solid rgb(194, 196, 197);
   width: 100%;
@@ -479,7 +494,7 @@ nav {
 
 .post-content #markdown-toc a{
   color: rgb(100, 100, 100);
-  font-size: 14px;
+  font-size: 13px;
   text-decoration: none;
 }
 
@@ -678,26 +693,28 @@ iframe {
 
 .comment {
   text-align: center;
+  margin: 5px 0;
 }
 
-.comment .comment-toggle {
+.comment .show-comments {
   background-color: rgb(245, 245, 245);
   color: rgb(150, 150, 150);
-  border: none;
-  font-family: sans-serif;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", sans-serif;
   font-size: 15px;
-  text-decoration: none;
   text-align: center;
-  line-height: 1.8;
-  height: 36px;
-  padding: 0 20px;
-  margin: 3px;
-  display: inline-block;
+  line-height: 36px;
+  padding: 0 10px;
   cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgb(230, 230, 230);
+}
+
+.comment .show-comments:hover {
+  background-color: rgb(255, 255, 255);
 }
 
 #disqus_thread {
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
   word-wrap: break-word;
   white-space: pre-wrap; 
   white-space: -moz-pre-wrap; 

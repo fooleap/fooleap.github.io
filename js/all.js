@@ -175,20 +175,35 @@ jQuery(document).ready(function($){
   });
 
   //评论
-  function display_comment(){
-    $(this).fadeOut(500);
+  var disqus_publicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
+  var disqus_shortname = "fooleap";
+  var disqus_url = 'link:' + $('.show-comments').attr('data-disqus-url');
+  $.ajax({
+    type: 'GET',
+    url: 'https://disqus.com/api/3.0/threads/set.jsonp',
+    data: { api_key: disqus_publicKey, forum: disqus_shortname, thread: disqus_url },
+    cache: false,
+    dataType: 'jsonp',
+    success: function(result) {
+      if (result.response.length === 1) {
+        btnText = result.response[0].posts;
+        $('.show-comments').append('(' + btnText + ')');
+      }
+    }
+  });
+  $('.show-comments').on('click', function() {
     $('.comment').attr('id','disqus_thread');
-    var disqus_shortname = 'fooleap';
     $.ajax({
       type: "GET",
       url: "https://" + disqus_shortname + ".disqus.com/embed.js",
       dataType: "script",
       cache: true
     });
-  }
-  $('.comment-toggle').click(display_comment);
-  if( location.hash == "#disqus_thread" ){
-    $(".comment-toggle").trigger("click").animate({scrollTop: $("#disqus_thread").offset().top}, 1000);
+    $(this).fadeOut(500);
+  });
+
+  if( /^#disqus|^#comment/.test(location.hash) ){
+    $(".show-comments").trigger("click").animate({scrollTop: $("#disqus_thread").offset().top}, 1000);
   };
 
   //返回顶部

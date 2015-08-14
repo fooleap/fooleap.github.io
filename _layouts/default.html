@@ -84,6 +84,13 @@
         dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
+    document.onreadystatechange = function () {
+      $('.disqus-comment-count').each(function(){
+        if (/0/i.test($(this).text())){
+          $(this).attr("title", "还没评论，少年来一发？");
+        }
+      });
+    }
   }
   </script>{% endif %}
   <script type="text/javascript">
