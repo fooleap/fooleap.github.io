@@ -7,10 +7,9 @@ tags: [关于, 网志, fooleap, blog]
 * 网志网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)
 
-这是 fooleap 的个人网志，记录点滴。
+这是 fooleap 的个人网志，记录点滴。截至 {% for post in site.posts | limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %} 共有文章 {{ site.posts | size }} 篇。
 
-本网志采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [GitCafé](https://gitcafe.com/fooleap/fooleap) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。
-
+本网志采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [GitCafé](https://gitcafe.com/fooleap/fooleap) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
 本网志的原创内容，均采用知识共享组织（Creative Commons）的“公有领域”（[Public Domain](http://creativecommons.org/about/pdm)）许可。
 
 **博主**
