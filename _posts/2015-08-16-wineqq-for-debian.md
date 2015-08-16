@@ -22,7 +22,7 @@ QQ 或许是无法离开 Windows 的借口之一，在 Linux 上也会想用 QQ�
 
     # apt-get update
 
-可能会出现 “W: GPG 错误，由于没有公钥，无法验证下列签名”的错误提，导入加该 PPA 的公钥
+可能会出现“W: GPG 错误，由于没有公钥，无法验证下列签名”错误提示，导入加该 PPA 的公钥
 
     # apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 5A9A06AEF9CB8DB0
 

@@ -13,4 +13,4 @@ paginate: 10
 IMG_PATH: http://7fv9cr.com1.z0.glb.clouddn.com
 markdown: kramdown
 kramdown: 
-  toc_levels: "2,3" 
+  toc_levels: "2" 

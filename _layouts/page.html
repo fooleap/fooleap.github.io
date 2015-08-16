@@ -2,5 +2,5 @@
 layout: default
 ---
 <article class="post-content">
-{{ content }}
+  {{ content | replace_first:'markdown-toc','toc' }}
 </article>

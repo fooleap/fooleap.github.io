@@ -61,13 +61,13 @@ jQuery(document).ready(function($){
             date = datetime[0] + "-" + datetime[1] + "-" + datetime[2];
             model = (exif["Model"] != undefined) ? (exif.Model.val) : "无";
             fnu = (exif["FNumber"] != undefined) ? (exif.FNumber.val.split(/\//)[1]) : "无";
-            extime = (exif["ExposureTime"] != undefined) ? (exif.ExposureTime.val.split(/\s/)[0] + "秒") : "无";
+            extime = (exif["ExposureTime"] != undefined) ? (exif.ExposureTime.val) : "无";
             iso = (exif["ISOSpeedRatings"] != undefined) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : "无";
             flength = (exif["FocalLength"] != undefined) ? (exif.FocalLength.val) : "无";
         }},
         error: function (msg) {}
       }).done(function() {
-        hover_img.after("<figcaption class='exif'>"+"日期：" + date + " 器材：" + model + " 光圈：" + fnu + " 快门：" + extime + " ISO：" + iso + " 焦距：" + flength + "</figcaption>");
+        hover_img.after("<figcaption class='exif'>"+"日期：" + date + " 器材: " + model + " 光圈: " + fnu + " 快门: " + extime + " 感光度: " + iso + " 焦距: " + flength + "</figcaption>");
       });
     },function(){
       $('figcaption').remove()
@@ -187,7 +187,9 @@ jQuery(document).ready(function($){
     success: function(result) {
       if (result.response.length === 1) {
         btnText = result.response[0].posts;
-        $('.show-comments').append('(' + btnText + ')');
+        $('.show-comments').append('（' + btnText + '）');
+      } else {
+        $('.show-comments').html('<i class="icon-comment-empty"></i> 抢沙发');
       }
     }
   });

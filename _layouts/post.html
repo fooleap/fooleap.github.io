@@ -4,7 +4,7 @@ layout: default
 <article class="post-content">
     
   <div class="main-content">
-    {{ content }}
+    {{ content | replace_first:'markdown-toc','toc' }}
   </div>
 
   <div id="random-posts" class="posts"></div>

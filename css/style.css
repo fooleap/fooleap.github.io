@@ -109,9 +109,9 @@ strong, b {
 
 body {
   height: 100%;
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", sans-serif;
-  font-size: 13px;
-  font-weight: 400;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
   color: rgb(34, 34, 34);
   line-height: 1.7;
   background: rgb(150, 215, 245);
@@ -135,19 +135,18 @@ abbr {
 
 a {
   text-decoration: none;
-  color: rgb(80, 160, 240);
+  color: rgb(34, 34, 34);
   outline: none;
+  border-bottom: 1px dashed rgb(150, 215, 245);
 }
 
 a:hover {
-  text-decoration: underline;
   color: rgb(34, 34, 34);
   position: relative;
 }
 
 .wrapper a:hover {
-  text-decoration: underline;
-  color: rgb(50, 160, 215);
+  background-color: rgb(233, 233, 233);
 }
 
 .wrapper:before {
@@ -179,8 +178,8 @@ a:hover {
   \width: 640px;
   padding: 0 70px;
   margin: 30px auto;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(240, 240, 240);
 }
 
 
@@ -324,21 +323,24 @@ nav {
 }
 
 .articles ul li {
-  padding: 6px 0;
+  padding: 10px;
   border-bottom: 1px solid rgb(240, 240, 240);
 }
 
 .articles ul li>* {
-    display: inline;
+  display: inline-block;
 }
 
 .articles ul .thumbnail {
   float: left;
-  margin: 0 10px;
   width: 48px;
   height: 48px;
   overflow: hidden;
   border-radius: 4px;
+}
+
+.articles ul .post-infos {
+  margin: 0 10px;
 }
 
 .articles ul .post-title {
@@ -346,6 +348,16 @@ nav {
   line-height: 24px;
   font-weight: normal;
   font-size: 15px;
+}
+
+.articles ul .post-title a{
+  border: none;
+  color: rgb(50, 150, 250);
+}
+
+.articles ul .post-title a:hover{
+  border-bottom: 1px dashed rgb(50, 150, 245);
+  background: none;
 }
 
 .articles ul .post-date {
@@ -374,7 +386,15 @@ nav {
   font-size: 14px;
   line-height: 18px;
   border-radius: 10px;
+  border: none;
+}
+
+.articles ul .comment-count .disqus-comment-count:link {
   background: rgb(150, 215, 245);
+}
+
+.articles ul .comment-count .disqus-comment-count:visited {
+  background: rgb(180, 225, 245);
 }
 
 .articles ul .comment-count .disqus-comment-count:hover {
@@ -383,16 +403,21 @@ nav {
 
 /* Pagination styles */
 
-.pagination ul, .article-nav ul {
+.pagination a {
+  border: none;
+}
+
+.pagination ul {
   margin: 10px 0;
   font-size: 13px;
   line-height: 1;
   height: 15px;
   list-style-type: none;
   overflow: hidden;
+  padding: 0 5px;
 }
 
-.pagination ul li, .article-nav ul li {
+.pagination ul li {
   display: inline-block;
 }
 
@@ -436,7 +461,7 @@ nav {
 
 .post-content .source {
   display: block;
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", sans-serif;
+  font-family: Consolas;
   font-size: 12px;
   border: 1px solid rgb(194, 196, 197);
   width: 100%;
@@ -471,7 +496,7 @@ nav {
   padding-left: 6px;
 }
 
-.post-content #markdown-toc:before {
+.post-content #toc:before {
   display: block;
   content: "目录";
   width: 100%;
@@ -484,37 +509,48 @@ nav {
   text-align: center;
 }
 
-.post-content #markdown-toc {
+.post-content #toc {
   float: right;
-  min-width: 160px;
+  min-width: 180px;
   margin: 10px 20px 0;
-  background: rgb(240, 240, 240);
+  background: rgb(233, 233, 233);
   list-style: none;
-  padding: 10px 0 0;
+  padding: 5px 0 0;
 }
 
-.post-content #markdown-toc a{
+.post-content #toc a{
+  display: inline-block;
+  width: 100%;
   color: rgb(100, 100, 100);
-  font-size: 13px;
+  font-size: 14px;
   text-decoration: none;
+  border: none;
 }
 
-.post-content #markdown-toc li{
+.post-content #toc a:hover{
+  background: none;
+}
+
+.post-content #toc li{
   padding: 0 10px;
-  line-height: 25px;
+  line-height: 30px;
 }
 
-.post-content #markdown-toc ul {
+.post-content #toc li:hover {
+  background: rgb(245, 245, 245);
+}
+
+.post-content #toc ul {
   padding: 0;
   list-style: none;
 }
 
-.post-content #markdown-toc li ul li{
+.post-content #toc li ul li{
   padding: 0;
   line-height: 20px;
 }
 
-.post-content #markdown-toc li ul li a{
+.post-content #toc li ul li a{
   font-size: 12px;
 }
 
@@ -596,7 +632,7 @@ iframe {
 
 .post-content pre, .post-content code {
   font-size: 13px;
-  font-family: Consolas, 'Microsoft Yahei';
+  font-family: Consolas;
   background-color: rgb(233, 233, 233);
   overflow: auto;
   word-wrap: break-word;
@@ -641,19 +677,18 @@ iframe {
   float: left;
 }
 
+.post-content .posts a{
+  border: none;
+}
+
 .post-content #info {
   clear: both;
 }
 
 .post-content #info a{
-  text-decoration: none;
-  color: rgb(34, 34, 34);
-  cursor: pointer;
+  border: none;
 }
 
-.post-content #info a:hover{
-  font-weight: bold;
-}
 .ie .view-code {
   display: none;
 }
@@ -668,7 +703,11 @@ iframe {
 
 .post-content #share a {
   color: rgb(51, 51, 51);
-  cursor: pointer;
+  border: none;
+}
+
+.post-content #share a:hover {
+  background: none;
 }
 
 .post-content #share a#wechat:hover, .post-content #share a#wechat.light {
@@ -700,18 +739,18 @@ iframe {
 .comment .show-comments {
   background-color: rgb(245, 245, 245);
   color: rgb(150, 150, 150);
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", sans-serif;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 15px;
   text-align: center;
   line-height: 36px;
   padding: 0 10px;
   cursor: pointer;
   border-radius: 4px;
-  border: none;
+  border: 1px solid rgb(245, 245, 245);
 }
 
 .comment .show-comments:hover {
-  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(200, 200, 200);
 }
 
 #disqus_thread {
@@ -797,7 +836,7 @@ iframe {
 
 @media screen and (max-width: 852px) {
   body {
-    background-color: rgb(251, 251, 251);
+    background-color: rgb(255, 255, 255);
   }
   .navigation .menu {
     color: rgb(100, 100, 100);
@@ -805,8 +844,16 @@ iframe {
   .wrapper {
     margin: 0 auto;
     border: 0;
-    box-shadow: none;
+    border: none;
     padding: 0;
+    width: 100%;
+  }
+  .wrapper:before {
+    display: none;
+  }
+  .post-content {
+    max-width: 640px;
+    margin: 0 auto;
   }
 }
 
@@ -825,13 +872,16 @@ iframe {
   }
   .articles ul li {
     height: 40px;
+    padding: 5px;
   }
   .articles ul .thumbnail {
     float: left;
-    margin: 0 5px;
     width: 40px;
     height: 40px;
     border-radius: 3px;
+  }
+  .articles ul .post-infos {
+    margin: 0 5px;
   }
   .articles ul .post-title {
     height: 20px;
@@ -846,7 +896,7 @@ iframe {
     word-spacing: -2px;
     color: rgb(150, 150, 150);
   }
-  .post-content #markdown-toc, .post-content #share, .post-content .view-code {
+  .post-content #toc, .post-content #share, .post-content .view-code {
     display: none;
   }
   #gototop {
