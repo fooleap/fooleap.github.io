@@ -126,6 +126,7 @@ header, section, footer, aside, nav, main, article, figure, small {
 acronym, abbr {
   text-decoration: none;
   font-variant: normal;
+  border: none;
 }
 
 abbr {
@@ -705,8 +706,8 @@ iframe {
   line-height: 36px;
   padding: 0 10px;
   cursor: pointer;
-  border-radius: 5px;
-  border: 1px solid rgb(230, 230, 230);
+  border-radius: 4px;
+  border: none;
 }
 
 .comment .show-comments:hover {
