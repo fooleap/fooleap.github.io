@@ -13,13 +13,13 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}" />
-    <link rel="stylesheet" href="{{ "/css/style.css" }}" />
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" }}" />
     <link rel="icon" href="/favicon.png" />
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />
-    <script type="text/javascript" src="/js/modernizr.js"></script>{% if page.jquery %}
-    <script type="text/javascript" src="/js/jquery.min.js"></script>{% endif%}
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>{% if page.jquery %}
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>{% endif%}
     <!--[if lte IE 9]>
-      <script src="/js/html5shiv.min.js"></script>
+      <script src="/assets/js/html5shiv.min.js"></script>
       <script type="text/javascript">
         document.createElement('main');
       </script>
@@ -51,9 +51,9 @@
       <h1>
         {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
       </h1>
-      <div class="sub-heading">
-        {% if page.date %}<time>{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% endif %}
-      </div>
+      <h2 class="sub-heading">
+        {% if page.date %}<time>{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
+      </h2>
     </hgroup>
 
     {{ content }}
@@ -69,9 +69,9 @@
   </div>
   {% endunless %}
   {% if page.jquery != true %}
-  <script type="text/javascript" src="/js/jquery.min.js"></script>{% endif%}  
-  <script type="text/javascript" src="/js/all.js"></script>{% if paginator %}
-  <script type="text/javascript" src="/js/jquery.timeago.min.js"></script>
+  <script type="text/javascript" src="/assets/js/jquery.min.js"></script>{% endif%}  
+  <script type="text/javascript" src="/assets/js/all.js"></script>{% if paginator %}
+  <script type="text/javascript" src="/assets/js/jquery.timeago.min.js"></script>
   <script type="text/javascript">
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == true ) {
       $('.comment-count').remove();

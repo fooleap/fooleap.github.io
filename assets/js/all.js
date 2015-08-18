@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){       
+jQuery(document).ready(function($){ 
   //链接
   $("a[href*='http://']:not([href*='"+location.hostname+"']),[href*='https://']:not([href*='"+location.hostname+"'])").attr('target','_blank');
   
@@ -33,16 +33,12 @@ jQuery(document).ready(function($){
   function imgload(){
   if (post_img){
     $.each(post_img,function(){
-      var real_img = new Image();
+      var real_img = document.createElement("img");
       real_img.src = $(this).attr('src');
       var realwidth = real_img.width;
+      $(this).wrap("<figure/>");
+      $('figure').parent().addClass('image');
       if (realwidth >= maxwidth){ 
-        if($('html').hasClass('lte8')){
-          $(this).wrap("<div class='figure'/>");
-        }else{
-          $(this).wrap("<figure/>");
-          $('figure').parent().addClass('image');
-        };
         $(this).css({'cursor':'pointer','width':'100%'}).click(function(){window.open(real_img.src.split(/(\?|\_)/)[0],'_blank');});
       };
     });
@@ -84,7 +80,7 @@ jQuery(document).ready(function($){
      $('#qrcode').remove();
      $(this).removeAttr ("class").attr("title","分享到微信");
    } else {
-     var qrcode = "js/jquery.qrcode.min.js";
+     var qrcode = "assets/js/jquery.qrcode.min.js";
      $.getScript( qrcode, function() {
        $('#wechat').before('<div id="qrcode"></div>').addClass('light').attr("title","点击隐藏二维码");
        var canonical=document.querySelector("link[rel='canonical']").href;
@@ -132,18 +128,17 @@ jQuery(document).ready(function($){
       var randomIndexUsed = [];
       var counter = 0;
       var numberOfPosts = 5;
-      $("#random-posts").append('<strong>猜你喜欢</strong>');
-      $("#random-posts").append('<ul>');
-      var divRandomPosts = $("#random-posts ul");
+      $("#random-posts").append('<ul>\n</ul>\n');
+      var RandomPosts = $("#random-posts ul");
       while (counter < numberOfPosts) {
         var randomIndex = Math.floor(Math.random() * postsCount);
         if (randomIndexUsed.indexOf(randomIndex) == "-1") {
         var postHREF = posts[randomIndex].href;
         var postTitle = posts[randomIndex].title;
         if (counter == (numberOfPosts - 1)) {
-          divRandomPosts.append('<li><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></li>');
+          RandomPosts.append('<li><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
         } else {
-          divRandomPosts.append('<li><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></li>');
+          RandomPosts.append('<li><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
         }
         randomIndexUsed.push(randomIndex);
         counter++;
@@ -152,10 +147,10 @@ jQuery(document).ready(function($){
     });
   }
   if ($('#info').hasClass('tech')){
-    var postsJson = 'js/tech.json';
+    var postsJson = 'assets/js/tech.json';
     generateRandomPosts(postsJson);
   } else if ($('#info').hasClass('life')){
-    var postsJson = 'js/life.json';
+    var postsJson = 'assets/js/life.json';
     generateRandomPosts(postsJson);
   };
   

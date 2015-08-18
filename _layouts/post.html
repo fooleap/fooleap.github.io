@@ -4,10 +4,12 @@ layout: default
 <article class="post-content">
     
   <div class="main-content">
-    {{ content | replace_first:'markdown-toc','toc' }}
+{{ content | replace_first:'markdown-toc','toc' }}
   </div>
 
-  <div id="random-posts" class="posts"></div>
+  <div id="random-posts" class="posts">
+  <strong>猜你喜欢</strong>
+  </div>
   <div id="recent-posts" class="posts">
   <strong>最近更新</strong>
   <ul>
