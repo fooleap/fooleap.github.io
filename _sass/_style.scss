@@ -1,6 +1,6 @@
 $darkblue: rgb(0, 120, 180);
 $darkgray: rgb(100, 100, 100);
-$lightblue: rgb(80, 160, 240);
+$lightblue: rgb(120, 180, 240);
 $lightgray: rgb(225, 225, 225);
 $white: rgb(255, 255, 255);
 $black: rgb(0, 0, 0);
@@ -65,7 +65,6 @@ textarea{
 // wrapper
 .wrapper {
   position: relative;
-  zoom: 1;
   max-width: 800px;
   margin: 30px auto;
   background: rgb(255, 255, 255);
@@ -267,13 +266,12 @@ textarea{
   }
   .comment-count {
     float: right;
-    width: 48px;
     height: 48px;
     .disqus-comment-count {
       display: inline-block;
       width: 16px;
       margin: 15px auto;
-      padding: 0 8px;
+      padding: 0 6px;
       text-decoration: none;
       text-align: center;
       color: $white;
@@ -377,7 +375,6 @@ textarea{
     display: block;
     max-width: 100%;
     width: auto;
-    width: auto\9;
     overflow: hidden;
   }
   figure {
@@ -442,7 +439,7 @@ textarea{
     color: $white;
     line-height: 30px;
     height: 30px;
-    background: $darkblue;
+    background: $lightblue;
     text-align: center;
   }
   li{

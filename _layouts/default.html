@@ -37,24 +37,24 @@
   <body>
   <nav class="navigation hide">
       <ul class="navigation-list">
-          <li><a href="/" class="navigation-item{% if page.url == '/index.html' %} active{% endif %}"><i class="icon-home"></i> 首页</a></li>
-          <li><a href="/about.html" class="navigation-item{% if page.url == '/about.html' %} active{% endif %}"><i class="icon-user"></i> 关于</a></li>
-          <li><a href="/archive.html" class="navigation-item{% if page.url == '/archive.html' %} active{% endif %}"><i class="icon-box"></i> 归档</a></li>
-          <li><a href="/links.html" class="navigation-item{% if page.url == '/links.html' %} active{% endif %}"><i class="icon-link"></i> 链接</a></li>
-          <li><a href="/guestbook.html" class="navigation-item{% if page.url == '/guestbook.html' %} active{% endif %}"><i class="icon-chat-empty"></i> 留言本</a></li>
+          <li><a href="/" class="navigation-item{% if page.url == '/index.html' %} active{% endif %}"><i class="icon-home"></i>首页</a></li>
+          <li><a href="/about.html" class="navigation-item{% if page.url == '/about.html' %} active{% endif %}"><i class="icon-user"></i>关于</a></li>
+          <li><a href="/archive.html" class="navigation-item{% if page.url == '/archive.html' %} active{% endif %}"><i class="icon-box"></i>归档</a></li>
+          <li><a href="/links.html" class="navigation-item{% if page.url == '/links.html' %} active{% endif %}"><i class="icon-link"></i>链接</a></li>
+          <li><a href="/guestbook.html" class="navigation-item{% if page.url == '/guestbook.html' %} active{% endif %}"><i class="icon-chat-empty"></i>留言本</a></li>
       </ul>
       <i class="icon icon-menu menu"></i>
   </nav>
   
   <main class="wrapper">
-    <hgroup class="site-header">
+    <header class="site-header">
       <h1>
         {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
       </h1>
       <h2 class="sub-heading">
         {% if page.date %}<time>{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
       </h2>
-    </hgroup>
+    </header>
 
     {{ content }}
 
@@ -76,14 +76,28 @@
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == true ) {
       $('.comment-count').remove();
   } else {
-    var disqus_shortname = 'fooleap';
-    (function() {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+    $(document).ready(function () {
+      var disqus_publickey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
+      var disqus_shortname = "fooleap";
+      var urlarray = [];
+      $('.disqus-comment-count').each(function () {
+        var url = $(this).attr('data-disqus-url');
+        urlarray.push('link:' + url);
+      });
+      $.ajax({
+        type: 'GET',
+        url: "https://disqus.com/api/3.0/threads/set.jsonp",
+        data: { api_key: disqus_publickey, forum : disqus_shortname, thread : urlarray }, 
+        cache: false,
+        dataType: "jsonp",
+        success: function (result) {
+          for (var i in result.response) {
+            var count = result.response[i].posts;
+            $('.disqus-comment-count[data-disqus-url="' + result.response[i].link + '"]').html(count).fadeIn();
+          }
+        }
+      });
+    });
     document.onreadystatechange = function () {
       $('.disqus-comment-count').each(function(){
         if (/0/i.test($(this).text())){
@@ -92,6 +106,27 @@
       });
     }
   }
+  </script>{% endif %}{% if page.is_post %}<script type="text/javascript">
+  $(document).ready(function () {
+  var disqus_publickey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
+  var disqus_shortname = "fooleap";
+  var disqus_url = 'link:' + $('.show-comments').attr('data-disqus-url');
+  $.ajax({
+    type: 'GET',
+    url: 'https://disqus.com/api/3.0/threads/set.jsonp',
+    data: { api_key: disqus_publickey, forum: disqus_shortname, thread: disqus_url },
+    cache: false,
+    dataType: 'jsonp',
+    success: function(result) {
+      if (result.response.length === 1) {
+        count = result.response[0].posts;
+        $('.show-comments').append('（' + count + '）');
+      } else {
+        $('.show-comments').html('<i class="icon-comment-empty"></i>抢沙发');
+      }
+    }
+  });
+  });
   </script>{% endif %}
   <script type="text/javascript">
     var _gaq = _gaq || [];

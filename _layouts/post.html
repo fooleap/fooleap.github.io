@@ -20,8 +20,8 @@ layout: default
   </div>
 
   <div id="info" class="{{ page.categories }}">
-    <a class="view-code" data="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.id | remove: '/' }}.md" title="在正文中查看源码" href="javascript:void(0);"><i class="icon-code"></i> 源码</a>
-    <i class="icon-tags"></i> {{ page.tags | join: '，'}}
+    <a class="view-code" data="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.id | remove: '/' }}.md" title="在正文中查看源码" href="javascript:void(0);"><i class="icon-code"></i>源码</a>
+    <i class="icon-tags"></i>{{ page.tags | join: '，'}}
   </div>
 
   <div id="share">
@@ -32,5 +32,5 @@ layout: default
 </article>
 
 <div class="comment">
-    <button class="show-comments" data-disqus-url="{{ site.url }}{{ page.url }}" data-disqus-identifiers="{{ page.id }}"><i class="icon-chat"></i> 查看评论</button>
+    <button class="show-comments" data-disqus-url="{{ site.url }}{{ page.url }}" data-disqus-identifiers="{{ page.id }}"><i class="icon-chat"></i>查看评论</button>
 </div>

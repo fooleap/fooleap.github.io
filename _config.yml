@@ -17,3 +17,10 @@ sass:
   style: :compressed
 kramdown: 
   toc_levels: "2" 
+defaults:
+  -
+    scope:
+      path: "_posts"
+      type: posts 
+    values:
+      is_post: true

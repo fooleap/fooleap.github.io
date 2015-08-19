@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
     };
   });
   
-  $('.menu').on( "touchstart", function(){
+  $('.menu').on( "click", function() {
     if(nav.hasClass('hide')){
       nav.removeClass('hide').addClass('show');
     } else {
@@ -45,7 +45,8 @@ jQuery(document).ready(function($){
     //EXIF
     post_img.hover(function(){
       var hover_img= $(this);
-      var img_exif =  hover_img.attr('src').split(/(\?|\_)/)[0]+"\?exif";
+      var img_exif = hover_img.attr('src').split(/(\?|\_)/)[0]+"\?exif";
+      if(img_exif.indexOf('jpg') >= 0){
       $.ajax({
         type: "GET",
         url: img_exif,
@@ -65,13 +66,14 @@ jQuery(document).ready(function($){
       }).done(function() {
         hover_img.after("<figcaption class='exif'>"+"日期：" + date + " 器材: " + model + " 光圈: " + fnu + " 快门: " + extime + " 感光度: " + iso + " 焦距: " + flength + "</figcaption>");
       });
+      }
     },function(){
       $('figcaption').remove()
       delete date;
-    });  
+    });
    };
    }
-   window.onload = imgload;
+   window.onload = new function(){imgload();}
   
   //二维码
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
@@ -170,25 +172,8 @@ jQuery(document).ready(function($){
   });
 
   //评论
-  var disqus_publicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
-  var disqus_shortname = "fooleap";
-  var disqus_url = 'link:' + $('.show-comments').attr('data-disqus-url');
-  $.ajax({
-    type: 'GET',
-    url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-    data: { api_key: disqus_publicKey, forum: disqus_shortname, thread: disqus_url },
-    cache: false,
-    dataType: 'jsonp',
-    success: function(result) {
-      if (result.response.length === 1) {
-        btnText = result.response[0].posts;
-        $('.show-comments').append('（' + btnText + '）');
-      } else {
-        $('.show-comments').html('<i class="icon-comment-empty"></i> 抢沙发');
-      }
-    }
-  });
   $('.show-comments').on('click', function() {
+    var disqus_shortname = "fooleap";
     $('.comment').attr('id','disqus_thread');
     $.ajax({
       type: "GET",
