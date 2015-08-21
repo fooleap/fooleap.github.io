@@ -30,7 +30,7 @@ jQuery(document).ready(function($){
   var maxwidth=640; 
   var post_img=$('.post-content img');
   var _w = parseInt($(window).width());
-  function imgload(){
+  document.onreadystatechange = function () {
   if (post_img){
     $.each(post_img,function(){
       var real_img = document.createElement("img");
@@ -73,7 +73,6 @@ jQuery(document).ready(function($){
     });
    };
    }
-   window.onload = new function(){imgload();}
   
   //二维码
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
@@ -85,14 +84,13 @@ jQuery(document).ready(function($){
      var qrcode = "assets/js/jquery.qrcode.min.js";
      $.getScript( qrcode, function() {
        $('#wechat').before('<div id="qrcode"></div>').addClass('light').attr("title","点击隐藏二维码");
-       var canonical=document.querySelector("link[rel='canonical']").href;
        $('#qrcode').qrcode({
          width: 70,
          height: 70,
          background: '#fff',
          foreground: '#000',
          correctLevel: 1,
-         text: canonical 
+         text: $('#wechat').attr('data-wechat-url')
         });	
      }, false);
    }
@@ -103,6 +101,8 @@ jQuery(document).ready(function($){
      $('#wechat').removeAttr ("class").attr("title","分享到微信");
     };
   });
+  $('#weibo').click( function(){window.open($(this).attr('data-weibo-url'));})
+  $('#qzone').click( function(){window.open($(this).attr('data-qzone-url'));})
   }
   
   //随机同类文章
@@ -161,13 +161,20 @@ jQuery(document).ready(function($){
     if ($('.main-content').hasClass('hide')){
       $('.main-content, .posts').removeClass('hide');
       $('.source').remove();
-      $(this).attr('title','查看内容源码').html('<i class="icon-code"></i> 源码');
+      $(this).attr('title','查看内容源码').html('<i class="icon-file-code"></i>源码');
     } else {
-      var source = $(this).attr('data');
+      var source = $(this).attr('data-md');
       $('.main-content, .posts').addClass('hide')
       $('.main-content').after('<textarea class="source" readonly>');
-      $('.source').html( '读取中...' ).load(source);
-      $(this).attr('title','返回文章内容').html('<i class="icon-doc"></i> 内容');
+      $('.source').text( '读取中...' );
+      $.ajax({
+        url : source,
+        dataType: "text",
+        success : function (data) {
+          $('.source').text(data);
+        }
+      });
+      $(this).attr('title','返回文章内容').html('<i class="icon-doc-text"></i>内容');
     }
   });
 

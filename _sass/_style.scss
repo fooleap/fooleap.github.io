@@ -28,9 +28,12 @@ body {
   font-weight: normal;
   color: rgb(34, 34, 34);
   line-height: 1.7;
-  background: $lightblue;
+  background: radial-gradient(ellipse at center center , rgb(234, 239, 242) 0px, rgba(212, 221, 228, 0.5) 50%) repeat scroll 0% 0%, transparent linear-gradient(to bottom, rgb(202, 225, 244) 0px, rgba(125, 185, 232, 0) 100%) repeat scroll 0% 0%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: lightgrayscale;
+}
+.lte8 body{
+  background:rgb(202, 225, 244);
 }
 
 header, section, footer, aside, nav, main, article, figure, small {
@@ -54,6 +57,10 @@ a {
   border-bottom: 1px dashed $darkblue;
 }
 
+em { 
+  font-style: normal; 
+}
+
 button::-moz-focus-inner {
   border: 0;
 }
@@ -65,10 +72,12 @@ textarea{
 // wrapper
 .wrapper {
   position: relative;
-  max-width: 800px;
+  max-width: 720px;
   margin: 30px auto;
   background: rgb(255, 255, 255);
-  border: 1px solid rgb(240, 240, 240);
+  text-align: justify; 
+  text-justify: ideographic;
+  word-break: break-all;
   a {
     &:hover {
       background-color: $lightgray;
@@ -79,12 +88,11 @@ textarea{
     position: absolute;
     z-index: -1;
     transform: skew(3deg, 2deg);
-    box-shadow: 0px 15px 5px rgba(0, 0, 0, 0.2);
-    height: 60px;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
+    height: 100px;
     bottom: 15px;
-    right: 0;
-    max-width: 50%;
-    width: 50%;
+    right: 3px;
+    width: 30%;
   }
   &:after {
     clear: both;
@@ -177,7 +185,7 @@ textarea{
   padding-top: 30px;
   h1 {
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 600;
   }
   .sub-heading {
     display: block;
@@ -221,13 +229,11 @@ textarea{
   max-width: 640px;
   margin: 0 auto;
   ul {
-    border-top: 1px solid $lightgray;
     margin: 10px 0 20px;
     padding: 0;
     list-style-type: none;
     li {
       padding: 10px;
-      border-bottom: 1px solid $lightgray;
       &>* {
         display: inline-block;
       }
@@ -242,6 +248,7 @@ textarea{
   }
   .post-infos {
     margin: 0 10px;
+    width: 524px;
     .post-title {
       height: 24px;
       line-height: 24px;
@@ -269,9 +276,9 @@ textarea{
     height: 48px;
     .disqus-comment-count {
       display: inline-block;
-      width: 16px;
+      width: 18px;
       margin: 15px auto;
-      padding: 0 6px;
+      padding: 0 5px;
       text-decoration: none;
       text-align: center;
       color: $white;
@@ -361,7 +368,6 @@ textarea{
   }
   blockquote {
     font-size: 13px;
-    font-style: italic;
     padding: 5px 10px;
     opacity: .6;
     border-left: 5px solid $darkgray;
@@ -543,6 +549,11 @@ pre.terminal code {
   #weibo{
     &:hover {
       color: rgb(231, 44, 64);
+    }
+  }
+  #qzone{
+    &:hover {
+      color: rgb(39, 131, 218);
     }
   }
   #qrcode {

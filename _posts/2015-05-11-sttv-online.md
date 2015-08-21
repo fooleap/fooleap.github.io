@@ -4,7 +4,8 @@ title: 汕头台也能网上看直播
 description: "看电视，或许是一种悠闲的生活 ，对于很多人来说，动画片似乎是小时候的最爱，而在我的印象里，从小就跟着爷爷饭后一壶茶从新闻联播看到汕头新闻。"
 category: life
 tags: [今日视线, 网上直播, 汕头电视台, 橄榄台]
-jquery: true
+style: true
+js: true
 ---
 
 * toc
@@ -26,7 +27,7 @@ jquery: true
 
 前几天，偶然在 CUTV 上发现有 [汕头电视台的直播](http://tv.cutv.com/index.html?tv=sttv)，应该是和汕头电视台合作，查看了点播列表得知，大概三四月份才上线的，画质比一潮网要好。
 
-<div id="sttv01"><img src="{{site.IMG_PATH}}/sttv-online-01.jpg" alt="汕头台新闻综合频道" style="display:block;cursor:pointer;"/></div>
+<div id="sttv01"><img src="{{site.IMG_PATH}}/sttv-online-01.jpg" alt="汕头台新闻综合频道" /></div>
 
 ▲汕头台新闻综合频道（电脑可点击上图播放）
 
@@ -55,8 +56,9 @@ jquery: true
 * 2015 年 06 月 20 日 更新 App Store 相关内容
 * 2015 年 06 月 24 日 小改排版
 
-<script>
-$("#sttv01 img").click(function(){
+<!--<style>#sttv01 img{display:block;cursor:pointer;}</style>-->
+<!--<script>
+  $("#sttv01 img").click(function(){
     $("#sttv01").html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=lKGXIQa&autoplay=false' type='application/x-shockwave-flash' height='512' width='640'>");
-    });
-</script>
+  });
+  </script>-->

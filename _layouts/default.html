@@ -13,11 +13,12 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}" />
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" }}" />
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" }}" />{% if page.link %}
+    <link rel="stylesheet" href="{{ page.link }}" />{% endif %}
     <link rel="icon" href="/favicon.png" />
-    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />
-    <script type="text/javascript" src="/assets/js/modernizr.js"></script>{% if page.jquery %}
-    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>{% endif%}
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />{% assign content_js = content | split: 'script>' %}{% assign content_style = content | split: 'style>' %}{% if page.style %}
+    <style type="text/css">{{ content_style.[1] }}style>{% endif %}
+    <script type="text/javascript" src="/assets/js/modernizr.js"></script>
     <!--[if lte IE 9]>
       <script src="/assets/js/html5shiv.min.js"></script>
       <script type="text/javascript">
@@ -25,13 +26,13 @@
       </script>
     <![endif]-->
     <script>
-        var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "//hm.baidu.com/hm.js?fa7ec982118ebd236663169678264582";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
-        })();
+       var _hmt = _hmt || [];
+       (function() {
+         var hm = document.createElement("script");
+         hm.src = "//hm.baidu.com/hm.js?fa7ec982118ebd236663169678264582";
+         var s = document.getElementsByTagName("script")[0]; 
+         s.parentNode.insertBefore(hm, s);
+      })();
     </script>
   </head>
   <body>
@@ -52,25 +53,34 @@
         {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
       </h1>
       <h2 class="sub-heading">
-        {% if page.date %}<time>{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
+        {% if page.date %}<time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
       </h2>
     </header>
-
-    {{ content }}
-
+    {% if page.style or page.js %}
+      {% if page.style and page.js != true %}
+{{ content_style.[0] | remove:'<!--<' }}{{ content_style.[2] | remove:'-->'}}
+      {% endif %}
+      {% if page.js and page.style != true %}
+{{ content_js.[0] | remove:'<!--<' }}{{ content_js.[2] | remove:'-->'}}
+      {% endif %}
+      {% if page.style and page.js  %}
+{{ content_style.[0] | remove:'<!--<' }}{{ content_js.[2] | remove:'-->' }}
+      {% endif %}
+    {% else %}
+{{ content }}
+    {% endif %}
     <footer class="site-footer">
       <small>2011-{{ site.time | date: '%Y' }} Proudly powered by Jekyll</small>
     </footer>
 
-  </main>
-  {% unless paginator %}
+  </main>{% unless paginator %}
   <div id="gototop">
     <i class="icon-up-big"></i>
   </div>
   {% endunless %}
-  {% if page.jquery != true %}
-  <script type="text/javascript" src="/assets/js/jquery.min.js"></script>{% endif%}  
-  <script type="text/javascript" src="/assets/js/all.js"></script>{% if paginator %}
+  <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/all.js"></script>{% if page.scripts %}{% for script in page.scripts %}
+  <script type="text/javascript" src="{{ script }}"></script>{% endfor %}{% endif %}{% if paginator %}
   <script type="text/javascript" src="/assets/js/jquery.timeago.min.js"></script>
   <script type="text/javascript">
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == true ) {
@@ -106,7 +116,8 @@
       });
     }
   }
-  </script>{% endif %}{% if page.is_post %}<script type="text/javascript">
+  </script>{% endif %}{% if page.is_post %}
+  <script type="text/javascript">
   $(document).ready(function () {
   var disqus_publickey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
   var disqus_shortname = "fooleap";
@@ -127,7 +138,8 @@
     }
   });
   });
-  </script>{% endif %}
+  </script>{% endif %}{% if page.js %}
+  <script type="text/javascript">{{ content_js.[1] }}script>{% endif %}
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-16717905-7']);

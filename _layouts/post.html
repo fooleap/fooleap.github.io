@@ -20,13 +20,14 @@ layout: default
   </div>
 
   <div id="info" class="{{ page.categories }}">
-    <a class="view-code" data="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.id | remove: '/' }}.md" title="在正文中查看源码" href="javascript:void(0);"><i class="icon-code"></i>源码</a>
+    <a class="view-code" data-md="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.id | remove: '/' }}.md" title="在正文中查看源码" href="javascript:void(0);"><i class="icon-file-code"></i>源码</a>
     <i class="icon-tags"></i>{{ page.tags | join: '，'}}
   </div>
 
   <div id="share">
-    <a id="wechat" title="分享到微信" href="javascript:void(0);"><i class="icon-wechat"></i></a>
-    <a id="weibo" title="分享到微博" href="http://service.weibo.com/share/share.php?title={{ page.title }} | {{ site.title }}&url={{ page.url }}&ralateUid=null&searchPic=true&style=number" target="_blank"><i class="icon-weibo"></i></a>
+    <a id="wechat" title="分享到微信" data-wechat-url="{{ site.url }}{{ page.url }}" href="javascript:void(0);"><i class="icon-wechat"></i></a>
+    <a id="weibo" title="分享到微博" data-weibo-url="http://service.weibo.com/share/share.php?title={{ page.title }} | {{ site.title }}&amp;url={{ site.url }}{{ page.url }}&amp;ralateUid=null&amp;searchPic=true&amp;style=number" href="javascript:void(0);"><i class="icon-weibo"></i></a>
+    <a id="qzone" title="分享到 QQ 空间" data-qzone-url="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ site.url }}{{ page.url }}&amp;title={{ page.title }} | {{ site.title }}&amp;summary={{ page.description }}&amp;site={{ site.url }}" href="javascript:void(0);"><i class="icon-qq"></i></a>
   </div>
 
 </article>

@@ -4,7 +4,9 @@ title: 记阳朔一游
 description: "话说桂林山水甲天下，阳朔山水甲桂林。来桂林，乐满地可以不去，大圩古镇可以不去，龙胜漂流也可以不去，但似乎找不到任何理由不去阳朔，何况在桂林已经呆了一年还没去过，所以有了 9 月 11 日到 12 日，宿舍六人阳朔游之说。"
 category: life
 tags: [旅游, 桂林, 漓江, 西街, 阳朔, 骑行]
-jquery: true
+style: true
+js: true
+scripts: "http://api.map.baidu.com/api?v=2.0&amp;ak=FCcc6261f101cd4ccefee22113a609de"
 ---
 
 话说桂林山水甲天下，阳朔山水甲桂林。来桂林，乐满地可以不去，大圩古镇可以不去，龙胜漂流也可以不去，但似乎找不到任何理由不去阳朔，何况在桂林已经呆了一年还没去过，所以有了 9 月 11 日到 12 日，宿舍六人阳朔游之说。
@@ -17,14 +19,12 @@ jquery: true
 
 首先，在桂林火车站前广场右侧搭乘中巴到阳朔，桂林火车站入口处会有不少大妈拉客，上车，到杨堤路口下车是 15 元，直接到阳朔汽车站是 18 元。
 
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=FCcc6261f101cd4ccefee22113a609de"></script>
-
 <div id="hmap"></div>
-<style>
-#hmap {width:100%;}
-.anchorBL{display:none;}
-</style>
-<script type="text/javascript">
+<!--<style>
+    #hmap {width:100%;}
+    .anchorBL{display:none;}
+    </style>-->
+<!--<script type="text/javascript">
     jQuery("#hmap").height(jQuery("#hmap").width()*2/3);
     var map = new BMap.Map("hmap",{mapType: BMAP_HYBRID_MAP});
 	var point = new BMap.Point(110.2898120373,25.268058921597);
@@ -32,7 +32,7 @@ jquery: true
 	var marker = new BMap.Marker(point);
 	map.addOverlay(marker);
 	marker.setAnimation(BMAP_ANIMATION_BOUNCE);
-</script>
+  </script>-->
 
 ▲坐车地点示意图
 

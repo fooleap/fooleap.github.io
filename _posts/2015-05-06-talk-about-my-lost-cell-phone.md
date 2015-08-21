@@ -4,7 +4,9 @@ title: 我那丢了的手机
 description: "有时候不得不承认自己在记的都是流水账，那么这次，且听我聊聊关于那次手机丢了的事。"
 category: life
 tags: [手机, 金鸿公路, 宝奥城]
-jquery: true
+style: true
+js: true
+scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de','http://api.map.baidu.com/library/LuShu/1.2/src/LuShu_min.js','http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js']
 ---
 
 有时候不得不承认自己在记的都是流水账，那么这次，且听我聊聊关于那次手机丢了的事。
@@ -67,17 +69,14 @@ jquery: true
 
 * 2015 年 05 月 06 日 完成初稿
 
-<style>
-#map {width:100%;max-width:640px;margin:18px 0 0 0}
-#map-control {margin:0;padding:0}
-#map-control button{color: #333; background: rgb(255,255,255);padding: 2px; border: 1px solid #ddd; margin: 2px; cursor: pointer; border-radius: 2px; text-transform: uppercase; text-decoration: none;}
-.BMap_cpyCtrl,.anchorBL,.anchorBR{display:none;}
-</style>
+<!--<style>
+    #map {width:100%;max-width:640px;margin:18px 0 0 0}
+    #map-control {margin:0;padding:0}
+    #map-control button{color: #333; background: rgb(255,255,255);padding: 2px; border: 1px solid #ddd; margin: 2px; cursor: pointer; border-radius: 2px; text-transform: uppercase; text-decoration: none;}
+    .BMap_cpyCtrl,.anchorBL,.anchorBR{display:none;}
+    </style>-->
 
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/library/LuShu/1.2/src/LuShu_min.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/library/GeoUtils/1.2/src/GeoUtils_min.js"></script>
-<script type="text/javascript">
+<!--<script>
     var mwidth = $("#map").width();
     if(mwidth<640){
         $("#map").height(mwidth);
@@ -140,4 +139,4 @@ jquery: true
         lushu.start();
     });
     $("#distance").html("全程共" + (dis/1000).toFixed(1) + "公里");
-</script>
+  </script>-->

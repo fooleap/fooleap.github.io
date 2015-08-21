@@ -4,7 +4,9 @@ title: 千千静听李小珍
 description: "事情是这样的，这几天想给妈妈的手机放一些她喜欢听的歌曲或潮剧。像妈妈这个年龄的，一般最喜欢的是潮剧，潮语歌曲次之，当然一部分普通话老歌也是可以接受的。"
 category: life
 tags: [潮剧, 潮语歌曲, 李小珍, 千千静听]
-jquery: true
+style: true
+scripts: ["/assets/js/video.js"]
+link: "/assets/css/video-js.min.css"
 ---
 
 * toc
@@ -30,8 +32,6 @@ jquery: true
 
 听了那么多的李小珍，谈到李小珍，大多数潮汕人又似乎并不是很熟悉，只知道她是新加坡那边的。而网上的资料也甚少，在那个还能上 YouTube 的年代，我曾经看到一个关于她的采访，而那段视频拍摄的时间也不详。说到这，干脆将它传到 [墙内](http://www.tudou.com/programs/view/9_7gzmBLy7A/)，让更多的人了解。
 
-<link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
-<script src="http://vjs.zencdn.net/4.12/video.js"></script>
 <video id="MY_VIDEO_1" class="video-js vjs-default-skin" width="640" height="480" controls
  preload="auto" poster="{{site.IMG_PATH}}/ttplayer-teochow-song-03.jpg"
  data-setup="{}">
@@ -39,7 +39,7 @@ jquery: true
  <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.webm" type='video/webm'>
  <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.ogv" type='video/ogg'>
 </video>
-<style>
+<!--<style>
 .video-js {
     width: 100% !important;
     height: auto !important;
@@ -61,7 +61,7 @@ jquery: true
     right: 0;
     left: 0;
 }
-</style>
+</style>-->
 
 我也不清楚现在影碟铺还能不能买到李小珍的 CD 或 VCD 等，某宝上是还能看到一些的。而网络上有 RM 版本，看文件信息得知此前有人分享在 csfqw.com 上的，而现在下载到的则是由 [linjihong 收集](http://bbs.chaoshanren.com/thread-539921-1-1.html) 的。压缩的 RM 格式可能并不是很完美，但这可以说是网络上比较全的版本。根据网络上的 VCD 碟片排序，我又将它们命名排好。
 
