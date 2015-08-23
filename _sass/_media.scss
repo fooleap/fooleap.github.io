@@ -11,6 +11,7 @@
     border: 0;
     border: none;
     padding: 0;
+    max-width: none;
     &:before {
       display: none;
     }
@@ -25,16 +26,16 @@
 @media screen and (max-width: 700px) {
   .navigation{
     .menu, .navigation-item {
-      line-height: 40px;
       height: 40px;
-      font-size: 20px;
+      line-height: 40px;
+      font-size: 18px;
     }
     .navigation-list {
       width: 160px;
     }
   }
   .wrapper {
-    max-width: 640px;
+    max-width: none;
     width: 100%;
   }
   .articles ul {
@@ -46,6 +47,12 @@
         width: 40px;
         height: 40px;
         border-radius: 3px;
+      }
+      .comment-count{
+        height: 40px;
+        .disqus-comment-count{
+          margin: 11px auto;
+        }
       }
       .post-infos {
         margin: 0 5px;

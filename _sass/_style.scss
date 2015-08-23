@@ -26,7 +26,7 @@ html{
 }
 
 body {
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "Source Han Sans", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 14px;
   font-weight: normal;
   color: rgb(34, 34, 34);
@@ -127,7 +127,7 @@ textarea{
     display: block;
     width: 30px;
     height: 30px;
-    line-height: 30px;
+    line-height: 35px;
     font-size: 20px;
     color: $white;
     &:hover {
@@ -159,11 +159,11 @@ textarea{
     li {
       display: inline;
       .navigation-item {
-      line-height: 30px;
+      line-height: 35px;
       color: rgb(160, 160, 160);
       display: block;
       overflow: hidden;
-      height: 30px;
+      height: 35px;
       padding: 0 15px;
       border-bottom: 1px solid rgb(50, 50, 50);
       vertical-align: middle;

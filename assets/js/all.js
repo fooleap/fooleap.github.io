@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
     };
   });
   
-  $('.menu').on( "click", function() {
+  $('.menu').on( "touchstart", function(){
     if(nav.hasClass('hide')){
       nav.removeClass('hide').addClass('show');
     } else {
@@ -27,7 +27,6 @@ jQuery(document).ready(function($){
   });
   
   //图片
-  var maxwidth=640; 
   var post_img=$('.post-content img');
   var _w = parseInt($(window).width());
   document.onreadystatechange = function () {
@@ -38,7 +37,7 @@ jQuery(document).ready(function($){
       var realwidth = real_img.width;
       $(this).wrap("<figure/>");
       $('figure').parent().addClass('image');
-      if (realwidth >= maxwidth){ 
+      if (realwidth >= 640){ 
         $(this).css({'cursor':'pointer','width':'100%'}).click(function(){window.open(real_img.src.split(/(\?|\_)/)[0],'_blank');});
       };
     });

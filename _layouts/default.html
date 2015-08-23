@@ -93,9 +93,13 @@
     cache: false,
     dataType: 'jsonp',
     success: function(result) {
-      if (result.response.length === 1) {
-        count = result.response[0].posts;
-        $('.show-comments').append('（' + count + '）');
+      if ( result.response.length === 1 ) {
+        var count = result.response[0].posts;
+        if ( count != 0 ){
+          $('.show-comments').append('（' + count + '）');
+        } else {
+          $('.show-comments').html('<i class="icon-comment-empty"></i>抢沙发');
+        }
       } else {
         $('.show-comments').html('<i class="icon-comment-empty"></i>抢沙发');
       }

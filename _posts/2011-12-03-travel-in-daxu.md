@@ -10,10 +10,9 @@ tags: [hosts, 大圩, 桂林, 骑行]
 
 早晨跑步可以让一整天都充满激情，这个星期我试了，不过效果不佳，晚睡是一个原因，桂林日出时间也偏晚，还是找不到高中时五点半起床跑六七公里的感觉，或许是刚开始不适应，这个星期试试，持续五六天应该有效果，前提是早睡。
 
-刚开学不久买了辆自行车，不过不怎么骑，大二的课比较多，周六日又喜欢窝宿舍，罪过。[阳朔之游](http://blog.fooleap.org/travel-in-yangshuo.html) 说过，在桂林期间，大圩古镇可以不去，不过我还是去了，还是骑车去的，那是 11 月 27 日，从学校骑到大圩用了 2 个半小时，二十公里左右。
+刚开学不久买了辆自行车，不过不怎么骑，大二的课比较多，周六日又喜欢窝宿舍，罪过。[阳朔之游](/travel-in-yangshuo.html) 说过，在桂林期间，大圩古镇可以不去，不过我还是去了，还是骑车去的，那是 11 月 27 日，从学校骑到大圩用了 2 个半小时，二十公里左右。
 
-<iframe src="https://www.google.cn/maps/d/embed?mid=zFVCPErrCRCw.k4f-9qadVq-k" width="640" height="427"></iframe>
-
+<iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.k4f-9qadVq-k" width="640" height="384"></iframe>
 
 * 08:00-11:00  从学校出发到大圩
 * 11:00-12:30  在古镇里逛了一个半小时
@@ -25,8 +24,10 @@ tags: [hosts, 大圩, 桂林, 骑行]
 
 ![一电子铺]({{ site.IMG_PATH }}/travel-in-daxu.jpg_640)
 
-
 **本文历史**
 
 * 2011 年 12 月 03 日 创建文章
 * 2015 年 05 月 07 日 修复地图
+<!--<script>
+    $('iframe').height($('iframe').width()*2/3);
+  </script>-->

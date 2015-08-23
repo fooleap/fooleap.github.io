@@ -37,7 +37,7 @@ scripts: ['/assets/js/jquery.timeago.min.js']
   </ul>
 </nav>
 <!--<script>
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == true ) {
+  if($(document.body).width() < 360) {
       $('.comment-count').remove();
   } else {
     $(document).ready(function () {
@@ -57,17 +57,12 @@ scripts: ['/assets/js/jquery.timeago.min.js']
         success: function (result) {
           for (var i in result.response) {
             var count = result.response[i].posts;
-            $('.disqus-comment-count[data-disqus-url="' + result.response[i].link + '"]').html(count).fadeIn();
+            if ( count ) {
+              $('.disqus-comment-count[data-disqus-url="' + result.response[i].link + '"]').html(count).fadeIn();
+            }
           }
         }
       });
     });
-    document.onreadystatechange = function () {
-      $('.disqus-comment-count').each(function(){
-        if (/0/i.test($(this).text())){
-          $(this).attr("title", "还没评论，少年来一发？");
-        }
-      });
-    }
   }
   </script>-->
