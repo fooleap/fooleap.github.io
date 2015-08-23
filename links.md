@@ -3,7 +3,7 @@ layout: page
 title: 链接
 ---
 
-###推荐站点###
+##推荐站点
 
 * [Ruby China](http://ruby-china.org/) 国内最权威的 Ruby 社区
 * [V2EX](http://v2ex.com/) 创意工作者们的社区
@@ -14,7 +14,7 @@ title: 链接
 * [阮一峰的个人网站](http://www.ruanyifeng.com/) 
 * [Rei](http://chloerei.com/)
 
-###友情链接###
+##友情链接
 
 
 * [Anton's Blog](http://ashat.org){:title="@四川"}

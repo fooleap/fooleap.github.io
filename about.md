@@ -17,13 +17,13 @@ js: true
 本网志采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [GitCafé](https://gitcafe.com/fooleap/fooleap) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
 本网志的原创内容，均采用知识共享组织（Creative Commons）的“公有领域”（[Public Domain](http://creativecommons.org/about/pdm)）许可。
 
-**博主**
+##博主
 
 生长于潮汕，现浪迹于杭城。
 
 拖延症、强迫症患者，闲余喜欢喝茶、喜欢拍照、喜欢跑步、喜欢骑行。
 
-**联系方式**
+##联系方式
 
 * Email: fooleap(at)gmail.com
 * Twitter: [@fooleap](http://twitter.com/fooleap)
@@ -32,7 +32,7 @@ js: true
 * 豆瓣: [@fooleap](http://douban.com/people/fooleap)
 * 知乎: [@fooleap](http://zhihu.com/people/fooleap)
 
-**网志进程**
+##网志进程
 
 * 2011-02-09 网志建立，名字为“Fooleap”
 * 2011-10-28 网志网址改为二级域名 blog.fooleap.org ，主域做了重定向，网志改名为“Fooleap&#039;s Blog”
