@@ -170,5 +170,5 @@ map.addOverlay(polyline);//将折线覆盖到地图上
     var polyline = new BMap.Polyline(points);
     map01.centerAndZoom(point, zoom);
     map02.centerAndZoom(point, zoom);
-    map02.addOverlay(polyline);
+    map02.addOverlay(polyline);   
   </script>-->

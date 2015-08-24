@@ -7,7 +7,7 @@ style: true
 js: true
 ---
 
-<a class="mid" id="play-mid" href="javascript:void(0)" onClick="MIDIjs.play(fmmusic);"><i class="icon-play"></i></a><a class="mid" id="stop-mid" href="javascript:void(0)" onClick="MIDIjs.stop();"><i class="icon-stop"></i></a><a class="mid" id="mid-title" href="http://music.163.com/#/song?id=165614" target="_blank">三个人的时光</a>
+<a class="mid" id="play-mid" href="javascript:void(0)" onClick="MIDIjs.play(fmmusic);"><i class="icon-play"></i></a><a class="mid" id="stop-mid" href="javascript:void(0)" onClick="MIDIjs.stop();"><i class="icon-stop"></i></a><a class="mid" id="mid-title" href="http://www.xiami.com/song/3556769" target="_blank">三个人的时光</a>
 
 * 网志网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)
@@ -41,9 +41,6 @@ js: true
 * 2014-01-10 所用的 Host700 卷铺走人，重新转移到 GitHub
 * 2014-06-29 升级 Bootstrap 框架为 3.2 
 * 2014-08-05 放弃 Bootstrap 框架
-* 2015-04-18 给文章页面添加二维码
-* 2015-05-18 评论改为点击加载
-* 2015-05-20 图片悬停显示 EXIF
 * 2015-05-23 增加远程 GitCafé 分支，DNSPod 设置国内访问 GitCafé，国外访问 GitHub。
 
 <!--<style>

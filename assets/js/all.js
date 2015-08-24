@@ -1,4 +1,4 @@
-jQuery(document).ready(function($){ 
+$(document).ready(function($){ 
   //链接
   $("a[href*='http://']:not([href*='"+location.hostname+"']),[href*='https://']:not([href*='"+location.hostname+"'])").attr('target','_blank');
   
@@ -11,7 +11,7 @@ jQuery(document).ready(function($){
     };
   });
   
-  $('.menu').on( "touchstart", function(){
+  $('.menu').on( "click", function(){
     if(nav.hasClass('hide')){
       nav.removeClass('hide').addClass('show');
     } else {

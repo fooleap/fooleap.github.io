@@ -25,13 +25,16 @@
 
 @media screen and (max-width: 700px) {
   .navigation{
-    .menu, .navigation-item {
-      height: 40px;
-      line-height: 40px;
-      font-size: 18px;
+    .menu {
+      line-height: 35px!important;
+    }
+    .navigation-item{
+      height: 35px!important;
+      line-height: 35px!important;
+      font-size: 18px!important;
     }
     .navigation-list {
-      width: 160px;
+      width: 160px!important;
     }
   }
   .wrapper {

@@ -48,9 +48,9 @@ js: true
 ![汕头橄榄台 APP]({{site.IMG_PATH}}/sttv-online-03.jpg_640)
 ▲汕头橄榄台 APP
 
-6 月 19 日，该 App 在 App Store 上架：[App Store 下载](https://itunes.apple.com/app/shantou-gan-lan-tai/id958459439?ls=0){:style="border-radius:3px;text-decoration:none;background:#333;color:#fff;padding:5px 10px;" title="不会自动打开 iTunes"}
+6 月 19 日，该 App 在 App Store 上架：[App Store 下载](https://itunes.apple.com/app/shantou-gan-lan-tai/id958459439?ls=0){:class="download" title="不会自动打开 iTunes"}
 
-顺便给个 Android 版本的地址：[应用宝下载](http://android.myapp.com/myapp/detail.htm?apkName=com.cutv.shakeshakestglt){:style="border-radius:3px;text-decoration:none;background:#333;color:#fff;padding:5px 10px;"}
+顺便给个 Android 版本的地址：[应用宝下载](http://android.myapp.com/myapp/detail.htm?apkName=com.cutv.shakeshakestglt){:class="download"}
 
 **本文历史**
 
@@ -59,9 +59,26 @@ js: true
 * 2015 年 06 月 20 日 更新 App Store 相关内容
 * 2015 年 06 月 24 日 小改排版
 
-<!--<style>#sttv01 img{display:block;cursor:pointer;}</style>-->
+<!--<style>
+    #sttv01 img{
+      display:block;
+      cursor:pointer;
+    }
+    .download{
+      border-radius:3px;
+      text-decoration:none;
+      background:#333;
+      color:#fff;
+      padding:5px;
+      border:none
+    }
+    .download:hover{
+      bacground:#999;
+      color:#000;
+    }
+    </style>-->
 <!--<script>
-  $("#sttv01 img").click(function(){
-    $("#sttv01").html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=lKGXIQa&autoplay=false' type='application/x-shockwave-flash' height='512' width='640'>");
-  });
-  </script>-->
+    $("#sttv01 img").click(function(){
+      $("#sttv01").html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=lKGXIQa&autoplay=false' type='application/x-shockwave-flash' height='512' width='640'>");
+    });
+    </script>-->

@@ -127,7 +127,7 @@ textarea{
     display: block;
     width: 30px;
     height: 30px;
-    line-height: 35px;
+    line-height: 30px;
     font-size: 20px;
     color: $white;
     &:hover {
@@ -159,11 +159,11 @@ textarea{
     li {
       display: inline;
       .navigation-item {
-      line-height: 35px;
+      line-height: 30px;
       color: rgb(160, 160, 160);
       display: block;
       overflow: hidden;
-      height: 35px;
+      height: 30px;
       padding: 0 15px;
       border-bottom: 1px solid rgb(50, 50, 50);
       vertical-align: middle;
@@ -238,8 +238,16 @@ textarea{
     list-style-type: none;
     li {
       padding: 10px;
+      *zoom: 1;
       &>* {
         display: inline-block;
+      }
+      &:before,&:after {
+        content: " ";
+        display: table;
+      }
+      &:after {
+        clear: both;
       }
     }
   }
@@ -475,7 +483,7 @@ textarea{
 
 pre, code {
   font-size: 13px;
-  font-family: Consolas;
+  font-family: Consolas, monaco, monospace;
   background-color: $lightgray;
   overflow: auto;
   padding: 5px 10px;
