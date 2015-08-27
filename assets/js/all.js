@@ -27,51 +27,57 @@ $(document).ready(function($){
   });
   
   //图片
-  var post_img=$('.post-content img');
-  var _w = parseInt($(window).width());
+  var postImg=$('.post-content img');
   document.onreadystatechange = function () {
-  if (post_img){
-    $.each(post_img,function(){
-      var real_img = document.createElement("img");
-      real_img.src = $(this).attr('src');
-      var realwidth = real_img.width;
-      $(this).wrap("<figure/>");
-      $('figure').parent().addClass('image');
-      if (realwidth >= 640){ 
-        $(this).css({'cursor':'pointer','width':'100%'}).click(function(){window.open(real_img.src.split(/(\?|\_)/)[0],'_blank');});
+  if (postImg){
+    $.each(postImg,function(){
+      var realImg = document.createElement("img");
+      realImg.src = $(this).attr('src');
+      var realWidth = realImg.width;
+      if (realWidth >= 640){ 
+        $(this).wrap("<figure/>").css({'cursor':'pointer','width':'100%'}).click(function(){window.open(realImg.src.split(/(\?|\_)/)[0],'_blank');});
+        $('figure').parent().addClass('image');
       };
     });
     //EXIF
-    post_img.hover(function(){
-      var hover_img= $(this);
-      var img_exif = hover_img.attr('src').split(/(\?|\_)/)[0]+"\?exif";
-      if(img_exif.indexOf('jpg') >= 0){
+    postImg.hover(function(){
+      var hoverImg= $(this);
+      var imgExif = hoverImg.attr('src').split(/(\?|\_)/)[0]+"\?exif";
+      if(imgExif.indexOf('jpg') >= 0){
       $.ajax({
         type: "GET",
-        url: img_exif,
+        url: imgExif,
         dataType: "json",
         async : false,
         success: function (exif) {
-          if(exif["DateTimeOriginal"] != undefined){
+          if(exif.DateTimeOriginal){
             datetime = exif.DateTimeOriginal.val.split(/\:|\s/);
             date = datetime[0] + "-" + datetime[1] + "-" + datetime[2];
-            model = (exif["Model"] != undefined) ? (exif.Model.val) : "无";
-            fnu = (exif["FNumber"] != undefined) ? (exif.FNumber.val.split(/\//)[1]) : "无";
-            extime = (exif["ExposureTime"] != undefined) ? (exif.ExposureTime.val) : "无";
-            iso = (exif["ISOSpeedRatings"] != undefined) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : "无";
-            flength = (exif["FocalLength"] != undefined) ? (exif.FocalLength.val) : "无";
+            model = (exif.Model) ? (exif.Model.val) : "无";
+            fnu = (exif.FNumber) ? (exif.FNumber.val.split(/\//)[1]) : "无";
+            extime = (exif.ExposureTime) ? (exif.ExposureTime.val) : "无";
+            iso = (exif.ISOSpeedRatings) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : "无";
+            flength = (exif.FocalLength) ? (exif.FocalLength.val) : "无";
         }},
         error: function (msg) {}
       }).done(function() {
-        hover_img.after("<figcaption class='exif'>"+"日期：" + date + " 器材: " + model + " 光圈: " + fnu + " 快门: " + extime + " 感光度: " + iso + " 焦距: " + flength + "</figcaption>");
+        if(typeof date != "undefined"){
+          hoverImg.after("<figcaption class='exif'>"+"日期：" + date + " 器材: " + model + " 光圈: " + fnu + " 快门: " + extime + " 感光度: " + iso + " 焦距: " + flength + "</figcaption>");
+          delete date;
+        }
       });
       }
     },function(){
       $('figcaption').remove()
-      delete date;
     });
    };
    }
+
+  //页内链接
+  $("[href^='#']").click(function(){
+    var flash = $(this).attr('href');
+    $(flash).fadeOut().fadeIn();
+  })
   
   //二维码
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
@@ -100,8 +106,8 @@ $(document).ready(function($){
      $('#wechat').removeAttr ("class").attr("title","分享到微信");
     };
   });
-  $('#weibo').click( function(){window.open($(this).attr('data-weibo-url'));})
-  $('#qzone').click( function(){window.open($(this).attr('data-qzone-url'));})
+  $('#weibo').click( function(){window.open($(this).attr('data-weibo-url'));});
+  $('#qzone').click( function(){window.open($(this).attr('data-qzone-url'));});
   }
   
   //随机同类文章
@@ -178,12 +184,13 @@ $(document).ready(function($){
   });
 
   //评论
+  disqusShortName = "fooleap";
+  disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
   $('.show-comments').on('click', function() {
-    var disqus_shortname = "fooleap";
     $('.comment').attr('id','disqus_thread');
     $.ajax({
       type: "GET",
-      url: "https://" + disqus_shortname + ".disqus.com/embed.js",
+      url: "https://" + disqusShortName + ".disqus.com/embed.js",
       dataType: "script",
       cache: true
     });

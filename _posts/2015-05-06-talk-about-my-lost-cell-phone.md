@@ -73,7 +73,6 @@ scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609d
     #map {width:100%;max-width:640px;margin:18px 0 0 0}
     #map-control {margin:0;padding:0}
     #map-control button{color: #333; background: rgb(255,255,255);padding: 2px; border: 1px solid #ddd; margin: 2px; cursor: pointer; border-radius: 2px; text-transform: uppercase; text-decoration: none;}
-    .BMap_cpyCtrl,.anchorBL,.anchorBR{display:none;}
     </style>-->
 
 <!--<script>

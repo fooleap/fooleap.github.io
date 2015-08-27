@@ -41,24 +41,22 @@ scripts: ['/assets/js/jquery.timeago.min.js']
       $('.comment-count').remove();
   } else {
     $(document).ready(function () {
-      var disqus_publickey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
-      var disqus_shortname = "fooleap";
-      var urlarray = [];
+      var urlArray = [];
       $('.disqus-comment-count').each(function () {
         var url = $(this).attr('data-disqus-url');
-        urlarray.push('link:' + url);
+        urlArray.push('link:' + url);
       });
       $.ajax({
         type: 'GET',
         url: "https://disqus.com/api/3.0/threads/set.jsonp",
-        data: { api_key: disqus_publickey, forum : disqus_shortname, thread : urlarray }, 
+        data: { api_key: disqusPublicKey, forum : disqusShortName, thread : urlArray }, 
         cache: false,
         dataType: "jsonp",
         success: function (result) {
           for (var i in result.response) {
             var count = result.response[i].posts;
             if ( count ) {
-              $('.disqus-comment-count[data-disqus-url="' + result.response[i].link + '"]').html(count).fadeIn();
+              $('.disqus-comment-count[data-disqus-url="' + result.response[i].link + '"]').html(count);
             }
           }
         }

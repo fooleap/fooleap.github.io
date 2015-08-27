@@ -25,7 +25,7 @@ style: true
     最多可转换 100 个坐标点<br>
     结果保留 6 位小数<br>
     页面制作 <a href="/bmaps-changeposition.html" target="_blank">说明</a><br>
-    使用场景 <a href="/bmaps-lushu.html" target="_blank">参考</a>
+    使用场景 <a href="/bmaps-polyline.html" target="_blank">参考</a>
   </p>
 </div>
 <div class="clear"></div>

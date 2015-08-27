@@ -68,7 +68,7 @@ js: true
       border-radius:3px;
       text-decoration:none;
       background:#333;
-      color:#fff;
+      color:#fff!important;
       padding:5px;
       border:none
     }

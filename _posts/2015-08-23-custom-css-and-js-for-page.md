@@ -117,6 +117,11 @@ JS 脚本类似于 CSS，另外，引入 CSS 或 JS 文件则可以直接将其�
 
 代码比较简单比较丑，但可以用，这里需要说明的是，鄙人往往将 `<style>`、`<script>` 按顺序排在一起。例子的话，可以查看鄙人任何一篇含有自定义代码的日志，点击左下角“源码”按钮便可看到相关 `*md` 文件内容，例如：[我那丢了的手机 ](/talk-about-my-lost-cell-phone.html)。
 
+## 参考资料
+
+* [Liquid for Designer](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers)
+* [Liquid Documentation](https://docs.shopify.com/themes/liquid-documentation/)
+
 **本文历史**
 
 * 2015 年 08 月 23 日 完成初稿

@@ -4,6 +4,7 @@ $lightblue: rgb(120, 180, 240);
 $lightgray: rgb(225, 225, 225);
 $white: rgb(255, 255, 255);
 $black: rgb(0, 0, 0);
+$default: rgb(34, 34, 34);
 
 // Utility
 * {
@@ -29,11 +30,10 @@ body {
   font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "Source Han Sans", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 14px;
   font-weight: normal;
-  color: rgb(34, 34, 34);
+  color: $default;
   line-height: 1.7;
   background: radial-gradient(ellipse at center center , rgb(234, 239, 242) 0px, rgba(212, 221, 228, 0.5) 50%) repeat scroll 0% 0%, transparent linear-gradient(to bottom, rgb(202, 225, 244) 0px, rgba(125, 185, 232, 0) 100%) repeat scroll 0% 0%;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: lightgrayscale;
 }
 
 .lte8 body{
@@ -56,9 +56,8 @@ abbr {
 
 a {
   text-decoration: none;
-  color: rgb(34, 34, 34);
+  color: default;
   outline: none;
-  border-bottom: 1px dashed $darkblue;
 }
 
 em { 
@@ -83,6 +82,7 @@ textarea{
   text-justify: ideographic;
   word-break: break-all;
   a {
+    color: $darkblue;
     &:hover {
       background-color: $lightgray;
     }
@@ -249,6 +249,9 @@ textarea{
       &:after {
         clear: both;
       }
+      a:visited:last-child {
+        background: rgb(200, 225, 245);
+      }
     }
   }
   .thumbnail {
@@ -302,9 +305,6 @@ textarea{
       &:link {
         background: rgb(150, 215, 245);
       }
-      &:visited {
-        background: rgb(180, 225, 245);
-      }
       &:hover {
         background: $darkblue;
       }
@@ -318,17 +318,25 @@ textarea{
   max-width: 640px;
   margin: 10px auto;
   font-size: 13px;
-  line-height: 1;
-  height: 15px;
   list-style-type: none;
   overflow: hidden;
   padding: 0 5px;
+  &:after {
+    clear: both;
+  }
+  &:before, &:after {
+    display: table;
+    content: '';
+  }
   a {
     border: none;
     color: $darkgray;
+    height: 20px;
+    line-height: 20px;
   }
   li {
     display: inline-block;
+    float: left;
   }
   .number {
     color: $white;
@@ -337,12 +345,10 @@ textarea{
   }
   .newer {
     width: 30%;
-    float: right;
     text-align: right;
   }
   .older {
     width: 30%;
-    float: left;
     text-align: left;
   }
 }
@@ -355,24 +361,23 @@ textarea{
   margin: 0 auto;
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
-    border-left: 4px solid $darkblue;
     line-height: 1;
     margin: 25px 0 12px;
   }
   h2 {
-    font-size: 15px;
+    border-left: 4px solid $darkblue;
+    font-size: 16px;
     padding-left: 5px;
   }
   h3 {
     font-size: 14px;
-    padding-left: 4px;
   }
   .hide {
     display: none;
   }
   .source {
     display: block;
-    font-family: Consolas;
+    font-family: "RobotoDraft", "Roboto", "Consolas";
     font-size: 12px;
     border: 1px solid $lightgray;
     width: 100%;
@@ -483,7 +488,7 @@ textarea{
 
 pre, code {
   font-size: 13px;
-  font-family: Consolas, monaco, monospace;
+  font-family: Hack, Consolas, monaco, monospace;
   background-color: $lightgray;
   overflow: auto;
   padding: 5px 10px;
@@ -531,6 +536,7 @@ pre.terminal code {
   clear: both;
   a{
     border: none;
+    color: $default;
   }
 }
 

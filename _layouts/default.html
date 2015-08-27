@@ -70,7 +70,7 @@
 {{ content }}
     {% endif %}
     <footer class="site-footer">
-      <small>2011-{{ site.time | date: '%Y' }} Proudly powered by Jekyll</small>
+      <small>&copy; 2011-{{ site.time | date: '%Y' }} Proudly powered by Jekyll</small>
     </footer>
 
   </main>{% unless paginator %}
@@ -83,23 +83,17 @@
   <script type="text/javascript" src="{{ script }}"></script>{% endfor %}{% endif %}{% if page.is_post %}
   <script type="text/javascript">
   $(document).ready(function () {
-  var disqus_publickey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
-  var disqus_shortname = "fooleap";
-  var disqus_url = 'link:' + $('.show-comments').attr('data-disqus-url');
+  var disqusUrl = 'link:' + $('.show-comments').attr('data-disqus-url');
   $.ajax({
     type: 'GET',
     url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-    data: { api_key: disqus_publickey, forum: disqus_shortname, thread: disqus_url },
+    data: { api_key: disqusPublicKey, forum: disqusShortName, thread: disqusUrl },
     cache: false,
     dataType: 'jsonp',
     success: function(result) {
-      if ( result.response.length === 1 ) {
+      if ( result.response.length === 1 && result.response[0].posts != 0 ) {
         var count = result.response[0].posts;
-        if ( count != 0 ){
-          $('.show-comments').append('（' + count + '）');
-        } else {
-          $('.show-comments').html('<i class="icon-comment-empty"></i>抢沙发');
-        }
+        $('.show-comments').append('（' + count + '）');
       } else {
         $('.show-comments').html('<i class="icon-comment-empty"></i>抢沙发');
       }
