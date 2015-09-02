@@ -1,11 +1,9 @@
 encoding: utf-8
 title: Fooleap's Blog
 email: fooleap@gmail.com
+keywords: [fooleap, 前端, Linux, 潮汕]
 description: "A foolish man could not always lose!"
 url: "http://blog.fooleap.org"
-twitter_username: fooleap
-github_username: fooleap
-weibo_username: fooleap
 timezone: Asia/Shanghai
 permalink: /:title.html 
 highlighter: pygments
@@ -16,7 +14,7 @@ sass:
   sass_dir: _sass
   style: :compressed
 kramdown: 
-  toc_levels: "2" 
+  toc_levels: "2,3" 
 defaults:
   -
     scope:
@@ -24,3 +22,10 @@ defaults:
       type: posts 
     values:
       is_post: true
+twitter_username: fooleap
+github_username: fooleap
+weibo_username: fooleap
+baidu: fa7ec982118ebd236663169678264582
+ga: UA-16717905-7
+disqus_shortname: fooleap
+disqus_publickey: xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN

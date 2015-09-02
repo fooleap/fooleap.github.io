@@ -8,16 +8,17 @@
     <title>{% if paginator and paginator.page != 1 %}{{ site.title }} | 第{{ paginator.page }}页{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
-    <meta name="keywords" content="{{ page.tags | join: ', '}}" />
+    <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', '}}{% else %}{{ site.keywords | join: ', ' }}{% endif %}" />
     <meta name="author" content="fooleap" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="canonical" href="{{ page.url | replace: 'index.html','' | prepend: site.url }}" />
     <link rel="stylesheet" type="text/css" href="{{ "/assets/css/style.css" }}" />{% if page.link %}
     <link rel="stylesheet" type="text/css" href="{{ page.link }}" />{% endif %}
-    <link rel="icon" href="/favicon.png" />
-    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />{% assign content_js = content | remove: '<!--<' | remove: '-->' | split: 'script>' %}{% assign content_style = content | remove: '<!--<' | remove: '-->' | split: 'style>' %}{% if page.style %}
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="{{ "/assets/css/fontello-ie7.css" }}"><![endif]-->{% assign content_js = content | remove: '<!--<' | remove: '-->' | split: 'script>' %}{% assign content_style = content | remove: '<!--<' | remove: '-->' | split: 'style>' %}{% if page.style %}
     <style type="text/css">{{ content_style[1] }}style>{% endif %}
+    <link rel="icon" href="/favicon.png" />
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />
     <script type="text/javascript" src="/assets/js/modernizr.js"></script>
     <!--[if lte IE 9]>
       <script src="/assets/js/html5shiv.min.js"></script>
@@ -29,14 +30,14 @@
        var _hmt = _hmt || [];
        (function() {
          var hm = document.createElement("script");
-         hm.src = "//hm.baidu.com/hm.js?fa7ec982118ebd236663169678264582";
+         hm.src = "//hm.baidu.com/hm.js?{{ site.baidu }}";
          var s = document.getElementsByTagName("script")[0]; 
          s.parentNode.insertBefore(hm, s);
       })();
     </script>
   </head>
   <body>
-  <nav class="navigation hide">
+  <nav id="navigation" class="hide">
       <ul class="navigation-list">
           <li><a href="/" class="navigation-item{% if page.url == '/index.html' %} active{% endif %}"><i class="icon-home"></i>首页</a></li>
           <li><a href="/about.html" class="navigation-item{% if page.url == '/about.html' %} active{% endif %}"><i class="icon-user"></i>关于</a></li>
@@ -44,7 +45,7 @@
           <li><a href="/links.html" class="navigation-item{% if page.url == '/links.html' %} active{% endif %}"><i class="icon-link"></i>链接</a></li>
           <li><a href="/guestbook.html" class="navigation-item{% if page.url == '/guestbook.html' %} active{% endif %}"><i class="icon-chat-empty"></i>留言本</a></li>
       </ul>
-      <i class="icon icon-menu menu"></i>
+      <i id="menu" class="icon icon-menu"></i>
   </nav>
   
   <main class="wrapper">
@@ -53,7 +54,7 @@
         {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
       </h1>
       <h2 class="sub-heading">
-        {% if page.date %}<time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
+          {% if page.date %}<i class="icon-calendar"></i><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
       </h2>
     </header>
     {% if page.style or page.js %}
@@ -69,6 +70,7 @@
     {% else %}
 {{ content }}
     {% endif %}
+
     <footer class="site-footer">
       <small>&copy; 2011-{{ site.time | date: '%Y' }} Proudly powered by Jekyll</small>
     </footer>
@@ -76,35 +78,29 @@
   </main>{% unless paginator %}
   <div id="gototop">
     <i class="icon-up-big"></i>
-  </div>
-  {% endunless %}
-  <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/js/all.js"></script>{% if page.scripts %}{% for script in page.scripts %}
-  <script type="text/javascript" src="{{ script }}"></script>{% endfor %}{% endif %}{% if page.is_post %}
+  </div>{% endunless %}
   <script type="text/javascript">
-  $(document).ready(function () {
-  var disqusUrl = 'link:' + $('.show-comments').attr('data-disqus-url');
-  $.ajax({
-    type: 'GET',
-    url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-    data: { api_key: disqusPublicKey, forum: disqusShortName, thread: disqusUrl },
-    cache: false,
-    dataType: 'jsonp',
-    success: function(result) {
-      if ( result.response.length === 1 && result.response[0].posts != 0 ) {
-        var count = result.response[0].posts;
-        $('.show-comments').append('（' + count + '）');
-      } else {
-        $('.show-comments').html('<i class="icon-comment-empty"></i>抢沙发');
-      }
-    }
-  });
-  });
-  </script>{% endif %}{% if page.js %}
-  <script type="text/javascript">{{ content_js[1] }}script>{% endif %}
+    disqusShortName = "{{ site.disqus_shortname }}";
+    disqusPublicKey = "{{ site.disqus_publickey }}";
+  </script>
+  <script type="text/javascript" src="/assets/js/main.js"></script>{% if page.is_post or page.scripts %}
+  <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/assets/js/all.js"></script>{% endif %}{% if page.scripts %}{% for script in page.scripts %}
+  <script type="text/javascript" src="{{ script }}"></script>{% endfor %}{% endif %}{% if page.js %}
+  <script type="text/javascript">{% if page.flash %}
+  function isFlashSupported () {
+  if(window.ActiveXObject) {
+    try {
+      if(new ActiveXObject('ShockwaveFlash.ShockwaveFlash'))
+         return true;
+    } catch(e) { }
+  }
+    return navigator.plugins['Shockwave Flash'] ? true : false;
+  }{% endif %}
+  {{ content_js[1] }}script>{% endif %}
   <script type="text/javascript">
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-16717905-7']);
+    _gaq.push(['_setAccount', '{{ site.ga }}']);
     _gaq.push(['_trackPageview']);
   
     (function() {

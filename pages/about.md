@@ -1,5 +1,6 @@
 ---
 layout: page
+permalink: /about.html
 title: 关于
 tags: [关于, 网志, fooleap, blog]
 scripts: ['http://www.midijs.net/lib/midi.js']

@@ -1,5 +1,6 @@
 ---
 layout: page
+permalink: /links.html
 title: 链接
 ---
 

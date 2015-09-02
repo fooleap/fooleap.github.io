@@ -3,7 +3,7 @@
   body {
     background-color: rgb(255, 255, 255);
   }
-  .navigation .menu {
+  #navigation #menu {
     color: rgb(100, 100, 100);
   }
   .wrapper {
@@ -24,8 +24,11 @@
 }
 
 @media screen and (max-width: 700px) {
-  .navigation{
-    .menu {
+  body{
+    font-size: 16px;
+  }
+  #navigation{
+    #menu {
       line-height: 35px!important;
     }
     .navigation-item{
@@ -82,7 +85,7 @@
   .post-content p.image {
     padding: 0;
   }
-  .post-content #toc, .post-content #share, .post-content .view-code {
+  .post-content #share, .post-content .view-code {
     display: none;
   }
   #gototop {
@@ -98,9 +101,6 @@
 }
 
 @media screen and (max-width: 414px) {
-  body, .sub-heading {
-    font-size: 15px;
-  }
   .site-header {
     h1{
       font-size: 20px;
@@ -115,6 +115,6 @@
     padding: 0;
   }
   pre, code {
-     border-radius: 0;
+    border-radius: 0;
   }
 }

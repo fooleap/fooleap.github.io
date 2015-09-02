@@ -3,7 +3,7 @@ layout: post
 title:  蓝牙耳机 Avantree Jogger Pro
 description: "前几天，我的一个耳塞又坏掉了，这一两年都不知道虐坏掉几个耳机，包括手机附带的以及买过的一些低端耳机。耳机之所以会坏，虽然耳机质量也有一定的关系，但主要原因个人觉得还是在佩戴习惯上的问题。"
 category: life
-tags: [蓝牙耳机, 运动耳机, 跑步耳机, 骑车, 跑步, Avantree]
+tags: [蓝牙耳机, 骑车, 跑步, Avantree]
 ---
 
 * toc

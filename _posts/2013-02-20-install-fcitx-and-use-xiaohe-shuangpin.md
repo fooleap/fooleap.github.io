@@ -56,7 +56,7 @@ DefaultShuangpinSchema=XiaoHe</code></pre>
 
 **参考资料**
 
-* [Fcitx （简体中文） - ArchWiki](https://wiki.archlinux.org/index.php/Fcitx_\（简体中文、))
+* [Fcitx （简体中文） - ArchWiki](https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 * [Fcitx - 维基百科](http://zh.wikipedia.org/zh-cn/FCITX)
 * [小企鹅输入法 (Fcitx)](http://fcitx-im.org/)
 * [fcitx - A Flexible Input Method Framework](https://code.google.com/p/fcitx/)

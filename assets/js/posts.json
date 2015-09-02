@@ -1,0 +1,18 @@
+---
+layout: null
+---
+{
+  "tech":[
+    {% for post in site.categories.tech %}{
+      "title"    : "{{ post.title }}",
+      "href"     : "{{ post.url }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}],
+  "life":[
+    {% for post in site.categories.life %}{
+      "title"    : "{{ post.title }}",
+      "href"     : "{{ post.url }}"
+    }
+    {% unless forloop.last %},{% endunless %}
+    {% endfor %}]
+}

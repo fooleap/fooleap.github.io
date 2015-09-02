@@ -20,19 +20,6 @@ scripts: "http://api.map.baidu.com/api?v=2.0&amp;ak=FCcc6261f101cd4ccefee22113a6
 首先，在桂林火车站前广场右侧搭乘中巴到阳朔，桂林火车站入口处会有不少大妈拉客，上车，到杨堤路口下车是 15 元，直接到阳朔汽车站是 18 元。
 
 <div id="hmap"></div>
-<!--<style>
-    #hmap {width:100%;}
-    .anchorBL{display:none;}
-    </style>-->
-<!--<script type="text/javascript">
-    jQuery("#hmap").height(jQuery("#hmap").width()*2/3);
-    var map = new BMap.Map("hmap",{mapType: BMAP_HYBRID_MAP});
-	var point = new BMap.Point(110.2898120373,25.268058921597);
-	map.centerAndZoom(point, 19);
-	var marker = new BMap.Marker(point);
-	map.addOverlay(marker);
-	marker.setAnimation(BMAP_ANIMATION_BOUNCE);
-  </script>-->
 
 ▲坐车地点示意图
 
@@ -122,3 +109,16 @@ scripts: "http://api.map.baidu.com/api?v=2.0&amp;ak=FCcc6261f101cd4ccefee22113a6
 
 * 2011 年 09 月 17 日 创建文章
 * 2015 年 05 月 10 日 换图床
+
+<!--<style>
+    #hmap {width:100%;}
+    </style>-->
+<!--<script>
+    jQuery("#hmap").height(jQuery("#hmap").width()*2/3);
+    var map = new BMap.Map("hmap",{mapType: BMAP_HYBRID_MAP});
+	var point = new BMap.Point(110.2898120373,25.268058921597);
+	map.centerAndZoom(point, 19);
+	var marker = new BMap.Marker(point);
+	map.addOverlay(marker);
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+  </script>-->

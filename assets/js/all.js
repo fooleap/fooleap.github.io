@@ -1,30 +1,31 @@
-$(document).ready(function($){ 
+$(document).ready(function(){ 
   //链接
   $("a[href*='http://']:not([href*='"+location.hostname+"']),[href*='https://']:not([href*='"+location.hostname+"'])").attr('target','_blank');
   
-  //菜单
-  nav = $('.navigation');
-
-  $('.wrapper').on( "touchstart", function(){
-    if( nav.hasClass('show') ){
-      nav.removeClass('show').addClass('hide'); 
-    };
-  });
-  
-  $('.menu').on( "click", function(){
-    if(nav.hasClass('hide')){
-      nav.removeClass('hide').addClass('show');
-    } else {
-      nav.removeClass('show').addClass('hide');
-    };
-  });
-
-  nav.mouseover(function(){
-    nav.removeClass('hide').addClass('show');
-  });
-  nav.mouseout(function(){
-    nav.removeClass('show').addClass('hide');
-  });
+  //目录
+  window.onload = function () {
+    var tocFixed = ($(window).width() - $('.wrapper').width()) / 2 - $('#toc').width() - 25;
+    $('#toc').attr('data-title',$('h1').text());
+    if ( tocFixed > 15){
+      $('#toc').css({'left': tocFixed}).fadeIn('slow');
+      var sections = {},
+          _height  = $(window).height(),
+          i        = 0;
+      $('.main-content h2,h3').each(function(){
+        var id = $(this).attr('id');
+        sections[id] = $(this).offset().top;
+      });
+      $(document).scroll(function(){
+        var pos = $(this).scrollTop() + 180;
+        for(i in sections){
+          if(sections[i] <= pos && sections[i] < pos + _height){
+            $('a').removeClass('active');
+            $('[href="#'+i+'"]').addClass('active');
+          }
+        }
+      });
+    }
+  }
   
   //图片
   var postImg=$('.post-content img');
@@ -62,7 +63,7 @@ $(document).ready(function($){
         error: function (msg) {}
       }).done(function() {
         if(typeof date != "undefined"){
-          hoverImg.after("<figcaption class='exif'>"+"日期：" + date + " 器材: " + model + " 光圈: " + fnu + " 快门: " + extime + " 感光度: " + iso + " 焦距: " + flength + "</figcaption>");
+          hoverImg.after("<figcaption class='exif'>"+"日期: " + date + " 器材: " + model + " 光圈: " + fnu + " 快门: " + extime + " 感光度: " + iso + " 焦距: " + flength + "</figcaption>");
           delete date;
         }
       });
@@ -74,41 +75,14 @@ $(document).ready(function($){
    }
 
   //页内链接
+  $("[href^='#up']").parent('li').css('font-size','13px');
   $("[href^='#']").click(function(){
-    var flash = $(this).attr('href');
-    $(flash).fadeOut().fadeIn();
+    $("[href^='#up']").parent('li').css("background-color", "");
+    var href = $(this).attr("href");
+    var pos = $(href).offset().top - 20;
+    $("html,body").animate({scrollTop: pos}, 100);	
+    $(href).parent('li').css('background-color','rgb(235, 235, 235)');
   })
-  
-  //二维码
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false ) {
-   $('#wechat').click(function(){
-   if( $('#qrcode canvas').length > 0 ){
-     $('#qrcode').remove();
-     $(this).removeAttr ("class").attr("title","分享到微信");
-   } else {
-     var qrcode = "assets/js/jquery.qrcode.min.js";
-     $.getScript( qrcode, function() {
-       $('#wechat').before('<div id="qrcode"></div>').addClass('light').attr("title","点击隐藏二维码");
-       $('#qrcode').qrcode({
-         width: 70,
-         height: 70,
-         background: '#fff',
-         foreground: '#000',
-         correctLevel: 1,
-         text: $('#wechat').attr('data-wechat-url')
-        });	
-     }, false);
-   }
-  });
-  $('html').click(function() {
-    if( $('#qrcode').length > 0 ){
-     $('#qrcode').remove();
-     $('#wechat').removeAttr ("class").attr("title","分享到微信");
-    };
-  });
-  $('#weibo').click( function(){window.open($(this).attr('data-weibo-url'));});
-  $('#qzone').click( function(){window.open($(this).attr('data-qzone-url'));});
-  }
   
   //随机同类文章
   if (!Array.prototype.indexOf) {
@@ -128,49 +102,50 @@ $(document).ready(function($){
     return -1;
     };
   }
-  function generateRandomPosts(jsonfile){
-    $.getJSON( jsonfile, function(data) {
-      var postsCount = data.length;
-      var posts = data;
-      var randomIndexUsed = [];
-      var counter = 0;
-      var numberOfPosts = 5;
-      $("#random-posts").append('<ul>\n</ul>\n');
-      var RandomPosts = $("#random-posts ul");
-      while (counter < numberOfPosts) {
-        var randomIndex = Math.floor(Math.random() * postsCount);
-        if (randomIndexUsed.indexOf(randomIndex) == "-1") {
-        var postHREF = posts[randomIndex].href;
+  function randomPosts (count, post) {
+    var postsCount = count;
+    var posts = post;
+    var randomIndexUsed = [];
+    var counter = 0;
+    var numberOfPosts = 5;
+    var RandomPosts = $("#random-posts ul");
+    while (counter < numberOfPosts) {
+      var randomIndex = Math.floor(Math.random() * postsCount);
+      if (randomIndexUsed.indexOf(randomIndex) == "-1") {
+        var postHref = posts[randomIndex].href;
         var postTitle = posts[randomIndex].title;
-        if (counter == (numberOfPosts - 1)) {
-          RandomPosts.append('<li><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
-        } else {
-          RandomPosts.append('<li><a href="' + postHREF + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
-        }
+        RandomPosts.append('<li><a href="' + postHref + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
         randomIndexUsed.push(randomIndex);
         counter++;
-        }
-      } 
-    });
+      }
+    } 
   }
-  if ($('#info').hasClass('tech')){
-    var postsJson = 'assets/js/tech.json';
-    generateRandomPosts(postsJson);
-  } else if ($('#info').hasClass('life')){
-    var postsJson = 'assets/js/life.json';
-    generateRandomPosts(postsJson);
-  };
+  var postsJson = 'http://' + location.hostname + '/assets/js/posts.json';
+  $.getJSON( postsJson, function(data) {
+    if ($('#info').hasClass('tech')){
+      var count = data.tech.length;
+      var post = data.tech;
+      randomPosts(count, post);
+    } else if ($('#info').hasClass('life')){
+      var count = data.life.length;
+      var post = data.life;
+      randomPosts(count, post);
+    } else{}
+  });
   
   //查看源码
-  $('.view-code').click(function(){
-    if ($('.main-content').hasClass('hide')){
-      $('.main-content, .posts').removeClass('hide');
+  $('.view-code a').click(function(){
+    if ($('.source').length >0 ){
       $('.source').remove();
+      $('#toc').fadeIn();
+      $('.main-content, .posts').show();
       $(this).attr('title','查看内容源码').html('<i class="icon-file-code"></i>源码');
     } else {
       var source = $(this).attr('data-md');
-      $('.main-content, .posts').addClass('hide')
+      $('#toc').fadeOut();
+      $('.main-content, .posts').hide();
       $('.main-content').after('<textarea class="source" readonly>');
+      $("html,body").animate({scrollTop: 0}, 500);	
       $('.source').text( '读取中...' );
       $.ajax({
         url : source,
@@ -184,28 +159,27 @@ $(document).ready(function($){
   });
 
   //评论
-  disqusShortName = "fooleap";
-  disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
-  $('.show-comments').on('click', function() {
-    $('.comment').attr('id','disqus_thread');
+  function showComments() {
     $.ajax({
       type: "GET",
       url: "https://" + disqusShortName + ".disqus.com/embed.js",
       dataType: "script",
       cache: true
     });
-    $(this).fadeOut(500);
+    $(".show-comments").fadeOut(500);
+  };
+  $(".show-comments").click(function(){
+      showComments();
   });
-
   if( /^#disqus|^#comment/.test(location.hash) ){
-    $(".show-comments").trigger("click").animate({scrollTop: $("#disqus_thread").offset().top}, 1000);
+      showComments();
   };
 
   //返回顶部
   $('#gototop').css('display', 'none');
   $(window).scroll(function(){
     if($(window).scrollTop() > $(window).height() ){
-      $('#gototop').css({'display':'', 'cursor':'pointer'});
+      $('#gototop').fadeIn('slow');
     } else {
       $('#gototop').fadeOut('slow');
     }
@@ -213,4 +187,5 @@ $(document).ready(function($){
   $('#gototop').click(function(){
     $('html, body').animate({scrollTop:0},'slow');
   });
+
 });

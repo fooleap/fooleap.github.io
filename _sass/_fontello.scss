@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'fontello';
-  src: url('../fonts/fontello.eot?55670958');
-  src: url('../fonts/fontello.eot?55670958#iefix') format('embedded-opentype'),
-       url('../fonts/fontello.woff?55670958') format('woff'),
-       url('../fonts/fontello.ttf?55670958') format('truetype'),
-       url('../fonts/fontello.svg?55670958#fontello') format('svg');
+  src: url('../fonts/fontello.eot?50918091');
+  src: url('../fonts/fontello.eot?50918091#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff?50918091') format('woff'),
+       url('../fonts/fontello.ttf?50918091') format('truetype'),
+       url('../fonts/fontello.svg?50918091#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?55670958#fontello') format('svg');
+    src: url('../font/fontello.svg?50918091#fontello') format('svg');
   }
 }
 */
@@ -99,6 +99,20 @@
 .icon-play-circled:before { content: '\e82a'; } /* '' */
 .icon-pause:before { content: '\e82b'; } /* '' */
 .icon-play-circled2:before { content: '\e82c'; } /* '' */
+.icon-link-ext:before { content: '\e82d'; } /* '' */
+.icon-link-ext-alt:before { content: '\e82e'; } /* '' */
 .icon-volume:before { content: '\e82f'; } /* '' */
 .icon-volume-down-1:before { content: '\e830'; } /* '' */
 .icon-volume-off:before { content: '\e831'; } /* '' */
+.icon-attach:before { content: '\e832'; } /* '' */
+.icon-list:before { content: '\e833'; } /* '' */
+.icon-facebook-squared:before { content: '\e834'; } /* '' */
+.icon-facebook:before { content: '\e835'; } /* '' */
+.icon-chart-bar:before { content: '\e836'; } /* '' */
+.icon-chart-bar-1:before { content: '\e837'; } /* '' */
+.icon-facebook-official:before { content: '\e838'; } /* '' */
+.icon-twitter:before { content: '\e839'; } /* '' */
+.icon-twitter-squared:before { content: '\e83a'; } /* '' */
+.icon-calc:before { content: '\e83b'; } /* '' */
+.icon-qzone:before { content: '\e83c'; } /* '' */
+.icon-cancel:before { content: '\e83d'; } /* '' */

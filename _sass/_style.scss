@@ -1,7 +1,7 @@
-$darkblue: rgb(0, 120, 180);
+$darkblue: rgb(0, 119, 187);
 $darkgray: rgb(100, 100, 100);
-$lightblue: rgb(120, 180, 240);
-$lightgray: rgb(225, 225, 225);
+$lightblue: rgb(155, 195, 255);
+$lightgray: rgb(235, 235, 235);
 $white: rgb(255, 255, 255);
 $black: rgb(0, 0, 0);
 $default: rgb(34, 34, 34);
@@ -22,22 +22,30 @@ iframe {
   width: 100%;
 }
 
+embed:focus {
+  outline: none;
+} 
+
 html{
   min-height: 100%;
 }
 
 body {
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, "Source Han Sans", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "SimSun", sans-serif;
   font-size: 14px;
   font-weight: normal;
   color: $default;
   line-height: 1.7;
-  background: radial-gradient(ellipse at center center , rgb(234, 239, 242) 0px, rgba(212, 221, 228, 0.5) 50%) repeat scroll 0% 0%, transparent linear-gradient(to bottom, rgb(202, 225, 244) 0px, rgba(125, 185, 232, 0) 100%) repeat scroll 0% 0%;
+  background: radial-gradient(ellipse at center, rgb(234, 239, 242) 0px, rgba(212, 221, 228, 0.5) 50%) repeat scroll 0% 0%, transparent linear-gradient(to bottom, rgb(202, 225, 244) 0px, rgba(125, 185, 232, 0) 100%) repeat scroll 0% 0%;
   -webkit-font-smoothing: antialiased;
 }
 
-.lte8 body{
+.ie body{
   background:rgb(202, 225, 244);
+}
+
+.lte8 #wechat{
+  display: none;
 }
 
 header, section, footer, aside, nav, main, article, figure, small {
@@ -56,7 +64,7 @@ abbr {
 
 a {
   text-decoration: none;
-  color: default;
+  color: rgb(72, 72, 72);
   outline: none;
 }
 
@@ -86,6 +94,13 @@ textarea{
     &:hover {
       background-color: $lightgray;
     }
+    &[target="_blank"]:after {
+      font-family: "fontello";
+      content: '\e82d';
+      color: $lightblue;
+      font-size: 10px;
+      margin: 0 .2em;
+    }
   }
   &:before {
     content: "";
@@ -96,7 +111,7 @@ textarea{
     height: 100px;
     bottom: 15px;
     right: 3px;
-    width: 30%;
+    width: 250px;
   }
   &:after {
     clear: both;
@@ -107,9 +122,13 @@ textarea{
   }
 }
 
+.ie .wrapper:before {
+  box-shadow: none!important;
+}
+
 /* Navigation */
 
-.navigation {
+#navigation {
   position: fixed;
   z-index: 999;
   top: 1%;
@@ -120,7 +139,7 @@ textarea{
   padding: 0;
   vertical-align: baseline;
   border: 0;
-  .menu {
+  #menu {
     position: absolute;
     top: 0; 
     right: 0;
@@ -130,9 +149,7 @@ textarea{
     line-height: 30px;
     font-size: 20px;
     color: $white;
-    &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
   &.hide {
     .navigation-list {
@@ -199,6 +216,9 @@ textarea{
     width: 100%;
     height: 30px;
     text-align: center;
+    time{
+      word-spacing: -1px;
+    }
   }
 }
 
@@ -224,6 +244,7 @@ textarea{
   line-height: 2;
   font-size: 15px;
   opacity: .8;
+  cursor: pointer;
   border-radius: 5px;
 }
 
@@ -290,7 +311,7 @@ textarea{
     float: right;
     height: 48px;
     .disqus-comment-count {
-      display: inline-block;
+      display: block;
       width: 18px;
       margin: 15px auto;
       padding: 0 5px;
@@ -447,41 +468,54 @@ textarea{
 
 // TOC
 #toc {
-  float: right;
-  min-width: 180px;
-  margin: 10px 20px 20px;
-  background: $lightgray;
+  display: none;
+  position: fixed;
+  top: 30px;
+  margin: 0;
+  min-width: 160px;
+  background: $white;
   list-style: none;
-  padding: 5px 0 0;
+  padding: 5px;
   &:before {
-    display: block;
-    content: "目录";
-    width: 100%;
-    font-size: 14px;
+    content: '目录';
+    font-size: 15px;
     font-weight: 600;
-    color: $white;
     line-height: 30px;
     height: 30px;
-    background: $lightblue;
-    text-align: center;
   }
   li{
-    padding: 0 10px;
     line-height: 30px;
     a{
       display: inline-block;
       width: 100%;
-      color: rgb(100, 100, 100);
-      font-size: 14px;
-      text-shadow: 0 1px 1px $white;
+      color: $default;
+      font-size: 13px;
       text-decoration: none;
+      text-indent: 5px;
       border: none;
       &:hover{
         background: none;
+        font-weight: 600;
       }
     }
-    &:hover {
-      background: rgb(245, 245, 245);
+    .active{
+      background: $lightgray;
+      border-radius: 3px;
+    }
+    .active:hover{
+      background: $lightgray;
+    }
+    li {
+      margin-left: 10px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      a{
+        font-size: 12px;
+        line-height: 25px;
+      }
     }
   }
 }
@@ -533,11 +567,50 @@ pre.terminal code {
 
 
 #info {
-  clear: both;
   a{
-    border: none;
     color: $default;
   }
+  &:before {
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+  &:before, &:after {
+    display: table;
+    content: '';
+  }
+}
+
+.page-tags{
+  .tags{
+    list-style: none;
+    display: inline; 
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .tag{
+    display: inline-block;
+    padding: 0 5px 0 10px;
+    position: relative;
+    text-decoration: none;
+  }
+  .tag::before {
+    background: $lightgray;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    height: 5px;
+    width: 5px;
+    position: absolute;
+    left: 2px;
+    top: 10px;
+  }
+}
+
+.view-code {
+  cursor: pointer;
 }
 
 .ie .view-code {
@@ -546,17 +619,20 @@ pre.terminal code {
 
 // Share
 #share {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.2;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  display: inline-block;
+  float: right;
   margin: 0;
   a {
     color: rgb(51, 51, 51);
     border: none;
     &:hover {
       background: none;
+    }
+    &:after{
+      content: ''!important;
+      margin: 0!important;
     }
   }
   #wechat{
@@ -571,19 +647,32 @@ pre.terminal code {
   }
   #qzone{
     &:hover {
-      color: rgb(39, 131, 218);
+      color: rgb(252, 185, 32);
+    }
+  }
+  #twitter{
+    &:hover {
+      color: rgb(85, 172, 238);
+    }
+  }
+  #facebook{
+    &:hover {
+      color: rgb(65, 93, 152);
     }
   }
   #qrcode {
-    width: 70px;
-    height: 70px;
+    display: none;
     position: absolute;
     bottom: 30px;
+    right: 80px;
     background: $white;
     padding: 5px;
     border: 1px solid $lightgray;
     border-radius: 5px;
     box-shadow: 1px 1px 2px rgb(150, 150, 150);
+    &.show{
+      display: block;
+    }
   }
 }
 
@@ -601,12 +690,11 @@ pre.terminal code {
   .show-comments {
     background-color: $lightgray;
     color: $darkgray;
-    font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-family: "RobotoDraft", "Roboto", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "SimSun", sans-serif;
     font-size: 15px;
     text-align: center;
     line-height: 36px;
-    padding: 0 10px;
-    cursor: pointer;
+    padding: 8px 10px;
     border-radius: 4px;
     border: 1px solid $lightgray;
     &:hover {

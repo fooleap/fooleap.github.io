@@ -4,6 +4,7 @@ title: 百度坐标转换器
 description: "GPS 坐标（WGS-84）或火星坐标（GCJ-02）批量转换为百度坐标（BD-09）"
 tags: [百度坐标, 'GPS 坐标', 火星坐标, WGS-84, GCJ-02, BD-09, 'Google Earth', 'Google Maps']
 permalink: /wgs84-or-gcj02-to-bd09/
+scripts: true
 js: true
 style: true
 ---
@@ -20,12 +21,15 @@ style: true
   <button id="submit">提交</button>
 </div>
 <div id="ps" class="other">
-  <p><strong>注：</strong><br>
+  <p>
     采用 <a href="http://developer.baidu.com/map/changeposition.htm">百度坐标转换 API</a><br>
     最多可转换 100 个坐标点<br>
     结果保留 6 位小数<br>
-    页面制作 <a href="/bmaps-changeposition.html" target="_blank">说明</a><br>
-    使用场景 <a href="/bmaps-polyline.html" target="_blank">参考</a>
+    制作 <a href="/bmaps-changeposition.html" target="_blank">说明</a> <a href="{{ site.IMG_PATH }}/bmaps-changeposition.gif">使用方法</a><br>
+    使用场景 <a href="/bmaps-polyline.html" target="_blank">参考</a><br>
+    TODO：<br>
+    突破数量限制<br>
+    支持文件上传转换<br>
   </p>
 </div>
 <div class="clear"></div>
@@ -72,7 +76,7 @@ style: true
     .other p{
       font-size: 13px;
       text-align: left;
-      line-height: 23px;
+      line-height: 20px;
       padding: 0 5px;
     }
     #form #submit{

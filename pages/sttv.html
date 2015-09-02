@@ -1,0 +1,97 @@
+---
+layout: page
+title: 汕头电视台
+description: "汕头电视台、汕头电台网上直播"
+tags: [汕头电视台, STTV, 汕头橄榄台]
+permalink: /sttv/
+scripts: true
+js: true
+style: true
+flash: true
+---
+
+<div id="sttv">
+  <embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=lKGXIQa&autoplay=false' type='application/x-shockwave-flash' height='512' width='640' />
+</div>
+<button data-channel='sttv1' style='background:#333'>新闻综合频道</button><button data-channel='sttv2'>经济生活频道</button><button data-channel='sttv3'>影视文艺频道</button><button data-channel='stradio1'>新闻资讯之声</button><button data-channel='stradio2'>音乐广播</button><button data-channel='stradio3'>交通之声</button>
+
+<p style="text-align:right;">直播源：<a href="http://tv.cutv.com/index.html?tv=sttv">城视网</a></p>
+
+<!--<style>
+    #sttv, button {
+      margin: 0!important;
+    }
+    #sttv{
+      height: 512px;
+      width: 100%;
+      text-align: center;
+    }
+    button{
+      border: 0;
+      background: #000;
+      color: #fff;
+      padding: 5px 0;
+    }
+    button:hover{
+      cursor: pointer;
+      background: #666!important;
+    }
+    #qrcode{
+      border-radius: 0!important;
+    }
+    </style>-->
+<!--<script>
+  if ($('html').hasClass('lte8')) {
+     $('#sttv').html('<big>请更换其他浏览器观看！<br>如：<a href="/firefox.html">Firefox</a>、<a href="https://www.google.com/chrome">Google Chrome</a> 等。</big>');
+     $('button').remove();
+  }
+  if(isFlashSupported ()){
+    var sttvWidth = $('#sttv').width();
+    var sttvHeight = Math.floor(sttvWidth * 4 / 5); 
+    $('#sttv').css('height', sttvHeight);
+    $('button').width(sttvWidth / 6);
+    if(sttvWidth < 640){
+      $('button').width(sttvWidth / 3);
+    }
+    $('embed').attr('width', sttvWidth );
+    $('embed').attr('height', sttvHeight );
+    var channel, channelCode;
+    $('button').on('click', function (){
+      $('button').css('background','#000');
+      $(this).css('background','#333');
+      channel = $(this).attr('data-channel');
+      switch (channel){
+        case 'sttv1':
+          channelCode = 'lKGXIQa';
+          break;
+        case 'sttv2':
+          channelCode = '7xjJK9d';
+          break;
+        case 'sttv3':
+          channelCode = 'G7Kql7a';
+          break;
+        case 'stradio1':
+          channelCode = 'L3y6rt8';
+          break;
+        case 'stradio2':
+          channelCode = 's7k681h';
+          break;
+        case 'stradio3':
+          channelCode = 'Li7mg21';
+          break;
+        default:
+          break;
+      }
+      $('#sttv').html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=" + channelCode+ "&autoplay=false' type='application/x-shockwave-flash' height=" + sttvHeight + " width=" + sttvWidth + " />")
+      window.history.pushState({},'','?channel=' + channel);      
+    });
+    if (location.search){
+      var url = location.search;
+      channel = url.split('=')[1];
+      $('button[data-channel="' + channel + '"]').trigger('click');
+    }
+  } else {
+    $('#sttv').html('<big>您的浏览器不支持 Flash！</big>');
+    $('button').remove();
+  }
+  </script>-->

@@ -14,7 +14,7 @@ tags: [Firefox, view-source, 源代码, 新标签页]
 
 Firefox 查看源码最简单的办法就是右键点击“查看页面源代码（View Page Source）”，你还可以使用快捷键 `Ctrl`+`u` 以快速查看。
 
-##Firefox 查看源码特色功能
+##特色功能
 
 相比较其他浏览器，Firefox 查看源码功能有过而无不及，特色功能主要有以下两个。
 
@@ -30,7 +30,9 @@ Firefox 查看源码最简单的办法就是右键点击“查看页面源代码
 
 在此需要提醒的是，查看选中部分源码时，显示的是浏览器解析页面完毕后的代码，包括通过 JavaScript 进行加载的一些元素，也就是说和“查看元素（`Shift`+`Ctrl`+`i`）”显示的代码是一样的。
 
-##如何在新标签页中查看源码？
+##新标签页查看源码
+
+<strong style="color:red">Firefox 最新版本已有变化 ，查看源码、选中源码均为新标签页打开。</strong>
 
 Chrome 等浏览器查看源代码是在新的标签页中显示的（如图），实践发现 Firefox 也是通过 `view-source:`+`URL` 这个地址即可查看源代码。
 
@@ -70,7 +72,7 @@ map vs :view-source<Return>
 
     map ss :dia selectionsource<Return>
 
-##如何更改 Firefox 源码页面字体？
+##源码页面字体？
 
 在此，也扯一下 Firefox 查看源码页面的字体。相比其他浏览器，Firefox 源码页面更加良心，各部分都精心设计，例如元素名被加粗亮色显示。可是，同是使用新宋体，为何显示效果感觉比 Chrome 丑？
 
@@ -96,3 +98,4 @@ map vs :view-source<Return>
 **本文历史**
 
 * 2015 年 05 月 27 日 完成初稿
+* 2015 年 09 月 05 日 更新，新版本变化

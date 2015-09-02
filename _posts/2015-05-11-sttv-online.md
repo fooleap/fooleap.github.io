@@ -4,8 +4,6 @@ title: 汕头台也能网上看直播
 description: "看电视，或许是一种悠闲的生活 ，对于很多人来说，动画片似乎是小时候的最爱，而在我的印象里，从小就跟着爷爷饭后一壶茶从新闻联播看到汕头新闻。"
 category: life
 tags: [今日视线, 网上直播, 汕头电视台, 橄榄台]
-style: true
-js: true
 ---
 
 * toc
@@ -17,22 +15,21 @@ js: true
 
 从我读初三开始，汕头台开播的《今日视线》节目成为人们茶余饭后的必备，记得开播那一天，报道的正是我村的事。而今年，也是《今日视线》的第十个年头，希望它能越来越给力。
 
-## 过去的汕头广电网上平台
+## 汕头广电 Online
 
 以前，汕头电视台的官网叫“汕头声屏网”，偶尔会上去点播一下《今日视线》。后来，到外地上大学，“声屏网”也改版成“一潮网”。偶尔想看看家乡的电视台，可是，它还是并没有网上直播，只有画质渣得可以还卡的点播，所以也没啥想看的欲望。看到潮州台都可在网上看直播，对汕头台还真是失望。
 
 ![一潮网]({{site.IMG_PATH}}/sttv-online-01.png?imageView2/2/w/640/q/90)
 ▲一潮网截图
 
-记得前几年，有个潮声卫视，后来改名 [潮商卫视](http://zh.wikipedia.org/wiki/潮商衛視)，虽然网上也仅是点播，但节目总体质量还不错，偶尔喜欢上去点播，多了解了解家乡，而后来因为啥啥，也停止了运营，不过 [网站](http://www.ecstv.com/) 还是在的。
+这里顺便说下，记得前几年，有个潮声卫视，后来改名 [潮商卫视](http://zh.wikipedia.org/wiki/潮商衛視)，虽然网上也仅是点播，但节目总体质量还不错，偶尔喜欢上去点播，多了解了解家乡，而后来因为啥啥，也停止了运营，不过 [网站](http://www.ecstv.com/) 还是在的。最近貌似又有人拾起成命名为“潮卫视（C plus TV）”，看来服务于潮汕的卫视坎坷难行。
 
-## 汕头电视台网上直播
+## 汕头台网上直播
 
 前几天，偶然在 CUTV 上发现有 [汕头电视台的直播](http://tv.cutv.com/index.html?tv=sttv)，应该是和汕头电视台合作，查看了点播列表得知，大概三四月份才上线的，画质比一潮网要好。
 
-<div id="sttv01"><img src="{{site.IMG_PATH}}/sttv-online-01.jpg" alt="汕头台新闻综合频道" /></div>
-
-▲汕头台新闻综合频道（电脑可点击上图播放）
+![汕头台新闻综合频道]({{site.IMG_PATH}}/sttv-online-01.jpg)
+▲汕头台新闻综合频道 Logo
 
 ## 汕头橄榄台
 
@@ -48,9 +45,11 @@ js: true
 ![汕头橄榄台 APP]({{site.IMG_PATH}}/sttv-online-03.jpg_640)
 ▲汕头橄榄台 APP
 
-6 月 19 日，该 App 在 App Store 上架：[App Store 下载](https://itunes.apple.com/app/shantou-gan-lan-tai/id958459439?ls=0){:class="download" title="不会自动打开 iTunes"}
+6 月 19 日，该 App 在 App Store 上架：[App Store 下载](https://itunes.apple.com/app/shantou-gan-lan-tai/id958459439?ls=0){:title="不会自动打开 iTunes"}
 
-顺便给个 Android 版本的地址：[应用宝下载](http://android.myapp.com/myapp/detail.htm?apkName=com.cutv.shakeshakestglt){:class="download"}
+Android 版本址：[应用宝下载](http://android.myapp.com/myapp/detail.htm?apkName=com.cutv.shakeshakestglt)
+
+最后，电脑上看直播可戳此页面：[汕头电视台网上直播](/sttv/){:target="_blank"}
 
 **本文历史**
 
@@ -58,27 +57,4 @@ js: true
 * 2015 年 05 月 22 日 换图片
 * 2015 年 06 月 20 日 更新 App Store 相关内容
 * 2015 年 06 月 24 日 小改排版
-
-<!--<style>
-    #sttv01 img{
-      display:block;
-      cursor:pointer;
-    }
-    .download{
-      border-radius:3px;
-      text-decoration:none;
-      background:#333;
-      color:#fff!important;
-      padding:5px;
-      border:none
-    }
-    .download:hover{
-      bacground:#999;
-      color:#000;
-    }
-    </style>-->
-<!--<script>
-    $("#sttv01 img").click(function(){
-      $("#sttv01").html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=lKGXIQa&autoplay=false' type='application/x-shockwave-flash' height='512' width='640'>");
-    });
-    </script>-->
+* 2015 年 09 月 11 日 完善，制作直播页面
