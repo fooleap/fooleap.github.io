@@ -1,9 +1,6 @@
 $(document).ready(function(){ 
-  //链接
-  $("a[href*='http://']:not([href*='"+location.hostname+"']),[href*='https://']:not([href*='"+location.hostname+"'])").attr('target','_blank');
-  
-  //目录
-  window.onload = function () {
+ //目录
+ function toc () {
     var tocFixed = ($(window).width() - $('.wrapper').width()) / 2 - $('#toc').width() - 25;
     $('#toc').attr('data-title',$('h1').text());
     if ( tocFixed > 15){
@@ -16,7 +13,7 @@ $(document).ready(function(){
         sections[id] = $(this).offset().top;
       });
       $(document).scroll(function(){
-        var pos = $(this).scrollTop() + 180;
+        var pos = $(this).scrollTop() + 350;
         for(i in sections){
           if(sections[i] <= pos && sections[i] < pos + _height){
             $('a').removeClass('active');
@@ -26,6 +23,7 @@ $(document).ready(function(){
       });
     }
   }
+ window.onload = toc;
   
   //图片
   var postImg=$('.post-content img');
@@ -74,16 +72,6 @@ $(document).ready(function(){
    };
    }
 
-  //页内链接
-  $("[href^='#up']").parent('li').css('font-size','13px');
-  $("[href^='#']").click(function(){
-    $("[href^='#up']").parent('li').css("background-color", "");
-    var href = $(this).attr("href");
-    var pos = $(href).offset().top - 20;
-    $("html,body").animate({scrollTop: pos}, 100);	
-    $(href).parent('li').css('background-color','rgb(235, 235, 235)');
-  })
-  
   //随机同类文章
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(elt /*, from*/) {
@@ -120,26 +108,25 @@ $(document).ready(function(){
       }
     } 
   }
-  var postsJson = 'http://' + location.hostname + '/assets/js/posts.json';
+  var postsJson = 'http://blog.fooleap.org/assets/js/posts.json';
   $.getJSON( postsJson, function(data) {
     if ($('#info').hasClass('tech')){
       var count = data.tech.length;
       var post = data.tech;
-      randomPosts(count, post);
-    } else if ($('#info').hasClass('life')){
+    } else {
       var count = data.life.length;
       var post = data.life;
+    } 
       randomPosts(count, post);
-    } else{}
   });
   
   //查看源码
   $('.view-code a').click(function(){
     if ($('.source').length >0 ){
       $('.source').remove();
-      $('#toc').fadeIn();
       $('.main-content, .posts').show();
       $(this).attr('title','查看内容源码').html('<i class="icon-file-code"></i>源码');
+      toc();
     } else {
       var source = $(this).attr('data-md');
       $('#toc').fadeOut();

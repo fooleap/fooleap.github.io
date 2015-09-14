@@ -3,6 +3,7 @@ layout: post
 title: Disqus 和多说在 Jekyll 的恩怨情仇 
 description: "介绍 Disqus 的缺点，以及怎么从 Disqus 迁移到多说，顺便使多说异步加载。"
 category: tech
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/duoshuo.png'
 tags: [多说, Jekyll, Disqus, JavaScript]
 ---
 

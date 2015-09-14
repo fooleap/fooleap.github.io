@@ -3,6 +3,7 @@ layout: post
 title: 科学使用 Google Earth
 description: "那些年，一张地图，一辆买菜车，狂奔的车轮下映射的便是我那美好周末。如今，我已忘记买了几张本地地图，几本地图册，地图程序的出现，或许他们大多数的命运就只有吃灰。"
 category: tech
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/googleearth.png'
 tags: ["Google Earth", hosts, 科学上网]
 ---
 

@@ -30,7 +30,7 @@ flash: true
       border: 0;
       background: #000;
       color: #fff;
-      padding: 5px 0;
+      padding: 6px 0;
     }
     button:hover{
       cursor: pointer;
@@ -42,8 +42,8 @@ flash: true
     </style>-->
 <!--<script>
   if ($('html').hasClass('lte8')) {
-     $('#sttv').html('<big>请更换其他浏览器观看！<br>如：<a href="/firefox.html">Firefox</a>、<a href="https://www.google.com/chrome">Google Chrome</a> 等。</big>');
      $('button').remove();
+     $('#sttv').html('<big>请更换其他浏览器观看！<br>如：<a href="/firefox.html">Firefox</a>、<a href="https://www.google.com/chrome">Google Chrome</a> 等。</big>');
   }
   if(isFlashSupported ()){
     var sttvWidth = $('#sttv').width();
@@ -55,12 +55,10 @@ flash: true
     }
     $('embed').attr('width', sttvWidth );
     $('embed').attr('height', sttvHeight );
-    var channel, channelCode;
-    $('button').on('click', function (){
+    function changeChannel (theChannel){
       $('button').css('background','#000');
-      $(this).css('background','#333');
-      channel = $(this).attr('data-channel');
-      switch (channel){
+      $('button[data-channel="' + theChannel + '"]').css('background','#333');
+      switch (theChannel){
         case 'sttv1':
           channelCode = 'lKGXIQa';
           break;
@@ -83,12 +81,21 @@ flash: true
           break;
       }
       $('#sttv').html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=" + channelCode+ "&autoplay=false' type='application/x-shockwave-flash' height=" + sttvHeight + " width=" + sttvWidth + " />")
-      window.history.pushState({},'','?channel=' + channel);      
+      window.history.pushState({},'','?channel=' + theChannel);      
+    }
+    $('button').on('click', function (){
+      channel = $(this).attr('data-channel');
+      if(!location.search){
+         if(channel != 'sttv1'){
+           changeChannel(channel);
+         }
+      }else if(channel != location.search.split('=')[1]){
+        changeChannel(channel);
+      }
     });
     if (location.search){
-      var url = location.search;
-      channel = url.split('=')[1];
-      $('button[data-channel="' + channel + '"]').trigger('click');
+      var channel = location.search.split('=')[1];
+      changeChannel(channel);
     }
   } else {
     $('#sttv').html('<big>您的浏览器不支持 Flash！</big>');

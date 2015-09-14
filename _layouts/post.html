@@ -22,14 +22,9 @@ layout: default
   </div>
 
   <div id="info" class="{{ page.categories }}">
-    <span id="share">
-      <canvas id="qrcode"></canvas>
-      <a id="wechat" title="分享到微信" data-wechat-url="{{ site.url }}{{ page.url }}" href="javascript:void(0);"><i class="icon-wechat"></i></a>
-      <a id="weibo" target="_blank" title="分享到微博" href="http://service.weibo.com/share/share.php?title={{ page.description }} via @{{ site.weibo_username }}&amp;url={{ site.url }}{{ page.url }}&amp;type=3&amp;searchPic=1"><i class="icon-weibo"></i></a>
-      <a id="qzone" target="_blank" title="分享到 QQ 空间" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ site.url }}{{ page.url }}&amp;title={{ page.title }} | {{ site.title }}&amp;summary={{ page.description }}&amp;site={{ site.url }}"><i class="icon-qzone"></i></a>
-      <a id="twitter" target="_blank" title="Share to Twitter" href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&amp;text={{ page.description }}&amp;via={{ site.twitter_username }}"><i class="icon-twitter"></i></a>
-      <a id="facebook" target="_blank" title="Share to Facebook" href="http://www.facebook.com/sharer.php?u={{ site.url }}{{ page.url }}&amp;t={{ page.description }}"><i class="icon-facebook-official"></i></a>
-    </span>
+
+    {% include share.html %}
+
     <span class='view-code'><a data-md="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.id | remove: '/' }}.md" title="在正文中查看源码" href="javascript:void(0);"><i class="icon-file-code"></i>源码</a></span>
     <span class="number-of-word"><i class="icon-calc"></i>{{ content | strip_html | strip_newlines | size }} 字</span>
     <span class="page-tags"><i class="icon-tags"></i><ul class="tags"> {% for tag in page.tags %}<li class="tag">{{ tag }}</li>{% endfor %}</ul></span>

@@ -3,6 +3,7 @@ layout: post
 title: Linux 学习笔记 (1)
 description: "现在使用的笔记本是二手的 IBM Thinkpad X30，上学期几百块钱从淘宝淘过来的，当初买这本子的时，根本没想到现在还会用着（第一学期学校不让带电脑，买这台凑合着用，1.2GHzCPU + 512RAM + 40GHDD ）。"
 category: tech
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/linux.png'
 tags: [Fedora, Linux, Ubuntu, 初学, 学习, 笔记]
 ---
 

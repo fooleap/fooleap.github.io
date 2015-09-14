@@ -3,11 +3,9 @@ layout: post
 title: 汕头台也能网上看直播
 description: "看电视，或许是一种悠闲的生活 ，对于很多人来说，动画片似乎是小时候的最爱，而在我的印象里，从小就跟着爷爷饭后一壶茶从新闻联播看到汕头新闻。"
 category: life
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/sttv.png'
 tags: [今日视线, 网上直播, 汕头电视台, 橄榄台]
 ---
-
-* toc
-{:toc}
 
 看电视，或许是一种悠闲的生活 ，对于很多人来说，动画片似乎是小时候的最爱，而在我的印象里，从小就跟着爷爷饭后一壶茶从新闻联播看到汕头新闻。
 
@@ -24,12 +22,7 @@ tags: [今日视线, 网上直播, 汕头电视台, 橄榄台]
 
 这里顺便说下，记得前几年，有个潮声卫视，后来改名 [潮商卫视](http://zh.wikipedia.org/wiki/潮商衛視)，虽然网上也仅是点播，但节目总体质量还不错，偶尔喜欢上去点播，多了解了解家乡，而后来因为啥啥，也停止了运营，不过 [网站](http://www.ecstv.com/) 还是在的。最近貌似又有人拾起成命名为“潮卫视（C plus TV）”，看来服务于潮汕的卫视坎坷难行。
 
-## 汕头台网上直播
-
 前几天，偶然在 CUTV 上发现有 [汕头电视台的直播](http://tv.cutv.com/index.html?tv=sttv)，应该是和汕头电视台合作，查看了点播列表得知，大概三四月份才上线的，画质比一潮网要好。
-
-![汕头台新闻综合频道]({{site.IMG_PATH}}/sttv-online-01.jpg)
-▲汕头台新闻综合频道 Logo
 
 ## 汕头橄榄台
 
@@ -47,7 +40,7 @@ tags: [今日视线, 网上直播, 汕头电视台, 橄榄台]
 
 6 月 19 日，该 App 在 App Store 上架：[App Store 下载](https://itunes.apple.com/app/shantou-gan-lan-tai/id958459439?ls=0){:title="不会自动打开 iTunes"}
 
-Android 版本址：[应用宝下载](http://android.myapp.com/myapp/detail.htm?apkName=com.cutv.shakeshakestglt)
+Android 版本地址：[应用宝下载](http://android.myapp.com/myapp/detail.htm?apkName=com.cutv.shakeshakestglt)
 
 最后，电脑上看直播可戳此页面：[汕头电视台网上直播](/sttv/){:target="_blank"}
 

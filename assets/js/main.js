@@ -4,7 +4,7 @@
     var templates = {
         prefix: "",
         suffix: "前",
-        seconds: "不到 1 分钟",
+        seconds: "几秒",
         minute: "1 分钟",
         minutes: "%d 分钟",
         hour: "1 小时",
@@ -39,7 +39,7 @@
         seconds < 45 && template('seconds', seconds) || seconds < 90 && template('minute', 1) || minutes < 45 && template('minutes', minutes) || minutes < 90 && template('hour', 1) || hours < 24 && template('hours', hours) || hours < 42 && template('day', 1) || days < 30 && template('days', days) || days < 45 && template('month', 1) || days < 365 && template('months', days / 30) || years < 1.5 && template('year', 1) || template('years', years)) + templates.suffix;
     };
 
-    var elements = document.getElementsByClassName('timeago');
+    var elements = document.querySelectorAll('.timeago');
     for (var i in elements) {
         var $this = elements[i];
         if (typeof $this === 'object') {
@@ -51,55 +51,88 @@
 
 })();
 
-//hasClass, addClass, removeClass http://goo.gl/hmvb52
-function addClass(obj, cls){
-  var obj_class = obj.className,
-  blank = (obj_class != '') ? ' ' : '';
-  added = obj_class + blank + cls;
-  obj.className = added;
-}
-function removeClass(obj, cls){
-  var obj_class = ' '+obj.className+' ';
-  obj_class = obj_class.replace(/(\s+)/gi, ' '),
-  removed = obj_class.replace(' '+cls+' ', ' ');
-  removed = removed.replace(/(^\s+)|(\s+$)/g, '');
-  obj.className = removed;
-}
-function hasClass(obj, cls){
-  var obj_class = obj.className,
-  obj_class_lst = obj_class.split(/\s+/);
-  x = 0;
-  for(x in obj_class_lst) {
-    if(obj_class_lst[x] == cls) {
-      return true;
-    }
-  }
-  return false;
-}
-
 //菜单
 var nav = document.getElementById('navigation');
 var menu = document.getElementById('menu');
-menu.addEventListener('click',function(){
-  if(hasClass(nav, 'hide')) {
-    removeClass(nav, 'hide');
-    removeClass(menu, 'icon-menu');
-    addClass(menu, 'icon-cancel');
-    addClass(nav, 'show');
+var wrapper = document.querySelector('.wrapper');
+function blogMenu(){
+  if(nav.classList.contains('hide')) {
+    nav.classList.remove('hide');
+    menu.classList.remove('icon-menu');
+    nav.classList.add('show');
+    menu.classList.add('icon-cancel');
   } else {
-    removeClass(nav, 'show');
-    removeClass(menu, 'icon-cancel');
-    addClass(menu, 'icon-menu');
-    addClass(nav, 'hide');
+    nav.classList.remove('show');
+    menu.classList.remove('icon-cancel');
+    nav.classList.add('hide');
+    menu.classList.add('icon-menu');
   };
-});
+};
+function hideMenu(){
+  if(nav.classList.contains('show')) {
+    nav.classList.remove('show');
+    menu.classList.remove('icon-cancel');
+    nav.classList.add('hide');
+    menu.classList.add('icon-menu');
+  }
+};
+if (nav.addEventListener) {
+  nav.addEventListener("click", blogMenu, false);
+} else {
+  nav.attachEvent("onclick", blogMenu);
+}
+if (wrapper.addEventListener) {
+  wrapper.addEventListener("click", hideMenu, false);
+} else {
+  wrapper.attachEvent("onclick", hideMenu)
+}
+
+//站外链接
+if (document.addEventListener) {
+  var extLinks = document.querySelectorAll('a[href*="http://"]:not([href*="' + location.hostname + '"]), a[href*="https://"]:not([href*="' + location.hostname + '"])');
+  for (var i = 0 ; i < extLinks.length; i ++ ) {
+    var num = extLinks[i].textContent.substring(1, extLinks[i].textContent.length-1);
+    if(parseInt(num)){
+      var note = 'note-' + num;
+      var ref = 'ref-' + num;
+      var noteTitle = extLinks[i].getAttribute('title');
+      var noteHref = extLinks[i].getAttribute('href');
+      extLinks[i].setAttribute('href', '#' + note);
+      extLinks[i].setAttribute('id', ref);
+      extLinks[i].setAttribute('class', 'ref');
+      extLinks[i].outerHTML = '<sup>' + extLinks[i].outerHTML + '</sup>';
+      document.getElementById('refs').insertAdjacentHTML('beforeend', '<li class="note"><a href="#'+ ref + '">&and;</a> <a href="'+ noteHref + '" title="' + noteTitle + '" id="' + note +'" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
+    } else {
+      extLinks[i].setAttribute('target', '_blank');
+    };
+  }
+}
+
+// 选择相关链接，使用正则匹配
+var noteLinks = document.querySelectorAll('a[href^="#note"], a[href^="#ref"]');
+function linkFocus (){
+  // 清除背景颜色
+  for (var i = 0; i < noteLinks.length; i ++ ){
+    noteLinks[i].parentElement.style.backgroundColor = '';
+  }
+  // 高亮目标背景
+  var href = this.getAttribute('href').split('#')[1];
+  document.getElementById(href).parentElement.style.backgroundColor = 'rgb(235, 235, 235)';
+}
+for (var i = 0 ; i < noteLinks.length; i ++ ){
+  if (noteLinks[i].addEventListener) {
+    noteLinks[i].addEventListener('click', linkFocus, false);
+  } else {
+    noteLinks[i].attachEvent('click', linkFocus);
+  }
+}
 
 //Disqus评论数量
 var urlArray = [];
 var commentsCount = document.querySelectorAll('.disqus-comment-count');
 if (commentsCount.length) {
   for (i=0; i < commentsCount.length; i++) {
-    var url = commentsCount[i].dataset.disqusUrl;
+    var url = commentsCount[i].getAttribute('data-disqus-url');
     urlArray.push('thread=link:' + url);
   }
   function jsonpCallback(result) {  
@@ -110,10 +143,20 @@ if (commentsCount.length) {
       }
     }  
   }
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://disqus.com/api/3.0/threads/set.jsonp' + '?callback=jsonpCallback' + '&api_key=' + disqusPublicKey + '&forum=' + disqusShortName + '&' + urlArray.join('&') ;
-  document.getElementsByTagName('head')[0].appendChild(script);
+  (function () {
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = 'https://disqus.com/api/3.0/threads/set.jsonp' + '?callback=jsonpCallback' + '&api_key=' + disqusPublicKey + '&forum=' + disqusShortName + '&' + urlArray.join('&') ;
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+}
+var windowWidth = window.innerWidth;
+if ( windowWidth < 414 ){
+  var postTitles = document.getElementsByClassName("post-title");
+  var postWidth = windowWidth - 88;
+  for (var i = 0; i < postTitles.length; i++) {
+    postTitles[i].style.width=(postWidth + "px");
+  }
 }
 
 //二维码
@@ -124,7 +167,7 @@ if (wechat) {
   qrscript.type = 'text/javascript';
   qrscript.src = 'http://' + location.hostname + '/assets/js/qr.min.js';
   document.getElementsByTagName('head')[0].appendChild(qrscript);
-  wechat.addEventListener('click',function(){
+  function qrCanvas () {
     var qrurl = wechat.dataset.wechatUrl;
     if (qrurl.length < 33 || ( qrurl.length >= 63 && qrurl.length < 79 )){
       var qrlevel = 'L';
@@ -134,12 +177,17 @@ if (wechat) {
       var qrlevel = 'M';
     }
     qr.canvas({ canvas: qrcode, level: qrlevel, size: 4, value: qrurl });
-    if (hasClass(qrcode, 'show')) {
-      removeClass(wechat, 'light');
-      removeClass(qrcode, 'show');
+    if (qrcode.classList.contains('show')) {
+      qrcode.classList.remove('show');
+      wechat.classList.remove('light');
     } else{
-      addClass(qrcode, 'show');
-      addClass(wechat, 'light');
+      qrcode.classList.add('show');
+      wechat.classList.add('light');
     }
-  });
+  };
+  if (wechat.addEventListener) {
+    wechat.addEventListener("click", qrCanvas, false);
+  } else {
+    wechat.attachEvent("onclick", qrCanvas );
+  }
 }

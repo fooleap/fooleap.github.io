@@ -89,6 +89,7 @@ textarea{
   text-align: justify; 
   text-justify: ideographic;
   word-break: break-all;
+  word-wrap: break-word;
   a {
     color: $darkblue;
     &:hover {
@@ -145,11 +146,14 @@ textarea{
     right: 0;
     display: block;
     width: 30px;
-    height: 30px;
-    line-height: 30px;
+    height: 36px;
+    line-height: 36px;
     font-size: 20px;
     color: $white;
     cursor: pointer;
+    &.icon-cancel{
+      color: $white!important;
+    }
   }
   &.hide {
     .navigation-list {
@@ -176,11 +180,11 @@ textarea{
     li {
       display: inline;
       .navigation-item {
-      line-height: 30px;
+      line-height: 36px;
       color: rgb(160, 160, 160);
       display: block;
       overflow: hidden;
-      height: 30px;
+      height: 36px;
       padding: 0 15px;
       border-bottom: 1px solid rgb(50, 50, 50);
       vertical-align: middle;
@@ -234,15 +238,15 @@ textarea{
 /* Go to top */
 
 #gototop {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   background: $lightgray;
   position: fixed;
   bottom: 1%;
   right: 1%;
   text-align: center;
   line-height: 2;
-  font-size: 15px;
+  font-size: 18px;
   opacity: .8;
   cursor: pointer;
   border-radius: 5px;
@@ -285,11 +289,13 @@ textarea{
   .post-infos {
     margin: 0 10px;
     width: 524px;
+    text-align: left;
     .post-title {
       height: 24px;
       line-height: 24px;
       font-weight: normal;
       font-size: 15px;
+      overflow: hidden;
       a{
         border: none;
         color: $darkblue;

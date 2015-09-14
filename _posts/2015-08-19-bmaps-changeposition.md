@@ -3,6 +3,7 @@ layout: post
 title: 百度地图坐标转换
 description: "关于地图坐标系统，百度的文档里面一句话就概括得很清楚，这里引用过来。"
 date: 2015-08-19 17:00:00 +0800
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/bmaps.png'
 category: tech
 tags: [百度地图, 坐标转换, WGS-84, GCJ-02, BD-09]
 ---

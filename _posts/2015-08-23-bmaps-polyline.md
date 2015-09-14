@@ -4,6 +4,7 @@ title: 百度地图 API 绘制折线
 description: "想要在百度地图上画一条自定义路线，路线说白了就是折线，使用百度地图 JS API 画折线可以使用 Polyline 类来实现。"
 date: 2015-08-23 21:00:00 +0800
 category: tech
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/bmaps.png'
 tags: ['百度地图 API', 折线, 路线, JavaScript, 潮汕]
 style: true
 js: true

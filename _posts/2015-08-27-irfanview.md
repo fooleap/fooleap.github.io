@@ -3,6 +3,7 @@ layout: post
 title: "图片浏览器 IrfanView"
 description: "说起这个名字，或许大多数人都会感觉很陌生，听都没听说过。若说它是图片浏览器，很多人还是一脸茫然。或许是它的名字比较难记，IrfanView 命名源于软件作者 Irfan Skiljan，将拆成 irfan 及 view 两个单词就很好记。"
 date: 2015-08-27 17:00:00 +0800
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/irfanview.png'
 category: tech
 tags: [IrfanView, 看图软件, 图片浏览器, Linux]
 ---

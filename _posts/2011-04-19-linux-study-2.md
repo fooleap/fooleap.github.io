@@ -3,6 +3,7 @@ layout: post
 title: Linux 学习笔记 (2)
 description: "用了十天左右的 Fedora 14 Lxde ，感觉比 Ubuntu 要更加舒服，只不过它在我这小机子上表现不是很好。某天不觉进了一下 XP，感觉它比 Fedora 14 要轻巧得多，于是又想起了 Debian。"
 category: tech
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/linux.png'
 tags: [Linux, Pidgin, 初学, 学习, 小小输入法, 小鹤, 笔记, 超级玛莉]
 ---
 

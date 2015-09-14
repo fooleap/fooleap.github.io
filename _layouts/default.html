@@ -14,14 +14,14 @@
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="canonical" href="{{ page.url | replace: 'index.html','' | prepend: site.url }}" />
     <link rel="stylesheet" type="text/css" href="{{ "/assets/css/style.css" }}" />{% if page.link %}
-    <link rel="stylesheet" type="text/css" href="{{ page.link }}" />{% endif %}
-    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="{{ "/assets/css/fontello-ie7.css" }}"><![endif]-->{% assign content_js = content | remove: '<!--<' | remove: '-->' | split: 'script>' %}{% assign content_style = content | remove: '<!--<' | remove: '-->' | split: 'style>' %}{% if page.style %}
+    <link rel="stylesheet" type="text/css" href="{{ page.link }}" />{% endif %}{% assign content_js = content | remove: '<!--<' | remove: '-->' | split: 'script>' %}{% assign content_style = content | remove: '<!--<' | remove: '-->' | split: 'style>' %}{% if page.style %}
     <style type="text/css">{{ content_style[1] }}style>{% endif %}
     <link rel="icon" href="/favicon.png" />
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />
     <script type="text/javascript" src="/assets/js/modernizr.js"></script>
     <!--[if lte IE 9]>
       <script src="/assets/js/html5shiv.min.js"></script>
+      <script src="/assets/js/classList.min.js"></script>
       <script type="text/javascript">
         document.createElement('main');
       </script>

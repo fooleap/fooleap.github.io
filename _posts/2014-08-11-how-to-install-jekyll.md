@@ -3,6 +3,7 @@ layout: post
 title: 如何搭建 Jekyll 写作环境
 description: "在好久好久以前，我提到了我从 WordPress 切换到 Jekyll 的缘由。自从使用 Jekyll 写博，到现在也已经有两年半左右的时间，Jekyll 也日趋成熟，使用起来也相当舒畅，无过多的不适感。"
 category: tech
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/jekyll.png'
 tags: [Jekyll, Ruby, 博客]
 ---
 

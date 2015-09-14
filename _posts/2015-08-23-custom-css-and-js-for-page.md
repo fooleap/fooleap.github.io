@@ -3,6 +3,7 @@ layout: post
 title: 页面样式脚本各得其所
 description: "在写日志的时候，鄙人有时候需要引入及写自定义的 CSS 或 JS，一般是在日志里面直接引入标签直接写。"
 date: 2015-08-23 12:00:00 +0800
+thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/jekyll.png'
 category: tech
 tags: [Jekyll, Liquid, CSS, JavaScript]
 ---
