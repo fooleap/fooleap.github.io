@@ -7,7 +7,6 @@ date: 2015-09-03 00:30:00 +800
 tags: [工夫茶, 潮州工夫茶]
 js: true
 style: true
-flash: true
 ---
 
 * toc
@@ -163,6 +162,7 @@ flash: true
     gongfuTea.play();
   };
   if(!isFlashSupported()){
-    $('embed').after('<audio controls><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.mp3" type="audio/mpeg"><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.ogg" type="audio/ogg"></audio>').remove();
+    var embed = document.querySelector('embed')
+    embed.outerHTML = '<audio controls><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.mp3" type="audio/mpeg"><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.ogg" type="audio/ogg"></audio>';
   }
   </script>-->

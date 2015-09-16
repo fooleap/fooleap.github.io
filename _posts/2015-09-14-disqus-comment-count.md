@@ -22,7 +22,6 @@ tags: [Disqus, 'Disqus API', Jekyll, 评论]
 JavaScript 代码，找个合适的地方放好：
 
 {% highlight javascript %}
-<script type="text/javascript">
 /* * * 自定义变量 * * */
 var disqus_shortname = 'example'; // 替换为你 Disqus 的 shortname
 
@@ -33,7 +32,6 @@ s.type = 'text/javascript';
 s.src = '//' + disqus_shortname + '.disqus.com/count.js';
 (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 }());
-</script> 
 {% endhighlight %}
 
 ### 超链接标签
@@ -99,7 +97,6 @@ s.src = '//' + disqus_shortname + '.disqus.com/count.js';
 使用 JavaScript 取数据，并写入：
 
 {% highlight javascript %}
-<script type="text/javascript">
 var disqusShortName = "example"; // 替换为你 Disqus 的 shortname
 var disqusPublicKey = "Public Key"; // 申请的公钥
 var urlArray = [];
@@ -124,7 +121,6 @@ if (commentsCount.length) {
     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
   }());
 }
-</script>
 {% endhighlight %}
 
 看看是不是快多了？好像也没快多少，不过只需加载一个文件便可。

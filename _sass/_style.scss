@@ -1,4 +1,4 @@
-$darkblue: rgb(0, 119, 187);
+$darkblue: rgb(0, 149, 221);
 $darkgray: rgb(100, 100, 100);
 $lightblue: rgb(155, 195, 255);
 $lightgray: rgb(235, 235, 235);
@@ -38,6 +38,7 @@ body {
   line-height: 1.7;
   background: radial-gradient(ellipse at center, rgb(234, 239, 242) 0px, rgba(212, 221, 228, 0.5) 50%) repeat scroll 0% 0%, transparent linear-gradient(to bottom, rgb(202, 225, 244) 0px, rgba(125, 185, 232, 0) 100%) repeat scroll 0% 0%;
   -webkit-font-smoothing: antialiased;
+  overflow-y: scroll;
 }
 
 .ie body{
@@ -80,6 +81,13 @@ textarea{
   resize: none;
 }
 
+.show{
+  display: block!important;
+}
+.hide{
+  display: none!important;
+}
+
 // wrapper
 .wrapper {
   position: relative;
@@ -98,9 +106,9 @@ textarea{
     &[target="_blank"]:after {
       font-family: "fontello";
       content: '\e82d';
-      color: $lightblue;
+      color: $darkblue;
       font-size: 10px;
-      margin: 0 .2em;
+      margin: 0 5px;
     }
   }
   &:before {
@@ -153,16 +161,6 @@ textarea{
     cursor: pointer;
     &.icon-cancel{
       color: $white!important;
-    }
-  }
-  &.hide {
-    .navigation-list {
-      display: none;
-    } 
-  }
-  &.show {
-    .navigation-list {
-      display: block;
     }
   }
   .navigation-list {
@@ -235,12 +233,12 @@ textarea{
   color: rgb(150, 150, 150);
 }
 
-/* Go to top */
+/* Back to top */
 
-#gototop {
+#backtotop {
   width: 36px;
   height: 36px;
-  background: $lightgray;
+  background: $white;
   position: fixed;
   bottom: 1%;
   right: 1%;
@@ -250,6 +248,7 @@ textarea{
   opacity: .8;
   cursor: pointer;
   border-radius: 5px;
+  display: none;
 }
 
 /* Home styles */
@@ -289,7 +288,6 @@ textarea{
   .post-infos {
     margin: 0 10px;
     width: 524px;
-    text-align: left;
     .post-title {
       height: 24px;
       line-height: 24px;
@@ -402,7 +400,7 @@ textarea{
   .hide {
     display: none;
   }
-  .source {
+  #source {
     display: block;
     font-family: "RobotoDraft", "Roboto", "Consolas";
     font-size: 12px;
@@ -427,12 +425,17 @@ textarea{
     width: auto;
     overflow: hidden;
   }
+  .image:after, .image a:after{
+    content: ''!important;
+    margin: 0!important;
+  }
   figure {
     max-width: 640px;
     margin: 0;
     position: relative;
     overflow: hidden;
-    figcaption {
+    .exif {
+      display: none;
       position: absolute;
       top: 0 ;
       background: $black;
@@ -474,14 +477,17 @@ textarea{
 
 // TOC
 #toc {
-  display: none;
   position: fixed;
+  left: -999px;
   top: 30px;
   margin: 0;
   min-width: 160px;
   background: $white;
   list-style: none;
   padding: 5px;
+  &.hide{
+    display: none;
+  }
   &:before {
     content: '目录';
     font-size: 15px;
@@ -573,6 +579,7 @@ pre.terminal code {
 
 
 #info {
+  text-align: left;
   a{
     color: $default;
   }
@@ -676,9 +683,6 @@ pre.terminal code {
     border: 1px solid $lightgray;
     border-radius: 5px;
     box-shadow: 1px 1px 2px rgb(150, 150, 150);
-    &.show{
-      display: block;
-    }
   }
 }
 

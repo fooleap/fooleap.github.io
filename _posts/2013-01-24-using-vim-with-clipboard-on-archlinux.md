@@ -12,9 +12,9 @@ tags: [Vim, 剪切板, ArchLinux]
 
 很多时候使用 Vim 编辑文本，总需要复制里面的东西出来，粘贴到其他地方，比如说网页，聊天窗口等等，而有些时候有需要从网页等地方复制文字过来粘贴到 Vim 正在编辑的文件里。这个两个过程应该怎么完成呢？
 
-### 一般的解决方法
+## 一般的解决方法
 
-**复制文本**
+### 复制文本
 
 当我们要将 Vim 里面的文本复制出来，往往会用鼠标选中，然后到需要粘贴的地方小点下鼠标中键或 Shift-Insert，完成复制粘贴的过程。
 
@@ -22,7 +22,7 @@ tags: [Vim, 剪切板, ArchLinux]
 
 这时候，需要鼠标可以选中 Vim 单个窗口且不包含行号的文本，可以使用 :set mouse=a，让 Vim 支持鼠标选择，大概事情就可以解决，这样的感觉也挺爽的，赶紧把 set mouse=a 加入你的 .vimrc 文件：)
 
-**粘贴文本**
+### 粘贴文本
 
 当我们在其他地方选择文本后，想粘贴到 Vim，一般都会切换到插入模式点鼠标中键或 Shift-Insert，完成复制粘贴的过程。
 
@@ -31,7 +31,7 @@ tags: [Vim, 剪切板, ArchLinux]
 这时候，可以通过 :set paste 将 Vim 设置为粘贴模式后再进行粘贴，既然是两种模式，肯定是有区别的，:set nopaste 是返回正常模式。这么干毕竟不方便，可以通过 .vimrc 添加映射来解决这个问题，更是有 set pastetoggle= 这个方便的选项，若在 .vimrc 文件里添加 set pastetoggle=\<F11\>，则 F11 为粘贴模式的切换键。
 
 
-### 比较 Vim 的方法
+## 比较 Vim 的方法
 
 上述方法，大致可以解决问题，但很多同学并不喜欢用这种方式来复制粘贴，或是喜欢键盘操作的爽快，或是习惯了 Windows 下那套 Ctrl-C, Ctrl-V，通过系统剪切板来实现。还有，使用 VirtualBox 的时候，若设置剪切板互通，也是用到系统剪切板。
 
@@ -65,7 +65,7 @@ Vim 不是通过 Ctrl-C, Ctrl-X, Ctrl-V 来实现复制、剪切、粘贴的，�
 
 复制到 Primary 和复制到 Clipboard 差不多，这里就不再详述，而粘贴则是加 p，自然还有剪切 d。
 
-### 注意
+## 注意事项
 
 需要注意的是，Arch Linux 官方仓库中的 Vim 并不支持以上操作
 
@@ -104,7 +104,7 @@ pkgname=('vim'<del> 'gvim' 'vim-runtime'</del>)
 
 重新进行验证，果然生效
 
-**参考资料**
+## 参考资料
 
 * [Copy and paste from the system clipboard with vim](http://maxolasersquad.blogspot.com/2012/01/copy-and-paste-from-system-clipboard.html)
 * [X Selections, Cut Buffers, and Kill Rings.](http://www.jwz.org/doc/x-cut-and-paste.html)
