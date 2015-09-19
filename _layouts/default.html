@@ -70,11 +70,7 @@
   <div id="backtotop">
     <i class="icon-up-big"></i>
   </div>
-  <script type="text/javascript">
-    disqusShortName = "{{ site.disqus_shortname }}";
-    disqusPublicKey = "{{ site.disqus_publickey }}";
-  </script>
-  <script type="text/javascript" src="/assets/js/main.js"></script>{% if page.js or page.scripts %}
+  <script type="text/javascript" src="/assets/js/main.js"></script>{% if page.jquery %}
   <script type="text/javascript" src="/assets/js/jquery.min.js"></script>{% endif %}{% if page.scripts %}{% for script in page.scripts %}
   <script type="text/javascript" src="{{ script }}"></script>{% endfor %}{% endif %}{% if page.js %}
   <script type="text/javascript">

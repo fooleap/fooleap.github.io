@@ -74,13 +74,13 @@ scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609d
     #map-control {margin:0;padding:0}
     #map-control button{color: #333; background: rgb(255,255,255);padding: 2px; border: 1px solid #ddd; margin: 2px; cursor: pointer; border-radius: 2px; text-transform: uppercase; text-decoration: none;}
     </style>-->
-
 <!--<script>
-    var mwidth = $("#map").width();
-    if(mwidth<640){
-        $("#map").height(mwidth);
+    var bmap = document.getElementById('map');
+    var mapWidth = bmap.offsetWidth;
+    if(mapWidth < 640){
+      bmap.style.height = mapWidth + 'px';
     }else{
-        $("#map").height(mwidth*2/3);
+      bmap.style.height = mapWidth*2/3 + 'px';
     }
     var map = new BMap.Map("map");
     var point = new BMap.Point(116.8397,23.4817);
@@ -134,8 +134,10 @@ scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609d
           { lng: point14.lng, lat: point14.lat, html: '手机找到了', pauseTime: 1 },
         ]
     });
-    $("#run").click(function(){
+    var run = document.getElementById('run');
+    var distance = document.getElementById('distance');
+    run.onclick = function(){
         lushu.start();
-    });
-    $("#distance").html("全程共" + (dis/1000).toFixed(1) + "公里");
+    };
+    distance.innerHTML = "全程共" + (dis/1000).toFixed(1) + "公里";
   </script>-->

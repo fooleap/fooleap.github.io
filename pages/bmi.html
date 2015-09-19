@@ -1,26 +1,9 @@
 ---
-layout: null
+layout: page
+title: BMI 计算器
 permalink: /bmi/
+js: true
 ---
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>BMI 计算器</title>
-    <script>
-       var _hmt = _hmt || [];
-       (function() {
-         var hm = document.createElement("script");
-         hm.src = "//hm.baidu.com/hm.js?fa7ec982118ebd236663169678264582";
-         var s = document.getElementsByTagName("script")[0]; 
-         s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  </head>
-  <body>
-    <h1>BMI 计算器</h1>
     <form id="bmical">
       <p>性别：<input type="radio" name="sex" id="man" />男 <input type="radio" name="sex" id="woman" />女</p>
       <p>身高：<input id="height" type="text" /> 厘米</p>
@@ -32,7 +15,7 @@ permalink: /bmi/
     <p id="bmi"></p>
     <p id='suggest'></p>
     <small>根据《中国成人超重和肥胖症预防控制指南》</small>
-    <script>
+<!--<script>
     function GetRequest(){  
     var url = location.search;
     var theRequest = new Object();  
@@ -148,10 +131,7 @@ permalink: /bmi/
         }
       } else {
         outputSuggest.innerHTML = '暂时无相关疾病风险，请保持健康生活';
-      }
-    }
-
-    //BMI 计算
+      } } //BMI 计算
     function bmiCal(h, w){
       h = h/100;
       bmi = w/(h*h);
@@ -169,6 +149,4 @@ permalink: /bmi/
         health('已经得了肥胖症！');
       }
     }
-    </script>
-  </body>
-</html>
+  </script>-->

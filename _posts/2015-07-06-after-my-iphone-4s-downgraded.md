@@ -4,7 +4,7 @@ title: 记在 iPhone 4s 降级之后
 description: "iPhone 4s 滚回 iOS 6 后，用习惯 iOS 7/8 的我感觉还是稍不适，所以选择越狱装插件。"
 date: 2015-07-06 13:00:00 +0800
 category: tech
-tags: ["iOS 6", "iPhone 4s", "越狱", "插件", "p0sixspwn"]
+tags: [iPhone, "iOS 6", "iPhone 4s", "越狱", "插件", "p0sixspwn"]
 ---
 
 * toc

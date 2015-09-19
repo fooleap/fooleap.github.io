@@ -128,8 +128,12 @@ map.addOverlay(polyline);//将折线覆盖到地图上
     .map{max-width:640px;width:100%;height:384px}
     </style>-->
   <!--<script>
-    $('.map').height($('.map').width()*2/3);
-    if ($('.map').width() < 500){
+    var bmap1 = document.getElementById('map01');
+    var bmap2 = document.getElementById('map02');
+    var mapWidth = bmap1.offsetWidth;
+    bmap1.style.height = mapWidth*2/3 + 'px';
+    bmap2.style.height = mapWidth*2/3 + 'px';
+    if (mapWidth < 500){
       var zoom = 9;
     } else {
       var zoom = 10;

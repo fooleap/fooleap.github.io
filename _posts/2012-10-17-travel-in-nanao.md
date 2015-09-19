@@ -3,7 +3,7 @@ layout: post
 title: "记南澳一游"
 description: "谨以此文迎接今年的十一八！"
 category: life
-tags: [南澳, 骑行, 人生]
+tags: [潮汕, 南澳, 骑行, 人生]
 ---
 
 * toc

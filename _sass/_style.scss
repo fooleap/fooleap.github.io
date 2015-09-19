@@ -100,8 +100,14 @@ textarea{
   word-wrap: break-word;
   a {
     color: $darkblue;
+	-webkit-transition:color .5s linear;
+	-moz-transition:color .5s linear;
+	-o-transition:color .5s linear;
+	-ms-transition:color .5s linear;
+	transition:color .5s linear;
     &:hover {
       background-color: $lightgray;
+      border-radius: 1px;
     }
     &[target="_blank"]:after {
       font-family: "fontello";
@@ -196,6 +202,40 @@ textarea{
           background: $black;
         }
       }
+    }
+  }
+}
+
+#tags {
+  display: none;
+  /*@for $i from 1 to 10 {
+   *  .tag-#{$i} {
+   *　　color: rgb($i * 25, $i * 25, $i * 25);
+   *  }
+   *}
+   */
+  .tag-1,.tag-2,.tag-3{
+    color: rgb(150,150,150);
+  }
+  .tag-4,.tag-5,.tag-6{
+    color: rgb(100,100,100);
+  }
+  .tag-7,.tag-8,.tag-9{
+    color: rgb(50,50,50);
+  }
+  .tag-10,.tag-11,.tag-12{
+    color: rgb(25,25,25);
+  }
+  .tag-13,.tag-14,.tag-15,.tag-16,.tag-17,.tag-18{
+    color: rgb(0,0,0);
+  }
+}
+
+#post-lists {
+  min-height: 100px;
+  .post-list{
+    .post-time{
+      width: 30%;
     }
   }
 }
@@ -352,6 +392,9 @@ textarea{
   &:before, &:after {
     display: table;
     content: '';
+  }
+  .disable {
+    color: $lightgray;
   }
   a {
     border: none;
@@ -620,6 +663,9 @@ pre.terminal code {
     left: 2px;
     top: 10px;
   }
+  a:after {
+    display: none!important;
+  }
 }
 
 .view-code {
@@ -710,5 +756,12 @@ pre.terminal code {
     &:hover {
       border: 1px solid rgb(200, 200, 200);
     }
+  }
+}
+
+.anchorBL{
+  a:after{
+    content: ''!important;
+    margin: 0!important;
   }
 }

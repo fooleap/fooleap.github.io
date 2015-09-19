@@ -3,7 +3,7 @@ layout: post
 title: iPhone 上的双拼输入法
 description: "作为双拼输入法用户，我总是希望在哪都能使用双拼，手机也不例外。记得当年在诺基亚手机上，都使用起点讯输入法的双拼功能，没错，那便是九宫格的双拼。"
 category: tech
-tags: [双拼, "iPhone 4s", "SPi 双拼输入法", "WI 输入法"]
+tags: [iPhone, "iPhone 4s", "SPi 双拼输入法", "WI 输入法"]
 ---
 
 * toc

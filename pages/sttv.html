@@ -4,7 +4,6 @@ title: 汕头电视台
 description: "汕头电视台、汕头电台网上直播"
 tags: [汕头电视台, STTV, 汕头橄榄台]
 permalink: /sttv/
-scripts: true
 js: true
 style: true
 ---
@@ -27,7 +26,7 @@ style: true
     }
     button{
       border: 0;
-      background: #000;
+      background-color: #000;
       color: #fff;
       padding: 6px 0;
     }
@@ -41,64 +40,83 @@ style: true
     p{text-align:right;}
     </style>-->
 <!--<script>
-  if ($('html').hasClass('lte8')) {
-     $('button').remove();
-     $('#sttv').html('<big>请更换其他浏览器观看！<br>如：<a href="/firefox.html">Firefox</a>、<a href="https://www.google.com/chrome">Google Chrome</a> 等。</big>');
+  var html = document.querySelector('html');
+  var sttv = document.getElementById('sttv');
+  var button = document.querySelectorAll('button');
+  var channel = location.search.split('=')[1];
+  var embed = document.querySelector('embed');
+  if (html.classList.contains('lte8')) {
+    for (var i = 0; i < button.length; i ++){
+      button[i].classList.add('hide');
+    }
+    sttv.innerHTML = '<big>请更换其他浏览器观看！<br>如：<a href="/firefox.html">Firefox</a>、<a href="https://www.google.com/chrome">Google Chrome</a> 等。</big>';
   }
   if(isFlashSupported ()){
-    var sttvWidth = $('#sttv').width();
+    var sttvWidth = sttv.offsetWidth;
     var sttvHeight = Math.floor(sttvWidth * 4 / 5); 
-    $('#sttv').css('height', sttvHeight);
-    $('button').width(sttvWidth / 6);
+    var buttonWidth = sttvWidth / 6;
+    sttv.style.height = sttvHeight + 'px';
+    for (var i = 0; i < button.length; i ++){
+      button[i].style.width = buttonWidth + 'px';
+    };
     if(sttvWidth < 640){
-      $('button').width(sttvWidth / 3);
+      for (var i = 0; i < button.length; i ++){
+        button[i].style.width = buttonWidth*2 + 'px';
+      };
     }
-    $('embed').attr('width', sttvWidth );
-    $('embed').attr('height', sttvHeight );
-    function changeChannel (theChannel){
-      $('button').css('background','#000');
-      $('button[data-channel="' + theChannel + '"]').css('background','#333');
-      switch (theChannel){
-        case 'sttv1':
-          channelCode = 'lKGXIQa';
-          break;
-        case 'sttv2':
-          channelCode = '7xjJK9d';
-          break;
-        case 'sttv3':
-          channelCode = 'G7Kql7a';
-          break;
-        case 'stradio1':
-          channelCode = 'L3y6rt8';
-          break;
-        case 'stradio2':
-          channelCode = 's7k681h';
-          break;
-        case 'stradio3':
-          channelCode = 'Li7mg21';
-          break;
-        default:
-          break;
-      }
-      $('#sttv').html("<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=640&height=510&divid=TSL_player&channelId=" + channelCode+ "&autoplay=false' type='application/x-shockwave-flash' height=" + sttvHeight + " width=" + sttvWidth + " />")
-      window.history.pushState({},'','?channel=' + theChannel);      
-    }
-    $('button').on('click', function (){
-      channel = $(this).attr('data-channel');
-      if(!location.search){
-         if(channel != 'sttv1'){
-           changeChannel(channel);
-         }
-      }else if(channel != location.search.split('=')[1]){
-        changeChannel(channel);
-      }
-    });
-    if (location.search){
-      var channel = location.search.split('=')[1];
+    embed.setAttribute('width', sttvWidth);
+    embed.setAttribute('height', sttvHeight);
+    if (channel){
       changeChannel(channel);
     }
   } else {
     $('#sttv').html('<big>您的浏览器不支持 Flash！</big>');
     $('button').remove();
+  }
+
+  function buttonClick (){
+    channel = this.getAttribute('data-channel');
+    if(!location.search){
+       if(channel != 'sttv1'){
+         changeChannel(channel);
+       }
+    }else if(channel != location.search.split('=')[1]){
+      changeChannel(channel);
+    }
+  };
+
+  function changeChannel (theChannel){
+    for (var i = 0; i < button.length; i ++){
+      button[i].style.backgroundColor = '#000';
+    };
+    document.querySelector('button[data-channel="' + theChannel + '"]').style.backgroundColor = '#333';
+    switch (theChannel){
+      case 'sttv1':
+        channelCode = 'lKGXIQa';
+        break;
+      case 'sttv2':
+        channelCode = '7xjJK9d';
+        break;
+      case 'sttv3':
+        channelCode = 'G7Kql7a';
+        break;
+      case 'stradio1':
+        channelCode = 'L3y6rt8';
+        break;
+      case 'stradio2':
+        channelCode = 's7k681h';
+        break;
+      case 'stradio3':
+        channelCode = 'Li7mg21';
+        break;
+      default:
+        break;
+    }
+    sttv.innerHTML = "<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=" + sttvWidth + "&height=" + sttvHeight + "&divid=TSL_player&channelId=" + channelCode+ "&autoplay=false' type='application/x-shockwave-flash' height=" + sttvHeight + " width=" + sttvWidth + " />";
+    window.history.pushState({},'','?channel=' + theChannel);      
+  }
+
+  for (var i = 0; i < button.length; i ++){
+    button[i].addEventListener('click', buttonClick, false)
   }
   </script>-->

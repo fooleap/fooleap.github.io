@@ -13,10 +13,10 @@ tags: [桂林, 徒步, 环城]
 
 曾在 [此文](http://blog.fooleap.org/early-rising-running-and-walking.html) 中提到，决定在桂林期间要环城走一圈，就在 2012 年 10 月 14 日，成为现实。
 
-### 蓄谋
+## 蓄谋
 
-![田园]({{site.IMG_PATH}}/hiking-along-the-ring-road-of-guilin-01.jpg)
-*——东二环路边的田园*
+![田园]({{site.IMG_PATH}}/hiking-along-the-ring-road-of-guilin-01.jpg_640)
+&#9650;东二环路边的田园
 
 环路，在内陆城市中，大部分都会有的城市便捷道路，具体如北京的环路，成都的环路，广州的环市路，而这些环路，道路宽敞，甚至风景怡人，相当一部分能环城一圈，被命名称为环城路。
 
@@ -24,10 +24,10 @@ tags: [桂林, 徒步, 环城]
 
 沿着那几条路走一圈应该不是问题，我开始有了某些想法，想在每个自己所停留过一段时间的城市，有机会要沿着它的环路徒步一圈，或者说暴走。
 
-### 尝试
+## 尝试
 
-![南洲大桥]({{site.IMG_PATH}}/hiking-along-the-ring-road-of-guilin-02.jpg)
-*——暑假徒步时的南洲大桥边*
+![南洲大桥]({{site.IMG_PATH}}/hiking-along-the-ring-road-of-guilin-02.jpg_640)
+&#9650;暑假徒步时的南洲大桥边
 
 桂林市区可以说是一个开放式的大景区，很多地方的风景怡人，加上桂林生活节奏缓慢，并不嘈杂。
 
@@ -37,10 +37,10 @@ tags: [桂林, 徒步, 环城]
 
 东二环路，分流南北交通，前几年建成，很宽，但车流量并不是很大，空气相对较好。走了好几次，记得有一次夏天午后，烈日下，三十四五度的气温，一个人走了十几公里。
 
-### 环城
+## 环城
 
-![桂林环城路线]({{site.IMG_PATH}}/hiking-along-the-ring-road-of-guilin-03.jpg)
-*——徒步路线图*
+![桂林环城路线]({{site.IMG_PATH}}/hiking-along-the-ring-road-of-guilin-03.jpg_640)
+&#9650;徒步路线图
 
 |日期|时间|距离|
 |----|----|----|

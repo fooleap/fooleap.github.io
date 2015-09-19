@@ -131,29 +131,27 @@ if (commentsCount.length) {
 使用 jQuery 实现更方便<sup>[[3]](#note-3){:id="ref-3"}</sup>：
 
 {% highlight javascript %}
-$(document).ready(function () {
-  var disqusShortName = "example"; // 替换为你 Disqus 的 shortname
-  var disqusPublicKey = "Public Key"; // 申请的公钥
-  var urlArray = [];
-  $('.disqus-comment-count').each(function () {
-    var url = $(this).attr('data-disqus-url');
-    urlArray.push('link:' + url);
-  });
-  $.ajax({
-    type: 'GET',
-    url: "https://disqus.com/api/3.0/threads/set.jsonp",
-    data: { api_key: disqusPublicKey, forum : disqusShortName, thread : urlArray }, 
-    cache: false,
-    dataType: "jsonp",
-    success: function (result) {
-      for (var i in result.response) {
-        var count = result.response[i].posts;
-        if ( count ) {
-          $('.disqus-comment-count[data-disqus-url="' + result.response[i].link + '"]').html(count);
-        }
+var disqusShortName = "example"; // 替换为你 Disqus 的 shortname
+var disqusPublicKey = "Public Key"; // 申请的公钥
+var urlArray = [];
+$('.disqus-comment-count').each(function () {
+  var url = $(this).attr('data-disqus-url');
+  urlArray.push('link:' + url);
+});
+$.ajax({
+  type: 'GET',
+  url: "https://disqus.com/api/3.0/threads/set.jsonp",
+  data: { api_key: disqusPublicKey, forum : disqusShortName, thread : urlArray }, 
+  cache: false,
+  dataType: "jsonp",
+  success: function (result) {
+    for (var i in result.response) {
+      var count = result.response[i].posts;
+      if ( count ) {
+        $('.disqus-comment-count[data-disqus-url="' + result.response[i].link + '"]').html(count);
       }
     }
-  });
+  }
 });
 {% endhighlight %}
 

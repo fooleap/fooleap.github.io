@@ -114,7 +114,9 @@ scripts: "http://api.map.baidu.com/api?v=2.0&amp;ak=FCcc6261f101cd4ccefee22113a6
     #hmap {width:100%;}
     </style>-->
 <!--<script>
-    jQuery("#hmap").height(jQuery("#hmap").width()*2/3);
+    var bmap = document.getElementById('hmap');
+    var mapWidth = document.getElementById('hmap').offsetWidth
+    bmap.style.height = mapWidth*2/3 + 'px';
     var map = new BMap.Map("hmap",{mapType: BMAP_HYBRID_MAP});
 	var point = new BMap.Point(110.2898120373,25.268058921597);
 	map.centerAndZoom(point, 19);

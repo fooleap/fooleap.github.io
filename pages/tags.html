@@ -1,48 +1,35 @@
 ---
 layout : page
 permalink: /tags.html
-title : Tags
+title : 标签云
 ---
-<div class="tag-cloud">
-{% for tag in site.tags %}
-<a href="#posts-tag"
-id="{{ forloop.index }}" class="__tag">{{tag[0]}}
-</a>
-<ul id="list_{{ forloop.index }}" style="display:none;">
-{% for post in tag[1] %}
-<li><a href="{{ post.url | prepend: site.baseurl | prepend: site.url}}">{{ post.title }}</a></li>
-{% endfor %}
-</ul>
-{% endfor %}
+
+<canvas width="640" height="427" id="tag-canvas">
+  <p>Anything in here will be replaced on browsers that support the canvas element</p>
+</canvas>
+<div id="tags">
+  <ul>{% for tag in site.tags %}
+    <li><a class="tag-{{ tag | last | size }}" href="#{{ tag | first }}" style="font-size: {{ tag | last | size | times: 100 | divided_by: 30 }}px">{{ tag | first }}</a></li>{% endfor %}
+  </ul>
 </div>
- 
-<div id="posts-tags" class="post-list" style="margin: 50px;"></div>
- 
-<script type="text/javascript">
-$(function() {
-var minFont = 12.0,
-maxFont = 20.0,
-diffFont = maxFont - minFont,
-size = 0;
- 
-{% assign max = 1.0 %}
-{% for tag in site.tags %}
-{% if tag[1].size > max %}
-{% assign max = tag[1].size %}
-{% endif %}
-{% endfor %}
- 
-{% for tag in site.tags %}
-size = (Math.log({{ tag[1].size }}) / Math.log({{ max }})) * diffFont
-+ minFont;
-$("#{{ forloop.index }}").css("font-size", size + "px");
-{% endfor %}
- 
-$('.tag-cloud a[class^="__tag"]').click(function() {
-$('.post-list').empty();
-$('#list_' + $(this).attr('id')).each(function() {
-$('.post-list').append('<ul>' + $(this).html() + '</ul>');
-});
-});
-});
-</script> 
+
+<div id="post-lists">
+  {% for tag in site.tags %}
+  <table class="post-list" id="{{ tag[0] }}" style="display:none;">
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>文章</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for post in tag[1] %}
+    <tr>
+      <td class="post-time"><time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y 年 %m 月 %d 日" }}</time></td>
+      <td><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+</div>

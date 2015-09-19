@@ -5,6 +5,7 @@ description: "GPS 坐标（WGS-84）或火星坐标（GCJ-02）批量转换为�
 tags: [百度坐标, 'GPS 坐标', 火星坐标, WGS-84, GCJ-02, BD-09, 'Google Earth', 'Google Maps']
 permalink: /wgs84-or-gcj02-to-bd09/
 scripts: true
+jquery: true
 js: true
 style: true
 ---

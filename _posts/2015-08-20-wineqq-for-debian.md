@@ -5,7 +5,7 @@ description: "QQ 或许是无法离开 Windows 的借口之一，在 Linux 上�
 date: 2015-08-20 15:30:00 +0800
 thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/qq.png'
 category: tech
-tags: [Debian, Wine, QQ, 'QQ 轻聊版']
+tags: [Linux, Debian, Wine, QQ, 'QQ 轻聊版']
 ---
 
 * toc

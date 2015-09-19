@@ -5,7 +5,7 @@ description: "鄙人的 ThinkPad T410 此次安装的 Debian，是采用 Debian 
 date: 2015-08-16 18:00:00 +0800
 thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/debian.png'
 category: tech
-tags: [Debian, 'ThinkPad T410', 'Wi-Fi', 无线驱动]
+tags: [Linux, Debian, 'ThinkPad T410', 'Wi-Fi', 无线驱动]
 ---
 
 鄙人的 ThinkPad T410 此次安装的 Debian，是采用 Debian 8 LXDE 64 位的 CD1，安装过程中检测网络时提示硬件需要的是非自由固件驱动，需要手动安装。

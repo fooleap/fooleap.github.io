@@ -67,16 +67,14 @@ tags: [参考资料, Reference, JavaScript, Jekyll]
 目标背景高亮可以采用使用广泛的 jQuery 实现：
 
 {% highlight javascript %}
-$(document).ready(function(){ 
-  // 选择相关链接，使用正则匹配
-  var noteLinks = $('a[href^="#note"], a[href^="#ref"]');
-  noteLinks.click(function(){
-    // 清除背景颜色
-    noteLinks.parent().css('background-color', '');
-    // 高亮目标背景
-    var href = $(this).attr('href'); 
-    $(href).parent().css('background-color', 'rgb(235, 235, 235)'); 
-  })
+// 选择相关链接，使用正则匹配
+var noteLinks = $('a[href^="#note"], a[href^="#ref"]');
+noteLinks.click(function(){
+  // 清除背景颜色
+  noteLinks.parent().css('background-color', '');
+  // 高亮目标背景
+  var href = $(this).attr('href'); 
+  $(href).parent().css('background-color', 'rgb(235, 235, 235)'); 
 })
 {% endhighlight %}
 
@@ -146,61 +144,59 @@ HTML 部分可简化如下：
 采用 jQuery：
 
 {% highlight javascript %}
-$(document).ready(function(){ 
-  // 选择非本站链接
-  $('a[href*="http:"]:not([href*="' + location.hostname + '"]), [href*="https:"]:not([href*="' + location.hostname + '"])').each(function(){
-    // 去掉所选链接文本的最前、最后字符
-    var num = $(this).text().substring(1, $(this).text().length-1);
-    // 判断是否为数字
-    if(!isNaN(num) && num){
-      var note = 'note-' + num;
-      var ref = 'ref-' + num;
-      var noteTitle = $(this).attr('title');
-      var noteHref = $(this).attr('href');
-      $(this).attr({href: '#' + note, id: ref, 'class': 'ref'}).wrap('<sup>');
-      $('#refs').append('<li class="note"><a href="#'+ ref + '">&and;</a> <a href="'+ noteHref + '" title="' + noteTitle + '" id="' + note +'" class="exf-text" target="_blank">' + noteTitle + '</a></li>')
-    } else {
-      // 不是数字保留并加上 target 属性
-      $(this).attr('target', '_blank');
-    };
-  });
+// 选择非本站链接
+$('a[href*="http:"]:not([href*="' + location.hostname + '"]), [href*="https:"]:not([href*="' + location.hostname + '"])').each(function(){
+  // 去掉所选链接文本的最前、最后字符
+  var num = $(this).text().substring(1, $(this).text().length-1);
+  // 判断是否为数字
+  if(!isNaN(num) && num){
+    var note = 'note-' + num;
+    var ref = 'ref-' + num;
+    var noteTitle = $(this).attr('title');
+    var noteHref = $(this).attr('href');
+    $(this).attr({href: '#' + note, id: ref, 'class': 'ref'}).wrap('<sup>');
+    $('#refs').append('<li class="note"><a href="#'+ ref + '">&and;</a> <a href="'+ noteHref + '" title="' + noteTitle + '" id="' + note +'" class="exf-text" target="_blank">' + noteTitle + '</a></li>')
+  } else {
+    // 不是数字保留并加上 target 属性
+    $(this).attr('target', '_blank');
+  }
+})
 
-  var noteLinks = $('a[href^="#note"], a[href^="#ref"]');
-  noteLinks.click(function(){
-    // 清除背景颜色
-    noteLinks.parent().css('background-color', '');
-    // 高亮目标背景
-    var href = $(this).attr('href'); 
-    $(href).parent().css('background-color', 'rgb(235, 235, 235)'); 
-  });
-});
+var noteLinks = $('a[href^="#note"], a[href^="#ref"]');
+noteLinks.click(function(){
+  // 清除背景颜色
+  noteLinks.parent().css('background-color', '');
+  // 高亮目标背景
+  var href = $(this).attr('href'); 
+  $(href).parent().css('background-color', 'rgb(235, 235, 235)'); 
+})
 {% endhighlight %}
 
 JavaScript 原生：
 
 {% highlight javascript %}
-var extLinks = document.querySelectorAll('a');
-for (var i = 0; i < extLinks.length; i ++) {
+var links = document.querySelectorAll('a');
+for (var i = 0; i < links.length; i ++) {
   // 选择非本站链接
-  if (extLinks[i].hostname != location.hostname && /^javascript/.test(extLinks[i].href) == false ){
+  if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) == false ){
     // 去掉所选链接文本的最前、最后字符
-    var numText = extLinks[i].innerHTML;
+    var numText = links[i].innerHTML;
     var num = numText.substring(1, numText.length-1);
     // 判断是否为数字
     if(!isNaN(num) && num){
       var note = 'note-' + num;
       var ref = 'ref-' + num;
-      var noteTitle = extLinks[i].getAttribute('title');
-      var noteHref = extLinks[i].getAttribute('href');
-      extLinks[i].setAttribute('href', '#' + note);
-      extLinks[i].setAttribute('id', ref);
-      extLinks[i].setAttribute('class', 'ref');
-      extLinks[i].outerHTML = '<sup>' + extLinks[i].outerHTML + '</sup>';
+      var noteTitle = links[i].getAttribute('title');
+      var noteHref = links[i].getAttribute('href');
+      links[i].setAttribute('href', '#' + note);
+      links[i].setAttribute('id', ref);
+      links[i].setAttribute('class', 'ref');
+      links[i].outerHTML = '<sup>' + links[i].outerHTML + '</sup>';
       document.getElementById('refs').insertAdjacentHTML('beforeend', '<li class="note"><a href="#'+ ref + '">&and;</a> <a href="'+ noteHref + '" title="' + noteTitle + '" id="' + note +'" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
     } else {
       // 不是数字保留并加上 target 属性
-      extLinks[i].setAttribute('target', '_blank');
-    };
+      links[i].setAttribute('target', '_blank');
+    }
   }
 }
 
@@ -236,7 +232,7 @@ a[target="_blank"]:after {
 
 以上 JS 示例如下：
 
-<iframe width="100%" height="300" src="//jsfiddle.net/fooleap/vczeka34/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height='268' scrolling='no' src='//codepen.io/fooleap/embed/ZbQPLL/?height=268&theme-id=18926&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true'></iframe>
 
 另外，本文就是使用自动生成参考资料的方式来书写，戳左下角“源码”按钮即可查看 Markdown 源码，如果没看到“源码”按钮，那么该换浏览器了。
 

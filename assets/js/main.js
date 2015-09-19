@@ -112,10 +112,15 @@ function keysDown(event) {
   if (keys[16] && keys[71]) {
     window.scrollTo(0, document.body.scrollHeight );
   }
+  if (keys[67]) {
+    if (!document.getElementById('dsq-1')) {
+      commentBtn.click();
+    }
+  }
   if (keys[71]) {
     if (!inCombo) {
       inCombo = true;
-      setTimeout('inCombo=false;', 500);
+      setTimeout('inCombo = false;', 500);
     } else {
       window.scrollTo(0, 0);
     }
@@ -140,7 +145,7 @@ function keysDown(event) {
     for (var i = 48; i <= 57; i ++) {
       keys[i] = i - 48;
     }
-    row = parseInt(row + keys[event.keyCode].toString());
+    row = parseInt(row.toString() + keys[event.keyCode].toString());
   }
 }
 function keysUp(event) {
@@ -176,7 +181,7 @@ if (document.addEventListener) {
 } else {
   window.onscroll = toggleToTop;
   backToTop.attachEvent('onclick', scrollToTop);
-};
+}
 
 // 目录
 var toc = document.getElementById('toc');
@@ -195,12 +200,12 @@ function tocShow () {
         sections.push(subTitles[i].offsetTop);
       }
     }
+    if (document.addEventListener) {
+      document.addEventListener('scroll', tocScroll, false);
+    } else {
+      window.onscroll = tocScroll;
+    }
   }
-  if (document.addEventListener) {
-    document.addEventListener('scroll', tocScroll, false);
-  } else {
-    window.onscroll = tocScroll;
-  };
 }
 function tocScroll(){
   var pos = document.documentElement.scrollTop || document.body.scrollTop;
@@ -216,7 +221,7 @@ function tocScroll(){
       document.querySelector('[href="#' + sectionIds[i] + '"').classList.add('active');
     }
   }
-};
+}
 
 // 参考资料、站外链接
 for (var i = 0; i < links.length; i ++) {
@@ -235,30 +240,32 @@ for (var i = 0; i < links.length; i ++) {
       document.getElementById('refs').insertAdjacentHTML('beforeend', '<li class="note"><a href="#'+ ref + '">&and;</a> <a href="'+ noteHref + '" title="' + noteTitle + '" id="' + note +'" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
     } else {
       links[i].setAttribute('target', '_blank');
-    };
-  };
-};
+    }
+  }
+}
 var noteLinks = document.querySelectorAll('a[href^="#note"], a[href^="#ref"]');
 function linkFocus (){
   for (var i = 0; i < noteLinks.length; i ++ ){
     noteLinks[i].parentElement.style.backgroundColor = '';
-  };
+  }
   var href = this.href.split('#')[1];
   document.getElementById(href).parentElement.style.backgroundColor = 'rgb(235, 235, 235)';
-};
+}
 for (var i = 0 ; i < noteLinks.length; i ++  ){
   if (document.addEventListener) {
     noteLinks[i].addEventListener('click', linkFocus, false);
   } else {
     noteLinks[i].onclick = linkFocus;
   }
-};
+}
 
 // Disqus 评论
 // 评论计数
 var urlArray = [];
 var commentsCount = document.querySelectorAll('.disqus-comment-count');
-if (commentsCount.length) {
+if (commentsCount.length && location.hostname == 'blog.fooleap.org'){
+  disqusShortName = "fooleap";
+  disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
   for (i=0; i < commentsCount.length; i++) {
     var url = commentsCount[i].getAttribute('data-disqus-url');
     urlArray.push('thread=link:' + url);
@@ -295,17 +302,17 @@ function showComments() {
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
   commentBtn.parentNode.removeChild(commentBtn);
-};
+}
 if(commentBtn){
   if (document.addEventListener) {
     commentBtn.addEventListener('click', showComments, false);
   } else {
     commentBtn.attachEvent('onclick', showComments);
-  };
+  }
 }
 if (/^#disqus|^#comment/.test(location.hash)){
   showComments();
-};
+}
 
 // 二维码 https://goo.gl/s9XrIl
 var wechat = document.getElementById('wechat');
@@ -332,7 +339,7 @@ if (wechat) {
       qrcode.classList.add('show');
       wechat.classList.add('light');
     }
-  };
+  }
   if (document.addEventListener) {
     wechat.addEventListener('click', qrCanvas, false);
   } else {
@@ -443,7 +450,7 @@ if(sourceView){
     sourceView.addEventListener('click', showSource, false);
   } else {
     sourceView.attachEvent('onclick', showSource);
-  };
+  }
 }
 
 // 图片
@@ -465,9 +472,9 @@ var imageSrc = [],
 function imageLink (){
   var figure = document.querySelectorAll('figure');
   for (var i = 0; i < figure.length; i ++) {
-    if (realImages[i].width == 640){ 
+    if (realImages[i].width >= 640){ 
       figure[i].outerHTML = '<a href="'+ imageSrc[i] +'" target="_blank">' + figure[i].outerHTML + '</a>';
-    };
+    }
   }
 }
 function exifShow(){
@@ -508,6 +515,59 @@ function exifLoad(){
   }
 }
 
+// 标签云 http://goo.gl/OAvhn3
+var tagCanvas = document.getElementById('tag-canvas');
+if (tagCanvas) {
+    if(clientWidth < 640){
+      tagCanvas.setAttribute('width', clientWidth);
+      tagCanvas.setAttribute('height', clientWidth*2/3);
+    }
+    var tagscript = document.createElement('script');
+    tagscript.type = 'text/javascript';
+    tagscript.src = 'http://' + location.host + '/assets/js/tagcanvas.min.js';
+    document.getElementsByTagName('head')[0].appendChild(tagscript);
+  }
+function tagCloud() {
+  TagCanvas.Start('tag-canvas', 'tags', {
+    textHeight: 25, 
+    textColour: null,
+    textFont: 'RobotoDraft, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "SimSun", sans-serif',
+    outlineColour: 'rgba(225, 225, 225, .3)',
+    outlineMethod: 'block',
+    bgRadius: 5,
+    reverse: true,
+    depth: 0.8,
+    Zoom: 1.5,
+    weight: true,
+    weightSizeMin: 10,
+    weightSizeMax: 40,
+    wheelZoom: false
+  });
+  var tagLinks = document.querySelectorAll('a[class^="tag"]');
+  var hidePosts = document.querySelectorAll('.post-list');
+  function tagShow (){
+    for (var i = 0; i < hidePosts.length; i ++ ){
+      hidePosts[i].style.display = 'none';
+    }
+    var href = decodeURIComponent(this.href.split('#')[1]);
+    document.querySelector('h1').innerHTML = '“' + href + '”的相关文章';
+    document.getElementById(href).removeAttribute('style');
+    setTimeout(function(){window.scrollTo(0, 0);},1);
+  }
+  for (var i = 0 ; i < tagLinks.length; i ++  ){
+    if (document.addEventListener) {
+    tagLinks[i].addEventListener('click', tagShow, false);
+    } else {
+    tagLinks[i].onclick = tagShow;
+    }
+  }
+  if(location.hash){
+    document.querySelector('[href="' + decodeURIComponent(location.hash) +'"]').click();
+    setTimeout(function(){window.scrollTo(0, 0);},1);
+  }
+    
+}
+
 setTimeout(function(){
   if ( location.hostname == 'blog.fooleap.org' ){
     var _hmt = _hmt || [];
@@ -535,5 +595,8 @@ window.onload = function(){
   imageLink();
   if (window.addEventListener){
     exifLoad();
+  }
+  if (tagCanvas) {
+    tagCloud();
   }
 }
