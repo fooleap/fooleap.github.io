@@ -214,7 +214,7 @@ function tocScroll(){
     if( i == subTitles.length - 1 && clientHeight > lob){
       pos = pos + (clientHeight - lob);
     }
-    if(sections[i] <= pos && sections[i] < pos + clientHeight){
+    if(sections[i] < pos && sections[i] < pos + clientHeight){
       if(document.querySelector('.active')){
         document.querySelector('.active').classList.remove('active');
       }

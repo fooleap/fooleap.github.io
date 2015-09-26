@@ -10,6 +10,7 @@ highlighter: pygments
 paginate: 10
 IMG_PATH: http://7fv9cr.com1.z0.glb.clouddn.com
 markdown: kramdown
+exclude: ['media']
 sass:
   sass_dir: _sass
   style: :compressed
