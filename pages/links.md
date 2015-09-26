@@ -19,6 +19,7 @@ title: 链接
 
 * [Anton's Blog](http://ashat.org){:title="@四川"}
 * [anoulin2009](http://blog.twodong.com/){:title="梁东宇@梧州"}
+* [Blackeeper's blog ](http://blog.blackeeper.com/){:title="李东升@深圳"}
 * [Conan06's blog](http://blog.conan06.com/){:title="Conan06@北京"}
 * [Mugbya's Blog](http://blog.mugbya.cn/)
 * [misshu](http://www.wuhuting.com/){:title="吴胡婷@北京"}
