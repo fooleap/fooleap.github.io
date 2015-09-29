@@ -456,7 +456,6 @@ if(sourceView){
 // 图片
 var postImages = document.querySelectorAll('.main-content img');
 var imageSrc = [], 
-    imageExif = [],
     realImages = [];
 (function imageSize() {
   for (var i = 0; i < postImages.length; i ++) {
@@ -464,7 +463,6 @@ var imageSrc = [],
     realImage.src = postImages[i].src;
     realImages.push(realImage);
     imageSrc.push(postImages[i].src.split(/(\?|\_)/)[0]);
-    imageExif.push(postImages[i].src.split(/(\?|\_)/)[0] + '\?exif');
     postImages[i].parentElement.classList.add('image');
     postImages[i].outerHTML = '<figure>' + postImages[i].outerHTML + '</figure>';
   }
@@ -478,9 +476,28 @@ function imageLink (){
   }
 }
 function exifShow(){
-  var exifInfo = this.querySelector('.exif')
+  var exifInfo = this.querySelector('.exif');
+  var exifUrl = this.querySelector('img').src.split(/(\?|\_)/)[0] + '\?exif';
   if(exifInfo){
     exifInfo.classList.add('show');
+  }
+  if(exifUrl.indexOf('jpg') >= 0 && clientWidth >= 555 && !exifInfo){
+    var xhrExif = new XMLHttpRequest();
+    xhrExif.open('GET', exifUrl, false);
+    xhrExif.send(null);
+    var exif = JSON.parse(xhrExif.responseText);
+    if (xhrExif.readyState == 4 && xhrExif.status == 200) {
+      if (exif.DateTimeOriginal) {
+        datetime = exif.DateTimeOriginal.val.split(/\:|\s/);
+        date = datetime[0] + '-' + datetime[1] + '-' + datetime[2];
+        model = (exif.Model) ? (exif.Model.val) : '无';
+        fnum = (exif.FNumber) ? (exif.FNumber.val.split(/\//)[1]) : '无';
+        extime = (exif.ExposureTime) ? (exif.ExposureTime.val) : '无';
+        iso = (exif.ISOSpeedRatings) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : '无';
+        flength = (exif.FocalLength) ? (exif.FocalLength.val) : '无';
+        this.innerHTML = this.innerHTML + '<figcaption class="exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</figcaption>';
+      }
+    }
   }
 }
 function exifHide(){
@@ -492,24 +509,6 @@ function exifHide(){
 function exifLoad(){
   var figure = document.querySelectorAll('figure');
   for (var i = 0; i < figure.length; i ++) {
-    if(imageSrc[i].indexOf('jpg') >= 0 && clientWidth >= 555){
-	  var xhrExif = new XMLHttpRequest();
-	  xhrExif.open('GET', imageExif[i], false);
-	  xhrExif.send(null);
-	  var exif = JSON.parse(xhrExif.responseText);
-      if (xhrExif.readyState == 4 && xhrExif.status == 200) {
-        if (exif.DateTimeOriginal) {
-          datetime = exif.DateTimeOriginal.val.split(/\:|\s/);
-          date = datetime[0] + '-' + datetime[1] + '-' + datetime[2];
-          model = (exif.Model) ? (exif.Model.val) : '无';
-          fnum = (exif.FNumber) ? (exif.FNumber.val.split(/\//)[1]) : '无';
-          extime = (exif.ExposureTime) ? (exif.ExposureTime.val) : '无';
-          iso = (exif.ISOSpeedRatings) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : '无';
-          flength = (exif.FocalLength) ? (exif.FocalLength.val) : '无';
-          figure[i].innerHTML = figure[i].innerHTML + '<figcaption class="exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</figcaption>';
-        }
-      }
-    }
     figure[i].addEventListener('mouseover', exifShow, false);
     figure[i].addEventListener('mouseout', exifHide, false);
   }
@@ -588,10 +587,8 @@ setTimeout(function(){
   }
 }, 1000);
 
-document.onreadystatechange = function(){
-  tocShow();
-}
 window.onload = function(){
+  tocShow();
   imageLink();
   if (window.addEventListener){
     exifLoad();
