@@ -22,13 +22,13 @@ title: 链接
 * [Blackeeper's blog ](http://blog.blackeeper.com/){:title="李东升@深圳"}
 * [Conan06's blog](http://blog.conan06.com/){:title="Conan06@北京"}
 * [Mugbya's Blog](http://blog.mugbya.cn/)
-* [misshu](http://www.wuhuting.com/){:title="吴胡婷@北京"}
-* [Terence's Blog](http://songtl.com/){:title="宋廷龙@桂林"}
+* [misshu's blog](http://www.wuhuting.com/){:title="吴胡婷@北京"}
+* [Terence's Blog](http://songtl.com/){:title="宋廷龙@南宁"}
 * [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
 * [Weidan's Blog](http://liweidan.cn/)
 * [大喇叭](http://blog.jiangqiwen.cn/){:title="@浙江"}
-* [古博](http://gubo.org){:title="许凯@郑州"}
+* [古博](http://gubo.org){:title="许凯@桂林"}
 * [广西大学Linux协会](http://www.gxlinux.com){:title="广西大学Linux协会"}
 * [乱步集](http://mrkod.com){:title="MR.KOD@杭州"}
 * [奶牛博客](http://www.nenew.net){:title="奶牛@淄博"}

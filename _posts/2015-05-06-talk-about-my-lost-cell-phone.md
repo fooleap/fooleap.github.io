@@ -101,7 +101,7 @@ scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609d
     var point14 = new BMap.Point(116.837586,23.471335);
     var points = [point01, point02, point03, point04, point05, point06, point07, point08, point09, point10, point11, point12, point13, point12, point11, point10, point09, point08, point07, point02, point01];
     var polyline = new BMap.Polyline(points, {strokeWeight:2});
-	var myIcon = new BMap.Icon("{{site.IMG_PATH}}/marker.png", new BMap.Size(19,25),{anchor: new BMap.Size(9, 25)});
+	var myIcon = new BMap.Icon("{{site.IMG_PATH}}/marker.png", new BMap.Size(23,25),{anchor: new BMap.Size(11, 25)});
     var marker1 = new BMap.Marker(point01,{icon:myIcon});  // 村里
     var marker2 = new BMap.Marker(point05,{icon:myIcon});  // 湾中
     var marker3 = new BMap.Marker(point13,{icon:myIcon});  // 宝奥城

@@ -188,17 +188,19 @@ var toc = document.getElementById('toc');
 var subTitles = document.querySelectorAll('.main-content h2,h3');
 var sectionIds = [];
 var sections = [];
+if (toc) {
+  var tocFixed = clientWidth/2 - 370 - toc.offsetWidth;
+  if ( tocFixed < 15){
+    toc.classList.add('hide');
+  } else {
+    toc.style.left = tocFixed + 'px';
+  }
+}
 function tocShow () {
   if (toc){
-    var tocFixed = clientWidth/2 - 385 - toc.offsetWidth;
-    if ( tocFixed < 15){
-      toc.classList.add('hide');
-    } else{
-      toc.style.left = tocFixed + 'px';
-      for (var i = 0; i < subTitles.length; i ++){
-        sectionIds.push(subTitles[i].getAttribute('id'));
-        sections.push(subTitles[i].offsetTop);
-      }
+    for (var i = 0; i < subTitles.length; i ++){
+      sectionIds.push(subTitles[i].getAttribute('id'));
+      sections.push(subTitles[i].offsetTop);
     }
     if (document.addEventListener) {
       document.addEventListener('scroll', tocScroll, false);
@@ -455,32 +457,29 @@ if(sourceView){
 
 // 图片
 var postImages = document.querySelectorAll('.main-content img');
-var imageSrc = [], 
-    realImages = [];
+var realImages = [];
 (function imageSize() {
   for (var i = 0; i < postImages.length; i ++) {
+    var imageSrc;
     var realImage = new Image();
     realImage.src = postImages[i].src;
     realImages.push(realImage);
-    imageSrc.push(postImages[i].src.split(/(\?|\_)/)[0]);
+    if(realImage.src.indexOf('jpg') >= 0){
+      imageSrc = realImage.src.split(/(\?|\_)/)[0] + '?imageView2/0/interlace/1';
+    } else {
+      imageSrc = realImage.src.split(/(\?|\_)/)[0];
+    }
     postImages[i].parentElement.classList.add('image');
+    postImages[i].setAttribute('data-jslghtbx-caption', postImages[i].getAttribute('alt'));
+    postImages[i].setAttribute('data-jslghtbx', imageSrc);
+    postImages[i].setAttribute('data-jslghtbx-group', 'lightbox');
     postImages[i].outerHTML = '<figure>' + postImages[i].outerHTML + '</figure>';
   }
 })();
-function imageLink (){
-  var figure = document.querySelectorAll('figure');
-  for (var i = 0; i < figure.length; i ++) {
-    if (realImages[i].width >= 640){ 
-      figure[i].outerHTML = '<a href="'+ imageSrc[i] +'" target="_blank">' + figure[i].outerHTML + '</a>';
-    }
-  }
-}
 function exifShow(){
   var exifInfo = this.querySelector('.exif');
+  var thisImage = this.querySelector('img');
   var exifUrl = this.querySelector('img').src.split(/(\?|\_)/)[0] + '\?exif';
-  if(exifInfo){
-    exifInfo.classList.add('show');
-  }
   if(exifUrl.indexOf('jpg') >= 0 && clientWidth >= 555 && !exifInfo){
     var xhrExif = new XMLHttpRequest();
     xhrExif.open('GET', exifUrl, false);
@@ -495,9 +494,12 @@ function exifShow(){
         extime = (exif.ExposureTime) ? (exif.ExposureTime.val) : '无';
         iso = (exif.ISOSpeedRatings) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : '无';
         flength = (exif.FocalLength) ? (exif.FocalLength.val) : '无';
-        this.innerHTML = this.innerHTML + '<figcaption class="exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</figcaption>';
+        thisImage.insertAdjacentHTML('afterend', '<figcaption class="exif show">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</figcaption>');
       }
     }
+  }
+  if(exifInfo){
+    exifInfo.classList.add('show');
   }
 }
 function exifHide(){
@@ -513,6 +515,15 @@ function exifLoad(){
     figure[i].addEventListener('mouseout', exifHide, false);
   }
 }
+// lightbox http://goo.gl/aA9Y5K
+(function lightbox(){
+  if(document.querySelectorAll('.image') && clientWidth > 640){
+    var lbscript = document.createElement('script');
+    lbscript.type = 'text/javascript';
+    lbscript.src = 'http://' + location.host + '/assets/js/lightbox.min.js';
+    document.getElementsByTagName('BODY')[0].appendChild(lbscript);
+  }
+})();
 
 // 标签云 http://goo.gl/OAvhn3
 var tagCanvas = document.getElementById('tag-canvas');
@@ -589,9 +600,12 @@ setTimeout(function(){
 
 window.onload = function(){
   tocShow();
-  imageLink();
   if (window.addEventListener){
     exifLoad();
+  }
+  if(document.querySelectorAll('.image') && clientWidth > 640){
+    var lightbox = new Lightbox();
+    lightbox.load();
   }
   if (tagCanvas) {
     tagCloud();

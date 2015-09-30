@@ -197,7 +197,7 @@ function startlushu(){
     points[28],//普宁站
     points[32]//葵潭站
   ];
-  var icon1 = new BMap.Icon('{{ site.IMG_PATH }}/marker.png', new BMap.Size(19,25),{anchor: new BMap.Size(9, 25)});
+  var icon1 = new BMap.Icon('{{ site.IMG_PATH }}/marker.png', new BMap.Size(23,25),{anchor: new BMap.Size(11, 25)});
   var icon2 = new BMap.Icon('{{ site.IMG_PATH }}/power-car.png', new BMap.Size(30, 30), {anchor: new BMap.Size(15, 15)});
   var polyline = new BMap.Polyline(points);
   var lushu = new BMapLib.LuShu(map, points, {

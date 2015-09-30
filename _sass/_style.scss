@@ -146,7 +146,7 @@ textarea{
 
 #navigation {
   position: fixed;
-  z-index: 999;
+  z-index: 1;
   top: 1%;
   right: 1%;
   font: inherit;
@@ -491,6 +491,9 @@ textarea{
       width: 100%;
       overflow: hidden;
       opacity: .7;
+    }
+    img{
+      cursor: pointer;
     }
   }
   table {
