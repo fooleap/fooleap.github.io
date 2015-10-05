@@ -49,19 +49,11 @@
           {% if page.date %}<i class="icon-calendar"></i><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
       </h2>
     </header>
-    {% if page.style or page.js %}
-      {% if page.style and page.js != true %}
-{{ content_style[0] }}{{ content_style[2] }}
-      {% endif %}
-      {% if page.js and page.style != true %}
-{{ content_js[0] }}{{ content_js[2] }}
-      {% endif %}
-      {% if page.style and page.js  %}
-{{ content_style[0] }}{{ content_js[2] }}
-      {% endif %}
-    {% else %}
-{{ content }}
-    {% endif %}
+{% if page.style or page.js %}
+{% if page.style and page.js != true %}{{ content_style[0] }}{{ content_style[2] }}{% endif %}
+{% if page.js and page.style != true %}{{ content_js[0] }}{{ content_js[2] }}{% endif %}
+{% if page.style and page.js  %}{{ content_style[0] }}{{ content_js[2] }}{% endif %}
+{% else %}{{ content }}{% endif %}
 
     <footer class="site-footer">
       <small>&copy; 2011-{{ site.time | date: '%Y' }} Proudly powered by Jekyll</small>

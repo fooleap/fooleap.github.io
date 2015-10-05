@@ -27,6 +27,14 @@ embed:focus {
   outline: none;
 } 
 
+audio:focus {
+  outline: none;
+} 
+
+video:focus {
+  outline: none;
+} 
+
 html{
   min-height: 100%;
 }
@@ -395,7 +403,7 @@ textarea{
     content: '';
   }
   .disable {
-    color: $lightgray;
+    color: $white;
   }
   a {
     border: none;

@@ -18,6 +18,8 @@ tags: [七牛云, 备份, qrsb]
 
 写博客也可以配合同步上传工具 QRSBox[[5]][5]，就可不用打开网页也能传文件了。
 
+评论区 Bohan Yang 提醒，qshell [[6]][6]也可轻松实现备份数据，尝试了一下，以上功能均可实现，很方便。
+
 ## 参考资料
 
 <ol id="refs"></ol>
@@ -27,7 +29,9 @@ tags: [七牛云, 备份, qrsb]
 [3]: http://kb.qiniu.com/5rq9zcs8 "备份工具 Qrsb 的下载及使用 - 七牛云存储"
 [4]: http://segmentfault.com/q/1010000003034609 "寻七牛官方提供的备份工具qrsb以及文档 - SegmentFault"
 [5]: http://developer.qiniu.com/docs/v6/tools/qrsbox.html "QRSBox 同步工具 | 七牛云存储"
+[6]: http://developer.qiniu.com/docs/v6/tools/qshell.html "qshell 命令行工具 | 七牛云存储"
 
 **本文历史**
 
 * 2015 年 09 月 26 日 完成初稿
+* 2015 年 10 月 07 日 qshell

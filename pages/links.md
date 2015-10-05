@@ -26,7 +26,7 @@ title: 链接
 * [Terence's Blog](http://songtl.com/){:title="宋廷龙@南宁"}
 * [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
-* [Weidan's Blog](http://liweidan.cn/)
+* [Weidan's Blog](http://liweidan.cn/){:title="@珠海"}
 * [大喇叭](http://blog.jiangqiwen.cn/){:title="@浙江"}
 * [古博](http://gubo.org){:title="许凯@桂林"}
 * [广西大学Linux协会](http://www.gxlinux.com){:title="广西大学Linux协会"}
@@ -35,5 +35,6 @@ title: 链接
 * [软件小子](http://bzdiao.com){:title="Bruse@西安"}
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
 * [以梦为马，奔向远方](http://linhaicaoyuan.org){:title="石明鑫@昆明"}
+* [宜优网](http://aqseo.net/){:title="何承周@安徽"}
 * [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
 * [贼头's Blog](http://www.makiller.com){:title="马震南@南宁"}

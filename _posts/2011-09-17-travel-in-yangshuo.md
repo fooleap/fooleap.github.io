@@ -119,8 +119,10 @@ scripts: "http://api.map.baidu.com/api?v=2.0&amp;ak=FCcc6261f101cd4ccefee22113a6
     bmap.style.height = mapWidth*2/3 + 'px';
     var map = new BMap.Map("hmap",{mapType: BMAP_HYBRID_MAP});
 	var point = new BMap.Point(110.2898120373,25.268058921597);
-	map.centerAndZoom(point, 19);
 	var marker = new BMap.Marker(point);
+    var icon1 = new BMap.Icon('http://7fv9cr.com1.z0.glb.clouddn.com/marker_sprite.png', new BMap.Size(39,25),{anchor: new BMap.Size(11, 25)});
+	map.centerAndZoom(point, 19);
 	map.addOverlay(marker);
-	marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+    marker.setIcon(icon1);
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE)
   </script>-->

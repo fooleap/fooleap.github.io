@@ -70,8 +70,10 @@ style: true
       changeChannel(channel);
     }
   } else {
-    $('#sttv').html('<big>您的浏览器不支持 Flash！</big>');
-    $('button').remove();
+    for (var i = 0; i < button.length; i ++){
+      button[i].classList.add('hide');
+    }
+    sttv.innerHTML = '<big>您的浏览器不支持 Flash！</big>';
   }
 
   function buttonClick (){

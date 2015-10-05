@@ -52,7 +52,7 @@ IrfanView 依赖于 [mfc42.dll](https://zh.wikipedia.org/wiki/MFC)，首先使�
 
 这里需要提到的还有文件关联，在 IrfanView 程序设置文件关联，对文件管理器 PCManFM 是无效的。
 
-可以搞一个自定义命令作为打开 IrfanView 的快捷方式，例如：`/usr/bin/iview`。
+可以搞一个自定义命令作为打开 IrfanView 的快捷方式，例如：`/usr/bin/iview`，对了别忘了加执行权限。
 
 {% highlight bash %}
 #!/bin/sh

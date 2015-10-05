@@ -51,7 +51,25 @@ QQ 或许是无法离开 Windows 的借口之一，在 Linux 上也会想用 QQ�
 ![Wine QQ]({{ site.IMG_PATH }}/wineqq-for-debian-01.png)
 ▲Wine QQ
 
-## QQ 轻聊版
+### 备选
+
+如果你不想采用以上的版本，想要自己安装，那么可能需要的步骤有以下几点：
+
+安装 winetricks
+    
+    sudo apt-get install winetricks
+
+设置 Wine 使用 32 位环境（如果 64 位系统的话）
+
+    export WINEARCH=win32
+
+安装相关的组件
+
+    winetricks -q riched20 ie6 mfc42
+
+具体可以参考这篇文章： [使用 Wine 运行腾讯 TM](http://lilydjwg.is-programmer.com/2013/3/24/run-tencent-messenger-with-wine.38382.html)
+
+### QQ 轻聊版
 
 因为用其他 Windows 软件安装包能安装且正常使用，所以就想使用官方版的 QQ。个人并不是很喜欢用第三方修改过的软件版本，腾讯官方有个轻聊版（目前 7.5 版）感觉不错，所以就下下来安装。
 
@@ -77,7 +95,7 @@ QQ 或许是无法离开 Windows 的借口之一，在 Linux 上也会想用 QQ�
 
 PS：我安装 QQ 轻聊版之前使用 winetricks 安装过一些函数库，所以不能保证只要安装 Wine 之后便能运行 QQ，具体也没去研究。再不济则可以下载清风老师的包除却 QQ 的相关文件，其他覆盖。
 
-## 其他
+### 其他
 
 另外，若喜欢更加简单粗暴，[TM 2013](http://im.qq.com/tm/2013/) 也是可以正常安装的，表情能用，只是这货好久没更新了。
 

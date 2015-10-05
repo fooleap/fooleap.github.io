@@ -151,16 +151,6 @@ function keysDown(event) {
 function keysUp(event) {
   keys[event.keyCode] = false;
 }
-if(window.addEventListener){
-  window.addEventListener('keydown', keysDown, false);
-  window.addEventListener("keyup", keysUp, false);
-} else if (document.attachEvent){
-  document.attachEvent('onkeydown', keysDown);
-  document.attachEvent('onkeyup', keysUp);
-} else {
-  document.addEventListener('keydown', keysDown, false);
-  document.addEventListener("keyup", keysUp, false);
-}
 
 // 返回顶部按钮
 var backToTop = document.getElementById('backtotop');
@@ -602,10 +592,35 @@ window.onload = function(){
   tocShow();
   if (window.addEventListener){
     exifLoad();
+    window.addEventListener('keydown', keysDown, false);
+    window.addEventListener('keyup', keysUp, false);
+  } else if (document.attachEvent){
+    document.attachEvent('onkeydown', keysDown);
+    document.attachEvent('onkeyup', keysUp);
+  } else {
+    document.addEventListener('keydown', keysDown, false);
+    document.addEventListener('keyup', keysUp, false);
   }
   if(document.querySelectorAll('.image') && clientWidth > 640){
     var lightbox = new Lightbox();
-    lightbox.load();
+    var lightBoxOptions = {
+      boxId: false,
+      dimensions: true,
+      captions: true,
+      prevImg: false,
+      nextImg: false,
+      hideCloseBtn: true,
+      closeOnClick: true,
+      loadingAnimation: 100,
+      animElCount: 4,
+      preload: true,
+      carousel: true,
+      animation: 400,
+      nextOnClick: true,
+      responsive: true,
+      maxImgSize: .9,
+    }
+    lightbox.load(lightBoxOptions);
   }
   if (tagCanvas) {
     tagCloud();
