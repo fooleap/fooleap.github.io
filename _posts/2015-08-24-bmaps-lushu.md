@@ -5,7 +5,7 @@ description: "很久以前，Google Maps 还能使用，要分享一些去徒步
 date: 2015-08-24 15:30:00 +0800
 category: tech
 thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/bmaps.png'
-tags: [百度地图, 路书, 潮汕]
+tags: ["百度地图 API", 路书, 潮汕]
 style: true
 js: true
 scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de','http://api.map.baidu.com/library/LuShu/1.2/src/LuShu_min.js']
