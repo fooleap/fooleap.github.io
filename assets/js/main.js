@@ -255,27 +255,32 @@ for (var i = 0 ; i < noteLinks.length; i ++  ){
 // 评论计数
 var urlArray = [];
 var commentsCount = document.querySelectorAll('.disqus-comment-count');
+var likeCount = document.querySelector('.disqus-like-count');
 if (commentsCount.length && location.hostname == 'blog.fooleap.org'){
   disqusShortName = "fooleap";
   disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
+}
+function jsonpCallback(result) {  
+  for (var i in result.response) {
+    var count = result.response[i].posts;
+    var likeCount = result.response[i].likes;
+    if ( likeCount ) {
+      document.querySelector('.disqus-like-count').innerHTML = likeCount + ' 人';
+    }
+    if ( count ) {
+      document.querySelector('[data-disqus-url="' + result.response[i].link + '"]').innerHTML = count;
+    }
+  }  
+}
+function disqusCount() {
   for (i=0; i < commentsCount.length; i++) {
     var url = commentsCount[i].getAttribute('data-disqus-url');
     urlArray.push('thread=link:' + url);
   }
-  function jsonpCallback(result) {  
-    for (var i in result.response) {
-      var count = result.response[i].posts;
-      if ( count ) {
-        document.querySelector('[data-disqus-url="' + result.response[i].link + '"]').innerHTML = count;
-      }
-    }  
-  }
-  (function () {
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = 'https://disqus.com/api/3.0/threads/set.jsonp' + '?callback=jsonpCallback' + '&api_key=' + disqusPublicKey + '&forum=' + disqusShortName + '&' + urlArray.join('&') ;
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.src = 'https://disqus.com/api/3.0/threads/set.jsonp' + '?callback=jsonpCallback' + '&api_key=' + disqusPublicKey + '&forum=' + disqusShortName + '&' + urlArray.join('&') ;
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 }
 var windowWidth = window.innerWidth;
 if ( windowWidth < 414 ){
@@ -302,9 +307,6 @@ if(commentBtn){
     commentBtn.attachEvent('onclick', showComments);
   }
 }
-if (/^#disqus|^#comment/.test(location.hash)){
-  showComments();
-}
 
 // 二维码 https://goo.gl/s9XrIl
 var wechat = document.getElementById('wechat');
@@ -327,7 +329,7 @@ if (wechat) {
     if (qrcode.classList.contains('show')) {
       qrcode.classList.remove('show');
       wechat.classList.remove('light');
-    } else{
+    } else {
       qrcode.classList.add('show');
       wechat.classList.add('light');
     }
@@ -624,5 +626,10 @@ window.onload = function(){
   }
   if (tagCanvas) {
     tagCloud();
+  }
+  if (/^#disqus|^#comment/.test(location.hash)){
+    showComments();
+  }else if (commentsCount.length && location.hostname == 'blog.fooleap.org'){
+    disqusCount();
   }
 }

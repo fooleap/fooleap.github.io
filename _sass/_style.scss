@@ -660,20 +660,19 @@ pre.terminal code {
   }
   .tag{
     display: inline-block;
-    padding: 0 5px 0 10px;
+    padding-right: 5px;
     position: relative;
     text-decoration: none;
   }
-  .tag::before {
-    background: $lightgray;
-    border-radius: 10px;
-    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
-    content: '';
-    height: 5px;
-    width: 5px;
-    position: absolute;
-    left: 2px;
-    top: 10px;
+  a {
+    color: $white!important;
+    background: $darkgray;
+    border-radius: 2px;
+    padding: 2px 3px;
+    font-size: 11px;
+  }
+  a:hover {
+    background: $darkgray;
   }
   a:after {
     display: none!important;
@@ -747,14 +746,11 @@ pre.terminal code {
 // Comment
 .comment {
   max-width: 640px;
+  min-height: 40px;
   text-align: center;
   margin: 5px auto;
   font-family: sans-serif;
   word-wrap: break-word;
-  white-space: pre-wrap; 
-  white-space: -moz-pre-wrap; 
-  white-space: -pre-wrap; 
-  white-space: -o-pre-wrap; 
   .show-comments {
     background-color: $lightgray;
     color: $darkgray;
