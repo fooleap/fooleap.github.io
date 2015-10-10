@@ -5,7 +5,7 @@ date: 2015-05-26 21:00:00 +0800
 description: "前段时间见汕头电视台可网上看直播，所以也想看看“澄海电视台”有没有在线渠道可以观看。"
 category: tech
 thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/wechat.png'
-tags: [微信, 腾讯视频, 网址]
+tags: [微信, WeChat, 腾讯视频, 网址]
 ---
 
 前段时间见[汕头电视台可网上看直播](sttv-online.html)，所以也想看看澄海电视台有没有在线渠道可以观看。

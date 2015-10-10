@@ -32,12 +32,14 @@ style: true
     }
     button:hover{
       cursor: pointer;
-      background: #666!important;
+      background: #333!important;
     }
     #qrcode{
       border-radius: 0!important;
     }
-    p{text-align:right;}
+    p{
+      text-align:right;
+    }
     </style>-->
 <!--<script>
   var html = document.querySelector('html');
@@ -91,7 +93,7 @@ style: true
     for (var i = 0; i < button.length; i ++){
       button[i].style.backgroundColor = '#000';
     };
-    document.querySelector('button[data-channel="' + theChannel + '"]').style.backgroundColor = '#333';
+    document.querySelector('button[data-channel="' + theChannel + '"]').style.backgroundColor = '#222';
     switch (theChannel){
       case 'sttv1':
         channelCode = 'lKGXIQa';

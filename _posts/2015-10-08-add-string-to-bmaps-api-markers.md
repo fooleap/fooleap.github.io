@@ -202,6 +202,8 @@ tags: ["百度地图 API", 标注, JavaScript]
 >
 >  http://api.map.baidu.com/images/markers.png
 >
+>  http://api.map.baidu.com/images/markers_new.png
+>
 >  http://api.map.baidu.com/images/marker_red.png
 >
 >  http://api.map.baidu.com/images/marker_red_sprite.png
@@ -213,6 +215,10 @@ tags: ["百度地图 API", 标注, JavaScript]
 >  http://api.map.baidu.com/images/trans_icons.png
 >
 > 以上域名换成 `api0.map.bdimg.com` 亦可
+>
+> http://app.baidu.com/map/images/us_mk_icon.png
+>
+> http://webmap0.map.bdstatic.com/wolfman/static/common/images/markers_new2_31a3944.png
 
 ## 参考资料
 
@@ -226,6 +232,10 @@ tags: ["百度地图 API", 标注, JavaScript]
 [6]: http://developer.qiniu.com/docs/v6/api/reference/fop/image/watermark.html#text-watermark "水印处理（watermark） | 七牛云存储"
 [7]: http://developer.qiniu.com/docs/v6/api/reference/fop/image/imagemogr2.html#imagemogr2-crop-size-spec "高级处理（imageMogr2） | 七牛云存储"
 [8]: https://developer.mozilla.org/zh-CN/docs/Web/API/WindowBase64/Base64_encoding_and_decoding "Base64的编码与解码 - Web API 接口 | MDN"
+
+**本文历史**
+
+* 2015 年 10 月 08 日 完成初稿
 
 <!--<style>
     .map{max-width:640px;width:100%;height:384px}
