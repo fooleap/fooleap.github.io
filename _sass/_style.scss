@@ -120,7 +120,7 @@ textarea{
     }
     &[target="_blank"]:after {
       font-family: "fontello";
-      content: '\e82d';
+      content: '\e80c';
       color: $darkblue;
       font-size: 10px;
       margin: 0 5px;
@@ -169,8 +169,8 @@ textarea{
     right: 0;
     display: block;
     width: 30px;
-    height: 36px;
-    line-height: 36px;
+    height: 42px;
+    line-height: 42px;
     font-size: 20px;
     color: $white;
     cursor: pointer;
@@ -193,11 +193,11 @@ textarea{
     li {
       display: inline;
       .navigation-item {
-      line-height: 36px;
+      line-height: 42px;
       color: rgb(160, 160, 160);
       display: block;
       overflow: hidden;
-      height: 36px;
+      height: 42px;
       padding: 0 15px;
       border-bottom: 1px solid rgb(50, 50, 50);
       vertical-align: middle;
@@ -623,20 +623,40 @@ pre.terminal {
 pre.terminal code {
   background-color: rgb(50, 50, 50);
 }
-
-.posts {
-  width: 50%;
-  float: left;
-  ul{
-    margin-left: 15px;
+#posts{
+  &:before {
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+  &:before, &:after {
+    display: table;
+    content: '';
+  }
+  .posts {
+    width: 50%;
+    float: left;
+    ul{
+      margin-left: 15px;
+    }
   }
 }
 
 
 #info {
   text-align: left;
+  padding: 5px 0;
   a{
     color: $default;
+  }
+  .like{
+    display: none;
+  }
+  .like a{
+    background: $lightgray;
+    padding: 3px;
+    border-radius: 3px;
   }
   &:before {
     content: "";
@@ -669,7 +689,7 @@ pre.terminal code {
     background: $darkgray;
     border-radius: 2px;
     padding: 2px 3px;
-    font-size: 11px;
+    font-size: 12px;
   }
   a:hover {
     background: $darkgray;

@@ -156,7 +156,7 @@ $darkblue: #3F658B;
 	&:before {
       font-family: "fontello";
       font-size: 25px;
-      content: '\e83d'; 
+      content: '\e83f'; 
     }
 	&:hover {
 		text-shadow: 0 0 10px #fff;
@@ -195,7 +195,7 @@ $darkblue: #3F658B;
 	@media screen and(min-width: 451px) {
 		right: 1em;
 		&.jslghtbx-no-img:before {
-          content: '\e81d'; 
+          content: '\e824'; 
 		}
 	}
 	@media screen and(max-width: 600px) {
@@ -220,7 +220,7 @@ $darkblue: #3F658B;
 	@media screen and(min-width: 451px) {
 		left: 1em;
 		&.jslghtbx-no-img:before {
-          content: '\e81a'; 
+          content: '\e822'; 
 		}
 	}
 	@media screen and(max-width: 600px) {

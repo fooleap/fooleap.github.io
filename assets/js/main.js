@@ -263,9 +263,9 @@ if (commentsCount.length && location.hostname == 'blog.fooleap.org'){
 function jsonpCallback(result) {  
   for (var i in result.response) {
     var count = result.response[i].posts;
-    var likeCount = result.response[i].likes;
+    var likeCounts = result.response[i].likes;
     if ( likeCount ) {
-      document.querySelector('.disqus-like-count').innerHTML = likeCount + ' 人';
+      document.querySelector('.disqus-like-count').innerHTML = likeCounts;
     }
     if ( count ) {
       document.querySelector('[data-disqus-url="' + result.response[i].link + '"]').innerHTML = count;

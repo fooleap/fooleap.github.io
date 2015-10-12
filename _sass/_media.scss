@@ -27,19 +27,6 @@
   body{
     font-size: 16px;
   }
-  #navigation{
-    #menu {
-      line-height: 35px!important;
-    }
-    .navigation-item{
-      height: 35px!important;
-      line-height: 35px!important;
-      font-size: 18px!important;
-    }
-    .navigation-list {
-      width: 160px!important;
-    }
-  }
   .wrapper {
     max-width: none;
     width: 100%;
@@ -92,8 +79,8 @@
     opacity: .6;
   }
   .posts {
-    width: auto;
-    float: none;
+    width: auto!important;
+    float: none!important;
   }
   .comment {
     padding: 8px;
