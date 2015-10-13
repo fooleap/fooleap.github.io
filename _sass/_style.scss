@@ -21,6 +21,7 @@ strong, b {
 iframe {
   border: none;
   width: 100%;
+  max-width: 640px;
 }
 
 embed:focus {
@@ -30,6 +31,11 @@ embed:focus {
 audio:focus {
   outline: none;
 } 
+
+video{
+  width: 100%;
+  max-width: 640px;
+}
 
 video:focus {
   outline: none;

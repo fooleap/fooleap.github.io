@@ -30,6 +30,7 @@ tags: [手机, 安卓, 华为]
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.webm" type="video/webm" />
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.ogv" type="video/ogg" />
+  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/hard-to-say-i-love-android-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="320" height="240"></embed>  
 </video>
 
 只能通过抠电池才能解决，但开机后没一会又出现这样的情况。看来是被装上流氓软件了，我让老爸恢复出厂设置，可是并没有恢复成功。
@@ -40,6 +41,7 @@ tags: [手机, 安卓, 华为]
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.webm" type="video/webm" />
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.ogv" type="video/ogg" />
+  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/hard-to-say-i-love-android-02.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="320" height="240"></embed>  
 </video>
 
 远水果然救不了近火，罢了，直接让爸爸拿去手机铺解决。

@@ -35,9 +35,10 @@ link: "/assets/css/video-js.min.css"
 <video id="MY_VIDEO_1" class="video-js vjs-default-skin" width="640" height="480" controls
  preload="auto" poster="{{site.IMG_PATH}}/ttplayer-teochow-song-03.jpg"
  data-setup="{}">
- <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.mp4" type='video/mp4'>
- <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.webm" type='video/webm'>
- <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.ogv" type='video/ogg'>
+  <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.mp4" type='video/mp4'>
+  <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.webm" type='video/webm'>
+  <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.ogv" type='video/ogg'>
+  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/interview_lxz_with_in_teochew.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="480"></embed>
 </video>
 <!--<style>
 .video-js {

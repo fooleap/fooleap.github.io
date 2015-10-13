@@ -36,6 +36,8 @@ tags: [潮汕, 汕头, 公交]
 * [iOS 版汕头公交](http://www.pgyer.com/iqkI)
 * [Android 版汕头公交](http://www.pgyer.com/tNDq)
 
+现在仅有 16 条线路支持实时数据查询，动态信息可关注其 app 的关于页面，当然内容也可直接 [点击这里](http://183.232.33.171/IntelligentBusService.asmx/GetAbout) 查看。
+
 另外，网页版也并不是没有，只是目前好像还查不到实时数据：[WAP 版汕头实时公交](http://wap.ishantou.com/bus/search.aspx?areacode=440500)
 
 ## 参考资料

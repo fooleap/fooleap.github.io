@@ -6,8 +6,8 @@ title: 链接
 
 ##推荐站点
 
-* [Ruby China](http://ruby-china.org/) 国内最权威的 Ruby 社区
-* [V2EX](http://v2ex.com/) 创意工作者们的社区
+* [Ruby China](https://ruby-china.org/) 国内最权威的 Ruby 社区
+* [V2EX](https://www.v2ex.com/) 创意工作者们的社区
 * [博客志](http://www.daquan8.com/) 记录互联网上值得记住的博客
 * [番茄土豆](https://pomotodo.com/) 开始完成了不起的工作
 * [好多视频网](http://haoduoshipin.com/) Web 开发小技巧
@@ -22,7 +22,7 @@ title: 链接
 * [Blackeeper's blog ](http://blog.blackeeper.com/){:title="李东升@深圳"}
 * [Conan06's blog](http://blog.conan06.com/){:title="Conan06@北京"}
 * [Mugbya's Blog](http://blog.mugbya.cn/)
-* [misshu's blog](http://www.wuhuting.com/){:title="吴胡婷@北京"}
+* [misshu's blog](http://blog.wuhuting.com/){:title="吴胡婷@北京"}
 * [Terence's Blog](http://songtl.com/){:title="宋廷龙@南宁"}
 * [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
