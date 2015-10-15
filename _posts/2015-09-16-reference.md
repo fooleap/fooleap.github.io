@@ -115,7 +115,6 @@ HTML 部分可简化如下：
 那一天，我在街上看到了条狗<a href="https://zh.wikipedia.org/wiki/狗" title="狗 - 维基百科">[1]</a>，后来发现居然是只狼<a href="https://zh.wikipedia.org/wiki/狼" title="狼 - 维基百科">[2]</a>。
 
 <h2>参考资料</h2>
-<ol id="refs"></ol>
 {% endhighlight %}
 
 使用更方便的 Markdown：
@@ -124,8 +123,6 @@ HTML 部分可简化如下：
 那一天，我在街上看到了条狗[[1]](https://zh.wikipedia.org/wiki/狗){:title="狗 - 维基百科"}，后来发现居然是只狼[[2]](https://zh.wikipedia.org/wiki/狼){:title="狼 - 维基百科"}。
 
 ## 参考资料
-
-<ol id="refs"></ol>
 {% endhighlight %}
 
 哦，对了，Markdown 本身可以以参考式链接形式写链接[[4]] [4]，可以更形象地装逼。
@@ -135,8 +132,6 @@ HTML 部分可简化如下：
 
 ## 参考资料
 
-<ol id="refs"></ol>
-
 [1]: https://zh.wikipedia.org/wiki/狗 "狗 - 维基百科"
 [2]: https://zh.wikipedia.org/wiki/狼 "狼 - 维基百科"
 {% endhighlight %}
@@ -144,6 +139,9 @@ HTML 部分可简化如下：
 采用 jQuery：
 
 {% highlight javascript %}
+if ($('h2').last().html() === '参考资料'){
+  $('h2').last().after('<ol id="refs"></ol>')
+}
 // 选择非本站链接
 $('a[href*="http:"]:not([href*="' + location.hostname + '"]), [href*="https:"]:not([href*="' + location.hostname + '"])').each(function(){
   // 去掉所选链接文本的最前、最后字符
@@ -176,9 +174,12 @@ JavaScript 原生：
 
 {% highlight javascript %}
 var links = document.querySelectorAll('a');
+if (document.querySelectorAll('h2')[document.querySelectorAll('h2').length-1].innerHTML === '参考资料'){
+  document.querySelectorAll('h2')[document.querySelectorAll('h2').length-1].insertAdjacentHTML('afterend', '<ol id="refs"></ol>');
+}
 for (var i = 0; i < links.length; i ++) {
   // 选择非本站链接
-  if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) == false ){
+  if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) === false ){
     // 去掉所选链接文本的最前、最后字符
     var numText = links[i].innerHTML;
     var num = numText.substring(1, numText.length-1);
@@ -237,8 +238,6 @@ a[target="_blank"]:after {
 另外，本文就是使用自动生成参考资料的方式来书写，戳左下角“源码”按钮即可查看 Markdown 源码，如果没看到“源码”按钮，那么该换浏览器了。
 
 ## 参考资料
-
-<ol id="refs"></ol>
 
 [1]: http://www.daquan8.com/ "博客志"
 [2]: http://www.w3.org/TR/html401/struct/links.html#h-12.1.3 "Specifying anchors and links"

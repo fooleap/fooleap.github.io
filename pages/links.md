@@ -4,6 +4,21 @@ permalink: /links.html
 title: 链接
 ---
 
+##工具链接
+
+* [FreeFormatter.com](http://www.freeformatter.com/)
+* [DeGraeve.com](http://www.degraeve.com/)
+* [Online converter](http://www.online-convert.com/)
+* [ClipConverter.cc](http://www.clipconverter.cc/)
+* [PiliApp](http://cn.piliapp.com/)
+* [IPIP.NET](http://www.ipip.net/)
+* [17CE](http://www.17ce.com/)
+* [Fontello](http://fontello.com/)
+* [Iconfont](http://www.iconfont.cn/)
+* [IcoMoon](https://icomoon.io/)
+* [Get Full-Size App Icon](http://submit.icoicon.com/)
+* [七牛开源库 CDN](http://staticfile.org/)
+
 ##推荐站点
 
 * [Ruby China](https://ruby-china.org/) 国内最权威的 Ruby 社区

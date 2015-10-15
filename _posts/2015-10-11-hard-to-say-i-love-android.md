@@ -26,7 +26,7 @@ tags: [手机, 安卓, 华为]
 
 或许没有上面那么多，但我感觉都不是什么好东西。这个所谓 UC 浏览器可能是假的，删掉后，重启又出现，然后手机启动后不一会就自动黑屏出现荣耀的 Logo，如下小视频：
 
-<video class="video" poster="{{ site.IMG_PATH }}/hard-to-say-i-love-android-03.jpg" controls="">
+<video class="video" poster="{{ site.IMG_PATH }}/hard-to-say-i-love-android-03.jpg" style="width:320px!important" controls>
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.webm" type="video/webm" />
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.ogv" type="video/ogg" />
@@ -37,7 +37,7 @@ tags: [手机, 安卓, 华为]
 
 妹妹空闲时候，我教她进入 recovery 模式并双清，还是没法解决，重启后 app 依然存在。后来通过 QQ 远程下载固件，将其移入 SD 卡后，教她用 SD 卡强制刷机，进进退退，搞了两个晚上，然而依旧没有解决问题。
 
-<video class="video" poster="{{ site.IMG_PATH }}/hard-to-say-i-love-android-04.jpg" controls="">
+<video class="video" poster="{{ site.IMG_PATH }}/hard-to-say-i-love-android-04.jpg" style="width:320px!important" controls>
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.webm" type="video/webm" />
   <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.ogv" type="video/ogg" />

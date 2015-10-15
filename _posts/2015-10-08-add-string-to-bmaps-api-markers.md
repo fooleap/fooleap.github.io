@@ -222,8 +222,6 @@ tags: ["百度地图 API", 标注, JavaScript]
 
 ## 参考资料
 
-<ol id="refs"></ol>
-
 [1]: http://developer.baidu.com/map/reference/index.php?title=Class:覆盖物类/Icon "Class:覆盖物类/Icon - 百度地图API"
 [2]: http://developer.baidu.com/map/reference/index.php?title=Class:覆盖物类/Marker "Class:覆盖物类/Marker - 百度地图API"
 [3]: http://www.w3schools.com/css/css_image_sprites.asp "CSS Image Sprites"

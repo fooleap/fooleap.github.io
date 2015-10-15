@@ -22,8 +22,6 @@ tags: [七牛云, 备份, qrsb]
 
 ## 参考资料
 
-<ol id="refs"></ol>
-
 [1]: http://segmentfault.com/q/1010000000694227/a-1020000000694343 "求七牛下载空间全部文件的方法 - SegmentFault"
 [2]: http://developer.qiniu.com/docs/v6/tools/qiniu-backup.html "备份工具 | 七牛云存储"
 [3]: http://kb.qiniu.com/5rq9zcs8 "备份工具 Qrsb 的下载及使用 - 七牛云存储"

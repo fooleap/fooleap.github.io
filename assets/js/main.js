@@ -1,53 +1,51 @@
 // timeago https://goo.gl/jlkyIS
 (function timeAgo(selector) {
+  var templates = {
+    prefix: '',
+    suffix: '前',
+    seconds: '几秒',
+    minute: '1 分钟',
+    minutes: '%d 分钟',
+    hour: '1 小时',
+    hours: '%d 小时',
+    day: '1 天',
+    days: '%d 天',
+    month: '1 个月',
+    months: '%d 个月',
+    year: '1 年',
+    years: '%d 年'
+  };
+  var template = function (t, n) {
+    return templates[t] && templates[t].replace(/%d/i, Math.abs(Math.round(n)));
+  };
 
-    var templates = {
-        prefix: '',
-        suffix: '前',
-        seconds: '几秒',
-        minute: '1 分钟',
-        minutes: '%d 分钟',
-        hour: '1 小时',
-        hours: '%d 小时',
-        day: '1 天',
-        days: '%d 天',
-        month: '1 个月',
-        months: '%d 个月',
-        year: '1 年',
-        years: '%d 年'
-    };
-    var template = function (t, n) {
-        return templates[t] && templates[t].replace(/%d/i, Math.abs(Math.round(n)));
-    };
+  var timer = function (time) {
+    if (!time) return;
+    time = time.replace(/\.\d+/, '');
+    time = time.replace(/-/, '/').replace(/-/, '/');
+    time = time.replace(/T/, ' ').replace(/Z/, ' UTC');
+    time = time.replace(/([\+\-]\d\d)\:?(\d\d)/, ' $1$2'); // -04:00 -> -0400
+    time = new Date(time * 1000 || time);
 
-    var timer = function (time) {
-        if (!time) return;
-        time = time.replace(/\.\d+/, '');
-        time = time.replace(/-/, '/').replace(/-/, '/');
-        time = time.replace(/T/, ' ').replace(/Z/, ' UTC');
-        time = time.replace(/([\+\-]\d\d)\:?(\d\d)/, ' $1$2'); // -04:00 -> -0400
-        time = new Date(time * 1000 || time);
+    var now = new Date();
+    var seconds = ((now.getTime() - time) * .001) >> 0;
+    var minutes = seconds / 60;
+    var hours = minutes / 60;
+    var days = hours / 24;
+    var years = days / 365;
 
-        var now = new Date();
-        var seconds = ((now.getTime() - time) * .001) >> 0;
-        var minutes = seconds / 60;
-        var hours = minutes / 60;
-        var days = hours / 24;
-        var years = days / 365;
+    return templates.prefix + (
+    seconds < 45 && template('seconds', seconds) || seconds < 90 && template('minute', 1) || minutes < 45 && template('minutes', minutes) || minutes < 90 && template('hour', 1) || hours < 24 && template('hours', hours) || hours < 42 && template('day', 1) || days < 30 && template('days', days) || days < 45 && template('month', 1) || days < 365 && template('months', days / 30) || years < 1.5 && template('year', 1) || template('years', years)) + templates.suffix;
+  };
 
-        return templates.prefix + (
-        seconds < 45 && template('seconds', seconds) || seconds < 90 && template('minute', 1) || minutes < 45 && template('minutes', minutes) || minutes < 90 && template('hour', 1) || hours < 24 && template('hours', hours) || hours < 42 && template('day', 1) || days < 30 && template('days', days) || days < 45 && template('month', 1) || days < 365 && template('months', days / 30) || years < 1.5 && template('year', 1) || template('years', years)) + templates.suffix;
-    };
-
-    var elements = document.querySelectorAll('.timeago');
-    for (var i in elements) {
-        var $this = elements[i];
-        if (typeof $this === 'object') {
-            $this.innerHTML = timer($this.getAttribute('title') || $this.getAttribute('datetime'));
-        }
+  var elements = document.querySelectorAll('.timeago');
+  for (var i in elements) {
+    var $this = elements[i];
+    if (typeof $this === 'object') {
+        $this.innerHTML = timer($this.getAttribute('title') || $this.getAttribute('datetime'));
     }
-    setTimeout(timeAgo, 60000);
-
+  }
+  setTimeout(timeAgo, 60000);
 })();
 
 // 判断是否支持 Flash http://goo.gl/cg206i
@@ -203,7 +201,7 @@ function tocScroll(){
   var pos = document.documentElement.scrollTop || document.body.scrollTop;
   var lob = document.body.offsetHeight - subTitles[subTitles.length - 1].offsetTop;
   for(var i = 0; i < sections.length; i ++){
-    if( i == subTitles.length - 1 && clientHeight > lob){
+    if( i === subTitles.length - 1 && clientHeight > lob){
       pos = pos + (clientHeight - lob);
     }
     if(sections[i] < pos && sections[i] < pos + clientHeight){
@@ -216,8 +214,11 @@ function tocScroll(){
 }
 
 // 参考资料、站外链接
+if (document.querySelectorAll('h2')[document.querySelectorAll('h2').length-1].innerHTML === '参考资料'){
+  document.querySelectorAll('h2')[document.querySelectorAll('h2').length-1].insertAdjacentHTML('afterend', '<ol id="refs"></ol>');
+}
 for (var i = 0; i < links.length; i ++) {
-  if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) == false ){
+  if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) === false ){
     var numText = links[i].innerHTML;
     var num = numText.substring(1, numText.length-1);
     if(!isNaN(num) && num){
@@ -256,7 +257,7 @@ for (var i = 0 ; i < noteLinks.length; i ++  ){
 var urlArray = [];
 var commentsCount = document.querySelectorAll('.disqus-comment-count');
 var likeCount = document.querySelector('.disqus-like-count');
-if (commentsCount.length && location.hostname == 'blog.fooleap.org'){
+if (commentsCount.length && location.hostname === 'blog.fooleap.org'){
   disqusShortName = "fooleap";
   disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
 }
@@ -317,15 +318,17 @@ if (wechat) {
   qrscript.src = 'http://' + location.host + '/assets/js/qr.min.js';
   document.getElementsByTagName('head')[0].appendChild(qrscript);
   function qrCanvas () {
+    var qrlevel = 'L';
+    var qrsize = 4;
     var qrurl = wechat.dataset.wechatUrl;
-    if (qrurl.length < 33 || ( qrurl.length >= 63 && qrurl.length < 79 )){
-      var qrlevel = 'L';
-    } else if ((qrurl.length >= 33 && qrurl.length < 43 ) || qrurl.length >= 85 ){
-      var qrlevel = 'Q';
-    } else if ((qrurl.length >= 43 && qrurl.length < 63) || (qrurl.length >= 79 && qrurl.length < 85)){
-      var qrlevel = 'M';
+    if ( qrurl.length >= 33 && qrurl.length < 43 ){
+      qrlevel = 'Q';
+    } else if ((qrurl.length >= 43 && qrurl.length < 63) || (qrurl.length >= 79 && qrurl.length < 84)){
+      qrlevel = 'M';
+    } else if( qrurl.length >= 84 ){
+      qrsize = 3;
     }
-    qr.canvas({ canvas: qrcode, level: qrlevel, size: 4, value: qrurl });
+    qr.canvas({ canvas: qrcode, level: qrlevel, size: qrsize, value: qrurl });
     if (qrcode.classList.contains('show')) {
       qrcode.classList.remove('show');
       wechat.classList.remove('light');
@@ -571,7 +574,7 @@ function tagCloud() {
 }
 
 setTimeout(function(){
-  if ( location.hostname == 'blog.fooleap.org' ){
+  if ( location.hostname === 'blog.fooleap.org' ){
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement('script');
@@ -629,7 +632,7 @@ window.onload = function(){
   }
   if (/^#disqus|^#comment/.test(location.hash)){
     showComments();
-  }else if (commentsCount.length && location.hostname == 'blog.fooleap.org'){
+  }else if (commentsCount.length && location.hostname === 'blog.fooleap.org'){
     disqusCount();
   }
 }

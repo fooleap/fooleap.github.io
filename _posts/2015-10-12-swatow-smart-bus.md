@@ -42,8 +42,6 @@ tags: [潮汕, 汕头, 公交]
 
 ## 参考资料
 
-<ol id="refs"></ol>
-
 [1]: http://www.gd.chinanews.com/2015/2015-03-02/2/344740.shtml "广东移动在汕头率先推出4G智能公交服务--广东新闻网"
 [2]: http://mybus.xiamentd.com/ "厦门无线城市掌上公交"
 [3]: http://web.chelaile.net.cn/ch5/ "车来了（网页版）"

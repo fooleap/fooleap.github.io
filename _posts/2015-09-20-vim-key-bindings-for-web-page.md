@@ -247,8 +247,6 @@ if(window.addEventListener){
 
 ## 参考资料
 
-<ol id="refs"></ol>
-
 [1]: http://vim.wikia.com/wiki/Vim_key_bindings_for_web_browsers "Vim key bindings for web browsers"
 [2]: http://portix.bitbucket.org/dwb/ "dwb - a webkit browser"
 [3]: http://www.zhihu.com/question/19842222 "知乎支持快捷键吗？"

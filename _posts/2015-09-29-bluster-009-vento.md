@@ -145,8 +145,6 @@ tags: [散热器, 笔记本, 徐氏父子]
 
 ## 参考资料
 
-<ol id="refs"></ol>
-
 [1]: http://post.smzdm.com/p/209056 "徐氏父子 2014款抽风式散热器Bluster 009 Vento_开箱晒物_什么值得买"
 [2]: https://item.taobao.com/item.htm?_u=t3vc8ha4de6&id=37315965285 "智能强效笔记本电脑抽风式散热器发明者徐氏父子14款009V-淘宝网"
 

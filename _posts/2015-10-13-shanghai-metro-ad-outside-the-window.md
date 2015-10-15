@@ -44,8 +44,6 @@ tags: [上海, 地铁, 广告]
 
 ## 参考资料
 
-<ol id="refs"></ol>
-
 [1]: http://www.guokr.com/question/312981/ "地铁隧道里的广告是什么原理呢？ - 果壳问答"
 [2]: http://www.zhihu.com/question/19796308 "地铁隧道里的动态广告是怎样实现的？ - 知乎"
 
