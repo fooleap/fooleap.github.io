@@ -257,6 +257,7 @@ for (var i = 0 ; i < noteLinks.length; i ++  ){
 var urlArray = [];
 var commentsCount = document.querySelectorAll('.disqus-comment-count');
 var likeCount = document.querySelector('.disqus-like-count');
+var commentBtn = document.querySelector('.show-comments');
 if (commentsCount.length && location.hostname === 'blog.fooleap.org'){
   disqusShortName = "fooleap";
   disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
@@ -270,6 +271,11 @@ function jsonpCallback(result) {
     }
     if ( count ) {
       document.querySelector('[data-disqus-url="' + result.response[i].link + '"]').innerHTML = count;
+    }
+    if (commentBtn && count > 0) {
+      document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '查看');
+    } else if( commentBtn ) {
+      document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '留下');
     }
   }  
 }
@@ -292,7 +298,6 @@ if ( windowWidth < 414 ){
   }
 }
 // 显示评论按钮
-var commentBtn = document.querySelector('.show-comments');
 function showComments() {
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

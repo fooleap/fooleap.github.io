@@ -89,56 +89,6 @@ tags: [散热器, 笔记本, 徐氏父子]
   </tbody>
 </table>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="8">自动模式下稳定后温度统计表（Lubuntu，单位：℃）</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td>位置</td>
-      <td>网页浏览</td>
-      <td>简单 PS</td>
-      <td>本地 MP4</td>
-      <td>网页 MP4</td>
-      <td>Flash 视频</td>
-      <td>最低温度</td>
-      <td>最高温度</td>
-    </tr>
-    <tr>
-      <td>CPU 核心 1</td>
-      <td>55</td>
-      <td>62</td>
-      <td>63</td>
-      <td>68</td>
-      <td>75</td>
-      <td>48</td>
-      <td>90</td>
-    </tr>
-    <tr>
-      <td>CPU 核心 2</td>
-      <td>49</td>
-      <td>54</td>
-      <td>58</td>
-      <td>65</td>
-      <td>73</td>
-      <td>38</td>
-      <td>93</td>
-    </tr>
-    <tr>
-      <td>排风口</td>
-      <td>35</td>
-      <td>36</td>
-      <td>36</td>
-      <td>38</td>
-      <td>40</td>
-      <td>34</td>
-      <td>42</td>
-    </tr>
-  </tbody>
-</table>
 看起来降温效果还是很明显的，降一十度没问题。
 
 最后，说一个无可避免的缺点，**噪音**！转速越高，噪音越大，不知道其他牌子的是否也是一样。

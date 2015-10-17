@@ -2,6 +2,7 @@
 layout: post
 title: iPhone 4s 已降级至 iOS 6.1.3
 description: "这两天，iPhone 4s 可以降级的消息一爆出，iPhone 4s 用户激动纷纷，鄙人今日（6 月 30 日）已降级，发篇博吧，感受啥的后面补上。"
+thumb: http://7fv9cr.com1.z0.glb.clouddn.com/ios6.png
 category: tech
 tags: ["iPhone 4s", "iOS 6", 降级, odysseusOTA, iPhone]
 ---

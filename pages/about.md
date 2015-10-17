@@ -7,7 +7,7 @@ scripts: ['http://www.midijs.net/lib/midi.js']
 style: true
 ---
 
-<a class="mid" id="play-mid" href="javascript:void(0)" onClick="MIDIjs.play('http://7fv9cr.com1.z0.glb.clouddn.com/Fmmusic.mid');"><i class="icon-volume"></i></a><a class="mid" id="stop-mid" href="javascript:void(0)" onClick="MIDIjs.stop();"><i class="icon-stop"></i></a><a class="mid" id="mid-title" href="http://www.xiami.com/song/3556769" target="_blank">三个人的时光</a>
+<a class="mid" id="play-mid" href="javascript:void(0)" onClick="MIDIjs.play('http://7fv9cr.com1.z0.glb.clouddn.com/Fmmusic.mid');"><i class="icon-volume-up"></i></a><a class="mid" id="stop-mid" href="javascript:void(0)" onClick="MIDIjs.stop();"><i class="icon-stop"></i></a><a class="mid" id="mid-title" href="http://www.xiami.com/song/3556769" target="_blank">三个人的时光</a>
 
 * 网志网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)

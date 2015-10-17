@@ -17,6 +17,7 @@ title: 链接
 * [Iconfont](http://www.iconfont.cn/)
 * [IcoMoon](https://icomoon.io/)
 * [Get Full-Size App Icon](http://submit.icoicon.com/)
+* [Graphemica](http://graphemica.com/)
 * [七牛开源库 CDN](http://staticfile.org/)
 
 ##推荐站点
@@ -41,7 +42,7 @@ title: 链接
 * [Terence's Blog](http://songtl.com/){:title="宋廷龙@南宁"}
 * [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
-* [Weidan's Blog](http://liweidan.cn/){:title="@珠海"}
+* [Weidan's World](http://liweidan.cn/){:title="@珠海"}
 * [大喇叭](http://blog.jiangqiwen.cn/){:title="@浙江"}
 * [古博](http://gubo.org){:title="许凯@桂林"}
 * [广西大学Linux协会](http://www.gxlinux.com){:title="广西大学Linux协会"}
