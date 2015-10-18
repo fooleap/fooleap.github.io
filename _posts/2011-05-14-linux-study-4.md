@@ -118,13 +118,13 @@ Arch Linux 在我的小本上发挥极致，更重要的是 Arch Linux 有着完
 
 **相关资料**
 
-1. [硬盘安装 ArchBang！](http://bbs.wuyou.com/viewthread.php?tid=191789)
+1. [硬盘安装 ArchBang！](http://bbs.wuyou.net/viewthread.php?tid=191789)
 2. [Arch Linux Wiki](https://wiki.archlinux.org/index.php/Main_Page)
 
 **注**
 
 1. 这个方法可能有些步骤是多余的，不过鄙人经过这样的配置之后输入法正常使用，所以也不想再折腾
-<del>2. 免费 VPN 可参考 [新民智工作室](http://samozi.com/) 文章：[郭嘉的故事](http://samozi.com/internet/tenacy-vpn-free-service.html)</del>
+2. 免费 VPN 可参考 [新民智工作室（我是王掌柜）](http://since1989.org/) 文章：[郭嘉的故事](http://since1989.org/internet/tenacy-vpn-free-service.html)
 
 **本文历史**
 

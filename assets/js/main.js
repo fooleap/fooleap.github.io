@@ -63,7 +63,7 @@ function isFlashSupported () {
 var nav = document.getElementById('navigation');
 var navList = document.querySelector('.navigation-list');
 var menu = document.getElementById('menu');
-var wrapper = document.querySelector('.wrapper');
+var container = document.querySelector('.container');
 function blogMenu(){
   if(navList.classList.contains('hide')) {
     navList.classList.remove('hide');
@@ -91,9 +91,9 @@ if (document.addEventListener) {
   nav.attachEvent('onclick', blogMenu);
 }
 if (document.addEventListener) {
-  wrapper.addEventListener('click', hideMenu, false);
+  container.addEventListener('click', hideMenu, false);
 } else {
-  wrapper.attachEvent('onclick', hideMenu)
+  container.attachEvent('onclick', hideMenu)
 }
 
 var links = document.querySelectorAll('a');
@@ -272,12 +272,14 @@ function jsonpCallback(result) {
     if ( count ) {
       document.querySelector('[data-disqus-url="' + result.response[i].link + '"]').innerHTML = count;
     }
-    if (commentBtn && count > 0) {
-      document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '查看');
-    } else if( commentBtn ) {
+    if (commentBtn) {
+      if( count > 0 ) {
+      document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '查看')
+      } else {
       document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '留下');
-    }
-  }  
+      }
+    }  
+  }
 }
 function disqusCount() {
   for (i=0; i < commentsCount.length; i++) {

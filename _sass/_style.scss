@@ -756,6 +756,11 @@ pre.terminal code {
       color: rgb(65, 93, 152);
     }
   }
+  #gplus{
+    &:hover {
+      color: rgb(220, 80, 70);
+    }
+  }
   #qrcode {
     display: none;
     position: absolute;

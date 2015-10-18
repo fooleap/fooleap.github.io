@@ -15,7 +15,10 @@ sass:
   sass_dir: _sass
   style: :compressed
 kramdown: 
-  toc_levels: "2,3" 
+  auto_ids:       true
+  auto_id_prefix: 'id-'
+  toc_levels:     '2,3'
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
 defaults:
   -
     scope:
