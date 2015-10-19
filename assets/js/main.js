@@ -273,7 +273,7 @@ function jsonpCallback(result) {
       document.querySelector('[data-disqus-url="' + result.response[i].link + '"]').innerHTML = count;
     }
     if (commentBtn) {
-      if( count > 0 ) {
+      if ( count ) {
       document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '查看')
       } else {
       document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '留下');
