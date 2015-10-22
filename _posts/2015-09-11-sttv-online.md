@@ -3,7 +3,7 @@ layout: post
 title: 汕头台也能网上看直播
 description: "看电视，或许是一种悠闲的生活 ，对于很多人来说，动画片似乎是小时候的最爱，而在我的印象里，从小就跟着爷爷饭后一壶茶从新闻联播看到汕头新闻。"
 category: life
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/sttv.png'
+thumb: 'IMG_PATH/sttv.png'
 tags: [潮汕, 今日视线, 汕头电视台, 橄榄台]
 ---
 

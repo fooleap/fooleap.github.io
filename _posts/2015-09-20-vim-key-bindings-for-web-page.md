@@ -3,7 +3,7 @@ layout: post
 title: JavaScript 实现 Vim 键绑定
 description: "一旦习惯 Vim 的热键操作，网页浏览也会想用熟悉的热键操作，有人为热门浏览器开发了扩展，例如 Firefox 有个人觉得近完美的扩展解决方案 Vimperator 或 Pentadactyl，Chrome 则有不大完美的 Vichrome、Vimium 等，还有些人直接写了类 vi 的浏览器，例如 dwb，不过我想没用过 vi 的人不会去尝试这样的扩展或软件。"
 date: 2015-09-20 07:10:00 +0800
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/js.png'
+thumb: 'IMG_PATH/js.png'
 category: tech
 tags: [JavaScript, Vim, 'Key Bindings', 快捷键]
 ---

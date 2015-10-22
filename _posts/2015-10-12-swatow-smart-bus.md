@@ -4,7 +4,7 @@ title: 汕头智能公交 app
 description: "所谓的智能公交据说是和移动合作，通过 4G 网络将其安装在公交车上的专用终端采集到的视频图像和位置信息传输到云计算中心平台，经过处理之后，可以为广大市民的手机提供实时的公交信息服务，也可以满足交通管理部门对公交企业进行智能调度和视频监控的需求。"
 date: 2015-10-12 11:20:00 +0800
 category: life
-thumb: http://7fv9cr.com1.z0.glb.clouddn.com/stbus.png
+thumb: IMG_PATH/stbus.png
 tags: [潮汕, 汕头, 公交]
 ---
 

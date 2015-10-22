@@ -4,7 +4,7 @@ title: 给地图标注加上字符
 description: "在地图中，显示多个地点的时候，想要更好的区分，往往会使用不同样式的地点图标，或改变图标的形状，或改变图标的颜色，或在图标上加上字符。论其成本，恐怕在原有地点图标上加上字符是最低的，添加字符相对来说也更利于区分。"
 date: 2015-10-08 18:00:00 +0800
 category: tech
-thumb: http://7fv9cr.com1.z0.glb.clouddn.com/bmaps.png
+thumb: IMG_PATH/bmaps.png
 style: true
 scripts: ["http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de"]
 js: true

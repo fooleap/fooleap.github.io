@@ -3,7 +3,7 @@ layout: post
 title: Linux 学习笔记 (3)
 description: "习惯于 Linux 之后，对 Windows 似乎有点陌生，前天一进去马上中毒，下了个 Avast 查杀，重起之后却无法进入系统，不知道什么原因了，于是重装了一下 XP……"
 category: tech
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/linux.png'
+thumb: 'IMG_PATH/linux.png'
 tags: [Grub, Linux, 学习, 笔记, 重装]
 ---
 

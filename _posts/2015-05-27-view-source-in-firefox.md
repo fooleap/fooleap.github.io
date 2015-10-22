@@ -4,7 +4,7 @@ title: "Firefox 的查看源代码功能"
 description: "Firefox 的查看源代码功能的总总"
 date: 2015-05-27 23:24:00 +0800
 category: tech
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/firefox.png'
+thumb: 'IMG_PATH/firefox.png'
 tags: [Firefox, view-source, 源代码, 新标签页]
 ---
 

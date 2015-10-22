@@ -4,7 +4,7 @@ title: Firefox 的菜单栏
 description: "鄙人刚使用浏览器时，无论哪款浏览器，都有经典的菜单栏。菜单使用起来很简单，很多设置、操作都只需要用鼠标点点菜单即可，方便极了。"
 date: 2015-08-14 18:00:00 +0800
 category: tech
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/firefox.png'
+thumb: 'IMG_PATH/firefox.png'
 tags: [Firefox, Pentadactyl, 'Windows 10', 菜单栏]
 ---
 

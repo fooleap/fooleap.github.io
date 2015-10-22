@@ -3,7 +3,7 @@ layout: post
 title: Debian 上安装 Wine QQ
 description: "QQ 或许是无法离开 Windows 的借口之一，在 Linux 上也会想用 QQ，还好现在 Wine 版本的 QQ 还能使用，就没有去使用并不是很好用的 pidgin-lwqq。"
 date: 2015-08-20 15:30:00 +0800
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/qq.png'
+thumb: 'IMG_PATH/qq.png'
 category: tech
 tags: [Linux, Debian, Wine, QQ, 'QQ 轻聊版']
 ---

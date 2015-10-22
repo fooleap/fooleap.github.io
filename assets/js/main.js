@@ -272,12 +272,8 @@ function jsonpCallback(result) {
     if ( count ) {
       document.querySelector('[data-disqus-url="' + result.response[i].link + '"]').innerHTML = count;
     }
-    if (commentBtn) {
-      if ( count ) {
-      document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '查看')
-      } else {
-      document.querySelector('.icon-chat').insertAdjacentHTML('afterend', '留下');
-      }
+    if ( commentBtn && count ) {
+      document.querySelector('.has-comment').innerHTML = '<i class="icon-chat"></i> 查看';
     }  
   }
 }
@@ -628,7 +624,7 @@ window.onload = function(){
       preload: true,
       carousel: true,
       animation: 400,
-      nextOnClick: true,
+      nextOnClick: false,
       responsive: true,
       maxImgSize: .9,
     }

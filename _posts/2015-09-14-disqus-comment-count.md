@@ -3,7 +3,7 @@ layout: post
 title: 显示 Disqus 评论计数
 description: "使用 Jekyll 生成静态页面做博客访问很快，可是网站托管在 GitHub，并不支持直接写入，所以就不得不外挂第三方评论系统。之前我也折腾对比过 Disqus 和多说，但最终还是没有切换到多说，选择继续留在 Disqus 观望，希望 Disqus 以后能一直保持不被墙。"
 date: 2015-09-14 15:00:00 +0800
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/disqus.png'
+thumb: 'IMG_PATH/disqus.png'
 category: tech
 tags: [Disqus, 'Disqus API', Jekyll, 评论]
 ---

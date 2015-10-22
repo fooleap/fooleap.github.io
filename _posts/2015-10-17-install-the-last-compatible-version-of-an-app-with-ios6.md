@@ -3,7 +3,7 @@ layout: post
 title: iOS 6 安装最新兼容版本 app
 description: "对比最新的中高端手机，iPhone 4s 逊色不少，没有目前新手机的新特性，各种性能也比较差。但将 iPhone 4s 降级为 iOS 6 之后，运行速度快了不少，越狱之后加上 Activator 等插件，用起来相当顺手，感觉还能再战十年。"
 date: 2015-10-17 13:30:00 +0800
-thumb: http://7fv9cr.com1.z0.glb.clouddn.com/ios6.png
+thumb: IMG_PATH/ios6.png
 category: tech
 tags: [iPhone, 'iPhone 4s', 'iOS 6']
 ---

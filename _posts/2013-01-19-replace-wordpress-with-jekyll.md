@@ -3,7 +3,7 @@ layout: post
 title: "使用 Jekyll 代替 WordPress"
 description: "Jekyll 是针对博客平台的静态网站生成器，目前你所看到的博客正是使用这个轻巧的工具生成的。"
 category: tech
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/jekyll.png'
+thumb: 'IMG_PATH/jekyll.png'
 tags: [WordPress, Jekyll, Git, Markdown]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Arch Linux 下的 ADSL 拨号上网"
 description: "前几天拉了网，普通的 ADSL 宽带，由于没有路由器，因此只能通过自身的拨号。在 Arch Linux 下，可以通过自带的 Netcfg 来连接，可以通过 RP-PPPoE 来连接，也可直接配置 pppd 实现拨号。"
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/archlinux.png'
+thumb: 'IMG_PATH/archlinux.png'
 category: tech
 tags: ["Arch Linux", ADSL, Netcfg, RP-PPPoE, pppd]
 ---

@@ -3,7 +3,7 @@ layout: post
 title: JavaScript 实现参考资料功能
 description: "有些时候写博文会引用很多外部链接，如果这些外部链接全部放在文中感觉有些不妥，至少在美观度上就有些偏离大众审美。为了更好地引（zhuāng）用（bī），在工夫茶的二三事中，我致（chāo）敬（xí）维基百科，模仿了其使用参考资料的形式，感觉还不错（当然不错）。"
 date: 2015-09-16 12:00:00 +0800
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/js.png'
+thumb: 'IMG_PATH/js.png'
 category: tech
 tags: [参考资料, Reference, JavaScript, Jekyll]
 ---

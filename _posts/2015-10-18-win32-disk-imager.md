@@ -3,7 +3,7 @@ layout: post
 title: 善用 Win32 Disk Imager
 description: "很久以前，那时年轻不懂事，没完没了折腾 Linux 的各种发行版，刚开始捣鼓的时身上没有光盘，所以安装系统时常常采用硬盘安装的方式。"
 date: 2015-10-18 23:00:00 +0800
-thumb: http://7fv9cr.com1.z0.glb.clouddn.com/linux.png
+thumb: IMG_PATH/linux.png
 category: tech
 tags: [Linux, 硬盘安装, 'U 盘安装']
 ---

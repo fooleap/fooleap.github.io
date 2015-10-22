@@ -39,6 +39,7 @@ style: true
 <pre id="result"><code></code></pre>
 </div>
 <!--<style>
+    a:after{content:none!important;}
     body{
       overflow-y:scroll;
     }

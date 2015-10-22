@@ -4,7 +4,7 @@ title: 百度地图 API 制作路书
 description: "很久以前，Google Maps 还能使用，要分享一些去徒步、骑行的线路地图十分方便，里面插上一些图片啥的也是毫无压力，鼠标点点就可以将线路图搞得有声有色，例如在这篇博文中所嵌入的地图。"
 date: 2015-08-24 15:30:00 +0800
 category: tech
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/bmaps.png'
+thumb: 'IMG_PATH/bmaps.png'
 tags: ["百度地图 API", 路书, 潮汕]
 style: true
 js: true
