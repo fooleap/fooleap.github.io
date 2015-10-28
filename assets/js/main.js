@@ -573,7 +573,6 @@ function tagCloud() {
     document.querySelector('[href="' + decodeURIComponent(location.hash) +'"]').click();
     setTimeout(function(){window.scrollTo(0, 0);},1);
   }
-    
 }
 
 setTimeout(function(){
