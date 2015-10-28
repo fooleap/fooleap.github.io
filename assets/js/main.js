@@ -312,26 +312,25 @@ if(commentBtn){
   }
 }
 
-// 二维码 https://goo.gl/s9XrIl
+// 二维码 http://goo.gl/JzmGoq
 var wechat = document.getElementById('wechat');
 var qrcode = document.getElementById('qrcode');
+function qrCode () {
+  var qrcode = new QRCode('qrcode', {
+    text: wechat.dataset.wechatUrl,
+    width: 96,
+    height: 96,
+    colorDark : '#000000',
+    colorLight : '#ffffff',
+    correctLevel : QRCode.CorrectLevel.M
+  });
+}
 if (wechat) {
   var qrscript = document.createElement('script');
   qrscript.type = 'text/javascript';
-  qrscript.src = 'http://' + location.host + '/assets/js/qr.min.js';
+  qrscript.src = 'http://' + location.host + '/assets/js/qrcode.min.js';
   document.getElementsByTagName('head')[0].appendChild(qrscript);
-  function qrCanvas () {
-    var qrlevel = 'L';
-    var qrsize = 4;
-    var qrurl = wechat.dataset.wechatUrl;
-    if ( qrurl.length >= 33 && qrurl.length < 43 ){
-      qrlevel = 'Q';
-    } else if ((qrurl.length >= 43 && qrurl.length < 63) || (qrurl.length >= 79 && qrurl.length < 84)){
-      qrlevel = 'M';
-    } else if( qrurl.length >= 84 ){
-      qrsize = 3;
-    }
-    qr.canvas({ canvas: qrcode, level: qrlevel, size: qrsize, value: qrurl });
+  function qrShow () {
     if (qrcode.classList.contains('show')) {
       qrcode.classList.remove('show');
       wechat.classList.remove('light');
@@ -341,9 +340,9 @@ if (wechat) {
     }
   }
   if (document.addEventListener) {
-    wechat.addEventListener('click', qrCanvas, false);
+    wechat.addEventListener('click', qrShow, false);
   } else {
-    wechat.attachEvent('onclick', qrCanvas );
+    wechat.attachEvent('onclick', qrShow );
   }
 }
 
@@ -597,6 +596,9 @@ setTimeout(function(){
 
 window.onload = function(){
   tocShow();
+  if (wechat) {
+    qrCode();
+  }
   if (window.addEventListener){
     exifLoad();
     window.addEventListener('keydown', keysDown, false);
