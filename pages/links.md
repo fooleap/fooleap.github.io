@@ -8,6 +8,7 @@ title: 链接
 
 * [FreeFormatter.com](http://www.freeformatter.com/)
 * [DeGraeve.com](http://www.degraeve.com/)
+* [ZXing Decoder Online](https://zxing.org/)
 * [Online converter](http://www.online-convert.com/)
 * [ClipConverter.cc](http://www.clipconverter.cc/)
 * [PiliApp](http://cn.piliapp.com/)
