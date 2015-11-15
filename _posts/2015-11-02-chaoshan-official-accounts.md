@@ -84,6 +84,16 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="钟意摄影" src="http://open.weixin.qq.com/qr/code/?username=wenyizhong2014" /></div>
+  <div class="nickname">钟意摄影</div>
+  <div class="info">
+    <span class="wechat-id">微信号：wenyizhong2014</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MjM5Mzc0NDI1OQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt1JA7b2fPRrymTSXae6xeEI&ext=h3pzFjLZCZ1_oflN4-iB_ANbIiBLTv4hLxuErqSn_bm3LuULohZJJEO4KvMnTfdy">其他</a></span>
+  </div>
+  <div class="intro">介绍：用眼睛发现美丽，用镜头定格精彩！</div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="潮风志" src="http://open.weixin.qq.com/qr/code/?username=cfzhi0" /></div>
   <div class="nickname">潮风志</div>
   <div class="info">
@@ -151,6 +161,16 @@ tags: [潮汕, 微信, 公众号]
     <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MjM5MzAzNzA2MA==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt2lG6Kx3L1u2O5auhy1arLY&ext=zMKRwhGG3zZaKqanBa3j9KmAUJUXWNd_VoAS1buwULnR05boVJJKbgBBkI-fg1iT">其他</a></span>
   </div>
   <div class="intro">介绍：汕头籍本土大学生发起的民间历史建筑关注小组，关注潮汕乃至整个南方沿海地区的文化遗产保护 。</div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="潮州“肆点金”古建筑文化兴趣小组" src="http://open.weixin.qq.com/qr/code/?username=cz-sdj" /></div>
+  <div class="nickname">潮州“肆点金”古建筑文化兴趣小组</div>
+  <div class="info">
+    <span class="wechat-id">微信号：cz-sdj</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3NDM0NTgxMQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt5cf6rkQsB_O7oU_FQJ1qss&ext=h3pzFjLZCZ3t711aSLGHqFt_zMF4ByhoOKyCHlqIGfBFDdeIbBpVvmzRADNpDaBi">其他</a></span>
+  </div>
+  <div class="intro">介绍：潮州古建筑文化宣传</div>
 </div>
 
 <div class="profile">
@@ -241,6 +261,16 @@ tags: [潮汕, 微信, 公众号]
     <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3MDQxNzE4MQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt5sr0gu9gRikXNZd9S8PVRA&ext=zMKRwhGG3zYQNQHVww8ZInE0vTQpfOCbOSApnIs0mg3VG8lBkj-visdLH3vbLbIi">其他</a></span>
   </div>
   <div class="intro">介绍：分享关于日常潮州话的正确写法读法及相关小故事与个人感想。</div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="潮州摄影" src="http://open.weixin.qq.com/qr/code/?username=czsy2014" /></div>
+  <div class="nickname">潮州摄影</div>
+  <div class="info">
+    <span class="wechat-id">微信号：czsy2014</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3MjI5MzQzNg==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFtwcDLBmjGvr4kMZ0AdWPLHE&ext=_L45N5QlA_Ueqfk1ht7PF4-5Aub8ZeYohKJ5JF9ltsW-hXW2SfBdwL05TshBp0YT">其他</a></span>
+  </div>
+  <div class="intro">介绍：潮州摄影人交流天地。</div>
 </div>
 
 <div class="profile">
