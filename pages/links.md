@@ -19,13 +19,14 @@ title: 链接
 * [IcoMoon](https://icomoon.io/)
 * [Get Full-Size App Icon](http://submit.icoicon.com/)
 * [Graphemica](http://graphemica.com/)
+* [You Might Not Need jQuery](http://youmightnotneedjquery.com/)
 * [七牛开源库 CDN](http://staticfile.org/)
 
 ##推荐站点
 
 * [Ruby China](https://ruby-china.org/) 国内最权威的 Ruby 社区
 * [V2EX](https://www.v2ex.com/) 创意工作者们的社区
-* [博客志](http://www.daquan8.com/) 记录互联网上值得记住的博客
+* [博客志](http://www.wuxianlandao.com/bokezhi/) 记录互联网上值得记住的博客
 * [番茄土豆](https://pomotodo.com/) 开始完成了不起的工作
 * [好多视频网](http://haoduoshipin.com/) Web 开发小技巧
 * [善用佳软](http://xbeta.info/) 最经典免费软件，最实用软件技巧
@@ -45,6 +46,8 @@ title: 链接
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
 * [Weidan's World](http://liweidan.cn/){:title="@珠海"}
 * [大喇叭](http://blog.jiangqiwen.cn/){:title="@浙江"}
+* [常阳时光](https://cyhour.com/){:title="@肇庆"}
+* [当下](http://fueis.com/){:title="@日本"}
 * [古博](http://gubo.org){:title="许凯@桂林"}
 * [广西大学Linux协会](http://www.gxlinux.com){:title="广西大学Linux协会"}
 * [乱步集](http://mrkod.com){:title="MR.KOD@杭州"}

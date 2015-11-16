@@ -124,6 +124,16 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="汕头市1860文化创意园" src="http://open.weixin.qq.com/qr/code/?username=ST1860CYY" /></div>
+  <div class="nickname">汕头市1860文化创意园</div>
+  <div class="info">
+    <span class="wechat-id">微信号：ST1860CYY</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA5NzUzNjUwNw==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt2dQLex2FY7UT8g6ci2nx3U&ext=h3pzFjLZCZ38aZntiVFHbJ7xSdtclGoF_Y-tlN4MJGHTXq6yx_sTJMT1Da1bVY8K">其他</a></span>
+  </div>
+  <div class="intro">介绍：“用创意激活历史，以文化提升产业”粤东首个文化创意园期待您的关注！</div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="潮汕平原" src="http://open.weixin.qq.com/qr/code/?username=gh_f65aedb0b5ab" /></div>
   <div class="nickname">潮汕平原</div>
   <div class="info">
