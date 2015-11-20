@@ -124,6 +124,16 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="踢桃文化" src="http://open.weixin.qq.com/qr/code/?username=tictoc_culture" /></div>
+  <div class="nickname">踢桃文化</div>
+  <div class="info">
+    <span class="wechat-id">微信号：tictoc_culture</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MjM5OTkxMDYzOQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt41tkEK2qJqJi3_jPSbwAck&ext=qpPiFRvAdH9svBzJ-QiteJYhw5Hltjz-L7l5MpWZs0u2wAMr67HjRq6VcnRjfEgz">其他</a></span>
+  </div>
+  <div class="intro">介绍：小草的耳朵原创漫画。不定期发布潮汕贱萌表情与《潮汕画》，欢迎来踢桃！</div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="汕头市1860文化创意园" src="http://open.weixin.qq.com/qr/code/?username=ST1860CYY" /></div>
   <div class="nickname">汕头市1860文化创意园</div>
   <div class="info">
@@ -151,6 +161,16 @@ tags: [潮汕, 微信, 公众号]
     <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAxOTY0MzA4OA==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt0toKqyiWpzTZhOypoihvwg&ext=_L45N5QlA_Vmi4S_JIjBUDQe6yf5rL3ofVMPDrXDcW1ldZjzQZYhD34VEJesABP7">其他</a></span>
   </div>
   <div class="intro">介绍：潮州曾子文化促进会微信频道，关注我，关注正能量。</div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="潮关风" src="http://open.weixin.qq.com/qr/code/?username=chaoguanfeng" /></div>
+  <div class="nickname">潮关风</div>
+  <div class="info">
+    <span class="wechat-id">微信号：chaoguanfeng</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3NDEwMTQ2Nw==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt2i6TAu1AdQfirBEy6wMLaw&ext=JWYPUbr8sGrLG64X0gdpehPUo-9vghYm6ffQK5SFSWOIlXXOK-78P0BPP_GF3sHo">其他</a></span>
+  </div>
+  <div class="intro">介绍：在潮乡怀抱分享潮关故事  用潮人视角感受潮流涌动  专于人文 倾注情感  寻平处立身  向宽处逐梦  择高处翱翔（汕头海关思想政治工作办公室）</div>
 </div>
 
 <div class="profile">
@@ -194,16 +214,6 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
-  <div class="left qrcode"><img alt="汕头幸福成长沙龙" src="http://open.weixin.qq.com/qr/code/?username=gerenguanli" /></div>
-  <div class="nickname">汕头幸福成长沙龙</div>
-  <div class="info">
-    <span class="wechat-id">微信号：gerenguanli</span>
-    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MjM5MzM0ODY3MA==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt4xhfEhnFrik7azH2xbCzp0&ext=_L45N5QlA_Vq94iAM1-mdxz4eNSVO2li2LpZNA__fa5WE8soD3WYwazx6dJ9m2xK">其他</a></span>
-  </div>
-  <div class="intro">介绍：同城公益【学习成长组织】，由发起人利用业余时间开展分享活动。关注【个人管理与心智成长】的知识，始终坚持【学校不教的知识、个人提炼的干货、落地可行的技巧】这种分享特色，希望在高效率、慢生活的节奏中去把握好生命的每一天。</div>
-</div>
-
-<div class="profile">
   <div class="left qrcode"><img alt="汕头食力派" src="http://open.weixin.qq.com/qr/code/?username=stslp2015" /></div>
   <div class="nickname">汕头食力派</div>
   <div class="info">
@@ -211,6 +221,16 @@ tags: [潮汕, 微信, 公众号]
     <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAxNjM2ODA5Mw==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt_s6NXcp8jBmgjZa3qkdEcM&ext=_L45N5QlA_V6kt3C5XqkPY-jbh-iUN2nSlnNUPDuaLpHCUZ2zr8fua6UHFh9nr9I">其他</a></span>
   </div>
   <div class="intro">介绍：美食+努力+派派！饿了就看看，不饿也看看！</div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="汕头市潮菜研究会" src="http://open.weixin.qq.com/qr/code/?username=chaochaiyanjiuhui" /></div>
+  <div class="nickname">汕头市潮菜研究会</div>
+  <div class="info">
+    <span class="wechat-id">微信号：chaochaiyanjiuhui</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3NzQyODQyNQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFtytzej3-bTQ0luzVbPFFESc&ext=JWYPUbr8sGprE7w1tjZc4YxULIV9sTNIsR-1LQM5t_yk1P7AtnIWxFEJXBQ5tK-r">其他</a></span>
+  </div>
+  <div class="intro">介绍：通过开展烹饪理论与烹饪实践研究，提高潮菜的烹饪水平。同时将研究成果及时传播出去，促进潮菜产业的进步和发展。</div>
 </div>
 
 <div class="profile">

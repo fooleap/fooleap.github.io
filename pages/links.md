@@ -58,3 +58,5 @@ title: 链接
 * [宜优网](http://aqseo.net/){:title="何承周@安徽"}
 * [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
 * [贼头's Blog](http://www.makiller.com){:title="马震南@南宁"}
+
+<script type="text/javascript" src="http://static.zgboke.com/hutui.js?delico" id="zgboke-nav-js"></script>

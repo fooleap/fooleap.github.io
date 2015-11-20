@@ -2,7 +2,7 @@
 layout: post
 title: 清除快速访问中无法删除的项目
 description: "由于某些需要，这段时间一直使用 Windows，目前使用的是 Windows 10，最近碰到一个令强迫症患者无法接受的小问题。"
-date: 2015-11-20 07:00:00 +0800
+date: 2015-11-20 08:25:00 +0800
 thumb: 'IMG_PATH/windows10.png'
 category: tech
 tags: [Windows, 快速访问]

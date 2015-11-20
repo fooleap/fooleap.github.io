@@ -8,7 +8,7 @@ timezone: Asia/Shanghai
 permalink: /:title.html 
 highlighter: pygments
 paginate: 10
-IMG_PATH: http://7fv9cr.com1.z0.glb.clouddn.com
+IMG_PATH: http://source.fooleap.org
 markdown: kramdown
 exclude: ['media', 'update.lftp', 'pushbaidu.sh']
 sass:
