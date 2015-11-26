@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 备份七牛云的文件
+title: 备份七牛的文件
 description: "之前说过我现在是用七牛云做图床的，那么备份已经上传在七牛云的图片是否方便呢？在官网翻了一下，并没有找到类似一键备份的工具。"
 date: 2015-09-26 12:00:00 +0800
 thumb: 'IMG_PATH/qiniu.png'
 category: tech
-tags: [七牛云, 备份, qrsb]
+tags: [七牛, 备份, qrsb]
 ---
 
 之前说过我现在是 [用七牛云做图床的](/image-hosting.html)，那么备份已经上传在七牛云的图片是否方便呢？在官网翻了一下，并没有找到类似一键备份的工具。

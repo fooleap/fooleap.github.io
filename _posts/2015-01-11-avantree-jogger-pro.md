@@ -9,7 +9,7 @@ tags: [蓝牙耳机, 骑车, 跑步, Avantree]
 * toc
 {:toc}
 
-##为什么买 Avantree Jogger Pro？##
+##为什么买 Avantree Jogger Pro？
 
 前几天，我的一个耳塞又坏掉了，这一两年都不知道虐坏掉几个耳机，包括手机附带的以及买过的一些低端耳机。
 
@@ -27,7 +27,8 @@ tags: [蓝牙耳机, 骑车, 跑步, Avantree]
 
 开头就有提到的，我一直佩戴着跑步的耳塞 AKG K309 坏掉了，由于 iPhone 自带的耳塞比较小，戴着跑步很容易脱落，鄙人就想买一个耳机可以跑步时佩戴，加上已经坏掉了不少的耳塞，所以我就想买个不容易坏的。
 
-![AKG K309]({{site.IMG_PATH}}/avantree-jogger-pro-01.jpg)
+![AKG K309]({{site.IMG_PATH}}/avantree-jogger-pro-01.jpg?imageView2/1/w/640/h/640)
+&#9650;AKG K309
 
 鉴于经济能力有限，也没法花钱买太好的耳塞，也怕好的耳塞被我那般暴力使用也不会好到哪里去。
 
@@ -41,37 +42,45 @@ tags: [蓝牙耳机, 骑车, 跑步, Avantree]
 
 经过一些心理上的挣扎之后，我决定斥资买这么一款耳机。虽然亚马逊第三方卖家提供，但也是亚马逊物流配送，很快就收到货。
 
-##Avantree Jogger Pro 怎么样？##
+##Avantree Jogger Pro 怎么样？
 
 其包装颇简单，不过该有的都有了。
 
-![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-02.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-02.jpg?imageView2/1/w/640/h/640)
+&#9650;外包装
 
 第一次买蓝牙耳机，也是第一次戴这样的耳机。
 
-![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-03.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-03.jpg?imageView2/1/w/640/h/640)
+&#9650;Avatree Jogger Pro
 
 这个塑胶耳塞，不经说明书真的不知道是装上去应该怎么用的。
 
-![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-04.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-04.jpg?imageView2/1/w/640/h/640)
+&#9650;塑胶耳塞
 
 事实上这个耳机是戴上去后，那个尖的地方插到耳朵里，戴起来有一定的不适感，不过还在忍受范围内，如果是运动时佩戴，基本没什么感觉。
 
-![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-05.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-05.jpg?imageView2/1/w/640/h/640)
+&#9650;Avatree Jogger Pro
 
 充电孔使用这种设计，需要充电的时候只需轻轻拨开即可。
 
-![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-06.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-06.jpg?imageView2/1/w/640/h/640)
+&#9650;充电孔
 
 很普通的充电线，和大多数电子产品一样，也是没有配备充电器。
 
-![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-07.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-07.jpg?imageView2/1/w/640/h/640)
+&#9650;充电线
 
 到目前为止，这款耳机我使用了一个星期，怎么说呢？感受最直接的就是方便了！现在打电话，不需要拿着手机贴在耳旁，也不需要如同使用有线耳机一样拿着手机，接通了之后，手机可以放一边，活动自由。
 
 更方便的还数骑车、跑步，再也不用担心耳机很容易坏，活动也会更加自如，妈妈再也不用担心我的耳机会因为跑步而坏掉了！
 
-##Avantree Jogger Pro 怎么用？##
+说到音质，只是一般般，不过声音很大，隔音很好，这个必须承认，运动耳机就该这样。
+
+##Avantree Jogger Pro 怎么用？
 
 货到手上，若没用过蓝牙耳机，应该怎么用呢？首先，肯定先把硅胶套套上，其次，打开手机蓝牙功能进行匹配。
 
@@ -82,7 +91,8 @@ tags: [蓝牙耳机, 骑车, 跑步, Avantree]
 3. 打开手机蓝牙功能，搜索设备。
 4. 按照手机所提示的步奏完成对检索到的“Avantree Jogger Pro”进行匹配，有些手机需要输入密码，即为“0000”。
 
-![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-11.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-08.jpg?imageView2/1/w/640/h/640)
+&#9650;手机匹配
 
 以上，可以在 [其说明书](http://www.avantree.com/media/user_manual/AS6P-user-manual.pdf) 里找到，由于说明书只有英文（至少我买到时只有英文），所以在此贴上简单使用教程。更为复杂的使用，请看说明书~
 
@@ -90,15 +100,17 @@ PS：如果你看不懂英文，某剽窃商倒是有一份粗糙的中文版，
 
 耳机连接到 iPhone 时，iPhone 可以显示其电量，耳机电量不足耳机也会有声音提示，这个我觉得很贴心。
 
-![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-12.jpg)
+![Avantree Jogger Pro]({{site.IMG_PATH}}/avantree-jogger-pro-09.jpg?imageView2/1/w/640/h/640)
+&#9650;手机显示电量
 
-##Avantree Jogger Pro 有什么不足？##
+##Avantree Jogger Pro 有什么不足？
 
 这个耳机是蓝牙 4.0，理论上传输距离挺长的。但我感觉一旦隔墙，传输效果很差，基本上会断开。平时使用偶有断续，不过是在不影响使用的范围内。音质一般，鄙人的木耳已感觉不错。
 
 耳机硅胶部分容易脱落，耳机和电线连接的硅胶很容易脱落，不过这部分就算脱落也不会掉下。
 
-![硅胶脱落]({{site.IMG_PATH}}/avantree-jogger-pro-08.jpg)
+![硅胶脱落]({{site.IMG_PATH}}/avantree-jogger-pro-10.jpg?imageView2/1/w/640/h/640)
+&#9650;脱落的硅胶
 
 鄙人在里面贴了双面胶后再套上去，终于再也不脱落，不过夏天流汗多可能不适合这么做。
 
@@ -108,11 +120,13 @@ PS：如果你看不懂英文，某剽窃商倒是有一份粗糙的中文版，
 
 在寻找耳塞期间，鄙人也发现 Avantree 官方在某喵的旗舰店已经开了，但官方并没售卖耳塞这种小配件。抱着试一试的态度问了下客服，没想到这么爽快免费赠送一套耳塞，赞一个！
 
-![Avantree 客服聊天记录]({{site.IMG_PATH}}/avantree-jogger-pro-09.png)
+![Avantree 客服聊天记录]({{site.IMG_PATH}}/avantree-jogger-pro-01.png)
+&#9650;Avantree 客服聊天记录
 
 等待了几天，终于拿到几个耳塞。
 
-![四个硅胶耳塞]({{site.IMG_PATH}}/avantree-jogger-pro-10.jpg)
+![四个硅胶耳塞]({{site.IMG_PATH}}/avantree-jogger-pro-11.jpg)
+&#9650;四个硅胶耳塞
 
 **本文历史**
 
@@ -120,3 +134,4 @@ PS：如果你看不懂英文，某剽窃商倒是有一份粗糙的中文版，
 * 2014 年 11 月 28 日 更新不足部分
 * 2014 年 12 月 23 日 更新使用部分
 * 2015 年 01 月 11 日 粗糙中文说明书下载
+* 2015 年 11 月 29 日 更新图片

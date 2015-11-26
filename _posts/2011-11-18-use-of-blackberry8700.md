@@ -2,6 +2,7 @@
 layout: post
 title: 我的黑莓 8700 之使用篇
 description: "此前说过，黑莓是先结婚后恋爱的手机，刚开始使用黑莓那是相当不适应，慢慢的各种操作上手熟悉后，用起来就相当顺手了。"
+thumb: IMG_PATH/blackberry.png
 category: tech
 tags: [手机, 工程模式, 热键大师, "黑莓 8700"]
 ---

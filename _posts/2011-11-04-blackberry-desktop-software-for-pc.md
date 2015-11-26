@@ -2,6 +2,7 @@
 layout: post
 title: "我的黑莓 8700 之桌面篇"
 description: "一款智能手机少不了的东西，除了应用之外，还有强大的桌面管理器，以方便用户在电脑端管理手机上的软件、文件，同步数据到电脑，利用手机进行拨号上网等。目前，黑莓的 PC 端软件，虽说不上完美，但以够用。主流桌面操作系统上都可对进行刷机，软件的安装 / 卸载，同步数据等操作。"
+thumb: IMG_PATH/blackberry.png
 category: tech
 tags: [手机, "黑莓 8700", Barry, Linux, Windows]
 ---
