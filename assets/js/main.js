@@ -461,11 +461,12 @@ var realImages = [];
     var realImage = new Image();
     realImage.src = postImages[i].src;
     realImages.push(realImage);
-    if(realImage.src.indexOf('jpg') >= 0){
-      imageSrc = realImage.src.split(/(\?|\_)/)[0] + '?imageView2/0/interlace/1';
-    } else {
+  /*if(realImage.src.indexOf('jpg') >= 0){
+   *   imageSrc = realImage.src.split(/(\?|\_)/)[0] + '?imageView2/0/interlace/1';
+   *} else {
+   */
       imageSrc = realImage.src.split(/(\?|\_)/)[0];
-    }
+   // }
     postImages[i].parentElement.classList.add('image');
     postImages[i].setAttribute('data-jslghtbx-caption', postImages[i].getAttribute('alt'));
     postImages[i].setAttribute('data-jslghtbx', imageSrc);

@@ -64,6 +64,7 @@ iOS 6.1.3 可采用 [p0sixspwn](http://p0sixspwn.com/) 进行越狱，不过 Win
 |[Five Icon Switcher](cydia://package/com.chpwn.five-icon-switcher)|Telesphoreo|后台五个图标（其实可以设置 1 - 10）|
 |[Five-Column SpringBoard](cydia://package/net.r-ch.fcsb)|ModMyi|主菜单五列图标|
 |[InstaSnap](cydia://package/com.ravirajm.instasnap)|ModMyi|通知中心快速启动 Instagram 拍照界面|
+|[Keyboard Accio](cydia://package/tw.hiraku.keyboardaccio)|BigBoss|优化输入法切换|
 |[KuaiDial](cydia://package/kuaidial-beta)|[kuaidial](cydia://url/https://cydia.saurik.com/api/share#?source=http://kuaidial.googlecode.com/svn/deb)|号码归属地|
 |[LastApp](cydia://package/jp.ashikase.lastapp)|BigBoss|快速切换上一个 app，配合 Activator|
 |[LiveClock](cydia://package/liveclock)|BigBoss|实时时钟图标|

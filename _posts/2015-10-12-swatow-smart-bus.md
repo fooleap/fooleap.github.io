@@ -33,6 +33,7 @@ tags: [潮汕, 汕头, 公交]
 
 ![汕头公交 app]({{ site.IMG_PATH }}/swatow-smart-bus-02.png?imageView2/2/w/360)
 
+* [鮀城通的下载页面](http://gd.10086.cn/st10086/app/bus.aspx)
 * [iOS 版汕头公交](http://www.pgyer.com/iqkI)
 * [Android 版汕头公交](http://www.pgyer.com/tNDq)
 

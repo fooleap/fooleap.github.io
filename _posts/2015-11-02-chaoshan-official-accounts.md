@@ -164,6 +164,16 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="长光里" src="http://open.weixin.qq.com/qr/code/?username=CZ-CGL" /></div>
+  <div class="nickname">长光里</div>
+  <div class="info">
+    <span class="wechat-id">微信号：CZ-CGL</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MjM5OTQ4MDUwNQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFtz3HKIRi9wBMVaYKIoSty_4&ext=JWYPUbr8sGqUPAKxqqBpgjcrlprI5D9gfY7RMsoWnhoIXrkA23mifjA2C5If0EcQ">其他</a></span>
+  </div>
+  <div class="intro">介绍：直播时事、关注潮州；专注原创、独家视频！</div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="潮关风" src="http://open.weixin.qq.com/qr/code/?username=chaoguanfeng" /></div>
   <div class="nickname">潮关风</div>
   <div class="info">
