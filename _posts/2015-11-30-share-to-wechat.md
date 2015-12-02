@@ -76,7 +76,9 @@ tags: [微信, 二维码, JavaScript]
 
 至于一些自定义参数的设置，例如 `correctLevel` 等，以及二维码应该以什么形式存在，点击显示或是直接显示在页面上，这就见仁见智了，不多废话。
 
-以上方法均是通用的，鄙人使用的 Jekyll 静态博客，大概也只能这么搞。若使用 WordPress 等，或许还有更多的方法可以选择。
+鄙人使用的 Jekyll 静态博客，大概也只能这么搞。若使用 WordPress 等，或许还有更多的方法可以选择。
+
+上述方法是针对 PC 端浏览器的，如果是移动端的，则可能需要自己申请微信 JSAPI 权限，这估计也是个大坑，对于 QQ 浏览器或 UC 浏览器，则可以试试 JefferyWang 的 nativeShare.js [[5]][5]。
 
 ## 参考资料
 
@@ -84,6 +86,7 @@ tags: [微信, 二维码, JavaScript]
 [2]: http://share.baidu.com/ "百度分享"
 [3]: http://jeromeetienne.github.io/jquery-qrcode/ "jquery.qrcode.js"
 [4]: http://davidshimjs.github.io/qrcodejs/ "qrcode.js"
+[5]: https://github.com/JefferyWang/nativeShare.js "JefferyWang/nativeShare.js"
 
 **本文历史**
 

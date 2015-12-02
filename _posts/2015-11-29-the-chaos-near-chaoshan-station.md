@@ -62,7 +62,7 @@ tags: [潮汕, 潮汕站]
 <video class="video" controls>
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-04.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-04.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-04.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="480"></embed>  
+  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-04.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="426"></embed>  
 </video>
 
 到了去年年尾，在北广场搭建了看起来好很多的临时汽车站，所有公交车、班车都是在北广场。澄海每天的班车车次发车时间虽然多变，但班次还算可以。

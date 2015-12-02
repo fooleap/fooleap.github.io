@@ -10,7 +10,7 @@ highlighter: pygments
 paginate: 10
 IMG_PATH: http://source.fooleap.org
 markdown: kramdown
-exclude: ['media', 'update.lftp', 'pushbaidu.sh']
+exclude: ['media', 'update.lftp', 'pushbaidu.sh', '.htaccess']
 sass:
   sass_dir: _sass
   style: :compressed
