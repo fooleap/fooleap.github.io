@@ -17,7 +17,9 @@ Windows 平台上有官方的桌面管理器，可以有刷机，同步，备份
 
 ![备份短信]({{site.IMG_PATH}}/blackberry-desktop-software-for-pc.png)
 
-以上软件均可在此下载：[http://dl.dbank.com/c0t9va2u9u](http://dl.dbank.com/c0t9va2u9u)
+以上软件均可在此下载：[http://pan.baidu.com/s/1jHeJNDG](http://pan.baidu.com/s/1jHeJNDG) 7dqg
+
+<del>[http://dl.dbank.com/c0t9va2u9u](http://dl.dbank.com/c0t9va2u9u)</del>
 
 <del>也可在此共享找到：[http://www.dbank.com/share/blackberry8700](http://www.dbank.com/share/blackberry8700)</del>
 

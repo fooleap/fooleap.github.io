@@ -646,8 +646,9 @@ pre.terminal code {
     float: left;
     ul{
       margin-left: 15px;
-      height: 120px;
+      height: 135px;
       white-space: nowrap; 
+      overflow: hidden;
     }
   }
 }

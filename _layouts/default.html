@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>{% if paginator and paginator.page != 1 %}{{ site.title }} | 第{{ paginator.page }}页{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{% if paginator and paginator.page != 1 %}第{{ paginator.page }}页 | {{ site.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
     <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', '}}{% else %}{{ site.keywords | join: ', ' }}{% endif %}" />

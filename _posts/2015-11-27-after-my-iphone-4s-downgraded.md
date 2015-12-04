@@ -85,7 +85,7 @@ iOS 6.1.3 可采用 [p0sixspwn](http://p0sixspwn.com/) 进行越狱，不过 Win
 |[ShadowSocks Per-App Plugin](cydia://package/com.linusyang.ssperapp)|BigBoss|设置程序内代理|
 |[Speed Intensifier](cydia://package/com.pw5a29.speedintensifier)|[pw5a29](cydia://url/https://cydia.saurik.com/api/share#?source=https://pw5a29.github.io/)|加快动画|
 |[Speedy Homey](cydia://package/com.pw5a29.speedyhomey) |ModMyi|屏蔽双击 Home 键，配合 Activator|
-|[SPi](cydia://package/com.gviridis.spi)|BigBoss|原生双拼输入法，可免费试用 7 天|
+|[SPi](cydia://package/com.gviridis.spi)|BigBoss|原生双拼输入法|
 |[SpringFlash](cydia://package/com.springflash)|BigBoss|打开闪光灯，配合 Activator|
 |[SwipeNav](cydia://package/me.devbug.swipenav)|BigBoss|滑动返回|
 |[SwipeSelection](cydia://package/com.iky1e.swipeselection)|[pw5a29](cydia://url/https://cydia.saurik.com/api/share#?source=https://pw5a29.github.io/)|方便移动光标，可在键盘区域滑动|

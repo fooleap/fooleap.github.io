@@ -24,6 +24,16 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="潮州音字典" src="http://open.weixin.qq.com/qr/code/?username=czyzd2015" /></div>
+  <div class="nickname">潮州音字典（服务号）</div>
+  <div class="info">
+    <span class="wechat-id">微信号：czyzd2015</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAwMzIyMDIwNQ==#wechat_redirect">微信</a></span>
+  </div>
+  <div class="intro">介绍：您身边的潮州音字典。</div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="潮聚社" src="http://open.weixin.qq.com/qr/code/?username=gh_82527644f841" /></div>
   <div class="nickname">潮聚社</div>
   <div class="info">

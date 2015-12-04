@@ -14,7 +14,7 @@ style: true
 
 这是 fooleap 的个人网志，记录点滴。截至 {% for post in site.posts | limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %} 共有文章 {{ site.posts | size }} 篇。
 
-本网志采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [GitCafé](https://gitcafe.com/fooleap/fooleap) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
+本网志采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [阿里云](http://www.aliyun.com) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
 
 即日起，本网志的原创内容，均采用知识共享组织（Creative Commons）的“署名-非商业性使用 3.0 中国大陆”（[CC BY-NC 3.0 CN](http://creativecommons.org/licenses/by-nc/3.0/cn/)）许可。
 
@@ -43,6 +43,7 @@ style: true
 * 2014-06-29 升级 Bootstrap 框架为 3.2 
 * 2014-08-05 放弃 Bootstrap 框架
 * 2015-05-23 增加远程 GitCafé 分支，DNSPod 设置国内访问 GitCafé，国外访问 GitHub。
+* 2015-10-28 国内解析到阿里云虚拟主机
 
 <!--<style>
     .mid{

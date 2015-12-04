@@ -13,6 +13,7 @@ title: 链接
 * [ClipConverter.cc](http://www.clipconverter.cc/)
 * [PiliApp](http://cn.piliapp.com/)
 * [IPIP.NET](http://www.ipip.net/)
+* [Speed Test](http://www.speedtest.net/)
 * [17CE](http://www.17ce.com/)
 * [Fontello](http://fontello.com/)
 * [Iconfont](http://www.iconfont.cn/)
