@@ -116,7 +116,7 @@ style: true
 
 * [一芦居 \| 上海茗翁茶庄](http://www.iiica.com/)
 * [物象心境丨探知器物的感情](http://www.waremood.com/)
-* [谢伟文 - 知乎](http://www.zhihu.com/people/xie-wei-wen)
+* [谢伟文 - 知乎](http://www.zhihu.com/people/xie-wei-wen) 微信公众号：茶味研究所（chaweiyanjiusuo）
 
 关于潮州工夫茶书籍，推荐 [《潮州工夫茶话》](http://book.douban.com/subject/6837473/)
 

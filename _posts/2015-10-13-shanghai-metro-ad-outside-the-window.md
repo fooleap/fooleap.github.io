@@ -31,7 +31,7 @@ tags: [上海, 地铁, 广告]
 
 回过头再来看上海地铁在列车运行时的车窗外广告，刚看到感觉好神奇，为啥列车这么快的运行着，窗外的广告居然是动态的，那广告是否就在列车上的投影，所以列车运行它也会跟着动，但看着看着感觉并不是这样，发光的是在外面的墙上。
 
-<video class="video" controls>
+<video class="video" poster="{{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.mp4?vframe/jpg/offset/0" controls>
   <source src="{{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.webm" type="video/webm" />
   <source src="{{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.ogv" type="video/ogg" />

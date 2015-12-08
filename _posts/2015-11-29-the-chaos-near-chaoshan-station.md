@@ -16,7 +16,7 @@ tags: [潮汕, 潮汕站]
 
 出租车司机需与拉客仔合作，才能安全在那运营，不合作只会挨打，出租车司机只能乖乖听从“拉客同盟会”，每做一笔生意后需给拉客仔一部分中介费。而且在潮汕站，仅有潮州车牌的出租车可以停在第一排，揭阳、汕头的只能停在后面。
 
-<video class="video" controls>
+<video class="video" poster="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-01.mp4?vframe/jpg/offset/0" controls>
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-01.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-01.webm" type="video/webm" />
   <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="480"></embed>  
@@ -24,7 +24,7 @@ tags: [潮汕, 潮汕站]
 
 10 月 26 号，出租车乱象曝光近半个月之后，《汕头新闻》对潮汕站交通乱象的整治情况进行了报道[[2]][2]。看了报道得知，潮汕站只是一个稍微大点的中间站，设计客流量为每天 3000 人次，南北广场设计通行车流量为每天 600 车次，而目前日常客流量每天 2.5 万人次，日常车流量为 3000 车次，远超过站区承受能力。看新闻所报道的，貌似真的整治过了，秩序比之前好了很多。
 
-<video class="video" controls>
+<video class="video" poster="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-02.mp4?vframe/jpg/offset/0" controls>
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-02.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-02.webm" type="video/webm" />
   <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-02.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="480"></embed>  
@@ -32,7 +32,7 @@ tags: [潮汕, 潮汕站]
 
 11 月 16 日，《潮州新闻》进行了跟进报道[[3]][3]，看起来这种现象该告一段落，或许说以后应该没有了。
 
-<video class="video" controls>
+<video class="video" poster="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-03.mp4?vframe/jpg/offset/0" controls>
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-03.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-03.webm" type="video/webm" />
   <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-03.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="480"></embed>  
@@ -59,7 +59,7 @@ tags: [潮汕, 潮汕站]
 
 当天的雨下得真不少，在澄江路横陇路段积水不浅。
 
-<video class="video" controls>
+<video class="video" poster="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-04.mp4?vframe/jpg/offset/0" controls>
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-04.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-04.webm" type="video/webm" />
   <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-chaos-near-chaoshan-station-04.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="426"></embed>  

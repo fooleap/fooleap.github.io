@@ -14,7 +14,7 @@ tags: [iPhone, 'iPhone 4s', 'iOS 6']
 
 例如：扇贝单词最新版本需要 iOS 7 +，由于我以前下载过，便可安装旧版本的扇贝单词。
 
-<video class="video" style="max-width:320px;" controls>
+<video class="video" poster="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-01.mp4?vframe/jpg/offset/0" style="max-width:320px;" controls>
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-01.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-01.webm" type="video/webm" />
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-01.ogv" type="video/ogg" />
@@ -25,7 +25,7 @@ tags: [iPhone, 'iPhone 4s', 'iOS 6']
 
 例如：美团外卖，以前我没下载过，所以我并不能直接安装兼容 iOS 6 的版本。
 
-<video class="video" style="max-width:320px;" controls>
+<video class="video" poster="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-02.mp4?vframe/jpg/offset/0" style="max-width:320px;" controls>
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-02.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-02.webm" type="video/webm" />
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-02.ogv" type="video/ogg" />
@@ -39,7 +39,7 @@ tags: [iPhone, 'iPhone 4s', 'iOS 6']
 
 然后呢？跟前面一样，打开 iOS 6 的 App Store，进入已购列表或搜索，都能很轻松下载到相关的 app。
 
-<video class="video" style="max-width:320px;" controls>
+<video class="video" poster="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-03.mp4?vframe/jpg/offset/0" style="max-width:320px;" controls>
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-03.mp4" type="video/mp4" />
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-03.webm" type="video/webm" />
   <source src="{{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-03.ogv" type="video/ogg" />

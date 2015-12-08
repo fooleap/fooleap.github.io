@@ -5,6 +5,7 @@ title: 关于
 tags: [关于, 网志, fooleap, blog]
 scripts: ['http://www.midijs.net/lib/midi.js']
 style: true
+js: true
 ---
 
 <a class="mid" id="play-mid" href="javascript:void(0)" onClick="MIDIjs.play('http://7fv9cr.com1.z0.glb.clouddn.com/Fmmusic.mid');"><i class="icon-volume-up"></i></a><a class="mid" id="stop-mid" href="javascript:void(0)" onClick="MIDIjs.stop();"><i class="icon-stop"></i></a><a class="mid" id="mid-title" href="http://www.xiami.com/song/3556769" target="_blank">三个人的时光</a>
@@ -12,7 +13,9 @@ style: true
 * 网志网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)
 
-这是 fooleap 的个人网志，记录点滴。截至 {% for post in site.posts | limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %} 共有文章 {{ site.posts | size }} 篇。
+这是 fooleap 的个人网志，记录点滴。
+
+自 2011 年 2 月 9 日起，本站已运行 <span id="days"></span> 天，截至 {% for post in site.posts | limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %}，共有文章 {{ site.posts | size }} 篇。
 
 本网志采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [阿里云](http://www.aliyun.com) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
 
@@ -57,3 +60,10 @@ style: true
       content: ''!important;
     }
     </style>-->
+<!--<script>
+  var birthDay = new Date('02/09/2011');
+  var now = new Date();
+  var duration = now.getTime() - birthDay.getTime();
+  var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+  document.getElementById('days').innerHTML = total;
+  </script>-->
