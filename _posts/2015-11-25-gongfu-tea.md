@@ -112,6 +112,13 @@ style: true
 
 ## 其他
 
+有关对潮州工夫茶的误解<sup>[[20]](#note-20){:id="ref-20"}</sup>，可看郑凯涛的视频。
+
+<video class="video" poster="http://shp.qpic.cn/qqvideo_ori/0/x01765w90to_496_280/0" controls>
+  <source src="http://video.dispatch.tc.qq.com/41460318/x01765w90to.mp4?sdtfrom=v1010&type=mp4&vkey=6510104E1DC24350CEACF8894BEA479DF634986A353BB9D53A546DEC4328BA49C3F1B438DABBC17C0177645EE2F9FCB6781A41187D0591AADDA9D477909C18000DD58BB039462F019416BFC5A285E84F332EA4AB5606AA08&platform=11&br=127&fmt=mp4&sp=0&guid=069B354DF0224ACFAC324C2AB4456C8E053AA1CD" type="video/mp4" />
+  <embed src="http://imgcache.qq.com/tencentvideo_v1/player/TencentPlayer.swf?fakefull=1&amp;vid=x01765w90to&amp;auto=0" allowFullScreen="true" quality="high" width="640" height="403" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+</video>
+
 关于工夫茶，这里推荐几个链接，虽然都是茶商，但内容真不错。
 
 * [一芦居 \| 上海茗翁茶庄](http://www.iiica.com/)
@@ -150,11 +157,13 @@ style: true
 17. [&and;](#ref-17) <span id='note-17'>[List of countries by tea consumption per capita](https://en.wikipedia.org/wiki/List_of_countries_by_tea_consumption_per_capita)、[Where the world’s biggest tea drinkers are](http://qz.com/168690/where-the-worlds-biggest-tea-drinkers-are/)、[全球茶叶消费排行榜](http://data.163.com/14/0827/15/A4LP3ECM00014MTN.html)</span>
 18. [&and;](#ref-18) <span id='note-18'>[潮语歌曲 - 一壶好茶一壶月](http://v.youku.com/v_show/id_XMjg3ODE4NjI4.html)、[黎田康子的艺人资料](http://i.xiami.com/litiankangzi/profile)、[黎田康子的微博](http://weibo.com/u/2214377414)</span>
 19. [&and;](#ref-19) [潮汕小品演员赵曙光](http://wscz.chaozhou.gov.cn/whcz/whcz_detail.aspx?id=137){:id='note-19'}
+19. [&and;](#ref-20) [对于潮汕工夫茶，我们误解太多](http://mp.weixin.qq.com/s?__biz=MzA4MzE2OTExMQ==&mid=401703478&idx=1&sn=a673689f36edb35094ee8d7fd86ea3a2&3rd=MzA3MDU4NTYzMw==&scene=6#rd){:id='note-20'}
 
 **本文历史**
 
 * 2015 年 09 月 03 日 完成初稿
 * 2015 年 11 月 25 日 更新在谢掌柜淘宝店买的茶图
+* 2015 年 12 月 13 日 添加正小滔的视频
 
 <audio id="gongfu-tea">
   <source src="{{ site.IMG_PATH }}/gongfu-tea.mp3" type="audio/mpeg">

@@ -3,5 +3,5 @@ layout: null
 permalink: /sitemap.txt
 ---
 {% for page in site.pages %}{{ site.url }}{{ page.url }}
-{% endfor %}{% for post in site.posts %}
-{{ site.url }}{{ post.url }}{% endfor %}
+{% endfor %}{% for post in site.posts %}{{ site.url }}{{ post.url }}
+{% endfor %}
