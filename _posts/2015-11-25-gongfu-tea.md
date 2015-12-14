@@ -106,18 +106,15 @@ style: true
 
 潮汕人的工夫茶记忆中，总有一曲深得人心，小时候有线台（本地电视站自办台）常播其 MV，这首由湖北人黎田康子唱的潮语歌曲《一壶好茶一壶月》。看到其微博，知道黎田康子最近复出，将开个唱<sup>[[18]](#note-18){:id="ref-18"}</sup>。
 
-<embed src="http://www.xiami.com/widget/0_1771881660/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent" />
+<embed id="music" src="http://www.xiami.com/widget/0_1771881660/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent" />
 
 说到黎田康子，很自然得想起潮汕另一位家喻户晓的人物，被称为“夏雨来”的赵曙光，他也并不是潮汕人<sup>[[19]](#note-19){:id="ref-19"}</sup>。
 
 ## 其他
 
-有关对潮州工夫茶的误解<sup>[[20]](#note-20){:id="ref-20"}</sup>，可看郑凯涛的视频。
+有关对潮州工夫茶的误解<sup>[[20]](#note-20){:id="ref-20"}</sup>，可看郑凯涛的视频，及真假潮汕工夫茶对比<sup>[[21]](#note-21){:id="ref-21"}</sup>。
 
-<video class="video" poster="http://shp.qpic.cn/qqvideo_ori/0/x01765w90to_496_280/0" controls>
-  <source src="http://video.dispatch.tc.qq.com/41460318/x01765w90to.mp4?sdtfrom=v1010&type=mp4&vkey=6510104E1DC24350CEACF8894BEA479DF634986A353BB9D53A546DEC4328BA49C3F1B438DABBC17C0177645EE2F9FCB6781A41187D0591AADDA9D477909C18000DD58BB039462F019416BFC5A285E84F332EA4AB5606AA08&platform=11&br=127&fmt=mp4&sp=0&guid=069B354DF0224ACFAC324C2AB4456C8E053AA1CD" type="video/mp4" />
-  <embed src="http://imgcache.qq.com/tencentvideo_v1/player/TencentPlayer.swf?fakefull=1&amp;vid=x01765w90to&amp;auto=0" allowFullScreen="true" quality="high" width="640" height="403" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-</video>
+<embed id="video" src="http://imgcache.qq.com/tencentvideo_v1/player/TencentPlayer.swf?vid=x01765w90to&amp;auto=0" allowFullScreen="true" quality="high" width="640" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" />
 
 关于工夫茶，这里推荐几个链接，虽然都是茶商，但内容真不错。
 
@@ -157,13 +154,14 @@ style: true
 17. [&and;](#ref-17) <span id='note-17'>[List of countries by tea consumption per capita](https://en.wikipedia.org/wiki/List_of_countries_by_tea_consumption_per_capita)、[Where the world’s biggest tea drinkers are](http://qz.com/168690/where-the-worlds-biggest-tea-drinkers-are/)、[全球茶叶消费排行榜](http://data.163.com/14/0827/15/A4LP3ECM00014MTN.html)</span>
 18. [&and;](#ref-18) <span id='note-18'>[潮语歌曲 - 一壶好茶一壶月](http://v.youku.com/v_show/id_XMjg3ODE4NjI4.html)、[黎田康子的艺人资料](http://i.xiami.com/litiankangzi/profile)、[黎田康子的微博](http://weibo.com/u/2214377414)</span>
 19. [&and;](#ref-19) [潮汕小品演员赵曙光](http://wscz.chaozhou.gov.cn/whcz/whcz_detail.aspx?id=137){:id='note-19'}
-19. [&and;](#ref-20) [对于潮汕工夫茶，我们误解太多](http://mp.weixin.qq.com/s?__biz=MzA4MzE2OTExMQ==&mid=401703478&idx=1&sn=a673689f36edb35094ee8d7fd86ea3a2&3rd=MzA3MDU4NTYzMw==&scene=6#rd){:id='note-20'}
+20. [&and;](#ref-20) [对于潮汕工夫茶，我们误解太多](http://mp.weixin.qq.com/s?__biz=MzA4MzE2OTExMQ==&mid=401703478&idx=1&sn=a673689f36edb35094ee8d7fd86ea3a2&3rd=MzA3MDU4NTYzMw==&scene=6#rd){:id='note-20'}
+21. [&and;](#ref-21) [真假潮汕工夫茶对比](http://mp.weixin.qq.com/s?__biz=MzA4MzE2OTExMQ==&mid=401724480&idx=1&sn=61f8964ef2cea023d1e72abe8d0c7549&3rd=MzA3MDU4NTYzMw==&scene=6#rd){:id='note-21'}
 
 **本文历史**
 
 * 2015 年 09 月 03 日 完成初稿
 * 2015 年 11 月 25 日 更新在谢掌柜淘宝店买的茶图
-* 2015 年 12 月 13 日 添加正小滔的视频
+* 2015 年 12 月 19 日 添加正小滔的内容
 
 <audio id="gongfu-tea">
   <source src="{{ site.IMG_PATH }}/gongfu-tea.mp3" type="audio/mpeg">
@@ -176,7 +174,9 @@ style: true
     gongfuTea.play();
   };
   if(!isFlashSupported()){
-    var embed = document.querySelector('embed')
-    embed.outerHTML = '<audio controls><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.mp3" type="audio/mpeg"><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.ogg" type="audio/ogg"></audio>';
+    var music=document.getElementById('music');
+    var video=document.getElementById('video');
+    music.outerHTML = '<audio controls><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.mp3" type="audio/mpeg"><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.ogg" type="audio/ogg"></audio>';
+    video.outerHTML = '<iframe frameborder="0" width="100%" src="http://v.qq.com/iframe/player.html?vid=x01765w90to&tiny=0&auto=0" allowfullscreen="1"></iframe>';
   }
   </script>-->
