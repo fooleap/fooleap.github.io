@@ -3,6 +3,7 @@ layout: post
 title: LFTP 镜像功能排除多个文件
 description: "昨天在老杨处得知 WordPress 最近更新版本，不过鄙人无意换用博客引擎。今天想想以前弃用 WordPress 时留下一个备份，刚好阿里云的免费虚拟主机，目前仅用于本站的存储，就想在上面再搭个 WordPress，看看以前的备份是否能成功恢复。"
 date: 2015-12-10 23:00:00 +0800
+thumb: IMG_PATH/lftp.png
 category: tech
 tags: [LFTP, FTP, mirror]
 ---
