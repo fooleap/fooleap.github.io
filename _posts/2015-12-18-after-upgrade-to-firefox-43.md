@@ -15,7 +15,7 @@ tags: [Firefox, Pentadactyl]
 
 ## 未验证扩展被禁用
 
-升级后，有多款扩展提示“未被验证在 Firefox 中使用，现已被禁用。”，这是因为那些拓展并没有托管到 `addons.mozilla.org`并通过审核，Firefox 的新版本默认将其禁止。
+升级后，有多款扩展提示“未被验证在 Firefox 中使用，现已被禁用。”，这是因为那些扩展并没有托管到 `addons.mozilla.org`并通过审核，Firefox 的新版本默认将其禁止。
 
 ![多款扩展被禁用]({{ site.IMG_PATH }}/after-upgrade-to-firefox-43-01.png)
 &#9650;多款扩展被禁用
