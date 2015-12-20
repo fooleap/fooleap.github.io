@@ -254,6 +254,16 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="汕头市摄影家协会" src="http://open.weixin.qq.com/qr/code/?username=gh_3f96e791366d" /></div>
+  <div class="nickname">汕头市摄影家协会</div>
+  <div class="info">
+    <span class="wechat-id">微信号：gh_3f96e791366d</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA5MjQwODQ3MA==#wechat_redirect">微信</a> </span>
+  </div>
+  <div class="intro">介绍：关注汕头市摄影家协会微信公众号，了解更多活动咨询。</div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="汕头草根播报" src="http://open.weixin.qq.com/qr/code/?username=stucaogenbobao" /></div>
   <div class="nickname">汕头草根播报</div>
   <div class="info">

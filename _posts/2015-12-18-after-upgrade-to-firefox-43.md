@@ -5,7 +5,7 @@ description: "这两天，把 Firefox 升级到 43.0 64 位版本，升级后有
 date: 2015-12-18 17:30:00 +0800
 thumb: IMG_PATH/firefox.png
 category: tech
-tags: [Firefox, Pentadactyl]
+tags: [Firefox, Pentadactyl, Git]
 ---
 
 * toc
@@ -44,6 +44,20 @@ Pentadactyl 很好用，然而无论其官网或 AMO 没有很及时的更新 XP
 
 仅需将其为修复 FF43 无法使用问题，做修改后的 `util.jsm` 文件[[3]][3]，覆盖 XPI 中的原文件并重新安装即可（也可以自己修改文件）。
 
+## Git 版 Pentadactyl
+
+更好的做法是自己编译 Git 版本的 Pentadactyl，具体方法如下：
+
+{% highlight bash %}
+$ git clone https://github.com/5digits/dactyl.git
+$ cd dactyl.git
+$ make -C pentadactyl xpi
+{% endhighlight %}
+
+执行之后，便可在 `downloads` 目录下找到自己编译的版本。
+
+若不方便编译，可在此下载：[pentadactyl-git.xpi]({{ site.IMG_PATH }}/pentadactyl-git.xpi)
+
 ## 参考资料
 
 [1]: https://support.mozilla.org/zh-CN/kb/add-ons-signing-firefox "Firefox 中的附加组件签名 &#124; Firefox 帮助"
@@ -53,3 +67,4 @@ Pentadactyl 很好用，然而无论其官网或 AMO 没有很及时的更新 XP
 **本文历史**
 
 * 2015 年 12 月 18 日 完成初稿
+* 2015 年 12 月 20 日 增加编译 Git 版 Pentadactyl 部分
