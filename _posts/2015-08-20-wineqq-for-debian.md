@@ -57,15 +57,15 @@ QQ 或许是无法离开 Windows 的借口之一，在 Linux 上也会想用 QQ�
 
 安装 winetricks
     
-    sudo apt-get install winetricks
+    $ sudo apt-get install winetricks
 
 设置 Wine 使用 32 位环境（如果 64 位系统的话）
 
-    export WINEARCH=win32
+    $ export WINEARCH=win32
 
 安装相关的组件
 
-    winetricks -q riched20 ie6 mfc42
+    $ winetricks -q riched20 ie6 mfc42
 
 具体可以参考这篇文章： [使用 Wine 运行腾讯 TM](http://lilydjwg.is-programmer.com/2013/3/24/run-tencent-messenger-with-wine.38382.html)
 
