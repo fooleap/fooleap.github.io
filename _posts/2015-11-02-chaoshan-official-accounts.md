@@ -94,6 +94,16 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="潮州老照片" src="http://open.weixin.qq.com/qr/code/?username=cz_oldpics" /></div>
+  <div class="nickname">潮州老照片</div>
+  <div class="info">
+    <span class="wechat-id">微信号：cz_oldpics</span>
+    <span class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA5NjM0NDkzMQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt3He5zzibYd_VPbr56gHNXk">其他</a></span>
+  </div>
+  <div class="intro">介绍：致力于收集、发布潮州老照片及背后故事的公众账号。</div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="钟意摄影" src="http://open.weixin.qq.com/qr/code/?username=wenyizhong2014" /></div>
   <div class="nickname">钟意摄影</div>
   <div class="info">
