@@ -3,12 +3,12 @@ layout: page
 permalink: /about.html
 title: 关于
 tags: [关于, 网志, fooleap, blog]
-scripts: ['http://www.midijs.net/lib/midi.js']
-style: true
 js: true
 ---
 
-<a class="mid" id="play-mid" href="javascript:void(0)" onClick="MIDIjs.play('http://7fv9cr.com1.z0.glb.clouddn.com/Fmmusic.mid');"><i class="icon-volume-up"></i></a><a class="mid" id="stop-mid" href="javascript:void(0)" onClick="MIDIjs.stop();"><i class="icon-stop"></i></a><a class="mid" id="mid-title" href="http://www.xiami.com/song/3556769" target="_blank">三个人的时光</a>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height="52" style="width:280px;margin:0;" src="http://music.163.com/outchain/player?type=2&id=165614&auto=0&height=32"></iframe>
+
+好多年前，在某个网站听到这首曲子的背景音乐，听着有感觉，便将其扒了下来（[fmmusic.mid]({{ site.IMG_PATH }}/fmmusic.mid)，当年的文件，MIDI 格式的），听得多了，就感觉对自己来说有某种特殊的意义，后来才知道它的名字及由来。
 
 * 网志网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)
@@ -48,18 +48,6 @@ js: true
 * 2015-05-23 增加远程 GitCafé 分支，DNSPod 设置国内访问 GitCafé，国外访问 GitHub。
 * 2015-10-28 国内解析到阿里云虚拟主机
 
-<!--<style>
-    .mid{
-      line-height: 26px;
-      font-size: 16px;
-      border: none;
-      padding: 5px;
-      color: #333!important;
-    }
-    a.mid:after{
-      content: ''!important;
-    }
-    </style>-->
 <!--<script>
   var birthDay = new Date('02/09/2011');
   var now = new Date();
