@@ -84,10 +84,19 @@ tags: [潮汕, 微信, 公众号]
 
 <div class="profile">
   <div class="left qrcode"><img alt="汕头市摄影家协会" src="http://open.weixin.qq.com/qr/code/?username=gh_3f96e791366d" /></div>
-  <div class="nickname">汕头市摄影家协会</div>
+  <div class="nickname">汕头市摄影家协会（服务号）</div>
   <div class="info">
     <div class="wechat-id">微信号：gh_3f96e791366d</div>
     <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA5MjQwODQ3MA==#wechat_redirect">微信</a> </div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="好摄小组" src="http://open.weixin.qq.com/qr/code/?username=haoshexiaozu" /></div>
+  <div class="nickname">好摄小组</div>
+  <div class="info">
+    <div class="wechat-id">微信号：haoshexiaozu</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzI4NzA1MTc1Mg==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt27mBJJhaZjhdC2sJJ56srM&ext=4egMG4BCzZ99hx-n330ZCkpOYt5yQG_ltRwFlXPc2_gF256-yY4TVHF5KqsY4pRE">其他</a></div>
   </div>
 </div>
 
@@ -141,6 +150,33 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="早范" src="http://open.weixin.qq.com/qr/code/?username=iamzaofan" /></div>
+  <div class="nickname">早范</div>
+  <div class="info">
+    <div class="wechat-id">微信号：iamzaofan</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAwNjU4Mzc4NQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt7OiERMdGs9tjZSEzP1lH-0&ext=4egMG4BCzZ8h5BuPpYhVZXL8lMVyNdTzVZIvoETN04qM2SUZQf2Mhc30-5FDhd3b">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="二个姿娘" src="http://open.weixin.qq.com/qr/code/?username=twogirls818" /></div>
+  <div class="nickname">二个姿娘</div>
+  <div class="info">
+    <div class="wechat-id">微信号：twogirls818</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzIwMzA0NzczNw==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFtxMDMiIWC7zGmgR26L2KgyA&ext=4egMG4BCzZ-MsS_8PhvXYeTEMBfuuX3nAx2DXDlhlGRZxL6SjNsgB-jG6iFzyMHw">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="吃货札记" src="http://open.weixin.qq.com/qr/code/?username=gh_5b12f8e613ed" /></div>
+  <div class="nickname">吃货札记</div>
+  <div class="info">
+    <div class="wechat-id">微信号：gh_5b12f8e613ed</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzIzMzE0MzA1Ng==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt4tTJ0R4kJkLMRb-BTCwHcc&ext=meTK-Q6CgYRbZW1qlnZpv1e-Pi55qCDcsHKD5YQngYaWhJGUOzNqkB8896HGdrTT">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="物依" src="http://open.weixin.qq.com/qr/code/?username=wu-yi-we" /></div>
   <div class="nickname">物依（服务号）</div>
   <div class="info">
@@ -155,6 +191,15 @@ tags: [潮汕, 微信, 公众号]
   <div class="info">
     <div class="wechat-id">微信号：hallochaoren</div>
     <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3MTkwNTk2MQ==#wechat_redirect">微信</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="麦金镇" src="http://open.weixin.qq.com/qr/code/?username=czzhenji" /></div>
+  <div class="nickname">麦金镇（服务号）</div>
+  <div class="info">
+    <div class="wechat-id">微信号：czzhenji</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3NDc5ODkzNg==&wechat_redirect">微信</a></div>
   </div>
 </div>
 
@@ -177,6 +222,15 @@ tags: [潮汕, 微信, 公众号]
   <div class="info">
     <div class="wechat-id">微信号：heartide（<a href="http://www.heartide.com/">官网</a>）</div>     
     <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA4ODI4MDQwOQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFtxL47Q5GSvPvKedlyFiBGWI&ext=4egMG4BCzZ_odbYSivCHDy7R0CbXrhWkGHEBH77H-cNmN0uu-U_3zM6xDjlib2-y">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="WorkFace潮汕" src="http://open.weixin.qq.com/qr/code/?username=WorkFaceCS" /></div>
+  <div class="nickname">WorkFace潮汕</div>
+  <div class="info">
+    <div class="wechat-id">微信号：WorkFaceCS</div>     
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3MjAyNzg0NA==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFtzlZWGqCay2H77igXO3V6o4&ext=4egMG4BCzZ_xhKeIFELsI8h2drXid_nUtRxiJi4jlTGqvPZ9Y3uwAM4DKcnqzBas">其他</a></div>
   </div>
 </div>
 
@@ -293,6 +347,15 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="胶己人" src="http://open.weixin.qq.com/qr/code/?username=jiaojiren66" /></div>
+  <div class="nickname">胶己人</div>
+  <div class="info">
+    <div class="wechat-id">微信号：jiaojiren66</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzI0MzEwNTAwMA==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt595mxyJlUnQqle8vqfcH-E&ext=4egMG4BCzZ_TLiVi3VXAN4GLtE0n0JDq7B9mCT542Z5Jrg9JQIkVsQGkNlHCDbbt">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="水无涯" src="http://open.weixin.qq.com/qr/code/?username=cz13632041146" /></div>
   <div class="nickname">水无涯</div>
   <div class="info">
@@ -315,6 +378,14 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="潮汕古村之友" src="http://open.weixin.qq.com/qr/code/?username=csgczy" /></div>
+  <div class="nickname">潮汕古村之友</div>
+  <div class="info">
+    <div class="wechat-id">微信号：csgczy</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAxMDU3NzQ3Ng==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFtzRX8nFN6QQkjbC4-TL4z_Y&ext=4egMG4BCzZ9X8IIaZO0-B1JWarKbgDxbFk53Nmw8HvyMwlDpjPaIEtzENAnTKD-4">其他</a></div>
+  </div>
+</div>
+<div class="profile">
   <div class="left qrcode"><img alt="潮汕物食" src="http://open.weixin.qq.com/qr/code/?username=chaoshanws" /></div>
   <div class="nickname">潮汕物食</div>
   <div class="info">
@@ -329,6 +400,15 @@ tags: [潮汕, 微信, 公众号]
   <div class="info">
     <div class="wechat-id">微信号：gh_939007b535e2</div>
     <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA4MzE2OTExMQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt6P2dTpq6-eHFfHCzf9Ppjk&ext=7muVIkIDeYthkpdRfNuKHN7w4v7dkWNAG3WjATWHtR8ToQcFbKyNib5jxe_xulIv">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="潮汕印象" src="http://open.weixin.qq.com/qr/code/?username=chaoshanyx" /></div>
+  <div class="nickname">潮汕印象</div>
+  <div class="info">
+    <div class="wechat-id">微信号：chaoshanyx</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAxODA2MDMzMw==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt-7XLcLrqOHKgnzKGS99rzc&ext=4egMG4BCzZ8H-0fed_t3M2oJd1Kt0PO1JIk-7qZ9RL73OZ9aXrb0wfPOVFgKpXxz">其他</a></div>
   </div>
 </div>
 
@@ -406,6 +486,33 @@ tags: [潮汕, 微信, 公众号]
 <div class="clear"></div>
 
 <div class="title">其他</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="鲲江乡" src="http://open.weixin.qq.com/qr/code/?username=ikunjiang" /></div>
+  <div class="nickname">鲲江乡</div>
+  <div class="info">
+    <div class="wechat-id">微信号：ikunjiang</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA4NjcwMjEwMQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt3i5eQoIXl95HdePG2cr3Ok&ext=277ZPkCeLqTPTVosOPYUQ9m9Jiwv-gj-6x9lgMSdUL6C5_N6y7E2OjlJMDDyvkdq">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="布蕉绿工作室" src="http://open.weixin.qq.com/qr/code/?username=zhetengbu" /></div>
+  <div class="nickname">布蕉绿工作室</div>
+  <div class="info">
+    <div class="wechat-id">微信号：zhetengbu</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MjM5ODcxNzgzNg==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt7EdK77tqlMCTO-qOcP-1XI&ext=4egMG4BCzZ9KFZqejx0nI2-mL7OSSyAicxXe8v_LoSvZ9MITeKa-2erLJzdX8Z4d">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="豆仁先生" src="http://open.weixin.qq.com/qr/code/?username=dourenxiansheng" /></div>
+  <div class="nickname">豆仁先生</div>
+  <div class="info">
+    <div class="wechat-id">微信号：dourenxiansheng</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAwNTQwOTM1OQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt1b4RYo1Sq6yGbf6MjWp-zg&ext=4egMG4BCzZ_KPc9xnz9v7G8JCF1t2-yonS1s5P313JzeKmdh5WEViX-nUxuilCxg">其他</a></div>
+  </div>
+</div>
 
 <div class="profile">
   <div class="left qrcode"><img alt="踢桃文化" src="http://open.weixin.qq.com/qr/code/?username=tictoc_culture" /></div>
