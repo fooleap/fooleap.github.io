@@ -450,6 +450,28 @@ tags: [潮汕, 微信, 公众号]
 
 <div class="clear"></div>
 
+<div class="title">音乐</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="汕头市潮语歌曲协会" src="http://open.weixin.qq.com/qr/code/?username=gh_26d2b7383338" /></div>
+  <div class="nickname">汕头市潮语歌曲协会</div>
+  <div class="info">
+    <div class="wechat-id">微信号：gh_26d2b7383338</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzI3OTExNjc3MA==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt-SXQWVHdhL_OA3q9AHdYg8&ext=lA5I5al3X8CB6tm9nRvqlj1DcxOoTqAf2_GOruVrGyBjX_3hHz3tz6s9ZrpteHSv">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="揭阳乐坛" src="http://open.weixin.qq.com/qr/code/?username=jymusic0663" /></div>
+  <div class="nickname">揭阳乐坛</div>
+  <div class="info">
+    <div class="wechat-id">微信号：jymusic0663</div>
+        <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA3NDMwNzUxNA==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt9RWsvPEmtM_eHKh8VuhR1Q&ext=lA5I5al3X8DfaME0DniKvarYWB_2qHjb5qqEp9G5EhFiOITFmK6J2Fhjq0x_gZSk">其他</a></div>
+  </div>
+</div>
+
+<div class="clear"></div>
+
 <div class="title">旅游</div>
 
 <div class="profile">
@@ -493,6 +515,15 @@ tags: [潮汕, 微信, 公众号]
   <div class="info">
     <div class="wechat-id">微信号：ikunjiang</div>
     <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzA4NjcwMjEwMQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt3i5eQoIXl95HdePG2cr3Ok&ext=277ZPkCeLqTPTVosOPYUQ9m9Jiwv-gj-6x9lgMSdUL6C5_N6y7E2OjlJMDDyvkdq">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="湾头人家" src="http://open.weixin.qq.com/qr/code/?username=gh_4cfabcdb360a" /></div>
+  <div class="nickname">湾头人家</div>
+  <div class="info">
+    <div class="wechat-id">微信号：gh_4cfabcdb360a</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAwODY3NTE5MQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt0BI5Wocahizprd0JusZpN4&ext=A77vTFKGmhF6FMjVPBrBK4VFp3YN2vNPYht7udEehImUHmSVINBDr8hRTAAc-VwT">其他</a></div>
   </div>
 </div>
 
@@ -561,7 +592,7 @@ tags: [潮汕, 微信, 公众号]
 
 <div class="clear"></div>
 
-如果你知道其他有意思的潮汕微信号，求分享。另外，鄙人很喜欢原创度高的个人公众号，很佩服那样的人，也想过自己搞个公众号，只可惜心有余而力不足。
+如果你知道其他有意思的潮汕微信号，求分享。
 
 <!--<style>
     .clear{clear:both;height:20px;}

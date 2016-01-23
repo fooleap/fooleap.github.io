@@ -9,7 +9,7 @@ style: true
 ---
 
 <div id="sttv">
-  <embed src="http://tv.cutv.com/player/cv.swf" wmode="direct" allowfullscreen="true" allowscriptaccess="always" flashvars="width=640&height=510&divid=TSL_player&channelId=lKGXIQa&autoplay=false" type="application/x-shockwave-flash" height="512" width="640" />
+  <iframe src="http://tv.cutv.com/player/cv.swf?channelId=lKGXIQa" height="512" width="640"></iframe>
 </div>
 <button data-channel="sttv1" class="active">新闻综合频道</button><button data-channel="sttv2">经济生活频道</button><button data-channel="sttv3">影视文艺频道</button><button data-channel="stradio1">新闻资讯之声</button><button data-channel="stradio2">音乐广播</button><button data-channel="stradio3">交通之声</button>
 
@@ -50,7 +50,7 @@ style: true
   var sttv = document.getElementById('sttv');
   var button = document.querySelectorAll('button');
   var channel = location.search.split('=')[1];
-  var embed = document.querySelector('embed');
+  var iframe = document.querySelector('iframe');
   if (html.classList.contains('lte8')) {
     for (var i = 0; i < button.length; i ++){
       button[i].classList.add('hide');
@@ -70,8 +70,8 @@ style: true
         button[i].style.width = buttonWidth*2 + 'px';
       };
     }
-    embed.setAttribute('width', sttvWidth);
-    embed.setAttribute('height', sttvHeight);
+    iframe.setAttribute('width', sttvWidth);
+    iframe.setAttribute('height', sttvHeight);
     if (channel){
       changeChannel(channel);
     }
@@ -120,7 +120,7 @@ style: true
       default:
         break;
     }
-    sttv.innerHTML = "<embed src='http://tv.cutv.com/player/cv.swf' wmode='direct' allowfullscreen='true' allowscriptaccess='always' flashvars='width=" + sttvWidth + "&height=" + sttvHeight + "&divid=TSL_player&channelId=" + channelCode+ "&autoplay=false' type='application/x-shockwave-flash' height=" + sttvHeight + " width=" + sttvWidth + " />";
+    sttv.innerHTML = "<iframe src='http://tv.cutv.com/player/cv.swf?channelId=" + channelCode+ "' height=" + sttvHeight + " width=" + sttvWidth + "></iframe>";
     window.history.pushState({},'','?channel=' + theChannel);      
   }
 

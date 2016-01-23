@@ -71,6 +71,14 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 ![Python 设置环境变量]({{site.IMG_PATH}}/run-jekyll-on-windows-02.png)
 ▲Python 设置环境变量
 
+安装 pygments
+
+    pip install pygments
+
+安装对应的 gem
+
+    gem install pygments.rb
+
 在配置中启用
 
     highlighter: pygments
@@ -92,12 +100,11 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
     Please add the following to your Gemfile to avoid polling for changes:
       gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
-
 于是强迫症发，只好安装
 
     gem install wdm
 
-不过问题来了，wdm 死活安装不上，Google 了一下，据此 [Issus](https://github.com/Maher4Ever/wdm/issues/18)，大概是与 Ruby 版本兼容问题，这个分支 [HaiderRazvi/wdm](https://github.com/HaiderRazvi/wdm) 可以被装上
+（现已无此问题）不过问题来了，wdm 死活安装不上，Google 了一下，据此 [Issus](https://github.com/Maher4Ever/wdm/issues/18)，大概是与 Ruby 版本兼容问题，这个分支 [HaiderRazvi/wdm](https://github.com/HaiderRazvi/wdm) 可以被装上
 
     git clone https://github.com/HaiderRazvi/wdm.git
     cd wdm
@@ -111,3 +118,4 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 * 2015 年 05 月 26 日 完成初稿
 * 2015 年 05 月 27 日 加入语法高亮
 * 2015 年 06 月 03 日 GitHub Pages Gem
+* 2016 年 03 月 04 日 更新
