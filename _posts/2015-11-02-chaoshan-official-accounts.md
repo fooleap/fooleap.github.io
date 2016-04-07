@@ -347,6 +347,24 @@ tags: [潮汕, 微信, 公众号]
 </div>
 
 <div class="profile">
+  <div class="left qrcode"><img alt="米该" src="http://open.weixin.qq.com/qr/code/?username=MeetGuys" /></div>
+  <div class="nickname">米该</div>
+  <div class="info">
+    <div class="wechat-id">微信号：MeetGuys</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzIzODIxNDc5MQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt-Pg6Pf8lj6RywKpWnqoQ8A&ext=NIh7jNwwaRml7NM95uwTRsRhfsAwkWBUdDhmnoWAde6nJkDek2eVexmN_BaMmp57">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
+  <div class="left qrcode"><img alt="潮汕十万个为什么" src="http://open.weixin.qq.com/qr/code/?username=CSswgwsm" /></div>
+  <div class="nickname">潮汕十万个为什么</div>
+  <div class="info">
+    <div class="wechat-id">微信号：CSswgwsm</div>
+    <div class="history">历史消息：<a href="http://mp.weixin.qq.com/mp/getmasssendmsg?__biz=MzAxNTgzNDUzOQ==#wechat_redirect">微信</a> <a href="http://weixin.sogou.com/gzh?openid=oIWsFt_6uxxd2GfIGZPPTbjtDls0&ext=NIh7jNwwaRmHMxOkqXxArTOJ_5G0oZPeBfH2Iyf0rXZ4VKRChzeFUwpimjZQryhn">其他</a></div>
+  </div>
+</div>
+
+<div class="profile">
   <div class="left qrcode"><img alt="胶己人" src="http://open.weixin.qq.com/qr/code/?username=jiaojiren66" /></div>
   <div class="nickname">胶己人</div>
   <div class="info">
