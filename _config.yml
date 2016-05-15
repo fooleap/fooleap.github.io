@@ -6,7 +6,7 @@ description: 'A foolish man could not always lose!'
 url: 'http://blog.fooleap.org'
 timezone: Asia/Shanghai
 permalink: /:title.html 
-highlighter: pygments
+highlighter: rouge
 gems: [jekyll-paginate]
 paginate: 10
 IMG_PATH: http://source.fooleap.org

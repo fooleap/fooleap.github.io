@@ -28,8 +28,10 @@ style: true
       background: #000;
       color: #aaa;
       padding: 6px 0;
+      box-sizing: content-box;
       border: 0;
       border-bottom: 3px #000 solid;
+      width: 16.66666666666666%
     }
     button:hover{
       cursor: pointer;
@@ -43,6 +45,11 @@ style: true
     }
     p{
       text-align: right;
+    }
+    @media screen and (max-width: 640px){
+      button{
+          width: 33.3333333333%
+      }
     }
     </style>-->
 <!--<script>
@@ -62,14 +69,6 @@ style: true
     var sttvHeight = Math.floor(sttvWidth * 4 / 5); 
     var buttonWidth = sttvWidth / 6;
     sttv.style.height = sttvHeight + 'px';
-    for (var i = 0; i < button.length; i ++){
-      button[i].style.width = buttonWidth + 'px';
-    };
-    if(sttvWidth < 640){
-      for (var i = 0; i < button.length; i ++){
-        button[i].style.width = buttonWidth*2 + 'px';
-      };
-    }
     iframe.setAttribute('width', sttvWidth);
     iframe.setAttribute('height', sttvHeight);
     if (channel){
