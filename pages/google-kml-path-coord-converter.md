@@ -1,15 +1,20 @@
 ---
 layout: page
 title: KML 路径坐标转换器
-description: ""
+description: "可将 Google Earth/Maps 导出的 KML 转换成高德或百度地图 JS API 用坐标集。"
 tags: [百度坐标, 'GPS 坐标', 火星坐标, WGS-84, GCJ-02, BD-09, 'Google Earth', 'Google Maps']
 permalink: /google-kml-path-coord-converter/
 scripts: ["/assets/js/coordtransform.js"]
 style: true
 js: true
 ---
+
 <div id="coordtransform">
-<input type="file" id="kml-input"/>
+<label class="file-upload">
+    <input type="file" id="kml-input"/>
+    选择文件
+</label>
+<label id="filename"></label>
 <label><input type="radio" name="coordtrans" id="togcj02" value="to GCJ02" checked><span class="radio-input"></span>to GCJ02</label>
 <label><input type="radio" name="coordtrans" id="tobd09" value="to BD09"><span class="radio-input"></span>to BD09</label>
 <label><button id="submit">提交</button></label>
@@ -17,10 +22,19 @@ js: true
 <textarea id="output"></textarea>
 
 <!--<style>
-#output {
+input[type="file"] {
+    display: none;
+}
+#output:empty {
+	display: none;
+}
+#output{
+    display: block;
     width: 100%;
-    height: 375px;
+	height: 375px;
     margin: 0;
+	font-size: 12px;
+	font-family: sans-serif;
 }
 #coordtransform {
     line-height: 20px;
@@ -30,6 +44,19 @@ js: true
     padding-left: 20px;
     line-height: 25px;
     display: inline-block;
+}
+#coordtransform #filename{
+    padding: 0;
+	font-size: 12px;
+}
+#coordtransform .file-upload,#coordtransform  button{
+  display: inline-block;
+  background-color: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 2px 8px;
+  line-height: 15px;
+  font-size: 12px;
+  cursor: pointer;
 }
 #coordtransform input[type=radio]{
     display: none;
@@ -67,11 +94,10 @@ function readKML(event) {
     if (file) {
         var reader = new FileReader();
         reader.onload = function(e) {
-
+		    contents = e.target.result;
+            gps = [];
+            gpsArrays = [];
             if (file.type == 'application/vnd.google-earth.kml+xml') {
-                gps = [];
-                gpsArrays = [];
-                contents = e.target.result;
                 var contentsArray = contents.split('</tessellate>');
                 for (var i = 1; i <= contentsArray.length - 1; i++) {
                     gpspoints = contentsArray[i].split('<coordinates>')[1].split('</coordinates>')[0].replace(/^\s+|\s+$|\.0/g, '');
@@ -86,9 +112,20 @@ function readKML(event) {
                         })
                     }
                 }
+            } else if (contents.indexOf('nike') > -1) {
+                    gpsArrays[0] = [];
+                    for(var i = 0; i < JSON.parse(contents).waypoints.length; i++) {
+                    gpsArrays[0].push({
+                        'lng': parseFloat(JSON.parse(contents).waypoints[i].longitude),
+                        'lat': parseFloat(JSON.parse(contents).waypoints[i].latitude)
+                    })
+                }
             } else {
-                alert("请选择 KML 格式文件！");
+                alert("请选择正确格式文件！");
+				return;
             }
+			document.getElementById('filename').innerHTML = file.name;
+			document.getElementById('output').innerHTML = contents;
         }
         reader.readAsText(file);
     } else {
@@ -102,7 +139,7 @@ function transform() {
     var result = [];
     for (var i in gpsArrays) {
         gcj02Arrays[i] = [];
-        if (contents.indexOf('xmlns:gx') > 0) {
+        if (contents.indexOf('xmlns:gx') > -1 || contents.indexOf('nike') > -1){
             result[i] = [];
             for (var e in gpsArrays[i]) {
                 result[i].push(coordtransform.wgs84togcj02(gpsArrays[i][e].lng, gpsArrays[i][e].lat));
