@@ -11,7 +11,7 @@ js: true
 
 <div id="coordtransform">
 <label class="file-upload">
-    <input type="file" id="kml-input"/>
+    <input type="file" id="kml-input" />
     选择文件
 </label>
 <label id="filename"></label>
@@ -25,9 +25,6 @@ js: true
 input[type="file"] {
     display: none;
 }
-#output:empty {
-	display: none;
-}
 #output{
     display: block;
     width: 100%;
@@ -38,7 +35,7 @@ input[type="file"] {
 }
 #coordtransform {
     line-height: 20px;
-    margin: 0;
+    margin: 5px 0;
 }
 #coordtransform label{
     padding-left: 20px;
