@@ -1033,6 +1033,7 @@ for (var i = 0; i < lineArr.length - 1; i++) {
         hundredpoints.push(i + 1);
     }
 }
+hundredpoints.push(lineArr.length-1);
 for (var i = 0; i < hundredpoints.length - 1; i++) {
     lineArray[i] = [];
     for (var e = hundredpoints[i]; e <= hundredpoints[i + 1]; e++) {
@@ -1057,7 +1058,7 @@ var marker3 = new AMap.Marker({
     position: lineArr[lineArr.length - 1],
     zIndex: 10,
     offset: new AMap.Pixel(-64, -12),
-    content: '<div class="running-distance"><span class="running-number">' + parseInt(distance/100)/10 + '</span>公里</div>'
+    content: '<div class="running-distance"><span class="running-number">' + (distance/1000).toFixed(1) + '</span>公里</div>'
 });
 marker3.setMap(map);
 var marker = new AMap.Marker({
@@ -1073,24 +1074,25 @@ var polyline = new AMap.Polyline({
     strokeWeight: 3,
     strokeStyle: "solid"
 });
+var runPolyline = new AMap.Polyline({
+    strokeColor: "#52EE06",
+    strokeOpacity: 1,
+    strokeWeight: 3,
+    strokeStyle: "solid",
+});
+runPolyline.setMap(map);
 var i = 0;
 var polylineLength = 0;
+var line = [];
 function drawline() {
     if (i < lineArray.length) {
-        var polyline = new AMap.Polyline({
-            path: lineArray[i-1],
-            strokeColor: "#52EE06",
-            strokeOpacity: 1,
-            strokeWeight: 3,
-            strokeStyle: "solid",
-        });
-        polyline.setMap(map);
+        line = line.concat(lineArray[i]);
+        runPolyline.setPath(line);
         marker.setPosition(lineArray[i][lineArray[i].length - 1]);
         //有错误
-        //polylineLength = polylineLength + polyline.getLength();
-        //path = (polylineLength/1000).toFixed(1);
+        //path = runPolyline.getLength();
         path = (i * 0.1 + 0.1).toFixed(1);
-        marker3.setContent('<div class="running-distance"><span class="running-number">' + path + '</span>公里</div>')
+        marker3.setContent('<div class="running-distance"><span class="running-number">' + path + '</span>公里</div>');
         i++;
     } else {
         marker.hide();
