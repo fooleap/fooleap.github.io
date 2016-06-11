@@ -111,11 +111,19 @@ function readKML(event) {
                 }
             } else if (contents.indexOf('nike') > -1) {
                     gpsArrays[0] = [];
+                    // api v3
+                    for(var i = 0; i < JSON.parse(contents).metrics[JSON.parse(contents).metrics.length-1].values.length; i++) {
+                    gpsArrays[0].push({
+                        'lng': parseFloat(JSON.parse(contents).metrics[JSON.parse(contents).metrics.length-2].values[i].value),
+                        'lat': parseFloat(JSON.parse(contents).metrics[JSON.parse(contents).metrics.length-1].values[i].value)
+                    })
+                    /* api v1
                     for(var i = 0; i < JSON.parse(contents).waypoints.length; i++) {
                     gpsArrays[0].push({
                         'lng': parseFloat(JSON.parse(contents).waypoints[i].longitude),
                         'lat': parseFloat(JSON.parse(contents).waypoints[i].latitude)
                     })
+                    **/
                 }
             } else {
                 alert("请选择正确格式文件！");
