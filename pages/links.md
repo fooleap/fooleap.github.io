@@ -4,11 +4,11 @@ permalink: /links.html
 title: 链接
 ---
 
-##站内链接
+## 站内链接
 
 * [汕头广电](/sttv/)
 
-##工具链接
+## 工具链接
 
 * [FreeFormatter.com](http://www.freeformatter.com/)
 * [DeGraeve.com](http://www.degraeve.com/)
@@ -27,7 +27,7 @@ title: 链接
 * [You Might Not Need jQuery](http://youmightnotneedjquery.com/)
 * [七牛开源库 CDN](http://staticfile.org/)
 
-##推荐站点
+## 推荐站点
 
 * [Ruby China](https://ruby-china.org/) 国内最权威的 Ruby 社区
 * [V2EX](https://www.v2ex.com/) 创意工作者们的社区
@@ -38,7 +38,7 @@ title: 链接
 * [阮一峰的网络日志](http://www.ruanyifeng.com/blog) 著名博客
 * [阳志平的网志](http://www.yangzhiping.com/) 阳志平的个人网志
 
-##友情链接
+## 友情链接
 
 * [Anton's Blog](http://ashat.org){:title="@四川"}
 * [anoulin2009](http://blog.twodong.com/){:title="梁东宇@梧州"}

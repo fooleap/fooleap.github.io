@@ -15,7 +15,7 @@ tags: [Jekyll, Ruby, Windows, wdm, 博客]
 
 Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用了 Julian Thilo 的介绍 [Run Jekyll on Windows](http://jekyll-windows.juthilo.com/)，部署的过程如下。
 
-##安装 Ruby
+## 安装 Ruby
 
 首先，按需到 [RubyInstallers](http://rubyinstaller.org/downloads) 下载一个 Ruby 安装包，根据实际需求，鄙人选择“Ruby 2.2.2 (x64)”。
 
@@ -24,7 +24,7 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
 ![Add Ruby executables to your PATH]({{site.IMG_PATH}}/run-jekyll-on-windows-01.png)
 ▲勾选 Add Ruby executables to your PATH
 
-##安装 Ruby DevKit
+## 安装 Ruby DevKit
 
 除此，由于 Jekyll 的一些依赖需要支持（例如 yajl-ruby），还需要安装一个 Ruby DevKit，Ruby  的开发工具包，一样[在此](http://rubyinstaller.org/downloads) 按需获取，鄙人选择 `DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe`。
 
@@ -41,7 +41,7 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
 
     ruby dk.rb install
 
-##安装 Jekyll
+## 安装 Jekyll
 
 假如你打算将博客托管到 GitHub 上，建议直接跳到 [github-pages](#github-pages-ruby-gem)
 
@@ -53,7 +53,7 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
 
     jekyll new blog
 
-##GitHub Pages Ruby Gem
+## GitHub Pages Ruby Gem
 
 GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem，方便我们本地搭建和 GitHub Pages 线上相同的 [Jekyll 环境](https://pages.github.com/versions/)，包括 Jekyll、少部分插件、Markdown 渲染引擎等等。
 
@@ -64,7 +64,7 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 或许版本不够新，但一定最适合将博客托管在 GitHub Pages 的你。
 
 
-##语法高亮（可选）
+## 语法高亮（可选）
 
 若你的博客托管在 GitHub，又想使用语法高亮（pygments），那么你需要安装 Python。到 [Python Releases for Windows](https://www.python.org/downloads/windows/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
 
@@ -91,7 +91,7 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 
     highlighter: rouge
 
-##安装 wdm（可选）
+## 安装 wdm（可选）
 
 从 v2.4.0 开始，Jekyll 本地部署时，会相当于以前版本加 `--watch` 一样，监听其源文件的变化，而 Windows 似乎有时候并不会奏效，不过鄙人使用并没碰到。当然你若碰到，可安装 wdm (Windows Directory Monitor ) 来改善这个问题。
 

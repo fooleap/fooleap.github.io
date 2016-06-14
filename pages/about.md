@@ -21,11 +21,11 @@ js: true
 
 即日起，本网志的原创内容，均采用知识共享组织（Creative Commons）的“署名-非商业性使用 3.0 中国大陆”（[CC BY-NC 3.0 CN](http://creativecommons.org/licenses/by-nc/3.0/cn/)）许可。
 
-##博主
+## 博主
 
 潮汕人，拖延症、强迫症患者，闲余喜欢喝茶、喜欢拍照、喜欢跑步、喜欢骑行。
 
-##联系方式
+## 联系方式
 
 * Email: fooleap(at)gmail.com
 * Twitter: [@fooleap](http://twitter.com/fooleap)
@@ -34,7 +34,7 @@ js: true
 * 豆瓣: [@fooleap](http://douban.com/people/fooleap)
 * 知乎: [@fooleap](http://zhihu.com/people/fooleap)
 
-##网志进程
+## 网志进程
 
 * 2011-02-09 网志建立，名字为“Fooleap”
 * 2011-10-28 网志网址改为二级域名 blog.fooleap.org ，主域做了重定向，网志改名为“Fooleap&#039;s Blog”
