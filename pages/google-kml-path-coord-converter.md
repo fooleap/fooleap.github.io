@@ -103,10 +103,10 @@ function readKML(event) {
                 for (var i = 0; i < gps.length; i++) {
                     gpsArrays[i] = [];
                     for (var e in gps[i]) {
-                        gpsArrays[i].push({
+                        gpsArrays[i][e] = {
                             'lng': parseFloat(gps[i][e].split(',')[0]),
                             'lat': parseFloat(gps[i][e].split(',')[1])
-                        })
+                        }
                     }
                 }
             } else if (contents.indexOf('nike') > -1) {
@@ -114,17 +114,17 @@ function readKML(event) {
                     // api v3
                     jsonContents = JSON.parse(contents).metrics;
                     for(var i = 0; i < jsonContents[jsonContents.length-1].values.length; i++) {
-                    gpsArrays[0].push({
+                    gpsArrays[0][i] = {
                         'lng': parseFloat(jsonContents[jsonContents.length-2].values[i].value),
                         'lat': parseFloat(jsonContents[jsonContents.length-1].values[i].value)
-                    })
+                    }
                     /** api v1
                      *for(var i = 0; i < JSON.parse(contents).waypoints.length; i++) {
                      *gpsArrays[0].push({
                      *    'lng': parseFloat(JSON.parse(contents).waypoints[i].longitude),
                      *    'lat': parseFloat(JSON.parse(contents).waypoints[i].latitude)
                      *})
-                     **/
+                     */
                 }
             } else {
                 alert("请选择正确格式文件！");

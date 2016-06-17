@@ -1075,6 +1075,7 @@ var polyline = new AMap.Polyline({
     strokeStyle: "solid"
 });
 var runPolyline = new AMap.Polyline({
+    map: map,
     strokeColor: "#52EE06",
     strokeOpacity: 1,
     strokeWeight: 3,
