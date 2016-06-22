@@ -69,7 +69,7 @@ scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73
     height: 0;
     padding-bottom: 67%
 }
-#map .amap-copyright, .amap-logo,  #map1.amap-copyright, .amap-logo {
+.amap-copyright, .amap-logo {
     z-index: 0;
 }
 #map a:after,
