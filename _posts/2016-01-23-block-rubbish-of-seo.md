@@ -34,7 +34,7 @@ SEO 垃圾网站特点如下，比如说关键词“清理微信存储空间”�
 
 首行加声明，每一行域名前面加上 `1,`，大概就是这样的文件格式，回过头来将那个列表拉下来，并简单修改下再导入即可。
 
-##参考资料
+## 参考资料
 
 [1]: https://www.v2ex.com/t/245055 "一些网站太无耻了"
 [2]: https://github.com/Feiox/useless-websites/ "Feiox/useless-websites"
