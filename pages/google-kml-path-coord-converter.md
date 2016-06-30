@@ -86,6 +86,14 @@ input[type="file"] {
 </style>-->
 <!--<script>
 var gps, gpsArrays, contents;
+function coord(type){
+    var jsonContents = JSON.parse(contents).metrics;
+    for(var i = 0; i < jsonContents.length;i++){
+        if(jsonContents[i].type == type){
+            return i;
+        }
+    }
+}
 function readKML(event) {
     var file = event.target.files[0];
     if (file) {
@@ -113,10 +121,12 @@ function readKML(event) {
                     gpsArrays[0] = [];
                     // api v3
                     jsonContents = JSON.parse(contents).metrics;
-                    for(var i = 0; i < jsonContents[jsonContents.length-1].values.length; i++) {
+                    var lng = coord('longitude');
+                    var lat = coord('latitude');
+                    for(var i = 0; i < jsonContents[lng].values.length; i++) {
                     gpsArrays[0][i] = {
-                        'lng': parseFloat(jsonContents[jsonContents.length-2].values[i].value),
-                        'lat': parseFloat(jsonContents[jsonContents.length-1].values[i].value)
+                        'lng': parseFloat(jsonContents[lng].values[i].value),
+                        'lat': parseFloat(jsonContents[lat].values[i].value)
                     }
                     /** api v1
                      *for(var i = 0; i < JSON.parse(contents).waypoints.length; i++) {
