@@ -9,6 +9,7 @@ js: true
 style: true
 scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"]
 ---
+说真的，现在要我没带手机或者任何记录距离的设备去跑步，我会选择不跑。
 
 <div id="map"></div>
 
