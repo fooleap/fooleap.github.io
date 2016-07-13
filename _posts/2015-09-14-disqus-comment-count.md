@@ -65,7 +65,7 @@ s.src = '//' + disqus_shortname + '.disqus.com/count.js';
 {% highlight html %}
 {{"{% for post in site.posts "}}%}
   ...
-  <span class='disqus-comment-count' data-disqus-url="{{"{{ site.url "}}}}{{"{{ post.url "}}}}"></a>
+  <span class='disqus-comment-count' data-disqus-url="{{"{{ site.url "}}}}{{"{{ post.url "}}}}"></span>
   ...
 {{"{% endfor "}}%}
 {% endhighlight %}

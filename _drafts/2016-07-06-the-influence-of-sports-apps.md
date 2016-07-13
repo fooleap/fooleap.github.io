@@ -31,7 +31,6 @@ scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73
 
 <div id="map"></div>
 
-
 ## 参考资料
 
 [1]: http://www.webosnation.com/prestop "preStop - webOS Nation"
