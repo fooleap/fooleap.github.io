@@ -11,7 +11,7 @@ style: true
 <div id="sttv">
   <iframe name="sttv-iframe" src="http://tv.cutv.com/player/cv.swf?channelId=lKGXIQa" height="512" width="640"></iframe>
 </div>
-<a class="button active" href="http://tv.cutv.com/player/cv.swf?channelId=lKGXIQa" data-channel="sttv1">新闻综合频道</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=7xjJK9d" data-channel="sttv2">经济生活频道</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=G7Kql7a" data-channel="sttv3">影视文艺频道</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=L3y6rt8" data-channel="stradio1">新闻资讯之声</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=s7k681h" data-channel="stradio2">音乐广播</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=Li7mg21" data-channel="stradio3">交通之声</a>
+<a class="button active" href="http://tv.cutv.com/player/cv.swf?channelId=lKGXIQa" target="sttv-iframe" data-channel="sttv1">新闻综合频道</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=7xjJK9d" target="sttv-iframe" data-channel="sttv2">经济生活频道</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=G7Kql7a" target="sttv-iframe" data-channel="sttv3">影视文艺频道</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=L3y6rt8" target="sttv-iframe" data-channel="stradio1">新闻资讯之声</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=s7k681h" target="sttv-iframe" data-channel="stradio2">音乐广播</a><a class="button" href="http://tv.cutv.com/player/cv.swf?channelId=Li7mg21" target="sttv-iframe" data-channel="stradio3">交通之声</a>
 
 <p>直播源：<a href="http://tv.cutv.com/index.html?tv=sttv">城视网</a></p>
 
@@ -35,6 +35,9 @@ style: true
       border: 0;
       border-bottom: 3px #000 solid;
       width: 16.66666666666666%
+    }
+    .button:after{
+      display: none;
     }
     .button:hover{
       cursor: pointer;
@@ -74,9 +77,6 @@ style: true
     sttv.style.height = sttvHeight + 'px';
     iframe.setAttribute('width', sttvWidth);
     iframe.setAttribute('height', sttvHeight);
-    if (channel){
-      changeChannel(channel);
-    }
   } else {
     for (var i = 0; i < button.length; i ++){
       button[i].classList.add('hide');
@@ -84,16 +84,22 @@ style: true
     sttv.innerHTML = '<big>您的浏览器不支持 Flash！</big>';
   }
 
+  function changeChannel(channel){
+    document.querySelector('[data-channel="'+channel+'"]').click();
+  };
   function buttonClick (){
     for (var i = 0; i < button.length; i ++){
       button[i].classList.remove('active');
     };
     this.classList.add('active');
-  //  window.history.pushState({},'','?channel=' + theChannel);      
+    var theChannel = this.getAttribute('data-channel');
+    window.history.pushState({},'','?channel=' + theChannel);      
   };
-
   for (var i = 0; i < button.length; i ++){
     button[i].addEventListener('click', buttonClick, false)
     button[i].setAttribute('target', 'sttv-iframe');
+  }
+  if (channel){
+    changeChannel(channel);
   }
   </script>-->
