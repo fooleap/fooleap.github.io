@@ -299,7 +299,7 @@ if ( windowWidth < 414 ){
 function showComments() {
   (function() {
     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqusShortName + '.disqus.com/embed.js';
+    dsq.src = 'https://' + disqusShortName + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
   commentBtn.parentNode.removeChild(commentBtn);
