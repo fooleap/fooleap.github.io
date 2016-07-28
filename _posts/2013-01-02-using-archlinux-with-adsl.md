@@ -14,7 +14,7 @@ tags: ["Arch Linux", ADSL, Netcfg, RP-PPPoE, pppd]
 
 在 Arch Linux 下，可以通过自带的 Netcfg 来连接，可以通过 RP-PPPoE 来连接，也可直接配置 pppd 实现拨号。
 
-###Netcfg###
+## Netcfg
 
 这款软件，从它需要安装，到 Arch 自带，功能不断地增强，使用越来越方便，现在已经支持 ADSL 拨号，简单快速。
 
@@ -37,7 +37,7 @@ PASSWORD='very secret'</code></pre>
 
     # systemctl enable netcfg@fooleap
 
-###RP-PPPoE###
+## RP-PPPoE
 
 安装 rp-pppoe
 
@@ -57,7 +57,7 @@ PASSWORD='very secret'</code></pre>
 
 注：若在 pppoe-setup 没有设定 DNS 服务器，记得手动搞定 /etc/resolv.conf
 
-###pppd###
+## pppd
 
 仔细观察，不难发现，通过 Netcfg 及 RP-PPPoE 拨号后，都是启用了 pppd 进程，所以 Netcfg、RP-PPPoE 只是配角，提供自动化脚本方便使用 pppd，真正的主角是 pppd，手动配置 pppd 理论上更省资源。
 

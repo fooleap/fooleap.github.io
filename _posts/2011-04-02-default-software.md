@@ -6,14 +6,12 @@ category: tech
 tags: [免费, 软件, 开源, 跨平台]
 ---
 
-**Windows**
+## Windows
 
 网页浏览
 
 * [Google Chrome](http://chrome.google.com)：简洁高效的跨平台网页浏览器
-
 * [Mozilla Firefox](http://www.mozilla.com/en-US/firefox)：中文称火狐，功能强大的浏览器，开源跨平台
-
 * [Opera](http://www.opera.com/)：高速小巧的跨平台浏览器
 
 FTP 工具
@@ -23,29 +21,19 @@ FTP 工具
 即时通讯
 
 * [Google Talk](http://www.google.com/talk/)：简称 GTalk，简洁高效，使用开放的 XMPP 协议
-
 * [Tencent Messenger](http://im.qq.com/tm/)：简称 TM，和 QQ 互联互通，侧重于办公环境，无多余的广告等
-
 * [迷你飞信](http://feixin.10086.cn/download/fetionsmart/)：功能简单的小巧聊天工具，用于免费发送短信
-
 * [LibFetion](http://www.libfetion.org/)：俗称小飞信，轻巧，跨平台的第三方飞信
-
 * [Miranda IM](http://www.miranda-im.org/)：强大的聚合软件，详细见极限主题 [Miranda IM 版](http://bbs.themex.net/forumdisplay.php?f=91)
 
 文件管理
 
 * [Total Commander](http://www.ghisler.com/)：文件管理之神器，未注册可使用全部功能，详情见善用佳软[相关文章](http://xbeta.info/studytc/index.htm)，推荐 [Shanny](http://www.shannycn.com/) 的美化增强版
-
 * [Free Commander](http://www.freecommander.com/)：十分强大的文件管理器，可以说是 TC 的免费替代品，详见天毅的[介绍](http://www.freewarecn.com/freecommander-simplified-chinese-help-file/)
-
 * [7-Zip](http://www.7-zip.org/)：解压缩首选软件，开源
-
 * [Everything](http://www.voidtools.com/)：极快的文件名搜索工具
-
 * [Unlocker](http://unlocker.emptyloop.com/)：免费的右键扩充工具，用于强制删除文件
-
 * [WinMount](http://cn.winmount.com/)：免费国产虚拟光驱及解压缩软件
-
 * [Virtual Drive Manager](http://www.towodo.com/) ：小巧的虚拟光驱工具，于 All Image 中
 
 数据加密
@@ -63,25 +51,21 @@ FTP 工具
 办公软件
 
 * [LibreOffice](http://www.libreoffice.org/)：解放了的 OpenOffice（[小众软件](http://www.appinn.com/)Thruth）
-
 * [WPS Office](http://www.wps.cn/)：来自金山的办公软件，个人版免费，WPS 曾是中国最流行的文字处理软件
 
 PDF 阅读
 
 * [Foxit Reader](http://www.foxitsoftware.com/)：小巧免费的 PDF 软件
-
 * [PDF-XChange Viewer](http://www.tracker-software.com/product/pdf-xchange-viewer)：优秀的 PDF 阅读软件，有免费版本
 
 文本编辑
 
 * [Vim](http://www.vim.org)：编辑器之神，不解释
-
 * [Notepad++](http://notepad-plus-plus.org/)：免费开源的强大编辑器
 
 笔记软件
 
 * [Evernote](http://www.evernote.com/)：用户数正不断攀升的笔记软件，数据网络同步
-
 * [为知 Wiz](http://www.wiz.cn/)：免费的国产个人知识管理软件，支持网络同步
 
 翻译词典
@@ -91,21 +75,15 @@ PDF 阅读
 文字输入
 
 * [Google Pinyin](http://www.google.com/ime/pinyin/)：输入快速，界面整洁不花俏的拼音输入法
-
 * [搜狗拼音输入法 3.2 版](http://ime.sogou.com/dl/sogou_pinyin_32b.exe)：搜狗最值得收藏的版本，第一个支持 png 格式图片皮肤的版本
 
 影音播放
 
 * [Foobar2000](http://www.foobar2000.org/)：个人认为是 Windows 平台最好的音频播放软件
-
 * [酷狗收音机](http://radio.kugou.com)：听广播的好软件，支持录音，自动识别歌曲
-
 * [MPlayer WW 编译版](http://mplayer-ww.com/)：Linux 最好的播放器的 Windows 版本
-
 * [Daum PotPlayer](http://tvpot.daum.net/video/live/PotplayerSpec.do)：KMPlayer 原作者的新一代作品
-
 * [射手播放器](http://www.splayer.org/)：国产优秀影音播放器
-
 * [QQ 影音](http://player.qq.com/)：腾讯开发的一款影音播放软件，无广告且功能强大，不过其使用了 FFmpeg 代码却使用专有协议
 
 图像编辑
@@ -115,19 +93,14 @@ PDF 阅读
 图片管理
 
 * [XnView](http://www.xnview.com/)：集图片管理，转换，编辑于一身的跨平台软件
-
 * [IrfanView](http://www.irfanview.com/)：善用佳软最爱的看图软件，功能上和 XnView 差不多，更多见善用佳软[相关文章](http://xbeta.info/tag/irfanview)
-
 * [Picasa](http://picasa.google.com/)：跨平台图片管理器，集管理编辑于一身，相对于 XnView、IrfanView，明显华丽了很多
 
 截图录屏
 
 * [FScapture 5.3](fscapture-picpick.html)：国人开发，自己使用时间最长的一款截图软件，5.3 是最后的免费版本
-
 * [Picpick](http://www.picpick.org/)：来自韩国，十分轻巧且功能强大的截图软件
-
 * [纳克小工](http://www.hinuk.com/)：国产截图后起之秀
-
 * [Wink](http://www.debugmode.com/wink/)：屏幕演示录制软件，支持输出 Flash 动画，[《杨式电脑教程》](http://yjf1024.blog.sohu.com/entry/2378799/) 用其录制
 
 第三方壳
@@ -142,28 +115,23 @@ PDF 阅读
 
 * [HK4WIN](http://www.songruihua.com/hk4win)：一款使用 AHK 编写，提高工作效率的快捷键程序
 
-**Linux**
+## Linux
 
 系统工具
 
 * [Ailurus](http://code.google.com/p/ailurus/)：国人开发的系统优化设置工具
-
 * [Ubuntu Tweak](http://www.ubuntu-tweak.com/)：一款 Ubuntu 的系统配置工具
-
 * [Synaptic Package Manager](http://www.nongnu.org/synaptic/)：包管理工具 apt 的图形化前端
 
 数据加密
 
 * [TrueCrypt](http://www.truecrypt.org/)：开源跨平台的首选数据加密软件
-
 * [GnuPG](http://gnupg.org/)：开源跨平台的数据加密软件，命令行界面，有很多图形化前端
 
 网页浏览
 
 * [Google Chrome](http://chrome.google.com)([Vimium](http://vimium.github.com/))：开源免费跨平台的网页浏览器，基于 Chromium 开源计划
-
 * [Mozilla Firefox](http://www.mozilla.com/en-US/firefox)([Vimperator](http://vimperator.org/vimperator)/[Pentadactyl](http://dactyl.sourceforge.net/pentadactyl),[DownThemAll!](http://www.downthemall.net/))：功能强大的浏览器，开源跨平台，Vimperator 或 Pentadactyl 的使用可参考佳软文章 [VIM 化的 Firefox](http://xbeta.info/vimperator.htm)
-
 * [Opera](http://www.opera.com/)：高速小巧的跨平台浏览器，非开源
 
 下载软件
@@ -173,9 +141,7 @@ PDF 阅读
 FTP 工具
 
 * [LFTP](http://lftp.yar.ru/)：一款功能强大命令行 FTP 客户端
-
 * [gFTP](http://gftp.org)：开源小巧的多线程 FTP 客户端
-
 * [FileZilla](http://filezilla-project.org/)：优秀的开源跨平台 FTP 工具
 
 即时通讯
@@ -189,7 +155,6 @@ FTP 工具
 文本编辑
 
 * [Vim](http://www.vim.org)：编辑器之神
-
 * [Emacs](http://www.gnu.org/software/emacs/)：神的编辑器
 
 PDF 阅读
@@ -199,7 +164,6 @@ PDF 阅读
 笔记软件
 
 * [Zim](http://zim-wiki.org/)：跨平台的本地桌面维基系统
-
 * [KeepNote](http://keepnote.org/keepnote/)：
 
 文字输入
@@ -213,9 +177,7 @@ PDF 阅读
 影音播放
 
 * [SMPlayer](http://smplayer.sourceforge.net/)：开源跨平台的视频播放器，以 MPlayer 作为后端
-
 * [DeaDBeeF](http://deadbeef.sourceforge.net)：Linux 下 Foobar2K 风格的播放器
-
 * [MPlayer](http://www.mplayerhq.hu/)：开源跨平台媒体播放器，基于命令行
 
 推荐 MPlayer 的命令行模式，相对适合配置低的机子，万能的影音播放器
@@ -231,10 +193,9 @@ PDF 阅读
 屏幕截图
 
 * [Scrot](http://linuxbrit.co.uk/software/)：在命令行下使用的小巧截图软件
-
 * [Shutter](http://shutter-project.org/)：强大的开源屏幕截图软件，原名 GScrot，是 Scrot 的图形化前端
 
-**线上服务**
+## 线上服务
 
 翻译工具
 
@@ -247,7 +208,6 @@ RSS 阅读
 电子邮箱：
 
 * [Google Mail](https://mail.google.com)：最好的免费邮箱
-
 * [网易邮箱](http://mail.163.com)：本人使用的第一个邮箱，国内用户量最大的邮箱
 
 地图搜索
@@ -257,10 +217,9 @@ RSS 阅读
 网络硬盘
 
 * [金山快盘](http://k.wps.cn)：金山推出的类 Dropbox 云存储服务
-
 * [数据银行](http://www.dbank.com)：华为推出的类 Dropbox 云存储服务
 
-**手机软件**
+## 手机软件
 
 所用手机
 
@@ -269,7 +228,6 @@ RSS 阅读
 系统辅助
 
 * [CallAssistant](http://bbdev.org/)：显示来电归属，接通震动等实用功能
-
 * [KeyMaster](http://bbdev.org/)：很好用的快捷键工具
 
 邮件收发
@@ -283,9 +241,7 @@ RSS 阅读
 即时通讯
 
 * [BBFetion](http://www.bber.info/post/bbfetion)：黑莓飞信第一版，自动连接 cmwap
-
 * [Btalk](http://code.google.com/p/btalk/)：国人开发的黑莓 Gtalk 工具
-
 * [QQ](http://mobile.qq.com/)：手机 QQ 黑莓版
 
 电子阅读

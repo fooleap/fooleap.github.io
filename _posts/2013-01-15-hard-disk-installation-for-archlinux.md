@@ -12,7 +12,7 @@ tags: ["Arch Linux", 硬盘安装]
 
 Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux 的自由，于是切换回 Arch Linux，新版本的安装方式和以前稍有区别，下面一步一步来完成 Arch Linux 的安装。
 
-##安装前的准备
+## 安装前的准备
 
 此前使用 Chakra Linux，其启动引导器为 [BURG](https://wiki.archlinux.org/index.php/Burg)，它是基于 [GRUB2](https://wiki.archlinux.org/index.php/GRUB2) 使用 Ruby 重写而来的，所以 [GRUB 命令](http://www.gnu.org/software/grub/manual/grub.html#Commands) 同样适用。
 
@@ -60,9 +60,9 @@ Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux
 
 一切没有问题将会自动以 root 登录，目前 Arch Linux 的安装方式和 Gentoo 差不多，都通过 Change Root。
 
-##安装基本系统
+## 安装基本系统
 
-###硬盘分区
+### 硬盘分区
 
 鄙人认为，个人计算机硬盘分区个数越少越好，最好只有一个，这也是微软和苹果所提倡的。
 
@@ -78,7 +78,7 @@ Chakra 虽稳定，KDE 臃肿，纯 QT 的环境用得别扭，没有 Arch Linux
 * 创建 /mnt/home 目录
 * 挂载 home 分区到 /mnt/home 目录
 
-###配置网络
+### 配置网络
 
 我使用的是无线路由，比较方便，通过自带的 Netcfg 连接网络。
 
@@ -107,7 +107,7 @@ Server = http://mirrors.163.com/archlinux/$repo/os/$arch
 
     pacman -Sy
 
-###安装系统
+### 安装系统
 
 通过 pacstrap 安装基本系统
 
@@ -137,7 +137,7 @@ chroot 到刚安装的新系统
     # cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
     # grub-mkconfig -o /boot/grub/grub.cfg
 
-##配置系统
+## 配置系统
 
 修改 Locale，定义用户所使用的语言及字符集。
 
@@ -201,7 +201,7 @@ fooleap ALL=(ALL)ALL</code></pre>
 
 至此完成基本的配置，重启继续折腾
 
-###配置声音
+### 配置声音
 
 安装 ALSA，驱动声卡
 
@@ -223,7 +223,7 @@ fooleap ALL=(ALL)ALL</code></pre>
 
     # gpasswd -a fooleap audio
 
-###配置显示
+### 配置显示
 
 安装 Xorg
 
@@ -252,7 +252,7 @@ EndSection</code></pre>
 
     # gpasswd -a fooleap video
 
-###配置字体
+### 配置字体
 
 安装字体
 
@@ -297,7 +297,7 @@ EndSection</code></pre>
 &lt;/fontconfig&gt;
 </code></pre>
 
-###配置 i3
+### 配置 i3
 
 安装 i3 窗口管理器及 dmenu 软件启动器，并配置
 
@@ -313,7 +313,7 @@ EndSection</code></pre>
 
 * 将 Mod1 替换成 $mod 并指定变量为 Mod4（即 Windows 徽标键）
 
-###配置输入法
+### 配置输入法
 
 安装 Fcitx 并配置
 

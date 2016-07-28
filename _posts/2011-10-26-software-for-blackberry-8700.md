@@ -13,7 +13,7 @@ tags: [手机, 黑莓, "黑莓 8700"]
 
 ![8700 所安装的软件]({{site.IMG_PATH}}/software-for-blackberry-8700.png)
 
-**系统辅助**
+## 系统辅助
 
 * [FeelGuard](http://www.feelberry.com/2010/07/26/feelguard-1-02/)[1]：保护私密信息，拿只黑莓免不了让朋友同学玩玩的时候
 * [QuickMenu](http://www.bbota.cn/list-3490.html)：中键替代功能，按一下相当于按两下滚轮，类似的有
@@ -24,24 +24,24 @@ tags: [手机, 黑莓, "黑莓 8700"]
 * [黑莓来电助手](http://bbdev.org/2011/01/callassistant_1_4_7/)：提供来电归属显示，接通振动等等人性化功能
 * [热键大师](http://bbdev.org/2010/11/keymaster2_0/)：快捷启动程序工具，必备工具，两击启动一个程序，与来电助手一样来自 [黑莓风暴](http://bbdev.org/)
 
-**即时通信**
+## 即时通信
 
 * [Btalk](http://zhtlancer.com/)：黑莓上的 Gtalk
 * [QQ](http://mobile.qq.com/m/BlackBerry/8700/mqq)：官方版 QQ，最近官方又发布了令人惊喜的 [黑莓原生版 QQ](http://reteng.qq.com/info/12599.html)，可惜仅支持 5.0+
 * [飞信](http://feixin.10086.cn/download/mobileclient/platformclientlist/Blackberry)：仅用 cilyce 修改的 [BBFetion1.0](http://www.bber.info/post/bbfetion) 和不在线的 [迷你飞信](http://www.tookle.tk/)，高端黑莓机有更多选择。移动官方的黑莓飞信精灵 1.1 正式兼容 4.5 系统，支持群发。
 
-**浏览阅读**
+## 浏览阅读
 
 * [Anyview](http://anyview.net/)：电子书阅读工具，我不怎么用
 * [Opera Mini](http://www.opera.com/mobile/)：你懂的，我用 [这个](http://www.feelberry.com/2011/03/21/opera-international/)
 * [UC 浏览器](http://www.uc.cn/product/product_browser.shtml)：最新的 8.0 已经内建字体渲染，满足了
 
-**查询相关**
+## 查询相关
 
 * [虫洞](http://uzoo.cn/)：相当给力的软件，有它可以抛弃很多软件了
 * [有道词典](http://berrycn.com/News/BBSoft/2009/1122/update-perfect-dictionary-translation-software-phone-ethics-dictionary-v1-0-4-for-blackberry.html)：省流量，用了豪华版，不怎么查完全可以使用虫洞
 
-**其他工具**
+## 其他工具
 
 * [BBNotepad](http://www.coolove.pcriot.com/)：黑莓上的文本编辑工具
 * [Google Maps](http://www.google.com/mobile/maps/)：手机地图定位，只可惜不支持离线数据库（8700 也只能说笑）
@@ -60,7 +60,7 @@ tags: [手机, 黑莓, "黑莓 8700"]
 
 当然还有更多的应用，满足鄙人现在需求，这些软件已足够，仅仅娱乐功能欠缺，其他功能不亚于普通智能机吧？姜还是老的辣~~
 
-**了解更多**
+## 了解更多
 
 * [莓园无线](http://www.bbota.cn/)：黑莓 OTA 下载，软件下载站
 * [黑莓风暴](http://bbdev.org/)：来电助手，热键大师作者博客

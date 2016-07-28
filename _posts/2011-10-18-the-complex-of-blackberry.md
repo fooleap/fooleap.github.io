@@ -33,7 +33,7 @@ tags: [手机, 黑莓, "黑莓 8700"]
 
 黑莓是典型的“先结婚后恋爱”手机，大部分没接触或者用过黑莓的人，8700 给他第一感觉就是丑，太大不好拿，而用过并熟悉，必然永生难忘。
 
-**了解更多**
+## 了解更多
 
 * 黑莓官网 [http://www.blackberry.com/](http://www.blackberry.com/)
 * MAXPDA 论坛 [http://bbs.maxpda.com/](http://bbs.maxpda.com/)
