@@ -46,11 +46,11 @@ return gpx.to_xml(version="1.1")
 
 因为鄙人没有佳明表，也就不想通过访问速度并不快的 Garmin Connect 来同步，所以以上的修改都是针对导入 Nike+ 的。
 
-怎么使用呢？只需在 `codoon.py` 里面填入咕咚的用户名及密码，将最后面的 routeId 替换成相应单次运动的 route_id ，运动即可获取该次运动的咕咚网数据及两个 GPX 文件，一个 route，一个 track，Nike+ Converter & Uploader 只支持 track。
+怎么使用呢？只需在 `codoon.py` 里面填入咕咚的用户名及密码，将最后面的 routeId 替换成相应单次运动的 `route_id` ，运动即可获取该次运动的咕咚网数据及两个 GPX 文件，一个 route，一个 track，Nike+ Converter & Uploader 只支持 track。
 
-那么问题来了，如何获取单次运动的 route_id 呢？可以打开咕咚网，点到该次运动，傻傻的打开 Developer Tools，在 NetWork 选项卡中刷新，你会发现的。
+那么问题来了，如何获取单次运动的 `route_id` 呢？可以打开咕咚网，点到该次运动，傻傻的打开 Developer Tools，在 NetWork 选项卡中刷新，你会发现的。
 
-这明显比搬砖还要难受，太麻烦了，仅需取消 `codoon.py` 以下两行的注释即可获取咕咚的运动数据列表，即每次运动数据的各种属性。
+这明显比搬砖还要难受，太麻烦了。而这个工具已经有提供相应的功能，通过咕咚的 API 获取相应的数据。仅需取消 `codoon.py` 以下两行的注释，即可获取咕咚的运动数据列表，即每次运动数据的各种属性。
 
 {% highlight python %}
 routes = device.get_route_log( productId = imei )
