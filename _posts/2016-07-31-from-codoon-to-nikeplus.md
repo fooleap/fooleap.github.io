@@ -79,3 +79,7 @@ def get_route_log(self , productId , count = 100 , excluded = "" , page = 1 , is
 [3]: https://www.awsmithson.com/tcx2nikeplus/	"Nike+ Converter & Uploader"
 [4]: http://www.wearable.pw/index.php/archives/332	"将Codoon的路径记录导出成GPX路径"
 [5]: https://github.com/iascchen/VisHealth/	"iascchen / VisHealth"
+
+**本文历史**
+
+* 2016 年 7 月 31 日 完成初稿
