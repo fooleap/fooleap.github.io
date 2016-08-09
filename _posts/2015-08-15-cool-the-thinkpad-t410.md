@@ -26,19 +26,19 @@ tags: [降温, 硅脂, CPU, "ThinkPad T410"]
 
 此前在 [解决键盘问题](/the-keyboard-problem-with-thinkpad-t410.html) 的时候买了螺丝刀，因此螺丝刀现成。
 
-![螺丝刀]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-01.jpg)
+![螺丝刀]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-01.jpg_640)
 ▲螺丝刀
 
 现在需要在网上查找相关教程就可以进行清灰操作，其实联想有本 [《ThinkPad T410 硬件维护手册》](http://download.lenovo.com/ibmdl/pub/pc/pccbbs/mobiles_pdf/63y0535.pdf)，貌似只有英文版，而且还长篇大论的，还是算了。发现 SKS 论坛刚好有一篇图解教程：[Thinkpad T410笔记本清理风扇图解](http://bbs.friendeye.com/viewthread.php?tid=187705)，这个教程将需要拆的螺丝位置圈出来，感觉这种方式挺好的，上传一张后壳需拆螺丝，虽然自己的机子很旧略脏。
 
-![ThinkPad T410 清灰后壳表面需拆螺丝]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-02.jpg)
+![ThinkPad T410 清灰后壳表面需拆螺丝]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-02.jpg_640)
 ▲ThinkPad T410 清灰后壳表面需拆螺丝
 
 清理灰尘需要拧的螺丝还真不少，根据那篇文章，螺丝一颗颗卸下来了。不过在拆 C 壳时，格外难拆，甚至把里面一颗螺丝搞断了，后来才发现，电池内原来还有几颗螺丝需要拆（这个原文没提，需注意），C 壳才能卸下。
 
 卸下 CPU 散热风扇之后，这真的很脏，立即对风扇的表面进行清灰。
 
-![清灰之前的风扇]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-03.jpg)
+![清灰之前的风扇]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-03.jpg_640)
 ▲清灰之前的风扇
 
 看网上这风扇还可以进行拆卸清灰的，可是我的这台 T410 的风扇并没有找到任何螺丝，只能作罢，重新装好拧上螺丝。
@@ -47,24 +47,24 @@ tags: [降温, 硅脂, CPU, "ThinkPad T410"]
 
 有限制的除尘对散热效果根本就没有多大改变，所以我考虑更换硅脂看看，到京东上购买最便宜的硅脂。
 
-![导热硅脂]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-04.jpg)
+![导热硅脂]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-04.jpg_640)
 ▲导热硅脂
 
 由于有拆机清灰的经验，因此换硅脂就没有先搜索相关的教程，螺丝刀在手就开拧了，拆完马上就开始涂上去。
 
-![涂在 CPU 上的硅脂]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-05.jpg)
+![涂在 CPU 上的硅脂]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-05.jpg_640)
 ▲涂在 CPU 上的硅脂
 
 心想只要涂得均匀就差不多了，也没管那么多，抹平装好。开机，效果可想而知，温度和原来没啥区别。
 
 后来朋友告知弄太多了，又重新拆机重来，这次如下图，太丑啥的那我也没办法了，那抹杆还真大。
 
-![抹平的硅脂]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-06.jpg)
+![抹平的硅脂]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-06.jpg_640)
 ▲抹平的硅脂
 
 那么换完硅脂之后温度是怎么样的呢？区别并没有多大，但是比起以前，还是稍微好点的，至少抹完到现在还没自动关机过。
 
-![换完硅脂之后的温度]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-07.jpg)
+![换完硅脂之后的温度]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-07.jpg_640)
 ▲换完硅脂之后的温度
 
 ## 注意事项
@@ -83,7 +83,7 @@ tags: [降温, 硅脂, CPU, "ThinkPad T410"]
 
 虽然没降多少温度，但经过折腾之后，就算看视频也还没出现过一次自动关机，已经挺满足的。在此之前，看视频的时候我几乎都会自己用个 USB 小风扇做一个简易的“散热器”，如下图。
 
-![用 USB 风扇散热]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-08.jpg)
+![用 USB 风扇散热]({{ site.IMG_PATH }}/cool-the-thinkpad-t410-08.jpg_640)
 ▲用 USB 风扇散热
 
 如果以后还出现太热关机的情况，那么可能需要将整个风扇换掉或者买比较好的硅脂来试试。
