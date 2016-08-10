@@ -22,3 +22,13 @@
   font-weight: 400;
   src: local('RobotoDraft Italic'), local('RobotoDraft-Italic'), local('Roboto-Italic'), url(../fonts/RobotoDraftItalic.woff2) format('woff2'), url(../fonts/RobotoDraftItalic.woff) format('woff');
 }
+@font-face {
+    font-family: 'Zpix C.O.D.E';
+    src: url('../fonts/zpix_c.o.d.e.eot');
+    src: url('../fonts/zpix_c.o.d.e.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/zpix_c.o.d.e.woff2') format('woff2'),
+         url('../fonts/zpix_c.o.d.e.woff') format('woff'),
+         url('../fonts/zpix_c.o.d.e.svg#zpix_c.o.d.e') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
