@@ -82,4 +82,4 @@ def get_route_log(self , productId , count = 100 , excluded = "" , page = 1 , is
 
 **本文历史**
 
-* 2016 年 7 月 31 日 完成初稿
+* 2016 年 07 月 31 日 完成初稿
