@@ -13,6 +13,20 @@ $default: rgb(34, 34, 34);
   padding: 0;
 }
 
+.cf {
+    zoom: 1;
+}
+
+.cf:before,
+.cf:after {
+    display: table;
+    content: '';
+}
+
+.cf:after {
+    clear: both;
+}
+
 strong, b {
   font-weight: bold;
   color: rgb(0, 0, 0);
