@@ -21,7 +21,7 @@ js: true
     <label for="file-input" class="file-upload">选择文件</label>
     <label id="filename"></label>
 </div>
-<textarea id="output"></textarea>
+<textarea id="output" placeholder="可拖拽文件到文本框"></textarea>
 
 **TODO**
 
@@ -33,6 +33,7 @@ js: true
 * 2016 年 05 月 29 日 <del>增加对 Nike API v1 格式支持</del>
 * 2016 年 06 月 11 日 增加对 Nike API v3 格式支持
 * 2016 年 08 月 28 日 增加对 KMZ 文件格式支持
+* 2016 年 09 月 04 日 增加文件拖拽上传
 
 <!--<style>
 input {
@@ -109,12 +110,10 @@ function readKML(data){
     return gpsArrays;
 }
 
-
-function readFile(event) {
-    var file = event.target.files[0];
+function readFile(file) {
     if (file) {
         var reader = new FileReader();
-        reader.onloadstart = function(e) {
+        reader.onloadstart = function() {
             document.getElementById('output').innerHTML =  '读取中...';
         };
         reader.onload = function(e) {
@@ -218,6 +217,22 @@ function transform() {
     }
     document.getElementById('output').innerHTML = output;
 }
-document.getElementById('file-input').addEventListener('change', readFile, false);
+
+function dropFile(e){
+    e.stopPropagation();
+    e.preventDefault();
+    var file = e.dataTransfer.files[0];
+    readFile(file);
+}
+
+function chooseFile(e){
+    var file = e.target.files[0];
+    readFile(file);
+}
+
+document.getElementById('file-input').addEventListener('change', chooseFile, false);
 document.getElementById('submit').addEventListener('click', transform, false);
+document.getElementById('output').addEventListener('drop', dropFile, false);
+document.getElementById('output').addEventListener('dropend', prevent, false);
+document.getElementById('output').addEventListener('dropover', prevent, false);
 </script>-->
