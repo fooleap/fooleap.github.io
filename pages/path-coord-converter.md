@@ -30,8 +30,8 @@ js: true
 **历史记录**
 
 * 2016 年 05 月 25 日 完成 KML 文件格式输入转换
-* 2016 年 05 月 29 日 <del>增加对 Nike API v1 格式支持</del>
-* 2016 年 06 月 11 日 增加对 Nike API v3 格式支持
+* 2016 年 05 月 29 日 <del>增加对 Nike+ API v1 格式支持</del>
+* 2016 年 06 月 11 日 增加对 Nike+ API v3 格式支持
 * 2016 年 08 月 28 日 增加对 KMZ 文件格式支持
 * 2016 年 09 月 04 日 增加文件拖拽上传
 
@@ -216,6 +216,11 @@ function transform() {
         }
     }
     document.getElementById('output').innerHTML = output;
+}
+
+function prevent(e){
+    e.stopPropagation();
+    e.preventDefault();
 }
 
 function dropFile(e){
