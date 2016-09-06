@@ -110,11 +110,6 @@ function keysDown(event) {
   if (keys[16] && keys[71]) {
     window.scrollTo(0, document.body.scrollHeight );
   }
-  if (keys[67]) {
-    if (!document.getElementById('dsq-1')) {
-      commentBtn.click();
-    }
-  }
   if (keys[71]) {
     if (!inCombo) {
       inCombo = true;
