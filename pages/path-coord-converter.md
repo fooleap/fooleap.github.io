@@ -120,6 +120,14 @@ function readFile(file) {
 		    contents = e.target.result;
             gps = [];
             gpsArrays = [];
+            if (file.name.indexOf('gpx') > -1){
+                var parser = new DOMParser();
+                xmlDoc = parser.parseFromString(contents, 'text/xml');
+                var trkpt = xmlDoc.getElementsByTagName('trkpt');
+                for (var i = 0; i < trkpt.length; i++ ){
+                    console.log(trkpt[i].getAttribute('lat')+','+ trkpt[i].getAttribute('lon'));
+                }
+            }
             if (file.type == 'application/vnd.google-earth.kml+xml' ) {
                 gpsArrays = readKML(contents);
             } else if(file.type == 'application/vnd.google-earth.kmz'){
