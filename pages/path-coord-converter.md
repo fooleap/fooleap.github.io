@@ -23,6 +23,10 @@ js: true
 </div>
 <textarea id="output" placeholder="可拖拽文件到文本框"></textarea>
 
+**TODO**
+
+* 自选数据源的采用坐标
+
 **历史记录**
 
 * 2016 年 05 月 25 日 完成 KML 文件格式输入转换
@@ -182,7 +186,7 @@ function transform() {
     var result = [];
     for (var i in gpsArrays) {
         gcj02Arrays[i] = [];
-        if (contents.indexOf('xmlns:gx') > -1 || contents.indexOf('nike') > -1){
+        if ( contents.indexOf('garmin') > -1 || contents.indexOf('xmlns:gx') > -1 || contents.indexOf('com.nike') > -1){
             result[i] = [];
             for (var e in gpsArrays[i]) {
                 result[i].push(coordtransform.wgs84togcj02(gpsArrays[i][e].lng, gpsArrays[i][e].lat));
