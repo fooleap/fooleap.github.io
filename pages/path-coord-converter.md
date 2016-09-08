@@ -23,10 +23,6 @@ js: true
 </div>
 <textarea id="output" placeholder="可拖拽文件到文本框"></textarea>
 
-**TODO**
-
-* 增加对 GPX 格式的支持
-
 **历史记录**
 
 * 2016 年 05 月 25 日 完成 KML 文件格式输入转换
@@ -34,6 +30,7 @@ js: true
 * 2016 年 06 月 11 日 增加对 Nike+ API v3 格式支持
 * 2016 年 08 月 28 日 增加对 KMZ 文件格式支持
 * 2016 年 09 月 04 日 增加文件拖拽上传
+* 2016 年 09 月 08 日 增加对 GPX 格式的支持
 
 <!--<style>
 input {
@@ -91,20 +88,34 @@ function coord(type){
 }
 
 function readKML(data){
-    var contentsArray = data.split('</tessellate>');
+    var parser = new DOMParser();
+    xmlDoc = parser.parseFromString(data, 'text/xml');
+    var coordinates = xmlDoc.querySelectorAll('LineString coordinates');
     var gpspoints;
-    for (var i = 1; i <= contentsArray.length - 1; i++) {
-        gpspoints = contentsArray[i].split('<coordinates>')[1].split('</coordinates>')[0].replace(/^\s+|\s+$|\.0/g, '');
-        gps[i-1] = gpspoints.substring(0, gpspoints.length - 2).split(',0 ');
-    }
-    for (var i = 0; i < gps.length; i++) {
+    for (var i = 0; i < coordinates.length; i++) {
         gpsArrays[i] = [];
+        gps[i] = coordinates[i].innerHTML.replace(/^\s+|\s+$|\.0|<coordinates>|<\/coordinates>/g, '').split(',0 ');
+        console.log(gps[i]);
         for (var e in gps[i]) {
             gpsArrays[i][e] = {
                 'lng': parseFloat(gps[i][e].split(',')[0]),
                 'lat': parseFloat(gps[i][e].split(',')[1])
             }
         }
+    }
+    document.getElementById('output').innerHTML = contents;
+    return gpsArrays;
+}
+function readGPX(data){
+    var parser = new DOMParser();
+    xmlDoc = parser.parseFromString(data, 'text/xml');
+    var coordinates = xmlDoc.getElementsByTagName('trkpt');
+    gpsArrays[0] = [];
+    for (var i = 0; i < coordinates.length; i++ ){
+        gpsArrays[0][i] = { 
+            'lng':parseFloat(coordinates[i].getAttribute('lon')),
+            'lat':parseFloat(coordinates[i].getAttribute('lat'))
+        };
     }
     document.getElementById('output').innerHTML = contents;
     return gpsArrays;
@@ -121,14 +132,8 @@ function readFile(file) {
             gps = [];
             gpsArrays = [];
             if (file.name.indexOf('gpx') > -1){
-                var parser = new DOMParser();
-                xmlDoc = parser.parseFromString(contents, 'text/xml');
-                var trkpt = xmlDoc.getElementsByTagName('trkpt');
-                for (var i = 0; i < trkpt.length; i++ ){
-                    console.log(trkpt[i].getAttribute('lat')+','+ trkpt[i].getAttribute('lon'));
-                }
-            }
-            if (file.type == 'application/vnd.google-earth.kml+xml' ) {
+                gpsArrays = readGPX(contents);
+            } else if (file.type == 'application/vnd.google-earth.kml+xml' ) {
                 gpsArrays = readKML(contents);
             } else if(file.type == 'application/vnd.google-earth.kmz'){
                 JSZip.loadAsync(file).then(function(zip) {
@@ -137,7 +142,7 @@ function readFile(file) {
                     contents = text;
                     gpsArrays = readKML(contents);
                 })
-            } else if (contents.indexOf('nike') > -1) {
+            } else if (contents.indexOf('com.nike') > -1) {
                     gpsArrays[0] = [];
                     // api v3
                     jsonContents = JSON.parse(contents).metrics;
