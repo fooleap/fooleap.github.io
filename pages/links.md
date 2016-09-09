@@ -60,7 +60,7 @@ title: 链接
 * [软件小子](http://bzdiao.com){:title="Bruse@西安"}
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
 * [以梦为马，奔向远方](http://linhaicaoyuan.org){:title="石明鑫@昆明"}
-* [宜优网](http://aqseo.net/){:title="何承周@安徽"}
+* [Mr.He](http://mrhe.net/){:title="何承周@安徽"}
 * [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
 * [贼头's Blog](http://www.makiller.com){:title="马震南@南宁"}
 

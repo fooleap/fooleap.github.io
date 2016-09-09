@@ -22,10 +22,12 @@ js: true
     <label id="filename"></label>
 </div>
 <textarea id="output" placeholder="可拖拽文件到文本框"></textarea>
+<div id="map"></div>
 
 **TODO**
 
 * 自选数据源的采用坐标
+* 在高德地图中显示路径
 
 **历史记录**
 
@@ -76,12 +78,16 @@ input[type="file"] {
   font-size: 12px;
   cursor: pointer;
 }
+#map{
+    transition: all 1s;
+}
 .file-submit {
     float: right
 }
 </style>-->
 <!--<script>
 var gps, gpsArrays, contents;
+
 function coord(type){
     var jsonContents = JSON.parse(contents).metrics;
     for(var i = 0; i < jsonContents.length;i++){
@@ -107,9 +113,9 @@ function readKML(data){
             }
         }
     }
-    document.getElementById('output').innerHTML = contents;
     return gpsArrays;
 }
+
 function readGPX(data){
     var parser = new DOMParser();
     xmlDoc = parser.parseFromString(data, 'text/xml');
@@ -121,7 +127,28 @@ function readGPX(data){
             'lat':parseFloat(coordinates[i].getAttribute('lat'))
         };
     }
-    document.getElementById('output').innerHTML = contents;
+    return gpsArrays;
+}
+
+function readNike(data){
+    gpsArrays[0] = [];
+    // api v3
+    jsonContents = JSON.parse(contents).metrics;
+    var lng = coord('longitude');
+    var lat = coord('latitude');
+    for(var i = 0; i < jsonContents[lng].values.length; i++) {
+        gpsArrays[0][i] = {
+            'lng': parseFloat(jsonContents[lng].values[i].value),
+            'lat': parseFloat(jsonContents[lat].values[i].value)
+        }
+        /** api v1
+         *for(var i = 0; i < JSON.parse(contents).waypoints.length; i++) {
+         *gpsArrays[0].push({
+         *    'lng': parseFloat(JSON.parse(contents).waypoints[i].longitude),
+         *    'lat': parseFloat(JSON.parse(contents).waypoints[i].latitude)
+         *})
+         */
+    }
     return gpsArrays;
 }
 
@@ -147,30 +174,13 @@ function readFile(file) {
                     gpsArrays = readKML(contents);
                 })
             } else if (contents.indexOf('com.nike') > -1) {
-                    gpsArrays[0] = [];
-                    // api v3
-                    jsonContents = JSON.parse(contents).metrics;
-                    var lng = coord('longitude');
-                    var lat = coord('latitude');
-                    for(var i = 0; i < jsonContents[lng].values.length; i++) {
-                    gpsArrays[0][i] = {
-                        'lng': parseFloat(jsonContents[lng].values[i].value),
-                        'lat': parseFloat(jsonContents[lat].values[i].value)
-                    }
-                    /** api v1
-                     *for(var i = 0; i < JSON.parse(contents).waypoints.length; i++) {
-                     *gpsArrays[0].push({
-                     *    'lng': parseFloat(JSON.parse(contents).waypoints[i].longitude),
-                     *    'lat': parseFloat(JSON.parse(contents).waypoints[i].latitude)
-                     *})
-                     */
-                    document.getElementById('output').innerHTML = contents;
-                }
+                gpsArrays = readNike(contents);
             } else {
                 alert("请选择正确格式文件！");
                 document.getElementById('output').innerHTML = '';
 				return;
             }
+            document.getElementById('output').innerHTML = contents;
 			document.getElementById('filename').innerHTML = file.name;
         }
         reader.readAsText(file);
@@ -179,23 +189,43 @@ function readFile(file) {
         alert("请选择文件！");
     }
 }
+
+function showMap(path){
+    var pathData = "";
+    for(var i = 0; i< path.length; i++ ) {
+        if( i != 0 ){
+            pathData += '|';
+        }
+        pathData += '2,0x52EE06,1,,:'+ path[i].join(';');
+    }
+    if( pathData.length < 30000 ) {
+        document.getElementById('map').innerHTML = '<img src="http://restapi.amap.com/v3/staticmap?size=640*375&paths='+ pathData +'&key=ee95e52bf08006f63fd29bcfbcf21df0"/>';
+    } else {
+        document.getElementById('map').innerHTML = '';
+    }
+}
+
 function transform() {
     var gcj02Arrays = [];
     var bd09Arrays = [];
     var output = '';
     var result = [];
-    for (var i in gpsArrays) {
+    var path = [];
+    for (var i = 0; i< gpsArrays.length; i++ ) {
         gcj02Arrays[i] = [];
         if ( contents.indexOf('garmin') > -1 || contents.indexOf('xmlns:gx') > -1 || contents.indexOf('com.nike') > -1){
             result[i] = [];
-            for (var e in gpsArrays[i]) {
+            path[i] = [];
+            for (var e = 0; e < gpsArrays[i].length; e ++) {
                 result[i].push(coordtransform.wgs84togcj02(gpsArrays[i][e].lng, gpsArrays[i][e].lat));
                 result[i][e] = result[i][e].toString().split(',');
                 gcj02Arrays[i].push({
                     'lng': result[i][e][0],
                     'lat': result[i][e][1]
                 });
+                path[i][e] = parseFloat(result[i][e][0]).toFixed(5)+',' + parseFloat(result[i][e][1]).toFixed(5);
             }
+            showMap(path);
         } else {
             gcj02Arrays[i] = gpsArrays[i];
         }
