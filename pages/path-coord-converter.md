@@ -79,7 +79,11 @@ input[type="file"] {
   cursor: pointer;
 }
 #map{
-    transition: all 1s;
+    transition: height 1s;
+    height: 427px;
+}
+#map:empty{
+    height: 0;
 }
 .file-submit {
     float: right
@@ -198,8 +202,8 @@ function showMap(path){
         }
         pathData += '2,0x52EE06,1,,:'+ path[i].join(';');
     }
-    if( pathData.length < 30000 ) {
-        document.getElementById('map').innerHTML = '<img src="http://restapi.amap.com/v3/staticmap?size=640*375&paths='+ pathData +'&key=ee95e52bf08006f63fd29bcfbcf21df0"/>';
+    if( path.length <= 4 && pathData.length < 30000 ) {
+        document.getElementById('map').innerHTML = '<img src="http://restapi.amap.com/v3/staticmap?size=640*427&paths='+ pathData +'&key=ee95e52bf08006f63fd29bcfbcf21df0"/>';
     } else {
         document.getElementById('map').innerHTML = '';
     }
@@ -211,11 +215,12 @@ function transform() {
     var output = '';
     var result = [];
     var path = [];
+    document.getElementById('map').innerHTML = '';
     for (var i = 0; i< gpsArrays.length; i++ ) {
         gcj02Arrays[i] = [];
+        path[i] = [];
         if ( contents.indexOf('garmin') > -1 || contents.indexOf('xmlns:gx') > -1 || contents.indexOf('com.nike') > -1){
             result[i] = [];
-            path[i] = [];
             for (var e = 0; e < gpsArrays[i].length; e ++) {
                 result[i].push(coordtransform.wgs84togcj02(gpsArrays[i][e].lng, gpsArrays[i][e].lat));
                 result[i][e] = result[i][e].toString().split(',');
@@ -225,10 +230,13 @@ function transform() {
                 });
                 path[i][e] = parseFloat(result[i][e][0]).toFixed(5)+',' + parseFloat(result[i][e][1]).toFixed(5);
             }
-            showMap(path);
         } else {
             gcj02Arrays[i] = gpsArrays[i];
+            for (var e = 0; e < gpsArrays[i].length; e ++) {
+                path[i][e] = parseFloat(gpsArrays[i][e].lng).toFixed(5)+',' + parseFloat(gpsArrays[i][e].lat).toFixed(5);
+            }
         }
+        showMap(path);
     }
     if (document.getElementById('togcj02').checked == true) {
         for (var i = 0; i < gcj02Arrays.length; i++) {
