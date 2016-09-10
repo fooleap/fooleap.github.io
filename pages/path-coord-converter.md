@@ -27,7 +27,6 @@ js: true
 **TODO**
 
 * 自选数据源的采用坐标
-* 在高德地图中显示路径
 
 **历史记录**
 
@@ -37,6 +36,7 @@ js: true
 * 2016 年 08 月 28 日 增加对 KMZ 文件格式支持
 * 2016 年 09 月 04 日 增加文件拖拽上传
 * 2016 年 09 月 08 日 增加对 GPX 格式的支持
+* 2016 年 09 月 10 日 增加结果显示高德静态地图
 
 <!--<style>
 input {
@@ -81,6 +81,7 @@ input[type="file"] {
 #map{
     transition: height 1s;
     height: 427px;
+    overflow: hidden;
 }
 #map:empty{
     height: 0;
@@ -91,6 +92,7 @@ input[type="file"] {
 </style>-->
 <!--<script>
 var gps, gpsArrays, contents;
+var output = document.getElementById('output');
 
 function coord(type){
     var jsonContents = JSON.parse(contents).metrics;
@@ -108,8 +110,7 @@ function readKML(data){
     var gpspoints;
     for (var i = 0; i < coordinates.length; i++) {
         gpsArrays[i] = [];
-        gps[i] = coordinates[i].innerHTML.replace(/^\s+|\s+$|\.0|<coordinates>|<\/coordinates>/g, '').split(',0 ');
-        console.log(gps[i]);
+        gps[i] = coordinates[i].innerHTML.replace(/^\s+|\s+$|\.0\ |<coordinates>|<\/coordinates>/g, '').split(',0 ');
         for (var e in gps[i]) {
             gpsArrays[i][e] = {
                 'lng': parseFloat(gps[i][e].split(',')[0]),
@@ -117,6 +118,7 @@ function readKML(data){
             }
         }
     }
+    output.innerHTML = data;
     return gpsArrays;
 }
 
@@ -131,6 +133,7 @@ function readGPX(data){
             'lat':parseFloat(coordinates[i].getAttribute('lat'))
         };
     }
+    output.innerHTML = data;
     return gpsArrays;
 }
 
@@ -153,6 +156,7 @@ function readNike(data){
          *})
          */
     }
+    output.innerHTML = data;
     return gpsArrays;
 }
 
@@ -160,7 +164,7 @@ function readFile(file) {
     if (file) {
         var reader = new FileReader();
         reader.onloadstart = function() {
-            document.getElementById('output').innerHTML =  '读取中...';
+            output.innerHTML =  '读取中...';
         };
         reader.onload = function(e) {
 		    contents = e.target.result;
@@ -172,7 +176,7 @@ function readFile(file) {
                 gpsArrays = readKML(contents);
             } else if(file.type == 'application/vnd.google-earth.kmz'){
                 JSZip.loadAsync(file).then(function(zip) {
-                    return zip.file("doc.kml").async("string");
+                    return zip.file('doc.kml').async("string");
                 }).then(function (text) {
                     contents = text;
                     gpsArrays = readKML(contents);
@@ -181,11 +185,11 @@ function readFile(file) {
                 gpsArrays = readNike(contents);
             } else {
                 alert("请选择正确格式文件！");
-                document.getElementById('output').innerHTML = '';
+                output.innerHTML = '';
 				return;
             }
-            document.getElementById('output').innerHTML = contents;
 			document.getElementById('filename').innerHTML = file.name;
+            document.getElementById('map').innerHTML = '';
         }
         reader.readAsText(file);
         //reader.readAsBinaryString(file);
@@ -197,13 +201,18 @@ function readFile(file) {
 function showMap(path){
     var pathData = "";
     for(var i = 0; i< path.length; i++ ) {
-        if( i != 0 ){
+        if( i > 0 ){
             pathData += '|';
         }
         pathData += '2,0x52EE06,1,,:'+ path[i].join(';');
     }
     if( path.length <= 4 && pathData.length < 30000 ) {
-        document.getElementById('map').innerHTML = '<img src="http://restapi.amap.com/v3/staticmap?size=640*427&paths='+ pathData +'&key=ee95e52bf08006f63fd29bcfbcf21df0"/>';
+        var map = new Image(640, 427);
+        console.log(pathData)
+        map.src = 'http://restapi.amap.com/v3/staticmap?size=640*427&paths='+ pathData +'&key=ee95e52bf08006f63fd29bcfbcf21df0';
+        map.onload = function(){
+            document.getElementById('map').appendChild(map);
+        }
     } else {
         document.getElementById('map').innerHTML = '';
     }
@@ -212,10 +221,9 @@ function showMap(path){
 function transform() {
     var gcj02Arrays = [];
     var bd09Arrays = [];
-    var output = '';
+    var outputData = '';
     var result = [];
     var path = [];
-    document.getElementById('map').innerHTML = '';
     for (var i = 0; i< gpsArrays.length; i++ ) {
         gcj02Arrays[i] = [];
         path[i] = [];
@@ -236,16 +244,16 @@ function transform() {
                 path[i][e] = parseFloat(gpsArrays[i][e].lng).toFixed(5)+',' + parseFloat(gpsArrays[i][e].lat).toFixed(5);
             }
         }
-        showMap(path);
     }
+    showMap(path);
     if (document.getElementById('togcj02').checked == true) {
         for (var i = 0; i < gcj02Arrays.length; i++) {
             var lineNo = gcj02Arrays.length == 1 ? '': i.toString();
-            output += 'var lineArr' + lineNo + ' = [\n';
+            outputData += 'var lineArr' + lineNo + ' = [\n';
             for (var e in gcj02Arrays[i]) {
-                output += '  [' + parseFloat(gcj02Arrays[i][e].lng).toFixed(14) + ', ' + parseFloat(gcj02Arrays[i][e].lat).toFixed(14) + '],\n';
+                outputData += '  [' + parseFloat(gcj02Arrays[i][e].lng).toFixed(14) + ', ' + parseFloat(gcj02Arrays[i][e].lat).toFixed(14) + '],\n';
             }
-            output = output.substring(0, output.length -2 ) + '\n];\n';
+            outputData = outputData.substring(0, outputData.length -2 ) + '\n];\n';
         }
     }
     if (document.getElementById('tobd09').checked == true) {
@@ -263,14 +271,14 @@ function transform() {
         }
         for (var i = 0; i < bd09Arrays.length; i++) {
             var lineNo = bd09Arrays.length == 1 ? '': i.toString();
-            output += 'var points' + lineNo + ' = [\n';
+            outputData += 'var points' + lineNo + ' = [\n';
             for (var e in bd09Arrays[i]) {
-                output += '  new BMap.Point(' + parseFloat(bd09Arrays[i][e].lng).toFixed(14) + ', ' + parseFloat(bd09Arrays[i][e].lat).toFixed(14) + '),\n';
+                outputData += '  new BMap.Point(' + parseFloat(bd09Arrays[i][e].lng).toFixed(14) + ', ' + parseFloat(bd09Arrays[i][e].lat).toFixed(14) + '),\n';
             }
-            output = output.substring(0, output.length - 2) + '\n];\n';
+            outputData = outputData.substring(0, outputData.length - 2) + '\n];\n';
         }
     }
-    document.getElementById('output').innerHTML = output;
+    output.innerHTML = outputData;
 }
 
 function prevent(e){
@@ -292,7 +300,7 @@ function chooseFile(e){
 
 document.getElementById('file-input').addEventListener('change', chooseFile, false);
 document.getElementById('submit').addEventListener('click', transform, false);
-document.getElementById('output').addEventListener('drop', dropFile, false);
-document.getElementById('output').addEventListener('dropend', prevent, false);
-document.getElementById('output').addEventListener('dropover', prevent, false);
+output.addEventListener('drop', dropFile, false);
+output.addEventListener('dropend', prevent, false);
+output.addEventListener('dropover', prevent, false);
 </script>-->
