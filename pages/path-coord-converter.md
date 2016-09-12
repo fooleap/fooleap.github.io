@@ -10,16 +10,30 @@ js: true
 ---
 
 <div id="coordtransform" class="cf">
-    <div class="file-submit">
-        <input type="radio" name="coordtrans" id="togcj02" value="to GCJ02" checked>
-        <label for="togcj02">to GCJ02</label>
-        <input type="radio" name="coordtrans" id="tobd09" value="to BD09">
-        <label for="tobd09">to BD09</label>
-        <button id="submit">提交</button>
-    </div>
+    <div class="file-input">
     <input type="file" id="file-input" />
     <label for="file-input" class="file-upload">选择文件</label>
     <label id="filename"></label>
+    </div>
+    <div class="file-format">
+        <div class="file-format-label">
+        输入坐标系：
+        </div>
+        <input type="radio" name="input-format" id="input-wgs84"/>
+        <label for="input-wgs84">地球坐标 (WGS84)</label>
+        <input type="radio" name="input-format" id="input-gcj02"/>
+        <label for="input-gcj02">火星坐标 (GCJ-02)</label>
+    </div>
+    <div class="file-output">
+        <div class="file-output-label">
+        输出坐标系：
+        </div>
+        <input type="radio" name="coordtrans" id="togcj02" value="to GCJ02" checked>
+        <label for="togcj02">火星坐标 (GCJ-02)</label>
+        <input type="radio" name="coordtrans" id="tobd09" value="to BD09">
+        <label for="tobd09">百度坐标 (BD-09)</label>
+    </div>
+    <button id="submit">提交</button>
 </div>
 <textarea id="output" placeholder="可拖拽文件到文本框"></textarea>
 <div id="map"></div>
@@ -43,23 +57,26 @@ input {
   vertical-align: middle;
   cursor: pointer;
 }
+.file-input{
+  line-height: 40px;
+}
 input[type="file"] {
     display: none;
 }
 #output{
     display: block;
     width: 100%;
-	height: 375px;
+	height: 180px;
     margin: 0;
 	font-size: 12px;
-	font-family: sans-serif;
+	font-family: RobotoDraft, 微软雅黑, sans-serif;
 }
 #coordtransform {
     line-height: 20px;
     margin: 5px 0;
 }
 #coordtransform label{
-    line-height: 25px;
+    line-height: 30px;
     display: inline-block;
     cursor: pointer;
 }
@@ -86,9 +103,6 @@ input[type="file"] {
 #map:empty{
     height: 0;
 }
-.file-submit {
-    float: right
-}
 </style>-->
 <!--<script>
 var gps, gpsArrays, contents;
@@ -110,7 +124,7 @@ function readKML(data){
     var gpspoints;
     for (var i = 0; i < coordinates.length; i++) {
         gpsArrays[i] = [];
-        gps[i] = coordinates[i].innerHTML.replace(/^\s+|\s+$|\.0\ |<coordinates>|<\/coordinates>/g, '').split(',0 ');
+        gps[i] = coordinates[i].innerHTML.replace(/^\s+|\s+$|<coordinates>|<\/coordinates>/g, '').replace(/\.0\ /g,' ').split(',0 ');
         for (var e in gps[i]) {
             gpsArrays[i][e] = {
                 'lng': parseFloat(gps[i][e].split(',')[0]),
@@ -208,8 +222,7 @@ function showMap(path){
     }
     if( path.length <= 4 && pathData.length < 30000 ) {
         var map = new Image(640, 427);
-        console.log(pathData)
-        map.src = 'http://restapi.amap.com/v3/staticmap?size=640*427&paths='+ pathData +'&key=ee95e52bf08006f63fd29bcfbcf21df0';
+        map.src = 'http://restapi.amap.com/v3/staticmap?scale=1&size=640*427&paths='+ pathData +'&key=ee95e52bf08006f63fd29bcfbcf21df0';
         map.onload = function(){
             document.getElementById('map').appendChild(map);
         }
@@ -230,12 +243,11 @@ function transform() {
         if ( contents.indexOf('garmin') > -1 || contents.indexOf('xmlns:gx') > -1 || contents.indexOf('com.nike') > -1){
             result[i] = [];
             for (var e = 0; e < gpsArrays[i].length; e ++) {
-                result[i].push(coordtransform.wgs84togcj02(gpsArrays[i][e].lng, gpsArrays[i][e].lat));
-                result[i][e] = result[i][e].toString().split(',');
-                gcj02Arrays[i].push({
+                result[i][e] = coordtransform.wgs84togcj02(gpsArrays[i][e].lng, gpsArrays[i][e].lat).toString().split(',');
+                gcj02Arrays[i][e] = {
                     'lng': result[i][e][0],
                     'lat': result[i][e][1]
-                });
+                };
                 path[i][e] = parseFloat(result[i][e][0]).toFixed(5)+',' + parseFloat(result[i][e][1]).toFixed(5);
             }
         } else {
@@ -251,7 +263,7 @@ function transform() {
             var lineNo = gcj02Arrays.length == 1 ? '': i.toString();
             outputData += 'var lineArr' + lineNo + ' = [\n';
             for (var e in gcj02Arrays[i]) {
-                outputData += '  [' + parseFloat(gcj02Arrays[i][e].lng).toFixed(14) + ', ' + parseFloat(gcj02Arrays[i][e].lat).toFixed(14) + '],\n';
+                outputData += '  [' + parseFloat(gcj02Arrays[i][e].lng).toFixed(6) + ', ' + parseFloat(gcj02Arrays[i][e].lat).toFixed(6) + '],\n';
             }
             outputData = outputData.substring(0, outputData.length -2 ) + '\n];\n';
         }
@@ -261,19 +273,18 @@ function transform() {
             bd09Arrays[i] = [];
             result[i] = [];
             for (var e in gcj02Arrays[i]) {
-                result[i].push(coordtransform.gcj02tobd09(gcj02Arrays[i][e].lng, gcj02Arrays[i][e].lat));
-                result[i][e] = result[i][e].toString().split(',');
-                bd09Arrays[i].push({
+                result[i][e] = coordtransform.gcj02tobd09(gcj02Arrays[i][e].lng, gcj02Arrays[i][e].lat).toString().split(',');
+                bd09Arrays[i][e] = {
                     'lng': result[i][e][0],
                     'lat': result[i][e][1]
-                });
+                };
             }
         }
         for (var i = 0; i < bd09Arrays.length; i++) {
             var lineNo = bd09Arrays.length == 1 ? '': i.toString();
             outputData += 'var points' + lineNo + ' = [\n';
             for (var e in bd09Arrays[i]) {
-                outputData += '  new BMap.Point(' + parseFloat(bd09Arrays[i][e].lng).toFixed(14) + ', ' + parseFloat(bd09Arrays[i][e].lat).toFixed(14) + '),\n';
+                outputData += '  new BMap.Point(' + parseFloat(bd09Arrays[i][e].lng).toFixed(6) + ', ' + parseFloat(bd09Arrays[i][e].lat).toFixed(6) + '),\n';
             }
             outputData = outputData.substring(0, outputData.length - 2) + '\n];\n';
         }
