@@ -15,23 +15,31 @@ js: true
     <label for="file-input" class="file-upload">选择文件</label>
     <label id="filename"></label>
     </div>
-    <div class="file-format">
+    <div class="file-format cf">
         <div class="file-format-label">
         输入坐标系：
         </div>
-        <input type="radio" name="input-format" id="input-wgs84"/>
-        <label for="input-wgs84">地球坐标 (WGS84)</label>
-        <input type="radio" name="input-format" id="input-gcj02"/>
-        <label for="input-gcj02">火星坐标 (GCJ-02)</label>
+        <div class="file-format-item">
+          <input type="radio" name="input-format" id="input-wgs84" checked />
+          <label for="input-wgs84">地球坐标 (WGS84)</label>
+        </div>
+        <div class="file-format-item">
+          <input type="radio" name="input-format" id="input-gcj02"/>
+          <label for="input-gcj02">火星坐标 (GCJ-02)</label>
+        </div>
     </div>
-    <div class="file-output">
+    <div class="file-output cf">
         <div class="file-output-label">
         输出坐标系：
         </div>
-        <input type="radio" name="coordtrans" id="togcj02" value="to GCJ02" checked>
-        <label for="togcj02">火星坐标 (GCJ-02)</label>
-        <input type="radio" name="coordtrans" id="tobd09" value="to BD09">
-        <label for="tobd09">百度坐标 (BD-09)</label>
+        <div class="file-output-item">
+          <input type="radio" name="coordtrans" id="togcj02" value="to GCJ02" checked>
+          <label for="togcj02">火星坐标 (GCJ-02)</label>
+        </div>
+        <div class="file-output-item">
+          <input type="radio" name="coordtrans" id="tobd09" value="to BD09">
+          <label for="tobd09">百度坐标 (BD-09)</label>
+        </div>
     </div>
     <button id="submit">提交</button>
 </div>
@@ -40,7 +48,8 @@ js: true
 
 **TODO**
 
-* 自选数据源的采用坐标
+* 支持导出 GPX 文件
+
 
 **历史记录**
 
@@ -51,17 +60,42 @@ js: true
 * 2016 年 09 月 04 日 增加文件拖拽上传
 * 2016 年 09 月 08 日 增加对 GPX 格式的支持
 * 2016 年 09 月 10 日 增加结果显示高德静态地图
+* 2016 年 09 月 12 日 自选输入数据采用坐标
 
 <!--<style>
 input {
-  vertical-align: middle;
-  cursor: pointer;
+  display: none;
+}
+*{
+  box-sizing: border-box;
 }
 .file-input{
-  line-height: 40px;
+  line-height: 30px;
 }
-input[type="file"] {
-    display: none;
+.file-format,
+.file-output,
+.file-format-item,
+.file-output-item{
+  float: left;
+}
+.file-format label,
+.file-output label{
+  text-align: center;
+  width: 150px;
+  font-size: 12px;
+  margin-right:  10px;
+  border-radius: 2px;
+  display: inline-block;
+  border: 1px solid #c4daea;
+}
+.file-format-item:last-child label{
+  margin-left: -1px;
+}
+.file-format input:checked + label,
+.file-output input:checked + label{
+  border-color:  #999;
+  z-index: 2;
+  position: relative;
 }
 #output{
     display: block;
@@ -69,10 +103,12 @@ input[type="file"] {
 	height: 180px;
     margin: 0;
 	font-size: 12px;
+    padding: 5px;
 	font-family: RobotoDraft, 微软雅黑, sans-serif;
+    border-radius: 2px;
 }
 #coordtransform {
-    line-height: 20px;
+    line-height: 30px;
     margin: 5px 0;
 }
 #coordtransform label{
@@ -90,10 +126,15 @@ input[type="file"] {
   display: inline- block;
   background-color: #f8f8f8;
   border: 1px solid #e0e0e0;
-  padding: 2px 8px;
-  line-height: 15px;
+  line-height: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 5px 0;
+  width: 120px;
   font-size: 12px;
   cursor: pointer;
+  border-radius: 2px;
+  text-align: center;
 }
 #map{
     transition: height 1s;
@@ -139,7 +180,7 @@ function readKML(data){
 function readGPX(data){
     var parser = new DOMParser();
     xmlDoc = parser.parseFromString(data, 'text/xml');
-    var coordinates = xmlDoc.getElementsByTagName('trkpt');
+    var coordinates = xmlDoc.getElementsByTagName('trkpt').length ? xmlDoc.getElementsByTagName('trkpt') : xmlDoc.getElementsByTagName('rtept') ;
     gpsArrays[0] = [];
     for (var i = 0; i < coordinates.length; i++ ){
         gpsArrays[0][i] = { 
@@ -204,6 +245,9 @@ function readFile(file) {
             }
 			document.getElementById('filename').innerHTML = file.name;
             document.getElementById('map').innerHTML = '';
+            if ( contents.indexOf('xmlns:gx') > -1 || contents.indexOf('com.nike') > -1){
+              document.getElementById('input-gcj02').checked = true;
+            }
         }
         reader.readAsText(file);
         //reader.readAsBinaryString(file);
@@ -224,7 +268,7 @@ function showMap(path){
         var map = new Image(640, 427);
         map.src = 'http://restapi.amap.com/v3/staticmap?scale=1&size=640*427&paths='+ pathData +'&key=ee95e52bf08006f63fd29bcfbcf21df0';
         map.onload = function(){
-            document.getElementById('map').appendChild(map);
+            document.getElementById('map').innerHTML = '<img src="' + map.src + '" />';
         }
     } else {
         document.getElementById('map').innerHTML = '';
@@ -240,7 +284,7 @@ function transform() {
     for (var i = 0; i< gpsArrays.length; i++ ) {
         gcj02Arrays[i] = [];
         path[i] = [];
-        if ( contents.indexOf('garmin') > -1 || contents.indexOf('xmlns:gx') > -1 || contents.indexOf('com.nike') > -1){
+        if (document.getElementById('input-gcj02').checked == true) {
             result[i] = [];
             for (var e = 0; e < gpsArrays[i].length; e ++) {
                 result[i][e] = coordtransform.wgs84togcj02(gpsArrays[i][e].lng, gpsArrays[i][e].lat).toString().split(',');
