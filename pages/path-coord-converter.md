@@ -246,7 +246,7 @@ function readFile(file) {
 			document.getElementById('filename').innerHTML = file.name;
             document.getElementById('map').innerHTML = '';
             if ( contents.indexOf('xmlns:gx') > -1 || contents.indexOf('com.nike') > -1){
-              document.getElementById('input-gcj02').checked = true;
+              document.getElementById('input-wgs84').checked = true;
             }
         }
         reader.readAsText(file);
@@ -284,7 +284,7 @@ function transform() {
     for (var i = 0; i< gpsArrays.length; i++ ) {
         gcj02Arrays[i] = [];
         path[i] = [];
-        if (document.getElementById('input-gcj02').checked == true) {
+        if (document.getElementById('input-wgs84').checked == true) {
             result[i] = [];
             for (var e = 0; e < gpsArrays[i].length; e ++) {
                 result[i][e] = coordtransform.wgs84togcj02(gpsArrays[i][e].lng, gpsArrays[i][e].lat).toString().split(',');
