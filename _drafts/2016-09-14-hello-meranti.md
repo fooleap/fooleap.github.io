@@ -76,38 +76,41 @@ scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73
 }
 </style> -->
 <!--<script>
-var googleLayer = new AMap.TileLayer({
-  getTileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=s&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galile',
-  zIndex: 0
-});
+var lineArr = [];
 var script = document.createElement("script");
 script.setAttribute("src", "http://typhoon.zjwater.gov.cn/Api/TyphoonInfo/201614?callback=jsonpCallback");
 document.getElementsByTagName("body")[0].appendChild(script);
 function jsonpCallback(result) {
-var roadNetLayer = new AMap.TileLayer.RoadNet({zIndex:1});
-var map = new AMap.Map('map', {
-    resizeEnable: true,
-    center: [116.812, 23.477],
-    layers:[googleLayer,roadNetLayer],
-    zoom: 5
-});
     var points  = result[0].points;
-    var lineArr = [];
     for (var i = 0; i < points.length; i++){
         var point = [];
         point[0] = points[i].lng;
         point[1] = points[i].lat;
         lineArr[i] = point;
     }
-    console.log(lineArr)
-var polyline = new AMap.Polyline({
-    map: map,
-    path: lineArr,
-    strokeColor: "#52EE06",
-    strokeOpacity: 1,
-    strokeWeight: 3,
-    strokeStyle: "solid"
-});
-polyline.setMap(map);
+    drawMap(lineArr);
+}
+    var googleLayer = new AMap.TileLayer({
+      getTileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=s&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galile',
+      zIndex: 0
+    });
+    var roadNetLayer = new AMap.TileLayer.RoadNet({zIndex:1});
+    var map = new AMap.Map('map', {
+        resizeEnable: true,
+        center: [126.304, 23.436],
+        layers:[googleLayer,roadNetLayer],
+        zoom: 5
+    });
+function drawMap(lineArr){
+    var polyline = new AMap.Polyline({
+        map: map,
+        path: lineArr,
+        strokeColor: "#52EE06",
+        strokeOpacity: 1,
+        strokeWeight: 3,
+        strokeStyle: "solid"
+    });
+    polyline.setMap(map);
+    console.log(map.getCenter());
 }
 </script>-->
