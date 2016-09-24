@@ -10,13 +10,19 @@ style: true
 scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"]
 ---
 
+已有一个多月没有写过博客，再不写，下个台风“鲇鱼”都快来报道了。
+
+这个中秋，是自 2010 年以来，第一个在家过的中秋节。中秋节前大概四五天，今年首屈一指的大台风“莫兰蒂”预测线路直指闽南、潮汕。各种预报机构都说这是一个顶级大台风，若完全避开台湾，那这将是这边 1969 年 “728”以来最强的台风。“728”那是父母的孩提时代，这个台风海水倒灌，一些低的地方水有三四米高。次之则可比 2006 年的“珍珠”，那是我的噩梦，登陆当晚一点也睡不着。先登陆台湾的情况概率比较低，也就是说，这个台风大陆登陆时会特别强。
+
+巧的是，这个台风刚好碰上中秋节当天登陆，在潮汕，上次中秋节遇台风可能都可以追溯到五十多年前，
+就算登陆闽南，潮汕的风雨估计也不会太小，
+
 <div id="map"></div>
+
 
 ## 参考资料
 
-[1]: https://www.zhihu.com/question/35168262/answer/61518279 "能跑完10公里的人多不多?10个成人里面有1个吗? - fooleap 的回答 - 知乎"
-
-* 2016 年 08 月 05 日 完成初稿
+* 2016 年 09 月 16 日 完成初稿
 
 <!--<style>
 #map {
@@ -90,17 +96,17 @@ function jsonpCallback(result) {
     }
     drawMap(lineArr);
 }
-    var googleLayer = new AMap.TileLayer({
-      getTileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=s&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galile',
-      zIndex: 0
-    });
-    var roadNetLayer = new AMap.TileLayer.RoadNet({zIndex:1});
-    var map = new AMap.Map('map', {
-        resizeEnable: true,
-        center: [126.304, 23.436],
-        layers:[googleLayer,roadNetLayer],
-        zoom: 5
-    });
+var googleLayer = new AMap.TileLayer({
+    getTileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=s&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galile',
+    zIndex: 0
+});
+var roadNetLayer = new AMap.TileLayer.RoadNet({zIndex:1});
+var map = new AMap.Map('map', {
+    resizeEnable: true,
+    center: [127.75415,26.73871],
+    layers:[googleLayer,roadNetLayer],
+    zoom: 5
+});
 function drawMap(lineArr){
     var polyline = new AMap.Polyline({
         map: map,
@@ -111,6 +117,5 @@ function drawMap(lineArr){
         strokeStyle: "solid"
     });
     polyline.setMap(map);
-    console.log(map.getCenter());
 }
 </script>-->
