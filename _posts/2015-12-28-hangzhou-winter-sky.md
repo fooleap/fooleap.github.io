@@ -40,7 +40,7 @@ tags: [杭州, 雾霾, 潮汕]
 ![莲阳大桥]({{ site.IMG_PATH }}/hangzhou-winter-sky-04.jpg_640)
 &#9650;莲阳大桥（180°全景，点击大图）
 
-##参考资料
+## 参考资料
 
 [1]:https://zh.wikipedia.org/wiki/2013年中国中东部严重雾霾事件 "2013年中国中东部严重雾霾事件 - 维基百科"
 [2]:http://www.gracecode.com/aqi.html "中国大陆重点城市空气质量（AQI）历史数据库 - 無標題文檔"
