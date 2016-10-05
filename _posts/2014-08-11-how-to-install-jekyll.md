@@ -14,7 +14,7 @@ Windows 用户可前往 [在 Windows 上搭建 Jekyll 写作环境](run-jekyll-o
 
 在好久好久以前，我提到了我 [从 WordPress 切换到 Jekyll 的缘由](http://blog.fooleap.org/replace-wordpress-with-jekyll.html)。自从使用 Jekyll 写博，到现在也已经有两年半左右的时间，Jekyll 也日趋成熟，使用起来也相当舒畅，无过多的不适感。
 
-##废话在前
+## 废话在前
 
 上一篇介绍 Jekyll 的博文发布时，Jekyll 还只是在 0.*  的版本，目前版本已经迭代到  2.2.0，其官网也在此前进行改版，目前文档相对比较完善。
 
@@ -22,7 +22,7 @@ Windows 用户可前往 [在 Windows 上搭建 Jekyll 写作环境](run-jekyll-o
 
 但想到，若有人以前从没了解到或接触过 Jekyll，无意间进我的博客，也想知道是怎么弄的？在此提供一些资源也是不错的，免得浪费时间去做我做过的体力活。
 
-##Ruby 环境的部署
+## Ruby 环境的部署
 
 Jekyll 是使用 Ruby 语言写成的，所以首先要安装一个 Ruby 的解释器。而 Ruby 的各种资源在 Windows 上运行频频报错，因此并不推荐在 Windows 上折腾，若你不得不在 Windows 下工作，可以参考 [这篇文章](http://blog.fens.me/jekyll-bootstarp-github) 部署。Mac OS  X 鄙人并没接触过，固在此也仅介绍在 Linux 上的部署，相信和 Mac OS X 上的安装方法大同小异。
 
@@ -51,7 +51,7 @@ source 的作用之一是方便用户不用另开终端便可快速载入环境�
 以上参考 [如何快速正确的安装 Ruby, Rails 运行环境](https://ruby-china.org/wiki/install_ruby_guide)，关于 RVM 的更多使用方法可参考 [RVM 实用指南](https://ruby-china.org/wiki/rvm-guide)。
 至此，已经安装了 Ruby ，以及早就已经提供的 RubyGems、Rake，如果你想了解这些概念，可以查看 [这篇文章](http://henter.me/post/ruby-rvm-gem-rake-bundle-rails.html)。
 
-##Jekyll 以及其他依赖的安装
+## Jekyll 以及其他依赖的安装
 
 安装 Jekyll：
 
@@ -73,7 +73,7 @@ source 的作用之一是方便用户不用另开终端便可快速载入环境�
 
  以上  rvm, gem 使用时下载速度过慢可用 [淘宝提供的镜像](http://ruby.taobao.org/)。
 
-##参考资料
+## 参考资料
 
 * [Jekyll 在 github 上构建免费的 Web 应用](http://blog.fens.me/jekyll-bootstarp-github/)
 * [如何快速正确的安装 Ruby, Rails 运行环境](https://ruby-china.org/wiki/install_ruby_guide)

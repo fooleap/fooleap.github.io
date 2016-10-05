@@ -871,6 +871,7 @@ pre.terminal code {
 }
 .comment-form-input{
     display: block;
+    width: 30%;
     flex: 1;
     margin: 10px;
     padding: 5px;
@@ -884,6 +885,7 @@ pre.terminal code {
     padding: 5px;
     line-height: 20px;
     box-sizing: border-box;
+    margin-bottom: 5px;
 }
 .comment-form-submit{
     border: 1px solid #969696;
@@ -897,12 +899,17 @@ pre.terminal code {
 }
 
 #comments,
-.post-children {
+#comments .post-children {
     text-align: left;
     list-style: none;
     padding-left: 0;
 }
-
+#comments .comment-form{
+    margin-left: 60px;
+}
+#comments .post-children .comment-form{
+    margin-left: 48px;
+}
 #comments .comment-item {
     margin-bottom: 10px;
 }
@@ -925,8 +932,8 @@ pre.terminal code {
     height: 48px;
 }
 
-.post-children .avatar,
-.post-children .avatar img {
+#comments .post-children .avatar,
+#comments .post-children .avatar img {
     width: 36px;
     height: 36px;
 }
@@ -957,21 +964,23 @@ pre.terminal code {
 
 #comments .post-content {
     margin-bottom: 24px;
+    max-width: none;
+    width: auto;
 }
 
-.post-children {
+#comments .post-children {
     margin-left: 60px;
 }
 
-.post-children .post-children {
+#comments .post-children .post-children {
     margin-left: 48px;
 }
 
-.post-children .post-children .post-children .post-children {
+#comments .post-children .post-children .post-children .post-children {
     margin-left: 0;
 }
 
-.post-children .post-header,
-.post-children .post-content {
+#comments .post-children .post-header,
+#comments .post-children .post-content {
     margin-left: 48px;
 }

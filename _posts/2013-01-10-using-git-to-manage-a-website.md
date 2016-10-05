@@ -20,7 +20,7 @@ tags: [Git, SSH, VPS]
 
     $ ssh root@fooleap.org 'adduser git'
 
-###SSH 自动登录
+## SSH 自动登录
 
 使用公钥互信实现自动登录
 
@@ -38,7 +38,7 @@ user git</code></pre>
 
 经过这样处理之后，我们就可以通过 ssh git 自动登录服务器
 
-###服务器端
+## 服务器端
 
     $ mkdir web.git && cd web.git
     $ git --bare init
@@ -71,7 +71,7 @@ GIT_WORK_TREE=~/web git checkout -f</code></pre>
 
 这是为多人管理网站做的准备，作为协作管理的权限
 
-###客户端
+## 客户端
 
     $ mkdir web && cd web
     $ git init

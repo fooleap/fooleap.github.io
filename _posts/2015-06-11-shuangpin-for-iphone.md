@@ -48,7 +48,7 @@ SPi 插件，本是收费软件，但购买页面已无法打开。联系了作�
 ![输入 emoji 表情]({{site.IMG_PATH}}/shuangpin-for-iphone-03.png?imageView2/2/w/480)
 ▲输入 emoji 表情
 
-###SPi 双拼输入法
+### SPi 双拼输入法
 
 在付费 App 里面，由上文提到的 SPi 插件同一开发者 @gviridis 所开发的 [SPi 双拼输入法](http://spiim.com/)，界面和自带拼音输入法差不多，功能单一，或许这也是在 iOS 中文输入法中唯一一款无需“完全访问”的，价格 ¥18，看似有些小贵，相对于饭价，真正需要尚可接受。
 

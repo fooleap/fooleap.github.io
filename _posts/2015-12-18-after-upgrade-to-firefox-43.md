@@ -27,7 +27,7 @@ tags: [Firefox, Pentadactyl, Git]
 
 根据提示，仅需打开 `about:config`，将里面的 `xpinstall.signatures.required` 首选项的值设为 `false`（双击）即可。
 
-##Pentadactyl 无法使用
+## Pentadactyl 无法使用
 
 Pentadactyl 很好用，然而无论其官网或 AMO 没有很及时的更新 XPI 安装包。就算官网的 Nightly 版本，也仅更新到今年 8 月，当时适配到最新的 Firefox 41.*。
 

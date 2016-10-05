@@ -44,7 +44,7 @@ tags: [年度总结, 爱情, 工作]
 
 完成了 [桂林环城](hiking-along-the-ring-road-of-guilin.html) 的徒步，看来全马也不是那么容易。
 
-##读书
+## 读书
 
 ![正能量]({{site.IMG_PATH}}/2012-personal-review-03.jpg_640)
 &#9650;正能量
