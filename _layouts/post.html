@@ -36,6 +36,16 @@ layout: default
 
 </article>
 
-<div class="comment" id="disqus_thread">
-    <a class="show-comments" href="{{ site.url }}{{ page.url }}#disqus_thread" data-disqus-identifier="{{ page.id }}"><span class="has-comment"><i class="icon-chat-empty"></i> 留下</span>评论 <span class="disqus-comment-count" data-disqus-url="{{ site.url }}{{ page.url }}"></span></a>
+<div class="comment">
+    <div class="comment-form">
+        <div class="comment-input-group">
+            <input id="author_name" class="comment-form-input" type="text" placeholder="请输入您的名字">
+            <input id="author_email" class="comment-form-input" type="email" placeholder="请输入您的邮箱">
+            <input id="author_url" class="comment-form-input" type="text" placeholder="请输入您的网站">
+        </div>
+        <textarea id="message" class="comment-form-textarea" placeholder="请输入评论内容"></textarea>
+        <button class="comment-form-submit" onclick="postComment()">发表评论</button>
+    </div>
+    <ul id="comments">
+    </ul>
 </div>
