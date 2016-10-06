@@ -327,7 +327,7 @@ function getComments(res) {
         for (var i = 0; i < res.response.length; i++) {
             var post = res.response[i];
             var result = '';
-            var profileUrl = post.author.profileUrl ? post.author.profileUrl : 'javascript:void(0)';
+            var profileUrl = post.author.profileUrl ? post.author.profileUrl : 'javascript:void(0);';
             var url = post.author.url ? post.author.url : profileUrl;
             var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
             var image = '',
@@ -335,12 +335,12 @@ function getComments(res) {
             var images = post.media;
             if (images.length > 0) {
                 for (var i = 0; i < images.length; i++) {
-                    image += '<a target="_blank" href="https:' + images[i].url + '" ><img src="' + images[i].thumbnailURL + '"></a>';
+                    image += '<a target="_blank" href="' + images[i].url + '" ><img src="https:' + images[i].thumbnailURL + '"></a>';
                 }
                 imageList = '<div class="post-image">' + image + '</div>';
             }
             var html = '<li class="comment-item" id="post-' + post.id + '">';
-            html += '<a target="_blank" class="avatar" href="' + url + '"><img src="https:' + post.author.avatar.cache + '"></a>';
+            html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
             html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a> <span class="timeago" title="' + date + '">' + post.createdAt + '</span> <a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
             html += '<div class="comment-form hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><textarea class="comment-form-textarea" placeholder="请输入评论内容"></textarea><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
@@ -392,7 +392,7 @@ function htmlComment(data) {
         imageList = '<div class="post-image">' + image + '</div>';
     }
     var html = '<li class="comment-item" id="post-' + post.id + '">';
-    html += '<a target="_blank" class="avatar" href="' + url + '"><img src="https:' + post.author.avatar.cache + '"></a>';
+    html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
     html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a> <span class="timeago" title="' + date + '">' + post.createdAt + '</span> <a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
     html += '<div class="post-content">' + post.message + imageList + '</div>';
     html += '<div class="comment-form hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><textarea class="comment-form-textarea" placeholder="请输入评论内容"></textarea><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
