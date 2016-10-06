@@ -4,16 +4,16 @@ function timeAgo(selector) {
         prefix: '',
         suffix: '前',
         seconds: '几秒',
-        minute: '1 分钟',
-        minutes: '%d 分钟',
-        hour: '1 小时',
-        hours: '%d 小时',
-        day: '1 天',
-        days: '%d 天',
-        month: '1 个月',
-        months: '%d 个月',
-        year: '1 年',
-        years: '%d 年'
+        minute: '1分钟',
+        minutes: '%d分钟',
+        hour: '1小时',
+        hours: '%d小时',
+        day: '1天',
+        days: '%d天',
+        month: '1个月',
+        months: '%d个月',
+        year: '1年',
+        years: '%d年'
     };
     var template = function(t, n) {
         return templates[t] && templates[t].replace(/%d/i, Math.abs(Math.round(n)));
@@ -259,41 +259,31 @@ for (var i = 0; i < noteLinks.length; i++) {
 
 // Disqus 评论
 // 评论计数
-var urlArray = [];
-var commentsCount = document.querySelectorAll('.disqus-comment-count');
-var likeCount = document.querySelector('.disqus-like-count');
-var commentBtn = document.querySelector('.show-comments');
-if (commentsCount.length && location.hostname === 'blog.fooleap.org') {
-    disqusShortName = "fooleap";
-    disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
-}
-
-function jsonpCallback(result) {
-    for (var i in result.response) {
-        var count = result.response[i].posts;
-        var likeCounts = result.response[i].likes;
-        if (likeCount) {
-            document.querySelector('.disqus-like-count').innerHTML = likeCounts;
+var commentLinks = document.querySelectorAll('.disqus-comment-count');
+var commentLink = '';
+if (commentLinks.length > 0) {
+    for (var i = 0; i < commentLinks.length; i++) {
+        if (i > 0) {
+            commentLink += ',';
         }
-        if (count) {
-            document.querySelector('[data-disqus-url="' + result.response[i].link + '"]').innerHTML = count;
-        }
-        if (commentBtn && count) {
-            document.querySelector('.has-comment').innerHTML = '<i class="icon-chat"></i> 查看';
+        commentLink += commentLinks[i].getAttribute('data-disqus-url').slice(1);
+    }
+    var xhrCommentCount = new XMLHttpRequest();
+    xhrCommentCount.open('GET', 'http://api.fooleap.org/disqus/list.php?link=' + commentLink, true);
+    xhrCommentCount.send();
+    xhrCommentCount.onreadystatechange = function() {
+        if (xhrCommentCount.readyState == 4 && xhrCommentCount.status == 200) {
+            var data = JSON.parse(xhrCommentCount.responseText);
+            for (var i = 0; i < data.response.length; i++) {
+                var count = data.response[i].posts == 0 ? '' : data.response[i].posts;
+                document.querySelector('[data-disqus-url="'+data.response[i].link.slice(23)+'"]').innerHTML = count;
+            }
         }
     }
 }
 
-function disqusCount() {
-    for (i = 0; i < commentsCount.length; i++) {
-        var url = commentsCount[i].getAttribute('data-disqus-url');
-        urlArray.push('thread=link:' + url);
-    }
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = 'https://disqus.com/api/3.0/threads/set.jsonp' + '?callback=jsonpCallback' + '&api_key=' + disqusPublicKey + '&forum=' + disqusShortName + '&' + urlArray.join('&');
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-}
+var disqusShortName = "fooleap";
+var disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
 var windowWidth = window.innerWidth;
 if (windowWidth < 414) {
     var postTitles = document.getElementsByClassName('post-title');
@@ -302,7 +292,9 @@ if (windowWidth < 414) {
         postTitles[i].style.width = (postWidth + 'px');
     }
 }
+
 // 显示评论按钮
+var commentBtn = document.querySelector('.show-comments');
 function showComments() {
     (function() {
         var dsq = document.createElement('script');
@@ -341,7 +333,7 @@ function getComments(res) {
             }
             var html = '<li class="comment-item" id="post-' + post.id + '">';
             html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
-            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a> <span class="timeago" title="' + date + '">' + post.createdAt + '</span> <a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span> <a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
             html += '<div class="comment-form hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><textarea class="comment-form-textarea" placeholder="请输入评论内容"></textarea><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
             html += '<ul class="post-children"></ul>';
@@ -433,11 +425,22 @@ function postComment() {
 
 function showCommentForm(el) {
     var post = el.parentElement.parentElement;
-    var commentForms  = document.querySelectorAll('.comment-form');
-    for (var i = 1; i < commentForms.length; i++ ){
+    var commentForms = document.querySelectorAll('.comment-form');
+    var commentReplys = document.querySelectorAll('.comment-reply');
+    for (var i = 1; i < commentForms.length; i++) {
         commentForms[i].className = 'comment-form hide';
     }
-    post.querySelector('.comment-form').className = 'comment-form';
+    el.innerHTML = el.innerHTML == '回复' ? '取消回复' : '回复';
+    if (el.innerHTML == '回复') {
+        post.querySelector('.comment-form').className = 'comment-form hide';
+    } else {
+        post.querySelector('.comment-form').className = 'comment-form';
+    }
+    for (var i = 1; i < commentForms.length; i++) {
+        if (commentForms[i].className == 'comment-form hide') {
+            commentForms[i].parentElement.querySelector('.comment-reply').innerHTML = "回复";
+        }
+    }
 }
 
 function replyComment(el) {
@@ -813,7 +816,5 @@ window.onload = function() {
     }
     if (/^#disqus|^#comment/.test(location.hash)) {
         showComments();
-    } else if (commentsCount.length && location.hostname === 'blog.fooleap.org') {
-        disqusCount();
-    }
+    } 
 }

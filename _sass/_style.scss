@@ -415,7 +415,6 @@ textarea {
         height: 48px;
         .disqus-comment-count {
             display: block;
-            width: 18px;
             margin: 15px auto;
             padding: 0 5px;
             text-decoration: none;
@@ -426,8 +425,10 @@ textarea {
             line-height: 18px;
             border-radius: 10px;
             border: none;
+            width: 0;
             &:link {
                 background: rgb(150, 215, 245);
+                width: 18px;
             }
             &:hover {
                 background: $darkblue;
@@ -941,11 +942,6 @@ pre.terminal code {
 #comments p {
     margin: 0;
 }
-#comments a {
-    color: rgb(0, 149, 221);
-    text-decoration: none;
-    font-weight: bold;
-}
 
 #comments a:after {
     display: none;
@@ -983,4 +979,23 @@ pre.terminal code {
 #comments .post-children .post-header,
 #comments .post-children .post-content {
     margin-left: 48px;
+}
+.post-header {
+    line-height: 1;
+    font-size: 13px;
+}
+.post-header a {
+    color: rgb(0, 149, 221);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.bullet{
+    padding: 0;
+    color: #c2c6cc;
+    line-height: 1.4;
+}
+.timeago{
+    color: #7f919e;
+    font-weight: 500;
 }

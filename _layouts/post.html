@@ -17,7 +17,7 @@ layout: default
     <div id="recent-posts" class="posts">
       <strong>最近更新</strong>
       <ul>
-      {% for post in site.posts | limit:5 %}
+      {% for post in site.posts limit: 5 %}
         <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} </a></li>
       {% endfor %}
       </ul>

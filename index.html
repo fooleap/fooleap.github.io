@@ -7,7 +7,7 @@ layout: default
   {% for post in paginator.posts %}
     <li>
       {% if post.thumb %}<img class="thumbnail" src="{{ post.thumb | replace:'IMG_PATH', site.IMG_PATH }}?imageView2/1/w/48/h/48" />{% else %}{% if post.content contains site.IMG_PATH %}{% assign images = post.content | split:"<img " %}{% for image in images %}{% if image contains site.IMG_PATH %}{% if image contains 'imageView'%}{% assign thumbnail = image | split:"?imageView" | first | replace:'jpg',"jpg?imageView2/1/w/48/h/48/q/90" | replace:'png',"png?imageView2/1/w/48/h/48/q/90" |append:'"' %}{% else %}{% assign thumbnail = image | split:">" | first | remove:'_640' | replace:'jpg',"jpg?imageView2/1/w/48/h/48/q/90" | replace:'png',"png?imageView2/1/w/48/h/48/q/90" %}{% endif %}<img class="thumbnail" {{ thumbnail | split:' alt' | first }} alt="{{ post.title }}" />{% break %}{% endif %}{% endfor %}{% else %}<img class="thumbnail"  src="{{ site.IMG_PATH }}/avatar.jpg?imageView2/1/w/48/h/48/q/90" alt="{{ post.title }}" />{% endif %}{% endif %}
-    <div class="comment-count"><a class="disqus-comment-count" title="查看评论" data-disqus-url="{{site.url }}{{ post.url }}" href="{{ post.url }}#disqus_thread"></a></div>
+    <div class="comment-count"><a class="disqus-comment-count" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#disqus_thread"></a></div>
     <div class="post-infos">
       <h3 class="post-title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
       <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y 年 %m 月 %d 日" }}</abbr>
