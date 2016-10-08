@@ -334,9 +334,9 @@ function getComments(res) {
             }
             var html = '<li class="comment-item" id="post-' + post.id + '">';
             html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
-            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span> <a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
-            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="https://cn.gravatar.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper cf"><textarea class="comment-form-textarea textarea" id="message" placeholder="回复'+ post.author.name +'…"></textarea><div class="post-actions"></div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
+            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="https://cn.gravatar.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" id="message" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)"></textarea><div class="post-actions"></div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
             html += '<ul class="post-children"></ul>';
             html += '</li>';
             result += html;
@@ -372,6 +372,31 @@ if (document.querySelector('#comments')) {
     }
 }
 
+function verifyEmail(el) {
+    var avatar = el.parentElement.parentElement.querySelector('.avatar img');
+    if (el.value != '') {
+        if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
+            document.querySelector('.comment-from-alert').innerHTML = '';
+            var xhrGravatar = new XMLHttpRequest();
+            xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar.php?email=' + el.value, true);
+            xhrGravatar.send();
+            xhrGravatar.onreadystatechange = function() {
+                if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
+                    avatar.src = xhrGravatar.responseText;
+                }
+            }
+        } else {
+            document.querySelector('.comment-from-alert').innerHTML = '您所填写的邮箱地址有误！';
+        }
+    }
+}
+
+function editComment(el) {
+    if (el.className == 'comment-form-textarea') {
+        el.className = 'comment-form-textarea noempty';
+    }
+}
+
 function htmlComment(data) {
     var post = data.response;
     var url = post.author.url ? post.author.url : 'javascript:void(0);';
@@ -387,9 +412,9 @@ function htmlComment(data) {
     }
     var html = '<li class="comment-item" id="post-' + post.id + '">';
     html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
-    html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a> <span class="timeago" title="' + date + '">' + post.createdAt + '</span> <a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+    html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
     html += '<div class="post-content">' + post.message + imageList + '</div>';
-    html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="https://cn.gravatar.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper cf"><textarea class="comment-form-textarea textarea" id="message" placeholder="回复'+ post.author.name +'…"></textarea><div class="post-actions"></div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
+    html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="https://cn.gravatar.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" id="message" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)"></textarea><div class="post-actions"></div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
     html += '<ul class="post-children"></ul>';
     html += '</li>';
     return html;
@@ -466,6 +491,10 @@ function replyComment(el) {
                 var commentReplys = document.querySelectorAll('.comment-reply');
                 for (var i = 0; i < commentReplys.length; i++) {
                     commentReplys[i].innerHTML = '回复';
+                };
+                var commentTextareas = document.querySelectorAll('.comment-form-textarea');
+                for (var i = 0; i < commentTextareas.length; i++) {
+                    commentTextareas[i].className = 'comment-form-textarea';
                 };
                 timeAgo();
             } else if (data.code === 2) {
