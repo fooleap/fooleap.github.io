@@ -1002,7 +1002,9 @@ pre.terminal code {
 }
 
 #comments .post-children .avatar,
-#comments .post-children .avatar img {
+#comments .post-children .avatar img,
+#comments .comment-form .avatar,
+#comments .comment-form .avatar img {
     width: 36px;
     height: 36px;
 }
@@ -1036,8 +1038,20 @@ pre.terminal code {
     margin-left: 60px;
 }
 
-#comments .post-children .post-children {
+#comments .post-children .post-children,
+#comments .textarea-wrapper {
     margin-left: 48px;
+}
+#comments .textarea {
+    height: 26px;
+    line-height: 18px;
+    padding: 4px 8px;
+}
+#comments .textarea:focus {
+    height: 62px;
+}
+#comments .comment-input-group{
+    margin: 0 -38px 0 48px;
 }
 
 #comments .post-children .post-children .post-children .post-children {
