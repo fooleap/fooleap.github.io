@@ -328,7 +328,7 @@ function getComments(res) {
             var images = post.media;
             if (images.length > 0) {
                 for (var i = 0; i < images.length; i++) {
-                    image += '<a target="_blank" href="' + images[i].url + '" ><img src="https:' + images[i].thumbnailURL + '"></a>';
+                    image += '<a target="_blank" href="https:' + images[i].url + '" ><img src="https:' + images[i].thumbnailURL + '"></a>';
                 }
                 imageList = '<div class="post-image">' + image + '</div>';
             }
@@ -406,7 +406,7 @@ function htmlComment(data) {
     var images = post.media;
     if (images.length > 0) {
         for (var i = 0; i < images.length; i++) {
-            image += '<a target="_blank" href="' + images[i].url + '" ><img src="https:' + images[i].thumbnailURL + '"></a>';
+            image += '<a target="_blank" href="https:' + images[i].url + '" ><img src="https:' + images[i].thumbnailURL + '"></a>';
         }
         imageList = '<div class="post-image">' + image + '</div>';
     }
