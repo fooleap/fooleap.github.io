@@ -35,15 +35,19 @@ layout: default
   </div>
 
 </article>
-
 <div class="comment">
-    <div class="comment-form">
+    <div class="comment-header"><span class="comment-header-count"></span></div>
+    <div class="comment-form cf">
+        <span class="avatar"><img src="https://cn.gravatar.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span>
+        <div class="textarea-wrapper cf">
+            <textarea class="textarea" id="message" placeholder="加入讨论…"></textarea>
+            <div class="post-actions"></div>
+        </div>
         <div class="comment-input-group">
             <input id="author_name" class="comment-form-input" type="text" placeholder="请输入您的名字（必填）">
             <input id="author_email" class="comment-form-input" type="email" placeholder="请输入您的邮箱（必填）">
             <input id="author_url" class="comment-form-input" type="text" placeholder="请输入您的网址（可选）">
         </div>
-        <textarea id="message" class="comment-form-textarea" placeholder="请输入评论内容"></textarea>
         <button class="comment-form-submit" onclick="postComment()">发表评论</button>
     </div>
     <ul id="comments">

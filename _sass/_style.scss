@@ -838,23 +838,45 @@ pre.terminal code {
 
 // Comment
 .comment {
+    font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
     max-width: 640px;
     min-height: 40px;
-    text-align: center;
     margin: 5px auto;
-    font-family: sans-serif;
     word-wrap: break-word;
-    .show-comments {
-        background-color: $lightgray;
-        color: $darkgray;
-        font-family: "RobotoDraft", "Roboto", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "SimSun", sans-serif;
-        font-size: 15px;
-        text-align: center;
-        line-height: 36px;
-        padding: 8px 10px;
-        border-radius: 4px;
-        border: 1px solid $lightgray;
-    }
+}
+.comment *{
+    box-sizing: border-box;
+}
+
+:focus{
+  outline: 0;
+}
+
+.comment-header{
+  border-bottom: 2px solid rgb(231, 233, 238);
+}
+
+.comment-header-count{
+    font-size: 15px;
+    margin-right: 15px;
+    padding: 12px 0px;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    color: rgb(42, 46, 46);
+    text-transform: capitalize;
+    display: inline-block;
+}
+.comment-header-count:after{
+    content: " ";
+    display: block;
+    height: 2px;
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    right: 0px;
+    background: rgb(46, 159, 255);
 }
 
 .anchorBL {
@@ -863,39 +885,85 @@ pre.terminal code {
         margin: 0!important;
     }
 }
+
 .comment-form{
-    text-align: right;
+    position: relative;
+    margin: 24px 0 0;
 }
+
+.placeholder {
+    color: rgb(127, 145, 158);
+    line-height: 30px;
+    font-size: 15px;
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    right: 9px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: text;
+    overflow: hidden;
+}
+.textarea-wrapper {
+    position: relative;
+    border: 2px solid rgb(219, 223, 228);
+    border-radius: 4px;
+    margin: 0px 0px 0px 64px;
+}
+.textarea{
+  border: none;
+  font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
+  overflow:auto;
+  color: rgb(42, 46, 46);
+  cursor: text;
+  resize: none;
+  width: 100%;
+  height: 36px;
+  line-height: 1.4;
+  font-size: 14px;
+  padding: 6px 10px 8px;
+  transition: all 0.15s ease-in-out;
+  &:focus{
+    height: 78px;
+  }
+}
+
 .comment-input-group{
-    display: flex;
-    margin: 0 -10px;
+   display: flex;
+   margin: 0 -42px 0 64px;
 }
 .comment-form-input{
-    display: block;
+    font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
+    background: #fff;
+    border: 2px solid #dbdfe4;
+    transition: all .2s linear;
+    padding: 5px 9px;
+    margin: 12px 10px 0 0;
+    border-radius: 4px;
+    font-size: 13px;
+    height: 32px;
     width: 30%;
-    flex: 1;
-    margin: 10px;
-    padding: 5px;
-    height: 20px;
-    line-height: 20px;
-    padding: 0 5px;
-}
-.comment-form-textarea{
-    width: 100%;
-    height: 90px;
-    padding: 5px;
-    line-height: 20px;
-    box-sizing: border-box;
-    margin-bottom: 5px;
+    &:focus{
+      border:2px solid #c2c6cc;
+    }
 }
 .comment-form-submit{
-    border: 1px solid #969696;
-    color: #333;
+    font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
+    border: none;
+    background: #778289;
+    background: rgba(29,47,58,.6);
     display: inline-block;
-    font-size: 13px;
-    background-color: #fff;
-    height: 25px;
-    width: 80px;
+    padding: 10px 16px;
+    color: #fff;
+    line-height: 1.1;
+    border-radius: 3px;
+    font-weight: 500;
+    transition: background .2s;
+    text-shadow: none; 
+    height: 32px;
+    text-align: center;
+    margin: 12px 0;
+    float: right;
     cursor: pointer;
 }
 
@@ -919,7 +987,7 @@ pre.terminal code {
     display: inline-block;
 }
 
-#comments .avatar {
+.avatar {
     display: block;
     float: left;
     width: 48px;
@@ -927,7 +995,7 @@ pre.terminal code {
     margin-right: 12px;
 }
 
-#comments .avatar img {
+.avatar img {
     border-radius: 3px;
     width: 48px;
     height: 48px;
