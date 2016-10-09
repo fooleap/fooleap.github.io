@@ -38,9 +38,9 @@ layout: default
 <div class="comment">
     <div class="comment-header"><span class="comment-header-count">0 comments</span></div>
     <div class="comment-form cf">
-        <span class="avatar"><img src="https://cn.gravatar.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span>
+        <span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span>
         <div class="textarea-wrapper">
-            <textarea class="comment-form-textarea" id="message" placeholder="加入讨论…" onfocus="editComment(this)"></textarea>
+            <textarea class="comment-form-textarea" id="message" placeholder="加入讨论…" onfocus="editComment(this)" onblur="editComment(this)"></textarea>
             <div class="post-actions"></div>
         </div>
         <div class="comment-input-group">
@@ -48,7 +48,7 @@ layout: default
             <input id="author_email" class="comment-form-input" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)">
             <input id="author_url" class="comment-form-input" type="text" placeholder="请输入您的网址（可选）">
         </div>
-        <button class="comment-form-submit" onclick="postComment()">发表评论</button><div class="comment-from-alert"></div>
+        <button class="comment-form-submit" onclick="postComment()"><i class="icon icon-proceed"></i></button><div class="comment-from-alert"></div>
     </div>
     <ul id="comments">
     </ul>

@@ -269,7 +269,7 @@ if (commentLinks.length > 0) {
         commentLink += commentLinks[i].getAttribute('data-disqus-url').slice(1);
     }
     var xhrCommentCount = new XMLHttpRequest();
-    xhrCommentCount.open('GET', 'http://api.fooleap.org/disqus/list.php?link=' + commentLink, true);
+    xhrCommentCount.open('GET', 'http://api.fooleap.org/disqus/list?link=' + commentLink, true);
     xhrCommentCount.send();
     xhrCommentCount.onreadystatechange = function() {
         if (xhrCommentCount.readyState == 4 && xhrCommentCount.status == 200) {
@@ -336,7 +336,7 @@ function getComments(res) {
             html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
             html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
-            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="https://cn.gravatar.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" id="message" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)"></textarea><div class="post-actions"></div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
+            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" id="message" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions"></div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button class="comment-form-submit" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button></div>'
             html += '<ul class="post-children"></ul>';
             html += '</li>';
             result += html;
@@ -351,19 +351,31 @@ function getComments(res) {
         timeAgo();
     }
 }
+
+//获取文章评论
 if (document.querySelector('#comments')) {
+    var url = location.pathname.slice(1);
+    var title  = document.querySelector('title').innerText;
     var xhrDetails = new XMLHttpRequest();
-    xhrDetails.open('GET', 'http://api.fooleap.org/disqus/getdetails.php?link=' + location.pathname.slice(1), true);
+    xhrDetails.open('GET', 'http://api.fooleap.org/disqus/getdetails?link=' + url, true);
     xhrDetails.send();
     xhrDetails.onreadystatechange = function() {
         if (xhrDetails.readyState == 4 && xhrDetails.status == 200) {
             var data = JSON.parse(xhrDetails.responseText);
-            document.querySelector('.comment-form').setAttribute('data-id', data.response.id);
-            document.querySelector('.comment-header-count').innerHTML = data.response.posts + ' comments';
+            if(data.code == 0){
+              document.querySelector('.comment-form').setAttribute('data-id', data.response.id);
+              document.querySelector('.comment-header-count').innerHTML = data.response.posts + ' comments';
+            } else {
+              //获取失败则创建 thread
+              var xhrcreateThread = new XMLHttpRequest();
+              xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
+              xhrcreateThread.send();
+            }
         }
     }
+    //获取评论列表
     var xhrComment = new XMLHttpRequest();
-    xhrComment.open('GET', 'http://api.fooleap.org/disqus/getcomments.php?link=' + location.pathname.slice(1), true);
+    xhrComment.open('GET', 'http://api.fooleap.org/disqus/getcomments?link=' + location.pathname.slice(1), true);
     xhrComment.send();
     xhrComment.onreadystatechange = function() {
         if (xhrComment.readyState == 4 && xhrComment.status == 200) {
@@ -372,13 +384,14 @@ if (document.querySelector('#comments')) {
     }
 }
 
+//验证邮箱
 function verifyEmail(el) {
     var avatar = el.parentElement.parentElement.querySelector('.avatar img');
     if (el.value != '') {
         if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
             document.querySelector('.comment-from-alert').innerHTML = '';
             var xhrGravatar = new XMLHttpRequest();
-            xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar.php?email=' + el.value, true);
+            xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar?email=' + el.value, true);
             xhrGravatar.send();
             xhrGravatar.onreadystatechange = function() {
                 if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
@@ -391,12 +404,13 @@ function verifyEmail(el) {
     }
 }
 
+//编辑评论
 function editComment(el) {
-    if (el.className == 'comment-form-textarea') {
-        el.className = 'comment-form-textarea noempty';
-    }
+    el.className = el.value != '' ? 'comment-form-textarea noempty' : 'comment-form-textarea';
+    el.parentElement.className = el.parentElement.className == 'textarea-wrapper' ? 'textarea-wrapper focus' : 'textarea-wrapper'
 }
 
+//提交加载
 function htmlComment(data) {
     var post = data.response;
     var url = post.author.url ? post.author.url : 'javascript:void(0);';
@@ -414,20 +428,22 @@ function htmlComment(data) {
     html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
     html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
     html += '<div class="post-content">' + post.message + imageList + '</div>';
-    html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="https://cn.gravatar.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" id="message" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)"></textarea><div class="post-actions"></div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button class="comment-form-submit" onclick="replyComment(this)">发表评论</button></div>'
+    html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" id="message" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions"></div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button class="comment-form-submit" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button></div>'
     html += '<ul class="post-children"></ul>';
     html += '</li>';
     return html;
 }
 
+//发表评论
 function postComment() {
     var id = document.querySelector('.comment-form').getAttribute('data-id');
     var name = document.getElementById('author_name').value;
     var email = document.getElementById('author_email').value;
     var url = document.getElementById('author_url').value;
     var message = document.getElementById('message').value;
+    var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0,1))+1 + ' comments';
     var xhrPostComment = new XMLHttpRequest();
-    xhrPostComment.open('POST', 'http://api.fooleap.org/disqus/postcomment.php?id=' + id + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url, true);
+    xhrPostComment.open('POST', 'http://api.fooleap.org/disqus/postcomment?id=' + id + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url, true);
     xhrPostComment.send();
     xhrPostComment.onreadystatechange = function() {
         if (xhrPostComment.readyState == 4 && xhrPostComment.status == 200) {
@@ -436,6 +452,7 @@ function postComment() {
                 var result = htmlComment(data);
                 document.getElementById('comments').insertAdjacentHTML('afterbegin', result);
                 document.getElementById('message').value = '';
+                document.querySelector('.comment-header-count').innerText = count;
                 timeAgo();
             } else if (data.code === 2) {
                 if (data.response.indexOf('email') > -1) {
@@ -450,6 +467,7 @@ function postComment() {
     }
 }
 
+//显示回复框
 function showCommentForm(el) {
     var post = el.parentElement.parentElement;
     var commentForms = document.querySelectorAll('.comment-form');
@@ -469,6 +487,7 @@ function showCommentForm(el) {
     }
 }
 
+//回复评论
 function replyComment(el) {
     var form = el.parentElement;
     var id = form.getAttribute('data-id');
@@ -477,8 +496,11 @@ function replyComment(el) {
     var email = form.querySelector('.comment-form-email').value;
     var url = form.querySelector('.comment-form-url').value;
     var message = form.querySelector('.comment-form-textarea').value;
+    var title = document.querySelector('title').innerText;
+    var link = location.pathname.slice(1);
+    var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0,1))+1 + ' comments';
     var xhrReplyComment = new XMLHttpRequest();
-    xhrReplyComment.open('POST', 'http://api.fooleap.org/disqus/postcomment.php?id=' + id + '&parent=' + parent + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url, true);
+    xhrReplyComment.open('POST', 'http://api.fooleap.org/disqus/postcomment?id=' + id + '&parent=' + parent + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url, true);
     xhrReplyComment.send();
     xhrReplyComment.onreadystatechange = function() {
         if (xhrReplyComment.readyState == 4 && xhrReplyComment.status == 200) {
@@ -496,6 +518,7 @@ function replyComment(el) {
                 for (var i = 0; i < commentTextareas.length; i++) {
                     commentTextareas[i].className = 'comment-form-textarea';
                 };
+                document.querySelector('.comment-header-count').innerText = count;
                 timeAgo();
             } else if (data.code === 2) {
                 if (data.response.indexOf('email') > -1) {
@@ -508,6 +531,9 @@ function replyComment(el) {
             }
         }
     }
+    var xhrSendEmail = new XMLHttpRequest();
+    xhrSendEmail.open('GET', 'http://api.fooleap.org/disqus/sendemail?parent=' + parent + '&message=' + message + '&name=' + name + '&title=' + title + '&link=' + link, true);
+    xhrSendEmail.send();
 }
 
 // 二维码 http://goo.gl/JzmGoq

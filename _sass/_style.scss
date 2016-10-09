@@ -912,6 +912,9 @@ pre.terminal code {
     border-radius: 4px;
     margin: 0px 0px 0px 64px;
 }
+.textarea-wrapper.focus {
+    border:2px solid #c2c6cc;
+}
 .comment-form-textarea{
   display: block;
   border: none;
@@ -934,7 +937,7 @@ pre.terminal code {
 
 .comment-input-group{
    display: flex;
-   margin: 0 -42px 0 64px;
+   margin: 0 -10.5px 0 64px;
 }
 .comment-form-input{
     font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
@@ -946,6 +949,7 @@ pre.terminal code {
     border-radius: 4px;
     font-size: 13px;
     height: 32px;
+    flex: 1;
     width: 30%;
     &:focus{
       border:2px solid #c2c6cc;
@@ -965,7 +969,7 @@ pre.terminal code {
     background: #778289;
     background: rgba(29,47,58,.6);
     display: inline-block;
-    padding: 10px 16px;
+    padding: 9px 0px;
     color: #fff;
     line-height: 1.1;
     border-radius: 3px;
@@ -973,6 +977,9 @@ pre.terminal code {
     transition: background .2s;
     text-shadow: none; 
     height: 32px;
+    width: 60px;
+    font-size: 14px;
+    vertical-align: middle;
     text-align: center;
     margin: 12px 0;
     float: right;
@@ -1063,10 +1070,7 @@ pre.terminal code {
     height: 72px;
 }
 #comments .comment-input-group{
-    margin: 0 -38px 0 48px;
-}
-#comments .post-children .comment-input-group {
-    margin: 0 -32px 0 48px;
+    margin: 0 -10px 0 48px;
 }
 
 #comments .post-children .post-children .post-children .post-children {

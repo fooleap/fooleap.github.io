@@ -6,11 +6,21 @@ js: true
 tags: [留言]
 ---
 
-<div id="disqus_thread"></div>
-<!--<script> 
-  (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'https://fooleap.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-  </script>-->
+<div class="comment">
+    <div class="comment-header"><span class="comment-header-count">0 comments</span></div>
+    <div class="comment-form cf">
+        <span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span>
+        <div class="textarea-wrapper">
+            <textarea class="comment-form-textarea" id="message" placeholder="编写留言…" onfocus="editComment(this)" onblur="editComment(this)"></textarea>
+            <div class="post-actions"></div>
+        </div>
+        <div class="comment-input-group">
+            <input id="author_name" class="comment-form-input" type="text" placeholder="请输入您的名字（必填）">
+            <input id="author_email" class="comment-form-input" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)">
+            <input id="author_url" class="comment-form-input" type="text" placeholder="请输入您的网址（可选）">
+        </div>
+        <button class="comment-form-submit" onclick="postComment()"><i class="icon icon-proceed"></i></button><div class="comment-from-alert"></div>
+    </div>
+    <ul id="comments">
+    </ul>
+</div>
