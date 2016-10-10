@@ -336,7 +336,7 @@ function getComments(res) {
                 }
                 imageList = '<div class="post-image">' + image + '</div>';
             }
-            var html = '<li class="comment-item" id="post-' + post.id + '">';
+            var html = '<li class="comment-item" id="comment-' + post.id + '">';
             html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
             html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
@@ -348,8 +348,8 @@ function getComments(res) {
             if (post.parent == null) {
                 document.getElementById('comments').insertAdjacentHTML('afterbegin', result);
             } else {
-                if (document.querySelector('#post-' + post.parent + ' .post-children')) {
-                    document.querySelector('#post-' + post.parent + ' .post-children').insertAdjacentHTML('beforeend', result);
+                if (document.querySelector('#comment-' + post.parent + ' .post-children')) {
+                    document.querySelector('#comment-' + post.parent + ' .post-children').insertAdjacentHTML('beforeend', result);
                 }
             }
         }
@@ -414,9 +414,47 @@ function verifyEmail(el) {
     }
 }
 
+/**   
+ * 在光标的位置插入图片   
+ * @param {Object} myField  textarea的Id 
+ * @param {Object} myValue  插入的字符 
+ */
+
+function AddOnPos(myField, myValue) {
+    myField = myField.parentElement.parentElement.parentElement.parentElement.querySelector('.comment-form-textarea');
+    //IE support     
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        myValue = "{" + myValue + "}";
+        sel.text = myValue;
+        sel.select();
+    }
+
+    //MOZILLA/NETSCAPE support     
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        // save scrollTop before insert     
+        var restoreTop = myField.scrollTop;
+        myField.value = myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
+        if (restoreTop > 0) {
+            // restore previous scrollTop     
+            myField.scrollTop = restoreTop;
+        }
+        myField.focus();
+        myField.selectionStart = startPos + myValue.length;
+        myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+        myField.focus();
+    }
+}
+
 //编辑评论
 function editComment(el) {
-    el.className = el.value != '' ? 'comment-form-textarea noempty' : 'comment-form-textarea';
+    //el.className = el.value != '' ? 'comment-form-textarea noempty' : 'comment-form-textarea';
+    el.className = 'comment-form-textarea noempty';
     el.parentElement.className = el.parentElement.className == 'textarea-wrapper' ? 'textarea-wrapper focus' : 'textarea-wrapper'
 }
 
@@ -425,7 +463,7 @@ function htmlComment(data) {
     var post = data.response;
     var url = post.author.url ? post.author.url : 'javascript:void(0);';
     var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
-    var html = '<li class="comment-item" id="post-' + post.id + '">';
+    var html = '<li class="comment-item" id="comment-' + post.id + '">';
     html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
     html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
     html += '<div class="post-content">' + post.message + '</div>';
@@ -897,6 +935,5 @@ window.onload = function() {
         tagCloud();
     }
     if (/^#disqus|^#comment/.test(location.hash)) {
-        showComments();
     }
 }

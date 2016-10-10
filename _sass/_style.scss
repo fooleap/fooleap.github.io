@@ -912,6 +912,72 @@ pre.terminal code {
     border-radius: 4px;
     margin: 0px 0px 0px 64px;
 }
+.post-actions{
+    background: #f6f8f9;
+    border-radius: 0 0 2px 2px;
+    border-top: solid 2px rgb(219, 223, 228);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    transition: opacity linear .2s;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    visibility: hidden;
+    .emojione{
+       position: relative;
+    }
+    .icon{
+        font-size: 20px;
+        margin: 6px;
+        display: inline-block;
+        line-height: 20px;
+        color: #737474;
+        cursor: pointer;
+    }
+    .emojione:hover .icon{
+        color: #000;
+    }
+    .emojione-gallery{
+       position: absolute;
+       opacity: 0;
+       filter: alpha(opacity=0);
+       visibility: hidden;
+       list-style: none;
+       position: absolute;
+       width: 125px;
+       height: 125px;
+       background-color: #fff;
+       padding: 5px 0 0 5px;
+       border-radius: 2px;
+       border: solid 2px #c2c6cc;
+       top: -120px;
+    }
+    .emojione-gallery li{
+       float: left;
+       height: 24px;
+       width: 24px;
+       margin: 0 5px 5px 0; 
+
+    }
+    .emojione-gallery img{
+       height: 24px;
+       width: 24px;
+       transition: .1s width, .1s height;
+    }
+    .emojione-gallery img:hover{
+       height: 28px;
+       width: 28px;
+       margin-left: -2px;
+       margin-top: -2px;
+    }
+    .emojione:hover .emojione-gallery{
+        opacity: 1;
+        filter: alpha(opacity=100);
+        visibility: visible!important;
+    }
+}
 .textarea-wrapper.focus {
     border:2px solid #c2c6cc;
 }
@@ -931,7 +997,17 @@ pre.terminal code {
   transition: all 0.15s ease-in-out;
   &:focus,
   &.noempty{
+    margin-bottom: 36px;
     height: 74px;
+  }
+  &:focus + .post-actions,
+  &.noempty + .post-actions{
+    opacity: 1;
+    filter: alpha(opacity=100);
+    visibility: visible!important;
+  }
+  &:focus + .post-actions{
+    border-top: 2px solid #c2c6cc;
   }
 }
 
