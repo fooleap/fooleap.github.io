@@ -992,6 +992,10 @@ pre.terminal code {
     list-style: none;
     padding-left: 0;
 }
+#comments.loading {
+    background: url(https://a.disquscdn.com/next/embed/assets/img/loader.5cc23909da9c4a9874500d7a85c4125f.gif) center center no-repeat;
+    min-height: 100px;
+}
 #comments .comment-form{
     margin-left: 60px;
 }
@@ -1000,6 +1004,9 @@ pre.terminal code {
 }
 #comments .comment-item {
     margin-bottom: 10px;
+}
+#comments .comment-item.transparent {
+    opacity: .4;
 }
 
 #comments img{
