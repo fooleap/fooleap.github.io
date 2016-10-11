@@ -927,6 +927,7 @@ pre.terminal code {
     visibility: hidden;
     .emojione{
        position: relative;
+       width: 36px;
     }
     .icon{
         font-size: 20px;
@@ -953,6 +954,7 @@ pre.terminal code {
        border-radius: 2px;
        border: solid 2px #c2c6cc;
        top: -120px;
+       left: -2px;
     }
     .emojione-gallery li{
        float: left;
@@ -964,7 +966,6 @@ pre.terminal code {
     .emojione-gallery img{
        height: 24px;
        width: 24px;
-       transition: .1s width, .1s height;
     }
     .emojione-gallery img:hover{
        height: 28px;
