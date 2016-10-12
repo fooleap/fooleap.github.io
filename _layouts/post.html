@@ -65,7 +65,7 @@ layout: default
             <input id="author_email" class="comment-form-input" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)">
             <input id="author_url" class="comment-form-input" type="text" placeholder="请输入您的网址（可选）">
         </div>
-        <button class="comment-form-submit" onclick="postComment()"><i class="icon icon-proceed"></i></button>
+        <button title="若有回复，您将得到邮件提醒" class="comment-form-submit" onclick="postComment()"><i class="icon icon-proceed"></i></button>
         <div class="comment-from-alert"></div>
     </div>
     <ul id="comments" class="loading">
