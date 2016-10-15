@@ -398,12 +398,13 @@ if (document.querySelector('#comments')) {
 function verifyEmail(el) {
     var form = el.parentElement.parentElement;
     var avatar = form.querySelector('.avatar img');
-    var alert = form.querySelector('.comment-from-alert');
+    var name = form.querySelector('.comment-form-input');
+    var alert = form.querySelector('.comment-form-alert');
     if (el.value != '') {
         if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
             alert.innerHTML = '';
             var xhrGravatar = new XMLHttpRequest();
-            xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar?email=' + el.value, true);
+            xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar?email=' + el.value + '&name='+ name.value, true);
             xhrGravatar.send();
             xhrGravatar.onreadystatechange = function() {
                 if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
