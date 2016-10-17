@@ -368,22 +368,22 @@ if (document.querySelector('#comments')) {
     xhrDetails.open('GET', 'http://api.fooleap.org/disqus/getdetails?link=' + url, true);
     xhrDetails.send();
     xhrDetails.onreadystatechange = function() {
-            if (xhrDetails.readyState == 4 && xhrDetails.status == 200) {
-                var data = JSON.parse(xhrDetails.responseText);
-                if (data.code == 0) {
-                    document.querySelector('.comment-form').setAttribute('data-id', data.response.id);
-                    document.querySelector('.comment-header-count').innerHTML = data.response.posts + ' comments';
-                } else {
-                    //获取失败则创建 thread
-                    if (location.host == "blog.fooleap.org") {
-                        var xhrcreateThread = new XMLHttpRequest();
-                        xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
-                        xhrcreateThread.send();
-                    }
+        if (xhrDetails.readyState == 4 && xhrDetails.status == 200) {
+            var data = JSON.parse(xhrDetails.responseText);
+            if (data.code == 0) {
+                document.querySelector('.comment-form').setAttribute('data-id', data.response.id);
+                document.querySelector('.comment-header-count').innerHTML = data.response.posts + ' comments';
+            } else {
+                //获取失败则创建 thread
+                if (location.host == "blog.fooleap.org") {
+                    var xhrcreateThread = new XMLHttpRequest();
+                    xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
+                    xhrcreateThread.send();
                 }
             }
         }
-        //获取评论列表
+    }
+    //获取评论列表
     var xhrComment = new XMLHttpRequest();
     xhrComment.open('GET', 'http://api.fooleap.org/disqus/getcomments?link=' + location.pathname.slice(1), true);
     xhrComment.send();
@@ -404,7 +404,7 @@ function verifyEmail(el) {
         if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
             alert.innerHTML = '';
             var xhrGravatar = new XMLHttpRequest();
-            xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar?email=' + el.value + '&name='+ name.value, true);
+            xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar?email=' + el.value + '&name=' + name.value, true);
             xhrGravatar.send();
             xhrGravatar.onreadystatechange = function() {
                 if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
