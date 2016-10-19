@@ -10,7 +10,7 @@ layout: default
     <div class="comment-count"><a class="disqus-comment-count" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comments"></a></div>
     <div class="post-infos">
       <h3 class="post-title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-      <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y 年 %m 月 %d 日" }}</abbr>
+      <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}"></abbr>
     </div>
     </li>
   {% endfor %}

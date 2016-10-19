@@ -293,9 +293,7 @@ if (windowWidth < 414) {
     }
 }
 
-// 显示评论按钮
-var commentBtn = document.querySelector('.show-comments');
-
+// 显示完整评论
 function showComments() {
     (function() {
         var dsq = document.createElement('script');
@@ -306,26 +304,21 @@ function showComments() {
     })();
     commentBtn.parentNode.removeChild(commentBtn);
 }
-if (commentBtn) {
-    if (document.addEventListener) {
-        commentBtn.addEventListener('click', showComments, false);
-    } else {
-        commentBtn.attachEvent('onclick', showComments);
-    }
-}
 
 //评论
 function getComments(res) {
     if (res.code === 0) {
-        if (res.response.length == 0) {
+        if (res.response == null) {
             document.getElementById('comments').className = '';
             return;
         }
+        document.querySelector('.comment-form').setAttribute('data-id', res.id);
+        document.querySelector('.comment-header-count').innerHTML = res.posts + ' comments';
         for (var i = 0; i < res.response.length; i++) {
             var post = res.response[i];
             var result = '';
-            var profileUrl = post.author.profileUrl ? post.author.profileUrl : 'javascript:void(0);';
-            var url = post.author.url ? post.author.url : profileUrl;
+            var profileUrl = post.profileUrl ? post.profileUrl : 'javascript:void(0);';
+            var url = post.url ? post.url : profileUrl;
             var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
             var image = '',
                 imageList = '';
@@ -337,10 +330,10 @@ function getComments(res) {
                 imageList = '<div class="post-image">' + image + '</div>';
             }
             var html = '<li class="comment-item" id="comment-' + post.id + '">';
-            html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
-            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+            html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.avatar + '"></a>';
+            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
-            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions">' + document.querySelector('.post-actions').innerHTML + '</div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button title="若有回复，您将得到邮件提醒" class="comment-form-submit" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
+            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions">' + document.querySelector('.post-actions').innerHTML + '</div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button title="若有回复，您将得到邮件提醒" class="comment-form-submit" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
             html += '<ul class="post-children"></ul>';
             html += '</li>';
             result += html;
@@ -356,6 +349,11 @@ function getComments(res) {
         timeAgo();
     } else {
         document.getElementById('comments').className = '';
+        if (location.host == "blog.fooleap.org") {
+            var xhrcreateThread = new XMLHttpRequest();
+            xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
+            xhrcreateThread.send();
+        }
         return;
     }
 }
@@ -364,32 +362,15 @@ function getComments(res) {
 if (document.querySelector('#comments')) {
     var url = location.pathname.slice(1);
     var title = document.querySelector('title').innerText;
-    var xhrDetails = new XMLHttpRequest();
-    xhrDetails.open('GET', 'http://api.fooleap.org/disqus/getdetails?link=' + url, true);
-    xhrDetails.send();
-    xhrDetails.onreadystatechange = function() {
-        if (xhrDetails.readyState == 4 && xhrDetails.status == 200) {
-            var data = JSON.parse(xhrDetails.responseText);
-            if (data.code == 0) {
-                document.querySelector('.comment-form').setAttribute('data-id', data.response.id);
-                document.querySelector('.comment-header-count').innerHTML = data.response.posts + ' comments';
-            } else {
-                //获取失败则创建 thread
-                if (location.host == "blog.fooleap.org") {
-                    var xhrcreateThread = new XMLHttpRequest();
-                    xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
-                    xhrcreateThread.send();
-                }
-            }
-        }
-    }
-    //获取评论列表
     var xhrComment = new XMLHttpRequest();
     xhrComment.open('GET', 'http://api.fooleap.org/disqus/getcomments?link=' + location.pathname.slice(1), true);
     xhrComment.send();
     xhrComment.onreadystatechange = function() {
         if (xhrComment.readyState == 4 && xhrComment.status == 200) {
             getComments(JSON.parse(xhrComment.responseText));
+            if (/^#disqus|^#comment/.test(location.hash)) {
+                window.scrollTo(0, document.querySelector(location.hash).offsetTop);
+            }
         }
     }
 }
@@ -946,8 +927,5 @@ window.onload = function() {
     }
     if (tagCanvas) {
         tagCloud();
-    }
-    if (/^#disqus|^#comment/.test(location.hash)) {
-        showComments();
     }
 }
