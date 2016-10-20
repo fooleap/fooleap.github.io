@@ -329,11 +329,12 @@ function getComments(res) {
                 }
                 imageList = '<div class="post-image">' + image + '</div>';
             }
+            var isModerator = post.name == 'fooleap' ? '<span class="moderator">博主</span>' : '';
             var html = '<li class="comment-item" id="comment-' + post.id + '">';
             html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.avatar + '"></a>';
-            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.name + '</a>' + isModerator + '<span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
-            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions">' + document.querySelector('.post-actions').innerHTML + '</div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button title="若有回复，您将得到邮件提醒" class="comment-form-submit" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
+            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + res.id + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions">' + document.querySelector('.post-actions').innerHTML + '</div></div><div class="comment-input-group"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><button title="若有回复，您将得到邮件提醒" class="comment-form-submit" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
             html += '<ul class="post-children"></ul>';
             html += '</li>';
             result += html;
@@ -453,7 +454,10 @@ function postComment(parent) {
     var avatar = document.querySelector('.avatar img').src;
     var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, 1)) + 1 + ' comments';
     previewComment(parent, avatar, name, message, url);
-
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("url", url);
+    localStorage.setItem("avatar", url);
     var xhrPostComment = new XMLHttpRequest();
     xhrPostComment.open('POST', 'http://api.fooleap.org/disqus/postcomment', true);
     xhrPostComment.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -556,6 +560,9 @@ function replyComment(el) {
     var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, 1)) + 1 + ' comments';
     var xhrReplyComment = new XMLHttpRequest();
     previewComment(parent, avatar, name, message, url);
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("url", url);
     xhrReplyComment.open('POST', 'http://api.fooleap.org/disqus/postcomment', true);
     xhrReplyComment.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhrReplyComment.send('id=' + id + '&parent=' + parent + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url);
