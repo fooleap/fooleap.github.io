@@ -308,12 +308,12 @@ function showComments() {
 //评论
 function getComments(res) {
     if (res.code === 0) {
+        document.querySelector('.comment-form').setAttribute('data-id', res.id);
+        document.querySelector('.comment-header-count').innerHTML = res.posts + ' comments';
         if (res.response == null) {
             document.getElementById('comments').className = '';
             return;
         }
-        document.querySelector('.comment-form').setAttribute('data-id', res.id);
-        document.querySelector('.comment-header-count').innerHTML = res.posts + ' comments';
         for (var i = 0; i < res.response.length; i++) {
             var post = res.response[i];
             var result = '';
@@ -349,6 +349,8 @@ function getComments(res) {
         }
         timeAgo();
     } else {
+        var url = location.pathname.slice(1);
+        var title = document.querySelector('title').innerText;
         document.getElementById('comments').className = '';
         if (location.host == "blog.fooleap.org") {
             var xhrcreateThread = new XMLHttpRequest();
@@ -361,8 +363,6 @@ function getComments(res) {
 
 //获取文章评论
 if (document.querySelector('#comments')) {
-    var url = location.pathname.slice(1);
-    var title = document.querySelector('title').innerText;
     var xhrComment = new XMLHttpRequest();
     xhrComment.open('GET', 'http://api.fooleap.org/disqus/getcomments?link=' + location.pathname.slice(1), true);
     xhrComment.send();
@@ -457,7 +457,7 @@ function postComment(parent) {
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
     localStorage.setItem("url", url);
-    localStorage.setItem("avatar", url);
+    localStorage.setItem("avatar", avatar);
     var xhrPostComment = new XMLHttpRequest();
     xhrPostComment.open('POST', 'http://api.fooleap.org/disqus/postcomment', true);
     xhrPostComment.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

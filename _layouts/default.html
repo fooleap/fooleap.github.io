@@ -43,11 +43,13 @@
   <div class="container">
     <main class="wrapper">
       <header class="site-header">
+      {% assign trustHour =  page.date |date: "%k" | plus: 8  %}
+      {% if trustHour >= 24 %}{% assign trustDay =  page.date |date: "%d" | plus: 1 %}{% else %}{% assign trustDay =  page.date |date: "%d" %}{% endif %}
         <h1>
           {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
         </h1>
         <h2 class="sub-heading">
-            {% if page.date %}<i class="icon-calendar"></i><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
+            {% if page.date %}<i class="icon-calendar"></i><time datetime="{{ page.date | date: "%Y-%m-" }}{{ trustDay }}">{{ page.date | date: "%Y 年 %m 月" }} {{ trustDay }} 日</time>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
         </h2>
       </header>
   {% if page.style or page.js %}

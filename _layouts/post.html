@@ -21,11 +21,13 @@ layout: default
             </ul>
         </div>
     </div>
+      {% assign trustHour =  page.date |date: "%k" | plus: 8  %}
+      {% if trustHour >= 24 %}{% assign trustDay =  page.date |date: "%d" | plus: 1 %}{% else %}{% assign trustDay =  page.date |date: "%d" %}{% endif %}
     <div id="info" class="{{ page.categories }}">
         {% include share.html %}
         <span class='like'><a href="javascript:void(0)" title=""><i class="icon-heart-empty"></i> <span class="disqus-like-count"></span></a>
         </span>
-        <span class='view-code'><a href="javascript:void(0)" data-md="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.id | remove: '/' }}.md" title="在正文中查看源码"><i class="icon-file-code"></i>源码</a></span>
+        <span class='view-code'><a href="javascript:void(0)" data-md="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-" }}{{ trustDay }}-{{ page.id | remove: '/' }}.md" title="在正文中查看源码"><i class="icon-file-code"></i>源码</a></span>
         <span class="number-of-word"><i class="icon-calc"></i>{{ content | strip_html | strip_newlines | size }} 字</span>
         <span class="page-tags"><i class="icon-tags"></i><ul class="tags"> {% for tag in page.tags %}<li class="tag"><a href="/tags.html#{{ tag }}" target="_blank" title="查看“{{ tag }}”的相关文章">{{ tag }}</a></li>{% endfor %}</ul></span>
     </div>
