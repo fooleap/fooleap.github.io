@@ -6,7 +6,17 @@ js: true
 tags: [留言]
 ---
 <div class="comment">
-    <div class="comment-header"><span class="comment-header-count">comments</span></div>
+    <div class="comment-header">
+        <span class="comment-header-count">comments</span>
+        {% comment %}
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-tid="981">
+            <span class="username">
+             fooleap
+            </span>
+            <span class="caret"></span>
+        </a>
+        {% endcomment %}
+    </div>
     <div class="comment-form cf">
         <span class="avatar"><img src="https://a.disquscdn.com/images/noavatar92.png"></span>
         <div class="textarea-wrapper">
@@ -33,13 +43,13 @@ tags: [留言]
                         <li onclick="AddOnPos(this,':neutral_face:')"><img src="{{ site.IMG_PATH }}/emoji/1f610.svg" /></li>
                     </ul>
                 </div>
-                {% comment %}
+        {% comment %}
                 <div class="logged-in">
                     <button class="logged-button">
-                        Post as <span class="logged-username">fooleap</span>
+                        发表留言
                     </button>
                 </div>
-                {% endcomment %}
+        {% endcomment %}
             </div>
         </div>
         <div class="comment-input-group">

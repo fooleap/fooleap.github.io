@@ -444,20 +444,29 @@ function previewComment(parent, avatar, name, message, url) {
     }
 }
 
+function loadGuest(){
+    if(localStorage.getItem('name')){
+        document.getElementById('author_name').value = localStorage.getItem('name');
+        document.getElementById('author_email').value = localStorage.getItem('email');
+        document.getElementById('author_url').value = localStorage.getItem('url');
+        document.querySelector('.avatar img').src = localStorage.getItem('avatar');
+    }
+}
+
 //发表评论
 function postComment(parent) {
     var id = document.querySelector('.comment-form').getAttribute('data-id');
     var name = document.getElementById('author_name').value;
     var email = document.getElementById('author_email').value;
     var url = document.getElementById('author_url').value;
-    var message = document.getElementById('message').value;
     var avatar = document.querySelector('.avatar img').src;
+    var message = document.getElementById('message').value;
     var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, 1)) + 1 + ' comments';
     previewComment(parent, avatar, name, message, url);
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
-    localStorage.setItem("url", url);
-    localStorage.setItem("avatar", avatar);
+    localStorage.setItem('name', name);
+    localStorage.setItem('email', email);
+    localStorage.setItem('url', url);
+    localStorage.setItem('avatar', avatar);
     var xhrPostComment = new XMLHttpRequest();
     xhrPostComment.open('POST', 'http://api.fooleap.org/disqus/postcomment', true);
     xhrPostComment.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

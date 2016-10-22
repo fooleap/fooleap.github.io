@@ -1024,7 +1024,6 @@ pre.terminal code {
 
 .comment-input-checkbox {
     float: left;
-    width: 48px;
     margin: 12px 0 12px 64px;
     word-break: break-word;
     white-space: nowrap;
@@ -1039,18 +1038,20 @@ pre.terminal code {
 .logged-in {
     text-align: right;
     .logged-button {
+        font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
         border: none;
         margin: -2px -2px 0 0;
         white-space: nowrap;
         border-radius: 0 0 3px;
         font-size: 12px;
-        padding: 12px 14px 13px;
+        padding: 11px 18px;
         font-weight: 700;
         display: inline-block;
         background: #778289;
         background: rgba(29, 47, 58, .6);
         color: #fff;
         float: right;
+        cursor:pointer;
         &:hover {
             background: #606d75;
             background: rgba(29, 47, 58, .7);
