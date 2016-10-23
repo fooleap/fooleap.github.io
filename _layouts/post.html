@@ -33,41 +33,52 @@ layout: default
     </div>
 </article>
 <div class="comment">
-    <div class="comment-header"><span class="comment-header-count">comments</span></div>
+    <div class="comment-header cf">
+        <span class="comment-header-count">comments</span>
+        <a href="javascript:void(0)" class="author hide" onclick="editGuest()"><span class="logged-name">fooleap</span><i class="icon icon-write"></i></a>
+    </div>
     <div class="comment-form cf">
-        <span class="avatar"><img src="https://a.disquscdn.com/images/noavatar92.png"></span>
+        <span class="avatar">
+            <img src="https://a.disquscdn.com/images/noavatar92.png" />
+        </span>
         <div class="textarea-wrapper">
             <textarea class="comment-form-textarea" id="message" placeholder="加入讨论…" onfocus="editComment(this)" onblur="editComment(this)"></textarea>
-            <div class="post-actions">
+            <div class="post-actions cf">
                 <div class="emojione">
                     <i class="icon icon-people"></i>
                     <ul class="emojione-gallery cf">
-                      <li onclick="AddOnPos(this,':grinning:')"><img src="{{ site.IMG_PATH }}/emoji/1f600.svg" /></li>
-                      <li onclick="AddOnPos(this,':grimacing:')"><img src="{{ site.IMG_PATH }}/emoji/1f62c.svg" /></li>
-                      <li onclick="AddOnPos(this,':grin:')"><img src="{{ site.IMG_PATH }}/emoji/1f601.svg" /></li>
-                      <li onclick="AddOnPos(this,':joy:')"><img src="{{ site.IMG_PATH }}/emoji/1f602.svg" /></li>
-                      <li onclick="AddOnPos(this,':smiley:')"><img src="{{ site.IMG_PATH }}/emoji/1f603.svg" /></li>
-                      <li onclick="AddOnPos(this,':smile:')"><img src="{{ site.IMG_PATH }}/emoji/1f604.svg" /></li>
-                      <li onclick="AddOnPos(this,':sweat_smile:')"><img src="{{ site.IMG_PATH }}/emoji/1f605.svg" /></li>
-                      <li onclick="AddOnPos(this,':laughing:')"><img src="{{ site.IMG_PATH }}/emoji/1f606.svg" /></li>
-                      <li onclick="AddOnPos(this,':blush:')"><img src="{{ site.IMG_PATH }}/emoji/1f60a.svg" /></li>
-                      <li onclick="AddOnPos(this,':yum:')"><img src="{{ site.IMG_PATH }}/emoji/1f60b.svg" /></li>
-                      <li onclick="AddOnPos(this,':relieved:')"><img src="{{ site.IMG_PATH }}/emoji/1f60c.svg" /></li>
-                      <li onclick="AddOnPos(this,':heart_eyes:')"><img src="{{ site.IMG_PATH }}/emoji/1f60d.svg" /></li>
-                      <li onclick="AddOnPos(this,':sunglasses:')"><img src="{{ site.IMG_PATH }}/emoji/1f60e.svg" /></li>
-                      <li onclick="AddOnPos(this,':smirk:')"><img src="{{ site.IMG_PATH }}/emoji/1f60f.svg" /></li>
-                      <li onclick="AddOnPos(this,':wink:')"><img src="{{ site.IMG_PATH }}/emoji/1f609.svg" /></li>
-                      <li onclick="AddOnPos(this,':neutral_face:')"><img src="{{ site.IMG_PATH }}/emoji/1f610.svg" /></li>
+                        <li onclick="AddOnPos(this,':grinning:')"><img src="{{ site.IMG_PATH }}/emoji/1f600.svg" /></li>
+                        <li onclick="AddOnPos(this,':grimacing:')"><img src="{{ site.IMG_PATH }}/emoji/1f62c.svg" /></li>
+                        <li onclick="AddOnPos(this,':grin:')"><img src="{{ site.IMG_PATH }}/emoji/1f601.svg" /></li>
+                        <li onclick="AddOnPos(this,':joy:')"><img src="{{ site.IMG_PATH }}/emoji/1f602.svg" /></li>
+                        <li onclick="AddOnPos(this,':smiley:')"><img src="{{ site.IMG_PATH }}/emoji/1f603.svg" /></li>
+                        <li onclick="AddOnPos(this,':smile:')"><img src="{{ site.IMG_PATH }}/emoji/1f604.svg" /></li>
+                        <li onclick="AddOnPos(this,':sweat_smile:')"><img src="{{ site.IMG_PATH }}/emoji/1f605.svg" /></li>
+                        <li onclick="AddOnPos(this,':laughing:')"><img src="{{ site.IMG_PATH }}/emoji/1f606.svg" /></li>
+                        <li onclick="AddOnPos(this,':blush:')"><img src="{{ site.IMG_PATH }}/emoji/1f60a.svg" /></li>
+                        <li onclick="AddOnPos(this,':yum:')"><img src="{{ site.IMG_PATH }}/emoji/1f60b.svg" /></li>
+                        <li onclick="AddOnPos(this,':relieved:')"><img src="{{ site.IMG_PATH }}/emoji/1f60c.svg" /></li>
+                        <li onclick="AddOnPos(this,':heart_eyes:')"><img src="{{ site.IMG_PATH }}/emoji/1f60d.svg" /></li>
+                        <li onclick="AddOnPos(this,':sunglasses:')"><img src="{{ site.IMG_PATH }}/emoji/1f60e.svg" /></li>
+                        <li onclick="AddOnPos(this,':smirk:')"><img src="{{ site.IMG_PATH }}/emoji/1f60f.svg" /></li>
+                        <li onclick="AddOnPos(this,':wink:')"><img src="{{ site.IMG_PATH }}/emoji/1f609.svg" /></li>
+                        <li onclick="AddOnPos(this,':neutral_face:')"><img src="{{ site.IMG_PATH }}/emoji/1f610.svg" /></li>
                     </ul>
                 </div>
+                <button class="logged-button" onclick="postComment()">
+                    发表评论
+                </button>
             </div>
         </div>
-        <div class="comment-input-group">
-            <input id="author_name" class="comment-form-input" type="text" placeholder="请输入您的名字（必填）">
-            <input id="author_email" class="comment-form-input" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)">
-            <input id="author_url" class="comment-form-input" type="text" placeholder="请输入您的网址（可选）">
+        <div class="comment-input-group hide">
+            <input id="author_name" class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）">
+            <input id="author_email" class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)">
+            <input id="author_url" class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）">
         </div>
-        <button title="若有回复，您将得到邮件提醒" class="comment-form-submit" onclick="postComment()"><i class="icon icon-proceed"></i></button>
+        <label class="comment-input-checkbox hide" for="remember">
+            <input type="checkbox" id="remember" checked> 记住我
+        </label>
+        <button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="postComment()"><i class="icon icon-proceed"></i></button>
         <div class="comment-form-alert"></div>
     </div>
     <ul id="comments" class="loading">
