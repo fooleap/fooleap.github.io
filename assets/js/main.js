@@ -386,13 +386,17 @@ function verifyEmail(el) {
     var alert = form.querySelector('.comment-form-alert');
     if (el.value != '') {
         if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
-            alert.innerHTML = '';
             var xhrGravatar = new XMLHttpRequest();
             xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar?email=' + el.value + '&name=' + name.value, true);
             xhrGravatar.send();
             xhrGravatar.onreadystatechange = function() {
                 if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
-                    avatar.src = xhrGravatar.responseText;
+                    if ( xhrGravatar.responseText == 'false'){
+                        alert.innerHTML = '您所填写的邮箱地址有误！';
+                    } else{
+                        alert.innerHTML = '';
+                        avatar.src = xhrGravatar.responseText;
+                    }
                 }
             }
         } else {
@@ -556,6 +560,7 @@ function postComment(parent) {
                     localStorage.setItem('email', email);
                     localStorage.setItem('url', url);
                     localStorage.setItem('avatar', avatar);
+                    loadGuest();
                 }
                 removeComment();
             } else if (data.code === 2) {
