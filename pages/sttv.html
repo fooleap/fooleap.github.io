@@ -99,7 +99,11 @@ style: true
     button[i].addEventListener('click', buttonClick, false)
     button[i].setAttribute('target', 'sttv-iframe');
   }
-  if (channel){
-    changeChannel(channel);
+  window.onload = function(){
+    if (channel){
+      changeChannel(channel);
+    } else {
+      changeChannel('sttv1');
+    }
   }
   </script>-->
