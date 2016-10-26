@@ -541,7 +541,7 @@ function postComment(parent) {
     var url = document.getElementById('author_url').value;
     var avatar = document.querySelector('.avatar img').src;
     var message = document.getElementById('message').value;
-    var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, 1)) + 1 + ' comments';
+    var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, -9)) + 1 + ' comments';
     previewComment(parent, avatar, name, message, url);
     var xhrPostComment = new XMLHttpRequest();
     xhrPostComment.open('POST', 'http://api.fooleap.org/disqus/postcomment', true);
