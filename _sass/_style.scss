@@ -1236,7 +1236,8 @@ pre.terminal code {
     max-width: none;
     width: auto;
     .emojione {
-        height: 24px;
+        width: 22px;
+        height: 22px;
         margin: 0 3px;
     }
 }
@@ -1294,6 +1295,10 @@ pre.terminal code {
 .timeago {
     color: #7f919e;
     font-weight: 500;
+}
+.task-list-item{
+    list-style-type: none;
+    margin-left: -15px;
 }
 
 @media screen and (max-width: 640px) {

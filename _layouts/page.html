@@ -1,8 +1,9 @@
 ---
 layout: default
 ---
+
 <article class="post-content">
-  {{ content | replace_first:'markdown-toc','toc' }}
+  {{ content | replace_first:'markdown-toc','toc' | replace: '<li>[]', '<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled>' | replace: '<li>[x]', '<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked>' }}
 
   <div id="info" class="{{ page.categories }}">
 
