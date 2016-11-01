@@ -13,7 +13,7 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 
 在过去的 10 月份，我的跑量再次突破 100 公里，上次跑量破百，似乎要追溯到[刚失恋不久的 2012 年 9 月份](/running-notes-in-september.html)，跑步治疗失恋，这似乎是《阿甘正传》里面的桥段。当然，我这次跑量再破一百，并非又失恋。
 
-能跑那么多，我觉得主要是有个朋友一起跑，加上不是特别热的天气。自己一个人跑步，有时候总是惰性战胜意志，早上懒得起来跑步，晚上又工作一整天瘫在床上，有人一起约跑，就没有这种懒的念头，跑步途中也不易半途而废。
+能跑那么多，我觉得主要是有个朋友一起跑，加上不是特别热的天气。自己一个人跑步，有时候总是惰性战胜意志，早上懒得起来跑步，晚上又工作一整天累得瘫在床上，有人一起约跑，就没有这种懒的念头，跑步途中也不易半途而废。
 
 这几年吃得多，跑得少，足足重了二十来斤，小肚子有点大，前年买的裤子都穿不大下。其实今年以来一直想通过运动把肚子减掉，但总是没能坚持，跑步断断续续，减肥效果很差。而阿浩体重也是超重，需要减肥，所以这次跑步，基本上就是奔着减肥去的，体验运动后流汗的畅爽也是十分舒服。
 
@@ -25,7 +25,7 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 
 目前我都是使用 Nike+ 来记录跑步，没买运动穿戴设备，iPhone SE 跑步时拿手上也并不碍事。废话少说，来看看跑步数据先，分析了一下 Nike+ 最新的 API v3，于是就有了下列的图表。
 
-首先是跑步的总数据，10 月份一共跑了 20 天，25 次，其中有 5 天跑了 2 次，总距离是近 103 公里，总时间近 744 分钟，也就是近 12 个半小时，平均速度是 8.5 公里每小时，平均配速是 7 分钟 13 秒每公里，总步数及热量也在下表。
+首先是跑步的总数据，10 月份一共跑了 20 天，25 次，其中有 5 天跑了 2 次，总距离是近 103 公里，总时间近 744 分钟，也就是近 12 个半小时，平均速度是 8.3 公里每小时，平均配速是 7 分钟 13 秒每公里，总步数及热量也在下表。
 
 
 | 次数 | 总距离 | 总时间 | 平均速度 | 平均配速 | 总步数 | 总热量 |
@@ -36,7 +36,7 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 
 下面使用百度的 ECharts[[1]][1]，将每一天的具体数据展现出来，刚好这个库没有用过，刷刷经验。以天为横轴，所以跑两次的日子，数据便叠加或算均值。一部分数据感觉有点假，比如说海拔，就没有弄出来，也怕显示得比较乱，默认显示三项数据。
 
-<div id="running" style="width:640px;height:427px;"></div>
+<div id="running" style="width:640px;height:427px;display: none"></div>
 
 很久没跑步，现在身体真的不如几年前。记得 13 年，在杭州晨跑，5 公里大概都是 30 分钟内，配速大概是 5 分多 6 分钟，而现在的数据如上图，最好的数据在下表，也即是取最佳的数据，不一定是同一次运动。
 
@@ -46,9 +46,9 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 |----
 {: class="running-max" style="display:none"}
 
-这个数据也只能说是大概，这个月 Nike+ Run Club 很少闪退，没有赚到公里数，倒是有可能被 Nike+ 吃掉一些。我根据跑的轨迹，在 Google Earth 画折线，很多时候 5 公里要比 Nike+ 多出两三百米。
+这个数据也只能说是大概，最近 Nike+ Run Club 很少闪退，没有赚到公里数，倒是有可能被 Nike+ 吃掉一些。我根据跑的轨迹，在 Google Earth 画折线，很多时候 5 公里要比 Nike+ 多出两三百米。
 
-从上表中，可以看出单次跑步最长距离才 8 公里，单次跑步最快的配速是 5 分 35 秒。这个数据并不好看，这个月还没跑过一次超过 10 公里，比起跑步群里动不动半马，4 分多配，月跑量动不动超 300 的，我的数据真的很不堪。在 Nike+ 上，25-30 岁男子的平均配速是 6'12"，我才 7'13"，不过专心跑步，六分配是不难的。人比人气死人，比起自己，10 月总算有点进步，9 月的跑量才 20 公里呢！
+从上表中，可以看出单次跑步最长距离才 8 公里，单次跑步最快的配速是 5 分 35 秒。数据并不好看，还没跑过一次超过 10 公里，比起跑步群里动不动半马，4 分多配，月跑量动不动超 300 的，我的数据真的很不堪。在 Nike+ 上，25-30 岁男子的平均配速是 6'12"，我才 7'13"，不过专心跑步，六分配是不难的。人比人气死人，比起自己，10 月总算有点进步，9 月的跑量才 20 公里呢！
 
 ## 随拍
 
@@ -307,13 +307,6 @@ xhractivities.onreadystatechange = function() {
         var steps = [];
         var cal = [];
         for (var i = 0; i < act_date.length; i++) {
-            edate[i] = {};
-            distance[i] = {};
-            duration[i] = {};
-            speed[i] = {};
-            pace[i] = {};
-            steps[i] = {};
-            cal[i] = {};
             edate[i] = {
                 name: act_date[i],
                 value: parseInt(act_date[i].slice(8))
@@ -370,8 +363,9 @@ xhractivities.onreadystatechange = function() {
             speed[i].value = speed[i].value.toFixed(2);
             pace[i].value = parseFloat(pace[i].value).toFixed(2);
         }
-        document.querySelector('.running-total').style.display = '';
         echart(edate, distance, duration, speed, pace, steps, cal);
+        document.querySelector('.running-total').style.display = '';
+        document.querySelector('#running').style.display = '';
         document.querySelector('.running-max').style.display = '';
     }
 }
