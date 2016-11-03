@@ -28,7 +28,7 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 首先是跑步的总数据，10 月份一共跑了 20 天，25 次，其中有 5 天跑了 2 次，总距离是近 103 公里，总时间近 744 分钟，也就是近 12 个半小时，平均速度是 8.3 公里每小时，平均配速是 7 分钟 13 秒每公里，总步数及热量也在下表。
 
 
-| 次数 | 总距离 | 总时间 | 平均速度 | 平均配速 | 总步数 | 总热量 |
+| 次数 | 总距离 | 总时间 | 平均时速 | 平均配速 | 总步数 | 总热量 |
 |:----:|:------:|:------:|:--------:|:--------:|:------:|:------:|
 |      |        |        |          |          |        |        |
 |----
@@ -40,7 +40,7 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 
 很久没跑步，现在身体真的不如几年前。记得 13 年，在杭州晨跑，5 公里大概都是 30 分钟内，配速大概是 5 分多 6 分钟，而现在的数据如上图，最好的数据在下表，也即是取最佳的数据，不一定是同一次运动。
 
-| 距离 | 时间 | 速度 | 配速 | 步数 | 热量 |
+| 距离 | 时间 | 时速 | 配速 | 步数 | 热量 |
 |:----:|:----:|:----:|:----:|:----:|:----:|
 |      |      |      |      |      |      |
 |----
@@ -89,8 +89,15 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 * 2016 年 11 月 01 日 完成初稿
 
 <!--<script>
-var myChart = echarts.init(document.getElementById('running'));
+var runningChart = document.getElementById('running');
+var mainWidth = document.querySelector('.main-content').offsetWidth;
 
+if ( mainWidth < 640 ){
+   runningChart.style.width = window.innerWidth + 'px';
+   runningChart.style.height = window.innerWidth*2/3 + 'px';
+}
+
+var myChart = echarts.init(runningChart);
 var colors = ['#D5FF45', '#4FA8F9', '#6EC71E', '#F56E6A', '#FFCE47', '#988772'];
 
 function echart(edate, distance, duration, speed, pace, steps, cal) {
@@ -133,13 +140,13 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
         },*/
         legend: {
             selected: {
-                '速度': false,
+                '时速': false,
                 '步数': false,
                 '热量': false
             },
             x: 'center',
             y: 'top',
-            data: ['距离', '步数', '时间', '速度', '配速',  '热量']
+            data: ['距离', '步数', '时间', '时速', '配速',  '热量']
         },
         xAxis: [{
             type: 'category',
@@ -178,7 +185,7 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
             }
         }, {
             type: 'value',
-            name: '速度',
+            name: '时速',
             min: 0,
             max: 15,
             show: false,
@@ -188,7 +195,7 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
                 }
             },
             axisLabel: {
-                formatter: '{value}km/h'
+                formatter: '{value}km'
             }
         }, {
             type: 'value',
@@ -243,7 +250,7 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
             yAxisIndex: 1,
             data: duration
         }, {
-            name: '速度',
+            name: '时速',
             type: 'line',
             yAxisIndex: 2,
             data: speed
@@ -281,7 +288,7 @@ xhractivities.onreadystatechange = function() {
         total[0].innerHTML = data.aggregates.count;
         total[1].innerHTML = data.aggregates.distance.toFixed(2) + 'km';
         total[2].innerHTML = duration.toISOString().substr(11, 8);
-        total[3].innerHTML = data.aggregates.speed.toFixed(2) + 'km/h';
+        total[3].innerHTML = data.aggregates.speed.toFixed(2) + 'km';
         total[4].innerHTML = avgpace.getMinutes() + '\'' + avgpace.getSeconds() + '\"/km';
         total[5].innerHTML = data.aggregates.steps;
         total[6].innerHTML = parseInt(data.aggregates.calories);
@@ -293,7 +300,7 @@ xhractivities.onreadystatechange = function() {
         maxpace.setSeconds(data.max.pace * 60);
         max[0].innerHTML = data.max.distance.toFixed(2) + 'km';
         max[1].innerHTML = maxduration.toISOString().substr(11, 8);
-        max[2].innerHTML = data.max.speed.toFixed(2) + 'km/h';
+        max[2].innerHTML = data.max.speed.toFixed(2) + 'km';
         max[3].innerHTML = maxpace.getMinutes() + '\'' + maxpace.getSeconds() + '\"/km';
         max[4].innerHTML = data.max.steps;
         max[5].innerHTML = parseInt(data.max.calories);
@@ -352,7 +359,7 @@ xhractivities.onreadystatechange = function() {
                     edate[i].name = act_date[i];
                     distance[i].name = distance[i].value + ' km';
                     duration[i].name = date1.getMinutes() + '\'' + date1.getSeconds() + '\"';
-                    speed[i].name = speed[i].value.toFixed(2) + ' km/h';
+                    speed[i].name = speed[i].value.toFixed(2) + ' km';
                     pace[i].name = date2.getMinutes() + '\'' + date2.getSeconds() + '\"' + '/km';
                     steps[i].name = steps[i].value + ' steps';
                     cal[i].name = cal[i].value + ' cal';

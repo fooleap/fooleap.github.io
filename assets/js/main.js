@@ -652,7 +652,7 @@ function replyComment(el) {
     var avatar = form.querySelector('.avatar img').src;
     var title = document.querySelector('title').innerText;
     var link = location.pathname.slice(1);
-    var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, 1)) + 1 + ' comments';
+    var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, -9)) + 1 + ' comments';
     previewComment(parent, avatar, name, message, url);
     var xhrReplyComment = new XMLHttpRequest();
     xhrReplyComment.open('POST', 'http://api.fooleap.org/disqus/postcomment', true);

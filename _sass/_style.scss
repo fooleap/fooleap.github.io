@@ -61,9 +61,9 @@ html {
 }
 
 body {
-    font-family: "RobotoDraft", "Roboto", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "SimSun", sans-serif;
-    font-size: 14px;
-    font-weight: normal;
+    font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB",Arial,"Microsoft YaHei",sans-serif;
+    font-size: 13px;
+    font-weight: 500;
     color: $default;
     line-height: 1.7;
     background: rgb(196, 218, 234);
@@ -972,12 +972,12 @@ pre.terminal code {
         position: absolute;
         width: 125px;
         height: 125px;
-        background-color: #fff;
+        background-color: rgba(255,255,255,.96);
         padding: 5px 0 0 5px;
         border-radius: 2px;
         border: solid 2px #c2c6cc;
-        top: -120px;
-        left: -2px;
+        top: -125px;
+        left: -17px;
     }
     .emojione-gallery li {
         float: left;
@@ -986,14 +986,8 @@ pre.terminal code {
         margin: 0 5px 5px 0;
     }
     .emojione-gallery img {
-        height: 24px;
-        width: 24px;
-    }
-    .emojione-gallery img:hover {
-        height: 28px;
-        width: 28px;
-        margin-left: -2px;
-        margin-top: -2px;
+        height: 22px;
+        width: 22px;
     }
     .emojione:hover .emojione-gallery {
         opacity: 1;
@@ -1058,6 +1052,7 @@ pre.terminal code {
         top: 2px;
     }
 }
+
 #comments .comment-input-checkbox {
     margin: 12px 0 12px 48px;
 }
@@ -1139,6 +1134,7 @@ pre.terminal code {
 .guest-form-clear {
     margin-bottom: 0;
 }
+
 .guest-form-clear {
     margin-left: 5px;
 }
@@ -1149,6 +1145,7 @@ pre.terminal code {
     list-style: none;
     padding-left: 0;
     margin-left: 0;
+    line-height: 20px;
 }
 
 #comments.loading {
@@ -1296,7 +1293,8 @@ pre.terminal code {
     color: #7f919e;
     font-weight: 500;
 }
-.task-list-item{
+
+.task-list-item {
     list-style-type: none;
     margin-left: -15px;
 }
@@ -1305,5 +1303,18 @@ pre.terminal code {
     #comments .post-children .post-children,
     #comments .post-children .comment-form {
         margin-left: 0;
+    }
+    .comment-input-group {
+        margin: 0 0 0 64px;
+        display: block;
+    }
+    #comments .comment-input-group {
+        margin: 0 0 0 48px;
+    }
+    .comment-form-input,
+    .guest-form input {
+        margin: 12px 0 0 0;
+        width: 100%;
+        display: block;
     }
 }
