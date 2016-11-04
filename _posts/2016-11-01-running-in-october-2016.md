@@ -54,8 +54,8 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 
 最后，还是晒一晒跑步中拍到的一些景色吧，运动中拍照，总免不了手抖，效果不是很好，挑几张出来。
 
-![10 月3 日，金鸿路旁的稻谷]({{ site.IMG_PATH }}/running-in-october-2016-01.jpg_640)
-10 月 3 日，金鸿路旁的稻谷
+![10 月3 日，金鸿路旁的稻田]({{ site.IMG_PATH }}/running-in-october-2016-01.jpg_640)
+10 月 3 日，金鸿路旁的稻田
 
 ![10 月 3 日，宝奥城]({{ site.IMG_PATH }}/running-in-october-2016-02.jpg_640)
 10 月 3 日，宝奥城
