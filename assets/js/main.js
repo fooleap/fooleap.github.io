@@ -179,7 +179,7 @@ var subTitles = document.querySelectorAll('.main-content h2,h3');
 var sectionIds = [];
 var sections = [];
 if (toc) {
-    var tocFixed = clientWidth / 2 - 370 - toc.offsetWidth;
+    var tocFixed = clientWidth / 2 - 400 - toc.offsetWidth;
     if (tocFixed < 15) {
         toc.classList.add('hide');
     } else {

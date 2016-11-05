@@ -63,7 +63,6 @@ html {
 body {
     font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, "Microsoft YaHei", sans-serif;
     font-size: 13px;
-    font-weight: 500;
     color: $default;
     line-height: 1.7;
     background: rgb(196, 218, 234);
@@ -131,7 +130,7 @@ textarea {
 // wrapper
 .wrapper {
     position: relative;
-    max-width: 720px;
+    max-width: 768px;
     margin: 30px auto;
     background: rgb(255, 255, 255);
     text-align: justify;
@@ -299,12 +298,17 @@ textarea {
 /* Site header */
 
 .site-header {
+    max-width: 640px;
+    margin: 0 auto;
     min-height: 30px;
-    text-align: center;
-    padding-top: 30px;
+    padding-top: 40px;
     h1 {
-        font-size: 22px;
-        font-weight: 600;
+        line-height: 1.2;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #e7e7eb;
+        font-weight: 400;
+        font-size: 24px;
     }
     .sub-heading {
         display: block;
@@ -312,8 +316,6 @@ textarea {
         font-size: 13px;
         font-weight: 300;
         width: 100%;
-        height: 30px;
-        text-align: center;
         time {
             word-spacing: -1px;
         }
@@ -359,7 +361,7 @@ textarea {
         padding: 0;
         list-style-type: none;
         li {
-            padding: 10px;
+            padding: 10px 0;
             *zoom: 1;
             &>* {
                 display: inline-block;
