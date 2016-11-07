@@ -282,8 +282,42 @@ if (commentLinks.length > 0) {
     }
 }
 
-var disqusShortName = "fooleap";
-var disqusPublicKey = "xDtZqWt790WMwHgxhIYxG3V9RzvPXzFYZ7izdWDQUiGQ1O3UaNg0ONto85Le7rYN";
+// 显示完整评论
+var disqus_config = function() {
+    this.page.url = 'http://blog.fooleap.org' + location.pathname;
+};
+
+function showComments() {
+    document.querySelector('.comment-show').style.display = 'none';
+    document.querySelector('.comment').insertAdjacentHTML('beforebegin', '<div class="comment-mode cf"><div class="comment-toggle" onclick="commentToggle()"><div class="comment-swtich"></div></div><div class="comment-name">简易评论框</div></div>');
+    var d = document,
+        s = d.createElement('script');
+    s.src = '//fooleap.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    s.onload = function(){
+        document.querySelector('.comment').className = 'comment hide';
+        commentToggle();
+    }
+}
+
+function commentToggle() {
+    var comment = document.querySelectorAll('.comment');
+    var toggle = document.querySelector('.comment-toggle');
+    var name = document.querySelector('.comment-name');
+    if (toggle.className == 'comment-toggle') {
+        toggle.className = 'comment-toggle disqus';
+        comment[0].className = 'comment hide';
+        comment[1].className = 'comment';
+        name.innerHTML = 'Disqus 评论框';
+    } else {
+        toggle.className = 'comment-toggle';
+        comment[0].className = 'comment';
+        comment[1].className = 'comment hide';
+        name.innerHTML = '简易评论框';
+    }
+}
+
 var windowWidth = window.innerWidth;
 if (windowWidth < 414) {
     var postTitles = document.getElementsByClassName('post-title');
@@ -291,18 +325,6 @@ if (windowWidth < 414) {
     for (var i = 0; i < postTitles.length; i++) {
         postTitles[i].style.width = (postWidth + 'px');
     }
-}
-
-// 显示完整评论
-function showComments() {
-    (function() {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = 'https://' + disqusShortName + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    commentBtn.parentNode.removeChild(commentBtn);
 }
 
 //评论
@@ -391,9 +413,9 @@ function verifyEmail(el) {
             xhrGravatar.send();
             xhrGravatar.onreadystatechange = function() {
                 if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
-                    if ( xhrGravatar.responseText == 'false'){
+                    if (xhrGravatar.responseText == 'false') {
                         alert.innerHTML = '您所填写的邮箱地址有误！';
-                    } else{
+                    } else {
                         alert.innerHTML = '';
                         avatar.src = xhrGravatar.responseText;
                     }

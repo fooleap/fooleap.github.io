@@ -839,6 +839,48 @@ pre.terminal code {
 }
 
 // Comment
+.comment-mode{
+    max-width: 640px;
+    padding: 5px 0;
+    margin: 0 auto;
+}
+.comment-name{
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 5px;
+    font-size: 15px;
+}
+.comment-toggle{
+    width: 54px;
+    height: 24px;
+    background-color: #C4DAEA;
+    border-radius: 14px;
+    padding: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: .3s all; 
+    position: relative;
+    float: left;
+}
+.comment-swtich{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: .3s all; 
+}
+.comment-toggle.disqus{
+    background-color: #35A1FB;
+    text-align: right;
+}
+.comment-toggle.disqus .comment-swtich{
+    left: 32px;
+}
 .comment {
     font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
     max-width: 640px;
@@ -877,6 +919,21 @@ pre.terminal code {
             background-color: transparent;
         }
     }
+}
+
+.comment-show {
+    float: left;
+    font-size: 15px;
+    margin-right: 15px;
+    padding: 12px 0px;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    color: rgb(42, 46, 46);
+    text-transform: capitalize;
+    display: inline-block;
+    cursor: pointer
 }
 
 .comment-header-count {

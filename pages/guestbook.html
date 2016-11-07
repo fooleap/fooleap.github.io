@@ -5,9 +5,11 @@ title: "留言本"
 js: true
 tags: [留言]
 ---
+
 <div class="comment">
     <div class="comment-header cf">
         <span class="comment-header-count">comments</span>
+        <span class="comment-show" onclick="showComments()" title="科学上网，你懂的">Disqus 评论框</span>
         <a href="javascript:void(0)" class="author hide" onclick="editGuest()"><span class="logged-name">fooleap</span><i class="icon icon-write"></i></a>
     </div>
     <div class="comment-form cf">
@@ -54,4 +56,7 @@ tags: [留言]
     </div>
     <ul id="comments" class="loading">
     </ul>
+</div>
+<div class="comment">
+    <div id="disqus_thread"></div>
 </div>
