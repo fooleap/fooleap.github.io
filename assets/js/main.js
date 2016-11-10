@@ -283,22 +283,23 @@ if (commentLinks.length > 0) {
 }
 
 // 显示完整评论
-var disqus_config = function() {
+function disqus_config () {
     this.page.url = 'http://blog.fooleap.org' + location.pathname;
+    this.callbacks.onReady.push(function () {
+        console.log('disqus loaded');
+        document.querySelector('.disqus-loading').style.display = 'none';
+        commentToggle();
+    });
 };
 
 function showComments() {
     document.querySelector('.comment-show').style.display = 'none';
-    document.querySelector('.comment').insertAdjacentHTML('beforebegin', '<div class="comment-mode cf"><div class="comment-toggle" onclick="commentToggle()"><div class="comment-swtich"></div></div><div class="comment-name">简易评论框</div></div>');
+    document.querySelector('.comment').insertAdjacentHTML('beforebegin', '<div class="comment-mode cf"><div class="comment-toggle" onclick="commentToggle()"><div class="comment-swtich"></div></div><div class="comment-name">简易评论框</div><div class="disqus-loading"></div></div>');
     var d = document,
         s = d.createElement('script');
     s.src = '//fooleap.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
-    s.onload = function(){
-        document.querySelector('.comment').className = 'comment hide';
-        commentToggle();
-    }
 }
 
 function commentToggle() {
