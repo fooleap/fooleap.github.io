@@ -2,10 +2,10 @@
 layout: post
 title: "桂林线上半马"
 description: "前两年我也不知道有线上马拉松这回事，最近跑得比较多，也就対跑步圈的一些东西了解得比较多。所以这次，我报名了桂林线上马拉松的半马，和线下的一样是 13 号举行，不同的是，跑步时间是今天内都可以，只要在关门时间内完赛，而且跑步的或许只有自己一个人，恰好这个半马我就是一个人跑的。"
-date: 2016-11-15 20:30:00+0800
+date: 2016-11-19 09:32:00+0800
 thumb: 'IMG_PATH/guilin-marathon-online-03.jpg'
 category: 1ife
-tags: ["跑步", "桂林", "马拉松"]
+tags: ["潮汕", "跑步", "桂林", "马拉松"]
 js: true
 style: true
 scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"]
@@ -105,16 +105,27 @@ scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73
 ![松龄园]({{ site.IMG_PATH }}/guilin-marathon-online-16.jpg_640)
 松龄园
 
-此次半马跑步轨迹如下地图
+此次半马跑步轨迹如下地图，这个地图以 Nike+ 记录一个点以 10 米计算，不是很准确，但 Nike+ 记录的结果也不准。
 
 <div id="map"></div>
 
-数据则如下表，跑之前就知道应该是破七分配，果不其然，速度压得很慢，但总算跑完。
+Nike+ 数据则如下表，跑之前就知道应该是超七分配，果不其然，速度压得很慢，但总算跑完。
 
 |距离|时间|平均配速|平均时速|步数|卡路里|
 |:--:|:--:|:----:|:----:|:---:|:----:|
 |21.20|2:34:51|7'18"|8.21|24733|1574|
 |---
+
+前两天，成绩也通过审核，就是线上证书没有显示成绩有点失望。
+
+![线上证书]({{ site.IMG_PATH }}/guilin-marathon-online-17.jpg?imageView2/2/w/360)
+线上证书
+
+看到大神一天一个半马，我觉得我一个月来一个半马就已经很不错了。现在秋冬季节，适合跑步，如果可以这个月会再跑一次半马。这个月跑量也创历史新高，截至今天（2016-11-19）已经有 112 公里。
+
+**本文历史**
+
+* 2016 年 11 月 19 日 完成初稿
 
 <!--<style>
 #map {
@@ -150,7 +161,7 @@ scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73
    font-size: 10px;
    font-family: 'AlternateBoldFont', 'MHei PRC Bold';
    color: #fff;
-   width: 45px;
+   width: 56px;
    height: 24px;
    line-height: 24px;
    text-align: right;
