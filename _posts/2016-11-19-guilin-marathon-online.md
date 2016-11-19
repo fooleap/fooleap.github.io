@@ -4,7 +4,7 @@ title: "桂林线上半马"
 description: "前两年我也不知道有线上马拉松这回事，最近跑得比较多，也就対跑步圈的一些东西了解得比较多。所以这次，我报名了桂林线上马拉松的半马，和线下的一样是 13 号举行，不同的是，跑步时间是今天内都可以，只要在关门时间内完赛，而且跑步的或许只有自己一个人，恰好这个半马我就是一个人跑的。"
 date: 2016-11-19 09:32:00+0800
 thumb: 'IMG_PATH/guilin-marathon-online-03.jpg'
-category: 1ife
+category: life
 tags: ["潮汕", "跑步", "桂林", "马拉松"]
 js: true
 style: true
