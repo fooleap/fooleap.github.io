@@ -1,0 +1,14 @@
+---
+layout: null
+---
+{
+  {% for tag in site.tags %}
+  "{{ tag[0] }}":[
+    {% for post in tag[1] %}{
+      "title"    : "{{ post.title }}",
+      "href"     : "{{ post.url }}",
+      "date"     : "{{ post.date }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}],
+  {% endfor %}
+}
