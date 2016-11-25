@@ -12,7 +12,7 @@
     <meta name="author" content="fooleap" />
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <link rel="canonical" href="{{ page.url | replace: 'index.html','' | prepend: site.url }}" />
+    <link rel="canonical" href="{{ page.url | replace: 'index.html','' | prepend: site.home }}" />
     <link rel="stylesheet" type="text/css" href="{{ "/assets/css/style.css?20161105" }}" />{% if page.link %}
     <link rel="stylesheet" type="text/css" href="{{ page.link }}" />{% endif %}{% assign content_js = content | remove: '<!--<' | remove: '-->' | split: 'script>' %}{% assign content_style = content | remove: '<!--<' | remove: '-->' | split: 'style>' %}{% if page.style %}
     <style type="text/css">{{ content_style[1] }}style>{% endif %}

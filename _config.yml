@@ -3,7 +3,7 @@ title: Fooleap's Blog
 email: fooleap@gmail.com
 keywords: [fooleap, 前端, Linux, 潮汕]
 description: 'A foolish man could not always lose!'
-url: 'http://blog.fooleap.org'
+home: http://blog.fooleap.org
 timezone: CN
 permalink: /:title.html 
 highlighter: rouge

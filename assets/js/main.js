@@ -4,16 +4,16 @@ function timeAgo(selector) {
         prefix: '',
         suffix: '前',
         seconds: '几秒',
-        minute: '1分钟',
-        minutes: '%d分钟',
-        hour: '1小时',
-        hours: '%d小时',
-        day: '1天',
-        days: '%d天',
-        month: '1个月',
-        months: '%d个月',
-        year: '1年',
-        years: '%d年'
+        minute: '1 分钟',
+        minutes: '%d 分钟',
+        hour: '1 小时',
+        hours: '%d 小时',
+        day: '1 天',
+        days: '%d 天',
+        month: '1 个月',
+        months: '%d 个月',
+        year: '1 年',
+        years: '%d 年'
     };
     var template = function(t, n) {
         return templates[t] && templates[t].replace(/%d/i, Math.abs(Math.round(n)));
