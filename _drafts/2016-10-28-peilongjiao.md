@@ -15,93 +15,22 @@ tags: ["潮汕", "培隆", "日出"]
 
 <style>
 .autumn-coming{
-    width: 640px;
-    height: 427px;
+    width: 100%;
+    height: 0;
+    padding-top: 66.7%;
     background-image: url('/autumn.jpg');
     background-repeat: no-repeat;
-    animation: autumn-coming 10s infinite;
-    transition: 0s background-position;
+    animation: autumn-coming-x .5s steps(4, end) infinite, autumn-coming-y 2.5s steps(5, end) infinite;
 }
 
-@keyframes autumn-coming {
-    0% {
-        background-position: 0 0;
-    }
-
-    5% {
-        background-position: -25% 0;
-    }
-
-    10% {
-        background-position: -50% 0;
-    }
-
-    15% {
-        background-position: -75% 0;
-    }
-
-    20% {
-        background-position: 0 -20%;
-    }
-
-    25% {
-        background-position: -25% -20%;
-    }
-
-    30% {
-        background-position: -50% -20%;
-    }
-
-    35% {
-        background-position: -75% -20%;
-    }
-
-    40% {
-        background-position: 0 -854px;
-    }
-
-    45% {
-        background-position: -640px -854px;
-    }
-
-    50% {
-        background-position: -1280px -854px;
-    }
-
-    55% {
-        background-position: -1920px -854px;
-    }
-
-    60% {
-        background-position: 0 -1281px;
-    }
-
-    65% {
-        background-position: -640px -1281px;
-    }
-
-    70% {
-        background-position: -1280px -1281px;
-    }
-
-    75% {
-        background-position: -1920px -1281px;
-    }
-
-    80% {
-        background-position: 0 -1708px;
-    }
-
-    85% {
-        background-position: -640px -1708px;
-    }
-
-    90% {
-        background-position: -1280px -1708px;
-    }
-
-    95% {
-        background-position: -1920px -1708px;
-    }
+@keyframes autumn-coming-x {
+  to {
+    background-position-x: -2560px;
+  }
+}
+@keyframes autumn-coming-y {
+  to {
+    background-position-y: -2135px;
+  }
 }
 </style>
