@@ -33,6 +33,7 @@ title: 链接
 * [V2EX](https://www.v2ex.com/) 创意工作者们的社区
 * [博客志](http://www.wuxianlandao.com/bokezhi/) 记录互联网上值得记住的博客
 * [番茄土豆](https://pomotodo.com/) 开始完成了不起的工作
+* [个站商店](http://personal-website.store/) 个人网站的商店，这里是我们的“个人网站”共享与发布平台
 * [好多视频网](http://haoduoshipin.com/) Web 开发小技巧
 * [善用佳软](http://xbeta.info/) 最经典免费软件，最实用软件技巧
 * [阮一峰的网络日志](http://www.ruanyifeng.com/blog) 著名博客

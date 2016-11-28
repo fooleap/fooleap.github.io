@@ -282,10 +282,11 @@ if (commentLinks.length > 0) {
     }
 }
 
+
 // 显示完整评论
-function disqus_config () {
+function disqus_config() {
     this.page.url = 'http://blog.fooleap.org' + location.pathname;
-    this.callbacks.onReady.push(function () {
+    this.callbacks.onReady.push(function() {
         console.log('disqus loaded');
         document.querySelector('.disqus-loading').style.display = 'none';
         commentToggle();
@@ -371,6 +372,13 @@ function getComments(res) {
             }
         }
         timeAgo();
+        //是否能连上 Disqus
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://disqus.com/next/config.json', true);
+        xhr.onload = function(e) {
+            document.querySelector('.comment-show').style.display = 'inline-block';
+        };
+        xhr.send(null);
     } else {
         var url = location.pathname.slice(1);
         var title = document.querySelector('title').innerText;
@@ -533,19 +541,20 @@ function editGuest() {
 
 //提交访客信息
 function submitGuest() {
-    var name = document.querySelector('.guest-form-name').value;
-    var email = document.querySelector('.guest-form-email').value;
-    var url = document.querySelector('.guest-form-url').value;
-    var avatar = document.querySelector('.avatar img').src;
-    localStorage.setItem('name', name);
-    localStorage.setItem('email', email);
-    localStorage.setItem('url', url);
-    localStorage.setItem('avatar', avatar);
-    var node = document.querySelector('.guest-form');
-    node.parentNode.removeChild(node);
-    loadGuest();
-}
-//清除访客信息
+        var name = document.querySelector('.guest-form-name').value;
+        var email = document.querySelector('.guest-form-email').value;
+        var url = document.querySelector('.guest-form-url').value;
+        var avatar = document.querySelector('.avatar img').src;
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', email);
+        localStorage.setItem('url', url);
+        localStorage.setItem('avatar', avatar);
+        var node = document.querySelector('.guest-form');
+        node.parentNode.removeChild(node);
+        loadGuest();
+    }
+    //清除访客信息
+
 function clearGuest() {
     localStorage.removeItem('name');
     localStorage.removeItem('email');
@@ -624,9 +633,9 @@ function showCommentForm(el) {
 }
 
 /**   
- * 在光标的位置插入图片   
- * @param {Object} myField  textarea的Id 
- * @param {Object} myValue  插入的字符 
+ * 在光标的位置插入图片
+ * @param {Object} myField  textarea的Id
+ * @param {Object} myValue  插入的字符
  */
 
 function AddOnPos(myField, myValue) {
@@ -920,21 +929,21 @@ function exifHide() {
 }
 
 function exifLoad() {
-    var figure = document.querySelectorAll('figure');
-    for (var i = 0; i < figure.length; i++) {
-        figure[i].addEventListener('mouseover', exifShow, false);
-        figure[i].addEventListener('mouseout', exifHide, false);
+        var figure = document.querySelectorAll('figure');
+        for (var i = 0; i < figure.length; i++) {
+            figure[i].addEventListener('mouseover', exifShow, false);
+            figure[i].addEventListener('mouseout', exifHide, false);
+        }
     }
-}
-// lightbox http://goo.gl/aA9Y5K
-(function lightbox() {
-    if (document.querySelectorAll('.image') && clientWidth > 640) {
-        var lbscript = document.createElement('script');
-        lbscript.type = 'text/javascript';
-        lbscript.src = 'http://' + location.host + '/assets/js/lightbox.min.js';
-        document.getElementsByTagName('BODY')[0].appendChild(lbscript);
-    }
-})();
+    // lightbox http://goo.gl/aA9Y5K
+    (function lightbox() {
+        if (document.querySelectorAll('.image') && clientWidth > 640) {
+            var lbscript = document.createElement('script');
+            lbscript.type = 'text/javascript';
+            lbscript.src = 'http://' + location.host + '/assets/js/lightbox.min.js';
+            document.getElementsByTagName('BODY')[0].appendChild(lbscript);
+        }
+    })();
 
 // 标签云 http://goo.gl/OAvhn3
 var tagCanvas = document.getElementById('tag-canvas');
@@ -975,7 +984,9 @@ function tagCloud() {
         var href = decodeURIComponent(this.href.split('#')[1]);
         document.querySelector('h1').innerHTML = '“' + href + '”的相关文章';
         document.getElementById(href).removeAttribute('style');
-        setTimeout(function() { window.scrollTo(0, 0); }, 1);
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 1);
     }
     for (var i = 0; i < tagLinks.length; i++) {
         if (document.addEventListener) {
@@ -986,7 +997,9 @@ function tagCloud() {
     }
     if (location.hash) {
         document.querySelector('[href="' + decodeURIComponent(location.hash) + '"]').click();
-        setTimeout(function() { window.scrollTo(0, 0); }, 1);
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 1);
     }
 }
 

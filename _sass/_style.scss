@@ -981,8 +981,8 @@ pre.terminal code {
     transition: all 0.2s ease-in-out;
     color: rgb(42, 46, 46);
     text-transform: capitalize;
-    display: inline-block;
-    cursor: pointer
+    cursor: pointer;
+    display: none;
 }
 
 .comment-header-count {
