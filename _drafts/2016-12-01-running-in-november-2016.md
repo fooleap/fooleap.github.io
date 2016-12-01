@@ -1,15 +1,15 @@
 ---
 layout: post
 title: "11 月跑步笔记"
-description: "在过去的 10 月份，我的跑量再次突破 100 公里，上次跑量破百，似乎要追溯到刚失恋不久的 2012 年 9 月份，跑步治疗失恋，这似乎是《阿甘正传》里面的桥段。当然，我这次跑量再破一百，并非又失恋。"
-date: 2016-12-01 05:00:00 +0800
+description: ""
+date: 2016-12-01 18:00:00 +0800
 category: life
 tags: ["跑步", "潮汕"]
 js: true
 scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 ---
 
-11 月份，是我跑步以来跑量最多的一个月，比破百的上个月还要高出 50 公里。
+11 月份，无疑是我跑步以来跑量最多的一个月，比破百的上个月还要高出 50 公里。
 
 
 | 次数 | 总距离 | 总时间 | 平均时速 | 平均配速 | 总步数 | 总热量 |
@@ -117,7 +117,7 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
             type: 'value',
             name: '时间',
             min: 0,
-            max: 300,
+            max: 180,
             show: false,
             axisLine: {
                 lineStyle: {
@@ -302,7 +302,7 @@ xhractivities.onreadystatechange = function() {
 
                     edate[i].name = act_date[i];
                     distance[i].name = distance[i].value + ' km';
-                    duration[i].name = date1.getMinutes() + '\'' + date1.getSeconds() + '\"';
+                    duration[i].name = date1.toISOString().substr(11, 8);
                     speed[i].name = speed[i].value.toFixed(2) + ' km';
                     pace[i].name = date2.getMinutes() + '\'' + date2.getSeconds() + '\"' + '/km';
                     steps[i].name = steps[i].value + ' steps';
