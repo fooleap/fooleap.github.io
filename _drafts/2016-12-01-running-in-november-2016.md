@@ -9,7 +9,7 @@ js: true
 scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 ---
 
-11 月份，无疑是我跑步以来跑量最多的一个月，比破百的上个月还要高出 50 公里。
+11 月份，无疑是我跑步以来跑量最多的一个月，比破百的上个月还要高出 50 公里。天气转凉的月份里，跑步越来越舒服，到月末十几二十度左右的温度，有点风，跑步出汗后就没感觉到很热。
 
 
 | 次数 | 总距离 | 总时间 | 平均时速 | 平均配速 | 总步数 | 总热量 |
@@ -17,7 +17,6 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 |      |        |        |          |          |        |        |
 |----
 {: class="running-total" style="display:none"}
-
 
 <div id="running" style="width:640px;height:427px;display: none"></div>
 
