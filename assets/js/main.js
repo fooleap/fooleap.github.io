@@ -88,16 +88,8 @@ function hideMenu() {
         menu.classList.add('icon-menu');
     }
 }
-if (document.addEventListener) {
-    nav.addEventListener('click', blogMenu, false);
-} else {
-    nav.attachEvent('onclick', blogMenu);
-}
-if (document.addEventListener) {
-    container.addEventListener('click', hideMenu, false);
-} else {
-    container.attachEvent('onclick', hideMenu)
-}
+nav.addEventListener('click', blogMenu, false);
+container.addEventListener('click', hideMenu, false);
 
 var links = document.querySelectorAll('a');
 var clientWidth = document.documentElement.clientWidth;
@@ -165,13 +157,8 @@ function toggleToTop() {
 function scrollToTop() {
     window.scrollTo(0, 0)
 }
-if (document.addEventListener) {
-    document.addEventListener('scroll', toggleToTop, false);
-    backToTop.addEventListener('click', scrollToTop, false);
-} else {
-    window.onscroll = toggleToTop;
-    backToTop.attachEvent('onclick', scrollToTop);
-}
+document.addEventListener('scroll', toggleToTop, false);
+backToTop.addEventListener('click', scrollToTop, false);
 
 // 目录
 var toc = document.getElementById('toc');
@@ -193,11 +180,7 @@ function tocShow() {
             sectionIds.push(subTitles[i].getAttribute('id'));
             sections.push(subTitles[i].offsetTop);
         }
-        if (document.addEventListener) {
-            document.addEventListener('scroll', tocScroll, false);
-        } else {
-            window.onscroll = tocScroll;
-        }
+        document.addEventListener('scroll', tocScroll, false);
     }
 }
 
@@ -250,11 +233,7 @@ function linkFocus() {
     document.getElementById(href).parentElement.style.backgroundColor = 'rgb(235, 235, 235)';
 }
 for (var i = 0; i < noteLinks.length; i++) {
-    if (document.addEventListener) {
-        noteLinks[i].addEventListener('click', linkFocus, false);
-    } else {
-        noteLinks[i].onclick = linkFocus;
-    }
+    noteLinks[i].addEventListener('click', linkFocus, false);
 }
 
 // Disqus 评论
@@ -552,9 +531,9 @@ function submitGuest() {
         var node = document.querySelector('.guest-form');
         node.parentNode.removeChild(node);
         loadGuest();
-    }
-    //清除访客信息
+}
 
+//清除访客信息
 function clearGuest() {
     localStorage.removeItem('name');
     localStorage.removeItem('email');
@@ -762,11 +741,7 @@ if (wechat) {
             wechat.classList.add('light');
         }
     }
-    if (document.addEventListener) {
-        wechat.addEventListener('click', qrShow, false);
-    } else {
-        wechat.attachEvent('onclick', qrShow);
-    }
+    wechat.addEventListener('click', qrShow, false);
 }
 
 // 相关文章
@@ -989,11 +964,7 @@ function tagCloud() {
         }, 1);
     }
     for (var i = 0; i < tagLinks.length; i++) {
-        if (document.addEventListener) {
-            tagLinks[i].addEventListener('click', tagShow, false);
-        } else {
-            tagLinks[i].onclick = tagShow;
-        }
+        tagLinks[i].addEventListener('click', tagShow, false);
     }
     if (location.hash) {
         document.querySelector('[href="' + decodeURIComponent(location.hash) + '"]').click();
@@ -1035,17 +1006,9 @@ window.onload = function() {
     if (wechat) {
         qrCode();
     }
-    if (window.addEventListener) {
-        exifLoad();
-        window.addEventListener('keydown', keysDown, false);
-        window.addEventListener('keyup', keysUp, false);
-    } else if (document.attachEvent) {
-        document.attachEvent('onkeydown', keysDown);
-        document.attachEvent('onkeyup', keysUp);
-    } else {
-        document.addEventListener('keydown', keysDown, false);
-        document.addEventListener('keyup', keysUp, false);
-    }
+    exifLoad();
+    window.addEventListener('keydown', keysDown, false);
+    window.addEventListener('keyup', keysUp, false);
     if (document.querySelectorAll('.image') && clientWidth > 640) {
         var lightbox = new Lightbox();
         var lightBoxOptions = {
