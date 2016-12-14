@@ -2,6 +2,14 @@
 layout: default
 ---
 
+    {% comment %}
+<article class="weui-article">
+    <section>
+         {{ content | replace_first:'markdown-toc','toc' }}
+    </section>
+</article>
+    {% endcomment %}
+
 <article class="post-content">
     <div class="main-content">
         {{ content | replace_first:'markdown-toc','toc' }}

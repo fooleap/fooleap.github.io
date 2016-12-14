@@ -2,6 +2,29 @@
 layout: default
 ---
 
+  {% comment %}
+<div class="weui-panel weui-panel_access">
+    <div class="weui-panel__hd">博文列表</div>
+    <div class="weui-panel__bd">
+    {% for post in paginator.posts %}
+        <a href="{{ post.url }}" class="weui-media-box weui-media-box_appmsg">
+          <div class="weui-media-box__hd">
+                {% if post.thumb %}<img class="weui-media-box__thumb thumbnail" src="{{ post.thumb | replace:'IMG_PATH', site.IMG_PATH }}?imageView2/1/w/60/h/60" />{% else %}{% if post.content contains site.IMG_PATH %}{% assign images = post.content | split:"<img " %}{% for image in images %}{% if image contains site.IMG_PATH %}{% if image contains 'imageView'%}{% assign thumbnail = image | split:"?imageView" | first | replace:'jpg',"jpg?imageView2/1/w/60/h/60/q/90" | replace:'png',"png?imageView2/1/w/60/h/60/q/90" |append:'"' %}{% else %}{% assign thumbnail = image | split:">" | first | remove:'_640' | replace:'jpg',"jpg?imageView2/1/w/60/h/60/q/90" | replace:'png',"png?imageView2/1/w/60/h/60/q/90" %}{% endif %}<img class="weui-media-box__thumb thumbnail" {{ thumbnail | split:' alt' | first }} alt="{{ post.title }}" />{% break %}{% endif %}{% endfor %}{% else %}<img class="weui-media-box__thumb thumbnail"  src="{{ site.IMG_PATH }}/avatar.jpg?imageView2/1/w/60/h/60/q/90" alt="{{ post.title }}" />{% endif %}{% endif %}
+                <span class="weui-badge disqus-comment-count" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comments" style="position: absolute;top: -.4em;right: -.4em; display: none"></span>
+            </div>
+            <div class="weui-media-box__bd" style="position: relative">
+              <div class="weui-flex">
+                <h4 class="weui-flex__item weui-media-box__title">{{ post.title }}</h4>
+                <abbr class="timeago" style="display: inline-block;" title="{{ post.date | date_to_xmlschema }}"></abbr>
+              </div>
+              <p class="weui-media-box__desc">{{ post.description }}</p>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+</div>
+{% endcomment %}
+
 <section class="articles">
   <ul>
   {% for post in paginator.posts %}

@@ -101,11 +101,11 @@ abbr {
     cursor: help;
 }
 
-a {
+/*a {
     text-decoration: none;
     color: rgb(72, 72, 72);
     outline: none;
-}
+}*/
 
 em {
     font-style: normal;
@@ -130,14 +130,14 @@ textarea {
 // wrapper
 .wrapper {
     position: relative;
-    max-width: 768px;
+    max-width: 670px;
     margin: 30px auto;
     background: rgb(255, 255, 255);
     text-align: justify;
     text-justify: ideographic;
     word-break: break-all;
     word-wrap: break-word;
-    a {
+    /*a {
         color: $darkblue;
         -webkit-transition: color .5s linear;
         -moz-transition: color .5s linear;
@@ -155,7 +155,7 @@ textarea {
             font-size: 10px;
             margin: 0 5px;
         }
-    }
+    }*/
     &:before {
         content: "";
         position: absolute;
