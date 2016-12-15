@@ -130,14 +130,14 @@ textarea {
 // wrapper
 .wrapper {
     position: relative;
-    max-width: 670px;
+    max-width: 768px;
     margin: 30px auto;
     background: rgb(255, 255, 255);
     text-align: justify;
     text-justify: ideographic;
     word-break: break-all;
     word-wrap: break-word;
-    /*a {
+    a {
         color: $darkblue;
         -webkit-transition: color .5s linear;
         -moz-transition: color .5s linear;
@@ -155,7 +155,7 @@ textarea {
             font-size: 10px;
             margin: 0 5px;
         }
-    }*/
+    }
     &:before {
         content: "";
         position: absolute;
@@ -381,8 +381,8 @@ textarea {
     }
     .thumbnail {
         float: left;
-        width: 48px;
-        height: 48px;
+        width: 50px;
+        height: 50px;
         overflow: hidden;
         border-radius: 4px;
     }
