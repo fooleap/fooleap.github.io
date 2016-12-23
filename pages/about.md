@@ -4,9 +4,12 @@ permalink: /about.html
 title: 关于
 tags: [关于, 网志, fooleap, blog]
 js: true
+scripts: ["http://res.wx.qq.com/open/js/jweixin-1.0.0.js"]
 ---
 
+{% comment %}
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height="52" style="width:280px;margin:0;" src="http://music.163.com/outchain/player?type=2&id=165614&auto=0&height=32"></iframe>
+{% endcomment %}
 
 好多年前，在某个网站听到这首曲子的背景音乐，听着有感觉，便将其扒了下来（[fmmusic.mid]({{ site.IMG_PATH }}/fmmusic.mid)，当年的文件，MIDI 格式的），听得多了，就感觉对自己来说有某种特殊的意义，后来才知道它的名字及由来。
 
@@ -55,4 +58,40 @@ js: true
   var duration = now.getTime() - birthDay.getTime();
   var total= Math.floor(duration / (1000 * 60 * 60 * 24));
   document.getElementById('days').innerHTML = total;
-  </script>-->
+  var xhrwesign = new XMLHttpRequest();
+  xhrwesign.onload= function(data) {
+     signPackage = JSON.parse(xhrwesign.responseText);
+     //console.log(xhrwesign.responseText);
+  };
+  xhrwesign.open('GET', 'http://api.fooleap.org/wechat/jssdk?url='+ 'http://blog.fooleap.org/about.html', false);
+  xhrwesign.send(null);
+  wx.config({
+    debug: true,
+    appId: signPackage.appId,
+    timestamp: signPackage.timestamp,
+    nonceStr: signPackage.nonceStr,
+    signature: signPackage.signature,
+    jsApiList: [
+      // 所有要调用的 API 都要加到这个列表中
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage'
+    ]
+  });
+  wx.ready(function () {
+    // 在这里调用 API
+wx.onMenuShareAppMessage({
+    title: '关于', // 分享标题
+    desc: '关于 fooleap', // 分享描述
+    link: '', // 分享链接
+    imgUrl: '', // 分享图标
+    type: '', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+    }
+});
+  });
+    </script>-->
