@@ -20,7 +20,11 @@ module Jekyll
         "#{url}.#{layout_path}"
         end
       else
-        url.gsub(/\/$|#{ext}$/) { |url_end| "/#{layout_path}#{url_end}" }
+        if layout_path == "post"
+          url.gsub(/\/$|#{ext}$/) { |url_end| ".html" }
+        else
+          url.gsub(/\/$|#{ext}$/) { |url_end| ".#{layout_path}" }
+        end
       end
     end
   end
