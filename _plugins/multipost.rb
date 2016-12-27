@@ -1,11 +1,9 @@
-require 'cgi'
-
 module Jekyll
   module PermalinkBuilder
     extend self
 
     def get_adjusted_permalink(resource, layout)
-      layout_path = CGI.escape(layout)
+      layout_path = layout
       url = resource.url
       ext = File.extname(url)
 
