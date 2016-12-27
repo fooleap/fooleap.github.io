@@ -5,10 +5,12 @@ keywords: [fooleap, 前端, Linux, 潮汕]
 description: 'A foolish man could not always lose!'
 home: http://blog.fooleap.org
 timezone: CN
-permalink: /:title.html 
 highlighter: rouge
-gems: [jekyll-paginate]
-paginate: 10
+#permalink: /:title.html
+permalink: /:title
+gems: 
+  - jekyll-paginate
+paginate: 20
 IMG_PATH: http://source.fooleap.org
 markdown: kramdown
 exclude: ['media', 'update.lftp', 'pushbaidu.sh', '.htaccess']
@@ -28,5 +30,3 @@ defaults:
     values:
       is_post: true
 twitter_username: fooleap
-github_username: fooleap
-weibo_username: fooleap
