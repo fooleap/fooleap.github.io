@@ -61,6 +61,7 @@ html {
 }
 
 body {
+    zoom: 1;
     font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, "Microsoft YaHei", sans-serif;
     font-size: 13px;
     color: $default;
@@ -68,6 +69,10 @@ body {
     background: rgb(196, 218, 234);
     -webkit-font-smoothing: antialiased;
     overflow-y: scroll;
+}
+main{
+    //font-family: "Adobe 明體 Std";
+    //font-family: "新細明體";
 }
 
 .ie body {
@@ -126,6 +131,9 @@ textarea {
 .hide {
     display: none!important;
 }
+img[data-onload="true"] {
+    background-color: transparent!important;
+}
 
 // wrapper
 .wrapper {
@@ -145,8 +153,8 @@ textarea {
         -ms-transition: color .5s linear;
         transition: color .5s linear;
         &:hover {
-            background-color: $lightgray;
-            border-radius: 1px;
+            border-bottom: 1px dashed $darkblue;
+            background: none;
         }
         &[target="_blank"]:after {
             font-family: "fontello";
@@ -385,6 +393,7 @@ textarea {
         height: 50px;
         overflow: hidden;
         border-radius: 4px;
+        transition: all .5s;
     }
     .post-infos {
         margin: 0 10px;
@@ -548,11 +557,11 @@ textarea {
     }
     figure {
         max-width: 640px;
-        margin: 0;
         position: relative;
         overflow: hidden;
         .exif {
-            display: none;
+            transition: opacity .5s;
+            opacity: 0;
             position: absolute;
             top: 0;
             background: $black;
@@ -563,7 +572,11 @@ textarea {
             font-size: 13px;
             width: 100%;
             overflow: hidden;
-            opacity: .7;
+        }
+        &:hover {
+            .exif {
+                opacity: .7;
+            }
         }
         img {
             cursor: pointer;
@@ -766,9 +779,6 @@ pre.terminal code {
         padding: 2px 3px;
         font-size: 12px;
     }
-    a:hover {
-        background: $darkgray;
-    }
     a:after {
         display: none!important;
     }
@@ -792,9 +802,6 @@ pre.terminal code {
     a {
         color: rgb(51, 51, 51);
         border: none;
-        &:hover {
-            background: none;
-        }
         &:after {
             content: ''!important;
             margin: 0!important;

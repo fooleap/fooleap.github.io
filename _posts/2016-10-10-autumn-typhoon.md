@@ -129,11 +129,9 @@ scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73
 }
 </style> -->
 <!--<script>
+(function(){
 var lineArr = [];
-var script = document.createElement("script");
-script.setAttribute("src", "http://typhoon.zjwater.gov.cn/Api/TyphoonInfo/201619?callback=jsonpCallback1");
-document.getElementsByTagName("body")[0].appendChild(script);
-function jsonpCallback1(result) {
+jsonpCallback1 = function (result) {
     var points  = result[0].points;
     for (var i = 0; i < points.length; i++){
         var point = [];
@@ -143,6 +141,20 @@ function jsonpCallback1(result) {
     }
     drawMap(lineArr);
 }
+jsonpCallback2 = function (result) {
+    var points  = result[0].points;
+    for (var i = 0; i < points.length; i++){
+        var point = [];
+        point[0] = points[i].lng;
+        point[1] = points[i].lat;
+        lineArr1[i] = point;
+    }
+    drawMap(lineArr1);
+}
+var script = document.createElement("script");
+script.setAttribute("src", "http://typhoon.zjwater.gov.cn/Api/TyphoonInfo/201619?callback=jsonpCallback1");
+script.defer = true;
+document.getElementsByTagName("body")[0].appendChild(script);
 var googleLayer = new AMap.TileLayer({
     getTileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=s&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galile',
     zIndex: 0
@@ -154,7 +166,7 @@ var map = new AMap.Map('map', {
     layers:[googleLayer,roadNetLayer],
     zoom: 5 
 });
-function drawMap(lineArr){
+var drawMap = function (lineArr){
     var polyline = new AMap.Polyline({
         map: map,
         path: lineArr,
@@ -169,15 +181,7 @@ function drawMap(lineArr){
 var lineArr1 = [];
 var script = document.createElement("script");
 script.setAttribute("src", "http://typhoon.zjwater.gov.cn/Api/TyphoonInfo/201614?callback=jsonpCallback2");
+script.defer = true;
 document.getElementsByTagName("body")[0].appendChild(script);
-function jsonpCallback2(result) {
-    var points  = result[0].points;
-    for (var i = 0; i < points.length; i++){
-        var point = [];
-        point[0] = points[i].lng;
-        point[1] = points[i].lat;
-        lineArr1[i] = point;
-    }
-    drawMap(lineArr1);
-}
+})();
 </script>-->

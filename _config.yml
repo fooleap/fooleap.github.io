@@ -1,4 +1,7 @@
 encoding: utf-8
+port: 5678
+host: 0.0.0.0
+#incremental: true
 title: Fooleap's Blog
 email: fooleap@gmail.com
 keywords: [fooleap, 前端, Linux, 潮汕]
@@ -10,7 +13,7 @@ permalink: /:title.html
 #permalink: /:title
 gems: 
   - jekyll-paginate
-paginate: 20
+paginate: 10
 IMG_PATH: http://source.fooleap.org
 markdown: kramdown
 exclude: ['media', 'update.lftp', 'pushbaidu.sh', '.htaccess']

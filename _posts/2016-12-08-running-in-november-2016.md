@@ -89,7 +89,7 @@ Nike+ 获取概览的 API 一次性限制在 30 次，所以下面的图表最�
 
 <!--<script>
 var runningChart = document.getElementById('running');
-var mainWidth = document.querySelector('.main-content').offsetWidth;
+var mainWidth = document.querySelector('.page-content').offsetWidth;
 
 if ( mainWidth < 640 ){
    runningChart.style.width = window.innerWidth + 'px';

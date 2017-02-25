@@ -49,6 +49,73 @@ function timeAgo(selector) {
 }
 timeAgo();
 
+// 图片
+(function(){
+    var postImages = document.querySelectorAll('.post-content img');
+    var pageImages = document.querySelectorAll('.articles img');
+    var imageArr = postImages.length > 0 ? postImages : pageImages;
+    var xhrImageAve = [],
+        xhrImageExif = [],
+        imageAve = [],
+        imageExif = [];
+    for ( var i = 0; i < imageArr.length; i++){
+
+        //预加载图片平均色调
+        imageAve[i] = imageArr[i].src.split(/_|\?/)[0] + '?imageAve';
+        xhrImageAve[i] = new XMLHttpRequest();
+        xhrImageAve[i].open('GET', imageAve[i], true);
+        xhrImageAve[i].onreadystatechange = function() {
+            if (this.readyState==4 && this.status==200)
+            {
+                var data = JSON.parse(this.responseText);
+                var color = data.RGB.slice(2);
+                document.querySelector('[src^="' + this.responseURL.slice(0,-9) + '"]').style.backgroundColor = '#' + color;
+            }
+        };
+        xhrImageAve[i].send(null);
+
+        if ( postImages.length > 0 ){
+            //Lightbox
+            imageArr[i].dataset.jslghtbx = imageArr[i].src.split(/_|\?/)[0];
+            imageArr[i].dataset.jslghtbxCaption = imageArr[i].getAttribute('alt');
+            imageArr[i].dataset.jslghtbxGroup = 'lightbox';
+            imageArr[i].parentElement.outerHTML = imageArr[i].parentElement.outerHTML.replace('<p>','<figure class="image">').replace('</p>','</figure>').replace(imageArr[i].parentElement.textContent, '<small>'+ imageArr[i].parentElement.textContent.replace('\n','')+'</small>');
+
+            //Exif
+            if( imageArr[i].src.indexOf('.jpg') > -1 ) {
+                imageExif[i] = imageArr[i].src.split(/_|\?/)[0] + '?exif';
+                xhrImageExif[i] = new XMLHttpRequest();
+                xhrImageExif[i].open('GET', imageExif[i], true);
+                xhrImageExif[i].onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200)
+                    {
+                        var data = JSON.parse(this.responseText);
+                        if ( data.DateTimeOriginal) {
+                            var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
+                            var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2];
+                            var model = (data.Model) ? (data.Model.val) : '无';
+                            var fnum = (data.FNumber) ? (data.FNumber.val.split(/\//)[1]) : '无';
+                            var extime = (data.ExposureTime) ? (data.ExposureTime.val) : '无';
+                            var iso = (data.ISOSpeedRatings) ? (data.ISOSpeedRatings.val.split(/,\s/)[0]) : '无';
+                            var flength = (data.FocalLength) ? (data.FocalLength.val) : '无';
+                            document.querySelector('[src^="' + this.responseURL.slice(0,-5) + '"]').parentElement.insertAdjacentHTML('afterbegin', '<figcaption class="exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</figcaption>');
+                        }
+                    }
+                };
+                xhrImageExif[i].send(null);
+            }
+        }
+
+        //恢复背景色
+        var image = new Image();
+        image.onload = function(){
+            document.querySelector('[src="' + this.src + '"]').dataset.onload = "true";
+        }
+        image.src = imageArr[i].src;
+    }
+
+})();
+
 // 判断是否支持 Flash http://goo.gl/cg206i
 function isFlashSupported() {
     if (window.ActiveXObject) {
@@ -323,12 +390,12 @@ function getComments(res) {
             var profileUrl = post.profileUrl ? post.profileUrl : 'javascript:void(0);';
             var url = post.url ? post.url : profileUrl;
             var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
-            var image = '',
-                imageList = '';
             var images = post.media;
+            var imageList = '';
             if (images.length > 0) {
-                for (var i = 0; i < images.length; i++) {
-                    image += '<a target="_blank" href="https:' + images[i].url + '" ><img src="https:' + images[i].thumbnailURL + '"></a>';
+                var image = '';
+                for (var e = 0; e < images.length; e++) {
+                    image += '<a target="_blank" href="' + images[e].url + '" ><img src="' + images[e].thumbnailURL + '"></a>';
                 }
                 imageList = '<div class="post-image">' + image + '</div>';
             }
@@ -337,6 +404,7 @@ function getComments(res) {
             html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.avatar + '"></a>';
             html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.name + '</a>' + isModerator + '<span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
+            //html += '<div class="post-content">' + post.message + '</div>';
             html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + res.id + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions cf">' + document.querySelector('.emojione').outerHTML + '<button class="logged-button" onclick="replyComment(this)">发表回复</button></div></div><div class="comment-input-group hide"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><label class="comment-input-checkbox hide" for="remember-' + post.id + '"><input type="checkbox" id="remember-' + post.id + '" checked> 记住我</label><button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
             html += '<ul class="post-children"></ul>';
             html += '</li>';
@@ -851,74 +919,15 @@ if (sourceView) {
     }
 }
 
-// 图片
-var postImages = document.querySelectorAll('.main-content img');
-var realImages = [];
-(function imageSize() {
-    for (var i = 0; i < postImages.length; i++) {
-        var imageSrc;
-        var realImage = new Image();
-        realImage.src = postImages[i].src;
-        realImages.push(realImage);
-        imageSrc = realImage.src.split(/(\?|\_)/)[0];
-        postImages[i].parentElement.classList.add('image');
-        postImages[i].setAttribute('data-jslghtbx-caption', postImages[i].getAttribute('alt'));
-        postImages[i].setAttribute('data-jslghtbx', imageSrc);
-        postImages[i].setAttribute('data-jslghtbx-group', 'lightbox');
-        postImages[i].outerHTML = '<figure>' + postImages[i].outerHTML + '</figure>';
+// lightbox http://goo.gl/aA9Y5K
+(function lightbox() {
+    if (document.querySelectorAll('.image') && clientWidth > 640) {
+        var lbscript = document.createElement('script');
+        lbscript.type = 'text/javascript';
+        lbscript.src = 'http://' + location.host + '/assets/js/lightbox.min.js';
+        document.getElementsByTagName('BODY')[0].appendChild(lbscript);
     }
 })();
-
-function exifShow() {
-    var exifInfo = this.querySelector('.exif');
-    var thisImage = this.querySelector('img');
-    var exifUrl = this.querySelector('img').src.split(/(\?|\_)/)[0] + '\?exif';
-    if (exifUrl.indexOf('jpg') >= 0 && clientWidth >= 555 && !exifInfo) {
-        var xhrExif = new XMLHttpRequest();
-        xhrExif.open('GET', exifUrl, false);
-        xhrExif.send(null);
-        var exif = JSON.parse(xhrExif.responseText);
-        if (xhrExif.readyState == 4 && xhrExif.status == 200) {
-            if (exif.DateTimeOriginal) {
-                datetime = exif.DateTimeOriginal.val.split(/\:|\s/);
-                date = datetime[0] + '-' + datetime[1] + '-' + datetime[2];
-                model = (exif.Model) ? (exif.Model.val) : '无';
-                fnum = (exif.FNumber) ? (exif.FNumber.val.split(/\//)[1]) : '无';
-                extime = (exif.ExposureTime) ? (exif.ExposureTime.val) : '无';
-                iso = (exif.ISOSpeedRatings) ? (exif.ISOSpeedRatings.val.split(/,\s/)[0]) : '无';
-                flength = (exif.FocalLength) ? (exif.FocalLength.val) : '无';
-                thisImage.insertAdjacentHTML('afterend', '<figcaption class="exif show">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</figcaption>');
-            }
-        }
-    }
-    if (exifInfo) {
-        exifInfo.classList.add('show');
-    }
-}
-
-function exifHide() {
-    var exifInfo = this.querySelector('.exif')
-    if (exifInfo) {
-        exifInfo.classList.remove('show');
-    }
-}
-
-function exifLoad() {
-        var figure = document.querySelectorAll('figure');
-        for (var i = 0; i < figure.length; i++) {
-            figure[i].addEventListener('mouseover', exifShow, false);
-            figure[i].addEventListener('mouseout', exifHide, false);
-        }
-    }
-    // lightbox http://goo.gl/aA9Y5K
-    (function lightbox() {
-        if (document.querySelectorAll('.image') && clientWidth > 640) {
-            var lbscript = document.createElement('script');
-            lbscript.type = 'text/javascript';
-            lbscript.src = 'http://' + location.host + '/assets/js/lightbox.min.js';
-            document.getElementsByTagName('BODY')[0].appendChild(lbscript);
-        }
-    })();
 
 // 标签云 http://goo.gl/OAvhn3
 var tagCanvas = document.getElementById('tag-canvas');
@@ -1006,7 +1015,6 @@ window.onload = function() {
     if (wechat) {
         qrCode();
     }
-    exifLoad();
     window.addEventListener('keydown', keysDown, false);
     window.addEventListener('keyup', keysUp, false);
     if (document.querySelectorAll('.image') && clientWidth > 640) {

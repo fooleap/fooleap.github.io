@@ -2,60 +2,52 @@
 layout: default
 ---
 
-  {% comment %}
 <section class="articles">
-<div class="weui-cells">
-    {% for post in paginator.posts %}
-        <a class="weui-cell weui-cell_access post-item" href="{{ post.url }}">
-          <div class="weui-cell__hd">
-            {% if post.thumb %}<img class="post-thumb" src="{{ post.thumb | replace:'IMG_PATH', site.IMG_PATH }}?imageView2/1/w/60/h/60" />{% else %}{% if post.content contains site.IMG_PATH %}{% assign images = post.content | split:"<img " %}{% for image in images %}{% if image contains site.IMG_PATH %}{% if image contains 'imageView'%}{% assign thumbnail = image | split:"?imageView" | first | replace:'jpg',"jpg?imageView2/1/w/60/h/60/q/90" | replace:'png',"png?imageView2/1/w/60/h/60/q/90" |append:'"' %}{% else %}{% assign thumbnail = image | split:">" | first | remove:'_640' | replace:'jpg',"jpg?imageView2/1/w/60/h/60/q/90" | replace:'png',"png?imageView2/1/w/60/h/60/q/90" %}{% endif %}<img class="post-thumb" {{ thumbnail | split:' alt' | first }} alt="{{ post.title }}" />{% break %}{% endif %}{% endfor %}{% else %}<img class="post-thumb"  src="{{ site.IMG_PATH }}/avatar.jpg?imageView2/1/w/60/h/60/q/90" alt="{{ post.title }}" />{% endif %}{% endif %}
-            <span class="weui-badge disqus-comment-count" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comments" style="position: absolute;top: -.4em;right: -.4em; display: none"></span>
-          </div>
-          <div class="weui_cell_bd weui_cell_primary post-detail">
-              <div class="weui-flex">
-                <h4 class="weui-flex__item post-title">{{ post.title }}</h4>
-                <abbr class="post-date timeago" style="display: inline-block;" title="{{ post.date | date_to_xmlschema }}"></abbr>
-              </div>
-              <p class="post-desc">{{ post.description }}</p>
-          </div>
-        </a>
-    {% endfor %}
-    </div>
-</div>
-</section>
-{% endcomment %}
-
-<section class="articles">
-  <ul>
-  {% for post in paginator.posts %}
-    <li>
-      {% if post.thumb %}<img class="thumbnail" src="{{ post.thumb | replace:'IMG_PATH', site.IMG_PATH }}?imageView2/1/w/48/h/48" />{% else %}{% if post.content contains site.IMG_PATH %}{% assign images = post.content | split:"<img " %}{% for image in images %}{% if image contains site.IMG_PATH %}{% if image contains 'imageView'%}{% assign thumbnail = image | split:"?imageView" | first | replace:'jpg',"jpg?imageView2/1/w/48/h/48/q/90" | replace:'png',"png?imageView2/1/w/48/h/48/q/90" |append:'"' %}{% else %}{% assign thumbnail = image | split:">" | first | remove:'_640' | replace:'jpg',"jpg?imageView2/1/w/48/h/48/q/90" | replace:'png',"png?imageView2/1/w/48/h/48/q/90" %}{% endif %}<img class="thumbnail" {{ thumbnail | split:' alt' | first }} alt="{{ post.title }}" />{% break %}{% endif %}{% endfor %}{% else %}<img class="thumbnail"  src="{{ site.IMG_PATH }}/avatar.jpg?imageView2/1/w/48/h/48/q/90" alt="{{ post.title }}" />{% endif %}{% endif %}
-    <div class="comment-count"><a class="disqus-comment-count" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comments"></a></div>
-    <div class="post-infos">
-      <h3 class="post-title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-      <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}"></abbr>
-    </div>
-    </li>
-  {% endfor %}
-  </ul>
+    <ul>
+        {% for post in paginator.posts %}
+        {% if post.thumb %}
+        {% assign thumbnail = post.thumb | replace:'IMG_PATH', site.IMG_PATH %}
+        {% else %}
+        {% if post.content contains site.IMG_PATH %}
+        {% assign images = post.content | split:'<img src="' %}
+        {% for image in images %}
+        {% if image contains site.IMG_PATH %}
+        {% assign thumbnail = image | split:"?imageView" | first | split: '"' | first | remove: "_640" %}
+        {% break %}
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        {% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}
+        {% endif %}
+        {% endif %}
+        <li>
+            <img class="thumbnail"  src="{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}" alt="{{ post.title }}" data-image-ave="{{ thumbnail | append: '?imageAve' }}"/>
+            <div class="comment-count"><a class="disqus-comment-count" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comments"></a></div>
+            <div class="post-infos">
+                <h3 class="post-title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+                <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}"></abbr>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
 </section>
 
 <nav class="pagination">
-  <ul>
-    {% if paginator.next_page %}
-    <li class="older"><a href="/page{{paginator.next_page}}/">&laquo; 较旧文章</a></li>
-    {% else %}
-    <li class="older disable">没有了</li>
-    {% endif %}
-    <li class="number">{{paginator.page}} / {{paginator.total_pages}}</li>
-    {% if paginator.previous_page %}
-      {% if paginator.previous_page == 1 %}
-    <li class="newer"><a href="/">较新文章 &raquo;</a></li>
-      {% else %}
-    <li class="newer"><a href="/page{{paginator.previous_page}}/">较新文章 &raquo;</a></li>
-      {% endif %}
-    {% else %}
-    <li class="newer"></li>
-    {% endif %}
-  </ul>
+    <ul>
+        {% if paginator.next_page %}
+        <li class="older"><a href="/page{{paginator.next_page}}/">&laquo; 较旧文章</a></li>
+        {% else %}
+        <li class="older disable">没有了</li>
+        {% endif %}
+        <li class="number">{{paginator.page}} / {{paginator.total_pages}}</li>
+        {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1 %}
+        <li class="newer"><a href="/">较新文章 &raquo;</a></li>
+        {% else %}
+        <li class="newer"><a href="/page{{paginator.previous_page}}/">较新文章 &raquo;</a></li>
+        {% endif %}
+        {% else %}
+        <li class="newer"></li>
+        {% endif %}
+    </ul>
 </nav>
