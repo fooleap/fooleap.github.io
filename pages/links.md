@@ -6,7 +6,7 @@ title: 链接
 
 ## 站内链接
 
-* [汕头广电](/sttv/)
+* [汕头广电](http://fooleap.org/sttv/)
 
 ## 工具链接
 
@@ -33,7 +33,7 @@ title: 链接
 * [V2EX](https://www.v2ex.com/) 创意工作者们的社区
 * [博客志](http://www.wuxianlandao.com/bokezhi/) 记录互联网上值得记住的博客
 * [番茄土豆](https://pomotodo.com/) 开始完成了不起的工作
-* [个站商店](http://personal-website.store/) 个人网站的商店，这里是我们的“个人网站”共享与发布平台
+* [个站商店](http://psweb.store/) 个人网站的商店，这里是我们的“个人网站”共享与发布平台
 * [好多视频网](http://haoduoshipin.com/) Web 开发小技巧
 * [善用佳软](http://xbeta.info/) 最经典免费软件，最实用软件技巧
 * [阮一峰的网络日志](http://www.ruanyifeng.com/blog) 著名博客
@@ -47,6 +47,7 @@ title: 链接
 * [Conan06's blog](http://blog.conan06.com/){:title="Conan06@北京"}
 * [Mugbya's Blog](http://blog.mugbya.cn/)
 * [misshu's blog](http://blog.wuhuting.com/){:title="吴胡婷@北京"}
+* [Mr.He](http://mrhe.net/){:title="何承周@安徽"}
 * [Terence's Blog](http://songtl.com/){:title="宋廷龙@南宁"}
 * [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
@@ -61,7 +62,6 @@ title: 链接
 * [软件小子](http://bzdiao.com){:title="Bruse@西安"}
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
 * [以梦为马，奔向远方](http://linhaicaoyuan.org){:title="石明鑫@昆明"}
-* [Mr.He](http://mrhe.net/){:title="何承周@安徽"}
 * [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
 * [贼头's Blog](http://www.makiller.com){:title="马震南@南宁"}
 
