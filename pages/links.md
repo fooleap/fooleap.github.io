@@ -61,7 +61,7 @@ title: 链接
 * [奶牛博客](http://www.nenew.net){:title="奶牛@淄博"}
 * [软件小子](http://bzdiao.com){:title="Bruse@西安"}
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
-* [以梦为马，奔向远方](http://linhaicaoyuan.org){:title="石明鑫@昆明"}
+* [以梦为马，奔向远方](http://linhai1990.com/){:title="石明鑫@昆明"}
 * [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
 * [贼头's Blog](http://www.makiller.com){:title="马震南@南宁"}
 
