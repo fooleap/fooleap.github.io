@@ -116,6 +116,21 @@ timeAgo();
 
 })();
 
+(function(){
+    var icon = document.querySelectorAll('.icon');
+    for (var i = 0; i < icon.length; i ++ ){
+        icon[i].addEventListener('mouseover', function(){
+            var hoverColor = this.dataset.color;
+            this.contentDocument.querySelector('.icon').setAttribute("fill", hoverColor);
+        }, false);
+        icon[i].addEventListener('mouseout', function(){
+            var hoverColor = this.dataset.color;
+            this.contentDocument.querySelector('.icon').setAttribute("fill", null);
+        }, false);
+;
+    }
+})();
+
 // 判断是否支持 Flash http://goo.gl/cg206i
 function isFlashSupported() {
     if (window.ActiveXObject) {
@@ -268,40 +283,40 @@ function tocScroll() {
 }
 
 // 参考资料、站外链接
-if (document.querySelectorAll('h2')[document.querySelectorAll('h2').length - 1].innerHTML === '参考资料') {
-    document.querySelectorAll('h2')[document.querySelectorAll('h2').length - 1].insertAdjacentHTML('afterend', '<ol id="refs"></ol>');
-}
-for (var i = 0; i < links.length; i++) {
-    if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) === false) {
-        var numText = links[i].innerHTML;
-        var num = numText.substring(1, numText.length - 1);
-        if (!isNaN(num) && num) {
-            var note = 'note-' + num;
-            var ref = 'ref-' + num;
-            var noteTitle = links[i].getAttribute('title');
-            var noteHref = links[i].getAttribute('href');
-            links[i].setAttribute('href', '#' + note);
-            links[i].setAttribute('id', ref);
-            links[i].setAttribute('class', 'ref');
-            links[i].outerHTML = '<sup>' + links[i].outerHTML + '</sup>';
-            document.getElementById('refs').insertAdjacentHTML('beforeend', '<li class="note"><a href="#' + ref + '">&and;</a> <a href="' + noteHref + '" title="' + noteTitle + '" id="' + note + '" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
-        } else {
-            links[i].setAttribute('target', '_blank');
+(function(){
+    if (document.querySelectorAll('h2')[document.querySelectorAll('h2').length - 1].innerHTML === '参考资料') {
+        document.querySelectorAll('h2')[document.querySelectorAll('h2').length - 1].insertAdjacentHTML('afterend', '<ol id="refs"></ol>');
+    }
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) === false) {
+            var numText = links[i].innerHTML;
+            var num = numText.substring(1, numText.length - 1);
+            if (!isNaN(num) && num) {
+                var note = 'note-' + num;
+                var ref = 'ref-' + num;
+                var noteTitle = links[i].getAttribute('title');
+                var noteHref = links[i].getAttribute('href');
+                links[i].setAttribute('href', '#' + note);
+                links[i].setAttribute('id', ref);
+                links[i].setAttribute('class', 'ref');
+                links[i].outerHTML = '<sup>' + links[i].outerHTML + '</sup>';
+                document.getElementById('refs').insertAdjacentHTML('beforeend', '<li class="note"><a href="#' + ref + '">&and;</a> <a href="' + noteHref + '" title="' + noteTitle + '" id="' + note + '" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
+            } else {
+                links[i].setAttribute('target', '_blank');
+            }
         }
     }
-}
-var noteLinks = document.querySelectorAll('a[href^="#note"], a[href^="#ref"]');
-
-function linkFocus() {
+    var noteLinks = document.querySelectorAll('a[href^="#note"], a[href^="#ref"]');
     for (var i = 0; i < noteLinks.length; i++) {
-        noteLinks[i].parentElement.style.backgroundColor = '';
+        noteLinks[i].addEventListener('click', function(){
+            for (var i = 0; i < noteLinks.length; i++) {
+                noteLinks[i].parentElement.style.backgroundColor = '';
+            }
+            var href = this.href.split('#')[1];
+            document.getElementById(href).parentElement.style.backgroundColor = 'rgb(235, 235, 235)';
+        }, false);
     }
-    var href = this.href.split('#')[1];
-    document.getElementById(href).parentElement.style.backgroundColor = 'rgb(235, 235, 235)';
-}
-for (var i = 0; i < noteLinks.length; i++) {
-    noteLinks[i].addEventListener('click', linkFocus, false);
-}
+})();
 
 // Disqus 评论
 // 评论计数
@@ -813,21 +828,6 @@ if (wechat) {
 }
 
 // 相关文章
-if (!Array.prototype.indexOf) {
-    Array.prototype.indexOf = function(elt /*, from*/ ) {
-        var len = this.length >>> 0;
-        var from = Number(arguments[1]) || 0;
-        from = (from < 0) ? Math.ceil(from) : Math.floor(from);
-        if (from < 0)
-            from += len;
-        for (; from < len; from++) {
-            if (from in this &&
-                this[from] === elt)
-                return from;
-        }
-        return -1;
-    };
-}
 
 function randomPosts(count, post) {
     var postsCount = count;
@@ -849,30 +849,18 @@ function randomPosts(count, post) {
 }
 var info = document.getElementById('info');
 
-function random(data) {
-    if (info.classList.contains('tech')) {
-        var count = data.tech.length;
-        var post = data.tech;
-        randomPosts(count, post);
-    } else if (info.classList.contains('life')) {
-        var count = data.life.length;
-        var post = data.life;
-        randomPosts(count, post);
-    }
-}
 if (info) {
-    if (info.classList.contains('tech') || info.classList.contains('life')) {
-        var postsJson = 'http://' + location.host + '/assets/js/posts.json';
-        var xhrPosts = new XMLHttpRequest();
-        xhrPosts.open('GET', postsJson, true);
-        xhrPosts.send();
-        xhrPosts.onreadystatechange = function() {
-            if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
-                var posts = JSON.parse(xhrPosts.responseText);
-                random(posts);
-            }
+    var xhrPosts = new XMLHttpRequest();
+    xhrPosts.open('GET', '/assets/js/posts.json', true);
+    xhrPosts.onreadystatechange = function() {
+        if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
+            var posts = JSON.parse(xhrPosts.responseText);
+            var count = info.classList.contains('tech') ? posts.tech.length : posts.life.length;;
+            var post = info.classList.contains('tech') ? posts.tech : posts.life;
+            randomPosts(count, post);
         }
     }
+    xhrPosts.send();
 }
 
 // 查看源码

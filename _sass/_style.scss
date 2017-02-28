@@ -67,7 +67,6 @@ body {
     color: $default;
     line-height: 1.7;
     background: rgb(196, 218, 234);
-    -webkit-font-smoothing: antialiased;
     overflow-y: scroll;
 }
 main{
@@ -147,21 +146,14 @@ img[data-onload="true"] {
     word-wrap: break-word;
     a {
         color: $darkblue;
-        -webkit-transition: color .5s linear;
-        -moz-transition: color .5s linear;
-        -o-transition: color .5s linear;
-        -ms-transition: color .5s linear;
         transition: color .5s linear;
+        text-decoration: none;
         &:hover {
             border-bottom: 1px dashed $darkblue;
             background: none;
         }
         &[target="_blank"]:after {
-            font-family: "fontello";
-            content: '\e80c';
             color: $darkblue;
-            font-size: 10px;
-            margin: 0 5px;
         }
     }
     &:before {
@@ -203,20 +195,19 @@ img[data-onload="true"] {
     padding: 0;
     vertical-align: baseline;
     border: 0;
-    #menu {
+    .icon-menu {
         position: absolute;
         top: 0;
         right: 0;
+        z-index:2;
         display: block;
-        width: 30px;
-        height: 42px;
-        line-height: 42px;
-        font-size: 20px;
+        width: 20px;
+        height: 24px;
         color: $white;
         cursor: pointer;
-        &.icon-cancel {
-            color: $white!important;
-        }
+    }
+    &:hover .navigation-list {
+        display: block;
     }
     .navigation-list {
         font-size: 15px;
@@ -230,6 +221,7 @@ img[data-onload="true"] {
         background: rgb(35, 35, 35);
         border-radius: 2px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+        display: none;
         li {
             display: inline;
             .navigation-item {
@@ -241,6 +233,9 @@ img[data-onload="true"] {
                 padding: 0 15px;
                 border-bottom: 1px solid rgb(50, 50, 50);
                 vertical-align: middle;
+                .icon{
+                    height: 20px;
+                }
                 &.active {
                     color: $white;
                     font-weight: 500;
@@ -526,7 +521,7 @@ img[data-onload="true"] {
     }
     #source {
         display: block;
-        font-family: "RobotoDraft", "Roboto", "Consolas";
+        font-family: Consolas;
         font-size: 12px;
         border: 1px solid $lightgray;
         width: 100%;
@@ -730,12 +725,16 @@ pre.terminal code {
     }
 }
 
-#info {
+.post-info {
     text-align: left;
-    padding: 5px 0;
+    line-height: 20px;
     margin: 0;
     a {
         color: $default;
+    }
+    .icon{
+        width: 20px;
+        vertical-align: middle;
     }
     .like {
         display: none;
@@ -765,6 +764,9 @@ pre.terminal code {
         margin: 0;
         padding: 0;
         overflow: hidden;
+    }
+    .icon-tags{
+        width: 20px;
     }
     .tag {
         display: inline-block;
@@ -796,15 +798,27 @@ pre.terminal code {
 #share {
     font-size: 18px;
     line-height: 1.2;
-    display: inline-block;
     float: right;
     margin: 0;
-    a {
-        color: rgb(51, 51, 51);
+    .share-item{
+        width: 20px;
+        height: 20px;
+        margin: 0 2px;
         border: none;
+        display: inline-block;
+        position: relative;
+        color: rgb(51, 51, 51);
         &:after {
-            content: ''!important;
-            margin: 0!important;
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+        }
+        object{
+            width: 100%;
         }
     }
     #wechat {
@@ -835,7 +849,6 @@ pre.terminal code {
     }
     #gplus {
         &:hover {
-            color: rgb(220, 80, 70);
         }
     }
     #qrcode {
@@ -910,29 +923,14 @@ pre.terminal code {
   border-right: 2.5px solid #35A1FB;
   border-bottom: 2.5px solid #35A1FB;
   border-left: 2.5px solid #C4DAEA;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
   transform: translateZ(0);
-  -webkit-animation: loading 1.1s infinite linear;
   animation: loading 1.1s infinite linear;
-}
-@-webkit-keyframes loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }
 @keyframes loading {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -946,8 +944,6 @@ pre.terminal code {
 }
 
 .comment * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
