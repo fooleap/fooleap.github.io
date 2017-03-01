@@ -61,9 +61,10 @@ html {
 }
 
 body {
+    font-family: Arial, Simsun, 宋体, Serif;
+    letter-spacing: .03em;
     zoom: 1;
-    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, "Microsoft YaHei", sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     color: $default;
     line-height: 1.7;
     background: rgb(196, 218, 234);
@@ -72,10 +73,6 @@ body {
 main{
     //font-family: "Adobe 明體 Std";
     //font-family: "新細明體";
-}
-
-.ie body {
-    background: rgb(202, 225, 244);
 }
 
 .lte8 #wechat {
@@ -105,18 +102,8 @@ abbr {
     cursor: help;
 }
 
-/*a {
-    text-decoration: none;
-    color: rgb(72, 72, 72);
-    outline: none;
-}*/
-
 em {
     font-style: normal;
-}
-
-button::-moz-focus-inner {
-    border: 0;
 }
 
 textarea {
@@ -181,6 +168,9 @@ img[data-onload="true"] {
     box-shadow: none!important;
 }
 
+.icon{
+    max-width: 36px;
+}
 
 /* Navigation */
 
@@ -210,7 +200,7 @@ img[data-onload="true"] {
         display: block;
     }
     .navigation-list {
-        font-size: 15px;
+        font-size: 12px;
         position: absolute;
         top: 0;
         right: 0;
@@ -310,15 +300,16 @@ img[data-onload="true"] {
         padding-bottom: 10px;
         margin-bottom: 10px;
         border-bottom: 1px solid #e7e7eb;
+        font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, fangsong, sans-serif;
         font-weight: 400;
         font-size: 24px;
     }
     .sub-heading {
         display: block;
         color: rgb(150, 150, 150);
-        font-size: 13px;
         font-weight: 300;
         width: 100%;
+        font-size: 13px;
         time {
             word-spacing: -1px;
         }
@@ -346,7 +337,6 @@ img[data-onload="true"] {
     right: 1%;
     text-align: center;
     line-height: 2;
-    font-size: 18px;
     opacity: .8;
     cursor: pointer;
     border-radius: 5px;
@@ -397,7 +387,7 @@ img[data-onload="true"] {
             height: 24px;
             line-height: 24px;
             font-weight: normal;
-            font-size: 15px;
+            font-size: 13px;
             overflow: hidden;
             a {
                 border: none;
@@ -411,7 +401,6 @@ img[data-onload="true"] {
         .post-date {
             height: 24px;
             line-height: 24px;
-            font-size: 12px;
             color: rgb(150, 150, 150);
             opacity: 0;
             transition: .5s all;
@@ -431,7 +420,7 @@ img[data-onload="true"] {
             text-align: center;
             color: $white;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 18px;
             border-radius: 10px;
             border: none;
@@ -564,7 +553,6 @@ img[data-onload="true"] {
             line-height: 25px;
             padding-left: 3px;
             color: $white;
-            font-size: 13px;
             width: 100%;
             overflow: hidden;
         }
@@ -578,7 +566,7 @@ img[data-onload="true"] {
         }
     }
     table {
-        font-size: 13px;
+        font-size: 12px;
         text-align: left;
         border-collapse: collapse;
         border-spacing: 0;
@@ -620,7 +608,7 @@ img[data-onload="true"] {
     }
     &:before {
         content: '目录';
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 600;
         line-height: 30px;
         height: 30px;
@@ -631,7 +619,7 @@ img[data-onload="true"] {
             display: inline-block;
             width: 100%;
             color: $default;
-            font-size: 13px;
+            font-size: 12px;
             text-decoration: none;
             text-indent: 5px;
             border: none;
@@ -665,15 +653,12 @@ img[data-onload="true"] {
 pre,
 code {
     font-size: 12px;
-    font-family: Monaco, Consolas, "Microsoft YaHei", sans-serif;
+    font-family: NSimsun, Consolas, sans-serif;
     background-color: $lightgray;
     overflow: auto;
     padding: 5px 10px;
     word-wrap: break-word;
     white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
     border-radius: 3px;
 }
 
@@ -733,7 +718,8 @@ pre.terminal code {
         color: $default;
     }
     .icon{
-        width: 20px;
+        width: 16px;
+        margin: 2px;
         vertical-align: middle;
     }
     .like {
@@ -796,7 +782,6 @@ pre.terminal code {
 
 // Share
 #share {
-    font-size: 18px;
     line-height: 1.2;
     float: right;
     margin: 0;
@@ -875,7 +860,7 @@ pre.terminal code {
     height: 24px;
     line-height: 24px;
     padding: 0 5px;
-    font-size: 15px;
+    font-size: 12px;
 }
 .comment-toggle{
     width: 54px;
@@ -936,11 +921,13 @@ pre.terminal code {
 }
 
 .comment {
-    font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
     max-width: 640px;
     min-height: 40px;
     margin: 5px auto;
     word-wrap: break-word;
+    .icon{
+        max-width: 22px;
+    }
 }
 
 .comment * {
@@ -1028,7 +1015,7 @@ pre.terminal code {
 .placeholder {
     color: rgb(127, 145, 158);
     line-height: 30px;
-    font-size: 15px;
+    font-size: 12px;
     position: absolute;
     top: 7px;
     left: 10px;
@@ -1115,7 +1102,6 @@ pre.terminal code {
 .comment-form-textarea {
     display: block;
     border: none;
-    font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
     overflow: auto;
     color: rgb(42, 46, 46);
     cursor: text;
@@ -1123,7 +1109,7 @@ pre.terminal code {
     width: 100%;
     height: 44px;
     line-height: 15px;
-    font-size: 14px;
+    font-size: 12px;
     padding: 6px 10px 8px;
     transition: all 0.15s ease-in-out;
     &:focus,
@@ -1170,7 +1156,6 @@ pre.terminal code {
 }
 
 .logged-button {
-    font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
     border: none;
     margin: -2px -2px 0 0;
     white-space: nowrap;
@@ -1193,7 +1178,6 @@ pre.terminal code {
 
 .comment-form-input,
 .guest-form input {
-    font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
     background: #fff;
     border: 2px solid #dbdfe4;
     transition: all .2s linear;
@@ -1220,7 +1204,6 @@ pre.terminal code {
 .comment-form-submit,
 .guest-form-submit,
 .guest-form-clear {
-    font-family: "Helvetica Neue", arial, "微软雅黑", sans-serif;
     border: none;
     background: #778289;
     background: rgba(29, 47, 58, .6);
@@ -1234,7 +1217,7 @@ pre.terminal code {
     text-shadow: none;
     height: 32px;
     width: 60px;
-    font-size: 14px;
+    font-size: 12px;
     vertical-align: middle;
     text-align: center;
     margin: 12px 0;
@@ -1324,7 +1307,6 @@ pre.terminal code {
     background: #7f919e;
     padding: 2px 3px;
     margin-left: 3px;
-    font-size: 12px;
     border-radius: 3px;
     display: inline-block;
 }
@@ -1336,7 +1318,6 @@ pre.terminal code {
 
 #comments .post-header,
 #comments .post-content {
-    font-size: 13px;
     margin-left: 60px;
 }
 
@@ -1386,7 +1367,6 @@ pre.terminal code {
 
 .post-header {
     line-height: 1;
-    font-size: 13px;
 }
 
 .post-header a {

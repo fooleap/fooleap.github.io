@@ -839,25 +839,30 @@ function randomPosts(count, post) {
     while (counter < numberOfPosts) {
         var randomIndex = Math.floor(Math.random() * postsCount);
         if (randomIndexUsed.indexOf(randomIndex) == '-1') {
-            var postHref = posts[randomIndex].href;
+            var postUrl = posts[randomIndex].url;
             var postTitle = posts[randomIndex].title;
-            RandomPosts.insertAdjacentHTML('beforeend', '<li><a href="' + postHref + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
+            RandomPosts.insertAdjacentHTML('beforeend', '<li><a href="' + postUrl + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
             randomIndexUsed.push(randomIndex);
             counter++;
         }
     }
 }
-var info = document.getElementById('info');
+var info = document.getElementById('random-posts');
 
 if (info) {
+    var category = info.dataset.category;
     var xhrPosts = new XMLHttpRequest();
-    xhrPosts.open('GET', '/assets/js/posts.json', true);
+    xhrPosts.open('GET', '/posts.json', true);
     xhrPosts.onreadystatechange = function() {
         if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
-            var posts = JSON.parse(xhrPosts.responseText);
-            var count = info.classList.contains('tech') ? posts.tech.length : posts.life.length;;
-            var post = info.classList.contains('tech') ? posts.tech : posts.life;
-            randomPosts(count, post);
+            var data = JSON.parse(xhrPosts.responseText);
+            var posts = [];
+            for( var i = 0; i < data.length; i++){
+                if( data[i].category == category && data[i].url != location.pathname ){
+                  posts.push(data[i]);
+                }
+            }
+            randomPosts(posts.length, posts);
         }
     }
     xhrPosts.send();

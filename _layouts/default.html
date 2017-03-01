@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<!--[if lte IE 8]><html class="ie lte8"><![endif]-->
-<!--[if IE]><html class="ie"><![endif]-->
-<!--[if !IE]><!--><html><!--<![endif]-->
+<html>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,14 +17,6 @@
     <link rel="icon" href="/favicon.png" />
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />
     <script type="text/javascript" src="/assets/js/modernizr.js"></script>
-    <!--[if lte IE 9]>
-      <script src="/assets/js/html5shiv.min.js"></script>
-      <script src="/assets/js/respond.min.js"></script>
-      <script src="/assets/js/classList.min.js"></script>
-      <script type="text/javascript">
-        document.createElement('main');
-      </script>
-    <![endif]-->
   </head>
   <body>
   <nav id="navigation">
@@ -43,24 +33,29 @@
   <div class="container">
     <main class="wrapper">
       <header class="site-header">
-      {% assign trustHour =  page.date | date: "%k" | plus: 8  %}
-      {% if trustHour >= 24 %}
-        {% assign trustDay =  page.date |date: "%d" | plus: 1 %}
-      {% else %}
-        {% assign trustDay =  page.date |date: "%d" %}
-      {% endif %}
-        <h1>
-          {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
-        </h1>
+        <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
         <h2 class="sub-heading">
             {% if page.date %}<i class="icon-calendar"></i><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time> <a href="/">首页</a>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
         </h2>
       </header>
+
   {% if page.style or page.js %}
-  {% if page.style and page.js != true %}{{ content_style[0] }}{{ content_style[2] }}{% endif %}
-  {% if page.js and page.style != true %}{{ content_js[0] }}{{ content_js[2] }}{% endif %}
-  {% if page.style and page.js  %}{{ content_style[0] }}{{ content_js[2] }}{% endif %}
-  {% else %}{{ content }}{% endif %}
+
+      {% if page.style and page.js != true %}
+      {{ content_style[0] }}
+      {{ content_style[2] }}
+      {% endif %}
+
+      {% if page.js and page.style != true %}
+      {{ content_js[0] }}{{ content_js[2] }}
+      {% endif %}
+
+      {% if page.style and page.js  %}
+      {{ content_style[0] }}{{ content_js[2] }}
+      {% endif %}
+  {% else %}
+      {{ content }}
+  {% endif %}
   
       <footer class="site-footer">
         <small>&copy; 2011-{{ site.time | date: '%Y' }} Jekyll & Disqus | 粤ICP备15090659号-1</small>
@@ -69,13 +64,21 @@
     </main>
 
   </div>
+
   <div id="backtotop">
-    <i class="icon-up-big"></i>
+      <object class="icon icon-top" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/top.svg"></object>
   </div>
-  <script type="text/javascript" src="/assets/js/main.js?20161105"></script>{% if page.jquery %}
-  <script type="text/javascript" src="/assets/js/jquery.min.js"></script>{% endif %}{% if page.scripts %}{% for script in page.scripts %}
-  <script type="text/javascript" src="{{ script }}"></script>{% endfor %}{% endif %}{% if page.js %}
-  <script type="text/javascript">
-  {{ content_js[1] }}script>{% endif %}
+
+  <script type="text/javascript" src="/assets/js/main.js?20161105"></script>
+
+  {% if page.scripts %}
+      {% for script in page.scripts %}
+      <script type="text/javascript" src="{{ script }}"></script>
+      {% endfor %}
+  {% endif %}
+
+  {% if page.js %}
+  <script type="text/javascript">{{ content_js[1] }}script>
+  {% endif %}
   </body>
 </html>

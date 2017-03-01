@@ -4,7 +4,5 @@ layout: default
 
 <article class="post-content">
   {{ content | replace_first:'markdown-toc','toc' | replace: '<li>[]', '<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled>' | replace: '<li>[x]', '<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked>' }}
-  <div class="post-info cf {{ page.categories }}">
-    {% include share.html %}
-  </div>
+    {% include info.html %}
 </article>
