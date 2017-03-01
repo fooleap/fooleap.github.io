@@ -1,0 +1,15 @@
+<div id="posts">
+    <div id="random-posts" data-category="{{ page.category }}" class="posts">
+        <strong>猜你喜欢</strong>
+        <ul>
+        </ul>
+    </div>
+    <div id="recent-posts" class="posts">
+        <strong>最近更新</strong>
+        <ul>
+            {% for post in site.posts limit: 5 %}
+            <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} </a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
