@@ -127,6 +127,7 @@ img[data-onload="true"] {
     max-width: 768px;
     margin: 30px auto;
     background: rgb(255, 255, 255);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
     text-align: justify;
     text-justify: ideographic;
     word-break: break-all;
@@ -164,9 +165,6 @@ img[data-onload="true"] {
     }
 }
 
-.ie .wrapper:before {
-    box-shadow: none!important;
-}
 
 .icon{
     max-width: 36px;
@@ -774,10 +772,6 @@ pre.terminal code {
 
 .view-code {
     cursor: pointer;
-}
-
-.ie .view-code {
-    display: none;
 }
 
 // Share

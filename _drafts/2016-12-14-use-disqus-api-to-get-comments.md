@@ -12,3 +12,5 @@ tags: ["Disqus", "Disqus API", "PHP", "CURL", "JavaScript"]
 几个月前，`disqus.com` 在国内大部，终于从“偶尔抽风”转向“完全被墙”，这样一来，本来访问量就不多的博客，访客想留言、写写评论都得翻墙？看客想留下足迹都没办法，实在不堪。
 
 那么，是不是应该实践许久之前就考虑过的转向多说？固然，[Disqus 有不少缺点](/talk-about-duoshuo.html#id-disqus-)，有些人也不喜欢这个评论框，
+
+博客不想做什么兼容，

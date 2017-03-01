@@ -142,37 +142,6 @@ function isFlashSupported() {
     return navigator.plugins['Shockwave Flash'] ? true : false;
 }
 
-// 菜单
-var nav = document.getElementById('navigation');
-var navList = document.querySelector('.navigation-list');
-var menu = document.getElementById('menu');
-var container = document.querySelector('.container');
-
-function blogMenu() {
-    if (navList.classList.contains('hide')) {
-        navList.classList.remove('hide');
-        menu.classList.remove('icon-menu');
-        navList.classList.add('show');
-        menu.classList.add('icon-cancel');
-    } else {
-        navList.classList.remove('show');
-        menu.classList.remove('icon-cancel');
-        navList.classList.add('hide');
-        menu.classList.add('icon-menu');
-    }
-}
-
-function hideMenu() {
-    if (navList.classList.contains('show')) {
-        navList.classList.remove('show');
-        menu.classList.remove('icon-cancel');
-        navList.classList.add('hide');
-        menu.classList.add('icon-menu');
-    }
-}
-nav.addEventListener('click', blogMenu, false);
-container.addEventListener('click', hideMenu, false);
-
 var links = document.querySelectorAll('a');
 var clientWidth = document.documentElement.clientWidth;
 var clientHeight = document.documentElement.clientHeight;
@@ -410,7 +379,7 @@ function getComments(res) {
             if (images.length > 0) {
                 var image = '';
                 for (var e = 0; e < images.length; e++) {
-                    image += '<a target="_blank" href="' + images[e].url + '" ><img src="' + images[e].thumbnailURL + '"></a>';
+                    image += '<a target="_blank" href="' + images[e] + '" ><img src="' + images[e] + '"></a>';
                 }
                 imageList = '<div class="post-image">' + image + '</div>';
             }

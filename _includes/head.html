@@ -1,0 +1,18 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>{% if paginator and paginator.page != 1 %}第{{ paginator.page }}页 | {{ site.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+<meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', '}}{% else %}{{ site.keywords | join: ', ' }}{% endif %}" />
+<meta name="author" content="fooleap" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="canonical" href="{{ page.url | replace: 'index.html','' | prepend: site.home }}" />
+<link rel="stylesheet" href="{{ "/assets/css/style.css?20161105" }}" />
+{% if page.link %}<link rel="stylesheet" href="{{ page.link }}" />{% endif %}
+{% assign content_js = content | remove: "<!--<" | remove: "-->" | split: "script>" %}
+{% assign content_style = content | remove: "<!--<" | remove: "-->" | split: "style>" %}
+{% if page.style %}<style type="text/css">{{ content_style[1] }}style>{% endif %}
+<link rel="icon" href="/favicon.png" />
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />
+<script src="/assets/js/modernizr.js"></script>
