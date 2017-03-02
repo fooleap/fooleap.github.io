@@ -13,4 +13,3 @@ tags: ["Disqus", "Disqus API", "PHP", "CURL", "JavaScript"]
 
 那么，是不是应该实践许久之前就考虑过的转向多说？固然，[Disqus 有不少缺点](/talk-about-duoshuo.html#id-disqus-)，有些人也不喜欢这个评论框，
 
-博客不想做什么兼容，

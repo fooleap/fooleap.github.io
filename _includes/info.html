@@ -1,5 +1,5 @@
-<div id="info" class="post-info cf">
-    <span id="share" class="post-share cf">
+<section id="info" class="post-info cf">
+    <span id="share" class="post-share">
         <div id="qrcode"></div>
         <a class="share-item" id="wechat" title="分享到微信" data-wechat-url="{{ site.home }}{{ page.url }}" href="javascript:void(0);"><object class="icon icon-wechat" type="image/svg+xml" data="/assets/svg/wechat.svg"></object></a>
         <a class="share-item" target="_blank" title="分享到微博" href="http://service.weibo.com/share/share.php?title={{ page.title }} | {{ site.title }} via @{{ site.weibo_username }}&amp;url={{ site.home }}{{ page.url }}&amp;type=3&amp;searchPic=1"><object class="icon icon-weibo" type="image/svg+xml" data="/assets/svg/weibo.svg"></object></a>
@@ -13,4 +13,4 @@
     <span class='view-code'><a href="javascript:void(0)" data-md="https://raw.githubusercontent.com/fooleap/fooleap.github.io/master/_posts/{{ page.date | date:"%Y-%m-%d" }}-{{ page.id | remove: '/' }}.md" title="在正文中查看源码"><object class="icon icon-code" type="image/svg+xml" data="/assets/svg/code.svg"></object>源码</a></span>
     <span class="number-of-word"><object class="icon icon-count" type="image/svg+xml" data="/assets/svg/count.svg"></object>{{ content | strip_html | strip_newlines | size }} 字</span>
     <span class="page-tags"><object class="icon icon-tags" type="image/svg+xml" data="/assets/svg/tags.svg"></object><ul class="tags"> {% for tag in page.tags %}<li class="tag"><a href="/tags.html#{{ tag }}" target="_blank" title="查看“{{ tag }}”的相关文章">{{ tag }}</a></li>{% endfor %}</ul></span>
-</div>
+</section>

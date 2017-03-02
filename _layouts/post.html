@@ -2,10 +2,8 @@
 layout: default
 ---
 <article class="post-content">
-    <div class="main-content">
-        {{ content | replace_first:'markdown-toc','toc' }}
-    </div>
-    {% include extend.html %}
-    {% include info.html %}
+    {{ content | replace_first:'markdown-toc','toc' }}
 </article>
+{% include extend.html %}
+{% include info.html %}
 {% include comment.html %}
