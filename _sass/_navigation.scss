@@ -1,44 +1,58 @@
 .navigation {
-    position: fixed;
-    z-index: 1;
-    top: 1%;
-    right: 1%;
-    display: block;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-    border: 0;
     .icon-menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index:2;
+        position: fixed;
+        z-index: 2;
+        top: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        border: 2px solid rgba(255,255,255,1);
+        background-color: rgba(255,255,255,1);
+        overflow: hidden;
+        border-radius: 50%;
         display: block;
-        width: 20px;
-        height: 24px;
-        color: #fff;
         cursor: pointer;
+        transition: transform .3s;
+        box-sizing: content-box;
+        &:before{
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("http://source.fooleap.org/avatar.jpg");
+            background-size: cover;
+        }
+        &:hover {
+            transform: rotate(360deg);
+        }
     }
     &:hover {
         .navigation-list {
-            left: 0;
+            opacity: 1;
         }
     }
 }
 .navigation-list {
     position: fixed;
-    top: 0;
-    left: -180px;
-    bottom: 0;
+    top: 20px;
+    right: 20px;
+    border-radius: 10px 25px 10px 10px;
+    z-index: 1;
     overflow: hidden;
     width: 180px;
-    background-color: rgba(255, 255, 255, 1);
-        transition: all .3s ease-in-out;
+    height: 250px;
+    background-color: rgba(50, 50, 50, 1);
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    transition: .3s .5s ease-in-out;
     .navigation-item {
         position: relative;
-        height: 40px;
-        line-height: 40px;
-        border-bottom: 1px solid rgba(200, 200, 200, 1);
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid rgba(100, 100, 100, 1);
     }
     .navigation-item-link {
         position: absolute;
@@ -46,20 +60,20 @@
         top: 0;
         bottom: 0;
         right: 0;
-        color: rgba(160, 160, 160, 1);
+        color: rgba(200, 200, 200, 1);
         display: flex;
         overflow: hidden;
-        line-height: 40px;
+        line-height: 50px;
         text-decoration: none;
         .icon{
             width: 20px;
             height: 20px;
-            margin: 10px;
+            margin: 15px;
             display: inline-block;
         }
         &.active,
         &:hover {
-            color: rgba(100, 100, 100, 1);
+            color: rgba(255, 255, 255, 1);
             font-weight: bold;
         }
     }

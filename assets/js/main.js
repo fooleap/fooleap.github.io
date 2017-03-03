@@ -58,10 +58,10 @@ timeAgo();
         xhrImageExif = [],
         imageAve = [],
         imageExif = [];
-    for ( var i = 0; i < imageArr.length; i++){
+    imageArr.forEach(function(item, i){
 
         //预加载图片平均色调
-        imageAve[i] = imageArr[i].src.split(/_|\?/)[0] + '?imageAve';
+        imageAve[i] = item.src.split(/_|\?/)[0] + '?imageAve';
         xhrImageAve[i] = new XMLHttpRequest();
         xhrImageAve[i].open('GET', imageAve[i], true);
         xhrImageAve[i].onreadystatechange = function() {
@@ -76,15 +76,15 @@ timeAgo();
 
         if ( postImages.length > 0 ){
             //Lightbox
-            imageArr[i].dataset.jslghtbx = imageArr[i].src.split(/_|\?/)[0];
-            imageArr[i].dataset.jslghtbxCaption = imageArr[i].getAttribute('alt');
-            imageArr[i].dataset.jslghtbxGroup = 'lightbox';
-            imageArr[i].classList.add('post-image');
-            imageArr[i].parentElement.outerHTML = imageArr[i].parentElement.outerHTML.replace('<p>','<figure class="post-figure">').replace('</p>','</figure>').replace(imageArr[i].parentElement.textContent, '<figcaption class="post-figcaption">'+ imageArr[i].parentElement.textContent.replace('\n','')+'</figcaption>');
+            item.dataset.jslghtbx = item.src.split(/_|\?/)[0];
+            item.dataset.jslghtbxCaption = item.getAttribute('alt');
+            item.dataset.jslghtbxGroup = 'lightbox';
+            item.classList.add('post-image');
+            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure">').replace('</p>','</figure>').replace(item.parentElement.textContent, '<figcaption class="post-figcaption">'+ item.parentElement.textContent.trim() +'</figcaption>');
 
             //Exif
-            if( imageArr[i].src.indexOf('.jpg') > -1 ) {
-                imageExif[i] = imageArr[i].src.split(/_|\?/)[0] + '?exif';
+            if( item.src.indexOf('.jpg') > -1 ) {
+                imageExif[i] = item.src.split(/_|\?/)[0] + '?exif';
                 xhrImageExif[i] = new XMLHttpRequest();
                 xhrImageExif[i].open('GET', imageExif[i], true);
                 xhrImageExif[i].onreadystatechange = function() {
@@ -99,7 +99,7 @@ timeAgo();
                             var extime = (data.ExposureTime) ? (data.ExposureTime.val) : '无';
                             var iso = (data.ISOSpeedRatings) ? (data.ISOSpeedRatings.val.split(/,\s/)[0]) : '无';
                             var flength = (data.FocalLength) ? (data.FocalLength.val) : '无';
-                            document.querySelector('[src^="' + this.responseURL.slice(0,-5) + '"]').nextSibling.insertAdjacentHTML('beforeend', '<small class="post-exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
+                            document.querySelector('[src^="' + this.responseURL.slice(0,-5) + '"]').nextSibling.insertAdjacentHTML('beforeend', '<small class="post-image-exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
                         }
                     }
                 };
@@ -112,24 +112,22 @@ timeAgo();
         image.onload = function(){
             document.querySelector('[src="' + this.src + '"]').dataset.onload = "true";
         }
-        image.src = imageArr[i].src;
-    }
+        image.src = item.src;
+    });
 
 })();
 
 (function(){
-    var icon = document.querySelectorAll('.icon');
-    for (var i = 0; i < icon.length; i ++ ){
-        icon[i].addEventListener('mouseover', function(){
+    document.querySelectorAll('.icon').forEach(function(item, i){
+        item.addEventListener('mouseover', function(){
             var hoverColor = this.dataset.color;
             this.contentDocument.querySelector('.icon').setAttribute("fill", hoverColor);
         }, false);
-        icon[i].addEventListener('mouseout', function(){
+        item.addEventListener('mouseout', function(){
             var hoverColor = this.dataset.color;
             this.contentDocument.querySelector('.icon').setAttribute("fill", null);
         }, false);
-;
-    }
+    });
 })();
 
 // 判断是否支持 Flash http://goo.gl/cg206i
@@ -355,9 +353,9 @@ if (windowWidth < 414) {
 function getComments(res) {
     if (res.code === 0) {
         document.querySelector('.comment-form').setAttribute('data-id', res.id);
-        document.querySelector('.comment-header-count').innerHTML = res.posts + ' comments';
+        document.querySelector('#comment-count').innerHTML = res.posts + ' comments';
         if (res.response == null) {
-            document.getElementById('comments').className = '';
+            document.getElementById('comments').className = 'comment-list';
             return;
         }
         for (var i = 0; i < res.response.length; i++) {
@@ -367,25 +365,20 @@ function getComments(res) {
             var url = post.url ? post.url : profileUrl;
             var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
             var images = post.media;
-            var imageList = '';
-            if (images.length > 0) {
-                var image = '';
-                for (var e = 0; e < images.length; e++) {
-                    image += '<a target="_blank" href="' + images[e] + '" ><img src="' + images[e] + '"></a>';
-                }
-                imageList = '<div class="post-image">' + image + '</div>';
-            }
+            var imageList = '<div class="post-image">';
+            images.forEach(function(item, e){
+                imageList += '<a target="_blank" href="' + item + '" ><img src="' + item + '"></a>';
+            })
+            imageList += '</div>';
             var isModerator = post.name == 'fooleap' ? '<span class="moderator">博主</span>' : '';
             var html = '<li class="comment-item" id="comment-' + post.id + '">';
             html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.avatar + '"></a>';
             html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.name + '</a>' + isModerator + '<span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
             html += '<div class="post-content">' + post.message + imageList + '</div>';
-            //html += '<div class="post-content">' + post.message + '</div>';
-            html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + res.id + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions cf">' + document.querySelector('.emojione').outerHTML + '<button class="logged-button" onclick="replyComment(this)">发表回复</button></div></div><div class="comment-input-group hide"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><label class="comment-input-checkbox hide" for="remember-' + post.id + '"><input type="checkbox" id="remember-' + post.id + '" checked> 记住我</label><button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
             html += '<ul class="post-children"></ul>';
             html += '</li>';
             result += html;
-            document.getElementById('comments').className = '';
+            document.getElementById('comments').className = 'comment-list';
             if (post.parent == null) {
                 document.getElementById('comments').insertAdjacentHTML('afterbegin', result);
             } else {
@@ -393,19 +386,21 @@ function getComments(res) {
                     document.querySelector('#comment-' + post.parent + ' .post-children').insertAdjacentHTML('beforeend', result);
                 }
             }
+            //html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + res.id + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions cf">' + document.querySelector('.emojione').outerHTML + '<button class="logged-button" onclick="replyComment(this)">发表回复</button></div></div><div class="comment-input-group hide"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><label class="comment-input-checkbox hide" for="remember-' + post.id + '"><input type="checkbox" id="remember-' + post.id + '" checked> 记住我</label><button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
         }
         timeAgo();
+        /*
         //是否能连上 Disqus
         var xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://disqus.com/next/config.json', true);
         xhr.onload = function(e) {
             document.querySelector('.comment-show').style.display = 'inline-block';
         };
-        xhr.send(null);
+        xhr.send(null);*/
     } else {
         var url = location.pathname.slice(1);
         var title = document.querySelector('title').innerText;
-        document.getElementById('comments').className = '';
+        document.getElementById('comments').className = 'comment-list';
         if (location.host == "blog.fooleap.org") {
             var xhrcreateThread = new XMLHttpRequest();
             xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
@@ -423,7 +418,7 @@ if (document.querySelector('#comments')) {
     xhrComment.onreadystatechange = function() {
         if (xhrComment.readyState == 4 && xhrComment.status == 200) {
             getComments(JSON.parse(xhrComment.responseText));
-            loadGuest();
+            //loadGuest();
             if (/^#disqus|^#comment/.test(location.hash)) {
                 window.scrollTo(0, document.querySelector(location.hash).offsetTop);
             }
@@ -475,7 +470,7 @@ function htmlComment(data) {
     html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
     html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
     html += '<div class="post-content">' + post.message + '</div>';
-    html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions cf">' + document.querySelector('.emojione').outerHTML + '<button class="logged-button" onclick="replyComment(this)">发表回复</button></div></div><div class="comment-input-group hide"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><label class="comment-input-checkbox hide" for="remember-' + post.id + '"><input type="checkbox" id="remember-' + post.id + '" checked> 记住我</label><button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
+    //html += '<div class="comment-form hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions">' + document.querySelector('.emojione').outerHTML + '<button class="logged-button" onclick="replyComment(this)">发表回复</button></div></div><div class="comment-input-group hide"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><label class="comment-input-checkbox hide" for="remember-' + post.id + '"><input type="checkbox" id="remember-' + post.id + '" checked> 记住我</label><button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
     html += '<ul class="post-children"></ul>';
     html += '</li>';
     return html;
@@ -518,7 +513,7 @@ function loadGuest() {
     if (localStorage.getItem('name')) {
         var logName = document.querySelector('.logged-name');
         logName.innerHTML = localStorage.getItem('name');
-        document.querySelector('.author').className = 'author';
+        //document.querySelector('#coauthor').className = 'author';
         for (var i = 0; i < name.length; i++) {
             name[i].value = localStorage.getItem('name');
             email[i].value = localStorage.getItem('email');
@@ -536,13 +531,7 @@ function loadGuest() {
             checkbox[i].className = 'comment-input-checkbox';
             loggedSubmit[i].className = 'logged-button hide';
         }
-        for (var i = 0; i < name.length; i++) {
-            name[i].value = '';
-            email[i].value = '';
-            url[i].value = '';
-            avatar[i].src = 'https://a.disquscdn.com/images/noavatar92.png';
-        }
-        document.querySelector('.author').className = 'author hide';
+        //src = 'https://a.disquscdn.com/images/noavatar92.png';
     }
 }
 
@@ -564,17 +553,17 @@ function editGuest() {
 
 //提交访客信息
 function submitGuest() {
-        var name = document.querySelector('.guest-form-name').value;
-        var email = document.querySelector('.guest-form-email').value;
-        var url = document.querySelector('.guest-form-url').value;
-        var avatar = document.querySelector('.avatar img').src;
-        localStorage.setItem('name', name);
-        localStorage.setItem('email', email);
-        localStorage.setItem('url', url);
-        localStorage.setItem('avatar', avatar);
-        var node = document.querySelector('.guest-form');
-        node.parentNode.removeChild(node);
-        loadGuest();
+    var name = document.querySelector('.guest-form-name').value;
+    var email = document.querySelector('.guest-form-email').value;
+    var url = document.querySelector('.guest-form-url').value;
+    var avatar = document.querySelector('.avatar img').src;
+    localStorage.setItem('name', name);
+    localStorage.setItem('email', email);
+    localStorage.setItem('url', url);
+    localStorage.setItem('avatar', avatar);
+    var node = document.querySelector('.guest-form');
+    node.parentNode.removeChild(node);
+    //loadGuest();
 }
 
 //清除访客信息
@@ -585,7 +574,7 @@ function clearGuest() {
     localStorage.removeItem('avatar');
     var node = document.querySelector('.guest-form');
     node.parentNode.removeChild(node);
-    loadGuest();
+    //loadGuest();
 }
 
 //发表评论
@@ -615,7 +604,7 @@ function postComment(parent) {
                     localStorage.setItem('email', email);
                     localStorage.setItem('url', url);
                     localStorage.setItem('avatar', avatar);
-                    loadGuest();
+                    //loadGuest();
                 }
                 removeComment();
             } else if (data.code === 2) {
@@ -736,7 +725,7 @@ function replyComment(el) {
                     localStorage.setItem('email', email);
                     localStorage.setItem('url', url);
                     localStorage.setItem('avatar', avatar);
-                    loadGuest();
+                    //loadGuest();
                 }
                 removeComment();
             } else if (data.code === 2) {
@@ -830,7 +819,7 @@ if (info) {
 }
 
 // 查看源码
-var postContent = document.querySelector('.post-content');
+var postContent = document.querySelector('.page-content');
 var mainContent = document.querySelector('.main-content');
 var sourceView = document.querySelector('.view-code a');
 

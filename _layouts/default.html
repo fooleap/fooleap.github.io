@@ -17,27 +17,30 @@
                     </h2>
                 </hgroup>
             </header>
+            <section class="page-content">
 
-            {% if page.style or page.js %}
+                {% if page.style or page.js %}
 
-            {% if page.style and page.js != true %}
-            {{ content_style[0] }}
-            {{ content_style[2] }}
-            {% endif %}
+                {% if page.style and page.js != true %}
+                {{ content_style[0] }}
+                {{ content_style[2] }}
+                {% endif %}
 
-            {% if page.js and page.style != true %}
-            {{ content_js[0] }}{{ content_js[2] }}
-            {% endif %}
+                {% if page.js and page.style != true %}
+                {{ content_js[0] }}{{ content_js[2] }}
+                {% endif %}
 
-            {% if page.style and page.js  %}
-            {{ content_style[0] }}{{ content_js[2] }}
-            {% endif %}
+                {% if page.style and page.js  %}
+                {{ content_style[0] }}{{ content_js[2] }}
+                {% endif %}
 
-            {% else %}
+                {% else %}
 
-            {{ content }}
+                {{ content }}
 
-            {% endif %}
+                {% endif %}
+
+            </section>
 
             <footer class="page-footer">
                 <small>&copy; 2011-{{ site.time | date: '%Y' }} Jekyll & Disqus | 粤ICP备15090659号-1</small>

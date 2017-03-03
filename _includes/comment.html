@@ -1,19 +1,21 @@
 <section class="comment">
-    <div class="comment-header cf">
-        <span class="comment-header-count">comments</span>
-        <span class="comment-show" onclick="showComments()" title="点击加载 Disqus 评论框">登录 Disqus</span>
-        <a href="javascript:void(0)" class="author hide" onclick="editGuest()"><span class="logged-name">fooleap</span><i class="icon icon-write"></i></a>
+    <div class="comment-header">
+        <span class="comment-header-item" id="comment-count">comments</span>
+        {% comment %}
+        <span class="comment-header-item login" onclick="showComments()" title="点击加载 Disqus 评论框">登录 Disqus</span>
+        {% endcomment %}
+        <span class="comment-header-item" id="comment-author" onclick="editGuest()"></span>
     </div>
-    <div class="comment-form cf">
-        <span class="avatar">
+    <div class="comment-form">
+        <span class="comment-form-avatar avatar">
             <img src="https://a.disquscdn.com/images/noavatar92.png" />
         </span>
         <div class="textarea-wrapper">
             <textarea class="comment-form-textarea" id="message" placeholder="加入讨论…" onfocus="editComment(this)" onblur="editComment(this)"></textarea>
-            <div class="post-actions cf">
+            <div class="post-actions">
                 <div class="emojione">
                     <object class="icon icon-face" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/face.svg"></object>
-                    <ul class="emojione-gallery cf">
+                    <ul class="emojione-gallery">
                         <li onclick="AddOnPos(this,':doge:')"><img title="doge" src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif" /></li>
                         <li onclick="AddOnPos(this,':tanshou:')"><img title="tanshou" src="http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png" /></li>
                         <li onclick="AddOnPos(this,':wx_smirk:')"><img title="奸笑" src="{{ site.IMG_PATH }}/wx_emoji/2_02.png" /></li>
@@ -42,10 +44,12 @@
         <button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="postComment()"><object class="icon icon-send" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/send.svg"></object></button>
         <div class="comment-form-alert"></div>
     </div>
-    <ul id="comments" class="loading">
+    <ul id="comments" class="comment-list loading">
     </ul>
 </section>
 
+{% comment %}
 <div class="comment hide">
     <div id="disqus_thread"></div>
 </div>
+{% endcomment %}

@@ -6,6 +6,7 @@ js: true
 tags: [留言]
 ---
 
+{% comment %}
 <div class="comment">
     <div class="comment-header cf">
         <span class="comment-header-count">comments</span>
@@ -52,3 +53,5 @@ tags: [留言]
 <div class="comment hide">
     <div id="disqus_thread"></div>
 </div>
+{% endcomment %}
+{% include comment.html %}
