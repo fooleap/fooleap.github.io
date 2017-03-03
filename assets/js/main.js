@@ -52,7 +52,7 @@ timeAgo();
 // 图片
 (function(){
     var postImages = document.querySelectorAll('.post-content img');
-    var pageImages = document.querySelectorAll('.articles img');
+    var pageImages = document.querySelectorAll('.post-item-thumb');
     var imageArr = postImages.length > 0 ? postImages : pageImages;
     var xhrImageAve = [],
         xhrImageExif = [],
@@ -79,7 +79,8 @@ timeAgo();
             imageArr[i].dataset.jslghtbx = imageArr[i].src.split(/_|\?/)[0];
             imageArr[i].dataset.jslghtbxCaption = imageArr[i].getAttribute('alt');
             imageArr[i].dataset.jslghtbxGroup = 'lightbox';
-            imageArr[i].parentElement.outerHTML = imageArr[i].parentElement.outerHTML.replace('<p>','<figure class="image">').replace('</p>','</figure>').replace(imageArr[i].parentElement.textContent, '<small>'+ imageArr[i].parentElement.textContent.replace('\n','')+'</small>');
+            imageArr[i].classList.add('post-image');
+            imageArr[i].parentElement.outerHTML = imageArr[i].parentElement.outerHTML.replace('<p>','<figure class="post-figure">').replace('</p>','</figure>').replace(imageArr[i].parentElement.textContent, '<figcaption class="post-figcaption">'+ imageArr[i].parentElement.textContent.replace('\n','')+'</figcaption>');
 
             //Exif
             if( imageArr[i].src.indexOf('.jpg') > -1 ) {
@@ -98,7 +99,7 @@ timeAgo();
                             var extime = (data.ExposureTime) ? (data.ExposureTime.val) : '无';
                             var iso = (data.ISOSpeedRatings) ? (data.ISOSpeedRatings.val.split(/,\s/)[0]) : '无';
                             var flength = (data.FocalLength) ? (data.FocalLength.val) : '无';
-                            document.querySelector('[src^="' + this.responseURL.slice(0,-5) + '"]').parentElement.insertAdjacentHTML('afterbegin', '<figcaption class="exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</figcaption>');
+                            document.querySelector('[src^="' + this.responseURL.slice(0,-5) + '"]').nextSibling.insertAdjacentHTML('beforeend', '<small class="post-exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
                         }
                     }
                 };
@@ -194,8 +195,6 @@ function keysUp(event) {
 }
 
 // 返回顶部按钮
-var backToTop = document.getElementById('backtotop');
-
 function toggleToTop() {
     var pos = document.documentElement.scrollTop || document.body.scrollTop;
     if (pos > clientHeight) {
@@ -205,11 +204,6 @@ function toggleToTop() {
     }
 }
 
-function scrollToTop() {
-    window.scrollTo(0, 0)
-}
-document.addEventListener('scroll', toggleToTop, false);
-backToTop.addEventListener('click', scrollToTop, false);
 
 // 目录
 var toc = document.getElementById('toc');
@@ -289,15 +283,13 @@ function tocScroll() {
 
 // Disqus 评论
 // 评论计数
-var commentLinks = document.querySelectorAll('.disqus-comment-count');
-var commentLink = '';
+var commentLinks = document.querySelectorAll('.post-item-comment');
+var commentArr = []
 if (commentLinks.length > 0) {
     for (var i = 0; i < commentLinks.length; i++) {
-        if (i > 0) {
-            commentLink += ',';
-        }
-        commentLink += commentLinks[i].getAttribute('data-disqus-url').slice(1);
+        commentArr[i] = commentLinks[i].dataset.disqusUrl;
     }
+    var commentLink = commentArr.join(',');
     var xhrCommentCount = new XMLHttpRequest();
     xhrCommentCount.open('GET', 'http://api.fooleap.org/disqus/list?link=' + commentLink, true);
     xhrCommentCount.send();
@@ -306,7 +298,7 @@ if (commentLinks.length > 0) {
             var data = JSON.parse(xhrCommentCount.responseText);
             for (var i = 0; i < data.response.length; i++) {
                 var count = data.response[i].posts == 0 ? '' : data.response[i].posts;
-                document.querySelector('[data-disqus-url="' + data.response[i].link.slice(23) + '"]').innerHTML = count;
+                document.querySelector('[data-disqus-url="' + data.response[i].link.slice(24) + '"]').innerHTML = count;
             }
         }
     }
@@ -979,7 +971,7 @@ window.onload = function() {
     }
     window.addEventListener('keydown', keysDown, false);
     window.addEventListener('keyup', keysUp, false);
-    if (document.querySelectorAll('.image') && clientWidth > 640) {
+    if (document.querySelectorAll('.post-image') && clientWidth > 640) {
         var lightbox = new Lightbox();
         var lightBoxOptions = {
             boxId: false,

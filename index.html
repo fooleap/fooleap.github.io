@@ -2,34 +2,32 @@
 layout: default
 ---
 
-<section class="articles">
-    <ul>
-        {% for post in paginator.posts %}
-        {% if post.thumb %}
-        {% assign thumbnail = post.thumb | replace:'IMG_PATH', site.IMG_PATH %}
-        {% else %}
-        {% if post.content contains site.IMG_PATH %}
-        {% assign images = post.content | split:'<img src="' %}
-        {% for image in images %}
-        {% if image contains site.IMG_PATH %}
-        {% assign thumbnail = image | split:"?imageView" | first | split: '"' | first | remove: "_640" %}
-        {% break %}
-        {% endif %}
-        {% endfor %}
-        {% else %}
-        {% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}
-        {% endif %}
-        {% endif %}
-        <li>
-            <img class="thumbnail"  src="{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}" alt="{{ post.title }}" data-image-ave="{{ thumbnail | append: '?imageAve' }}"/>
-            <div class="comment-count"><a class="disqus-comment-count" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comments"></a></div>
-            <div class="post-infos">
-                <h3 class="post-title"><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-                <abbr class="post-date timeago" title="{{ post.date | date_to_xmlschema }}"></abbr>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
+<section class="post-list">
+    {% for post in paginator.posts %}
+    {% if post.thumb %}
+    {% assign thumbnail = post.thumb | replace:'IMG_PATH', site.IMG_PATH %}
+    {% else %}
+    {% if post.content contains site.IMG_PATH %}
+    {% assign images = post.content | split:'<img src="' %}
+    {% for image in images %}
+    {% if image contains site.IMG_PATH %}
+    {% assign thumbnail = image | split:"?imageView" | first | split: '"' | first | remove: "_640" %}
+    {% break %}
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    {% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}
+    {% endif %}
+    {% endif %}
+    <article class="post-item">
+        <img class="post-item-thumb"  src="{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}" alt="{{ post.title }}"/>
+        <section class="post-item-summary">
+            <h3 class="post-item-title"><a class="post-item-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+            <abbr class="post-item-date timeago" title="{{ post.date | date_to_xmlschema }}"></abbr>
+        </section>
+        <a class="post-item-comment" title="查看评论" data-disqus-url="{{ post.url | remove_first: '/' }}" href="{{ post.url }}#comments"></a>
+    </article>
+    {% endfor %}
 </section>
 
 <nav class="pagination">

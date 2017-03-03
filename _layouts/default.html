@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html>
-{% include head.html %}
-  <body>
-{% include nav.html %}
-    <main class="main">
 
-      <header class="header-">
-        <hgroup class="hgroup">
-        <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-        <h2 class="sub-heading">
-            {% if page.date %}<i class="icon-calendar"></i><time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time> <a href="/">首页</a>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
-        </h2>
-        </hgroup>
-      </header>
+    {% include head.html %}
 
-  {% if page.style or page.js %}
+    <body>
 
-      {% if page.style and page.js != true %}
-      {{ content_style[0] }}
-      {{ content_style[2] }}
-      {% endif %}
+        {% include nav.html %}
 
-      {% if page.js and page.style != true %}
-      {{ content_js[0] }}{{ content_js[2] }}
-      {% endif %}
+        <main class="page-main">
 
-      {% if page.style and page.js  %}
-      {{ content_style[0] }}{{ content_js[2] }}
-      {% endif %}
+            <header class="page-header">
+                <hgroup class="page-hgroup">
+                    <h1 class="page-title">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+                    <h2 class="page-subtitle">
+                        {% if page.date %}<time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time> <a class="post-subtitle-link" href="/">首页</a>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
+                    </h2>
+                </hgroup>
+            </header>
 
-  {% else %}
+            {% if page.style or page.js %}
 
-      {{ content }}
+            {% if page.style and page.js != true %}
+            {{ content_style[0] }}
+            {{ content_style[2] }}
+            {% endif %}
 
-  {% endif %}
-  
-      <footer class="site-footer">
-        <small>&copy; 2011-{{ site.time | date: '%Y' }} Jekyll & Disqus | 粤ICP备15090659号-1</small>
-      </footer>
-  
-    </main>
+            {% if page.js and page.style != true %}
+            {{ content_js[0] }}{{ content_js[2] }}
+            {% endif %}
 
-  <div id="backtotop">
-      <object class="icon icon-top" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/top.svg"></object>
-  </div>
+            {% if page.style and page.js  %}
+            {{ content_style[0] }}{{ content_js[2] }}
+            {% endif %}
 
-  <script type="text/javascript" src="/assets/js/main.js"></script>
+            {% else %}
 
-  {% if page.scripts %}
-      {% for script in page.scripts %}
-      <script type="text/javascript" src="{{ script }}"></script>
-      {% endfor %}
-  {% endif %}
+            {{ content }}
 
-  {% if page.js %}
-  <script type="text/javascript">{{ content_js[1] | remove: "</"}}</script>
-  {% endif %}
-  </body>
+            {% endif %}
+
+            <footer class="page-footer">
+                <small>&copy; 2011-{{ site.time | date: '%Y' }} Jekyll & Disqus | 粤ICP备15090659号-1</small>
+            </footer>
+
+        </main>
+
+        <script type="text/javascript" src="/assets/js/main.js"></script>
+
+        {% if page.scripts %}
+        {% for script in page.scripts %}
+        <script type="text/javascript" src="{{ script }}"></script>
+        {% endfor %}
+        {% endif %}
+
+        {% if page.js %}
+        <script type="text/javascript">{{ content_js[1] | remove: "</"}}</script>
+        {% endif %}
+    </body>
 </html>
