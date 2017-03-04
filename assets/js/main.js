@@ -451,11 +451,11 @@ function verifyEmail(el) {
 
 //编辑评论
 function editComment(el) {
-    el.className = 'comment-form-textarea noempty';
-    if (el.parentElement.className == 'comment-form-wrapper'){
-        el.parentElement.classList.add('focus');
+    el.parentNode.classList.add('editing');
+    if (el.parentNode.classList.contains('focus')){
+        el.parentNode.classList.remove('focus');
     } else {
-        el.parentElement.classList.remove('focus');
+        el.parentNode.classList.add('focus');
     }
 }
 
@@ -496,7 +496,7 @@ function previewComment(parent, avatar, name, message, url) {
         document.querySelector('#comment-' + parent + ' .comment-form-textarea').value = '';
     }
 }
-
+/*
 //读取访客信息
 function loadGuest() {
     var name = document.querySelectorAll('.comment-form-name');
@@ -565,14 +565,33 @@ function submitGuest() {
 
 //清除访客信息
 function clearGuest() {
-    localStorage.removeItem('name');
-    localStorage.removeItem('email');
-    localStorage.removeItem('url');
-    localStorage.removeItem('avatar');
     var node = document.querySelector('.guest-form');
     node.parentNode.removeChild(node);
     //loadGuest();
 }
+*/
+
+var guest = {
+    init: function(){
+        if(localStorage.getItem('logged_in') == 'true' ){
+           document.querySelector('.comment-form-wrapper').classList.add('logged-in');
+        } else {
+           localStorage.setItem('logged_in', 'false');
+        }
+    },
+    edit: function(){
+    },
+    submit: function(){
+    },
+    clear: function(){
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        localStorage.removeItem('url');
+        localStorage.removeItem('avatar');
+        localStorage.setItem('logged_in', false);
+    }
+}
+guest.init();
 
 //发表评论
 function postComment(parent) {

@@ -44,7 +44,7 @@ html {
 body {
     zoom: 1;
     letter-spacing: .03em;
-    font: 14px/1.6 Arial,"微软雅黑",'Microsoft YaHei';
+    font: 14px/1.6 "Helvetica Neue", Helvetica, Arial,"微软雅黑",'Microsoft YaHei';
     color: $default;
     background-color: rgba(196, 218, 234, .8);
     overflow-y: scroll;
@@ -134,7 +134,7 @@ img[data-onload="true"] {
         text-decoration: none;
         text-align: center;
         color: $white;
-        font: 600 13px/18px Arial;
+        font: 600 13px/18px "Helvetica Neue",Helvetica, Arial;
         border-radius: 10px;
         width: 30px;
         height: 18px;
@@ -252,7 +252,7 @@ img[data-onload="true"] {
             background-color: $black;
             width: 100%;
             height: 25px;
-            font: 13px/25px Arial;
+            font: 13px/25px "Helvetica Neue", Helvetica, Arial;
             padding: 0 3px;
             color: $white;
             overflow: hidden;

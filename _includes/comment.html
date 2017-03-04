@@ -1,5 +1,5 @@
-<section class="comment">
-    {% if page.url != '/guestbook.html' %}
+<section class="comment{% if page.url == '/guestbook.html' %} guestbook{% endif %}">
+
     <div class="comment-header">
         <span class="comment-header-item" id="comment-count">评论</span>
         {% comment %}
@@ -7,7 +7,7 @@
         {% endcomment %}
         <span class="comment-header-item" id="comment-author" onclick="editGuest()"></span>
     </div>
-    {% endif %}
+
     <div class="comment-box">
         <div class="comment-avatar avatar">
             <img src="https://a.disquscdn.com/images/noavatar92.png" />
@@ -30,19 +30,23 @@
                             <li onclick="AddOnPos(this,':wx_moue:')"><img title="皱眉" src="{{ site.IMG_PATH }}/wx_emoji/2_12.png" /></li>
                         </ul>
                         <object class="icon icon-image" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/image.svg"></object>
+                        <input type="file" accept="image/*" />
                     </div>
                     <button class="comment-form-submit" onclick="postComment()">
-                        发表评论
+                        <object class="icon icon-send" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/send.svg"></object>
                     </button>
                 </div>
             </div>
-            <div class="comment-input-group hide">
-                <input id="author_name" class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）">
-                <input id="author_email" class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)">
+            <div class="comment-login">
+                <input id="author_name" class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）" required>
+                <input id="author_email" class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)" required>
                 <input id="author_url" class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）">
             </div>
+            {% comment %}
             <div class="comment-form-alert"></div>
             <button title="若有回复，您将得到邮件提醒" class="comment-form-submit" onclick="postComment()"><object class="icon icon-send" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/send.svg"></object></button>
+            发表{% if page.url == '/guestbook.html' %}留言{% else %}评论{% endif %}
+            {% endcomment %}
         </div>
     </div>
     <ul id="comments" class="comment-list loading">
