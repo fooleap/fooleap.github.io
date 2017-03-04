@@ -353,41 +353,38 @@ if (windowWidth < 414) {
 function getComments(res) {
     if (res.code === 0) {
         document.querySelector('.comment-form').setAttribute('data-id', res.id);
-        document.querySelector('#comment-count').innerHTML = res.posts + ' comments';
+        document.querySelector('#comment-count').innerHTML = res.posts + ' 条评论';
+        document.getElementById('comments').classList.remove('loading')
         if (res.response == null) {
-            document.getElementById('comments').className = 'comment-list';
             return;
         }
-        for (var i = 0; i < res.response.length; i++) {
-            var post = res.response[i];
-            var result = '';
+        res.response.forEach(function(post, i){
             var profileUrl = post.profileUrl ? post.profileUrl : 'javascript:void(0);';
             var url = post.url ? post.url : profileUrl;
             var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
             var images = post.media;
             var imageList = '<div class="post-image">';
             images.forEach(function(item, e){
-                imageList += '<a target="_blank" href="' + item + '" ><img src="' + item + '"></a>';
+                imageList += '<a target="_blank" href="' + item + '" ><img class="comment-item-image" src="' + item + '"></a>';
             })
             imageList += '</div>';
             var isModerator = post.name == 'fooleap' ? '<span class="moderator">博主</span>' : '';
             var html = '<li class="comment-item" id="comment-' + post.id + '">';
-            html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.avatar + '"></a>';
-            html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.name + '</a>' + isModerator + '<span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
-            html += '<div class="post-content">' + post.message + imageList + '</div>';
-            html += '<ul class="post-children"></ul>';
+            html += '<div class="comment-item-avatar"><img src="' + post.avatar + '"></div>';
+            html += '<div clas="comment-item-main">'
+            html += '<div class="comment-item-header"><a target="_blank" href="' + url + '">' + post.name + '</a>' + isModerator + '<span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+            html += '<div class="comment-item-content">' + post.message + imageList + '</div>';
+            html += '<ul class="comment-item-children"></ul>';
+            html += '</div>'
             html += '</li>';
-            result += html;
-            document.getElementById('comments').className = 'comment-list';
             if (post.parent == null) {
-                document.getElementById('comments').insertAdjacentHTML('afterbegin', result);
+                document.getElementById('comments').insertAdjacentHTML('afterbegin', html);
             } else {
-                if (document.querySelector('#comment-' + post.parent + ' .post-children')) {
-                    document.querySelector('#comment-' + post.parent + ' .post-children').insertAdjacentHTML('beforeend', result);
+                if (document.querySelector('#comment-' + post.parent + ' .comment-item-children')) {
+                    document.querySelector('#comment-' + post.parent + ' .comment-item-children').insertAdjacentHTML('beforeend', html);
                 }
             }
-            //html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + res.id + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions cf">' + document.querySelector('.emojione').outerHTML + '<button class="logged-button" onclick="replyComment(this)">发表回复</button></div></div><div class="comment-input-group hide"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><label class="comment-input-checkbox hide" for="remember-' + post.id + '"><input type="checkbox" id="remember-' + post.id + '" checked> 记住我</label><button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
-        }
+        });
         timeAgo();
         /*
         //是否能连上 Disqus
@@ -400,15 +397,13 @@ function getComments(res) {
     } else {
         var url = location.pathname.slice(1);
         var title = document.querySelector('title').innerText;
-        document.getElementById('comments').className = 'comment-list';
-        if (location.host == "blog.fooleap.org") {
-            var xhrcreateThread = new XMLHttpRequest();
-            xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
-            xhrcreateThread.send();
-        }
+        var xhrcreateThread = new XMLHttpRequest();
+        xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
+        xhrcreateThread.send();
         return;
     }
 }
+//html += '<div class="comment-form cf hide" data-parent="' + post.id + '" data-id="' + res.id + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions cf">' + document.querySelector('.emojione').outerHTML + '<button class="logged-button" onclick="replyComment(this)">发表回复</button></div></div><div class="comment-input-group hide"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><label class="comment-input-checkbox hide" for="remember-' + post.id + '"><input type="checkbox" id="remember-' + post.id + '" checked> 记住我</label><button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
 
 //获取文章评论
 if (document.querySelector('#comments')) {
@@ -457,8 +452,11 @@ function verifyEmail(el) {
 //编辑评论
 function editComment(el) {
     el.className = 'comment-form-textarea noempty';
-    //el.className = el.value != '' ? 'comment-form-textarea noempty' : 'comment-form-textarea';
-    el.parentElement.className = el.parentElement.className == 'textarea-wrapper' ? 'textarea-wrapper focus' : 'textarea-wrapper'
+    if (el.parentElement.className == 'comment-form-wrapper'){
+        el.parentElement.classList.add('focus');
+    } else {
+        el.parentElement.classList.remove('focus');
+    }
 }
 
 //提交加载
@@ -470,7 +468,6 @@ function htmlComment(data) {
     html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
     html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
     html += '<div class="post-content">' + post.message + '</div>';
-    //html += '<div class="comment-form hide" data-parent="' + post.id + '" data-id="' + post.thread + '"><span class="avatar"><img src="http://gravatar.duoshuo.com/avatar/?d=a.disquscdn.com/images/noavatar92.png"></span><div class="textarea-wrapper"><textarea class="comment-form-textarea" placeholder="回复' + post.author.name + '…" onfocus="editComment(this)" onblur="editComment(this)"></textarea><div class="post-actions">' + document.querySelector('.emojione').outerHTML + '<button class="logged-button" onclick="replyComment(this)">发表回复</button></div></div><div class="comment-input-group hide"><input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）"><input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" onblur="verifyEmail(this)"><input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）"></div><label class="comment-input-checkbox hide" for="remember-' + post.id + '"><input type="checkbox" id="remember-' + post.id + '" checked> 记住我</label><button title="若有回复，您将得到邮件提醒" class="comment-form-submit hide" onclick="replyComment(this)"><i class="icon icon-proceed"></i></button><div class="comment-form-alert"></div></div>'
     html += '<ul class="post-children"></ul>';
     html += '</li>';
     return html;
@@ -644,41 +641,10 @@ function showCommentForm(el) {
     }
 }
 
-/**   
- * 在光标的位置插入图片
- * @param {Object} myField  textarea的Id
- * @param {Object} myValue  插入的字符
- */
-
 function AddOnPos(myField, myValue) {
     myField = myField.parentElement.parentElement.parentElement.parentElement.querySelector('.comment-form-textarea');
-    //IE support     
-    if (document.selection) {
-        myField.focus();
-        sel = document.selection.createRange();
-        myValue = "{" + myValue + "}";
-        sel.text = myValue;
-        sel.select();
-    }
-
-    //MOZILLA/NETSCAPE support     
-    else if (myField.selectionStart || myField.selectionStart == '0') {
-        var startPos = myField.selectionStart;
-        var endPos = myField.selectionEnd;
-        // save scrollTop before insert     
-        var restoreTop = myField.scrollTop;
-        myField.value = myField.value.substring(0, startPos) + myValue + myField.value.substring(endPos, myField.value.length);
-        if (restoreTop > 0) {
-            // restore previous scrollTop     
-            myField.scrollTop = restoreTop;
-        }
-        myField.focus();
-        myField.selectionStart = startPos + myValue.length;
-        myField.selectionEnd = startPos + myValue.length;
-    } else {
-        myField.value += myValue;
-        myField.focus();
-    }
+    myField.value += myValue;
+    myField.focus();
 }
 
 //回复评论
