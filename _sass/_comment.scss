@@ -286,16 +286,18 @@
 .comment-image{
     .comment-image-progress{
         position: relative;
-        height: 80px;
-        width: 80px;
+        height: 70px;
+        width: 70px;
         background: url("https://a.disquscdn.com/next/embed/assets/img/loader.5cc23909da9c4a9874500d7a85c4125f.gif") center no-repeat;
+        margin: 5px;
         &:before{
             content: "";
             display: block;
             position: absolute;
-            top: 60px;
-            left: 5px;
-            right: 5px;
+            top: 50px;
+            bottom: 15px;
+            left: 0;
+            right: 0;
             height: 5px;
             width: 100%;
             background-color: rgba(219,223,228,1);
@@ -303,9 +305,9 @@
         .comment-image-loaded{
             background-color: rgba(127,145,158,1);
             position: absolute;
-            top: 60px;
-            left: 5px;
-            right: 5px;
+            top: 50px;
+            left: 0;
+            right: 0; 
             bottom: 15px;
             height: 5px;
             width: 0;
