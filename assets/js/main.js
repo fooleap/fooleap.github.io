@@ -58,7 +58,7 @@ timeAgo();
         xhrImageExif = [],
         imageAve = [],
         imageExif = [];
-    imageArr.forEach(function(item, i){
+    [].forEach.call(imageArr, function(item, i){
 
         //预加载图片平均色调
         imageAve[i] = item.src.split(/_|\?/)[0] + '?imageAve';
@@ -118,7 +118,7 @@ timeAgo();
 })();
 
 (function(){
-    document.querySelectorAll('.icon').forEach(function(item, i){
+    [].forEach.call(document.querySelectorAll('.icon'), function(item, i){
         item.addEventListener('mouseover', function(){
             var hoverColor = this.dataset.color;
             this.contentDocument.querySelector('.icon').setAttribute("fill", hoverColor);
@@ -591,7 +591,64 @@ var guest = {
         localStorage.setItem('logged_in', false);
     }
 }
-guest.init();
+
+function Comment() {
+    this.init();
+}
+
+Comment.prototype = {
+    // 初始化
+    init: function(){
+        guest.init();
+        document.getElementById('image-upload').addEventListener('change', function(e){
+            comment.upload();
+        });
+    },
+    get: function(){
+    },
+    // 上传图片
+    upload: function(id){
+        var id = id ? '-' + id : '';
+        var file = document.getElementById('image-upload'+id);
+        var progress = document.querySelector('.comment-image-loaded')
+        if(file.files.length === 0){
+            console.log(请选择图片);
+            return;
+        } else {
+            var data = new FormData();
+            data.append('file', file.files[0] );
+            var xhrUpload = new XMLHttpRequest();
+
+            xhrUpload.onreadystatechange = function(){
+                if(xhrUpload.readyState == 4){
+                    try {
+                        var resp = JSON.parse(xhrUpload.response);
+                    } catch (e){
+                        var resp = {
+                            status: 'error',
+                            data: 'Unknown error occurred: [' + xhrUpload.responseText + ']'
+                        };
+                    }
+                    console.log(resp.status + ': ' + resp.data);
+                }
+            };
+            xhrUpload.upload.addEventListener('progress', function(e){
+                progress.style.width = (e.loaded/e.total) * 100 + '%';
+            }, false);
+            xhrUpload.open('POST', 'http://api.fooleap.org/disqus/upload',true);
+            xhrUpload.send(data);
+ 
+        }
+    },
+    // 发表/回复评论
+    post: function(){
+    },
+    //
+}
+
+if( document.getElementsByTagName('head')[0].dataset.id != null || document.getElementsByTagName('head')[0].dataset.url == '/guestbook.html'){
+    var comment = new Comment();
+}
 
 //发表评论
 function postComment(parent) {

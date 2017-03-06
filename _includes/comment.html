@@ -13,8 +13,16 @@
             <img src="https://a.disquscdn.com/images/noavatar92.png" />
         </div>
         <div class="comment-form">
-            <div class="comment-form-wrapper">
+            <div class="comment-form-wrapper expanded">
                 <textarea class="comment-form-textarea" id="message" placeholder="加入讨论…" onfocus="editComment(this)" onblur="editComment(this)"></textarea>
+                <div class="comment-image">
+                    <div class="comment-image-progress">
+                        <div class="comment-image-loaded">
+                        </div>
+                    </div>
+                    <ul class="comment-image-list">
+                    </ul>
+                </div>
                 <div class="comment-actions">
                     <div class="comment-icon-group">
                         <object class="icon icon-face" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/face.svg"></object>
@@ -29,8 +37,10 @@
                             <li onclick="AddOnPos(this,':wx_yeah:')"><img title="耶" src="{{ site.IMG_PATH }}/wx_emoji/2_11.png" /></li>
                             <li onclick="AddOnPos(this,':wx_moue:')"><img title="皱眉" src="{{ site.IMG_PATH }}/wx_emoji/2_12.png" /></li>
                         </ul>
-                        <object class="icon icon-image" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/image.svg"></object>
-                        <input type="file" accept="image/*" />
+                        <label class="comment-image-upload" for="image-upload" title="点击上传图片，亦可直接拽拉图片到文本框">
+                            <object class="icon icon-image" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/image.svg"></object>
+                        </label>
+                        <input class="comment-image-input" type="file" accept="image/*" name="file" id="image-upload"/>
                     </div>
                     <button class="comment-form-submit" onclick="postComment()">
                         <object class="icon icon-send" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/send.svg"></object>
