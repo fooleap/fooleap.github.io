@@ -610,34 +610,40 @@ Comment.prototype = {
     upload: function(id){
         var id = id ? '-' + id : '';
         var file = document.getElementById('image-upload'+id);
-        var progress = document.querySelector('.comment-image-loaded')
+        var progress = document.querySelector('.comment-image-progress');
+        var loaded = document.querySelector('.comment-image-loaded');
         if(file.files.length === 0){
             console.log(请选择图片);
             return;
         } else {
+            progress.style.width = '80px';
             var data = new FormData();
             data.append('file', file.files[0] );
+            var filename = file.files[0].name;
             var xhrUpload = new XMLHttpRequest();
 
             xhrUpload.onreadystatechange = function(){
-                if(xhrUpload.readyState == 4){
+                if(xhrUpload.readyState == 4 && xhrUpload.status == 200){
                     try {
-                        var resp = JSON.parse(xhrUpload.response);
+                        var resp = JSON.parse(xhrUpload.responseText);
+                        var imageUrl = resp.response[filename].url;
+                        var imageItem = '<li class="comment-image-item" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="'+imageUrl+'"/></li>';
+                        document.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
                     } catch (e){
                         var resp = {
                             status: 'error',
                             data: 'Unknown error occurred: [' + xhrUpload.responseText + ']'
                         };
                     }
-                    console.log(resp.status + ': ' + resp.data);
+                    loaded.style.width = 0;
+                    progress.style.width = 0;
                 }
             };
             xhrUpload.upload.addEventListener('progress', function(e){
-                progress.style.width = (e.loaded/e.total) * 100 + '%';
+                loaded.style.width = (e.loaded/e.total) * 100 + '%';
             }, false);
             xhrUpload.open('POST', 'http://api.fooleap.org/disqus/upload',true);
             xhrUpload.send(data);
- 
         }
     },
     // 发表/回复评论

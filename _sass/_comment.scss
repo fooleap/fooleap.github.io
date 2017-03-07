@@ -284,18 +284,20 @@
     overflow:hidden;
 }
 .comment-image{
+    display: flex;
     .comment-image-progress{
         position: relative;
-        height: 70px;
-        width: 70px;
+        height: 80px;
+        width: 0;
         background: url("https://a.disquscdn.com/next/embed/assets/img/loader.5cc23909da9c4a9874500d7a85c4125f.gif") center no-repeat;
-        margin: 5px;
+        margin: 0 5px;
+        overflow: hidden;
         &:before{
             content: "";
             display: block;
             position: absolute;
-            top: 50px;
-            bottom: 15px;
+            top: 55px;
+            bottom: 20px;
             left: 0;
             right: 0;
             height: 5px;
@@ -305,13 +307,27 @@
         .comment-image-loaded{
             background-color: rgba(127,145,158,1);
             position: absolute;
-            top: 50px;
+            top: 55px;
             left: 0;
             right: 0; 
-            bottom: 15px;
+            bottom: 20px;
             height: 5px;
             width: 0;
         }
+    }
+
+    .comment-image-list{
+        list-style: none;
+        display: flex;
+    }
+    .comment-image-item{
+        height: 80px;
+        margin-right:5px;
+    }
+    .comment-image-object{
+        height: 100%;
+        border-radius: 3px;
+        overflow: hidden;
     }
 }
 
