@@ -283,7 +283,8 @@
     margin: -40px 0 40px;
     overflow:hidden;
 }
-.comment-image{
+
+.expanded .comment-image{
     display: flex;
     .comment-image-progress{
         position: relative;
@@ -320,14 +321,21 @@
         list-style: none;
         display: flex;
     }
+
     .comment-image-item{
         height: 80px;
         margin-right:5px;
-    }
-    .comment-image-object{
-        height: 100%;
-        border-radius: 3px;
-        overflow: hidden;
+        .comment-image-object{
+            height: 100%;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        &.loading{
+            .comment-image-object{
+                width: 20px;
+                margin: 0 30px;
+            }
+        }
     }
 }
 

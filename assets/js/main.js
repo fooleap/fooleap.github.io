@@ -1,3 +1,8 @@
+// closest & matches Polyfill
+!function(a){var c;if(a=a.Element)a=a.prototype,!(c=a.matches)&&(c=a.matchesSelector||a.mozMatchesSelector||a.msMatchesSelector||a.oMatchesSelector||a.webkitMatchesSelector||a.querySelectorAll&&function matches(a){a=(this.parentNode||this.document||this.ownerDocument).querySelectorAll(a);for(var b=a.length;0<=--b&&a.item(b)!==this;);return-1<b})&&(a.matches=c),!a.closest&&c&&(a.closest=function closest(a){for(var b=this;b;){if(1===b.nodeType&&b.matches(a))return b;b=b.parentNode}return null})}(Function("return this")());
+
+var imgpath = document.getElementsByTagName('head')[0].dataset.imgPath;
+
 // timeago https://goo.gl/jlkyIS
 function timeAgo(selector) {
     var templates = {
@@ -600,35 +605,96 @@ Comment.prototype = {
     // 初始化
     init: function(){
         guest.init();
+
+        //选图即上传
         document.getElementById('image-upload').addEventListener('change', function(e){
             comment.upload();
         });
     },
+    //emoji表情
+    emoji: {
+        text: [
+            'doge',
+            'tanshou',
+            'wx_smirk',
+            'wx_hey',
+            'wx_facepalm',
+            'wx_smart',
+            'wx_tea',
+            'wx_yeah',
+            'wx_moue'
+        ],
+        code: [
+            'doge',
+            '摊手',
+            '奸笑',
+            '嘿哈',
+            '捂脸',
+            '茶',
+            '耶',
+            '皱眉'
+        ],
+        url: [
+            'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif',
+            'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png',
+            imgpath + '/2_02.png',
+            imgpath + '/2_04.png',
+            imgpath + '/2_05.png',
+            imgpath + '/2_06.png',
+            imgpath + '/2_07.png',
+            imgpath + '/2_11.png',
+            imgpath + '/2_12.png'
+        ],
+    },
     get: function(){
     },
+
     // 上传图片
     upload: function(id){
         var id = id ? '-' + id : '';
         var file = document.getElementById('image-upload'+id);
         var progress = document.querySelector('.comment-image-progress');
         var loaded = document.querySelector('.comment-image-loaded');
+        var wrapper = document.querySelector('.comment-form-wrapper');
         if(file.files.length === 0){
-            console.log(请选择图片);
+            console.log('请选择图片！');
             return;
         } else {
+
+            // 展开图片上传界面
+            wrapper.classList.add('expanded');
             progress.style.width = '80px';
+
+            // 图片上传请求
             var data = new FormData();
             data.append('file', file.files[0] );
             var filename = file.files[0].name;
             var xhrUpload = new XMLHttpRequest();
-
             xhrUpload.onreadystatechange = function(){
                 if(xhrUpload.readyState == 4 && xhrUpload.status == 200){
                     try {
                         var resp = JSON.parse(xhrUpload.responseText);
-                        var imageUrl = resp.response[filename].url;
-                        var imageItem = '<li class="comment-image-item" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="'+imageUrl+'"/></li>';
-                        document.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
+                        if( resp.code == 0 ){
+
+                            // 上传至 Disqus 回调成功，显示正在读取
+                            var imageUrl = resp.response[filename].url;
+                            var imageFilename = resp.response[filename].filename;
+                            var imageItem = '<li class="comment-image-item loading" data-image-original="'+filename+'" data-image-filename="'+imageFilename+'" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="/assets/svg/loading.svg"/></li>';
+                            document.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
+
+                            // Fetch 到七牛，回调显示图片
+                            var fetchQuery = 'url=' + imageUrl + '&prefix=images'+ '&filename='+imageFilename;
+                            var xhrFetch = new XMLHttpRequest();
+                            xhrFetch.onreadystatechange = function(){
+                                if(xhrFetch.readyState == 4 && xhrFetch.status == 200){
+                                    var file = JSON.parse(xhrFetch.responseText);
+                                    document.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url);
+                                    document.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
+                                }
+                            }
+                            xhrFetch.open('GET', 'http://api.fooleap.org/qiniu/fetch?'+fetchQuery,true);
+                            xhrFetch.send();
+                        }
                     } catch (e){
                         var resp = {
                             status: 'error',
@@ -639,16 +705,20 @@ Comment.prototype = {
                     progress.style.width = 0;
                 }
             };
+
+            // 上传进度条
             xhrUpload.upload.addEventListener('progress', function(e){
-                loaded.style.width = (e.loaded/e.total) * 100 + '%';
+                loaded.style.width = Math.ceil((e.loaded/e.total) * 100)+ '%';
             }, false);
             xhrUpload.open('POST', 'http://api.fooleap.org/disqus/upload',true);
             xhrUpload.send(data);
         }
     },
+
     // 发表/回复评论
     post: function(){
     },
+
     //
 }
 
@@ -724,7 +794,7 @@ function showCommentForm(el) {
 }
 
 function AddOnPos(myField, myValue) {
-    myField = myField.parentElement.parentElement.parentElement.parentElement.querySelector('.comment-form-textarea');
+    myField = myField.closest('.comment-item').querySelector('.comment-form-textarea');
     myField.value += myValue;
     myField.focus();
 }
