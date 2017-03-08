@@ -501,6 +501,7 @@ function previewComment(parent, avatar, name, message, url) {
         document.querySelector('#comment-' + parent + ' .comment-form-textarea').value = '';
     }
 }
+
 /*
 //读取访客信息
 function loadGuest() {
@@ -656,63 +657,58 @@ Comment.prototype = {
         var progress = document.querySelector('.comment-image-progress');
         var loaded = document.querySelector('.comment-image-loaded');
         var wrapper = document.querySelector('.comment-form-wrapper');
-        if(file.files.length === 0){
-            console.log('请选择图片！');
-            return;
-        } else {
 
-            // 展开图片上传界面
-            wrapper.classList.add('expanded');
-            progress.style.width = '80px';
+        // 展开图片上传界面
+        wrapper.classList.add('expanded');
+        progress.style.width = '80px';
 
-            // 图片上传请求
-            var data = new FormData();
-            data.append('file', file.files[0] );
-            var filename = file.files[0].name;
-            var xhrUpload = new XMLHttpRequest();
-            xhrUpload.onreadystatechange = function(){
-                if(xhrUpload.readyState == 4 && xhrUpload.status == 200){
-                    try {
-                        var resp = JSON.parse(xhrUpload.responseText);
-                        if( resp.code == 0 ){
+        // 图片上传请求
+        var data = new FormData();
+        data.append('file', file.files[0] );
+        var filename = file.files[0].name;
+        var xhrUpload = new XMLHttpRequest();
+        xhrUpload.onreadystatechange = function(){
+            if(xhrUpload.readyState == 4 && xhrUpload.status == 200){
+                try {
+                    var resp = JSON.parse(xhrUpload.responseText);
+                    if( resp.code == 0 ){
 
-                            // 上传至 Disqus 回调成功，显示正在读取
-                            var imageUrl = resp.response[filename].url;
-                            var imageFilename = resp.response[filename].filename;
-                            var imageItem = '<li class="comment-image-item loading" data-image-original="'+filename+'" data-image-filename="'+imageFilename+'" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="/assets/svg/loading.svg"/></li>';
-                            document.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
+                        // 上传至 Disqus 回调成功，显示正在读取
+                        var imageUrl = resp.response[filename].url;
+                        var imageFilename = resp.response[filename].filename;
+                        var imageItem = '<li class="comment-image-item loading" data-image-original="'+filename+'" data-image-filename="'+imageFilename+'" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="/assets/svg/loading.svg"/></li>';
+                        document.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
 
-                            // Fetch 到七牛，回调显示图片
-                            var fetchQuery = 'url=' + imageUrl + '&prefix=images'+ '&filename='+imageFilename;
-                            var xhrFetch = new XMLHttpRequest();
-                            xhrFetch.onreadystatechange = function(){
-                                if(xhrFetch.readyState == 4 && xhrFetch.status == 200){
-                                    var file = JSON.parse(xhrFetch.responseText);
-                                    document.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url);
-                                    document.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
-                                }
+                        // Fetch 到七牛，回调显示图片
+                        var fetchQuery = 'url=' + imageUrl + '&prefix=images'+ '&filename='+imageFilename;
+                        var xhrFetch = new XMLHttpRequest();
+                        xhrFetch.onreadystatechange = function(){
+                            if(xhrFetch.readyState == 4 && xhrFetch.status == 200){
+                                var file = JSON.parse(xhrFetch.responseText);
+                                document.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url);
+                                document.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
                             }
-                            xhrFetch.open('GET', 'http://api.fooleap.org/qiniu/fetch?'+fetchQuery,true);
-                            xhrFetch.send();
                         }
-                    } catch (e){
-                        var resp = {
-                            status: 'error',
-                            data: 'Unknown error occurred: [' + xhrUpload.responseText + ']'
-                        };
+                        xhrFetch.open('GET', 'http://api.fooleap.org/qiniu/fetch?'+fetchQuery,true);
+                        xhrFetch.send();
                     }
-                    loaded.style.width = 0;
-                    progress.style.width = 0;
+                } catch (e){
+                    var resp = {
+                        status: 'error',
+                        data: 'Unknown error occurred: [' + xhrUpload.responseText + ']'
+                    };
                 }
-            };
+                loaded.style.width = 0;
+                progress.style.width = 0;
+            }
+        };
 
-            // 上传进度条
-            xhrUpload.upload.addEventListener('progress', function(e){
-                loaded.style.width = Math.ceil((e.loaded/e.total) * 100)+ '%';
-            }, false);
-            xhrUpload.open('POST', 'http://api.fooleap.org/disqus/upload',true);
-            xhrUpload.send(data);
-        }
+        // 上传进度条
+        xhrUpload.upload.addEventListener('progress', function(e){
+            loaded.style.width = Math.ceil((e.loaded/e.total) * 100)+ '%';
+        }, false);
+        xhrUpload.open('POST', 'http://api.fooleap.org/disqus/upload',true);
+        xhrUpload.send(data);
     },
 
     // 发表/回复评论
@@ -985,7 +981,7 @@ if (sourceView) {
     if (document.querySelectorAll('.image') && clientWidth > 640) {
         var lbscript = document.createElement('script');
         lbscript.type = 'text/javascript';
-        lbscript.src = 'http://' + location.host + '/assets/js/lightbox.min.js';
+        lbscript.src = '/assets/js/lightbox.min.js';
         document.getElementsByTagName('BODY')[0].appendChild(lbscript);
     }
 })();

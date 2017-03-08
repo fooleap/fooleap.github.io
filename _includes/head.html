@@ -1,4 +1,4 @@
-<head data-url="{{ page.url }}"{% if page.id %} data-id="{{ page.id }}" data-category="{{ page.category }}"{% endif %} data-img-path="{{ site.IMG_PATH }}">
+<head data-home="{{ site.home }}" data-url="{{ page.url }}"{% if page.id %} data-id="{{ page.id }}" data-category="{{ page.category }}"{% endif %} data-img-path="{{ site.IMG_PATH }}">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{% if paginator and paginator.page != 1 %}第{{ paginator.page }}页 | {{ site.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
