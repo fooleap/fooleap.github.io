@@ -598,7 +598,9 @@ var guest = {
     }
 }
 
-function Comment() {
+function Comment () {
+    this.imagesize = [];
+    this.link = document.getElementsByTagName('head')[0].dataset.url;
     this.init();
 }
 
@@ -650,6 +652,16 @@ Comment.prototype = {
     get: function(){
     },
 
+    //移除图片
+    remove: function(){
+        var currentItem = this.closest('.comment-image-item');
+        currentItem.parentNode.removeChild(currentItem);
+        comment.imagesize = [];
+        [].forEach.call(document.getElementsByClassName('comment-image-item'), function(item, i){
+            comment.imagesize[i] = item.dataset.imageSize;
+        })
+    },
+
     // 上传图片
     upload: function(id){
         var id = id ? '-' + id : '';
@@ -657,15 +669,28 @@ Comment.prototype = {
         var progress = document.querySelector('.comment-image-progress');
         var loaded = document.querySelector('.comment-image-loaded');
         var wrapper = document.querySelector('.comment-form-wrapper');
+        if(file.files.length === 0){
+            return;
+        }
 
         // 展开图片上传界面
         wrapper.classList.add('expanded');
-        progress.style.width = '80px';
+
+        //以文件大小识别是否为同张图片
+        var size = file.files[0].size;
+        if( this.imagesize.indexOf(size) == -1 ){
+            this.imagesize.push(size);
+            progress.style.width = '80px';
+        } else {
+            console.log('请勿选择已存在的图片！');
+            return;
+        }
 
         // 图片上传请求
         var data = new FormData();
         data.append('file', file.files[0] );
         var filename = file.files[0].name;
+
         var xhrUpload = new XMLHttpRequest();
         xhrUpload.onreadystatechange = function(){
             if(xhrUpload.readyState == 4 && xhrUpload.status == 200){
@@ -676,7 +701,7 @@ Comment.prototype = {
                         // 上传至 Disqus 回调成功，显示正在读取
                         var imageUrl = resp.response[filename].url;
                         var imageFilename = resp.response[filename].filename;
-                        var imageItem = '<li class="comment-image-item loading" data-image-original="'+filename+'" data-image-filename="'+imageFilename+'" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="/assets/svg/loading.svg"/></li>';
+                        var imageItem = '<li class="comment-image-item loading" data-image-size="' + size + '" data-image-filename="'+imageFilename+'" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="/assets/svg/loading.svg"/></li>';
                         document.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
 
                         // Fetch 到七牛，回调显示图片

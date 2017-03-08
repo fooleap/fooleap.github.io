@@ -45,60 +45,6 @@
 .comment-toggle.disqus .comment-swtich{
     left: 32px;
 }
-.disqus-loader-bubble{
-    height: 52px;
-    width: 54px;
-    margin: 0px auto;
-    overflow: hidden;
-    position: relative;
-    box-sizing: border-box;
-    background:url(https://a.disquscdn.com/next/embed/assets/img/loader-bg.173909e4737a7481df14d5492b5eeb48.png) no-repeat!important
-}
-.disqus-loader-spinner{
-    box-sizing: border-box;
-    width: 26px;
-    height: 26px;
-    position: absolute;
-    top: 13px;
-    left: 15px;
-    border-width: 3px;
-    border-style: solid;
-    border-color: rgba(51, 54, 58, 0.4) transparent;
-    border-radius: 13px;
-    transform-origin: 50% 50% 0px;
-    animation:disqus-loader-spinner-animation .7s infinite linear!important
-}
-@keyframes disqus-loader-spinner-animation{
-    0%{transform:rotate(0)}
-    100%{transform:rotate(360deg)}
-}
-
-.disqus-loading,
-.disqus-loading:after {
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
-    margin: 2.5px;
-}
-.disqus-loading {
-    font-size: 10px;
-    position: relative;
-    text-indent: -9999em;
-    border-top: 2.5px solid #35A1FB;
-    border-right: 2.5px solid #35A1FB;
-    border-bottom: 2.5px solid #35A1FB;
-    border-left: 2.5px solid #C4DAEA;
-    transform: translateZ(0);
-    animation: loading 1.1s infinite linear;
-}
-@keyframes loading {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
 
 .comment {
     max-width: 640px;
@@ -155,13 +101,6 @@
         left: 0px;
         right: 0px;
         background: rgb(46, 159, 255);
-    }
-}
-
-.anchorBL {
-    a:after {
-        content: ''!important;
-        margin: 0!important;
     }
 }
 
@@ -324,7 +263,7 @@
 
     .comment-image-item{
         height: 80px;
-        margin-right:5px;
+        margin-left:5px;
         .comment-image-object{
             height: 100%;
             border-radius: 3px;
@@ -504,9 +443,36 @@
 .comment-item-children {
     font-size: 13px;
 }
-.comment-list.loading {
-    background: url(https://a.disquscdn.com/next/embed/assets/img/loader.5cc23909da9c4a9874500d7a85c4125f.gif) center center no-repeat;
-    min-height: 100px;
+.comment-list.loading{
+    position: relative;
+    background:url(https://a.disquscdn.com/next/embed/assets/img/loader-bg.173909e4737a7481df14d5492b5eeb48.png) no-repeat!important;
+    display: block;
+    height: 52px;
+    width: 54px;
+    margin: 20px auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    &:after{
+        content: "";
+        display:block;
+        box-sizing: border-box;
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        top: 13px;
+        left: 15px;
+        border-width: 3px;
+        border-style: solid;
+        border-color: rgba(51, 54, 58, 0.4) transparent;
+        border-radius: 13px;
+        transform-origin: 50% 50% 0px;
+        animation:disqus-loader-spinner-animation .7s infinite linear!important
+    }
+}
+
+@keyframes disqus-loader-spinner-animation{
+    0%{transform:rotate(0)}
+    100%{transform:rotate(360deg)}
 }
 
 .comment-item {
