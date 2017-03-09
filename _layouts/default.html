@@ -13,7 +13,14 @@
                 <hgroup class="page-hgroup">
                     <h1 class="page-title">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
                     <h2 class="page-subtitle">
-                        {% if page.date %}<time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time> <a class="post-subtitle-link" href="/">首页</a>{% elsif paginator %}{{ site.description }}{% else %}{{ page.description }}{% endif %}
+                        {% if page.date %}
+                            <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>
+                             <span class="number-of-word">本文 {{ page.content | strip_html | strip_newlines | size }} 字，阅读全文约需 {{ page.content | strip_html | strip_newlines | size | divided_by: 400 | plus: 1}} 分钟</span>
+                        {% elsif paginator %}
+                            {{ site.description }}
+                        {% else %}
+                            {{ page.description }}
+                        {% endif %}
                     </h2>
                 </hgroup>
             </header>

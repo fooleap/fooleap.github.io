@@ -384,23 +384,11 @@ pre.terminal code {
     background-color: rgb(50, 50, 50);
 }
 
-#posts {
-    margin: 0;
-    &:before {
-        content: "";
-    }
-    &:after {
-        clear: both;
-    }
-    &:before,
-    &:after {
-        display: table;
-        content: '';
-    }
-    .posts {
-        width: 50%;
-        float: left;
-        ul {
+.post-extend {
+    display: flex;
+    .post-extend-content {
+        flex: 1;
+        .post-extend-list {
             margin-left: 15px;
             height: 135px;
             white-space: nowrap;
@@ -410,39 +398,19 @@ pre.terminal code {
 }
 
 .post-info {
-    text-align: left;
     line-height: 20px;
+    height: 20px;
+    overflow: hidden;
     margin: 0;
-    a {
-        color: $default;
-    }
-    .icon{
-        width: 16px;
-        margin: 2px;
-        vertical-align: middle;
-    }
-    .like {
-        display: none;
-    }
-    .like a {
-        background: $lightgray;
-        padding: 3px;
-        border-radius: 3px;
-    }
-    &:before {
-        content: "";
-    }
-    &:after {
-        clear: both;
-    }
-    &:before,
-    &:after {
-        display: table;
-        content: '';
+    display: flex;
+    justify-content: space-between;
+    a:before,
+    a:after {
+        display: none!important;
     }
 }
 
-.page-tags {
+.post-tags {
     .tags {
         list-style: none;
         display: inline;
@@ -452,6 +420,7 @@ pre.terminal code {
     }
     .icon-tags{
         width: 20px;
+        margin-bottom: -5px;
     }
     .tag {
         display: inline-block;
@@ -466,9 +435,6 @@ pre.terminal code {
         padding: 2px 3px;
         font-size: 12px;
     }
-    a:after {
-        display: none!important;
-    }
 }
 
 .view-code {
@@ -476,9 +442,8 @@ pre.terminal code {
 }
 
 // Share
-#share {
+.post-share {
     line-height: 1.2;
-    float: right;
     margin: 0;
     .share-item{
         width: 20px;
@@ -489,6 +454,7 @@ pre.terminal code {
         position: relative;
         color: rgb(51, 51, 51);
         &:after {
+            display: inline-block!important;
             content: "";
             position: absolute;
             top: 0;

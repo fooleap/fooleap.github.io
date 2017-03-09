@@ -3,4 +3,3 @@ layout: default
 ---
 
 {{ content | replace_first:'markdown-toc','toc' | replace: '<li>[]', '<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled>' | replace: '<li>[x]', '<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked>' }}
-{% include info.html %}

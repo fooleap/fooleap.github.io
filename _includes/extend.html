@@ -1,15 +1,15 @@
 <section id="posts" class="post-extend">
-    <div id="random-posts" data-category="{{ page.category }}" class="posts">
-        <strong>猜你喜欢</strong>
-        <ul>
+    <section id="random-posts" data-category="{{ page.category }}" class="post-extend-content">
+        <h3 class="post-extend-title">猜你喜欢</h3>
+        <ul class="post-extend-list">
         </ul>
-    </div>
-    <div id="recent-posts" class="posts">
-        <strong>最近更新</strong>
-        <ul>
+    </section>
+    <section id="recent-posts" class="post-extend-content">
+        <h3 class="post-extend-title">最近更新</h3>
+        <ul class="post-extend-list">
             {% for post in site.posts limit: 5 %}
-            <li><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} </a></li>
+            <li class="post-extend-item"><a class="post-extend-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} </a></li>
             {% endfor %}
         </ul>
-    </div>
+    </section>
 </section>
