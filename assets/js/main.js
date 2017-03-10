@@ -1,7 +1,15 @@
 // closest & matches Polyfill
 !function(a){var c;if(a=a.Element)a=a.prototype,!(c=a.matches)&&(c=a.matchesSelector||a.mozMatchesSelector||a.msMatchesSelector||a.oMatchesSelector||a.webkitMatchesSelector||a.querySelectorAll&&function matches(a){a=(this.parentNode||this.document||this.ownerDocument).querySelectorAll(a);for(var b=a.length;0<=--b&&a.item(b)!==this;);return-1<b})&&(a.matches=c),!a.closest&&c&&(a.closest=function closest(a){for(var b=this;b;){if(1===b.nodeType&&b.matches(a))return b;b=b.parentNode}return null})}(Function("return this")());
 
-var imgpath = document.getElementsByTagName('head')[0].dataset.imgPath;
+var head = document.getElementsByTagName('head')[0];
+var page = { 
+    imgpath: head.dataset.imgPath,
+    layout: head.dataset.layout,
+    home: head.dataset.home,
+    url: head.dataset.url,
+    id: head.dataset.id,
+    category: head.dataset.category
+}
 
 // timeago https://goo.gl/jlkyIS
 function timeAgo(selector) {
@@ -557,7 +565,6 @@ var guest = {
 
 function Comment () {
     this.imagesize = [];
-    this.link = document.getElementsByTagName('head')[0].dataset.url;
     this.init();
 }
 
@@ -574,22 +581,26 @@ Comment.prototype = {
         });
     },
 
+    // 读取评论
+    load: function(data){
+
+    },
+
+    // 评论框焦点
     form: function(){
         var textarea = document.getElementsByClassName('comment-form-textarea');
         [].forEach.call(textarea, function(item, i){
-            item.addEventListener('focus', function(){
+            function formFocus(){
                 var wrapper = this.closest('.comment-form-wrapper');
                 wrapper.classList.add('editing')
-                if (!wrapper.classList.contains('focus')){
-                    wrapper.classList.add('focus')
-                }
-            },false);
-            item.addEventListener('blur', function(){
-                var wrapper = this.closest('.comment-form-wrapper');
                 if (wrapper.classList.contains('focus')){
-                    wrapper.classList.remove('focus')
+                    wrapper.classList.remove('focus');
+                } else{
+                    wrapper.classList.add('focus');
                 }
-            },false);
+            }
+            item.addEventListener('focus', formFocus, false);
+            item.addEventListener('blur', formFocus, false);
         })
 
     },
@@ -620,19 +631,19 @@ Comment.prototype = {
         url: [
             'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif',
             'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png',
-            imgpath + '/2_02.png',
-            imgpath + '/2_04.png',
-            imgpath + '/2_05.png',
-            imgpath + '/2_06.png',
-            imgpath + '/2_07.png',
-            imgpath + '/2_11.png',
-            imgpath + '/2_12.png'
+            page.imgpath + '/2_02.png',
+            page.imgpath + '/2_04.png',
+            page.imgpath + '/2_05.png',
+            page.imgpath + '/2_06.png',
+            page.imgpath + '/2_07.png',
+            page.imgpath + '/2_11.png',
+            page.imgpath + '/2_12.png'
         ],
     },
 
     getlist: function(){
         var xhrListPosts = new XMLHttpRequest();
-        xhrListPosts.open('GET', 'http://api.fooleap.org/disqus/getcomments?link=' + encodeURIComponent(this.link), true);
+        xhrListPosts.open('GET', 'http://api.fooleap.org/disqus/getcomments?link=' + encodeURIComponent(page.url), true);
         xhrListPosts.send();
         xhrListPosts.onreadystatechange = function() {
             if (xhrListPosts.readyState == 4 && xhrListPosts.status == 200) {
@@ -735,7 +746,7 @@ Comment.prototype = {
     //
 }
 
-if( document.getElementsByTagName('head')[0].dataset.layout == 'post' || document.getElementsByTagName('head')[0].dataset.url == '/guestbook.html'){
+if(  page.layout == 'post' ||  page.url == '/guestbook.html' ){
     var comment = new Comment();
 }
 
@@ -928,10 +939,7 @@ function randomPosts(count, post) {
         }
     }
 }
-var info = document.getElementById('random-posts');
-
-if (info) {
-    var category = info.dataset.category;
+if (page.category) {
     var xhrPosts = new XMLHttpRequest();
     xhrPosts.open('GET', '/posts.json', true);
     xhrPosts.onreadystatechange = function() {
@@ -939,7 +947,7 @@ if (info) {
             var data = JSON.parse(xhrPosts.responseText);
             var posts = [];
             for( var i = 0; i < data.length; i++){
-                if( data[i].category == category && data[i].url != location.pathname ){
+                if( data[i].category == page.category && data[i].url != location.pathname ){
                   posts.push(data[i]);
                 }
             }

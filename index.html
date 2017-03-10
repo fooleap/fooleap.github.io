@@ -31,21 +31,23 @@ layout: default
 </section>
 
 <nav class="pagination">
-    <ul>
-        {% if paginator.next_page %}
-        <li class="older"><a href="/page{{paginator.next_page}}/">&laquo; 较旧文章</a></li>
-        {% else %}
-        <li class="older disable">没有了</li>
-        {% endif %}
-        <li class="number">{{paginator.page}} / {{paginator.total_pages}}</li>
-        {% if paginator.previous_page %}
+    <ul class="pagination-list">
+    {% if paginator.next_page %}
+        <li class="pagination-item"><a class="pagination-item-link" href="/page{{ paginator.next_page}}/">&laquo; 较旧文章</a></li>
+    {% else %}
+        <li class="pagination-item"></li>
+    {% endif %}
+
+        <li class="pagination-item">{{ paginator.page}} / {{ paginator.total_pages}}</li>
+
+    {% if paginator.previous_page %}
         {% if paginator.previous_page == 1 %}
-        <li class="newer"><a href="/">较新文章 &raquo;</a></li>
+        <li class="pagination-item"><a class="pagination-item-link" href="/">较新文章 &raquo;</a></li>
         {% else %}
-        <li class="newer"><a href="/page{{paginator.previous_page}}/">较新文章 &raquo;</a></li>
+        <li class="pagination-item"><a class="pagination-item-link" href="/page{{ paginator.previous_page}}/">较新文章 &raquo;</a></li>
         {% endif %}
-        {% else %}
-        <li class="newer"></li>
-        {% endif %}
+    {% else %}
+        <li class="pagination-item"></li>
+    {% endif %}
     </ul>
 </nav>

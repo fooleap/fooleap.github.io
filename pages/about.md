@@ -9,9 +9,8 @@ scripts: ["http://res.wx.qq.com/open/js/jweixin-1.0.0.js"]
 
 {% comment %}
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height="52" style="width:280px;margin:0;" src="http://music.163.com/outchain/player?type=2&id=165614&auto=0&height=32"></iframe>
-{% endcomment %}
-
 好多年前，在某个网站听到这首曲子的背景音乐，听着有感觉，便将其扒了下来（[fmmusic.mid]({{ site.IMG_PATH }}/fmmusic.mid)，当年的文件，MIDI 格式的），听得多了，就感觉对自己来说有某种特殊的意义，后来才知道它的名字及由来。
+{% endcomment %}
 
 * 网志网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)
@@ -85,7 +84,7 @@ wx.onMenuShareAppMessage({
     link: '', // 分享链接
     imgUrl: '', // 分享图标
     type: '', // 分享类型,music、video或link，不填默认为link
-    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    dataUrl: 'http://ls.qingting.fm/live/5022439/24k.m3u8', // 如果type是music或video，则要提供数据链接，默认为空
     success: function () { 
         // 用户确认分享后执行的回调函数
     },

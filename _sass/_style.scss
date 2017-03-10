@@ -73,20 +73,6 @@ body {
         right: 3px;
         width: 250px;
     }
-    a {
-        color: $darkblue;
-        position: relative;
-        &:hover:before {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            border-bottom: 1px dashed $darkblue;
-        }
-    }
 }
 
 img[data-onload="true"] {
@@ -171,46 +157,47 @@ img[data-onload="true"] {
 }
 
 // Pagination
-.pagination ul {
-    max-width: 640px;
+.pagination-list {
     margin: 10px auto;
     font-size: 13px;
     list-style-type: none;
     overflow: hidden;
-    padding: 0 5px;
-    &:after {
-        clear: both;
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    line-height: 30px;
+    color: $darkgray;
+    text-align: center;
+    .pagination-item:first-child,
+    .pagination-item:last-child{
+        width: 120px;
     }
-    &:before,
-    &:after {
-        display: table;
-        content: '';
+    .pagination-item:first-child{
+        text-align: left;
     }
-    .disable {
-        color: $white;
-    }
-    a {
-        border: none;
-        color: $darkgray;
-        height: 20px;
-        line-height: 20px;
-    }
-    li {
-        display: inline-block;
-        float: left;
-    }
-    .number {
-        color: $white;
-        width: 40%;
-        text-align: center;
-    }
-    .newer {
-        width: 30%;
+    .pagination-item:last-child{
         text-align: right;
     }
-    .older {
-        width: 30%;
-        text-align: left;
+    .pagination-item-link {
+        color: $darkgray;
+    }
+}
+
+.post-list,
+.post-content {
+    a {
+        color: $darkblue;
+        position: relative;
+        &:hover:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            border-bottom: 1px dashed $darkblue;
+        }
     }
 }
 
