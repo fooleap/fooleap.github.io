@@ -67,6 +67,8 @@
     color: #656c7a;
     .comment-header-item {
         display: inline-block;
+        border-bottom: 2px solid #656c7a;
+        margin-bottom: -2px;
         &:hover {
             color: #2a2e2e;
             background-color: transparent;
