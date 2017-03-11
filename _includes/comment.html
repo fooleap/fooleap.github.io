@@ -14,7 +14,7 @@
         </div>
         <div class="comment-form">
             <div class="comment-form-wrapper">
-                <textarea class="comment-form-textarea" id="message" placeholder="加入讨论…"></textarea>
+                <textarea class="comment-form-textarea" id="message" placeholder="{% if page.url == '/guestbook.html' %}写条留言……{% else %}加入讨论……{% endif %}"></textarea>
                 <div class="comment-image">
                     <ul class="comment-image-list">
                     </ul>

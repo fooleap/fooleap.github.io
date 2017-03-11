@@ -7,7 +7,6 @@
     margin: 20px 0;
 }
 .comment-mode{
-    max-width: 640px;
     padding: 5px 0;
     margin: 0 auto;
 }
@@ -47,7 +46,6 @@
 }
 
 .comment {
-    max-width: 640px;
     min-height: 40px;
     margin: 5px auto;
     word-wrap: break-word;
@@ -577,6 +575,7 @@
 
 .comment-item-header {
     line-height: 1;
+    color: #c2c6cc;
 }
 
 .comment-item-header a {
@@ -585,13 +584,7 @@
     font-weight: 700;
 }
 
-.bullet {
-    padding: 0;
-    color: #c2c6cc;
-    line-height: 1.4;
-}
-
-.timeago {
+.comment-item-time {
     color: #7f919e;
     font-weight: 500;
     word-spacing: -2px;
@@ -603,17 +596,4 @@
 }
 
 @media screen and (max-width: 640px) {
-    .comment-list .comment-item-children .comment-item-children,
-    .comment-list .comment-item-children .comment-form {
-        margin-left: 0;
-    }
-    .comment-login {
-        display: block;
-    }
-    .comment-form-input,
-    .guest-form input {
-        margin: 12px 0 0 0;
-        width: 100%;
-        display: block;
-    }
 }

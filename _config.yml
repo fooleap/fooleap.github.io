@@ -7,6 +7,7 @@ email: fooleap@gmail.com
 keywords: [fooleap, 前端, Linux, 潮汕]
 description: 'A foolish man could not always lose!'
 home: http://blog.fooleap.org
+api: http://api.fooleap.org
 timezone: CN
 highlighter: rouge
 permalink: /:title.html

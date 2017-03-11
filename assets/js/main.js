@@ -1,15 +1,17 @@
 // closest & matches Polyfill
 !function(a){var c;if(a=a.Element)a=a.prototype,!(c=a.matches)&&(c=a.matchesSelector||a.mozMatchesSelector||a.msMatchesSelector||a.oMatchesSelector||a.webkitMatchesSelector||a.querySelectorAll&&function matches(a){a=(this.parentNode||this.document||this.ownerDocument).querySelectorAll(a);for(var b=a.length;0<=--b&&a.item(b)!==this;);return-1<b})&&(a.matches=c),!a.closest&&c&&(a.closest=function closest(a){for(var b=this;b;){if(1===b.nodeType&&b.matches(a))return b;b=b.parentNode}return null})}(Function("return this")());
 
-var head = document.getElementsByTagName('head')[0];
-var page = { 
-    imgpath: head.dataset.imgPath,
-    layout: head.dataset.layout,
-    home: head.dataset.home,
-    url: head.dataset.url,
-    id: head.dataset.id,
-    category: head.dataset.category
-}
+//全局变量
+var head = document.getElementsByTagName('head')[0],
+    page = { 
+        imgpath: head.dataset.imgPath,
+        layout: head.dataset.layout,
+        home: head.dataset.home,
+        api: head.dataset.api,
+        url: head.dataset.url,
+        id: head.dataset.id,
+        category: head.dataset.category
+    };
 
 // timeago https://goo.gl/jlkyIS
 function timeAgo(selector) {
@@ -302,7 +304,7 @@ if (commentLinks.length > 0) {
     }
     var commentLink = commentArr.join(',');
     var xhrCommentCount = new XMLHttpRequest();
-    xhrCommentCount.open('GET', 'http://api.fooleap.org/disqus/list?link=' + commentLink, true);
+    xhrCommentCount.open('GET', page.api +'/disqus/list?link=' + commentLink, true);
     xhrCommentCount.send();
     xhrCommentCount.onreadystatechange = function() {
         if (xhrCommentCount.readyState == 4 && xhrCommentCount.status == 200) {
@@ -318,7 +320,7 @@ if (commentLinks.length > 0) {
 
 // 显示完整评论
 function disqus_config() {
-    this.page.url = 'http://blog.fooleap.org' + location.pathname;
+    this.page.url = page.home + location.pathname;
     this.callbacks.onReady.push(function() {
         console.log('disqus loaded');
         document.querySelector('.disqus-loading').style.display = 'none';
@@ -355,30 +357,38 @@ function getComments(res) {
             return;
         }
         res.response.forEach(function(post, i){
-            var profileUrl = post.profileUrl ? post.profileUrl : 'javascript:void(0);';
-            var url = post.url ? post.url : profileUrl;
-            var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
-            var images = post.media;
-            var imageList = '<div class="post-image">';
-            images.forEach(function(item, e){
-                imageList += '<a target="_blank" href="' + item + '" ><img class="comment-item-image" src="' + item + '"></a>';
+
+            post.url = post.url || post.profileUrl ?  post.url || post.profileUrl : 'javascript:void(0);';
+            post.createdAt= new Date(post.createdAt).getTime().toString().slice(0, -3);
+
+            var parent = post.parent == null ? {
+                'name': '',
+                'dom': document.querySelector('.comment-list'),
+                'insert': 'afterbegin'
+            } : {
+                'name': '<a href="#'+document.querySelector('.comment-item[data-id="'+post.parent+'"]').getAttribute('id')+'">@' + document.querySelector('.comment-item[data-id="'+post.parent+'"]').dataset.name + '</a> ',
+                'dom': document.querySelector('.comment-item[data-id="'+post.parent+'"] .comment-item-children'),
+                'insert': 'beforeend'
+            };
+            post.message = post.message.replace(/(.{3})/, '$1'+parent.name);
+
+            var imageArr = post.media;
+            post.media = '';
+            imageArr.forEach(function(item, e){
+                post.media += '<a class="comment-item-imagelink" target="_blank" href="' + item + '" ><img class="comment-item-image" src="' + item + '"></a>';
             })
-            imageList += '</div>';
-            var isModerator = post.name == 'fooleap' ? '<span class="moderator">博主</span>' : '';
-            var html = '<li class="comment-item" id="comment-' + post.id + '">';
+            post.media = '<div class="comment-item-images">' + post.media + '</div>';
+
+            var html = '<li class="comment-item" data-index="'+(i+1)+'" data-id="'+post.id+'" data-name="'+ post.name+'" id="comment-' + post.id + '">';
             html += '<div class="comment-item-avatar"><img src="' + post.avatar + '"></div>';
             html += '<div clas="comment-item-main">'
-            html += '<div class="comment-item-header"><a target="_blank" href="' + url + '">' + post.name + '</a>' + isModerator + '<span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
-            html += '<div class="comment-item-content">' + post.message + imageList + '</div>';
+            html += '<div class="comment-item-header"><a class="comment-item-name" target="_blank" href="' + post.url + '">' + post.name + '</a><span class="comment-item-bullet"> • </span><span class="comment-item-time timeago" title="' + post.createdAt + '"></span><span class="comment-item-bullet"> • </span><a class="comment-item-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+            html += '<div class="comment-item-content">' + post.message + post.media + '</div>';
             html += '<ul class="comment-item-children"></ul>';
             html += '</div>'
             html += '</li>';
-            if (post.parent == null) {
-                document.getElementById('comments').insertAdjacentHTML('afterbegin', html);
-            } else {
-                if (document.querySelector('#comment-' + post.parent + ' .comment-item-children')) {
-                    document.querySelector('#comment-' + post.parent + ' .comment-item-children').insertAdjacentHTML('beforeend', html);
-                }
+            if (parent.dom) {
+                parent.dom.insertAdjacentHTML(parent.insert, html);
             }
         });
         timeAgo();
@@ -394,7 +404,7 @@ function getComments(res) {
         var url = location.pathname.slice(1);
         var title = document.querySelector('title').innerText;
         var xhrcreateThread = new XMLHttpRequest();
-        xhrcreateThread.open('POST', 'http://api.fooleap.org/disqus/createthread?url=' + url + '&title=' + title, true);
+        xhrcreateThread.open('POST', page.api + '/disqus/createthread?url=' + url + '&title=' + title, true);
         xhrcreateThread.send();
         return;
     }
@@ -411,7 +421,7 @@ function verifyEmail(el) {
     if (el.value != '') {
         if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
             var xhrGravatar = new XMLHttpRequest();
-            xhrGravatar.open('GET', 'http://api.fooleap.org/disqus/getgravatar?email=' + el.value + '&name=' + name.value, true);
+            xhrGravatar.open('GET', page.api + '/disqus/getgravatar?email=' + el.value + '&name=' + name.value, true);
             xhrGravatar.send();
             xhrGravatar.onreadystatechange = function() {
                 if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
@@ -643,7 +653,7 @@ Comment.prototype = {
 
     getlist: function(){
         var xhrListPosts = new XMLHttpRequest();
-        xhrListPosts.open('GET', 'http://api.fooleap.org/disqus/getcomments?link=' + encodeURIComponent(page.url), true);
+        xhrListPosts.open('GET', page.api + '/disqus/getcomments?link=' + encodeURIComponent(page.url), true);
         xhrListPosts.send();
         xhrListPosts.onreadystatechange = function() {
             if (xhrListPosts.readyState == 4 && xhrListPosts.status == 200) {
@@ -717,7 +727,7 @@ Comment.prototype = {
                                 document.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
                             }
                         }
-                        xhrFetch.open('GET', 'http://api.fooleap.org/qiniu/fetch?'+fetchQuery,true);
+                        xhrFetch.open('GET', page.api + '/qiniu/fetch?'+fetchQuery,true);
                         xhrFetch.send();
                     }
                 } catch (e){
@@ -735,7 +745,7 @@ Comment.prototype = {
         xhrUpload.upload.addEventListener('progress', function(e){
             loaded.style.width = Math.ceil((e.loaded/e.total) * 100)+ '%';
         }, false);
-        xhrUpload.open('POST', 'http://api.fooleap.org/disqus/upload',true);
+        xhrUpload.open('POST', page.api + '/disqus/upload',true);
         xhrUpload.send(data);
     },
 
@@ -761,7 +771,7 @@ function postComment(parent) {
     var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, -9)) + 1 + ' comments';
     previewComment(parent, avatar, name, message, url);
     var xhrPostComment = new XMLHttpRequest();
-    xhrPostComment.open('POST', 'http://api.fooleap.org/disqus/postcomment', true);
+    xhrPostComment.open('POST', page.api + '/disqus/postcomment', true);
     xhrPostComment.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhrPostComment.send('id=' + id + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url);
     xhrPostComment.onreadystatechange = function() {
@@ -841,7 +851,7 @@ function replyComment(el) {
     var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, -9)) + 1 + ' comments';
     previewComment(parent, avatar, name, message, url);
     var xhrReplyComment = new XMLHttpRequest();
-    xhrReplyComment.open('POST', 'http://api.fooleap.org/disqus/postcomment', true);
+    xhrReplyComment.open('POST', page.api + '/disqus/postcomment', true);
     xhrReplyComment.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhrReplyComment.send('id=' + id + '&parent=' + parent + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url);
     xhrReplyComment.onreadystatechange = function() {
@@ -882,7 +892,7 @@ function replyComment(el) {
         }
     }
     var xhrSendEmail = new XMLHttpRequest();
-    xhrSendEmail.open('POST', 'http://api.fooleap.org/disqus/sendemail', true);
+    xhrSendEmail.open('POST', page.api + '/disqus/sendemail', true);
     xhrSendEmail.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhrSendEmail.send('parent=' + parent + '&message=' + message + '&name=' + name + '&title=' + title + '&link=' + link);
 }
