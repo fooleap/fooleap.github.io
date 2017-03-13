@@ -1,11 +1,11 @@
 <section id="posts" class="post-extend">
     <section id="random-posts" data-category="{{ page.category }}" class="post-extend-content">
-        <h3 class="post-extend-title">猜你喜欢</h3>
+        <h4 class="post-extend-title">猜你喜欢</h4>
         <ul class="post-extend-list">
         </ul>
     </section>
     <section id="recent-posts" class="post-extend-content">
-        <h3 class="post-extend-title">最近更新</h3>
+        <h4 class="post-extend-title">最近更新</h4>
         <ul class="post-extend-list">
             {% for post in site.posts limit: 5 %}
             <li class="post-extend-item"><a class="post-extend-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} </a></li>

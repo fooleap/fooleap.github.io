@@ -25,7 +25,7 @@ layout: default
             <h3 class="post-item-title"><a class="post-item-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
             <abbr class="post-item-date timeago" title="{{ post.date | date_to_xmlschema }}"></abbr>
         </section>
-        <a class="post-item-comment" title="查看评论" data-disqus-url="{{ post.url | remove_first: '/' }}" href="{{ post.url }}#comments"></a>
+        <a class="post-item-comment" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comments"></a>
     </article>
     {% endfor %}
 </section>

@@ -176,6 +176,7 @@
     }
     .icon-send{
         margin: 9px;
+        cursor: pointer;
     }
     .emojione:hover .icon {
         color: #000;
@@ -539,13 +540,10 @@
 
 .comment-list .comment-item-content {
     min-height: 40px;
-    padding-bottom: 10px;
+    padding: 5px 0;
     font-size: 13px;
     .comment-item-content {
         min-height: 20px;
-    }
-    >*{
-        margin: 0;
     }
     .emojione {
         width: 22px;
