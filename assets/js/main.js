@@ -448,7 +448,6 @@ Guest.prototype = {
 function Comment () {
     this.imagesize = [];
     this.getlist();
-    this.init();
     
     //是否能连上 Disqus
     /*
@@ -464,33 +463,20 @@ Comment.prototype = {
     // 初始化
     init: function(){
 
-        var submitArr = document.getElementsByClassName('comment-form-submit');
-        [].forEach.call(submitArr,function(item,i){
-            item.addEventListener('click',function(){
-                if ( guest.logged_in == 'false' ){
-                    guest.submit(this);
-                    console.log( 'guest submit!' );
-                }
-            }, false);
-        });
-
+        //激活列表回复按钮事件
         var replyArr = document.getElementsByClassName('comment-item-reply');
         [].forEach.call(replyArr,function(item,i){
             item.addEventListener('click', function(){
                  comment.show(this);
             }, false);
         });
-        
-        this.form();
 
-        //选图即上传
-        document.getElementById('image-upload').addEventListener('change', function(e){
-            comment.upload();
-        });
     },
 
-    // 评论框焦点
+    // 评论表单事件绑定
     form: function(){
+
+        // 评论框焦点
         var textarea = document.getElementsByClassName('comment-form-textarea');
         [].forEach.call(textarea, function(item, i){
             function formFocus(){
@@ -505,6 +491,27 @@ Comment.prototype = {
             item.addEventListener('focus', formFocus, false);
             item.addEventListener('blur', formFocus, false);
         })
+
+        // 表情按钮
+
+
+        // 回复按钮
+        var submitArr = document.getElementsByClassName('comment-form-submit');
+        [].forEach.call(submitArr,function(item,i){
+            item.addEventListener('click',function(){
+                if ( guest.logged_in == 'false' ){
+                    guest.submit(this);
+                }
+            }, false);
+        });
+
+        // 上传图片按钮
+        var imgInputArr = document.getElementsByClassName('comment-image-input');
+        [].forEach.call(imgInputArr,function(item,i){
+            item.addEventListener('change',function(){
+                comment.upload(this);
+            }, false);
+        });
 
     },
 
@@ -631,25 +638,36 @@ Comment.prototype = {
                 }
             }
         }
+        xhrListPosts.onload = function(){
+            comment.init();
+        }
+
     },
 
-    //移除图片
-    remove: function(){
-        var currentItem = this.closest('.comment-image-item');
-        currentItem.parentNode.removeChild(currentItem);
-        comment.imagesize = [];
-        [].forEach.call(document.getElementsByClassName('comment-image-item'), function(item, i){
-            comment.imagesize[i] = item.dataset.imageSize;
-        });
+
+    // 发表/回复评论
+    post: function(){
+    },
+
+    //显示回复框
+    show: function(el){
+
+        var item = el.closest('.comment-item');
+        var parentId = item.dataset.id;
+        var commentBox = document.querySelector('.comment-box').outerHTML;
+        commentBox.replace(/upload-input/g,'upload-input-'+parentId)
+        item.querySelector('.comment-item-main').insertAdjacentHTML('beforeend', document.querySelector('.comment-box').outerHTML);
+
+        // 事件绑定
+        this.form();
     },
 
     // 上传图片
-    upload: function(id){
-        var id = id ? '-' + id : '';
-        var file = document.getElementById('image-upload'+id);
-        var progress = document.querySelector('.comment-image-progress');
-        var loaded = document.querySelector('.comment-image-loaded');
-        var wrapper = document.querySelector('.comment-form-wrapper');
+    upload: function(file){
+        var item = file.closest('.comment-box');
+        var progress = item.querySelector('.comment-image-progress');
+        var loaded = item.querySelector('.comment-image-loaded');
+        var wrapper = item.querySelector('.comment-form-wrapper');
         if(file.files.length === 0){
             return;
         }
@@ -683,7 +701,7 @@ Comment.prototype = {
                         var imageUrl = resp.response[filename].url;
                         var imageFilename = resp.response[filename].filename;
                         var imageItem = '<li class="comment-image-item loading" data-image-size="' + size + '" data-image-filename="'+imageFilename+'" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="/assets/svg/loading.svg"/></li>';
-                        document.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
+                        item.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
 
                         // Fetch 到七牛，回调显示图片
                         var fetchQuery = 'url=' + imageUrl + '&prefix=images'+ '&filename='+imageFilename;
@@ -691,8 +709,8 @@ Comment.prototype = {
                         xhrFetch.onreadystatechange = function(){
                             if(xhrFetch.readyState == 4 && xhrFetch.status == 200){
                                 var file = JSON.parse(xhrFetch.responseText);
-                                document.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url);
-                                document.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
+                                item.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url);
+                                item.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
                             }
                         }
                         xhrFetch.open('GET', page.api + '/qiniu/fetch?'+fetchQuery,true);
@@ -717,16 +735,16 @@ Comment.prototype = {
         xhrUpload.send(data);
     },
 
-    // 发表/回复评论
-    post: function(){
-    },
-
-    //显示回复框
-    show: function(el){
-        var item = el.closest('.comment-item-main');
-        console.log( item );
-        item.insertAdjacentHTML('beforeend', document.querySelector('.comment-box').outerHTML);
+    //移除图片
+    remove: function(){
+        var currentItem = this.closest('.comment-image-item');
+        currentItem.parentNode.removeChild(currentItem);
+        comment.imagesize = [];
+        [].forEach.call(document.getElementsByClassName('comment-image-item'), function(item, i){
+            comment.imagesize[i] = item.dataset.imageSize;
+        });
     }
+
 }
 
 var guest = page.layout == 'post' ||  page.url == '/guestbook.html' ? new Guest() : undefined;
