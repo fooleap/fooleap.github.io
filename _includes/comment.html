@@ -24,14 +24,15 @@
                     </div>
                 </div>
                 <div class="comment-actions">
-                    <div class="comment-icon-group">
-                        <object class="icon icon-face" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/face.svg"></object>
-                        <ul class="emojione-gallery">
-                        </ul>
-                        <label class="comment-image-upload" for="upload-input" title="点击上传图片，亦可直接拽拉图片到文本框">
+                    <div class="comment-actions-group">
+                        <label class="comment-actions-label" for="emoji-input" title="点击选择表情">
+                            <object class="icon icon-face" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/face.svg"></object>
+                        </label>
+                        <input class="comment-actions-input" type="checkbox" id="emoji-input"/>
+                        <label class="comment-actions-label" for="upload-input" title="点击上传图片，亦可直接拽拉图片到文本框">
                             <object class="icon icon-image" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/image.svg"></object>
                         </label>
-                        <input class="comment-image-input" type="file" accept="image/*" name="file" id="upload-input"/>
+                        <input class="comment-actions-input comment-image-input" type="file" accept="image/*" name="file" id="upload-input"/>
                     </div>
                     <button class="comment-form-submit">
                         <object class="icon icon-send" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/send.svg"></object>
@@ -39,9 +40,9 @@
                 </div>
             </div>
             <div class="comment-login">
-                <input class="comment-form-input comment-form-name" type="text" placeholder="请输入您的名字（必填）" required>
-                <input class="comment-form-input comment-form-email" type="email" placeholder="请输入您的邮箱（必填）" required>
-                <input class="comment-form-input comment-form-url" type="text" placeholder="请输入您的网址（可选）">
+                <input class="comment-form-input comment-form-name" type="text" placeholder="名字（必填）" required>
+                <input class="comment-form-input comment-form-email" type="email" placeholder="邮箱（必填）" required>
+                <input class="comment-form-input comment-form-url" type="text" placeholder="网址（可选）">
             </div>
         </div>
     </div>

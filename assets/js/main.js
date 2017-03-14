@@ -402,11 +402,15 @@ Guest.prototype = {
     // 初始化访客信息
     init: function(){
         this.load()
-        if( this.logged_in == 'true' ){
-            document.querySelector('.comment-form-wrapper').classList.add('logged-in');
+        var wrapperArr = document.getElementsByClassName('comment-form-wrapper');
+        if( this.logged_in == 'true' ) {
+            [].forEach.call(wrapperArr,function(item,i){
+                item.classList.add('logged-in');
+            });
         } else {
-            this.clear();
-            this.load()
+            [].forEach.call(wrapperArr,function(item,i){
+                item.classList.remove('logged-in');
+            });
         }
     },
 
@@ -426,21 +430,24 @@ Guest.prototype = {
         localStorage.removeItem('url');
         localStorage.removeItem('avatar');
         localStorage.setItem('logged_in', 'false');
+        this.init()
     },
 
     // 提交访客信息
-    submit: function(el){
-        var item = el.closest('.comment-item') || el.closest('.comment-box');
-        name = item.querySelector('.comment-form-name').value;
-        email = item.querySelector('.comment-form-email').value;
-        url = item.querySelector('.comment-form-url').value;
-        avatar = item.querySelector('.comment-avatar-image').getAttribute('src');
-        localStorage.setItem('name', name);
-        localStorage.setItem('email', email);
-        localStorage.setItem('url', url);
-        localStorage.setItem('avatar', avatar);
-        localStorage.setItem('logged_in', 'true');
-        this.init();
+    submit: function(e){
+        if ( guest.logged_in == 'false' ){
+            var item = e.target.closest('.comment-item') || e.target.closest('.comment-box');
+            name = item.querySelector('.comment-form-name').value;
+            email = item.querySelector('.comment-form-email').value;
+            url = item.querySelector('.comment-form-url').value;
+            avatar = item.querySelector('.comment-avatar-image').getAttribute('src');
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('url', url);
+            localStorage.setItem('avatar', avatar);
+            localStorage.setItem('logged_in', 'true');
+        }
+        guest.init()
     }
 }
 
@@ -466,11 +473,10 @@ Comment.prototype = {
         //激活列表回复按钮事件
         var replyArr = document.getElementsByClassName('comment-item-reply');
         [].forEach.call(replyArr,function(item,i){
-            item.addEventListener('click', function(){
-                 comment.show(this);
-            }, false);
+            item.addEventListener('click', comment.show, false);
         });
 
+        this.form();
     },
 
     // 评论表单事件绑定
@@ -479,40 +485,36 @@ Comment.prototype = {
         // 评论框焦点
         var textarea = document.getElementsByClassName('comment-form-textarea');
         [].forEach.call(textarea, function(item, i){
-            function formFocus(){
-                var wrapper = this.closest('.comment-form-wrapper');
-                wrapper.classList.add('editing')
-                if (wrapper.classList.contains('focus')){
-                    wrapper.classList.remove('focus');
-                } else{
-                    wrapper.classList.add('focus');
-                }
-            }
-            item.addEventListener('focus', formFocus, false);
-            item.addEventListener('blur', formFocus, false);
+            item.addEventListener('focus', comment.focus, false);
+            item.addEventListener('blur', comment.focus, false);
         })
 
         // 表情按钮
 
 
-        // 回复按钮
+        // 提交按钮
         var submitArr = document.getElementsByClassName('comment-form-submit');
         [].forEach.call(submitArr,function(item,i){
-            item.addEventListener('click',function(){
-                if ( guest.logged_in == 'false' ){
-                    guest.submit(this);
-                }
-            }, false);
+            item.addEventListener('click', guest.submit, false);
         });
 
         // 上传图片按钮
         var imgInputArr = document.getElementsByClassName('comment-image-input');
-        [].forEach.call(imgInputArr,function(item,i){
-            item.addEventListener('change',function(){
-                comment.upload(this);
-            }, false);
+        [].forEach.call(imgInputArr, function(item,i){
+            item.addEventListener('change', comment.upload, false);
         });
 
+    },
+
+    // 评论框焦点
+    focus: function(e){
+        var wrapper = e.target.closest('.comment-form-wrapper');
+        wrapper.classList.add('editing');
+        if (wrapper.classList.contains('focus')){
+            wrapper.classList.remove('focus');
+        } else{
+            wrapper.classList.add('focus');
+        }
     },
 
     //emoji表情
@@ -650,20 +652,20 @@ Comment.prototype = {
     },
 
     //显示回复框
-    show: function(el){
-
-        var item = el.closest('.comment-item');
+    show: function(e){
+        var item = e.target.closest('.comment-item');
         var parentId = item.dataset.id;
         var commentBox = document.querySelector('.comment-box').outerHTML;
-        commentBox.replace(/upload-input/g,'upload-input-'+parentId)
-        item.querySelector('.comment-item-main').insertAdjacentHTML('beforeend', document.querySelector('.comment-box').outerHTML);
+        commentBox = commentBox.replace(/upload-input/g,'upload-input-'+parentId)
+        item.querySelector('.comment-item-main').insertAdjacentHTML('beforeend', commentBox);
 
         // 事件绑定
-        this.form();
+        comment.form();
     },
 
     // 上传图片
-    upload: function(file){
+    upload: function(e){
+        var file = e.target;
         var item = file.closest('.comment-box');
         var progress = item.querySelector('.comment-image-progress');
         var loaded = item.querySelector('.comment-image-loaded');
@@ -677,8 +679,8 @@ Comment.prototype = {
 
         //以文件大小识别是否为同张图片
         var size = file.files[0].size;
-        if( this.imagesize.indexOf(size) == -1 ){
-            this.imagesize.push(size);
+        if( comment.imagesize.indexOf(size) == -1 ){
+            comment.imagesize.push(size);
             progress.style.width = '80px';
         } else {
             console.log('请勿选择已存在的图片！');

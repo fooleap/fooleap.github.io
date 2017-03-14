@@ -141,21 +141,27 @@
     opacity: 0;
     filter: alpha(opacity=0);
     visibility: hidden;
-    .comment-icon-group{
+    .comment-actions-group{
         display: flex;
     }
     .emojione {
         width: 36px;
     }
-    .comment-image-input{
+    .comment-actions-input{
         display: none;
     }
-    .comment-image-upload{
+    .comment-actions-label{
         display: inline-block;
+        position: relative;
         width: 34px;
         height: 34px;
         cursor: pointer;
         &:before{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             content: "";
             z-index: 1;
         }
@@ -210,12 +216,14 @@
 .expanded .comment-image{
     display: flex;
     .comment-image-progress{
+        position: relative;
         height: 80px;
         width: 0;
         background: url("https://a.disquscdn.com/next/embed/assets/img/loader.5cc23909da9c4a9874500d7a85c4125f.gif") center no-repeat;
         margin: 0 5px;
         overflow: hidden;
         &:before{
+            position: absolute;
             content: "";
             display: block;
             top: 55px;
@@ -227,6 +235,7 @@
             background-color: rgba(219,223,228,1);
         }
         .comment-image-loaded{
+            position: absolute;
             background-color: rgba(127,145,158,1);
             top: 55px;
             left: 0;
@@ -268,7 +277,6 @@
             margin-top: 10px;
         }
         .comment-form-textarea {
-            margin-bottom: 20px;
             font: 13px/15px "Helvetica Neue", Helvetica, Arial,"微软雅黑","Microsoft YaHei";
             height: 74px;
         }
@@ -285,8 +293,8 @@
             visibility: visible!important;
         }
         .comment-form-submit{
-            bottom: -90px;
             transition: all .3s .5s;
+            margin: 87px -2px -2px;
             opacity:1;
         }
     }
@@ -307,7 +315,7 @@
     }
     &.logged-in{
         .comment-form-submit{
-            position: static;
+            margin: -2px;
             border-radius: 0 0 4px;
             transition: none;
             opacity:1;
@@ -355,12 +363,11 @@
 }
 
 .comment-form-submit{
-    position: absolute;
-    bottom: -60px;
-    right: 0;
+    position: relative;
+    z-index: 1;
     border: none;
     opacity: 0;
-    margin: -2px;
+    margin: 40px -2px -2px;
     white-space: nowrap;
     border-radius: 4px;
     height: 38px;
@@ -528,15 +535,15 @@
     }
 }
 
-.comment-list .comment-form-textarea {
-    height: 32px;
-    padding: 6px;
-}
-
-.comment-list .comment-form-textarea:focus,
-.comment-list .comment-form-textarea.noempty {
-    height: 72px;
-    margin-bottom: 36px;
+.comment-list {
+    .comment-form-textarea {
+        height: 44px;
+        padding: 6px;
+        line-height: 32px;
+    }
+    .comment-item-main{
+        flex: auto;
+    }
 }
 
 .comment-item-image{
