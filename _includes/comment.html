@@ -14,7 +14,7 @@
         </div>
         <div class="comment-form">
             <div class="comment-form-wrapper">
-                <textarea class="comment-form-textarea" id="message" placeholder="{% if page.url == '/guestbook.html' %}写条留言……{% else %}加入讨论……{% endif %}"></textarea>
+                <textarea class="comment-form-textarea" placeholder="{% if page.url == '/guestbook.html' %}写条留言……{% else %}加入讨论……{% endif %}"></textarea>
                 <div class="comment-image">
                     <ul class="comment-image-list">
                     </ul>
@@ -25,12 +25,13 @@
                 </div>
                 <div class="comment-actions">
                     <div class="comment-actions-group">
-                        <label class="comment-actions-label" for="emoji-input" title="点击选择表情">
-                            <object class="icon icon-face" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/face.svg"></object>
-                        </label>
                         <input class="comment-actions-input" type="checkbox" id="emoji-input"/>
-                        <label class="comment-actions-label" for="upload-input" title="点击上传图片，亦可直接拽拉图片到文本框">
-                            <object class="icon icon-image" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/image.svg"></object>
+                        <label class="comment-actions-label emojione" for="emoji-input" title="点击选择表情">
+                            <object class="icon icon-face" type="image/svg+xml" data="/assets/svg/face.svg"></object>
+                            <ul class="emojione-list"></ul>
+                        </label>
+                        <label class="comment-actions-label" for="upload-input" title="点击上传图片">
+                            <object class="icon icon-image" type="image/svg+xml" data="/assets/svg/image.svg"></object>
                         </label>
                         <input class="comment-actions-input comment-image-input" type="file" accept="image/*" name="file" id="upload-input"/>
                     </div>

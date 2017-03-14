@@ -3,13 +3,16 @@
 
 //全局变量
 var head = document.getElementsByTagName('head')[0],
-    page = { 
-        imgpath: head.dataset.imgPath,
-        layout: head.dataset.layout,
+    site = {
         home: head.dataset.home,
         api: head.dataset.api,
-        url: head.dataset.url,
+        img: head.dataset.img,
+        tongji: head.dataset.tongji
+    },
+    page = { 
+        layout: head.dataset.layout,
         title: head.dataset.title,
+        url: head.dataset.url,
         id: head.dataset.id,
         category: head.dataset.category
     };
@@ -134,6 +137,7 @@ timeAgo();
 })();
 
 // SVG 覆盖颜色
+/*
 (function(){
     [].forEach.call(document.querySelectorAll('.icon'), function(item, i){
         item.addEventListener('mouseover', function(){
@@ -145,7 +149,7 @@ timeAgo();
             this.contentDocument.querySelector('.icon').setAttribute("fill", null);
         }, false);
     });
-})();
+})();*/
 
 // 判断是否支持 Flash http://goo.gl/cg206i
 function isFlashSupported() {
@@ -298,7 +302,7 @@ if( commentCount.length){
     });
     var commentLink = encodeURIComponent(commentArr.join(','));
     var xhrCommentCount = new XMLHttpRequest();
-    xhrCommentCount.open('GET', page.api +'/disqus/list?link=' + commentLink, true);
+    xhrCommentCount.open('GET', site.api +'/disqus/list?link=' + commentLink, true);
     xhrCommentCount.send();
     xhrCommentCount.onreadystatechange = function() {
         if (xhrCommentCount.readyState == 4 && xhrCommentCount.status == 200) {
@@ -314,7 +318,7 @@ if( commentCount.length){
 
 // 显示完整评论
 function disqus_config() {
-    this.page.url = page.home + location.pathname;
+    this.page.url = site.home + location.pathname;
     this.callbacks.onReady.push(function() {
         console.log('disqus loaded');
         document.querySelector('.disqus-loading').style.display = 'none';
@@ -332,66 +336,6 @@ function showComments() {
     (d.head || d.body).appendChild(s);
 }
 
-/*
-//验证邮箱
-function verifyEmail(el) {
-    var guest = el.parentElement;
-    var form = el.parentElement.parentElement;
-    var avatar = form.querySelector('.avatar img');
-    var name = guest.querySelector('.guest-form-name') || form.querySelector('.comment-form-input');
-    var alert = form.querySelector('.comment-form-alert');
-    if (el.value != '') {
-        if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
-            var xhrGravatar = new XMLHttpRequest();
-            xhrGravatar.open('GET', page.api + '/disqus/getgravatar?email=' + el.value + '&name=' + name.value, true);
-            xhrGravatar.send();
-            xhrGravatar.onreadystatechange = function() {
-                if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
-                    if (xhrGravatar.responseText == 'false') {
-                        alert.innerHTML = '您所填写的邮箱地址有误！';
-                    } else {
-                        alert.innerHTML = '';
-                        avatar.src = xhrGravatar.responseText;
-                    }
-                }
-            }
-        } else {
-            alert.innerHTML = '您所填写的邮箱地址有误！';
-        }
-    }
-}
-
-//提交加载
-function htmlComment(data) {
-    var post = data.response;
-    var url = post.author.url ? post.author.url : 'javascript:void(0);';
-    var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
-    var html = '<li class="comment-item" id="comment-' + post.id + '">';
-    html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
-    html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
-    html += '<div class="post-content">' + post.message + '</div>';
-    html += '<ul class="post-children"></ul>';
-    html += '</li>';
-    return html;
-}
-
-//发表预加载 
-function previewComment(parent, avatar, name, message, url) {
-    var url = url == '' ? 'javascript:void(0);' : url;
-    var html = '<li class="comment-item transparent">';
-    html += '<a target="_blank" class="avatar"><img src="' + avatar + '"></a>';
-    html += '<div class="post-header"><a target="_blank" href="' + url + '">' + name + '</a><span class="bullet"> • </span><span class="timeago">几秒前</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
-    html += '<div class="post-content">' + message + '</div>';
-    html += '<ul class="post-children"></ul>';
-    html += '</li>';
-    if (parent == null) {
-        document.getElementById('comments').insertAdjacentHTML('afterbegin', html);
-        document.getElementById('message').value = '';
-    } else {
-        document.querySelector('#comment-' + parent + ' .post-children').insertAdjacentHTML('beforeend', html);
-        document.querySelector('#comment-' + parent + ' .comment-form-textarea').value = '';
-    }
-}*/
 
 function Guest() {
     this.init();
@@ -469,28 +413,40 @@ function Comment () {
 Comment.prototype = {
     // 初始化
     init: function(){
-
-        //激活列表回复按钮事件
-        var replyArr = document.getElementsByClassName('comment-item-reply');
-        [].forEach.call(replyArr,function(item,i){
-            item.addEventListener('click', comment.show, false);
-        });
-
         this.form();
     },
 
     // 评论表单事件绑定
     form: function(){
 
+        // 加载表情
+        var emojiList = '';
+        comment.emoji.image.forEach(function(item,i){
+            emojiList += '<li class="emojione-item" title="'+ comment.emoji.title[i]+'" data-code="'+comment.emoji.code[i]+'"><img class="emojione-item-image" src="'+item+'" /></li>';
+        })
+        emojiListArr = document.getElementsByClassName('emojione-list');
+        [].forEach.call(emojiListArr,function(item,i){
+            item.innerHTML = emojiList;
+        });
+
+        // 激活列表回复按钮事件
+        var replyArr = document.getElementsByClassName('comment-item-reply');
+        [].forEach.call(replyArr,function(item,i){
+            item.addEventListener('click', comment.show, false);
+        });
+
         // 评论框焦点
-        var textarea = document.getElementsByClassName('comment-form-textarea');
-        [].forEach.call(textarea, function(item, i){
+        var textareaArr = document.getElementsByClassName('comment-form-textarea');
+        [].forEach.call(textareaArr, function(item, i){
             item.addEventListener('focus', comment.focus, false);
             item.addEventListener('blur', comment.focus, false);
         })
 
-        // 表情按钮
-
+        // 表情点选
+        emojiArr = document.getElementsByClassName('emojione-item');
+        [].forEach.call(emojiArr,function(item,i){
+            item.addEventListener('click', comment.field, false);
+        });
 
         // 提交按钮
         var submitArr = document.getElementsByClassName('comment-form-submit');
@@ -517,40 +473,49 @@ Comment.prototype = {
         }
     },
 
+    //点选表情
+    field: function(e){
+        var $this = e.target;
+        var item = $this.closest('.comment-form').querySelector('.comment-form-textarea');
+        item.value += $this.dataset.code;
+        item.focus();
+    },
+
     //emoji表情
     emoji: {
-        text: [
-            'doge',
-            'tanshou',
-            'wx_smirk',
-            'wx_hey',
-            'wx_facepalm',
-            'wx_smart',
-            'wx_tea',
-            'wx_yeah',
-            'wx_moue'
-        ],
         code: [
+            ':doge:',
+            ':tanshou:',
+            ':wx_smirk:',
+            ':wx_hey:',
+            ':wx_facepalm:',
+            ':wx_smart:',
+            ':wx_tea:',
+            ':wx_yeah:',
+            ':wx_moue:'
+        ],
+        title: [
             'doge',
             '摊手',
             '奸笑',
             '嘿哈',
             '捂脸',
+            '机智',
             '茶',
             '耶',
             '皱眉'
         ],
-        url: [
+        image: [
             'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif',
             'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png',
-            page.imgpath + '/2_02.png',
-            page.imgpath + '/2_04.png',
-            page.imgpath + '/2_05.png',
-            page.imgpath + '/2_06.png',
-            page.imgpath + '/2_07.png',
-            page.imgpath + '/2_11.png',
-            page.imgpath + '/2_12.png'
-        ],
+            site.img + '/wx_emoji/2_02.png',
+            site.img + '/wx_emoji/2_04.png',
+            site.img + '/wx_emoji/2_05.png',
+            site.img + '/wx_emoji/2_06.png',
+            site.img + '/wx_emoji/2_07.png',
+            site.img + '/wx_emoji/2_11.png',
+            site.img + '/wx_emoji/2_12.png'
+        ]
     },
     
     // 预览评论
@@ -611,7 +576,7 @@ Comment.prototype = {
     // 获取评论列表
     getlist: function(){
         var xhrListPosts = new XMLHttpRequest();
-        xhrListPosts.open('GET', page.api + '/disqus/getcomments?link=' + encodeURIComponent(page.url), true);
+        xhrListPosts.open('GET', site.api + '/disqus/getcomments?link=' + encodeURIComponent(page.url), true);
         xhrListPosts.send();
         xhrListPosts.onreadystatechange = function() {
             if (xhrListPosts.readyState == 4 && xhrListPosts.status == 200) {
@@ -631,7 +596,7 @@ Comment.prototype = {
                     /*
                     var query = 'url=' + page.url + '&title=' + page.title;;
                     var xhrcreateThread = new XMLHttpRequest();
-                    xhrcreateThread.open('POST', page.api + '/disqus/createthread?' + query, true);
+                    xhrcreateThread.open('POST', site.api + '/disqus/createthread?' + query, true);
                     xhrcreateThread.send();
                     return;*/
                 }
@@ -651,13 +616,35 @@ Comment.prototype = {
     post: function(){
     },
 
-    //显示回复框
+    // 回复框
     show: function(e){
-        var item = e.target.closest('.comment-item');
+
+        // 移除已显示回复框
+        var box = document.querySelector('.comment-item .comment-box');
+        if( box ){
+            box.parentNode.removeChild(box);
+            var cancel = document.querySelector('.comment-item-cancel')
+            cancel.outerHTML = cancel.outerHTML.replace('cancel','reply');
+        }
+
+        // 显示回复框
+        var $this = e.target;
+        var item = $this.closest('.comment-item');
         var parentId = item.dataset.id;
+        var parentName = item.dataset.name;
         var commentBox = document.querySelector('.comment-box').outerHTML;
-        commentBox = commentBox.replace(/upload-input/g,'upload-input-'+parentId)
+        commentBox = commentBox.replace(/emoji-input/g,'emoji-input-'+parentId).replace(/upload-input/g,'upload-input-'+parentId).replace(/加入讨论……|写条留言……/,'@'+parentName);
         item.querySelector('.comment-item-main').insertAdjacentHTML('beforeend', commentBox);
+        $this.outerHTML = $this.outerHTML.replace('reply','cancel');
+
+
+        // 取消回复
+        item.querySelector('.comment-item-cancel').addEventListener('click', function(){
+            var box = item.querySelector('.comment-box');
+            box.parentNode.removeChild(box);
+            this.outerHTML = this.outerHTML.replace('cancel','reply');
+            comment.init();
+        }, false);
 
         // 事件绑定
         comment.form();
@@ -711,11 +698,15 @@ Comment.prototype = {
                         xhrFetch.onreadystatechange = function(){
                             if(xhrFetch.readyState == 4 && xhrFetch.status == 200){
                                 var file = JSON.parse(xhrFetch.responseText);
-                                item.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url);
-                                item.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
+                                var image = new Image();
+                                image.src = file.url;
+                                image.onload = function(){
+                                    item.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url);
+                                    item.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
+                                }
                             }
                         }
-                        xhrFetch.open('GET', page.api + '/qiniu/fetch?'+fetchQuery,true);
+                        xhrFetch.open('GET', site.api + '/qiniu/fetch?'+fetchQuery,true);
                         xhrFetch.send();
                     }
                 } catch (e){
@@ -733,7 +724,7 @@ Comment.prototype = {
         xhrUpload.upload.addEventListener('progress', function(e){
             loaded.style.width = Math.ceil((e.loaded/e.total) * 100)+ '%';
         }, false);
-        xhrUpload.open('POST', page.api + '/disqus/upload',true);
+        xhrUpload.open('POST', site.api + '/disqus/upload',true);
         xhrUpload.send(data);
     },
 
@@ -753,6 +744,67 @@ var guest = page.layout == 'post' ||  page.url == '/guestbook.html' ? new Guest(
 var comment = page.layout == 'post' ||  page.url == '/guestbook.html' ? new Comment() : undefined;
 
 
+/*
+//验证邮箱
+function verifyEmail(el) {
+    var guest = el.parentElement;
+    var form = el.parentElement.parentElement;
+    var avatar = form.querySelector('.avatar img');
+    var name = guest.querySelector('.guest-form-name') || form.querySelector('.comment-form-input');
+    var alert = form.querySelector('.comment-form-alert');
+    if (el.value != '') {
+        if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
+            var xhrGravatar = new XMLHttpRequest();
+            xhrGravatar.open('GET', site.api + '/disqus/getgravatar?email=' + el.value + '&name=' + name.value, true);
+            xhrGravatar.send();
+            xhrGravatar.onreadystatechange = function() {
+                if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
+                    if (xhrGravatar.responseText == 'false') {
+                        alert.innerHTML = '您所填写的邮箱地址有误！';
+                    } else {
+                        alert.innerHTML = '';
+                        avatar.src = xhrGravatar.responseText;
+                    }
+                }
+            }
+        } else {
+            alert.innerHTML = '您所填写的邮箱地址有误！';
+        }
+    }
+}
+
+//提交加载
+function htmlComment(data) {
+    var post = data.response;
+    var url = post.author.url ? post.author.url : 'javascript:void(0);';
+    var date = new Date(post.createdAt).getTime().toString().slice(0, -3);
+    var html = '<li class="comment-item" id="comment-' + post.id + '">';
+    html += '<a target="_blank" class="avatar" href="' + url + '"><img src="' + post.author.avatar.cache + '"></a>';
+    html += '<div class="post-header"><a target="_blank" href="' + url + '">' + post.author.name + '</a><span class="bullet"> • </span><span class="timeago" title="' + date + '">' + post.createdAt + '</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+    html += '<div class="post-content">' + post.message + '</div>';
+    html += '<ul class="post-children"></ul>';
+    html += '</li>';
+    return html;
+}
+
+//发表预加载 
+function previewComment(parent, avatar, name, message, url) {
+    var url = url == '' ? 'javascript:void(0);' : url;
+    var html = '<li class="comment-item transparent">';
+    html += '<a target="_blank" class="avatar"><img src="' + avatar + '"></a>';
+    html += '<div class="post-header"><a target="_blank" href="' + url + '">' + name + '</a><span class="bullet"> • </span><span class="timeago">几秒前</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
+    html += '<div class="post-content">' + message + '</div>';
+    html += '<ul class="post-children"></ul>';
+    html += '</li>';
+    if (parent == null) {
+        document.getElementById('comments').insertAdjacentHTML('afterbegin', html);
+        document.getElementById('message').value = '';
+    } else {
+        document.querySelector('#comment-' + parent + ' .post-children').insertAdjacentHTML('beforeend', html);
+        document.querySelector('#comment-' + parent + ' .comment-form-textarea').value = '';
+    }
+}
+
 //发表评论
 function postComment(parent) {
     var id = document.querySelector('.comment-form').getAttribute('data-id');
@@ -764,7 +816,7 @@ function postComment(parent) {
     var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, -9)) + 1 + ' comments';
     previewComment(parent, avatar, name, message, url);
     var xhrPostComment = new XMLHttpRequest();
-    xhrPostComment.open('POST', page.api + '/disqus/postcomment', true);
+    xhrPostComment.open('POST', site.api + '/disqus/postcomment', true);
     xhrPostComment.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhrPostComment.send('id=' + id + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url);
     xhrPostComment.onreadystatechange = function() {
@@ -800,12 +852,6 @@ function postComment(parent) {
     }
 }
 
-function AddOnPos(myField, myValue) {
-    myField = myField.closest('.comment-item').querySelector('.comment-form-textarea');
-    myField.value += myValue;
-    myField.focus();
-}
-
 //回复评论
 function replyComment(el) {
     var form = el.parentElement;
@@ -824,7 +870,7 @@ function replyComment(el) {
     var count = parseInt(document.querySelector('.comment-header-count').innerText.slice(0, -9)) + 1 + ' comments';
     previewComment(parent, avatar, name, message, url);
     var xhrReplyComment = new XMLHttpRequest();
-    xhrReplyComment.open('POST', page.api + '/disqus/postcomment', true);
+    xhrReplyComment.open('POST', site.api + '/disqus/postcomment', true);
     xhrReplyComment.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhrReplyComment.send('id=' + id + '&parent=' + parent + '&message=' + message + '&name=' + name + '&email=' + email + '&url=' + url);
     xhrReplyComment.onreadystatechange = function() {
@@ -865,10 +911,11 @@ function replyComment(el) {
         }
     }
     var xhrSendEmail = new XMLHttpRequest();
-    xhrSendEmail.open('POST', page.api + '/disqus/sendemail', true);
+    xhrSendEmail.open('POST', site.api + '/disqus/sendemail', true);
     xhrSendEmail.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhrSendEmail.send('parent=' + parent + '&message=' + message + '&name=' + name + '&title=' + title + '&link=' + link);
 }
+*/
 
 // lightbox http://goo.gl/aA9Y5K
 if (document.querySelector('.post-image')) {
@@ -938,7 +985,7 @@ if ( page.layout == 'post' ) {
     document.getElementsByTagName('head')[0].appendChild(qrscript);
     qrscript.onload = function(){
         new QRCode('qrcode', {
-            text: page.home + page.url,
+            text: site.home + page.url,
             width: 96,
             height: 96,
             colorDark: '#000000',
@@ -975,11 +1022,11 @@ if ( page.url == '/tags.html' ) {
 
 // 统计
 setTimeout(function() {
-    if (location.hostname === 'blog.fooleap.org') {
+    if ( location.origin === site.home ) {
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement('script');
-            hm.src = '//hm.baidu.com/hm.js?fa7ec982118ebd236663169678264582';
+            hm.src = '//hm.baidu.com/hm.js?'+site.tongji;
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
