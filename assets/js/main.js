@@ -346,15 +346,21 @@ Guest.prototype = {
     // 初始化访客信息
     init: function(){
         this.load()
-        var wrapperArr = document.getElementsByClassName('comment-form-wrapper');
-        if( this.logged_in == 'true' ) {
-            [].forEach.call(wrapperArr,function(item,i){
-                item.classList.add('logged-in');
+        var boxArr = document.getElementsByClassName('comment-box');
+        var guest = this;
+        if( guest.logged_in == 'true' ) {
+            [].forEach.call(boxArr,function(item,i){
+                item.querySelector('.comment-form-wrapper').classList.add('logged-in');
+                item.querySelector('.comment-avatar-image').setAttribute('src', guest.avatar);
+                item.querySelector('.comment-form-name').value = guest.name;
+                item.querySelector('.comment-form-email').value = guest.email;
+                item.querySelector('.comment-form-url').value = guest.url;
             });
         } else {
-            [].forEach.call(wrapperArr,function(item,i){
-                item.classList.remove('logged-in');
+            [].forEach.call(boxArr,function(item,i){
+                item.querySelector('.comment-form-wrapper').classList.remove('logged-in');
             });
+            localStorage.setItem('logged_in', 'false');
         }
     },
 
@@ -448,6 +454,12 @@ Comment.prototype = {
             item.addEventListener('click', comment.field, false);
         });
 
+        // 邮箱验证
+        var emailArr = document.getElementsByClassName('comment-form-email');
+        [].forEach.call(emailArr, function(item,i){
+            item.addEventListener('blur', comment.verify, false);
+        });
+
         // 提交按钮
         var submitArr = document.getElementsByClassName('comment-form-submit');
         [].forEach.call(submitArr,function(item,i){
@@ -518,6 +530,28 @@ Comment.prototype = {
         ]
     },
     
+    // 邮箱验证
+    verify: function(e){
+        var $this= e.target;
+        var box  = $this.closest('.comment-box');
+        var avatar = box.querySelector('.comment-avatar-image');
+        var name = box.querySelector('.comment-form-name');
+        if ($this.value != '' && /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test($this.value)) {
+            var xhrGravatar = new XMLHttpRequest();
+            xhrGravatar.open('GET', site.api + '/disqus/getgravatar?email=' + $this.value + '&name=' + name.value, true);
+            xhrGravatar.send();
+            xhrGravatar.onreadystatechange = function() {
+                if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
+                    if (xhrGravatar.responseText == 'false') {
+                        alert('您所填写的邮箱地址有误！');
+                    } else {
+                        avatar.src = xhrGravatar.responseText;
+                    }
+                }
+            }
+        }
+    },
+
     // 预览评论
     preview: function(){
         var index = parseInt(document.getElementById('comment-count').innerText) + 1;
@@ -661,9 +695,6 @@ Comment.prototype = {
             return;
         }
 
-        // 展开图片上传界面
-        wrapper.classList.add('expanded');
-
         //以文件大小识别是否为同张图片
         var size = file.files[0].size;
         if( comment.imagesize.indexOf(size) == -1 ){
@@ -673,6 +704,9 @@ Comment.prototype = {
             console.log('请勿选择已存在的图片！');
             return;
         }
+
+        // 展开图片上传界面
+        wrapper.classList.add('expanded');
 
         // 图片上传请求
         var data = new FormData();

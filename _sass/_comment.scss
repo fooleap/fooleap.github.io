@@ -339,9 +339,9 @@
         color: rgba(42, 46, 46, 1);
         cursor: text;
         resize: none;
-        height: 46px;
+        height: 44px;
         font: 18px/30px "Helvetica Neue", Helvetica, Arial,"微软雅黑", "Microsoft YaHei";
-        padding: 8px 10px;
+        padding: 7px;
         transition: all 0.2s ease-in-out;
     }
 }
@@ -500,7 +500,7 @@
         .comment-item-content {
             min-height: 20px;
         }
-        .emojione-item {
+        img.emojione {
             width: 22px;
             height: 22px;
             margin: 0 3px;
@@ -517,8 +517,8 @@
     }
     .comment-form-textarea {
         height: 32px;
-        padding: 3px;
-        line-height: 26px;
+        padding: 5px;
+        line-height: 22px;
         font-size: 15px;
     }
     .comment-item-main{
