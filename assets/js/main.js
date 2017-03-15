@@ -88,12 +88,14 @@ timeAgo();
             {
                 var data = JSON.parse(this.responseText);
                 var color = data.RGB.slice(2);
-                document.querySelector('[src^="' + this.responseURL.slice(0,-9) + '"]').style.backgroundColor = '#' + color;
+                document.querySelector('[src^="' + imageAve[i].slice(0,-9) + '"]').style.backgroundColor = '#' + color;
             }
         };
         xhrImageAve[i].send(null);
 
-        if ( postImages.length > 0 ){
+        page.img = postImages.length ;
+
+        if ( page.img > 0 ){
             //Lightbox
             item.dataset.jslghtbx = item.src.split(/_|\?/)[0];
             item.dataset.jslghtbxCaption = item.getAttribute('alt');
@@ -118,7 +120,7 @@ timeAgo();
                             var extime = data.ExposureTime ? data.ExposureTime.val : '无';
                             var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
                             var flength = data.FocalLength ? data.FocalLength.val : '无';
-                            document.querySelector('[src^="' + this.responseURL.slice(0,-5) + '"]').nextSibling.insertAdjacentHTML('beforeend', '<small class="post-image-exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
+                            document.querySelector('[src^="' + imageExif[i].slice(0,-5) + '"]').nextSibling.insertAdjacentHTML('beforeend', '<small class="post-image-exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
                         }
                     }
                 };
@@ -345,7 +347,7 @@ Guest.prototype = {
 
     // 初始化访客信息
     init: function(){
-        this.load()
+        this.load();
         var boxArr = document.getElementsByClassName('comment-box');
         var guest = this;
         if( guest.logged_in == 'true' ) {
@@ -380,7 +382,7 @@ Guest.prototype = {
         localStorage.removeItem('url');
         localStorage.removeItem('avatar');
         localStorage.setItem('logged_in', 'false');
-        this.init()
+        guest.init()
     },
 
     // 提交访客信息
@@ -404,8 +406,8 @@ Guest.prototype = {
 
 function Comment () {
     this.imagesize = [];
+    this.box = document.querySelector('.comment-box').outerHTML,
     this.getlist();
-    
     //是否能连上 Disqus
     /*
         var xhr = new XMLHttpRequest();
@@ -415,8 +417,9 @@ function Comment () {
         xhr.send(null);*/
 }
 
-/* 评论 */
+/* Disqus 评论 */
 Comment.prototype = {
+
     // 初始化
     init: function(){
         this.form();
@@ -460,10 +463,24 @@ Comment.prototype = {
             item.addEventListener('blur', comment.verify, false);
         });
 
+        // 重置访客信息
+        var exitArr = document.getElementsByClassName('exit');
+        [].forEach.call(exitArr,function(item,i){
+            item.addEventListener('click', guest.clear, false);
+        });
+
         // 提交按钮
         var submitArr = document.getElementsByClassName('comment-form-submit');
         [].forEach.call(submitArr,function(item,i){
             item.addEventListener('click', guest.submit, false);
+            item.addEventListener('click', comment.preview, false);
+        });
+
+        // 图标
+        var labelArr = document.getElementsByClassName('comment-actions-label');
+        [].forEach.call(labelArr,function(item,i){
+            item.addEventListener('mouseover', comment.hover, false);
+            item.addEventListener('mouseout', comment.hover, false);
         });
 
         // 上传图片按钮
@@ -472,6 +489,19 @@ Comment.prototype = {
             item.addEventListener('change', comment.upload, false);
         });
 
+    },
+
+
+    // 图标覆盖
+    hover: function(e){
+        var icon = e.target.querySelector('.icon');
+        if (icon.classList.contains('hover')){
+            icon.classList.remove('hover');
+            icon.contentDocument.querySelector('.icon').setAttribute('fill', '#c2c6cc');
+        } else {
+            icon.classList.add('hover');
+            icon.contentDocument.querySelector('.icon').setAttribute('fill', '#1d2f3a');
+        }
     },
 
     // 评论框焦点
@@ -532,13 +562,13 @@ Comment.prototype = {
     
     // 邮箱验证
     verify: function(e){
-        var $this= e.target;
-        var box  = $this.closest('.comment-box');
+        var email = e.target;
+        var box  = email.closest('.comment-box');
         var avatar = box.querySelector('.comment-avatar-image');
         var name = box.querySelector('.comment-form-name');
-        if ($this.value != '' && /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test($this.value)) {
+        if (name.value != '' && /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(email.value)) {
             var xhrGravatar = new XMLHttpRequest();
-            xhrGravatar.open('GET', site.api + '/disqus/getgravatar?email=' + $this.value + '&name=' + name.value, true);
+            xhrGravatar.open('GET', site.api + '/disqus/getgravatar?email=' + email.value + '&name=' + name.value, true);
             xhrGravatar.send();
             xhrGravatar.onreadystatechange = function() {
                 if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
@@ -553,26 +583,47 @@ Comment.prototype = {
     },
 
     // 预览评论
-    preview: function(){
-        var index = parseInt(document.getElementById('comment-count').innerText) + 1;
-        var item = this.closest('.comment-item') || this.closest('.comment-box');
+    preview: function(e){
+        var item = e.target.closest('.comment-item') || e.target.closest('.comment-box') ;
+        var message = '<p>' + item.querySelector('.comment-form-textarea').value + '</p>';
+        var parentId = item.dataset.id;
+        var time = (new Date()).toJSON();
+        var id = comment.thread;
+        var imgArr = item.getElementsByClassName('comment-image-item');
+        var media = [];
+        [].forEach.call(imgArr, function(image,i){
+            media[i] = image.dataset.imageUrl;
+        });
+        var index = comment.count;
         var post = {
             'url': guest.url,
-            'media': '',
-            'createAt': '',
-            'parent': '',
-            'message': '',
             'name': guest.name,
-            'id': '',
-            'avatar': guest.avatar
+            'avatar': guest.avatar,
+            'id': id,
+            'parent': parentId,
+            'createdAt': time,
+            'message': message,
+            'media': media
         };
-        this.load(post, index);
+        comment.load(post, index);
+        timeAgo();
+
+        comment.message = message;
+
+        // 清空或移除评论框
+        if( parentId ){
+            item.querySelector('.comment-item-cancel').click();
+        } else {
+            item.querySelector('.comment-form-textarea').value = '';
+            item.querySelector('.comment-image-list').innerHTML = '';
+            item.querySelector('.comment-form-wrapper').classList.remove('expanded','editing');
+        }
     },
 
     // 读取评论
     load: function(post, i){
 
-        post.url = post.url || post.profileUrl ?  post.url || post.profileUrl : 'javascript:void(0);';
+        post.url = post.url ? post.url : 'javascript:void(0);';
         post.createdAt = new Date(post.createdAt).getTime().toString().slice(0, -3);
 
         var parent = post.parent == null ? {
@@ -580,7 +631,7 @@ Comment.prototype = {
             'dom': document.querySelector('.comment-list'),
             'insert': 'afterbegin'
         } : {
-            'name': '<a href="#'+document.querySelector('.comment-item[data-id="'+post.parent+'"]').getAttribute('id')+'">@' + document.querySelector('.comment-item[data-id="'+post.parent+'"]').dataset.name + '</a> ',
+            'name': '<a class="at" href="#'+document.querySelector('.comment-item[data-id="'+post.parent+'"]').getAttribute('id')+'">@' + document.querySelector('.comment-item[data-id="'+post.parent+'"]').dataset.name + '</a>',
             'dom': document.querySelector('.comment-item[data-id="'+post.parent+'"] .comment-item-children'),
             'insert': 'beforeend'
         };
@@ -616,7 +667,8 @@ Comment.prototype = {
             if (xhrListPosts.readyState == 4 && xhrListPosts.status == 200) {
                 var res = JSON.parse(xhrListPosts.responseText);
                 if (res.code === 0) {
-                    document.querySelector('.comment-form').setAttribute('data-id', res.id);
+                    comment.thread = res.id;
+                    comment.count = res.posts;
                     document.getElementById('comment-count').innerHTML = res.posts + ' 条评论';
                     document.getElementById('comments').classList.remove('loading')
                     if (res.response == null) {
@@ -666,10 +718,10 @@ Comment.prototype = {
         var item = $this.closest('.comment-item');
         var parentId = item.dataset.id;
         var parentName = item.dataset.name;
-        var commentBox = document.querySelector('.comment-box').outerHTML;
-        commentBox = commentBox.replace(/emoji-input/g,'emoji-input-'+parentId).replace(/upload-input/g,'upload-input-'+parentId).replace(/加入讨论……|写条留言……/,'@'+parentName);
+        var commentBox = comment.box.replace(/emoji-input/g,'emoji-input-'+parentId).replace(/upload-input/g,'upload-input-'+parentId).replace(/加入讨论……|写条留言……/,'@'+parentName).replace(/加入讨论……|写条留言……/,'').replace(/<label class="comment-actions-label exit"(.|\n)*<\/label>\n/,'');
         item.querySelector('.comment-item-main').insertAdjacentHTML('beforeend', commentBox);
         $this.outerHTML = $this.outerHTML.replace('reply','cancel');
+        guest.init();
 
 
         // 取消回复
@@ -779,34 +831,6 @@ var comment = page.layout == 'post' ||  page.url == '/guestbook.html' ? new Comm
 
 
 /*
-//验证邮箱
-function verifyEmail(el) {
-    var guest = el.parentElement;
-    var form = el.parentElement.parentElement;
-    var avatar = form.querySelector('.avatar img');
-    var name = guest.querySelector('.guest-form-name') || form.querySelector('.comment-form-input');
-    var alert = form.querySelector('.comment-form-alert');
-    if (el.value != '') {
-        if (/^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(el.value)) {
-            var xhrGravatar = new XMLHttpRequest();
-            xhrGravatar.open('GET', site.api + '/disqus/getgravatar?email=' + el.value + '&name=' + name.value, true);
-            xhrGravatar.send();
-            xhrGravatar.onreadystatechange = function() {
-                if (xhrGravatar.readyState == 4 && xhrGravatar.status == 200) {
-                    if (xhrGravatar.responseText == 'false') {
-                        alert.innerHTML = '您所填写的邮箱地址有误！';
-                    } else {
-                        alert.innerHTML = '';
-                        avatar.src = xhrGravatar.responseText;
-                    }
-                }
-            }
-        } else {
-            alert.innerHTML = '您所填写的邮箱地址有误！';
-        }
-    }
-}
-
 //提交加载
 function htmlComment(data) {
     var post = data.response;
@@ -819,24 +843,6 @@ function htmlComment(data) {
     html += '<ul class="post-children"></ul>';
     html += '</li>';
     return html;
-}
-
-//发表预加载 
-function previewComment(parent, avatar, name, message, url) {
-    var url = url == '' ? 'javascript:void(0);' : url;
-    var html = '<li class="comment-item transparent">';
-    html += '<a target="_blank" class="avatar"><img src="' + avatar + '"></a>';
-    html += '<div class="post-header"><a target="_blank" href="' + url + '">' + name + '</a><span class="bullet"> • </span><span class="timeago">几秒前</span><span class="bullet"> • </span><a class="comment-reply" href="javascript:void(0)" onclick="showCommentForm(this)">回复</a></div>';
-    html += '<div class="post-content">' + message + '</div>';
-    html += '<ul class="post-children"></ul>';
-    html += '</li>';
-    if (parent == null) {
-        document.getElementById('comments').insertAdjacentHTML('afterbegin', html);
-        document.getElementById('message').value = '';
-    } else {
-        document.querySelector('#comment-' + parent + ' .post-children').insertAdjacentHTML('beforeend', html);
-        document.querySelector('#comment-' + parent + ' .comment-form-textarea').value = '';
-    }
 }
 
 //发表评论
@@ -952,7 +958,7 @@ function replyComment(el) {
 */
 
 // lightbox http://goo.gl/aA9Y5K
-if (document.querySelector('.post-image')) {
+if (page.img > 0) {
     var lbscript = document.createElement('script');
     lbscript.type = 'text/javascript';
     lbscript.src = '/assets/js/lightbox.min.js';

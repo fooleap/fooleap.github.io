@@ -1,1 +1,21 @@
 // media queries
+@media screen and(max-width: 450px) {
+    body{
+       background-color: #fff;
+    }
+    .navigation {
+        top: 8px;
+        right: 8px;
+    }
+    .page-main{
+        margin: 0;
+        padding: 7px;
+        box-shadow: none;
+        &:before {
+            display:none;
+        }
+        .page-subtitle {
+            font-size: 11px;
+        }
+    }
+}

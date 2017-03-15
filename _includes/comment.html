@@ -26,18 +26,24 @@
                 <div class="comment-actions">
                     <div class="comment-actions-group">
                         <input class="comment-actions-input" type="checkbox" id="emoji-input"/>
-                        <label class="comment-actions-label emojione" for="emoji-input" title="点击选择表情">
+                        <label class="comment-actions-label emojione" for="emoji-input" title="选择表情">
                             <object class="icon icon-face" type="image/svg+xml" data="/assets/svg/face.svg"></object>
                             <ul class="emojione-list"></ul>
                         </label>
-                        <label class="comment-actions-label" for="upload-input" title="点击上传图片">
+                        <label class="comment-actions-label" for="upload-input" title="上传图片">
                             <object class="icon icon-image" type="image/svg+xml" data="/assets/svg/image.svg"></object>
                         </label>
                         <input class="comment-actions-input comment-image-input" type="file" accept="image/*" name="file" id="upload-input"/>
                     </div>
-                    <button class="comment-form-submit">
-                        <object class="icon icon-send" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/send.svg"></object>
-                    </button>
+                    <div class="comment-actions-form">
+                        <label class="comment-actions-label exit" title="重置访客信息">
+                            <object class="icon icon-exit" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/exit.svg"></object>
+                        </label>
+
+                        <button class="comment-form-submit">
+                            <object class="icon icon-send" data-color="rgb(255,0,0)" type="image/svg+xml" data="/assets/svg/send.svg"></object>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="comment-login">
