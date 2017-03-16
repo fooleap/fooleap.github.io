@@ -294,6 +294,55 @@ function tocScroll() {
     }
 })();
 
+if ( page.layout == 'post' ) {
+
+    // 相关文章
+    var xhrPosts = new XMLHttpRequest();
+    xhrPosts.open('GET', '/posts.json', true);
+    xhrPosts.onreadystatechange = function() {
+        if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
+            var data = JSON.parse(xhrPosts.responseText);
+            var posts = [];
+            for( var i = 0; i < data.length; i++){
+                if( data[i].category == page.category && data[i].url != location.pathname ){
+                    posts.push(data[i]);
+                }
+            }
+            var randomIndexUsed = [];
+            var counter = 0;
+            var numberOfPosts = 5;
+            var randomPosts = document.querySelector('#random-posts ul');
+            while (counter < numberOfPosts) {
+                var randomIndex = Math.floor(Math.random() * posts.length);
+                if (randomIndexUsed.indexOf(randomIndex) == '-1') {
+                    var postUrl = posts[randomIndex].url;
+                    var postTitle = posts[randomIndex].title;
+                    randomPosts.insertAdjacentHTML('beforeend', '<li class="post-extend-item"><a class="post-extend-link" href="' + postUrl + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
+                    randomIndexUsed.push(randomIndex);
+                    counter++;
+                }
+            }
+        }
+    }
+    xhrPosts.send();
+
+    // 二维码 http://goo.gl/JzmGoq
+    var qrscript = document.createElement('script');
+    qrscript.type = 'text/javascript';
+    qrscript.src = '/assets/js/qrcode.min.js';
+    document.getElementsByTagName('head')[0].appendChild(qrscript);
+    qrscript.onload = function(){
+        new QRCode('qrcode', {
+            text: site.home + page.url,
+            width: 96,
+            height: 96,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.M
+        });
+    }
+}
+
 // Disqus 评论
 // 评论计数
 var commentCount = document.getElementsByClassName('post-item-comment');
@@ -476,32 +525,12 @@ Comment.prototype = {
             item.addEventListener('click', comment.preview, false);
         });
 
-        // 图标
-        var labelArr = document.getElementsByClassName('comment-actions-label');
-        [].forEach.call(labelArr,function(item,i){
-            item.addEventListener('mouseover', comment.hover, false);
-            item.addEventListener('mouseout', comment.hover, false);
-        });
-
         // 上传图片按钮
         var imgInputArr = document.getElementsByClassName('comment-image-input');
         [].forEach.call(imgInputArr, function(item,i){
             item.addEventListener('change', comment.upload, false);
         });
 
-    },
-
-
-    // 图标覆盖
-    hover: function(e){
-        var icon = e.target.querySelector('.icon');
-        if (icon.classList.contains('hover')){
-            icon.classList.remove('hover');
-            icon.contentDocument.querySelector('.icon').setAttribute('fill', '#c2c6cc');
-        } else {
-            icon.classList.add('hover');
-            icon.contentDocument.querySelector('.icon').setAttribute('fill', '#1d2f3a');
-        }
     },
 
     // 评论框焦点
@@ -585,7 +614,7 @@ Comment.prototype = {
     // 预览评论
     preview: function(e){
         var item = e.target.closest('.comment-item') || e.target.closest('.comment-box') ;
-        var message = '<p>' + item.querySelector('.comment-form-textarea').value + '</p>';
+        var message = item.querySelector('.comment-form-textarea').value;
         var parentId = item.dataset.id;
         var time = (new Date()).toJSON();
         var id = comment.thread;
@@ -594,7 +623,11 @@ Comment.prototype = {
         [].forEach.call(imgArr, function(image,i){
             media[i] = image.dataset.imageUrl;
         });
-        var index = comment.count;
+        if( media.length == 0 && message == '' ){
+            alert('无法发送空消息');
+            item.querySelector('.comment-form-textarea').focus();
+            return;
+        };
         var post = {
             'url': guest.url,
             'name': guest.name,
@@ -602,9 +635,10 @@ Comment.prototype = {
             'id': id,
             'parent': parentId,
             'createdAt': time,
-            'message': message,
+            'message': '<p>' + message + '</p>',
             'media': media
         };
+        var index = comment.count;
         comment.load(post, index);
         timeAgo();
 
@@ -986,54 +1020,6 @@ if (page.img > 0) {
     }
 }
 
-if ( page.layout == 'post' ) {
-
-    // 相关文章
-    var xhrPosts = new XMLHttpRequest();
-    xhrPosts.open('GET', '/posts.json', true);
-    xhrPosts.onreadystatechange = function() {
-        if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
-            var data = JSON.parse(xhrPosts.responseText);
-            var posts = [];
-            for( var i = 0; i < data.length; i++){
-                if( data[i].category == page.category && data[i].url != location.pathname ){
-                    posts.push(data[i]);
-                }
-            }
-            var randomIndexUsed = [];
-            var counter = 0;
-            var numberOfPosts = 5;
-            var randomPosts = document.querySelector('#random-posts ul');
-            while (counter < numberOfPosts) {
-                var randomIndex = Math.floor(Math.random() * posts.length);
-                if (randomIndexUsed.indexOf(randomIndex) == '-1') {
-                    var postUrl = posts[randomIndex].url;
-                    var postTitle = posts[randomIndex].title;
-                    randomPosts.insertAdjacentHTML('beforeend', '<li class="post-extend-item"><a class="post-extend-link" href="' + postUrl + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
-                    randomIndexUsed.push(randomIndex);
-                    counter++;
-                }
-            }
-        }
-    }
-    xhrPosts.send();
-
-    // 二维码 http://goo.gl/JzmGoq
-    var qrscript = document.createElement('script');
-    qrscript.type = 'text/javascript';
-    qrscript.src = '/assets/js/qrcode.min.js';
-    document.getElementsByTagName('head')[0].appendChild(qrscript);
-    qrscript.onload = function(){
-        new QRCode('qrcode', {
-            text: site.home + page.url,
-            width: 96,
-            height: 96,
-            colorDark: '#000000',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.M
-        });
-    }
-}
 
 // 标签云 http://goo.gl/OAvhn3
 if ( page.url == '/tags.html' ) {

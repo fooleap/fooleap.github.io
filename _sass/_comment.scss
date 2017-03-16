@@ -144,39 +144,36 @@
     visibility: hidden;
     .comment-actions-group{
         display: flex;
+        position: relative;
     }
     .comment-actions-input{
         display: none;
+        &[type="checkbox"]:checked + .comment-actions-label{
+            .icon {
+                fill: #1d2f3a;
+            }
+        }
     }
     .comment-actions-label{
         display: inline-block;
-        position: relative;
         width: 34px;
         height: 34px;
         cursor: pointer;
-        &:before{
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            content: "";
-            z-index: 1;
+        .icon {
+            height: 18px;
+            margin: 8px;
+            display: inline-block;
+            color: #737474;
+            cursor: pointer;
+            fiil: #c2c6cc;
+            transition: all .2s;
+        }
+        &:hover .icon {
+            fill: #1d2f3a;
         }
     }
     .exit {
         display:none;
-    }
-    .icon {
-        height: 18px;
-        margin: 8px;
-        display: inline-block;
-        color: #737474;
-        cursor: pointer;
-    }
-    .icon-send{
-        margin: 9px;
-        cursor: pointer;
     }
     .emojione-list {
         position: absolute;
@@ -357,7 +354,6 @@
 .comment-actions-form{
     display: flex;
     .comment-form-submit{
-        position: relative;
         z-index: 1;
         border: none;
         opacity: 0;
@@ -370,15 +366,12 @@
         background-color: rgba(29,47,58,.6);
         cursor: pointer;
         line-height: 38px;
-        &:before{
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            content: "";
-            display: inline-block;
-            z-index: 2;
+        .icon{
+            margin: 9px;
+            fill: #fff;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
         }
         &:hover {
             background-color: rgba(29, 47, 58,.75);

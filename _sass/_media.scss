@@ -9,13 +9,31 @@
     }
     .page-main{
         margin: 0;
-        padding: 7px;
+        padding: 0;
         box-shadow: none;
         &:before {
             display:none;
         }
-        .page-subtitle {
+        .page-title {
+            padding: 10px 7px;
+        }
+        .page-subtitle{
             font-size: 11px;
+            padding: 0 7px;
+        }
+        .page-content{
+            padding: 0 7px;
+        }
+        .post-figure{
+            margin: 0 -7px;
+            .post-image-exif{
+                font-size: 10px;
+                line-height: 20px;
+                height: 20px;
+            }
+            .post-figcaption{
+                padding: 0 7px;
+            }
         }
     }
 }
