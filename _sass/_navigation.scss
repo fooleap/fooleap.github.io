@@ -4,19 +4,18 @@
     right: 20px;
     width: 40px;
     height: 40px;
-    overflow: hidden;
-    z-index: 10;
-    .icon-menu {
-        position: relative;
-        z-index: 10;
-        width: 38px;
-        height: 38px;
+    z-index: 2;
+    .navigation-avatar {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        z-index: 2;
         border: 2px solid rgba(255,255,255,1);
         background-color: rgba(255,255,255,1);
         overflow: hidden;
-        border-radius: 50%;
         display: block;
         cursor: pointer;
+        position: relative;
         &:before{
             content: "";
             display: inline-block;
@@ -25,34 +24,36 @@
             left: 0;
             width: 100%;
             height: 100%;
+            border-radius: 50%;
             background-image: url("http://source.fooleap.org/avatar.jpg");
             background-size: cover;
         }
-        &:hover {
-            transition: transform .3s;
-            transform: rotate(360deg);
-        }
     }
-    &:hover {
-        overflow: visible;
-        .navigation-list {
-            transition: opacity .1s .2s ease-in-out;
-            opacity: 1;
-        }
+    .navigation-toggle{
+        display: none;
+    }
+    .navigation-toggle:checked ~ .navigation-list {
+        transition: opacity .1s .2s ease-in-out;
+        opacity: 1;
+        width: 160px;
+        height: 210px;
+        border-radius: 5px 25px 5px 5px;
+    }
+    .navigation-toggle:checked ~ .navigation-avatar {
+        transition: transform .3s;
+        transform: rotate(360deg);
     }
 }
+
 .navigation-list {
     list-style:none;
     position: absolute;
     top: 0;
     right: 0;
-    border-radius: 5px 25px 5px 5px;
-    z-index: 9;
-    overflow: hidden;
-    width: 160px;
-    height: 210px;
+    z-index: 1;
     background-color: rgba(80, 80, 80, 1);
     opacity: 0;
+    overflow: hidden;
     .navigation-item {
         position: relative;
         height: 42px;
@@ -83,6 +84,9 @@
         &:hover {
             color: rgba(255, 255, 255, 1);
             font-weight: bold;
+            .icon{
+                fill: #fff;
+            }
         }
     }
 }

@@ -5,7 +5,6 @@
         {% comment %}
         <span class="comment-header-item login" onclick="showComments()" title="点击加载 Disqus 评论框">登录 Disqus</span>
         {% endcomment %}
-        <span class="comment-header-item" id="comment-author" onclick="editGuest()"></span>
     </div>
 
     <div class="comment-box">
@@ -38,9 +37,9 @@
                 </div>
             </div>
             <div class="comment-login">
-                <input class="comment-form-input comment-form-name" type="text" placeholder="名字（必填）" required>
-                <input class="comment-form-input comment-form-email" type="email" placeholder="邮箱（必填）" required>
-                <input class="comment-form-input comment-form-url" type="text" placeholder="网址（可选）">
+                <input class="comment-form-input comment-form-name" type="text" placeholder="名字（必填）" autocomplete="name" required>
+                <input class="comment-form-input comment-form-email" type="email" placeholder="邮箱（必填）" autocomplete="email" required>
+                <input class="comment-form-input comment-form-url" type="text" placeholder="网址（可选）" autocomplete="url">
             </div>
         </div>
     </div>

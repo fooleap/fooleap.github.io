@@ -25,22 +25,6 @@ $darkblue: #3F658B;
 	$var: $val;
 }
 
-/* IE8 Stuff */
-.jslghtbx-ie8.jslghtbx {
-	background-image: url('../img/trans-bck.png');
-	display: none;
-	&.jslghtbx-active {
-		display: block;
-	}
-	.jslghtbx-contentwrapper > img {
-		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-		display: block;
-	}
-	.jslghtbx-contentwrapper.jslghtbx-wrapper-active > img {
-		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	}
-}
-
 /* Main wrapper */
 .jslghtbx {
 	font-family: sans-serif;

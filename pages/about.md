@@ -50,13 +50,9 @@ scripts: ["http://res.wx.qq.com/open/js/jweixin-1.0.0.js"]
 * 2015-10-28 国内解析到阿里云虚拟主机
 * 2016-07-01 国内解析到七牛云存储
 * 2016-10-05 使用 Disqus API 解决评论问题
+* 2017-03-16 初步完成重写评论框 
 
-<!--<script>
-  var birthDay = new Date('02/09/2011');
-  var now = new Date();
-  var duration = now.getTime() - birthDay.getTime();
-  var total= Math.floor(duration / (1000 * 60 * 60 * 24));
-  document.getElementById('days').innerHTML = total;
+{% comment %}
   var xhrwesign = new XMLHttpRequest();
   xhrwesign.onload= function(data) {
      signPackage = JSON.parse(xhrwesign.responseText);
@@ -93,4 +89,11 @@ wx.onMenuShareAppMessage({
     }
 });
   });
+{% endcomment %}
+<!--<script>
+  var birthDay = new Date('02/09/2011');
+  var now = new Date();
+  var duration = now.getTime() - birthDay.getTime();
+  var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+  document.getElementById('days').innerHTML = total;
     </script>-->
