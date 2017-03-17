@@ -757,6 +757,7 @@ Comment.prototype = {
                     comment.thread = res.thread;
                     comment.count = res.posts;
                     document.getElementById('comment-count').innerHTML = res.posts + ' 条评论';
+                    document.querySelector('.comment-tips-link').setAttribute('href', res.link);
                     document.getElementById('comments').classList.remove('loading')
                     if (res.response == null) {
                         return;
@@ -800,7 +801,7 @@ Comment.prototype = {
         var item = $this.closest('.comment-item');
         var parentId = item.dataset.id;
         var parentName = item.dataset.name;
-        var commentBox = comment.box.replace(/emoji-input/g,'emoji-input-'+parentId).replace(/upload-input/g,'upload-input-'+parentId).replace(/加入讨论……|写条留言……/,'@'+parentName).replace(/加入讨论……|写条留言……/,'').replace(/<label class="comment-actions-label exit"(.|\n)*<\/label>\n/,'');
+        var commentBox = comment.box.replace(/emoji-input/g,'emoji-input-'+parentId).replace(/upload-input/g,'upload-input-'+parentId).replace(/加入讨论……|写条留言……/,'@'+parentName).replace(/加入讨论……|写条留言……/,'').replace(/<label class="comment-actions-label exit"(.|\n)*<\/label>\n/,'').replace(/<input id="tips-input"(.|\n)*<\/label>\n/,'');
         item.querySelector('.comment-item-main').insertAdjacentHTML('beforeend', commentBox);
         $this.outerHTML = $this.outerHTML.replace('reply','cancel');
         guest.init();

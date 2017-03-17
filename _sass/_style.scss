@@ -1,8 +1,8 @@
 @charset "utf-8";
-$darkblue: rgb(0, 149, 221);
-$darkgray: rgb(100, 100, 100);
-$lightblue: rgb(155, 195, 255);
+$lightblue: rgb(125, 185, 222);
+$darkblue: rgb(46, 169, 223);
 $lightgray: rgb(235, 235, 235);
+$darkgray: rgb(100, 100, 100);
 $white: rgb(255, 255, 255);
 $black: rgb(0, 0, 0);
 $default: rgb(34, 34, 34);
@@ -42,12 +42,11 @@ html {
 }
 
 body {
-    zoom: 1;
     letter-spacing: .03em;
-    font: 14px/1.6 "Helvetica Neue", Helvetica, Arial,"微软雅黑",'Microsoft YaHei';
     color: $default;
-    background-color: rgba(196, 218, 234, .8);
+    background-color: $lightblue;
     overflow-y: scroll;
+    font: 14.5px/1.6 "Helvetica Neue", Helvetica, Arial, "思源黑体", "黑体", SimHei, sans-serif;
 }
 
 .page-main{
@@ -128,7 +127,7 @@ img[data-onload="true"] {
 
 .page-footer {
     text-align: center;
-    color: rgba(150, 150, 150, .9);
+    color: $darkgray;
 }
 
 .post-item {
@@ -140,6 +139,31 @@ img[data-onload="true"] {
         overflow: hidden;
         border-radius: 4px;
         transition: all .5s;
+    }
+    .post-item-summary {
+        margin: 0 10px;
+        flex: 1;
+        height: 50px;
+        line-height: 25px;
+        .post-item-title {
+            font-size: 14.5px;
+            color: $darkblue;
+            font-weight: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+        }
+        .post-item-date {
+            color: rgba(150, 150, 150, .9);
+            opacity: 0;
+            font-size: 13px;
+            transition: .5s all;
+            &:not(:empty) {
+                opacity: 1;
+            }
+        }
     }
     .post-item-comment {
         display: block;
@@ -162,31 +186,6 @@ img[data-onload="true"] {
         }
         &:hover {
             background-color: $darkblue;
-        }
-    }
-}
-.post-item-summary {
-    margin: 0 10px;
-    flex: 1;
-    height: 50px;
-    line-height: 25px;
-    .post-item-title {
-        font-weight: normal;
-    }
-    .post-item-link {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 1;
-    }
-    .post-item-date {
-        color: rgba(150, 150, 150, .9);
-        opacity: 0;
-        font-size: 13px;
-        transition: .5s all;
-        &:not(:empty) {
-            opacity: 1;
         }
     }
 }
@@ -288,6 +287,9 @@ img[data-onload="true"] {
             max-width: 100%;
             width: auto;
             overflow: hidden;
+        }
+        .post-figcaption{
+            font-size: 14px;
         }
     }
 }
@@ -410,7 +412,6 @@ pre.terminal code {
 .post-info {
     line-height: 20px;
     height: 20px;
-    overflow: hidden;
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -489,48 +490,50 @@ pre.terminal code {
     line-height: 1.2;
     margin: 0;
     display: flex;
-    .share-item{
+    position: relative;
+    .post-share-item{
         width: 20px;
         height: 20px;
         margin: 0 2px;
-        border: none;
         color: rgb(51, 51, 51);
+        cursor: pointer;
     }
     .icon{
         width: 20px;
         height: 20px;
+        transition: all .3s;
     }
-    #wechat {
-        &:hover,
-        &.light {
-            color: rgb(81, 195, 50);
+    .wechat:hover{
+        .icon {
+            fill: rgb(81, 195, 50);
         }
     }
-    #weibo {
-        &:hover {
-            color: rgb(231, 44, 64);
+    .weibo:hover {
+        .icon {
+            fill: rgb(231, 44, 64);
         }
     }
-    #qzone {
-        &:hover {
-            color: rgb(252, 185, 32);
+    .qzone:hover {
+        .icon {
+            fill: rgb(252, 185, 32);
         }
     }
-    #twitter {
-        &:hover {
-            color: rgb(85, 172, 238);
+    .twitter:hover {
+        .icon{
+            fill: rgb(85, 172, 238);
         }
     }
-    #facebook {
-        &:hover {
-            color: rgb(65, 93, 152);
+    .facebook:hover {
+        .icon {
+            fill: rgb(65, 93, 152);
         }
     }
-    #gplus {
-        &:hover {
+    .gplus:hover {
+        .icon {
+            fill: rgb(219, 68, 55);
         }
     }
-    #qrcode {
+    .post-qrcode {
         display: none;
         position: absolute;
         bottom: 30px;
@@ -540,5 +543,11 @@ pre.terminal code {
         border: 1px solid $lightgray;
         border-radius: 5px;
         box-shadow: 1px 1px 2px rgb(150, 150, 150);
+    }
+    .post-qrcode-input {
+        display: none;
+    }
+    .post-qrcode-input:checked + .post-qrcode{
+        display: block;
     }
 }

@@ -24,13 +24,18 @@
                 </div>
                 <div class="comment-actions">
                     <div class="comment-actions-group">
-                        <input class="comment-actions-input" type="checkbox" id="emoji-input"/>
+                        <input id="emoji-input" class="comment-actions-input" type="checkbox"/>
                         <label class="comment-actions-label emojione" for="emoji-input" title="选择表情">{% include svg/face.svg %}<ul class="emojione-list"></ul></label>
-                        <input class="comment-actions-input comment-image-input" type="file" accept="image/*" name="file" id="upload-input"/>
+                        <input id="upload-input" class="comment-actions-input comment-image-input" type="file" accept="image/*" name="file"/>
                         <label class="comment-actions-label" for="upload-input" title="上传图片">{% include svg/image.svg %}</label>
                     </div>
                     <div class="comment-actions-form">
-                        <label class="comment-actions-label tips" title="提示">{% include svg/tips.svg %}</label>
+                        <input id="tips-input" class="comment-actions-input" type="checkbox"/>
+                        <label class="comment-actions-label tips" title="提示" for="tips-input">{% include svg/tips.svg %}
+                            <div class="comment-tips">
+                                本评论框利用 Disqus API 实现匿名评论，需要登录评论请<a target="_blank" title="跳转至 Disqus 评论" class="comment-tips-link">点此</a>。
+                            </div>
+                        </label>
                         <label class="comment-actions-label exit" title="重置访客信息">{% include svg/exit.svg %}</label>
                         <button class="comment-form-submit">{% include svg/send.svg %}</button>
                     </div>

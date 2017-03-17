@@ -68,12 +68,7 @@
         border-bottom: 2px solid #656c7a;
         margin-bottom: -2px;
         padding: 0 7px;
-        &:hover {
-            color: #2a2e2e;
-            background-color: transparent;
-        }
     }
-
     .comment-show {
         width: 120px;
         text-align: center;
@@ -84,7 +79,6 @@
         cursor: pointer;
         display: none;
     }
-
     .comment-header-count {
         width: 120px;
         text-align: center;
@@ -92,7 +86,6 @@
         text-transform: capitalize;
         display: inline-block;
     }
-
     .comment-header-count:after {
         content: " ";
         display: block;
@@ -173,10 +166,11 @@
             fill: #1d2f3a!important;
         }
     }
-    .exit {
+    .exit{
         display:none;
     }
     .emojione-list {
+        cursor: default;
         position: absolute;
         opacity: 0;
         filter: alpha(opacity=0);
@@ -306,6 +300,55 @@
         }
         .comment-form-submit{
             opacity: 1;
+        }
+       .tips{
+           position: relative;
+           .comment-tips{
+               position: absolute;
+               width: 120px;
+               height: 70px;
+               font-size: 12px;
+               border-radius: 4px;
+               top: 50%;
+               margin-top: -35px;
+               left: -120px;
+               background-color: #fff;
+               border: 2px solid #c2c6cc;
+               padding: 5px;
+               line-height: 15px;
+               display: none;
+               cursor: default;
+               &:before{
+                   content: "";
+                   width: 0;
+                   height: 0;
+                   position: absolute;
+                   right: -8px;
+                   top: 50%;
+                   margin-top: -8px;
+                   border-style: solid;
+                   border-width: 8px 0 8px 8px;
+                   border-color: transparent #c2c6cc;
+               }
+               &:after{
+                   content: "";
+                   width: 0;
+                   height: 0;
+                   position: absolute;
+                   right: -5px;
+                   top: 50%;
+                   margin-top: -5px;
+                   border-style: solid;
+                   border-width: 5px 0 5px 5px;
+                   border-color: transparent #fff;
+               }
+           }
+        }
+        #tips-input:checked + .tips{
+            .comment-tips{
+                display: block;
+
+            }
         }
     }
     &.focus{
@@ -576,8 +619,6 @@
         margin-left: -42px;
     }
 }
-
-
 
 .task-list-item {
     list-style-type: none;

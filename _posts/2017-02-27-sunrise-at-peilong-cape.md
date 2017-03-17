@@ -135,9 +135,16 @@ tags: ["潮汕", "培隆", "培隆角", "日出"]
 
 回到家洗洗吃完早餐就去上班，又发现早起真的能做很多事情。
 
-次日汕头电视台[《今日视线》的随手拍环节](http://player.cutv.com/hls.php/pid/G18ijiiojjmpmoliiipfw4)（HLS 协议，iOS 可直接点击播放），发现里面投稿培隆角日出，而且云的形状居然跟我的一样，只是角度稍有区别，看来投稿人也是当天早上去拍的，回过头想想那边放着一辆摩托（图 3 可见），估计就是他的。
+次日汕头电视台[《今日视线》的随手拍环节](http://player.cutv.com/hls.php/pid/G18ijiiojjmpmoliiipfw4)（链接为 HLS 协议，iOS 可直接点击播放），发现里面投稿培隆角日出，而且云的形状居然跟我的一样，只是角度稍有区别。
+
+<video class="video" controls>
+  <source src="http://videofile1.cutv.com/originfileg/010061_t/2016/09/23/G18/G18ijiiojjmpmoliiipfw4_cug.mp4" type="video/mp4" />
+</video>
+
+看来投稿人也是当天早上去拍的，回过头想想那边放着一辆摩托（图 3 可见），估计就是他的。
 
 **本文历史**
 
 * 2017 年 02 月 25 日 未完待续
 * 2017 年 02 月 27 日 完成初稿
+* 2017 年 03 月 17 日 添加 MP4 格式视频
