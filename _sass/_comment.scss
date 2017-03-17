@@ -166,11 +166,11 @@
             display: inline-block;
             color: #737474;
             cursor: pointer;
-            fiil: #c2c6cc;
+            fill: #c2c6cc;
             transition: all .2s;
         }
         &:hover .icon {
-            fill: #1d2f3a;
+            fill: #1d2f3a!important;
         }
     }
     .exit {
@@ -300,16 +300,23 @@
             filter: alpha(opacity=100);
             visibility: visible!important;
         }
-        .comment-form-submit{
+        .comment-actions-form{
             transition: all .3s .5s;
             margin: 87px -2px -2px;
-            opacity:1;
+        }
+        .comment-form-submit{
+            opacity: 1;
         }
     }
     &.focus{
         border: 2px solid #c2c6cc;
         .comment-actions {
             border-top: 2px solid #c2c6cc;
+            .comment-actions-label{
+                .icon {
+                    fill: #656c7a;
+                }
+            }
         }
         &.expanded .comment-image {
             border-top: 2px solid #c2c6cc;
@@ -323,15 +330,21 @@
     }
     &.logged-in{
         .comment-form-submit{
-            margin: -2px;
             border-radius: 0 0 4px;
             transition: none;
             opacity:1;
+        }
+        .comment-actions-form{
+            margin: 0;
+            transition: all .5s;
         }
         + .comment-login{
             height: 0;
             opacity: 0;
             margin-top: -40px;
+        }
+        .tips {
+            display: none;
         }
         .exit {
             display: block;
@@ -358,7 +371,7 @@
         z-index: 1;
         border: none;
         opacity: 0;
-        margin: 40px -2px -2px;
+        margin: -2px;
         white-space: nowrap;
         border-radius: 4px;
         height: 38px;
