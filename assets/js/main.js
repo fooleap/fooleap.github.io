@@ -99,9 +99,7 @@ timeAgo();
         };
         xhrImageAve[i].send(null);
 
-        page.img = postImages.length ;
-
-        if ( page.img > 0 ){
+        if ( postImages.length > 0  && (new RegExp(site.img,'i')).test(item.getAttribute('src'))){
             //Lightbox
             item.dataset.jslghtbx = item.src.split(/_|\?/)[0];
             item.dataset.jslghtbxCaption = item.getAttribute('alt');

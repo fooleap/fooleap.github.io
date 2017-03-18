@@ -1,4 +1,7 @@
 @charset "utf-8";
+.comment{
+    font: 13px/1.6 "Helvetica Neue", Helvetica, Arial, "微软雅黑", "Microsoft YaHei", sans-serif;
+}
 .comment.guestbook .comment-header{
     display: none;
 }
@@ -499,6 +502,7 @@
 }
 
 .comment-list {
+    font-size: 13px;
     &.loading{
         position: relative;
         background:url(https://a.disquscdn.com/next/embed/assets/img/loader-bg.173909e4737a7481df14d5492b5eeb48.png) no-repeat!important;
@@ -524,9 +528,6 @@
             transform-origin: 50% 50% 0px;
             animation:disqus-loader-spinner-animation .7s infinite linear!important
         }
-    }
-    .comment-item-children {
-        font-size: 13px;
     }
     p {
         margin: 0;
@@ -572,6 +573,9 @@
         .comment-item-imagelink{
             height: 100px;
             margin: 0 5px;
+            &:hover{
+                border-bottom: none;
+            }
         }
         .comment-item-image{
             height: 100%;

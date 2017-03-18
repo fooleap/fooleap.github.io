@@ -15,7 +15,7 @@ tags: [关于, 博客, fooleap, blog]
 
 这是 fooleap 的个人博客，记录点滴。
 
-自 2011 年 2 月 9 日起，本站已运行 <script>document.write(Math.floor(((new Date()).getTime() - (new Date('02/09/2011')).getTime())/ (1000 * 60 * 60 * 24)));</script> 天，截至 {% for post in site.posts limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %}，共有博文 {{ site.posts | size }} 篇。
+自 2011 年 2 月 9 日起，本站已运行 <script>document.write(Math.floor(((new Date()).getTime() / 1000 - {{ "2011-02-09" | date: "%s"}})/ (60 * 60 * 24)));</script> 天，截至 {% for post in site.posts limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %}，共有博文 {{ site.posts | size }} 篇。
 
 本博客采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [七牛云存储](http://www.qiniu.com) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
 

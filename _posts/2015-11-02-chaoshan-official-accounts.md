@@ -4,7 +4,6 @@ title: 有意思的潮汕微信公众号
 description: "现如今，每天最离不开的手机 app 是微信，微信公众平台很不错，有一些订阅号也很有趣，截至到现在，鄙人接触到的潮汕本地公众号中，内容较有意思、原创度较高的公众号如下。"
 date: 2015-11-02 18:00:00 +0800
 category: life
-style: true
 thumb: IMG_PATH/wechat.png
 tags: [潮汕, 微信, 公众号]
 ---
@@ -630,7 +629,7 @@ tags: [潮汕, 微信, 公众号]
 
 如果你知道其他有意思的潮汕微信号，求分享。
 
-<!--<style>
+<style>
     .clear{clear:both;height:20px;}
     .title {line-height:40px;width: 100%;text-align: center;background:#eee;margin-bottom:0;}
     .profile {width: 25%;overflow:hidden;float:left;font-size:12px;margin:0;}
@@ -644,7 +643,7 @@ tags: [潮汕, 微信, 公众号]
     @media screen and (max-width: 414px) {
     .profile {width: 50%;}
     }
-    </style>-->
+    </style>
 
 **本文历史**
 

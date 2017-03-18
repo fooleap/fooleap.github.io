@@ -14,7 +14,7 @@
                     <h1 class="page-title"><a class="page-title-link" href="{% if page.title %}{{ page.url }}{% else %}{{ site.home }}{% endif %}">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</a></h1>
                     <h2 class="page-subtitle">
                     {% if page.date %}
-                        <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>
+                    <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>
                         <span class="post-count">本文 {{ page.content | strip_html | strip_newlines | size }} 字，阅读全文约需 {{ page.content | strip_html | strip_newlines | size | divided_by: 400 | plus: 1 }} 分钟</span>
                     {% elsif paginator %}
                         {{ site.description }}
