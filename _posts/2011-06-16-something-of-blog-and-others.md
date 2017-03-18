@@ -21,7 +21,7 @@ tags: [Linux, Windows, 博客, 正版, 盗版]
 附目前的桌面截图，已经一个多月没换了，不需要任何折腾，感觉很好！
 
 ![2011-06-16 Shot]({{site.IMG_PATH}}/something-of-blog-and-others.png_640)
-▲屏幕截图
+屏幕截图
 
 **本文历史**
 

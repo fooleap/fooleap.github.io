@@ -19,30 +19,30 @@ HP Veer 吸引我的是其外观的小巧、 QWERTY 键盘、非主流的 webOS 
 * 这大概是每一个看到这手机的人的感觉吧，小，出奇的小！五月份跑步，为了记录跑步时间，总会握着卡片机，因为 8700 太大了，相机还可以拍下沿途的风景。而拿到 Veer 后，果断换成它，拍照记时两不误，握在手里感觉很好。 Veer 有相应的跑步应用，由于信号流量问题，弃之。
 
 ![手里的 Veer]({{site.IMG_PATH}}/small-but-complete-01.jpg_640)
-▲手里的 Veer
+手里的 Veer
 
 ![与 8700 对比]({{site.IMG_PATH}}/small-but-complete-02.jpg_640)
-▲与黑莓 8700 的对比
+与黑莓 8700 的对比
 
 * webOS 的“卡片系统”很爽，手势区很强大，这让我感到， webOS 是相当先进的系统，它应该比鄙人没用过 Android 和 iOS 体验都要好。
 
 ![卡片系统及通知区域]({{site.IMG_PATH}}/small-but-complete-01.png)
-▲卡片系统及通知区域
+卡片系统及通知区域
 
 * 摄像头还好，没闪光灯，不支持自动变焦，在光线好的条件下，拍出来效果是相当不错的。
 
 ![肥仔螺蛳粉]({{site.IMG_PATH}}/small-but-complete-03.jpg_640)
-▲肥仔螺蛳粉
+肥仔螺蛳粉
 
 * 应用基本够用， webOS 的 Synergy 很好。对于这样的小众系统，遗憾的是没有省流量的浏览器， Google Latitude 不支持。
 
 ![各种应用]({{site.IMG_PATH}}/small-but-complete-02.png)
-▲各种应用
+各种应用
 
 * 电池基本够用，不怎么玩手机的话，能撑一天。建议配备移动电源，需加个 USB 转接头。还有，充电存储接口特殊，很喜欢。
 
 ![移动电源和转接头]({{site.IMG_PATH}}/small-but-complete-04.jpg_640)
-▲移动电源和转接头
+移动电源和转接头
 
 * 虽有 QWERTY 键盘，但比起黑莓体验稍差，比如说手感，系统的快捷键。
 

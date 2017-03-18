@@ -73,12 +73,12 @@ s.src = '//' + disqus_shortname + '.disqus.com/count.js';
 对了，在 Disqus 后台中可以设置评论计数链接的文字<sup>[[2]](#note-2){:id="ref-2"}</sup>，鄙人设置如下图：
 
 ![设置评论计数链接的文字]({{ site.IMG_PATH }}/disqus-comment-count-01.png)
-&#9650;设置评论计数链接的文字
+设置评论计数链接的文字
 
 经过上面的方式处理之后，打开页面的时候刷刷的，一看原来加载了三个文件。虽然加载时间用不了多少，但为了显示评论数要多增加三次响应，是不是有点得不偿失？不管是不是，强迫症告诉我应该找找有没有更好的方式。
 
 ![加载的文件1]({{ site.IMG_PATH }}/disqus-comment-count-02.png)
-&#9650;加载的文件1
+加载的文件1
 
 ## 通过 Disqus API
 
@@ -126,7 +126,7 @@ if (commentsCount.length) {
 看看是不是快多了？好像也没快多少，不过只需加载一个文件便可。
 
 ![加载的文件2]({{ site.IMG_PATH }}/disqus-comment-count-03.png)
-&#9650;加载的文件2
+加载的文件2
 
 使用 jQuery 实现更方便<sup>[[3]](#note-3){:id="ref-3"}</sup>：
 

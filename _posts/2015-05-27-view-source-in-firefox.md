@@ -22,12 +22,12 @@ Firefox 查看源码最简单的办法就是右键点击“查看页面源代码
 1、查看页面源代码时，Firefox 会在 HTML 语法错误的地方以显眼的红色标记。
 
 ![源代码红色标记错误]({{site.IMG_PATH}}/view-source-in-firefox-01.png)
-▲源代码红色标记错误
+源代码红色标记错误
 
 2、选中网页的部分元素，右键可查看选中部分的源代码（View Selection Source）。
 
 ![右键查看选中部分源代码]({{site.IMG_PATH}}/view-source-in-firefox-02.png)
-▲右键查看选中部分源代码
+右键查看选中部分源代码
 
 在此需要提醒的是，查看选中部分源码时，显示的是浏览器解析页面完毕后的代码，包括通过 JavaScript 进行加载的一些元素，也就是说和“查看元素（`Shift`+`Ctrl`+`i`）”显示的代码是一样的。
 
@@ -38,7 +38,7 @@ Firefox 查看源码最简单的办法就是右键点击“查看页面源代码
 Chrome 等浏览器查看源代码是在新的标签页中显示的（如图），实践发现 Firefox 也是通过 `view-source:`+`URL` 这个地址即可查看源代码。
 
 ![Chrome 新标签页显示源代码]({{site.IMG_PATH}}/view-source-in-firefox-03.png)
-▲Chrome 新标签页显示源代码
+Chrome 新标签页显示源代码
 
 可是 Firefox 默认弹出一个窗口显示，这个窗口甚至可以替换成第三方编辑器，这种体验鄙人感觉不如 Chrome，不过强大的 Firefox 肯定也是能实现一样的功能，随便一搜就有第三方扩展支持，比如 [Source Viewer Tab](https://addons.mozilla.org/en-US/firefox/addon/source-viewer-tab/)。
 
@@ -80,12 +80,12 @@ map vs :view-source<Return>
 利用“查看元素”得知，样式是 `viewsource.css` 文件定义的，不过鄙人找不到这个文件。
 
 ![viewsource.css]({{site.IMG_PATH}}/view-source-in-firefox-04.png)
-▲viewsource.css
+viewsource.css
 
 事实上这个页面的字体定义继承于等宽字体，即在`选项`-`内容`-`字体和颜色`-`高级`里面设置。
 
 ![设置等宽字体]({{site.IMG_PATH}}/view-source-in-firefox-05.png)
-▲设置等宽字体
+设置等宽字体
 
 如果你觉得这样改还不过瘾，可以直接跑 `about:config` 里面更改 `font.name.monospace.zh-CN` 选项（中文版本），就可以 CSS 一样的指定字体优先级（说白了就是指定中英文字体），例如 `Consolas, Microsoft Yahei`，字体大小则可更改 `font.size.fixed.zh-CN` 选项。
 

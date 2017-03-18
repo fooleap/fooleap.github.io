@@ -20,6 +20,7 @@ scripts: ["http://echarts.baidu.com/dist/echarts.common.min.js"]
 当然，现在各种 LBS 应用也让我们更有动力进行运动，跑完可以发朋友圈啊，哈哈！
 
 ![还有6公里就可以发朋友圈了](http://img.21sq.org/uploadfile/cover/20160918/1474175363595892.jpg)
+还有6公里就可以发朋友圈了
 
 ## 数据
 

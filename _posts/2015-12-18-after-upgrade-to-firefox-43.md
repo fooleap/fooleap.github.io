@@ -18,12 +18,12 @@ tags: [Firefox, Pentadactyl, Git]
 升级后，有多款扩展提示“未被验证在 Firefox 中使用，现已被禁用。”，这是因为那些扩展并没有托管到 `addons.mozilla.org`并通过审核，Firefox 的新版本默认将其禁止。
 
 ![多款扩展被禁用]({{ site.IMG_PATH }}/after-upgrade-to-firefox-43-01.png)
-&#9650;多款扩展被禁用
+多款扩展被禁用
 
 这个问题的解决方法很简单，仅需根据提示点击了解详情，便可在其帮助页面中[[1]][1] 找到。
 
 ![扩展被禁用的解决方法]({{ site.IMG_PATH }}/after-upgrade-to-firefox-43-02.png)
-&#9650;扩展被禁用的解决方法
+扩展被禁用的解决方法
 
 根据提示，仅需打开 `about:config`，将里面的 `xpinstall.signatures.required` 首选项的值设为 `false`（双击）即可。
 

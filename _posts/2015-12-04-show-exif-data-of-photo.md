@@ -25,7 +25,7 @@ exif-js[[1]][1] 是一个提供读取相片 Exif 数据功能的 JS 库，兼容
 直接在图片 URL 后加 `exif` 指示符即可获取到相关 JSON 字符串，例如：
 
 ![金鸿路上的风景](http://source.fooleap.org/show-exif-data-of-photo.jpg_640)
-&#9650;金鸿路上的风景
+金鸿路上的风景
 
 以上相片的 Exif 数据如下：
 

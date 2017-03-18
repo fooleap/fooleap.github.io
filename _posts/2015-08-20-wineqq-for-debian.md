@@ -49,7 +49,7 @@ QQ 或许是无法离开 Windows 的借口之一，在 Linux 上也会想用 QQ�
 根据清风老师的教程下载自己喜欢的 [WineQQ](http://pan.baidu.com/s/1qWyPHA8){:title="密码:e2k8"} 版本 并解压。打开 QQ，提示安装 Mono，那就安装吧，等待之后，久违的 QQ 登录界面就见天日了。
 
 ![Wine QQ]({{ site.IMG_PATH }}/wineqq-for-debian-01.png)
-▲Wine QQ
+Wine QQ
 
 ### 备选
 
@@ -91,7 +91,7 @@ QQ 或许是无法离开 Windows 的借口之一，在 Linux 上也会想用 QQ�
 重启之后发现启动不了，也许是 QQ 有些程序是自启动的，安全校验什么的。找了一下，发现这个：[腾讯QQ7.x 去整体安全校验补丁v5.0](http://www.zdfans.com/589.html)。只要将其放在 QQ 目录下的 Bin 文件夹里运行并应用之后便能正常启动 QQ。
 
 ![QQ 轻聊版聊天窗口]({{ site.IMG_PATH }}/wineqq-for-debian-02.png)
-▲QQ 轻聊版聊天窗口
+QQ 轻聊版聊天窗口
 
 PS：我安装 QQ 轻聊版之前使用 winetricks 安装过一些函数库，所以不能保证只要安装 Wine 之后便能运行 QQ，具体也没去研究。再不济则可以下载清风老师的包除却 QQ 的相关文件，其他覆盖。
 

@@ -8,7 +8,8 @@ var head = document.getElementsByTagName('head')[0],
         home: head.dataset.home,
         api: head.dataset.api,
         img: head.dataset.img,
-        tongji: head.dataset.tongji
+        tongji: head.dataset.tongji,
+        analytics: head.dataset.analytics
     },
     page = { 
         layout: head.dataset.layout,
@@ -106,7 +107,7 @@ timeAgo();
             item.dataset.jslghtbxCaption = item.getAttribute('alt');
             item.dataset.jslghtbxGroup = 'lightbox';
             item.classList.add('post-image');
-            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure">').replace('</p>','</figure>').replace(item.parentElement.textContent, '<figcaption class="post-figcaption">'+ item.parentElement.textContent.trim() +'</figcaption>');
+            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure">').replace('</p>','</figure>').replace(item.parentElement.textContent, '<figcaption class="post-figcaption">&#9650; '+ item.parentElement.textContent.trim() +'</figcaption>');
 
             //Exif
             if( item.src.indexOf('.jpg') > -1 ) {
@@ -143,21 +144,6 @@ timeAgo();
 
 })();
 
-// SVG 覆盖颜色
-/*
-(function(){
-    [].forEach.call(document.querySelectorAll('.icon'), function(item, i){
-        item.addEventListener('mouseover', function(){
-            var hoverColor = this.dataset.color;
-            this.contentDocument.querySelector('.icon').setAttribute("fill", hoverColor);
-        }, false);
-        item.addEventListener('mouseout', function(){
-            var hoverColor = this.dataset.color;
-            this.contentDocument.querySelector('.icon').setAttribute("fill", null);
-        }, false);
-    });
-})();*/
-
 // 判断是否支持 Flash http://goo.gl/cg206i
 function isFlashSupported() {
     if (window.ActiveXObject) {
@@ -170,8 +156,6 @@ function isFlashSupported() {
 }
 
 var links = document.querySelectorAll('a');
-var clientWidth = document.documentElement.clientWidth;
-var clientHeight = document.documentElement.clientHeight;
 
 // Vim 键绑定
 /*
@@ -224,24 +208,15 @@ window.addEventListener('keydown', keysDown, false);
 window.addEventListener('keyup', keysUp, false);
 */
 
-// 返回顶部按钮
-function toggleToTop() {
-    var pos = document.documentElement.scrollTop || document.body.scrollTop;
-    if (pos > clientHeight) {
-        backToTop.classList.add('show');
-    } else {
-        backToTop.classList.remove('show');
-    }
-}
-
-
 // 目录
-var toc = document.getElementById('toc');
+var clientWidth = document.documentElement.clientWidth;
+var clientHeight = document.documentElement.clientHeight;
+var toc = document.querySelector('.post-toc');
 var subTitles = document.querySelectorAll('.page-content h2,h3');
 var sectionIds = [];
 var sections = [];
 if (toc) {
-    var tocFixed = clientWidth / 2 - 400 - toc.offsetWidth;
+    var tocFixed = clientWidth / 2 - 410 - toc.offsetWidth;
     if (tocFixed < 15) {
         toc.classList.add('hide');
     } else {
@@ -357,8 +332,6 @@ function disqus_config() {
 };
 
 function showComments() {
-    document.querySelector('.comment-show').style.display = 'none';
-    document.querySelector('.comment').insertAdjacentHTML('beforebegin', '<div class="comment-mode cf"><div class="comment-toggle" onclick="commentToggle()"><div class="comment-swtich"></div></div><div class="comment-name">简易评论框</div><div class="disqus-loading"></div></div>');
     var d = document,
         s = d.createElement('script');
     s.src = '//fooleap.disqus.com/embed.js';
@@ -909,7 +882,7 @@ Comment.prototype = {
 
 }
 
-var guest = page.layout == 'post' ||  page.url == '/guestbook.html' ? new Guest() : undefined;
+var guest = new Guest();
 var comment =  new Comment();
 
 // lightbox http://goo.gl/aA9Y5K
@@ -990,7 +963,7 @@ setTimeout(function() {
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-16717905-7', 'auto');
+        ga('create', site.analytics, 'auto');
         ga('send', 'pageview');
     }
 }, 1000);

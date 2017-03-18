@@ -16,12 +16,12 @@ tags: [JavaScript, Vim, 'Key Bindings', 快捷键]
 一旦习惯 Vim 的热键操作，网页浏览也会想用熟悉的热键操作，有人为热门浏览器开发了扩展，例如 Firefox 有个人觉得近完美的扩展解决方案 Vimperator 或 Pentadactyl，Chrome 则有不大完美的 Vichrome、Vimium 等[[1]] [1]，还有些人直接写了类 vi 的浏览器，例如 dwb[[2]] [2]，不过我想没用过 vi 的人不会去尝试这样的扩展或软件。
 
 ![dwb 界面]({{ site.IMG_PATH }}/vim-key-bindings-for-web-page-01.png?imageView2/2/w/640)
-&#9650;dwb 界面
+dwb 界面
 
 那么，能不能直接使用 JavaScript，在网站中实现热键操作，让访问你网站的人都能享受，答案是可以的，知乎的快捷键就有些 vi 的感觉[[3]] [3]。
 
 ![知乎的快捷键]({{ site.IMG_PATH }}/vim-key-bindings-for-web-page-02.png)
-&#9650;知乎的快捷键
+知乎的快捷键
 
 ## 功能介绍
 

@@ -22,7 +22,7 @@ Jekyll 官方在 [Jekyll on Windows](http://jekyllrb.com/docs/windows/) 引用�
 安装的时候注意勾选“Add Ruby executables to your PATH”，设置环境变量，这样一来，你将能在 Windows 命令行直接使用 Ruby 的相关命令。
 
 ![Add Ruby executables to your PATH]({{site.IMG_PATH}}/run-jekyll-on-windows-01.png)
-▲勾选 Add Ruby executables to your PATH
+勾选 Add Ruby executables to your PATH
 
 ## 安装 Ruby DevKit
 
@@ -69,7 +69,7 @@ GitHub 提供 [`github-pages`](https://github.com/github/pages-gem) 这个 gem�
 若你的博客托管在 GitHub，又想使用语法高亮（pygments），那么你需要安装 Python。到 [Python Releases for Windows](https://www.python.org/downloads/windows/) 按需下载 Python 2，安装时和 Ruby 一样，如图注意勾选设置环境变量的选项。
 
 ![Python 设置环境变量]({{site.IMG_PATH}}/run-jekyll-on-windows-02.png)
-▲Python 设置环境变量
+Python 设置环境变量
 
 安装 pygments
 

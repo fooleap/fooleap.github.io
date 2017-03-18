@@ -23,23 +23,24 @@ tags: [手机, 工程模式, 热键大师, "黑莓 8700"]
 关闭主屏幕拨号功能（电话 - 选项 - 常规选项 - 从主屏幕拨号 -“否”），设置语言为英文（选项 - 语言 -English）。英文字体显示效果比中文好，而且在使用菜单的时候可以快速定位，使用效率会更高。这两个设置后，在待机状态下，就有很多启动黑莓自带程序的快捷键，其实有些主题定义了快捷键。
 
 
-<table id="tabulation">
-<tr><th>a</th><td><u>A</u>ddress Book</td><td>通讯簿</td></tr>
-<tr><th>b</th><td><u>B</u>rowser</td><td>浏览器</td></tr>
-<tr><th>c*</th><td><u>C</u>ompose</td><td>编写</td></tr>
-<tr><th>d</th><td>Memopa<u>d</u></td><td>记事簿</td></tr>
-<tr><th>f</th><td>Pro<u>f</u>iles</td><td>情景设置</td></tr>
-<tr><th>k*</th><td><u>K</u>eyboard Lock</td><td>锁定</td></tr>
-<tr><th>l*</th><td>Ca<u>l</u>endar</td><td>日历</td></tr>
-<tr><th>m*</th><td><u>M</u>essages</td><td>消息</td></tr>
-<tr><th>o</th><td><u>O</u>ptions</td><td>选项</td></tr>
-<tr><th>p*</th><td><u>P</u>hone</td><td>电话</td></tr>
-<tr><th>r*</th><td>Ala<u>r</u>m</td><td>闹钟</td></tr>
-<tr><th>s</th><td><u>S</u>earch</td><td>搜索</td></tr>
-<tr><th>t</th><td><u>T</u>ask</td><td>任务</td></tr>
-<tr><th>u</th><td>Calc<u>u</u>lator</td><td>计算器</td></tr>
-<tr><th>v*</th><td>Sa<u>v</u>ed Messages</td><td>保存的消息</td></tr>
-</table>
+|---
+|快捷键|英文|中文|
+|---
+|a|<u>A</u>ddress Book|通讯簿|
+|b|<u>B</u>rowser|浏览器|
+|c*|<u>C</u>ompose|编写|
+|d|Memopa<u>d</u>|记事簿|
+|f|Pro<u>f</u>iles|情景设置|
+|k*|<u>K</u>eyboard Lock|锁定|
+|l*|Ca<u>l</u>endar|日历|
+|m*|<u>M</u>essages|消息|
+|o|<u>O</u>ptions|选项|
+|p*|<u>P</u>hone|电话|
+|r*|Ala<u>r</u>m|闹钟|
+|s|<u>S</u>earch|搜索|
+|t|<u>T</u>ask|任务|
+|u|Calc<u>u</u>lator|计算器|
+|v*|Sa<u>v</u>ed Messages|保存的消息|
 
 注：其中加星号表示中文状态通用。
 
@@ -48,6 +49,7 @@ tags: [手机, 工程模式, 热键大师, "黑莓 8700"]
 一款功能简单又强大的系统功能扩展软件，启动程序更加方便了，一些功能的实现如下（设置空格键为启动热键大师快捷键）
 
 ![黑莓热键大师]({{site.IMG_PATH}}/use-of-blackberry8700-01.png)
+黑莓热键大师
 
 启动应用程序
 
@@ -72,6 +74,7 @@ tags: [手机, 工程模式, 热键大师, "黑莓 8700"]
 如下图依此按下 Alt，Shift，h 键时，启动 help me，进入获取 [eScreen Unlock Code](http://www.bber.info/escreen.htm) 的网站（源码：http://dl.getdropbox.com/u/1911810/sha1.htm，BerryBox 等软件亦提供）获取解锁码，在 help me 界面依次输入即可，更多可见 [黑莓工程模式 (eScreen) 详解](http://www.bber.info/post/blackberry_escreen)。
 
 ![黑莓工程模式]({{site.IMG_PATH}}/use-of-blackberry8700-02.png)
+黑莓工程模式
 
 <del>待完善。..</del>
 

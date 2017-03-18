@@ -20,25 +20,25 @@ tags: [七牛, 域名, Jekyll]
 完成上面的步骤之后，在所需要绑定的空间 `空间设置` - `域名设置` - `自定义域名` 点击 `配置` 按钮，并根据实际需求填写提交。鄙人填写如下图
 
 ![提交申请]({{ site.IMG_PATH }}/domain-setting-with-qiniu-01.png)
-&#9650;提交申请
+提交申请
 
 点击提交之后便是等待处理阶段，提示 24 小时内配置完成。
 
 ![等待处理]({{ site.IMG_PATH }}/domain-setting-with-qiniu-02.png)
-&#9650;等待处理
+等待处理
 
 审核通过之后，便可根据提示设置域名解析。
 
 ![提示配置 CNAME]({{ site.IMG_PATH }}/domain-setting-with-qiniu-03.png)
-&#9650;提示配置 CNAME
+提示配置 CNAME
 
 ![设置域名解析]({{ site.IMG_PATH }}/domain-setting-with-qiniu-04.png)
-&#9650;设置域名解析
+设置域名解析
 
 验证成功便完成自定义域名的设置。
 
 ![配置完成]({{ site.IMG_PATH }}/domain-setting-with-qiniu-05.png)
-&#9650;配置完成
+配置完成
 
 鄙人使用 Jekyll，设置了一个 `site.IMG_PATH` 的变量为图床网址，仅需修改 `_config.yml` 相应的配置即可全站替换资源 URL。
 

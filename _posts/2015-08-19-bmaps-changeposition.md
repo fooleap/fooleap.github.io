@@ -22,7 +22,7 @@ tags: ["百度地图 API", 坐标转换, WGS-84, GCJ-02, BD-09]
 在英文维基百科的 [百度地图词条](https://en.wikipedia.org/wiki/Baidu_Maps#Coordinate_system) 上，有张图就能很形象地说明这几个坐标偏移的幅度（[实例](http://output.jsbin.com/panomu/2)）。
 
 ![维基百科的图]({{ site.IMG_PATH }}/bmaps-changeposition.png)
-▲维基百科的图
+维基百科的图
 
 百度坐标（BD-09）、火星坐标（GCJ-02）、GPS 坐标（WGS-84）之间都存在一定的偏移，如果不做一些纠偏，一些地图软件或应用就会出问题，尤其是移动端 APP（获取 GPS 定位信息直接显示在地图上的）。关于这方面，印象比较深刻的是，使用一些国外的跑步 APP，运动轨迹会出现一定程度偏移，这是因为没有做偏移纠正（Nike+ Running 已纠正）。
 
@@ -59,7 +59,7 @@ Google Earth 采用 WSG-84 坐标系统，而 Google Maps 中国部分采用的�
 具体怎么使用可看下面这个 GIF 动画：
 
 ![百度坐标转换器的使用]({{ site.IMG_PATH }}/bmaps-changeposition.gif)
-▲百度坐标转换器的使用
+百度坐标转换器的使用
 
 ## 其他转换方法
 

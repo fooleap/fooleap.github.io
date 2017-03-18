@@ -13,28 +13,28 @@ tags: [尧山, 山火, 爬山]
 4 月 14 日，周六，俩人，天气合适，于是八点出发，说跑有点过，没几步就气喘吁吁，所以可以说是走上去的。
 
 ![盘山公路绿意]({{site.IMG_PATH}}/the-second-climbing-notes-for-yaoshan-01.jpg_640)
-▲盘山公路绿意
+盘山公路绿意
 
 盘山公路处处有大火之后的痕迹，公路终点门没关，也没看到收费的。这次看到景区已经被铁栏杆围起来，其实那场大火已经烧到铁栏杆处。
 
 ![距终点 1km 处]({{site.IMG_PATH}}/the-second-climbing-notes-for-yaoshan-02.jpg_640)
-▲距终点 1km 处
+距终点 1km 处
 
 翻了过去，在尧山景区停留一会，还有不少游客，往下看，惨不忍睹。
 
 ![大火后痕迹 1]({{site.IMG_PATH}}/the-second-climbing-notes-for-yaoshan-03.jpg_640)
-▲大火后痕迹 1
+大火后痕迹 1
 
 ![大火后痕迹 2]({{site.IMG_PATH}}/the-second-climbing-notes-for-yaoshan-04.jpg_640)
-▲大火后痕迹 2
+大火后痕迹 2
 
 ![大火后痕迹 3]({{site.IMG_PATH}}/the-second-climbing-notes-for-yaoshan-05.jpg_640)
-▲大火后痕迹 3
+大火后痕迹 3
 
 从学校附近这边下山，回到学校大概 11 点 45 分。
 
 ![大火后痕迹 4]({{site.IMG_PATH}}/the-second-climbing-notes-for-yaoshan-06.jpg_640)
-▲大火后痕迹 4
+大火后痕迹 4
 
 **参考资料**
 

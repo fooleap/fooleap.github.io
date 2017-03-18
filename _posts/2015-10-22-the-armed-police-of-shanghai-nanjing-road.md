@@ -12,10 +12,10 @@ tags: [上海, 南京路]
 不过话说回来，去年假期我还专门跑去断桥边看人。下图是去年的国庆，西湖、白堤、断桥，在旁看了看，不曾想过马路到对面。
 
 ![白堤路口]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-01.jpg_640)
-&#9650;白堤路口
+白堤路口
 
 ![断桥]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-02.jpg_640)
-&#9650;断桥
+断桥
 
 今年的 10 月 2 日，到上海就免不了瞧瞧南京路及外滩。南京路步行街可能是中国最著名的步行街，鄙人逛步行街一般都是不买东西只看人，这次真是饱死眼福了，人实在太多太多。
 
@@ -24,37 +24,37 @@ tags: [上海, 南京路]
 说到建筑，作为地理爱好者的我觉得，世纪广场的室外大温度计看着比钟楼更有意思，只不过似乎是电子的，并不是很惊艳的。
 
 ![世纪广场的温度计]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-03.jpg_640)
-&#9650;世纪广场的温度计
+世纪广场的温度计
 
 既然这篇博文的主题是“人多”，那就应该贴几张人多的图。近几年，自拍杆逐渐热起来，今年，头上种草亦成为流行的玩意。于是，步行街到处都是卖草和自拍杆的小贩，生意应该不错。
 
 ![随处可见的小贩]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-04.jpg_640)
-&#9650;随处可见的小贩
+随处可见的小贩
 
 ![前面带着发光小花的哥们真是毫无违和感]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-05.jpg_640)
-&#9650;前面带着发光小花的哥们真是毫无违和感
+前面带着发光小花的哥们真是毫无违和感
 
 ![南京东路的人流]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-06.jpg_640)
-&#9650;南京东路的人流 1
+南京东路的人流 1
 
 ![南京东路的人流]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-07.jpg_640)
-&#9650;南京东路的人流 2
+南京东路的人流 2
 
 ![南京东路的人流]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-08.jpg_640)
-&#9650;南京东路的人流 3
+南京东路的人流 3
 
 我只是想拍路牌，没想到俩大哥抢镜了，虽然没对焦到，但看起来他们好痛苦。我能感觉得到，逛街真的好痛哭，比跑步痛苦多了，实在累坏。
 
 ![实在累坏]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-09.jpg_640)
-&#9650;实在累坏
+实在累坏
 
 看到河南中路路口的武警所筑拉链式人墙，话不多说，不扯什么中国特色，也编不出什么肺腑之言，向军人致敬。
 
 ![拉链式人墙]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-10.jpg_640)
-&#9650;拉链式人墙 1
+拉链式人墙 1
 
 ![拉链式人墙]({{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road-11.jpg_640)
-&#9650;拉链式人墙 2
+拉链式人墙 2
 
 这个人墙去年就有媒体报道，今年亦是，看看视频可能会更直观一些。
 

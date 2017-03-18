@@ -9,6 +9,7 @@ description: 'A foolish man could not always lose!'
 home: http://blog.fooleap.org
 api: http://api.fooleap.org
 tongji: 'fa7ec982118ebd236663169678264582'
+analytics: 'UA-16717905-7'
 timezone: CN
 highlighter: rouge
 permalink: /:title.html

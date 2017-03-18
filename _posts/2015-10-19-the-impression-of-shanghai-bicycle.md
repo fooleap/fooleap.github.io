@@ -14,40 +14,40 @@ tags: [上海, 自行车]
 我发现在上海骑车的，大多年龄层为大叔、大妈以上。
 
 ![人民路骑车男女]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-01.jpg_640)
-&#9650;人民路骑车男女
+人民路骑车男女
 
 ![中华路骑车人]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-02.jpg_640)
-&#9650;中华路骑车人
+中华路骑车人
 
 ![中华路骑车大妈]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-03.jpg_640)
-&#9650;中华路骑车大妈
+中华路骑车大妈
 
 最最重要的是，在上海，骑车人数不多，但凤凰牌或永久牌的 28 寸大轮单车（老二八）可谓随处可见，这绝对是情怀。
 
 ![中华路老二八]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-04.jpg_640)
-&#9650;中华路老二八
+中华路老二八
 
 ![这个好像少了一横杠]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-05.jpg_640)
-&#9650;这个好像少了一横杠
+这个好像少了一横杠
 
 ![复兴东路中华路口锁着的老二八]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-06.jpg_640)
-&#9650;复兴东路中华路口锁着的老二八
+复兴东路中华路口锁着的老二八
 
 ![复兴东路中华路口老二八在等红绿灯]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-07.jpg_640)
-&#9650;复兴东路中华路口老二八在等红绿灯
+复兴东路中华路口老二八在等红绿灯
 
 ![四川北路老二八]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-08.jpg_640)
-&#9650;四川北路老二八
+四川北路老二八
 
 ![九龙路老二八（比较远，应该看得见）]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-09.jpg_640)
-&#9650;九龙路老二八（比较远，应该看得见）
+九龙路老二八（比较远，应该看得见）
 
 在上海，印象最深的便是这大街小巷随处可见的老二八，浓浓的老上海情怀呀！
 
 当然在上海，也不乏看到一些骑着山地车的年轻人。
 
 ![骑车的年轻人]({{ site.IMG_PATH }}/the-impression-of-shanghai-bicycle-10.jpg_640)
-&#9650;骑车的年轻人
+骑车的年轻人
 
 ## 参考资料
 

@@ -557,10 +557,12 @@
         .comment-item-cancel{
             color: rgba(0, 149, 221, 1);
             font-weight: 700;
+            border-bottom: none;
         }
         .comment-item-reply{
             color: #656c7a;
             font-weight: 500;
+            border-bottom: none;
         }
     }
     .comment-item-images{

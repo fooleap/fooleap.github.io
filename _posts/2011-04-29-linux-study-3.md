@@ -42,7 +42,7 @@ BT 种子：[下载](http://dl.dbank.com/c0opkvt2nh)
 **注**：GeeXboX 提供 Windows 安装器 geexbox-win32-installer，可以直接使用它选择自己喜欢的安装方式（安装到硬盘并添加到启动菜单或安装到其他磁盘）进行安装。
 
 ![GeeXboX-Installer]({{site.IMG_PATH}}/linux-study-3.png)
-
+GeeXboX-Installer
 
 **本文历史**
 

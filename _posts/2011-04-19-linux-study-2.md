@@ -144,8 +144,7 @@ dpkg -i .deb 进行安装
 
 再下个 SuperMario.nes（[下载](http://dl.dbank.com/c0ubzkgcib)）
 
-![SuperMario]({{site.IMG_PATH}}/linux-study-2.png)
-
+![SuperMario]({{ site.IMG_PATH }}/linux-study-2.png)
 啊哈，小霸王其乐无穷啊~
 
 嘘，“小霸王”可是敏感词 =。=

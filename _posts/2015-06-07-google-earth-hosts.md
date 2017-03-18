@@ -21,14 +21,14 @@ tags: ["Google Earth", hosts, 科学上网]
 更新，是 Google Earth Pro，Google Earth 不需要科学上网似乎还能使用。
 
 ![无法连接对话框]({{site.IMG_PATH}}/google-earth-hosts-01.png)
-▲Google 地球无法连接对话框
+Google 地球无法连接对话框
 
 ## 对相片进行地理标记
 
 有时候想对无地理标记功能相机拍出的相片进行地理标记，Google Picasa 不失为最佳工具，Picasa 自身的功能偏弱，结合 Google Earth 进行批量标记最好不过。
 
 ![无法连接对话框]({{site.IMG_PATH}}/google-earth-hosts-02.png)
-▲利用使用 Google Earth 进行地理标记
+利用使用 Google Earth 进行地理标记
 
 ## 尝试解决连接问题
 

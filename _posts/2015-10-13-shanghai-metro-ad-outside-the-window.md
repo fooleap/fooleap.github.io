@@ -12,22 +12,22 @@ tags: [上海, 地铁, 广告]
 先贴几张在上海期间拍的地铁相关图片。
 
 ![上海南站一号线]({{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.jpg_640)
-&#9650;上海南站一号线，列车到站感觉都震动起来
+上海南站一号线，列车到站感觉都震动起来
 
 ![随拍一号线车厢内]({{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-02.jpg_640)
-&#9650;随拍一号线车厢内，刚上车还好人不是特别多
+随拍一号线车厢内，刚上车还好人不是特别多
 
 ![人满为患的陆家嘴地铁站售票处]({{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-03.jpg_640)
-&#9650;人满为患的陆家嘴地铁站售票处
+人满为患的陆家嘴地铁站售票处
 
 ![地铁 10 号线车厢内]({{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-04.jpg_640)
-&#9650;地铁 10 号线车厢内
+地铁 10 号线车厢内
 
 ![很容易卡纸币的售票机]({{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-05.jpg_640)
-&#9650;很容易卡纸币的售票机
+很容易卡纸币的售票机
 
 ![10 号线豫园站 1 号地铁口]({{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-06.jpg_640)
-&#9650;10 号线豫园站 1 号地铁口
+10 号线豫园站 1 号地铁口
 
 回过头再来看上海地铁在列车运行时的车窗外广告，刚看到感觉好神奇，为啥列车这么快的运行着，窗外的广告居然是动态的，那广告是否就在列车上的投影，所以列车运行它也会跟着动，但看着看着感觉并不是这样，发光的是在外面的墙上。
 

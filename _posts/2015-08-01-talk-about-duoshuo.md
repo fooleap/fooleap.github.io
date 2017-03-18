@@ -32,7 +32,7 @@ tags: [多说, Jekyll, Disqus, JavaScript]
 几步骤中比较头疼的恐怕就是转换导出文件，在 GitHub 上很容易找到别人造的轮子，例如 [GavinFoo/DISQUS2DUOSHUO](https://github.com/GavinFoo/DISQUS2DUOSHUO)。
 
 ![多说的文章管理]({{site.IMG_PATH}}/talk-about-duoshuo-01.png)
-▲多说的文章管理
+多说的文章管理
 
 转换后导入，多说后台的文章管理中，可以看到比较“迷茫”的 `Thread Key`，看起来并不美观，而看了多说在 [文档](http://dev.duoshuo.com/docs/5003ecd94cab3e7250000008/){:title="评论框调用代码参数说明"} 里也说 `data-thread-key` 是文章的唯一标识，要正确的显示当前页的评论靠的是这个参数。
 
@@ -41,7 +41,7 @@ tags: [多说, Jekyll, Disqus, JavaScript]
 修改后如下：
 
 ![修改后的 Thread Key]({{site.IMG_PATH}}/talk-about-duoshuo-02.png)
-▲修改后的 `Thread Key`
+修改后的 `Thread Key`
 
 
 到这里，在 Jekyll 中部署多说就很方便了，仅需根据多说官方的代码，配合以 Jekyll 的变量即可轻松解决。

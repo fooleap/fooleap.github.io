@@ -3,7 +3,7 @@ layout: default
 ---
 
 <article class="post-content">
-    {{ content | replace_first:'markdown-toc','toc' }}
+    {{ content | replace_first:'id="markdown-toc"','class="post-toc"' }}
 </article>
 {% include extend.html %}
 {% include info.html %}

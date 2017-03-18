@@ -1,6 +1,6 @@
-<section id="info" class="post-info cf">
-    <div class="post-tags">{% include svg/tags.svg %}<ul class="tags"> {% for tag in page.tags %}<li class="tag"><a href="/tags.html#{{ tag }}" target="_blank" title="查看“{{ tag }}”的相关文章">{{ tag }}</a></li>{% endfor %}</ul></div>
-    <div id="share" class="post-share">
+<section class="post-info">
+    <div class="post-tags">{% include svg/tags.svg %}<ul class="post-tag-list"> {% for tag in page.tags %}<li class="post-tag-item"><a class="post-tag-link" href="/tags.html#{{ tag }}" target="_blank" title="查看“{{ tag }}”的相关文章">{{ tag }}</a></li>{% endfor %}</ul></div>
+    <div class="post-share">
         <input class="post-qrcode-input" type="checkbox" id="qrcode-toggle" />
         <div class="post-qrcode" id="qrcode"></div>
         <label class="post-share-item wechat" title="分享到微信" for="qrcode-toggle">{% include svg/wechat.svg %}</label>

@@ -21,7 +21,7 @@ scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609d
 近几年，Google Maps 逐渐无法打开，偶尔抽风但尚能打开的 [Google 地图](http://ditu.google.cn) 已没有我的地图编辑分享功能。
 
 ![通过 Google Maps 分享的地图]({{ site.IMG_PATH }}/bmaps-lushu.png)
-▲通过 Google Maps 分享的地图
+通过 Google Maps 分享的地图
 
 现在要分享一些地图便变得不那么方便，鄙人并没有找到能够简单编辑线路，插上文字图片并在站外分享嵌入的地图服务代替品。
 

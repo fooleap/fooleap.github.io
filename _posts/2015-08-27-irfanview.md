@@ -18,7 +18,7 @@ tags: [IrfanView, 看图软件, 图片浏览器, Linux]
 先看界面，IrfanView 的界面可以说有些简陋，在 Windows 10 都出来了的今天，它的界面似乎还活在世纪初。
 
 ![IrfanView 界面]({{ site.IMG_PATH }}/irfanview-01.png?imageView2/2/q/90)
-▲IrfanView 界面
+IrfanView 界面
 
 再看 [官网](http://www.irfanview.com/)，如果没看到底下的 2015，或许会以为穿越到 20 世纪。而在官网显眼的位置，有那么一句话：“...one of the most popular viewers worldwide!”什么意思？英语四级都没过的我也知道，它的意思是：世界上最流行查看器（图片浏览器）之一。
 
@@ -109,7 +109,7 @@ image/x-tga=IrfanView.desktop
 经过上面的配置，就可以在文件属性中选择采用 IrfanView 打开。
 
 ![PCManFM 图像文件属性]({{ site.IMG_PATH }}/irfanview-02.png?imageView2/2/q/90)
-▲PCManFM 图像文件属性
+PCManFM 图像文件属性
 
 另外，其实使用 IrfanView Thumbnails 浏览缩略图也是不错的。
 

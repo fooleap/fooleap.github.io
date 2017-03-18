@@ -2,9 +2,7 @@
 layout: page
 permalink: /about.html
 title: 关于
-tags: [关于, 网志, fooleap, blog]
-js: true
-scripts: ["http://res.wx.qq.com/open/js/jweixin-1.0.0.js"]
+tags: [关于, 博客, fooleap, blog]
 ---
 
 {% comment %}
@@ -12,16 +10,16 @@ scripts: ["http://res.wx.qq.com/open/js/jweixin-1.0.0.js"]
 好多年前，在某个网站听到这首曲子的背景音乐，听着有感觉，便将其扒了下来（[fmmusic.mid]({{ site.IMG_PATH }}/fmmusic.mid)，当年的文件，MIDI 格式的），听得多了，就感觉对自己来说有某种特殊的意义，后来才知道它的名字及由来。
 {% endcomment %}
 
-* 网志网址：[http://blog.fooleap.org](http://blog.fooleap.org)
+* 博客网址：[http://blog.fooleap.org](http://blog.fooleap.org)
 * Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)
 
-这是 fooleap 的个人网志，记录点滴。
+这是 fooleap 的个人博客，记录点滴。
 
-自 2011 年 2 月 9 日起，本站已运行 <span id="days"></span> 天，截至 {% for post in site.posts limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %}，共有文章 {{ site.posts | size }} 篇。
+自 2011 年 2 月 9 日起，本站已运行 <script>document.write(Math.floor(((new Date()).getTime() - (new Date('02/09/2011')).getTime())/ (1000 * 60 * 60 * 24)));</script> 天，截至 {% for post in site.posts limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %}，共有博文 {{ site.posts | size }} 篇。
 
-本网志采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [七牛云存储](http://www.qiniu.com) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
+本博客采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [七牛云存储](http://www.qiniu.com) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
 
-即日起，本网志的原创内容，均采用知识共享组织（Creative Commons）的“署名-非商业性使用 3.0 中国大陆”（[CC BY-NC 3.0 CN](http://creativecommons.org/licenses/by-nc/3.0/cn/)）许可。
+即日起，本博客的原创内容，均采用知识共享组织（Creative Commons）的“署名-非商业性使用 3.0 中国大陆”（[CC BY-NC 3.0 CN](http://creativecommons.org/licenses/by-nc/3.0/cn/)）许可。
 
 ## 博主
 
@@ -37,11 +35,11 @@ scripts: ["http://res.wx.qq.com/open/js/jweixin-1.0.0.js"]
 * 豆瓣: [@fooleap](http://douban.com/people/fooleap)
 * 知乎: [@fooleap](http://zhihu.com/people/fooleap)
 
-## 网志进程
+## 博客进程
 
-* 2011-02-09 网志建立，名字为“Fooleap”
-* 2011-10-28 网志网址改为二级域名 blog.fooleap.org ，主域做了重定向，网志改名为“Fooleap&#039;s Blog”
-* 2012-03-18 网志从 WordPress 平台转到 Jekyll 平台，托管于 GitHub
+* 2011-02-09 博客建立，名字为“Fooleap”
+* 2011-10-28 博客网址改为二级域名 blog.fooleap.org ，主域做了重定向，博客改名为“Fooleap&#039;s Blog”
+* 2012-03-18 博客从 WordPress 平台转到 Jekyll 平台，托管于 GitHub
 * 2013-01-19 转移到 VPS 上
 * 2014-01-10 所用的 Host700 卷铺走人，重新转移到 GitHub
 * 2014-06-29 升级 Bootstrap 框架为 3.2 
@@ -90,10 +88,3 @@ wx.onMenuShareAppMessage({
 });
   });
 {% endcomment %}
-<!--<script>
-  var birthDay = new Date('02/09/2011');
-  var now = new Date();
-  var duration = now.getTime() - birthDay.getTime();
-  var total= Math.floor(duration / (1000 * 60 * 60 * 24));
-  document.getElementById('days').innerHTML = total;
-    </script>-->

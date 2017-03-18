@@ -35,7 +35,7 @@ tags: [iPhone, 'iPhone 4s', 'iOS 6']
 这时候我们可以借用 PC 的 iTunes，登录相关的 Apple ID（手机不需要连接），并下载相关 app，目的是为了该 app 进入你的已购列表[[2]][2]，也就相当于你下载过这个 app。
   
 ![使用 iTunes 下载美团外卖]({{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-01.png)
-&#9650;使用 iTunes 下载美团外卖
+使用 iTunes 下载美团外卖
 
 然后呢？跟前面一样，打开 iOS 6 的 App Store，进入已购列表或搜索，都能很轻松下载到相关的 app。
 
@@ -53,7 +53,7 @@ tags: [iPhone, 'iPhone 4s', 'iOS 6']
 发现对于已经下架的 app，到已购列表里依然可以下载到以前你安装过的。
 
 ![安装 WeicoPro 3]({{ site.IMG_PATH }}/install-the-last-compatible-version-of-an-app-with-ios6-02.png?imageView2/2/w/360)
-&#9650;安装 WeicoPro 3
+安装 WeicoPro 3
 
 注：录屏采用 [RecordMyScreen (Tweak)](cydia://package/org.coolstar.recordmyscreentweak) 插件。
 

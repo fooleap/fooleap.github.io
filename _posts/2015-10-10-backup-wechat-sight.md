@@ -48,7 +48,7 @@ tags: [微信, iPhone, WeChat, 小视频]
 对了，以上方法的依赖是你的 iOS 版本低于 8.3，或者已越狱。
 
 ![高版本 iOS 无法访问沙盒提醒]({{ site.IMG_PATH }}/backup-wechat-sight.png)
-&#9650;高版本 iOS 无法访问沙盒提醒
+高版本 iOS 无法访问沙盒提醒
 
 越狱后推荐微信小视频相关插件 [微信无限小视频](http://bbs.feng.com/read-htm-tid-8881387-page-1.html)。
 

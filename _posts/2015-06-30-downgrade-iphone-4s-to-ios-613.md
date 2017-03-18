@@ -47,14 +47,14 @@ Ubuntu 等一些 DEB 系的 Linux 发行版，则可以通过 [@daytonhasty](htt
 ## Beehind
 
 ![Beehind]({{site.IMG_PATH}}/downgrade-iphone-4s-to-ios-613-01.png?imageView2/2/w/640)
-▲Beehind
+Beehind
 
 有不少人降级无门，没有 Mac 电脑，电脑性能也不够装虚拟机，Linux 更不想碰，如果有 Windows 版本该多好，就不用为降级那么折腾。好消息总是来得很快，7 月 1 日，[@blackgeektuto](https://twitter.com/blackgeektuto) 发布了一款名为 Beehind（[官网](http://geeksn0w.it/Beehind/)） 的 Windows 降级工具，这下，iPhone 4s 的降级不用愁了。
 
 ## 降级后的 iPhone 4s
 
 ![搭载 iOS 6 的 iPhone 4s 主界面]({{site.IMG_PATH}}/downgrade-iphone-4s-to-ios-613-02.png?imageView2/2/w/480)
-▲搭载 iOS 6 的 iPhone 4s 主界面
+搭载 iOS 6 的 iPhone 4s 主界面
 
 如丝般顺滑的操作；
 

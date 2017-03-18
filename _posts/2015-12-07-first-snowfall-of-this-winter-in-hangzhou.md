@@ -35,15 +35,15 @@ tags: [杭州, 下雪]
 到了傍晚，有些屋顶，草坪逐渐积起了雪，出门特意抓了一把捏一下。当天晚上已经积了不少，还想着早点睡，第二天可以跑去西湖看断桥。
 
 ![屋顶积雪]({{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-01.jpg_640)
-&#9650;屋顶积雪
+屋顶积雪
 
 有积雪的断桥想想就激动，第二天一早便爬了起来。天并没下雪，屋顶的积雪并没完全融化，微博上说已被踏没（融化了），我又钻进被窝。
 
 ![第二天中午，积雪基本融化完毕]({{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-02.jpg_640)
-&#9650;第二天中午，积雪基本融化完毕
+第二天中午，积雪基本融化完毕
 
 ![第二天傍晚，夕阳特红]({{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-03.jpg_640)
-&#9650;第二天傍晚，夕阳特红
+第二天傍晚，夕阳特红
 
 在我的印象中，[杭州交通大雨大雪易瘫痪](/about-the-road-traffic-in-hangzhou-when-its-raining-or-snowing.html)。可能因为周末，加上路上没结冰，此次降雪并没听到塞车严重的消息。
 

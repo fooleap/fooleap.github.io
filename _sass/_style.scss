@@ -1,11 +1,12 @@
 @charset "utf-8";
 $lightblue: rgb(125, 185, 222);
 $darkblue: rgb(46, 169, 223);
-$lightgray: rgb(235, 235, 235);
-$darkgray: rgb(100, 100, 100);
+$lightgray: rgb(150, 150, 150);
+$darkgray: rgb(67, 67, 67);
 $white: rgb(255, 255, 255);
 $black: rgb(0, 0, 0);
 $default: rgb(34, 34, 34);
+
 // Utility
 * {
     margin: 0;
@@ -18,7 +19,7 @@ a{
 strong,
 b {
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: $black;
 }
 
 iframe {
@@ -37,6 +38,10 @@ video {
     margin: 0!important;
 }
 
+img[data-onload="true"] {
+    background-color: transparent!important;
+}
+
 html {
     min-height: 100%;
 }
@@ -51,7 +56,7 @@ body {
 
 .page-main{
     display: block;
-    background-color: rgba(255,255,255,1);
+    background-color: $white;
     max-width: 768px;
     width: 100%;
     padding: 48px 64px;
@@ -64,6 +69,12 @@ body {
     word-wrap: break-word;
     a {
         color: $darkblue;
+        &:hover{
+            border-bottom: 1px dashed $darkblue;
+        }
+        &:target{
+            background-color: $lightgray;
+        }
     }
     &:before {
         content: "";
@@ -98,9 +109,6 @@ body {
     }
 }
 
-img[data-onload="true"] {
-    background-color: transparent!important;
-}
 
 .page-header {
     .page-title {
@@ -111,11 +119,12 @@ img[data-onload="true"] {
         font-weight: 400;
         font-size: 24px;
         .page-title-link {
-            color: rgba(0,0,0,1);
+            color: $black;
+            border-bottom: none;
         }
     }
     .page-subtitle {
-        color: rgb(150, 150, 150);
+        color: $lightgray;
         font-weight: 300;
         width: 100%;
         font-size: 13px;
@@ -127,7 +136,7 @@ img[data-onload="true"] {
 
 .page-footer {
     text-align: center;
-    color: $darkgray;
+    color: $lightgray;
 }
 
 .post-item {
@@ -156,7 +165,7 @@ img[data-onload="true"] {
             -webkit-line-clamp: 1;
         }
         .post-item-date {
-            color: rgba(150, 150, 150, .9);
+            color: $lightgray;
             opacity: 0;
             font-size: 13px;
             transition: .5s all;
@@ -177,12 +186,10 @@ img[data-onload="true"] {
         height: 18px;
         opacity: 0;
         transition: .5s all;
+        border-bottom: none;
         &:not(:empty) {
             background-color: rgb(150, 215, 245);
             opacity: 1;
-        }
-        &:before {
-            border-bottom: none;
         }
         &:hover {
             background-color: $darkblue;
@@ -214,6 +221,7 @@ img[data-onload="true"] {
     }
     .pagination-item-link {
         color: $darkgray;
+        border-bottom: none;
     }
 }
 
@@ -222,23 +230,6 @@ img[data-onload="true"] {
     ul,
     ol {
       margin-left: 15px;
-    }
-    a {
-        color: $darkblue;
-        position: relative;
-        &:hover:before {
-            content: "";
-            display: inline-block;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            border-bottom: 1px dashed $darkblue;
-        }
-        &:target{
-            background-color: rgba(235, 235, 235,1);
-        }
     }
     >*{
         margin: 18px 0;
@@ -295,7 +286,7 @@ img[data-onload="true"] {
 }
 
 // TOC
-#toc {
+.post-toc {
     position: fixed;
     left: -999px;
     top: 30px;
@@ -321,23 +312,16 @@ img[data-onload="true"] {
             width: 100%;
             color: $default;
             font-size: 12px;
-            text-decoration: none;
             text-indent: 5px;
-            border: none;
             &:hover {
-                background: none;
-                font-weight: 600;
-            }
-            &:before {
-                display: none;
+                border-radius: 3px;
+                background: rgb(230, 230, 230);
+                border-bottom: none;
             }
         }
         .active {
-            background: $lightgray;
+            background: rgb(230, 230, 230);
             border-radius: 3px;
-        }
-        .active:hover {
-            background: $lightgray;
         }
         li {
             margin-left: 10px;
@@ -357,8 +341,8 @@ img[data-onload="true"] {
 pre,
 code {
     font-size: 12px;
-    font-family: NSimsun, Consolas, sans-serif;
-    background-color: $lightgray;
+    font-family: Consolas, sans-serif;
+    background-color: rgb(230, 230, 230);
     overflow: auto;
     padding: 5px 10px;
     word-wrap: break-word;
@@ -370,23 +354,23 @@ code {
     padding: 1px 5px;
 }
 
-pre code {
-    display: inline;
-    max-width: initial;
-    line-height: inherit;
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-pre.terminal {
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 3px;
-}
-
-pre.terminal code {
-    background-color: rgb(50, 50, 50);
+pre {
+    code {
+        display: inline;
+        max-width: initial;
+        line-height: inherit;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    &.terminal {
+        color: $white;
+        border: 1px solid $black;
+        border-radius: 3px;
+    }
+    &.terminal code {
+        background-color: $lightgray;
+    }
 }
 
 .post-extend {
@@ -412,34 +396,33 @@ pre.terminal code {
 .post-info {
     line-height: 20px;
     height: 20px;
-    margin: 0;
     display: flex;
     justify-content: space-between;
+    .post-tags {
+        display: flex;
+        .icon{
+            height: 20px;
+            width: 20px;
+        }
+        .post-tag-list {
+            list-style: none;
+            display: flex;
+        }
+        .post-tag-item {
+            margin-left: 5px;
+        }
+        .post-tag-link {
+            color: $white!important;
+            background: $darkgray;
+            border-radius: 2px;
+            border-bottom: none;
+            padding: 2px 3px;
+            font-size: 12px;
+        }
+    }
 }
 
-.post-tags {
-    display: flex;
-    .tags {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-    .icon{
-        height: 20px;
-        width: 20px;
-    }
-    .tag {
-        margin-left: 5px;
-    }
-    a {
-        color: $white!important;
-        background: $darkgray;
-        border-radius: 2px;
-        padding: 2px 3px;
-        font-size: 12px;
-    }
-}
+// 标签页
 .post-tags-list {
     .tag-1,
     .tag-2,
@@ -468,12 +451,11 @@ pre.terminal code {
     .tag-17,
     .tag-18,
     .tag-33 {
-        color: rgb(0, 0, 0);
+        color: $black;
     }
-}
-.post-tags-list{
     display: none;
 }
+
 .post-tags-table{
     display: none;
     &:target {
@@ -481,57 +463,43 @@ pre.terminal code {
     }
 }
 
-.view-code {
-    cursor: pointer;
-}
-
 // Share
 .post-share {
     line-height: 1.2;
-    margin: 0;
     display: flex;
     position: relative;
     .post-share-item{
         width: 20px;
         height: 20px;
-        margin: 0 2px;
+        margin: 0 3px;
         color: rgb(51, 51, 51);
         cursor: pointer;
+        &:hover{
+            border-bottom: none;
+        }
     }
     .icon{
         width: 20px;
         height: 20px;
         transition: all .3s;
     }
-    .wechat:hover{
-        .icon {
-            fill: rgb(81, 195, 50);
-        }
+    .wechat:hover .icon {
+        fill: rgb(81, 195, 50);
     }
-    .weibo:hover {
-        .icon {
-            fill: rgb(231, 44, 64);
-        }
+    .weibo:hover .icon {
+        fill: rgb(231, 44, 64);
     }
-    .qzone:hover {
-        .icon {
-            fill: rgb(252, 185, 32);
-        }
+    .qzone:hover .icon {
+        fill: rgb(252, 185, 32);
     }
-    .twitter:hover {
-        .icon{
-            fill: rgb(85, 172, 238);
-        }
+    .twitter:hover .icon{
+        fill: rgb(85, 172, 238);
     }
-    .facebook:hover {
-        .icon {
-            fill: rgb(65, 93, 152);
-        }
+    .facebook:hover .icon {
+        fill: rgb(65, 93, 152);
     }
-    .gplus:hover {
-        .icon {
-            fill: rgb(219, 68, 55);
-        }
+    .gplus:hover .icon {
+        fill: rgb(219, 68, 55);
     }
     .post-qrcode {
         display: none;
@@ -547,7 +515,12 @@ pre.terminal code {
     .post-qrcode-input {
         display: none;
     }
-    .post-qrcode-input:checked + .post-qrcode{
-        display: block;
+    .post-qrcode-input:checked{
+        + .post-qrcode{
+            display: block;
+        }
+        ~ .wechat .icon {
+            fill: rgb(81, 195, 50);
+        }
     }
 }

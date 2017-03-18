@@ -63,7 +63,7 @@ var point = new BMap.Point(116.43,23.4);
 下面以横穿潮汕大地的杭深线为例，获取坐标点可以使用 Google Earth 绘制路径，导出 KML 文件后使用百度坐标转换 API 进行批量转换。具体可参考这篇：[百度地图坐标转换](/bmaps-changeposition.html)。
 
 ![Google Earth 上的路径]({{ site.IMG_PATH }}/bmaps-polyline.png?imageView2/2/w/640)
-▲Google Earth 上的路径
+Google Earth 上的路径
 
 {% highlight javascript %}
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>

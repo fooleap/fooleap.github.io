@@ -23,11 +23,9 @@ tags: [hosts, 大圩, 桂林, 骑行]
 像我这样农村的孩子，下面这张图有没感觉到亲切呢？
 
 ![一电子铺]({{ site.IMG_PATH }}/travel-in-daxu.jpg_640)
+一电子铺
 
 **本文历史**
 
 * 2011 年 12 月 03 日 创建文章
 * 2015 年 05 月 07 日 修复地图
-<!--<script>
-    $('iframe').height($('iframe').width()*2/3);
-  </script>-->
