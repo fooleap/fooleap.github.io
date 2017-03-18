@@ -221,7 +221,9 @@ body {
     }
     .pagination-item-link {
         color: $darkgray;
-        border-bottom: none;
+        &:hover{
+            border-bottom-color: $darkgray;
+        }
     }
 }
 
