@@ -32,14 +32,14 @@ iframe {
     outline: none;
 }
 
+abbr[title]{
+    text-decoration: none;
+}
+
 video {
     width: 100%;
     max-width: 640px;
     margin: 0!important;
-}
-
-img[data-onload="true"] {
-    background-color: transparent!important;
 }
 
 html {

@@ -113,35 +113,17 @@ function wxchoose(){
 
 // 图片
 (function(){
-    var postImages = document.querySelectorAll('.post-content img');
-    var pageImages = document.querySelectorAll('.post-item-thumb');
-    var imageArr = postImages.length > 0 ? postImages : pageImages;
-    var xhrImageAve = [],
-        xhrImageExif = [],
-        imageAve = [],
-        oImgArr = [],
-        imageExif = [];
-    for(var i = 0; i < postImages.length; i++){
-        oImgArr[i] = postImages[i].src.split(/_|\?/)[0];
+    var imageArr = document.querySelectorAll('.post-content img');
+    var xhrImageExif = [],
+        imageExif = [],
+        oImgArr = [];
+
+    for(var i = 0; i < imageArr.length; i++){
+        oImgArr[i] = imageArr[i].src.split(/_|\?/)[0];
     }
+    page.img = imageArr.length;
 
     [].forEach.call(imageArr, function(item, i){
-        //预加载图片平均色调
-        imageAve[i] = item.src.split(/_|\?/)[0] + '?imageAve';
-        xhrImageAve[i] = new XMLHttpRequest();
-        xhrImageAve[i].open('GET', imageAve[i], true);
-        xhrImageAve[i].onreadystatechange = function() {
-            if (this.readyState==4 && this.status==200)
-            {
-                var data = JSON.parse(this.responseText);
-                var color = data.RGB.slice(2);
-                document.querySelector('[src^="' + imageAve[i].slice(0,-9) + '"]').style.backgroundColor = '#' + color;
-            }
-        };
-        xhrImageAve[i].send(null);
-
-        page.img = postImages.length;
-
         if ( page.img > 0  && (new RegExp(site.img,'i')).test(item.getAttribute('src'))){
 
             //Lightbox
@@ -184,13 +166,6 @@ function wxchoose(){
                 xhrImageExif[i].send(null);
             }
         }
-
-        //恢复背景色
-        var image = new Image();
-        image.onload = function(){
-            document.querySelector('[src="' + this.src + '"]').dataset.onload = "true";
-        }
-        image.src = item.src;
     });
 
 })();
@@ -379,7 +354,7 @@ if ( page.layout == 'post' ) {
 function disqus_config() {
     this.page.url = site.home + location.pathname;
     this.callbacks.onReady.push(function() {
-        console.log('disqus loaded');
+        console.info('disqus loaded');
     });
 };
 
@@ -582,10 +557,10 @@ Comment.prototype = {
 
     //点选表情
     field: function(e){
-        var $this = e.target;
-        var item = $this.closest('.comment-form').querySelector('.comment-form-textarea');
-        item.value += $this.dataset.code;
-        item.focus();
+        var item = e.target;
+        var textarea = item.closest('.comment-form').querySelector('.comment-form-textarea');
+        textarea.value += item.dataset.code;
+        textarea.focus();
     },
 
     //emoji表情
@@ -881,7 +856,7 @@ Comment.prototype = {
             comment.imagesize.push(size);
             progress.style.width = '80px';
         } else {
-            console.log('请勿选择已存在的图片！');
+            console.info('请勿选择已存在的图片！');
             return;
         }
 
@@ -899,30 +874,15 @@ Comment.prototype = {
                 try {
                     var resp = JSON.parse(xhrUpload.responseText);
                     if( resp.code == 0 ){
-
-                        // 上传至 Disqus 回调成功，显示正在读取
                         var imageUrl = resp.response[filename].url;
-                        var imageFilename = resp.response[filename].filename;
-                        var imageItem = '<li class="comment-image-item loading" data-image-size="' + size + '" data-image-filename="'+imageFilename+'" data-image-url="'+imageUrl+'"><img class="comment-image-object" src="/assets/svg/loading.svg"/></li>';
-                        item.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
-
-                        // Fetch 到七牛，回调显示图片
-                        var fetchQuery = 'url=' + imageUrl + '&prefix=images'+ '&filename='+imageFilename;
-                        var xhrFetch = new XMLHttpRequest();
-                        xhrFetch.onreadystatechange = function(){
-                            if(xhrFetch.readyState == 4 && xhrFetch.status == 200){
-                                var file = JSON.parse(xhrFetch.responseText);
-                                var image = new Image();
-                                image.src = file.url+'?imageView2/2/h/200';
-                                image.onload = function(){
-                                    item.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url+'?imageView2/2/h/200');
-                                    item.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
-                                    item.querySelector('[data-image-filename="'+file.filename+'"]').addEventListener('click', comment.remove, false);
-                                }
-                            }
+                        var image = new Image();
+                        image.src = resp.url+'?imageView2/2/h/200';
+                        image.onload = function(){
+                            item.querySelector('[data-image-size="'+size+'"] .comment-image-object').setAttribute('src', image.src);
+                            item.querySelector('[data-image-size="'+size+'"]').dataset.imageUrl = imageUrl;
+                            item.querySelector('[data-image-size="'+size+'"]').classList.remove('loading');
+                            item.querySelector('[data-image-size="'+size+'"]').addEventListener('click', comment.remove, false);
                         }
-                        xhrFetch.open('GET', site.api + '/qiniu/fetch?'+fetchQuery,true);
-                        xhrFetch.send();
                     }
                 } catch (e){
                     var resp = {
@@ -930,8 +890,6 @@ Comment.prototype = {
                         data: 'Unknown error occurred: [' + xhrUpload.responseText + ']'
                     };
                 }
-                loaded.style.width = 0;
-                progress.style.width = 0;
             }
         };
 
@@ -939,7 +897,17 @@ Comment.prototype = {
         xhrUpload.upload.addEventListener('progress', function(e){
             loaded.style.width = Math.ceil((e.loaded/e.total) * 100)+ '%';
         }, false);
+
+        // 上传完成
+        xhrUpload.upload.addEventListener("load", function(e){
+            loaded.style.width = 0;
+            progress.style.width = 0;
+            var imageItem = '<li class="comment-image-item loading" data-image-size="' + size + '"><img class="comment-image-object" src="/assets/svg/loading.svg" /></li>';
+            item.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
+        }, false);
+
         xhrUpload.open('POST', site.api + '/disqus/upload',true);
+
         xhrUpload.send(data);
     },
 
