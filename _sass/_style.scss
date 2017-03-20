@@ -51,7 +51,7 @@ body {
     color: $default;
     background-color: $lightblue;
     overflow-y: scroll;
-    font: 14.5px/1.6 "Helvetica Neue", Helvetica, Arial, "思源黑体", "黑体", SimHei, sans-serif;
+    font: 14.5px/1.6 "Helvetica Neue", Helvetica, Arial, "Source Han Sans CN", "黑体", SimHei, sans-serif;
 }
 
 .page-main{
@@ -180,19 +180,19 @@ body {
         text-decoration: none;
         text-align: center;
         color: $white;
-        font: 600 13px/18px "Helvetica Neue",Helvetica, Arial;
+        font: 600 14px/18px "Helvetica Neue",Helvetica, Arial;
         border-radius: 10px;
         width: 30px;
         height: 18px;
         opacity: 0;
         transition: .5s all;
-        border-bottom: none;
         &:not(:empty) {
             background-color: rgb(150, 215, 245);
             opacity: 1;
         }
         &:hover {
             background-color: $darkblue;
+            border-bottom: none;
         }
     }
 }

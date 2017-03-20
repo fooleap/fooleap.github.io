@@ -16,7 +16,8 @@ var head = document.getElementsByTagName('head')[0],
         title: head.dataset.title,
         url: head.dataset.url,
         id: head.dataset.id,
-        category: head.dataset.category
+        category: head.dataset.category,
+        tags: head.dataset.tags.split(',')
     },
     browser = { 
         mobile: !!ua.match(/AppleWebKit.*Mobile.*/),
@@ -74,6 +75,42 @@ function timeAgo(selector) {
 }
 timeAgo();
 
+if(browser.wechat && location.origin == site.home){
+    var xhrwesign = new XMLHttpRequest();
+    xhrwesign.onreadystatechange = function() {
+        if (xhrwesign.readyState==4 && xhrwesign.status==200)
+        {
+            signPackage = JSON.parse(xhrwesign.responseText);
+            wx.config({
+                debug: false,
+                appId: signPackage.appId,
+                timestamp: signPackage.timestamp,
+                nonceStr: signPackage.nonceStr,
+                signature: signPackage.signature,
+                jsApiList: [
+                    'chooseImage',
+                    'previewImage'
+                ]
+            });
+        }
+    }
+    xhrwesign.open('GET', site.api + '/wechat/jssdk?url='+ location.href, true);
+    xhrwesign.send();
+    wx.ready(function () {
+    });
+}
+
+function wxchoose(){
+    wx.chooseImage({
+        count: 1, // 默认9
+        sizeType: ['original', 'compressed'],
+        sourceType: ['album', 'camera'], 
+        success: function (res) {
+            var localIds = res.localIds; 
+        }
+    });
+}
+
 // 图片
 (function(){
     var postImages = document.querySelectorAll('.post-content img');
@@ -82,9 +119,13 @@ timeAgo();
     var xhrImageAve = [],
         xhrImageExif = [],
         imageAve = [],
+        oImgArr = [],
         imageExif = [];
-    [].forEach.call(imageArr, function(item, i){
+    for(var i = 0; i < postImages.length; i++){
+        oImgArr[i] = postImages[i].src.split(/_|\?/)[0];
+    }
 
+    [].forEach.call(imageArr, function(item, i){
         //预加载图片平均色调
         imageAve[i] = item.src.split(/_|\?/)[0] + '?imageAve';
         xhrImageAve[i] = new XMLHttpRequest();
@@ -99,13 +140,25 @@ timeAgo();
         };
         xhrImageAve[i].send(null);
 
-        if ( postImages.length > 0  && (new RegExp(site.img,'i')).test(item.getAttribute('src'))){
+        page.img = postImages.length;
+
+        if ( page.img > 0  && (new RegExp(site.img,'i')).test(item.getAttribute('src'))){
+
             //Lightbox
             item.dataset.jslghtbx = item.src.split(/_|\?/)[0];
             item.dataset.jslghtbxCaption = item.getAttribute('alt');
             item.dataset.jslghtbxGroup = 'lightbox';
             item.classList.add('post-image');
-            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure">').replace('</p>','</figure>').replace(item.parentElement.textContent, '<figcaption class="post-figcaption">&#9650; '+ item.parentElement.textContent.trim() +'</figcaption>');
+            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '<figcaption class="post-figcaption">&#9650; '+ item.parentElement.textContent.trim() +'</figcaption>');
+
+            if( browser.wechat ){
+                document.getElementsByClassName('post-figure')[i].addEventListener('click',function(){
+                    wx.previewImage({
+                        current: oImgArr[i], 
+                        urls: oImgArr
+                    });
+                })
+            }
 
             //Exif
             if( item.src.indexOf('.jpg') > -1 ) {
@@ -272,31 +325,34 @@ if (toc) {
 if ( page.layout == 'post' ) {
 
     // 相关文章
+    function randomPosts(){
+        var randomIndexUsed = [];
+        var counter = 0;
+        var numberOfPosts = 5;
+        var randomPosts = document.querySelector('#random-posts ul');
+        while (counter < numberOfPosts) {
+            var randomIndex = Math.floor(Math.random() * posts.length);
+            if (randomIndexUsed.indexOf(randomIndex) == '-1') {
+                var postUrl = posts[randomIndex].url;
+                var postTitle = posts[randomIndex].title;
+                randomPosts.insertAdjacentHTML('beforeend', '<li class="post-extend-item"><a class="post-extend-link" href="' + postUrl + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
+                randomIndexUsed.push(randomIndex);
+                counter++;
+            }
+        }
+    }
+    var posts = [];
     var xhrPosts = new XMLHttpRequest();
     xhrPosts.open('GET', '/posts.json', true);
     xhrPosts.onreadystatechange = function() {
         if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
             var data = JSON.parse(xhrPosts.responseText);
-            var posts = [];
             for( var i = 0; i < data.length; i++){
                 if( data[i].category == page.category && data[i].url != location.pathname ){
                     posts.push(data[i]);
                 }
             }
-            var randomIndexUsed = [];
-            var counter = 0;
-            var numberOfPosts = 5;
-            var randomPosts = document.querySelector('#random-posts ul');
-            while (counter < numberOfPosts) {
-                var randomIndex = Math.floor(Math.random() * posts.length);
-                if (randomIndexUsed.indexOf(randomIndex) == '-1') {
-                    var postUrl = posts[randomIndex].url;
-                    var postTitle = posts[randomIndex].title;
-                    randomPosts.insertAdjacentHTML('beforeend', '<li class="post-extend-item"><a class="post-extend-link" href="' + postUrl + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
-                    randomIndexUsed.push(randomIndex);
-                    counter++;
-                }
-            }
+            randomPosts();
         }
     }
     xhrPosts.send();
@@ -324,8 +380,6 @@ function disqus_config() {
     this.page.url = site.home + location.pathname;
     this.callbacks.onReady.push(function() {
         console.log('disqus loaded');
-        document.querySelector('.disqus-loading').style.display = 'none';
-        commentToggle();
     });
 };
 
@@ -537,37 +591,58 @@ Comment.prototype = {
     //emoji表情
     emoji: {
         code: [
-            ':doge:',
-            ':tanshou:',
+            ':grin:',
+            ':joy:',
+            ':heart_eyes:',
+            ':sweat:',
+            ':unamused:',
+            ':smirk:',
+            ':relieved:',
             ':wx_smirk:',
             ':wx_hey:',
             ':wx_facepalm:',
             ':wx_smart:',
             ':wx_tea:',
             ':wx_yeah:',
-            ':wx_moue:'
+            ':wx_moue:',
+            ':doge:',
+            ':tanshou:'
         ],
         title: [
-            'doge',
-            '摊手',
+            '露齿笑',
+            '破涕为笑',
+            '色',
+            '汗',
+            '无语',
+            '得意',
+            '满意',
             '奸笑',
             '嘿哈',
             '捂脸',
             '机智',
             '茶',
             '耶',
-            '皱眉'
+            '皱眉',
+            'doge',
+            '摊手'
         ],
         image: [
-            'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif',
-            'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png',
+            '//assets-cdn.github.com/images/icons/emoji/unicode/1f601.png',
+            '//assets-cdn.github.com/images/icons/emoji/unicode/1f602.png',
+            '//assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png',
+            '//assets-cdn.github.com/images/icons/emoji/unicode/1f613.png',
+            '//assets-cdn.github.com/images/icons/emoji/unicode/1f612.png',
+            '//assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png',
+            '//assets-cdn.github.com/images/icons/emoji/unicode/1f60c.png',
             site.img + '/wx_emoji/2_02.png',
             site.img + '/wx_emoji/2_04.png',
             site.img + '/wx_emoji/2_05.png',
             site.img + '/wx_emoji/2_06.png',
             site.img + '/wx_emoji/2_07.png',
             site.img + '/wx_emoji/2_11.png',
-            site.img + '/wx_emoji/2_12.png'
+            site.img + '/wx_emoji/2_12.png',
+            'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif',
+            'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png'
         ]
     },
     
@@ -624,8 +699,7 @@ Comment.prototype = {
             'message': '<p>' + message + '</p>',
             'media': media
         };
-        var index = comment.count;
-        comment.load(post, index);
+        comment.load(post, comment.count);
         timeAgo();
 
         message += mediaStr;
@@ -661,8 +735,8 @@ Comment.prototype = {
                     var preview = document.querySelector('.comment-item[data-id="preview"]');
                     preview.parentNode.removeChild(preview);
                     comment.count += 1;
-                    document.getElementById('comment-count').innerHTML =  index + ' 条评论';
-                    comment.load(res.response, index);
+                    document.getElementById('comment-count').innerHTML = comment.count + ' 条评论';
+                    comment.load(res.response, comment.count);
                     timeAgo();
                     comment.form();
                 } else if (res.code === 2) {
@@ -681,7 +755,7 @@ Comment.prototype = {
     // 读取评论
     load: function(post, i){
 
-        post.url = post.url ? post.url : 'javascript:void(0);';
+        post.url = post.url ? post.url : 'javascript:;';
         post.createdAt = new Date(post.createdAt).getTime().toString().slice(0, -3);
 
         var parent = !post.parent ? {
@@ -699,14 +773,14 @@ Comment.prototype = {
         var imageArr = post.media;
         post.media = '';
         imageArr.forEach(function(item, e){
-            post.media += '<a class="comment-item-imagelink" target="_blank" href="' + item + '" ><img class="comment-item-image" src="' + item + '"></a>';
+            post.media += '<a class="comment-item-imagelink" target="_blank" href="' + item + '" ><img class="comment-item-image" src="' + item + '?imageView2/2/h/200"></a>';
         })
         post.media = '<div class="comment-item-images">' + post.media + '</div>';
 
         var html = '<li class="comment-item" data-index="'+(i+1)+'" data-id="'+post.id+'" data-name="'+ post.name+'" id="comment-' + post.id + '">';
         html += '<div class="comment-item-avatar"><img src="' + post.avatar + '"></div>';
         html += '<div class="comment-item-main">'
-        html += '<div class="comment-item-header"><a class="comment-item-name" target="_blank" href="' + post.url + '">' + post.name + '</a><span class="comment-item-bullet"> • </span><span class="comment-item-time timeago" datetime="' + post.createdAt + '"></span><span class="comment-item-bullet"> • </span><a class="comment-item-reply" href="javascript:void(0)">回复</a></div>';
+        html += '<div class="comment-item-header"><a class="comment-item-name" target="_blank" href="' + post.url + '">' + post.name + '</a><span class="comment-item-bullet"> • </span><span class="comment-item-time timeago" datetime="' + post.createdAt + '"></span><span class="comment-item-bullet"> • </span><a class="comment-item-reply" href="javascript:;">回复</a></div>';
         html += '<div class="comment-item-content">' + post.message + post.media + '</div>';
         html += '<ul class="comment-item-children"></ul>';
         html += '</div>'
@@ -839,10 +913,11 @@ Comment.prototype = {
                             if(xhrFetch.readyState == 4 && xhrFetch.status == 200){
                                 var file = JSON.parse(xhrFetch.responseText);
                                 var image = new Image();
-                                image.src = file.url;
+                                image.src = file.url+'?imageView2/2/h/200';
                                 image.onload = function(){
-                                    item.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url);
+                                    item.querySelector('[data-image-filename="'+file.filename+'"] .comment-image-object').setAttribute('src',file.url+'?imageView2/2/h/200');
                                     item.querySelector('[data-image-filename="'+file.filename+'"]').classList.remove('loading');
+                                    item.querySelector('[data-image-filename="'+file.filename+'"]').addEventListener('click', comment.remove, false);
                                 }
                             }
                         }
@@ -869,13 +944,18 @@ Comment.prototype = {
     },
 
     //移除图片
-    remove: function(){
-        var currentItem = this.closest('.comment-image-item');
-        currentItem.parentNode.removeChild(currentItem);
+    remove: function(e){
+        var item = e.target.closest('.comment-image-item');
+        var wrapper = e.target.closest('.comment-form-wrapper');
+        item.parentNode.removeChild(item);
         comment.imagesize = [];
-        [].forEach.call(document.getElementsByClassName('comment-image-item'), function(item, i){
+        var imageArr = document.getElementsByClassName('comment-image-item');
+        [].forEach.call(imageArr, function(item, i){
             comment.imagesize[i] = item.dataset.imageSize;
         });
+        if(comment.imagesize.length == 0){
+            wrapper.classList.remove('expanded');
+        }
     }
 
 }

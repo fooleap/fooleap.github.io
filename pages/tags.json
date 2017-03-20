@@ -6,10 +6,11 @@ permalink: /tags.json
   {% for tag in site.tags %}
   "{{ tag[0] }}":[
     {% for post in tag[1] %}{
+      "category"  : "{{ post.category }}",
       "title"    : "{{ post.title }}",
-      "href"     : "{{ post.url }}",
+      "url"     : "{{ post.url }}",
       "date"     : "{{ post.date }}"
     }{% unless forloop.last %},{% endunless %}
-    {% endfor %}],
+    {% endfor %}]{% unless forloop.last %},{% endunless %}
   {% endfor %}
 }

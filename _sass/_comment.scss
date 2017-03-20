@@ -259,6 +259,28 @@
     .comment-image-item{
         height: 80px;
         margin-left:5px;
+        position: relative;
+        &:before{
+            overflow: hidden;
+            line-height: 0;
+            height: 0;
+            transition: all .3s;
+            content: "点击移除";
+            display: block;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            font-size: 12px;
+            background-color: rgba(0,0,0,.5);
+            line-height: 25px;
+            color: #fff;
+        }
+        &:hover:before{
+            height: 25px;
+        }
         .comment-image-object{
             height: 100%;
             border-radius: 3px;
@@ -269,6 +291,9 @@
                 width: 20px;
                 margin: 0 30px;
             }
+        }
+        &.loading:before{
+            display: none;
         }
     }
 }
@@ -320,7 +345,7 @@
                padding: 5px;
                line-height: 15px;
                display: none;
-               cursor: default;
+               cursor: text;
                &:before{
                    content: "";
                    width: 0;
@@ -556,9 +581,13 @@
         }
         .comment-item-name,
         .comment-item-cancel{
-            color: rgba(0, 149, 221, 1);
+            color: rgb(0, 149, 221);
             font-weight: 700;
             border-bottom: none;
+        }
+        .comment-item-name[href^="javascript"] {
+            cursor: text;
+            color: rgb(0,0,0);
         }
         .comment-item-reply{
             color: #656c7a;
