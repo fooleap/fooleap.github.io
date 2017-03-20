@@ -4,7 +4,7 @@ title: "科学使用 Disqus"
 description: "当初选择静态博客就是想将数据托管给第三方，自己只管内容就行，偶尔有空可以换换皮，然而前端时间却博客评论操碎了心，因为 Disqus 被墙了。"
 date: 2017-03-06 15:00:00+0800
 category: tech
-tags: ["Disqus", "Disqus API", "PHP", "CURL", "JavaScript"]
+tags: ["Disqus", "Disqus API", "PHP", "cURL", "JavaScript"]
 ---
 
 当初选择静态博客就是想将数据托管给第三方，自己只管内容就行，偶尔有空可以换换皮，然而前段时间却为博客评论操碎了心，因为 Disqus 被墙了。
@@ -19,8 +19,13 @@ tags: ["Disqus", "Disqus API", "PHP", "CURL", "JavaScript"]
 
 怎么不换是个问题，Disqus 被墙已是事实，自己可以翻墙访问，但并不能保证每个访客都能翻墙，怎么解决？之前看过反向代理实现无需翻墙访问 Google，对 Disqus 而言，也许存步反向代理。
 
+事实上，我对正向代理、反向代理这些概念并不熟悉，也不曾想去配置 Nginx 实现反向代理 Disqus，想想就感觉很复杂。
+
 ## 借路使用 Disqus API
 
-使用之前为了在首页[显示评论计数](/disqus-comment-count.html)，折腾过 Disqus API。现在由于 Disqus 已被墙，并没法在网页中直接通过 AJAX 来提交请求。我想起了另一种方法，想要实现不翻墙即可访问 Disqus API，可以找一个服务器，我们把数据提交到这个服务器，它接过手后顺便转发给 Disqus，返回内容可以是 Disqus 返回的内容，也可以将其简单处理一下再返回。
 
-除了使用 JS AJAX 来操作 API 之外，另外我们也可以使用 CURL 来操作 API。CURL 需要后端支持，要使用 CURL，就需要另外一台 VPS 或者支持 CURL 的虚拟主机等。理论上，境内的网络无法访问 Disqus，所以这台主机必须在境外。
+使用之前为了在首页[显示评论计数](/disqus-comment-count.html)，折腾过 Disqus API。现在由于 Disqus 已被墙，并没法在网页中直接通过 AJAX 来发起请求。除却网页中可以发起请求，cURL 也能发起请求。
+
+我想起了另一种方法，想要实现不翻墙即可访问 Disqus API，可以找一个服务器，我们把数据提交到这个服务器，它接过手后顺便转发给 Disqus，返回内容可以是 Disqus 返回的内容，也可以将其简单处理一下再返回。
+
+除了使用 JS AJAX 来操作 API 之外，另外我们也可以使用 cURL 来操作 API。cURL 需要后端支持，要使用 cURL，就需要另外一台 VPS 或者支持 cURL 的虚拟主机等。理论上，境内的网络无法访问 Disqus，所以这台主机必须在境外。
