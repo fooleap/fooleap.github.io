@@ -4,7 +4,7 @@ title: "使用的 Disqus API 上传图片"
 description: "现 Disqus 上传图片 API，较之前有明显的区别，配合访客评论 API，可较完美地实现访客评论的上传图片功能。"
 date: 2017-03-20 08:00:00+0800
 category: tech
-tags: ["Disqus", "Disqus API", "PHP", "CURL", "JavaScript"]
+tags: ["Disqus", "Disqus API", "PHP", "cURL", "JavaScript"]
 ---
 
 现 Disqus 上传图片 API，较之前有明显的区别，配合访客评论 API，可较完美地实现访客评论的上传图片功能。
@@ -13,11 +13,66 @@ tags: ["Disqus", "Disqus API", "PHP", "CURL", "JavaScript"]
 
 最近，为了完善评论框，本想使用七牛 API 实现上传图片功能。在此之前，研究了下 Disqus 的插图方式，对比了以前评论的内容及图片 URL，发现有相当明显的区别。现在 Disqus 保存已上传图片的方式，很合适配合访客评论的 API，实现完美插图。
 
-现在，Disqus API 的传图流程大概是这样的：
+目前，Disqus API 的传图流程大概是这样的：
+
+```flow
+st=>start: 开始
+e=>end: 结束
+op1=>operation: POST 请求:>#opera-1
+op2=>operation: GET 请求:>#opera-2
+cond1=>condition: 文件是否符合
+cond2=>condition: 身份通过验证
+io1=>inputoutput: 返回数据1
+io2=>inputoutput: 返回数据2
+io3=>inputoutput: 返回数据3
+
+st->op1(right)->cond1
+cond1(yes)->cond2
+cond1(no)->e
+cond2(no)->io1->e
+cond2(yes)->io2->op2->io3->e
+```
+
+文件限制：
+
+    类型及大小限制：JPEG, PNG or GIF and under 5MB
+
+身份验证：
+
+    Disqus 账号处于登录状态
+
+数据1：
+```json
+{ 
+    "code": 4, 
+    "response": "You must be authenticated to perform this action"
+}
+```
+
+数据2：
+```json
+{ 
+    "code": 0, 
+    "response": {
+        "文件名": {
+           "filename": "",
+           "ok": true,
+           "url": "https://uploads.disquscdn.com/images/"
+        }
+    }
+}
+```
+
+```javascript
+https://disqus.com/api/3.0/media/details.json
+url
+```
+{:id="opera-2"}
+
 
 ```javascript
 
-'https://uploads.services.disqus.com/api/3.0/media/create.json'
+https://uploads.services.disqus.com/api/3.0/media/create.json
 
 /* 发送 POST 请求 */
 

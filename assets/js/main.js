@@ -24,6 +24,45 @@ var head = document.getElementsByTagName('head')[0],
         wechat: ua.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
     };
 
+var flowArr = document.getElementsByClassName('language-flow');
+if( flowArr.length > 0 ){
+
+    var fcscript = document.createElement('script');
+    fcscript.type = 'text/javascript';
+    fcscript.src = '/assets/js/flowchart.min.js';
+    document.getElementsByTagName('head')[0].appendChild(fcscript);
+
+    fcscript.onload = function(){
+        [].forEach.call(flowArr, function(item,i){
+            var flowId = 'flow-' + (i+1);
+            var div = document.createElement('div');
+            div.classList.add('flow');
+            div.setAttribute('id', flowId);
+
+            var pre = item.parentNode;
+            pre.insertAdjacentElement('afterend', div);
+
+            var diagram = flowchart.parse(item.innerText);
+            console.info(diagram)
+            diagram.drawSVG(flowId);
+
+        })
+    }
+
+    window.addEventListener('load', function(){
+        [].forEach.call(flowArr, function(item,i){
+            var pre = item.parentNode;
+            pre.parentNode.removeChild(pre);
+        })
+        var linkArr = document.querySelectorAll('.flow a');
+        [].forEach.call(linkArr, function(link){
+            if(/^#/i.test(link.getAttribute('href'))){
+                link.setAttribute('target', '_self');
+            }
+        })
+    });
+}
+
 // timeago https://goo.gl/jlkyIS
 function timeAgo(selector) {
     var templates = {
@@ -415,7 +454,7 @@ Guest.prototype = {
 
     // 提交访客信息
     submit: function(e){
-        var item = e.target.closest('.comment-item') || e.target.closest('.comment-box');
+        var item = e.currentTarget.closest('.comment-item') || e.currentTarget.closest('.comment-box');
         name = item.querySelector('.comment-form-name').value;
         email = item.querySelector('.comment-form-email').value;
         url = item.querySelector('.comment-form-url').value;
@@ -546,7 +585,7 @@ Comment.prototype = {
 
     // 评论框焦点
     focus: function(e){
-        var wrapper = e.target.closest('.comment-form-wrapper');
+        var wrapper = e.currentTarget.closest('.comment-form-wrapper');
         wrapper.classList.add('editing');
         if (wrapper.classList.contains('focus')){
             wrapper.classList.remove('focus');
@@ -557,7 +596,7 @@ Comment.prototype = {
 
     //点选表情
     field: function(e){
-        var item = e.target;
+        var item = e.currentTarget;
         var textarea = item.closest('.comment-form').querySelector('.comment-form-textarea');
         textarea.value += item.dataset.code;
         textarea.focus();
@@ -623,7 +662,7 @@ Comment.prototype = {
     
     // 邮箱验证
     verify: function(e){
-        var email = e.target;
+        var email = e.currentTarget;
         var box  = email.closest('.comment-box');
         var avatar = box.querySelector('.comment-avatar-image');
         var name = box.querySelector('.comment-form-name');
@@ -645,7 +684,7 @@ Comment.prototype = {
 
     // 发表/回复评论
     post: function(e){
-        var item = e.target.closest('.comment-item') || e.target.closest('.comment-box') ;
+        var item = e.currentTarget.closest('.comment-item') || e.currentTarget.closest('.comment-box') ;
         var message = item.querySelector('.comment-form-textarea').value;
         var parentId = !!item.dataset.id ? item.dataset.id : '';
         var time = (new Date()).toJSON();
@@ -738,7 +777,7 @@ Comment.prototype = {
             'dom': document.querySelector('.comment-list'),
             'insert': 'afterbegin'
         } : {
-            'name': '<a class="at" href="#'+document.querySelector('.comment-item[data-id="'+post.parent+'"]').getAttribute('id')+'">@' + document.querySelector('.comment-item[data-id="'+post.parent+'"]').dataset.name + '</a>',
+            'name': !!document.querySelector('.comment-item[data-id="'+post.parent+'"]') ? '<a class="at" href="#'+document.querySelector('.comment-item[data-id="'+post.parent+'"]').getAttribute('id')+'">@' + document.querySelector('.comment-item[data-id="'+post.parent+'"]').dataset.name + '</a>': '',
             'dom': document.querySelector('.comment-item[data-id="'+post.parent+'"] .comment-item-children'),
             'insert': 'beforeend'
         };
@@ -760,7 +799,7 @@ Comment.prototype = {
         html += '<ul class="comment-item-children"></ul>';
         html += '</div>'
         html += '</li>';
-        if (parent.dom) {
+        if (!!parent.dom) {
             parent.dom.insertAdjacentHTML(parent.insert, html);
         }
     },
@@ -817,7 +856,7 @@ Comment.prototype = {
         }
 
         // 显示回复框
-        var $this = e.target;
+        var $this = e.currentTarget;
         var item = $this.closest('.comment-item');
         var parentId = item.dataset.id;
         var parentName = item.dataset.name;
@@ -841,7 +880,7 @@ Comment.prototype = {
 
     // 上传图片
     upload: function(e){
-        var file = e.target;
+        var file = e.currentTarget;
         var item = file.closest('.comment-box');
         var progress = item.querySelector('.comment-image-progress');
         var loaded = item.querySelector('.comment-image-loaded');
@@ -906,15 +945,15 @@ Comment.prototype = {
             item.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
         }, false);
 
-        xhrUpload.open('POST', site.api + '/disqus/upload',true);
+        xhrUpload.open('POST', site.api + '/disqus/upload', true);
 
         xhrUpload.send(data);
     },
 
     //移除图片
     remove: function(e){
-        var item = e.target.closest('.comment-image-item');
-        var wrapper = e.target.closest('.comment-form-wrapper');
+        var item = e.currentTarget.closest('.comment-image-item');
+        var wrapper = e.currentTarget.closest('.comment-form-wrapper');
         item.parentNode.removeChild(item);
         comment.imagesize = [];
         var imageArr = document.getElementsByClassName('comment-image-item');

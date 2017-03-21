@@ -55,17 +55,18 @@
 
         </main>
 
-        <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-        <script type="text/javascript" src="/assets/js/main.js"></script>
+        <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script src="/assets/js/raphael.min.js"></script>
+        <script src="/assets/js/main.js"></script>
 
         {% if page.scripts %}
         {% for script in page.scripts %}
-        <script type="text/javascript" src="{{ script }}"></script>
+        <script src="{{ script }}"></script>
         {% endfor %}
         {% endif %}
 
         {% if page.js %}
-        <script type="text/javascript">{{ content_js[1] }}script>
+        <script>{{ content_js[1] }}script>
         {% endif %}
     </body>
 </html>
