@@ -54,6 +54,10 @@ body {
     font: 14.5px/1.6 "Helvetica Neue", Helvetica, Arial, "Source Han Sans CN", "黑体", SimHei, sans-serif;
 }
 
+.page-thumb {
+    display: none;
+}
+
 .page-main{
     display: block;
     background-color: $white;
@@ -73,7 +77,7 @@ body {
             border-bottom: 1px dashed $darkblue;
         }
         &:target{
-            background-color: $lightgray;
+            background-color: rgb(230, 230, 230);
         }
     }
     &:before {
@@ -98,13 +102,13 @@ body {
             padding: 10px 9px;
             color: rgb(51, 51, 51);
             border: 1px solid rgb(194, 196, 197);
-            background: rgb(228, 230, 232);
+            background-color: rgb(228, 230, 232);
         }
         td {
             padding: 7px 8px;
             color: rgb(79, 51, 51);
             border: 1px solid rgb(194, 196, 197);
-            background: rgb(249, 249, 249);
+            background-color: rgb(249, 249, 249);
         }
     }
 }
@@ -294,7 +298,7 @@ body {
     top: 30px;
     margin: 0;
     min-width: 160px;
-    background: $white;
+    background-color: $white;
     list-style: none;
     padding: 5px;
     &.hide {
@@ -317,12 +321,12 @@ body {
             text-indent: 5px;
             &:hover {
                 border-radius: 3px;
-                background: rgb(230, 230, 230);
+                background-color: rgb(230, 230, 230);
                 border-bottom: none;
             }
         }
         .active {
-            background: rgb(230, 230, 230);
+            background-color: rgb(230, 230, 230);
             border-radius: 3px;
         }
         li {
@@ -423,7 +427,7 @@ pre {
         }
         .post-tag-link {
             color: $white!important;
-            background: $darkgray;
+            background-color: $darkgray;
             border-radius: 2px;
             border-bottom: none;
             padding: 2px 3px;
@@ -470,7 +474,7 @@ pre {
             position: absolute;
             bottom: 30px;
             right: 80px;
-            background: $white;
+            background-color: $white;
             padding: 5px;
             border: 1px solid $lightgray;
             border-radius: 5px;

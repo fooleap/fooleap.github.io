@@ -302,6 +302,9 @@
 
 
 .comment-form-wrapper {
+    .tips{
+        display: none;
+    }
     &.editing{
         + .comment-login{
             opacity: 1;
@@ -333,6 +336,7 @@
         }
        .tips{
            position: relative;
+           display: block;
            .comment-tips{
                position: absolute;
                width: 125px;

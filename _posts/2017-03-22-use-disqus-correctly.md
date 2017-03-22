@@ -29,7 +29,7 @@ tags: ["Disqus", "Disqus API", "cURL"]
 
 ## 借路访问 Disqus
 
-使用之前为了在首页[显示评论计数](/disqus-comment-count.html)，折腾过 Disqus API。现在由于 Disqus 已被墙，并没法在网页中直接通过 XMLHttpRequest 来发起请求。除却浏览器可以发起请求，cURL 也能发起请求。
+之前为了在首页[显示评论计数](/disqus-comment-count.html)，我折腾过 Disqus API。现在由于 Disqus 已被墙，并没法在网页中直接通过 XMLHttpRequest 来发起请求。除却浏览器可以发起请求，cURL 也能发起请求。
 
 我想起了一种方法，想要实现不翻墙即可访问 Disqus API，可以找一个服务器，客户端数据把发送到这个服务器，它接过手后顺便使用 cURL 发给 Disqus，根据 Disqus 返回的内容，服务器可直接返回给客户端，也可以将其简单处理一下再返回，感觉这也是反向代理。
 
@@ -79,9 +79,9 @@ st(right)->op1->op2(right)->io1->io2(right)->e
 
 我查看了 Disqus 的 API 文档[[3]][3]，以上所述功能都找到了对应的 API 接口。
 
+* 评论计数 `threads/list`
 * 评论浏览 `threads/listPosts`
 * 评论发表 `posts/create`
-* 评论计数 `trends/listThreads`
 
 至此，想要实现不翻墙使用 Disqus，研究的内容至少如下：
 

@@ -193,7 +193,7 @@ function wxchoose(){
                             var extime = data.ExposureTime ? data.ExposureTime.val : '无';
                             var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
                             var flength = data.FocalLength ? data.FocalLength.val : '无';
-                            document.querySelector('[src^="' + imageExif[i].slice(0,-5) + '"]').nextSibling.insertAdjacentHTML('beforeend', '<small class="post-image-exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
+                            document.querySelector('.post-content [src^="' + imageExif[i].slice(0,-5) + '"]').nextElementSibling.insertAdjacentHTML('beforeend', '<small class="post-image-exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
                         }
                     }
                 };
@@ -789,7 +789,7 @@ Comment.prototype = {
         var html = '<li class="comment-item" data-index="'+(i+1)+'" data-id="'+post.id+'" data-name="'+ post.name+'" id="comment-' + post.id + '">';
         html += '<div class="comment-item-avatar"><img src="' + post.avatar + '"></div>';
         html += '<div class="comment-item-main">'
-        html += '<div class="comment-item-header"><a class="comment-item-name" target="_blank" href="' + post.url + '">' + post.name + '</a><span class="comment-item-bullet"> • </span><span class="comment-item-time timeago" datetime="' + post.createdAt + '"></span><span class="comment-item-bullet"> • </span><a class="comment-item-reply" href="javascript:;">回复</a></div>';
+        html += '<div class="comment-item-header"><a class="comment-item-name" rel="nofollow" target="_blank" href="' + post.url + '">' + post.name + '</a><span class="comment-item-bullet"> • </span><span class="comment-item-time timeago" datetime="' + post.createdAt + '"></span><span class="comment-item-bullet"> • </span><a class="comment-item-reply" href="javascript:;">回复</a></div>';
         html += '<div class="comment-item-content">' + post.message + post.media + '</div>';
         html += '<ul class="comment-item-children"></ul>';
         html += '</div>'

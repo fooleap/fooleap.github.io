@@ -5,6 +5,23 @@
 
     <body>
 
+        {% if page.thumb %}
+        {% assign thumbnail = page.thumb | replace:'IMG_PATH', site.IMG_PATH %}
+        {% else %}
+        {% if page.content contains site.IMG_PATH %}
+        {% assign images = page.content | split:'<img src="' %}
+        {% for image in images %}
+        {% if image contains site.IMG_PATH %}
+        {% assign thumbnail = image | split:"?imageView" | first | split: '"' | first | remove: "_640" %}
+        {% break %}
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        {% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}
+        {% endif %}
+        {% endif %}
+        <img class="page-thumb" src="{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}"/>
+
 {% include nav.html %}
 
         <main class="page-main">
