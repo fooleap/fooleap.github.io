@@ -91,6 +91,9 @@ function toggleDuoshuoComments(container){
 
 然而鄙人并没有将 Disqus 换成多说，这是为什么呢？因为原来的评论嵌套导入到多说后乱了，可能是转换过程中出错。
 
+## 延伸阅读
+
+* [科学使用 Disqus](http://blog.fooleap.org/use-disqus-correctly.html)
 
 ## 参考资料
 
