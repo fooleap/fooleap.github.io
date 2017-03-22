@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "使用的 Disqus API 上传图片"
+title: "巧用 Disqus API 上传图片"
 description: "现 Disqus 上传图片 API，较之前有明显的区别，配合访客评论 API，可较完美地实现访客评论的上传图片功能。"
 date: 2017-03-20 08:00:00+0800
+thumb: IMG_PATH/disqus.png
 category: tech
 tags: ["Disqus", "Disqus API", "PHP", "cURL", "JavaScript"]
 ---
@@ -18,22 +19,23 @@ tags: ["Disqus", "Disqus API", "PHP", "cURL", "JavaScript"]
 ```flow
 st=>start: 开始
 e=>end: 结束
-op1=>operation: POST 请求:>#opera-1
-op2=>operation: GET 请求:>#opera-2
-cond1=>condition: 文件是否符合
-cond2=>condition: 身份通过验证
-io1=>inputoutput: 返回数据1
-io2=>inputoutput: 返回数据2
-io3=>inputoutput: 返回数据3
+op1=>operation: POST 请求:>#op-1
+op2=>operation: GET 请求:>#op-2
+op3=>operation: DOM 操作:>#op-3
+cond1=>condition: 文件是否符合1:>#cond-1
+cond2=>condition: 身份通过验证:>#cond-2
+io1=>inputoutput: 返回数据1:>#io-1
+io2=>inputoutput: 返回数据2:>#io-2
+io3=>inputoutput: 返回数据3:>#io-3
 
-st->op1(right)->cond1
-cond1(yes)->cond2
+st->op1->cond1
 cond1(no)->e
+cond1(yes)->cond2
 cond2(no)->io1->e
-cond2(yes)->io2->op2->io3->e
+cond2(yes)->io2(right)->op2(right)->io3(right)->op3(right)->e
 ```
 
-文件限制：
+图片的限制如下：
 
     类型及大小限制：JPEG, PNG or GIF and under 5MB
 
@@ -41,7 +43,8 @@ cond2(yes)->io2->op2->io3->e
 
     Disqus 账号处于登录状态
 
-数据1：
+未登录状态上传图片则返回：
+{:id="io-1"}
 ```json
 { 
     "code": 4, 
@@ -62,39 +65,29 @@ cond2(yes)->io2->op2->io3->e
     }
 }
 ```
-
-```javascript
-https://disqus.com/api/3.0/media/details.json
-url
-```
-{:id="opera-2"}
+{:id="io-2"}
 
 
-```javascript
-
-https://uploads.services.disqus.com/api/3.0/media/create.json
-
-/* 发送 POST 请求 */
-
-'参数' {
-    upload: 文件 // 
-    permanent: 1 //1->永久保存，0->临时保存，
-    api_key: 公钥
-}
-
-'返回'
+POST 请求 https://uploads.services.disqus.com/api/3.0/media/create.json
+```json
 {
-  code: 0 //上传成功
-  response: [
-    '原文件名':{
-      filename:
-      url:
-    }
-  ]
+    "upload": "file",
+    "permanent": 1, //1->永久保存，0->临时保存，
+    "api_key": "公钥"
 }
+```
+{:id="op-1"}
+
+GET 请求 https://disqus.com/api/3.0/media/details.json
+```json
+{
+    "url": "https://uploads.disquscdn.com/images/",
+    "api_key": "公钥"
+}
+```
+{:id="op-2"}
 
 返回后，只要将图片地址放进 message，评论发表后，系统便会自动识别放进 media 数组，便可在评论列表中显示成图片。
-```
 
 大致了解这个过程之后的，我就直接把七牛上的图片地址放进 message，看看会不会自动识别成图片。结果可想而知，经过尝试，发现只有的少数 Disqus 家前缀的图片地址会生效。
 

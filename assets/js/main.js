@@ -40,20 +40,15 @@ if( flowArr.length > 0 ){
             div.setAttribute('id', flowId);
 
             var pre = item.parentNode;
-            pre.insertAdjacentElement('afterend', div);
+            pre.insertAdjacentElement('beforebegin', div);
+            pre.style.display = 'none';
 
             var diagram = flowchart.parse(item.innerText);
-            console.info(diagram)
             diagram.drawSVG(flowId);
-
         })
     }
 
     window.addEventListener('load', function(){
-        [].forEach.call(flowArr, function(item,i){
-            var pre = item.parentNode;
-            pre.parentNode.removeChild(pre);
-        })
         var linkArr = document.querySelectorAll('.flow a');
         [].forEach.call(linkArr, function(link){
             if(/^#/i.test(link.getAttribute('href'))){

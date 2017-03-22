@@ -17,6 +17,9 @@
         margin: 0;
         padding: 20px 0;
         box-shadow: none;
+        &:before {
+            display: none;
+        }
         .page-title {
             padding: 7px;
         }

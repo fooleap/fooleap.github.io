@@ -375,22 +375,30 @@ pre {
     }
 }
 
+.flow svg{
+    max-width: 100%;
+    height: 100%;
+}
+
 .post-extend {
     display: flex;
     .post-extend-content {
         flex: 1;
         width: 50%;
         .post-extend-list {
-            padding: 10px 0 15px 15px;
-            white-space: nowrap;
-            overflow: hidden;
+            padding: 10px 0 10px 10px;
             list-style: none;
         }
-        .post-extend-link {
-            line-height: 25px;
-            color: $darkblue;
+        .post-extend-item {
+            margin: 2px 0;
+            height: 20px;
             overflow: hidden;
-            text-overflow: ellipsis;
+        }
+        .post-extend-link {
+            display: inline-block;
+            line-height: 20px;
+            height: 20px;
+            color: $darkblue;
         }
     }
 }
@@ -400,12 +408,12 @@ pre {
     height: 20px;
     display: flex;
     justify-content: space-between;
+    .icon{
+        height: 20px;
+        width: 20px;
+    }
     .post-tags {
         display: flex;
-        .icon{
-            height: 20px;
-            width: 20px;
-        }
         .post-tag-list {
             list-style: none;
             display: flex;
@@ -422,7 +430,66 @@ pre {
             font-size: 12px;
         }
     }
+    // Share
+    .post-share {
+        display: flex;
+        position: relative;
+        .post-share-item{
+            width: 20px;
+            height: 20px;
+            margin: 0 3px;
+            color: rgb(51, 51, 51);
+            cursor: pointer;
+            &:hover{
+                border-bottom: none;
+            }
+        }
+        .icon{
+            transition: all .3s;
+        }
+        .wechat:hover .icon {
+            fill: rgb(81, 195, 50);
+        }
+        .weibo:hover .icon {
+            fill: rgb(231, 44, 64);
+        }
+        .qzone:hover .icon {
+            fill: rgb(252, 185, 32);
+        }
+        .twitter:hover .icon{
+            fill: rgb(85, 172, 238);
+        }
+        .facebook:hover .icon {
+            fill: rgb(65, 93, 152);
+        }
+        .gplus:hover .icon {
+            fill: rgb(219, 68, 55);
+        }
+        .post-qrcode {
+            display: none;
+            position: absolute;
+            bottom: 30px;
+            right: 80px;
+            background: $white;
+            padding: 5px;
+            border: 1px solid $lightgray;
+            border-radius: 5px;
+            box-shadow: 1px 1px 2px rgb(150, 150, 150);
+        }
+        .post-qrcode-input {
+            display: none;
+        }
+        .post-qrcode-input:checked{
+            + .post-qrcode{
+                display: block;
+            }
+            ~ .wechat .icon {
+                fill: rgb(81, 195, 50);
+            }
+        }
+    }
 }
+
 
 // 标签页
 .post-tags-list {
@@ -464,71 +531,3 @@ pre {
         display: table;
     }
 }
-
-// Share
-.post-share {
-    line-height: 1.2;
-    display: flex;
-    position: relative;
-    .post-share-item{
-        width: 20px;
-        height: 20px;
-        margin: 0 3px;
-        color: rgb(51, 51, 51);
-        cursor: pointer;
-        &:hover{
-            border-bottom: none;
-        }
-    }
-    .icon{
-        width: 20px;
-        height: 20px;
-        transition: all .3s;
-    }
-    .wechat:hover .icon {
-        fill: rgb(81, 195, 50);
-    }
-    .weibo:hover .icon {
-        fill: rgb(231, 44, 64);
-    }
-    .qzone:hover .icon {
-        fill: rgb(252, 185, 32);
-    }
-    .twitter:hover .icon{
-        fill: rgb(85, 172, 238);
-    }
-    .facebook:hover .icon {
-        fill: rgb(65, 93, 152);
-    }
-    .gplus:hover .icon {
-        fill: rgb(219, 68, 55);
-    }
-    .post-qrcode {
-        display: none;
-        position: absolute;
-        bottom: 30px;
-        right: 80px;
-        background: $white;
-        padding: 5px;
-        border: 1px solid $lightgray;
-        border-radius: 5px;
-        box-shadow: 1px 1px 2px rgb(150, 150, 150);
-    }
-    .post-qrcode-input {
-        display: none;
-    }
-    .post-qrcode-input:checked{
-        + .post-qrcode{
-            display: block;
-        }
-        ~ .wechat .icon {
-            fill: rgb(81, 195, 50);
-        }
-    }
-}
-
-.flow svg{
-    max-width: 100%;
-    height: auto;
-}
-
