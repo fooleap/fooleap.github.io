@@ -20,7 +20,9 @@
         {% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}
         {% endif %}
         {% endif %}
-        <img class="page-thumb" src="{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}"/>
+        <div class="page-thumb">
+            <img src="{{ thumbnail | append: '?imageView2/1/w/300/h/300/q/90'}}" />
+        </div>
 
 {% include nav.html %}
 
