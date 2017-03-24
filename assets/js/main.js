@@ -269,24 +269,27 @@ window.addEventListener('keyup', keysUp, false);
 */
 
 // 目录
-var clientWidth = document.documentElement.clientWidth;
-var clientHeight = document.documentElement.clientHeight;
 var toc = document.querySelector('.post-toc');
 var subTitles = document.querySelectorAll('.page-content h2,h3');
 var sectionIds = [];
 var sections = [];
+var clientHeight = document.documentElement.clientHeight;
 if (toc) {
-    var tocFixed = clientWidth / 2 - 410 - toc.offsetWidth;
-    if (tocFixed < 15) {
-        toc.classList.add('hide');
-    } else {
-        toc.style.left = tocFixed + 'px';
-    }
-    for (var i = 0; i < subTitles.length; i++) {
-        sectionIds.push(subTitles[i].getAttribute('id'));
-        sections.push(subTitles[i].offsetTop);
+    function tocShow() {
+        var clientWidth = document.documentElement.clientWidth;
+        var tocFixed = clientWidth / 2 - 410 - toc.offsetWidth;
+        if (tocFixed < 15) {
+            toc.style.visibility = 'hidden';
+        } else {
+            toc.style.visibility = 'visible';
+            toc.style.left = tocFixed + 'px';
+        }
     }
     function tocScroll() {
+        for (var i = 0; i < subTitles.length; i++) {
+            sectionIds.push(subTitles[i].getAttribute('id'));
+            sections.push(subTitles[i].offsetTop);
+        }
         var pos = document.documentElement.scrollTop || document.body.scrollTop;
         var lob = document.body.offsetHeight - subTitles[subTitles.length - 1].offsetTop;
         for (var i = 0; i < sections.length; i++) {
@@ -302,6 +305,8 @@ if (toc) {
         }
     }
     document.addEventListener('scroll', tocScroll, false);
+    window.addEventListener('resize', tocShow, false);
+    tocShow();
 }
 
 

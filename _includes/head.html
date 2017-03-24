@@ -6,6 +6,7 @@
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
     <meta name="keywords" content="{% if page.tags %}{{ page.tags | join: ', '}}{% else %}{{ site.keywords | join: ', ' }}{% endif %}" />
     <meta name="author" content="fooleap" />
+    <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <link rel="canonical" href="{{ page.url | replace: 'index.html','' | prepend: site.home }}" />

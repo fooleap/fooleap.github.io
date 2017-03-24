@@ -80,7 +80,7 @@ st(right)->op1->op2(right)->io1->io2(right)->e
 我查看了 Disqus 的 API 文档[[3]][3]，以上所述功能都找到了对应的 API 接口。
 
 * 评论计数 `threads/list`
-* 评论浏览 `threads/listPosts`
+* 评论浏览 `threads/listPosts`, `posts/list`
 * 评论发表 `posts/create`
 
 至此，想要实现不翻墙使用 Disqus，研究的内容至少如下：
