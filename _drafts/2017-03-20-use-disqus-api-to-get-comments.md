@@ -8,5 +8,5 @@ category: tech
 tags: ["Disqus", "Disqus API", "PHP", "cURL", "JavaScript"]
 ---
 
-
+显示评论列表是评论系统最为基础的功能，不显示也就没了意义。废话少说，怎么利用 Disqus API 来获取到评论数据呢？
 

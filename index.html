@@ -20,7 +20,7 @@ layout: default
     {% endif %}
     {% endif %}
     <article class="post-item">
-        <img class="post-item-thumb" src="{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}" alt="{{ post.title }}"/>
+        <img class="post-item-thumb" src="{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}" alt="{{ post.title }}" />
         <section class="post-item-summary">
             <h3 class="post-item-title"><a class="post-item-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
             <abbr class="post-item-date timeago" title="{{ post.date | date_to_xmlschema }}"></abbr>
