@@ -16,6 +16,7 @@ permalink: /:title.html
 #permalink: /:title
 gems: 
   - jekyll-paginate
+  - jemoji
 paginate: 10
 IMG_PATH: http://source.fooleap.org
 markdown: kramdown

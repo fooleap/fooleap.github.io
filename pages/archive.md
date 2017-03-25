@@ -12,7 +12,8 @@ tags: [归档]
 {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
 {% if year != nyear %}
 ## {{ post.date | date: '%Y' }}
+{:class="archive-title"}
 {% endif %}
 {% endunless %}
-* {{ post.date | date: "%Y 年 %m 月 %d 日" }} &raquo; [{{ post.title }}]({{ post.url }})
+* {{ post.date | date: "%m-%d" }} &raquo; [{{ post.title }}]({{ post.url }})
 {% endfor %}

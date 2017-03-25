@@ -80,6 +80,9 @@ body {
             background-color: rgb(230, 230, 230);
         }
     }
+    .note:target{
+        background-color: rgb(230, 230, 230);
+    }
     &:before {
         content: "";
         position: absolute;
@@ -492,6 +495,14 @@ pre {
     }
 }
 
+//
+.archive-title + ul li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
 
 // 标签页
 .post-tags-list {

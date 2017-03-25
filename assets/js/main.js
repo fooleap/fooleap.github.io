@@ -13,7 +13,7 @@ var head = document.getElementsByTagName('head')[0],
     },
     page = { 
         layout: head.dataset.layout,
-        title: head.dataset.title,
+        title: document.title,
         url: head.dataset.url,
         id: head.dataset.id,
         category: head.dataset.category,
@@ -328,7 +328,7 @@ if (toc) {
                 links[i].setAttribute('id', ref);
                 links[i].setAttribute('class', 'ref');
                 links[i].outerHTML = '<sup>' + links[i].outerHTML + '</sup>';
-                document.getElementById('refs').insertAdjacentHTML('beforeend', '<li class="note"><a href="#' + ref + '">&and;</a> <a href="' + noteHref + '" title="' + noteTitle + '" id="' + note + '" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
+                document.getElementById('refs').insertAdjacentHTML('beforeend', '<li id="' + note + '" class="note"><a href="#' + ref + '">^</a> <a href="' + noteHref + '" title="' + noteTitle + '" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
             } else {
                 links[i].setAttribute('target', '_blank');
             }
@@ -862,7 +862,7 @@ Comment.prototype = {
         var parentId = item.dataset.id;
         var parentName = item.dataset.name;
         var commentBox = comment.box.replace(/emoji-input/g,'emoji-input-'+parentId).replace(/upload-input/g,'upload-input-'+parentId).replace(/加入讨论……|写条留言……/,'@'+parentName).replace(/加入讨论……|写条留言……/,'').replace(/<label class="comment-actions-label exit"(.|\n)*<\/label>\n/,'').replace(/<input id="tips-input"(.|\n)*<\/label>\n/,'');
-        item.querySelector('.comment-item-main').insertAdjacentHTML('beforeend', commentBox);
+        item.querySelector('.comment-item-main .comment-item-children').insertAdjacentHTML('beforebegin', commentBox);
         $this.outerHTML = $this.outerHTML.replace('reply','cancel');
         guest.init();
 
