@@ -457,8 +457,9 @@ Guest.prototype = {
         var item = e.currentTarget.closest('.comment-item') || e.currentTarget.closest('.comment-box');
         name = item.querySelector('.comment-form-name').value;
         email = item.querySelector('.comment-form-email').value;
-        url = item.querySelector('.comment-form-url').value;
         avatar = item.querySelector('.comment-avatar-image').getAttribute('src');
+        url = item.querySelector('.comment-form-url').value;
+        url = !!url ? url : '';
         if( guest.logged_in == 'false' ){
             if (/\S/i.test(name)  && /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(email)){
                 localStorage.setItem('name', name);
