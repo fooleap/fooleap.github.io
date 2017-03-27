@@ -4,14 +4,9 @@
         <ul class="post-extend-list">
         </ul>
     </section>
-    <section id="recent-posts" class="post-extend-content">
+    <section id="popular-posts" class="post-extend-content">
         <h4 class="post-extend-title">最近热门</h4>
         <ul class="post-extend-list">
-            {% comment %}
-            {% for post in site.posts limit: 5 %}
-            <li class="post-extend-item"><a class="post-extend-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }} </a></li>
-            {% endfor %}
-            {% endcomment %}
         </ul>
     </section>
 </section>

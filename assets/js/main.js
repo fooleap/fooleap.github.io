@@ -371,6 +371,22 @@ if ( page.layout == 'post' ) {
     }
     xhrPosts.send();
 
+    var xhrPopular = new XMLHttpRequest();
+    xhrPopular.open('GET', site.api + '/disqus/popular', true);
+    xhrPopular.onreadystatechange = function() {
+        if (xhrPopular.readyState == 4 && xhrPopular.status == 200) {
+            var data = JSON.parse(xhrPopular.responseText);
+            if( data.code == 0){
+                var posts = data.response;
+                var popularPosts = document.querySelector('#popular-posts ul');
+                posts.forEach(function(item){
+                    popularPosts.insertAdjacentHTML('beforeend', '<li class="post-extend-item"><a class="post-extend-link" href="' + item.link + '" title="' + item.title + '">' + item.title + '</a></li>\n');
+                })
+            }
+        }
+    }
+    xhrPopular.send();
+
     // 二维码 http://goo.gl/JzmGoq
     var qrscript = document.createElement('script');
     qrscript.type = 'text/javascript';
