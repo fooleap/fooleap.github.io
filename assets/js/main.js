@@ -530,12 +530,18 @@ Comment.prototype = {
 
         // 加载表情
         var emojiList = '';
-        comment.emoji.image.forEach(function(item,i){
-            emojiList += '<li class="emojione-item" title="'+ comment.emoji.title[i]+'" data-code="'+comment.emoji.code[i]+'"><img class="emojione-item-image" src="'+item+'" /></li>';
+        comment.emoji.forEach(function(item,i){
+            emojiList += '<li class="emojione-item" title="'+ item.title+'" data-code="'+item.code+'"><img class="emojione-item-image" src="'+item.url+'" /></li>';
         })
-        emojiListArr = document.getElementsByClassName('emojione-list');
+        var emojiListArr = document.getElementsByClassName('emojione-list');
         [].forEach.call(emojiListArr,function(item,i){
             item.innerHTML = emojiList;
+        });
+
+        // 表情点选
+        var emojiArr = document.getElementsByClassName('emojione-item');
+        [].forEach.call(emojiArr,function(item,i){
+            item.addEventListener('click', comment.field, false);
         });
 
         // 激活列表回复按钮事件
@@ -550,12 +556,6 @@ Comment.prototype = {
             item.addEventListener('focus', comment.focus, false);
             item.addEventListener('blur', comment.focus, false);
         })
-
-        // 表情点选
-        emojiArr = document.getElementsByClassName('emojione-item');
-        [].forEach.call(emojiArr,function(item,i){
-            item.addEventListener('click', comment.field, false);
-        });
 
         // 邮箱验证
         var emailArr = document.getElementsByClassName('comment-form-email');
@@ -604,62 +604,75 @@ Comment.prototype = {
     },
 
     //emoji表情
-    emoji: {
-        code: [
-            ':grin:',
-            ':joy:',
-            ':heart_eyes:',
-            ':sweat:',
-            ':unamused:',
-            ':smirk:',
-            ':relieved:',
-            ':wx_smirk:',
-            ':wx_hey:',
-            ':wx_facepalm:',
-            ':wx_smart:',
-            ':wx_tea:',
-            ':wx_yeah:',
-            ':wx_moue:',
-            ':doge:',
-            ':tanshou:'
-        ],
-        title: [
-            '露齿笑',
-            '破涕为笑',
-            '色',
-            '汗',
-            '无语',
-            '得意',
-            '满意',
-            '奸笑',
-            '嘿哈',
-            '捂脸',
-            '机智',
-            '茶',
-            '耶',
-            '皱眉',
-            'doge',
-            '摊手'
-        ],
-        image: [
-            '//assets-cdn.github.com/images/icons/emoji/unicode/1f601.png',
-            '//assets-cdn.github.com/images/icons/emoji/unicode/1f602.png',
-            '//assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png',
-            '//assets-cdn.github.com/images/icons/emoji/unicode/1f613.png',
-            '//assets-cdn.github.com/images/icons/emoji/unicode/1f612.png',
-            '//assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png',
-            '//assets-cdn.github.com/images/icons/emoji/unicode/1f60c.png',
-            site.img + '/wx_emoji/2_02.png',
-            site.img + '/wx_emoji/2_04.png',
-            site.img + '/wx_emoji/2_05.png',
-            site.img + '/wx_emoji/2_06.png',
-            site.img + '/wx_emoji/2_07.png',
-            site.img + '/wx_emoji/2_11.png',
-            site.img + '/wx_emoji/2_12.png',
-            'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif',
-            'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png'
-        ]
-    },
+    emoji: [
+        {
+            code:':grin:',
+            title:'露齿笑',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f601.png'
+        },
+        {
+            code:':joy:',
+            title:'破涕为笑',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f602.png'
+        },
+        {
+            code:':heart_eyes:',
+            title:'色',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png'
+        },{
+            code:':sweat:',
+            title:'汗',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f613.png'
+        },{
+            code:':unamused:',
+            title:'无语',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f612.png'
+        },{
+            code:':smirk:',
+            title:'得意',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png'
+        },{
+            code:':relieved:',
+            title:'满意',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60c.png'
+        },{
+            code:':wx_smirk:',
+            title:'奸笑',
+            url: site.img + '/wx_emoji/2_02.png'
+        },{
+            code:':wx_hey:',
+            title:'嘿哈',
+            url: site.img + '/wx_emoji/2_04.png'
+        },{
+            code:':wx_facepalm:',
+            title:'捂脸',
+            url: site.img + '/wx_emoji/2_05.png'
+        },{
+            code:':wx_smart:',
+            title:'机智',
+            url: site.img + '/wx_emoji/2_06.png'
+        },{
+            code:':wx_tea:',
+            title:'茶',
+            url: site.img + '/wx_emoji/2_07.png'
+        },{
+            code:':wx_yeah:',
+            title:'耶',
+            url: site.img + '/wx_emoji/2_11.png'
+        },{
+            code:':wx_moue:',
+            title:'皱眉',
+            url: site.img + '/wx_emoji/2_12.png'
+        },{
+            code:':doge:',
+            title:'doge',
+            url:'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif'
+        },{
+            code:':tanshou:',
+            title:'摊手',
+            url:'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png'
+        }
+    ],
     
     // 邮箱验证
     verify: function(e){
@@ -704,6 +717,10 @@ Comment.prototype = {
             item.querySelector('.comment-form-textarea').focus();
             return;
         };
+        var preMessage = message;
+        comment.emoji.forEach(function(item,i){
+            preMessage = preMessage.replace(item.code, '<img class="emojione" src="' + item.url + '" />');
+        });
         var post = {
             'url': guest.url,
             'name': guest.name,
@@ -711,7 +728,7 @@ Comment.prototype = {
             'id': 'preview',
             'parent': parentId,
             'createdAt': time,
-            'message': '<p>' + message + '</p>',
+            'message': '<p>' + preMessage + '</p>',
             'media': media
         };
         comment.load(post, comment.count);
