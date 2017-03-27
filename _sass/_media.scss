@@ -44,6 +44,12 @@
                 padding: 0 7px;
             }
         }
+        .post-extend{
+            flex-direction: column;
+            .post-extend-content {
+                width: auto;
+            }
+        }
         .post-share {
             display: none;
         }
