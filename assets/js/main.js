@@ -268,7 +268,7 @@ window.addEventListener('keydown', keysDown, false);
 window.addEventListener('keyup', keysUp, false);
 */
 
-(if( browser.mobile && page.url == '/' ){
+if( browser.mobile && page.url == '/' ){
     var pagination = document.querySelector('.pagination');
     pagination.innerHTML = '';
     var pageNum = 0;
@@ -307,7 +307,7 @@ window.addEventListener('keyup', keysUp, false);
             },1000);
         }
     }
-})();
+}
 
 // 目录
 var toc = document.querySelector('.post-toc');
@@ -448,7 +448,7 @@ if ( page.layout == 'post' ) {
 /* 显示完整评论 */
 // 事件绑定
 function disqus_config() {
-    this.page.url = site.home + location.pathname;
+    this.page.url = site.home + page.url;
     this.callbacks.onReady.push(function() {
         console.info('disqus loaded');
     });
@@ -722,11 +722,11 @@ Comment.prototype = {
         },{
             code:':doge:',
             title:'doge',
-            url:'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/b6/doge_org.gif'
+            url: site.img + '/weibo/doge.png'
         },{
             code:':tanshou:',
             title:'摊手',
-            url:'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/09/pcmoren_tanshou_thumb.png'
+            url: site.img + '/weibo/tanshou.png'
         }
     ],
     
