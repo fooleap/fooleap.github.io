@@ -268,6 +268,47 @@ window.addEventListener('keydown', keysDown, false);
 window.addEventListener('keyup', keysUp, false);
 */
 
+(if( browser.mobile && page.url == '/' ){
+    var pagination = document.querySelector('.pagination');
+    pagination.innerHTML = '';
+    var pageNum = 0;
+    var postData;
+    var xhrPosts = new XMLHttpRequest();
+    xhrPosts.open('GET', '/posts.json', true);
+    xhrPosts.onreadystatechange = function() {
+        if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
+            postData = JSON.parse(xhrPosts.responseText);
+            document.addEventListener('scroll', loadMore, false);
+        }
+    }
+    xhrPosts.send();
+    function loadMore (){
+        var pageMax = Math.ceil(postData.length/10);
+        if(document.body.offsetHeight-(document.documentElement.clientHeight +(document.documentElement.scrollTop || document.body.scrollTop )) == 0 && pageNum < pageMax){
+            pagination.classList.add('loading');
+            setTimeout(function(){
+                pageNum++;
+                var postMin = pageNum * 10;
+                var postMax = (pageNum + 1) * 10;
+                var html = '';
+                for( var i = postMin; i < postMax && i < postData.length; i++){
+                    html +='<article class="post-item">'+
+                        '<img class="post-item-thumb" src="'+postData[i].thumb+'" alt="'+postData[i].title+'">'+
+                        '<section class="post-item-summary">'+
+                        '<h3 class="post-item-title"><a class="post-item-link" href="'+postData[i].url+'" title="'+postData[i].title+'">'+postData[i].title+'</a></h3>'+
+                        '<abbr class="post-item-date timeago" title="'+postData[i].date+'"></abbr>'+
+                        '</section>'+
+                        '<a class="post-item-comment" title="查看评论" data-disqus-url="'+postData[i].url+'" href="'+postData[i].url+'#comments"></a>'+
+                        '</article>';
+                }
+                document.querySelector('.post-list').insertAdjacentHTML('beforeend', html);
+                timeAgo();
+                pagination.classList.remove('loading');
+            },1000);
+        }
+    }
+})();
+
 // 目录
 var toc = document.querySelector('.post-toc');
 var subTitles = document.querySelectorAll('.page-content h2,h3');

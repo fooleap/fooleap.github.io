@@ -205,6 +205,12 @@ body {
 }
 
 // Pagination
+.pagination.loading {
+    background-image: url("/assets/svg/loading.svg");
+    width: 24px;
+    height: 30px;
+    margin: 20px auto;
+}
 .pagination-list {
     margin: 10px auto;
     font-size: 13px;

@@ -27,7 +27,8 @@ permalink: /posts.json
       "category"  : "{{ post.category }}",
       "title"    : "{{ post.title }}",
       "url"      : "{{ post.url }}",
-      "date"     : "{{ post.date }}"
+      "date"     : "{{ post.date }}",
+      "thumb"     : "{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}"
       }{% unless forloop.last %},{% endunless %}
       {% endif %}
     {% endfor %}
