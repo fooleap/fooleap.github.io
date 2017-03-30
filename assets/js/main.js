@@ -291,6 +291,7 @@ if( browser.mobile && page.url == '/' ){
                 var postMin = pageNum * 10;
                 var postMax = (pageNum + 1) * 10;
                 var html = '';
+                var commentArr = [];
                 for( var i = postMin; i < postMax && i < postData.length; i++){
                     html +='<article class="post-item">'+
                         '<img class="post-item-thumb" src="'+postData[i].thumb+'" alt="'+postData[i].title+'">'+
@@ -300,9 +301,11 @@ if( browser.mobile && page.url == '/' ){
                         '</section>'+
                         '<a class="post-item-comment" title="查看评论" data-disqus-url="'+postData[i].url+'" href="'+postData[i].url+'#comments"></a>'+
                         '</article>';
+                    commentArr.push(postData[i].url);
                 }
                 document.querySelector('.post-list').insertAdjacentHTML('beforeend', html);
                 timeAgo();
+                comment.count(commentArr);
                 pagination.classList.remove('loading');
             },1000);
         }
@@ -560,24 +563,29 @@ Comment.prototype = {
             [].forEach.call(countArr, function(item,i){
                 commentArr[i] = item.dataset.disqusUrl;
             });
-            var commentLink = encodeURIComponent(commentArr.join(','));
-            var xhrCommentCount = new XMLHttpRequest();
-            xhrCommentCount.open('GET', site.api +'/disqus/list?link=' + commentLink, true);
-            xhrCommentCount.send();
-            xhrCommentCount.onreadystatechange = function() {
-                if (xhrCommentCount.readyState == 4 && xhrCommentCount.status == 200) {
-                    var data = JSON.parse(xhrCommentCount.responseText);
-                    for (var i = 0; i < data.response.length; i++) {
-                        var count = data.response[i].posts == 0 ? '' : data.response[i].posts;
-                        document.querySelector('[data-disqus-url="' + data.response[i].link.slice(23) + '"]').innerHTML = count;
-                    }
-                }
-            }
+            this.count(commentArr);
         }
 
         // 拉取列表
         if(this.hasBox){
             this.getlist();
+        }
+    },
+
+    // 评论计数
+    count: function(commentArr){
+        var commentLink = encodeURIComponent(commentArr.join(','));
+        var xhrCommentCount = new XMLHttpRequest();
+        xhrCommentCount.open('GET', site.api +'/disqus/list?link=' + commentLink, true);
+        xhrCommentCount.send();
+        xhrCommentCount.onreadystatechange = function() {
+            if (xhrCommentCount.readyState == 4 && xhrCommentCount.status == 200) {
+                var data = JSON.parse(xhrCommentCount.responseText);
+                for (var i = 0; i < data.response.length; i++) {
+                    var count = data.response[i].posts == 0 ? '' : data.response[i].posts;
+                    document.querySelector('[data-disqus-url="' + data.response[i].link.slice(23) + '"]').innerHTML = count;
+                }
+            }
         }
     },
 
