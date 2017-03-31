@@ -1,0 +1,299 @@
+---
+layout : null
+permalink: /running.html
+title: 月跑量图
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
+        <meta name="description" content="A foolish man could not always lose!" />
+        <meta name="keywords" content="fooleap, 前端, Linux, 潮汕" />
+        <meta name="author" content="fooleap" />
+        <meta name="renderer" content="webkit">
+        <style>
+            html,body{
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="running"></div>
+
+        <script src="http://echarts.baidu.com/dist/echarts.common.min.js"></script>
+        <script>
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            }
+var month = getQueryVariable('month');
+var running_year = parseInt(month.slice(0,-2));
+var running_month = parseInt(month.slice(4));
+var queryStr = 'start='+running_year+'-'+running_month+'-01&end='+running_year+'-'+(running_month+1)+'-01';
+
+var runningChart = document.getElementById('running');
+runningChart.style.width = window.innerWidth + 'px';
+runningChart.style.height = window.innerWidth*2/3 + 'px';
+var myChart = echarts.init(runningChart);
+var colors = ['#D5FF45', '#4FA8F9', '#6EC71E', '#F56E6A', '#FFCE47', '#988772'];
+function echart(edate, distance, duration, speed, pace, steps, cal) {
+    option = {
+        color: colors,
+
+        tooltip: {
+            trigger: 'axis',
+            formatter: function(params, ticket, callback) {
+                var res = running_year+'年'+running_month+'月' + params[0].name + '日<br>';
+                for (var i = 0; i < params.length; i++) {
+                    res += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:' + params[i].color + '"></span>' + params[i].seriesName + '：' + params[i].data.name + '<br/>';
+                }
+                return res;
+            }
+        },
+        grid: {
+            left: '30px',
+            right: 0,
+            top: '60px',
+            bottom: '20px',
+        },
+        toolbox: {
+            feature: {
+                dataView: {
+                    show: true,
+                    readOnly: false
+                },
+                restore: {
+                    show: true
+                },
+                saveAsImage: {
+                    show: true
+                }
+            }
+        },
+        /*title: {
+            text: '10月跑量',
+            x: 'left'
+        },*/
+        legend: {
+            selected: {
+                '时速': false,
+                '步数': false,
+                '热量': false
+            },
+            x: 'center',
+            y: 'top',
+            data: ['距离', '步数', '时间', '时速', '配速',  '热量']
+        },
+        xAxis: [{
+            type: 'category',
+            axisTick: {
+                alignWithLabel: true
+            },
+            data: edate
+        }],
+        yAxis: [{
+            type: 'value',
+            name: '距离/公里',
+            min: 0,
+            max: 30,
+            position: 'left',
+            axisLine: {
+                lineStyle: {
+                    color: '#000'
+                }
+            },
+            axisLabel: {
+                formatter: '{value}'
+            }
+        }, {
+            type: 'value',
+            name: '时间',
+            min: 0,
+            max: 180,
+            show: false,
+            axisLine: {
+                lineStyle: {
+                    color: colors[1]
+                }
+            },
+            axisLabel: {
+                formatter: '{value}min'
+            }
+        }, {
+            type: 'value',
+            name: '时速',
+            min: 0,
+            max: 15,
+            show: false,
+            axisLine: {
+                lineStyle: {
+                    color: colors[2]
+                }
+            },
+            axisLabel: {
+                formatter: '{value}km'
+            }
+        }, {
+            type: 'value',
+            name: '配速',
+            min: 0,
+            max: 10,
+            show: false,
+            axisLine: {
+                lineStyle: {
+                    color: colors[3]
+                }
+            },
+            axisLabel: {
+                formatter: '{value}min/km'
+            }
+        }, {
+            type: 'value',
+            name: '步数',
+            min: 0,
+            max: 30000,
+            show: false,
+            axisLine: {
+                lineStyle: {
+                    color: colors[4]
+                }
+            },
+            axisLabel: {
+                formatter: '{value}steps'
+            }
+        }, {
+            type: 'value',
+            name: '热量',
+            min: 0,
+            max: 3000,
+            show: false,
+            axisLine: {
+                lineStyle: {
+                    color: colors[5]
+                }
+            },
+            axisLabel: {
+                formatter: '{value}cal'
+            }
+        }],
+        series: [{
+            name: '距离',
+            type: 'bar',
+            data: distance
+        }, {
+            name: '时间',
+            type: 'line',
+            yAxisIndex: 1,
+            data: duration
+        }, {
+            name: '时速',
+            type: 'line',
+            yAxisIndex: 2,
+            data: speed
+        }, {
+            name: '配速',
+            type: 'line',
+            yAxisIndex: 3,
+            data: pace
+        }, {
+            name: '步数',
+            type: 'bar',
+            yAxisIndex: 4,
+            data: steps
+        }, {
+            name: '热量',
+            type: 'line',
+            yAxisIndex: 5,
+            data: cal
+        }]
+    };
+    myChart.setOption(option);
+}
+
+var xhractivities = new XMLHttpRequest();
+xhractivities.open('GET', 'http://api.fooleap.org/nike/activities?'+queryStr, true);
+xhractivities.send();
+xhractivities.onreadystatechange = function() {
+    if (xhractivities.readyState == 4 && xhractivities.status == 200) {
+        var data = JSON.parse(xhractivities.responseText);
+        var act_date = data.output;
+        var distance = [];
+        var edate = [];
+        var duration = [];
+        var speed = [];
+        var pace = [];
+        var steps = [];
+        var cal = [];
+        for (var i = 0; i < act_date.length; i++) {
+            edate[i] = {
+                name: act_date[i],
+                value: parseInt(act_date[i].slice(8))
+            };
+            distance[i] = {
+                name: '无',
+                value: 0
+            };
+            duration[i] = {
+                name: '无',
+                value: 0
+            };
+            speed[i] = {
+                name: '无',
+                value: 0
+            };
+            pace[i] = {
+                name: '无',
+                value: 0
+            };
+            steps[i] = {
+                name: '无',
+                value: 0
+            };
+            cal[i] = {
+                name: '无',
+                value: 0
+            };
+            for (var n = 0; n < data.activities.length; n++) {
+                if (act_date[i] == data.activities[n].date) {
+                    edate[i].value = parseInt(act_date[i].slice(8));
+                    distance[i].value += parseFloat(data.activities[n].distance);
+                    duration[i].value += parseFloat(data.activities[n].duration);
+                    speed[i].value = speed[i].value == 0 ? data.activities[n].speed : (speed[i].value + parseFloat(data.activities[n].speed)) / 2;
+                    pace[i].value = pace[i].value == 0 ? data.activities[n].pace : (pace[i].value + parseFloat(data.activities[n].pace)) / 2;
+                    steps[i].value += data.activities[n].steps;
+                    cal[i].value += data.activities[n].calories;
+                    var date1 = new Date(null);
+                    date1.setSeconds(duration[i].value * 60);
+                    var date2 = new Date(null);
+                    date2.setSeconds(pace[i].value * 60);
+
+                    edate[i].name = act_date[i];
+                    distance[i].name = distance[i].value + ' km';
+                    duration[i].name = date1.toISOString().substr(11, 8);
+                    speed[i].name = speed[i].value.toFixed(2) + ' km';
+                    pace[i].name = date2.getMinutes() + '\'' + date2.getSeconds() + '\"' + '/km';
+                    steps[i].name = steps[i].value + ' steps';
+                    cal[i].name = cal[i].value + ' cal';
+
+                }
+            }
+            duration[i].value = duration[i].value.toFixed(2);
+            speed[i].value = speed[i].value.toFixed(2);
+            pace[i].value = parseFloat(pace[i].value).toFixed(2);
+        }
+        echart(edate, distance, duration, speed, pace, steps, cal);
+        document.querySelector('#running').style.display = '';
+    }
+}
+</script>
+    </body>
+</html>
