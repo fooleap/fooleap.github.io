@@ -67,7 +67,7 @@ title: 跑步线路
     </head>
     <body>
 
-        <div id="map"></div>
+        <div id="map" title="点击地图启动轨迹动画"></div>
 
         <script src="http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"></script>
         <script src="/assets/js/coordtransform.js"></script>
@@ -82,111 +82,111 @@ title: 跑步线路
                 return(false);
             }
             var nikeid = getQueryVariable('nikeid');
-var lineArr = [];
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://api.fooleap.org/nike/activity?id='+ nikeid, true);
-xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        var data = JSON.parse(xhr.responseText);
-        for( var i = 0; i < data.length; i++){
-            lineArr[i] = coordtransform.wgs84togcj02(data[i].lng,data[i].lat);
-        }
-        showMap(lineArr);
-    }
-}
-xhr.send();
-function showMap(lineArr){
-    var map = new AMap.Map('map');
-    var lineArray = [];
-    var distance = 0;
-    var hundredpoints = [0];
-    var num = 1;
-    for (var i = 0; i < lineArr.length - 1; i++) {
-        var point = new AMap.LngLat(lineArr[i][0], lineArr[i][1]);
-        distance += point.distance(lineArr[i + 1]);
-        if (distance > 100 * num) {
-            num += 1;
-            hundredpoints.push(i + 1);
-        }
-    }
-    hundredpoints.push(lineArr.length-1);
-    for (var i = 0; i < hundredpoints.length - 1; i++) {
-        lineArray[i] = [];
-        for (var e = hundredpoints[i]; e <= hundredpoints[i + 1]; e++) {
-            lineArray[i].push(lineArr[e]);
-        }
-    }
-    var marker1 = new AMap.Marker({
-        position: lineArr[0],
-        zIndex: 11,
-        offset: new AMap.Pixel(-8, -8),
-        content: '<div class="marker-circle green"></div>'
-    });
-    marker1.setMap(map);
-    var marker2 = new AMap.Marker({
-        position: lineArr[lineArr.length - 1],
-        zIndex: 11,
-        offset: new AMap.Pixel(-8, -8),
-        content: '<div class="marker-circle red"></div>'
-    });
-    marker2.setMap(map);
-    var marker3 = new AMap.Marker({
-        position: lineArr[lineArr.length - 1],
-        zIndex: 10,
-        offset: new AMap.Pixel(-64, -12),
-        content: '<div class="running-distance"><span class="running-number">' + (distance/1000).toFixed(1) + '</span>公里</div>'
-    });
-    marker3.setMap(map);
-    var marker = new AMap.Marker({
-        zIndex: 12,
-        offset: new AMap.Pixel(-8, -8),
-        content: '<div class="marker-circle black"></div>'
-    });
-    var polyline = new AMap.Polyline({
-        map: map,
-        path: lineArr,
-        strokeColor: "#52EE06",
-        strokeOpacity: 1,
-        strokeWeight: 3,
-        strokeStyle: "solid"
-    });
-    var runPolyline = new AMap.Polyline({
-        map: map,
-        strokeColor: "#52EE06",
-        strokeOpacity: 1,
-        strokeWeight: 3,
-        strokeStyle: "solid",
-    });
-    runPolyline.setMap(map);
-    var i = 0;
-    var polylineLength = 0;
-    var line = [];
-    function drawline() {
-        if (i < lineArray.length) {
-            line = line.concat(lineArray[i]);
-            runPolyline.setPath(line);
-            marker.setPosition(lineArray[i][lineArray[i].length - 1]);
-            //有错误
-            //path = runPolyline.getLength();
-            path = (i * 0.1).toFixed(1);
-            marker3.setContent('<div class="running-distance"><span class="running-number">' + path + '</span>公里</div>');
-            i++;
-        } else {
-            marker.hide();
-            return;
-        }
-        setTimeout(drawline, 50)
-    }
-    map.setFitView();
-    map.on('click', function() {
-        polyline.setOptions({
-            strokeColor: "#000000",
-            strokeOpacity: 0.2
-        });
-        marker.setMap(map);
-        drawline();
-    });
-}
+            var lineArr = [];
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://api.fooleap.org/nike/activity?id='+ nikeid, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    for( var i = 0; i < data.length; i++){
+                        lineArr[i] = coordtransform.wgs84togcj02(data[i].lng,data[i].lat);
+                    }
+                    showMap(lineArr);
+                }
+            }
+            xhr.send();
+            function showMap(lineArr){
+                var map = new AMap.Map('map');
+                var lineArray = [];
+                var distance = 0;
+                var hundredpoints = [0];
+                var num = 1;
+                for (var i = 0; i < lineArr.length - 1; i++) {
+                    var point = new AMap.LngLat(lineArr[i][0], lineArr[i][1]);
+                    distance += point.distance(lineArr[i + 1]);
+                    if (distance > 100 * num) {
+                        num += 1;
+                        hundredpoints.push(i + 1);
+                    }
+                }
+                hundredpoints.push(lineArr.length-1);
+                for (var i = 0; i < hundredpoints.length - 1; i++) {
+                    lineArray[i] = [];
+                    for (var e = hundredpoints[i]; e <= hundredpoints[i + 1]; e++) {
+                        lineArray[i].push(lineArr[e]);
+                    }
+                }
+                var marker1 = new AMap.Marker({
+                    position: lineArr[0],
+                    zIndex: 11,
+                    offset: new AMap.Pixel(-8, -8),
+                    content: '<div class="marker-circle green"></div>'
+                });
+                marker1.setMap(map);
+                var marker2 = new AMap.Marker({
+                    position: lineArr[lineArr.length - 1],
+                    zIndex: 11,
+                    offset: new AMap.Pixel(-8, -8),
+                    content: '<div class="marker-circle red"></div>'
+                });
+                marker2.setMap(map);
+                var marker3 = new AMap.Marker({
+                    position: lineArr[lineArr.length - 1],
+                    zIndex: 10,
+                    offset: new AMap.Pixel(-64, -12),
+                    content: '<div class="running-distance"><span class="running-number">' + (distance/1000).toFixed(1) + '</span>公里</div>'
+                });
+                marker3.setMap(map);
+                var marker = new AMap.Marker({
+                    zIndex: 12,
+                    offset: new AMap.Pixel(-8, -8),
+                    content: '<div class="marker-circle black"></div>'
+                });
+                var polyline = new AMap.Polyline({
+                    map: map,
+                    path: lineArr,
+                    strokeColor: "#52EE06",
+                    strokeOpacity: 1,
+                    strokeWeight: 3,
+                    strokeStyle: "solid"
+                });
+                var runPolyline = new AMap.Polyline({
+                    map: map,
+                    strokeColor: "#52EE06",
+                    strokeOpacity: 1,
+                    strokeWeight: 3,
+                    strokeStyle: "solid",
+                });
+                runPolyline.setMap(map);
+                var i = 0;
+                var polylineLength = 0;
+                var line = [];
+                function drawline() {
+                    if (i < lineArray.length) {
+                        line = line.concat(lineArray[i]);
+                        runPolyline.setPath(line);
+                        marker.setPosition(lineArray[i][lineArray[i].length - 1]);
+                        //有错误
+                        //path = runPolyline.getLength();
+                        path = (i * 0.1).toFixed(1);
+                        marker3.setContent('<div class="running-distance"><span class="running-number">' + path + '</span>公里</div>');
+                        i++;
+                    } else {
+                        marker.hide();
+                        return;
+                    }
+                    setTimeout(drawline, 50)
+                }
+                map.setFitView();
+                map.on('click', function() {
+                    polyline.setOptions({
+                        strokeColor: "#000000",
+                        strokeOpacity: 0.2
+                    });
+                    marker.setMap(map);
+                    drawline();
+                });
+            }
         </script>
     </body>
 </html>
