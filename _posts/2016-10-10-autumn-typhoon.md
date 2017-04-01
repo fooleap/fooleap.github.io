@@ -5,9 +5,6 @@ description: "金秋十月，北方有些地方已经进入冬天，江南的满
 date: 2016-10-10 08:00:00+0800
 category: life
 tags: ["台风", "秋天"]
-js: true
-style: true
-scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"]
 ---
 
 金秋十月，北方有些地方已经进入冬天，江南的满地落叶甚是迷人，在南方，秋天似乎并不是很远，诡异的秋台一个接着一个。
@@ -21,7 +18,9 @@ scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73
 
 9 号，各国预测路径都是趋向回旋，然而它还在徘徊。实时的简易路径如下。不得不感慨，秋台就像女人的心，难以琢磨。
 
-<div class="map" id="map"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/autumn-typhoon.html"></iframe>
+</div>
 长的是莫兰蒂，短的是艾利
 
 虽然离秋天还有段时间，但这两天下雨加上冷空气影响降个几度，也是有点凉飕飕，晚上有点冷。
@@ -70,118 +69,3 @@ scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73
 
 * 2016 年 10 月 10 日 完成初稿
 * 2016 年 10 月 13 日 添加莫兰蒂部分
-
-<!--<style>
-.map {
-    width: 100%;
-    height: 0;
-    padding-bottom: 67%
-}
-.map .amap-copyright, .amap-logo {
-    z-index: 0;
-    color: #fff;
-}
-.map a:after {
-    display: none
-}
-.map .marker-circle{
-    width: 9px;
-    height: 9px;
-    border: 3px solid #fff;
-    border-radius: 99em;
-    box-shadow: 1px 1px 0 rgba(0,0,0,.4);
-}
-.map .marker-circle.green{
-    background-color: #60AB43;
-}
-.map .marker-circle.red{
-    background-color: #f80000;
-}
-.map .marker-circle.black{
-    background-color: #000000;
-}
-.map .running-distance{
-   background-color: #000;
-   font-size: 10px;
-   font-family: 'AlternateBoldFont', 'MHei PRC Bold';
-   color: #fff;
-   width: 45px;
-   height: 24px;
-   line-height: 24px;
-   text-align: right;
-   border-top-left-radius: 12px;
-   border-bottom-left-radius: 12px;
-   position: relative;
-   white-space: nowrap;
-}
-.map .running-distance:after{
-   content: "";
-   right: -24px;
-   top: 0;
-   position: absolute;
-   height: 0;
-   width: 0;
-   border: 12px solid transparent;
-   border-left-color: #000;
-}
-.map .running-distance .running-number{
-   color: #83DD00;
-}
-</style> -->
-<!--<script>
-(function(){
-var lineArr = [];
-jsonpCallback1 = function (result) {
-    var points  = result[0].points;
-    for (var i = 0; i < points.length; i++){
-        var point = [];
-        point[0] = points[i].lng;
-        point[1] = points[i].lat;
-        lineArr[i] = point;
-    }
-    drawMap(lineArr);
-}
-jsonpCallback2 = function (result) {
-    var points  = result[0].points;
-    for (var i = 0; i < points.length; i++){
-        var point = [];
-        point[0] = points[i].lng;
-        point[1] = points[i].lat;
-        lineArr1[i] = point;
-    }
-    drawMap(lineArr1);
-}
-var script = document.createElement("script");
-script.setAttribute("src", "http://typhoon.zjwater.gov.cn/Api/TyphoonInfo/201619?callback=jsonpCallback1");
-script.defer = true;
-document.getElementsByTagName("body")[0].appendChild(script);
-var googleLayer = new AMap.TileLayer({
-    getTileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=s&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galile',
-    zIndex: 0
-});
-var roadNetLayer = new AMap.TileLayer.RoadNet({zIndex:1});
-var map = new AMap.Map('map', {
-    resizeEnable: true,
-    center: [122.8394,24.0576],
-    layers:[googleLayer,roadNetLayer],
-    zoom: 5 
-});
-var drawMap = function (lineArr){
-    var polyline = new AMap.Polyline({
-        map: map,
-        path: lineArr,
-        strokeColor: "#52EE06",
-        strokeOpacity: 1,
-        strokeWeight: 3,
-        strokeStyle: "solid"
-    });
-    polyline.setMap(map);
-}
-
-var lineArr1 = [];
-var script = document.createElement("script");
-script.setAttribute("src", "http://typhoon.zjwater.gov.cn/Api/TyphoonInfo/201614?callback=jsonpCallback2");
-script.defer = true;
-document.getElementsByTagName("body")[0].appendChild(script);
-})();
-</script>-->

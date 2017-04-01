@@ -18,6 +18,10 @@ title: 月跑量图
             html,body{
                 margin: 0;
             }
+            #running{
+                width: 100%;
+                height: 100%;
+            }
         </style>
     </head>
     <body>
@@ -41,8 +45,6 @@ var running_month = parseInt(month.slice(4));
 var queryStr = 'start='+running_year+'-'+running_month+'-01&end='+running_year+'-'+(running_month+1)+'-01';
 
 var runningChart = document.getElementById('running');
-runningChart.style.width = window.innerWidth + 'px';
-runningChart.style.height = window.innerWidth*2/3 + 'px';
 var myChart = echarts.init(runningChart);
 var colors = ['#D5FF45', '#4FA8F9', '#6EC71E', '#F56E6A', '#FFCE47', '#988772'];
 function echart(edate, distance, duration, speed, pace, steps, cal) {

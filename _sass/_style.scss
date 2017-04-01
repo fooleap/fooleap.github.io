@@ -268,6 +268,19 @@ body {
         border-left: 5px solid $darkgray;
         overflow: hidden;
     }
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 67%;
+        .iframe{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+    }
     .post-figure {
         max-width: 640px;
         position: relative;

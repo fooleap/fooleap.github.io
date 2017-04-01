@@ -6,9 +6,6 @@ date: 2016-08-07 10:00:00+0800
 category: tech
 tags: ["潮汕", "高德地图", "谷歌地图"]
 thumb: IMG_PATH/amap.png
-js: true
-style: true
-scripts: ["http://webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"]
 ---
 
 Google Earth 的卫星图一直比国内地图所用的卫星图要新一些，然而 Google 早已不在墙内，中文版的谷歌地图虽能访问，但路网数据各方面并没有国内地图的完善。我就想使用高德地图 API ，加载谷歌的卫星地图图层，并加载高德的路网。
@@ -29,7 +26,9 @@ var map = new AMap.Map('map', {
 });
 {% endhighlight %}
 
-<div id="map" class="map"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-google-satellite-layer-in-amap.html"></iframe>
+</div>
 
 在这里需要说明的是，Google 的切片图层中，`lyrs` 参数可以是
 
@@ -53,29 +52,3 @@ var map = new AMap.Map('map', {
 **本文历史**
 
 * 2016 年 08 月 07 日 完成初稿
-
-<!--<style>
-#map {
-    width: 100%;
-    height: 0;
-    padding-bottom: 67%
-}
-#map .amap-copyright, .amap-logo {
-    z-index: 0;
-    color: #fff;
-}
-#map a:after {
-    display: none
-}
-  </style>-->
-<!--<script>
-var googleLayer = new AMap.TileLayer({
-  getTileUrl: 'http://mt{1,2,3,0}.google.cn/vt/lyrs=s&hl=zh-CN&gl=cn&x=[x]&y=[y]&z=[z]&s=Galile'
-});
-var roadNetLayer = new AMap.TileLayer.RoadNet(); 
-var map = new AMap.Map('map', {
-    center: [116.5,23.45],
-    zoom: 9,
-    layers:[googleLayer,roadNetLayer],
-});
-  </script>-->

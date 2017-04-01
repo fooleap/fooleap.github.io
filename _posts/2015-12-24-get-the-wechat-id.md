@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 寻找微信公众号的原始 ID
-description: "注册微信个人号或公众号，都会自动分配一个原始 ID。个人为 wxid_**************，公众号为 gh_**************。无论有没有设置微信号，这个原始 ID 都可当微信号使用。"
+description: "注册微信个人号或公众号，都会自动分配一个原始 ID。无论有没有设置微信号，这个原始 ID 都可当微信号使用。"
 date: 2015-12-24 23:30:00 +0800
 thumb: IMG_PATH/wechat.png
 category: tech

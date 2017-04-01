@@ -3,7 +3,6 @@ layout: post
 title: 工夫茶和保温瓶
 description: "“水滚，冲茶。”是潮汕人生活的日常。水滚意思是水烧开，冲茶即泡茶。工夫茶喝的是烧（热）茶，水凉了泡出来的茶就不好喝，所以对烧水工具也有一定讲究。"
 date: 2015-12-16 23:00:00 +0800
-js: true
 category: life
 tags: [工夫茶, 潮汕, 保温瓶, 马拉松, 汕头马拉松]
 ---
@@ -31,6 +30,12 @@ tags: [工夫茶, 潮汕, 保温瓶, 马拉松, 汕头马拉松]
 汕马当天，汕头台没有直播，不过 [乐视体育进行了全程直播](http://sports.letv.com/video/24193660.html)。感觉都挺好的，唯一想吐槽的是举办之前汕头台的广告。《人生马拉松》很好听，可汕头台用粤语歌当广告背景音乐，真的是违和感十足。反而一广告公司的广告更好，就是有几个镜头并不是汕头的（以下视频）。
 
 <embed id="video" src="http://imgcache.qq.com/tencentvideo_v1/player/TencentPlayer.swf?vid=t0173bqcvmh&amp;auto=0" allowFullScreen="true" quality="high" width="640" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" />
+<script>
+if(!isFlashSupported()){
+    var video=document.getElementById('video');
+    video.outerHTML = '<iframe frameborder="0" width="100%" src="http://v.qq.com/iframe/player.html?vid=t0173bqcvmh&tiny=0&auto=0" allowfullscreen="1"></iframe>';
+}
+</script>
 
 真的不希望，由于粤语在粤省的强势，导致相对弱势的潮汕话逐渐没落。
 
@@ -38,10 +43,3 @@ tags: [工夫茶, 潮汕, 保温瓶, 马拉松, 汕头马拉松]
 
 * 2015 年 12 月 16 日 完成初稿
 * 2015 年 12 月 22 日 保温瓶坏掉更新
-
-<!--<script>
-  if(!isFlashSupported()){
-    var video=document.getElementById('video');
-    video.outerHTML = '<iframe frameborder="0" width="100%" src="http://v.qq.com/iframe/player.html?vid=t0173bqcvmh&tiny=0&auto=0" allowfullscreen="1"></iframe>';
-  }
-  </script>-->
