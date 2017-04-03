@@ -50,6 +50,11 @@ html {
     min-height: 100%;
 }
 
+.icon{
+    display: inline-block;
+    vertical-align: middle;
+}
+
 body {
     letter-spacing: .03em;
     color: $default;
@@ -440,6 +445,21 @@ pre {
         height: 20px;
         width: 20px;
     }
+    .post-source{
+        display: inline-block;
+        color: $white!important;
+        background-color: $darkgray;
+        border-radius: 2px;
+        border-bottom: none;
+        line-height: 20px;
+        height: 20px;
+        padding: 0 3px;
+        font-size: 12px;
+        margin: 0 5px;
+        &:hover{
+            border-bottom: none;
+        }
+    }
     .post-tags {
         display: flex;
         .post-tag-list {
@@ -450,11 +470,14 @@ pre {
             margin-left: 5px;
         }
         .post-tag-link {
+            display: block;
             color: $white!important;
             background-color: $darkgray;
             border-radius: 2px;
             border-bottom: none;
-            padding: 2px 3px;
+            line-height: 20px;
+            height: 20px;
+            padding: 0 3px;
             font-size: 12px;
         }
     }

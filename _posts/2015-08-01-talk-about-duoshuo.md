@@ -10,6 +10,9 @@ tags: [多说, Jekyll, Disqus, JavaScript]
 * toc
 {:toc}
 
+
+**多说即将关闭，转 Disqus 可看此思路 [科学使用 Disqus](/use-disqus-correctly.html)**
+
 ## Disqus 的缺点
 
 自从使用 Jekyll 以来，一直使用 Disqus 作为评论系统，作为社会化评论系统的鼻祖，无论是用户量还是使用体验，Disqus 都是一级棒的，具体就不多说，毕竟这篇文章也并不是为了介绍 Disqus。
@@ -90,10 +93,6 @@ function toggleDuoshuoComments(container){
 到这里就差不多了，可以参考 [这篇文章](http://liam0205.me/2014/07/22/duoshuo-delay/){:title="异步加载多说评论框以加快页面访问速度 - 始终"} 将参数的获取改成采用 Jekyll 的变量，将按钮定制成可开关式的。
 
 然而鄙人并没有将 Disqus 换成多说，这是为什么呢？因为原来的评论嵌套导入到多说后乱了，可能是转换过程中出错。
-
-## 延伸阅读
-
-* [科学使用 Disqus](http://blog.fooleap.org/use-disqus-correctly.html)
 
 ## 参考资料
 

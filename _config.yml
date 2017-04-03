@@ -38,3 +38,5 @@ defaults:
       is_post: true
 twitter_username: fooleap
 weibo_username: fooleap
+github_username: fooleap
+github_repo: fooleap.github.io
