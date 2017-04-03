@@ -6,7 +6,7 @@ title: 链接
 
 ## 站内链接
 
-* [汕头广电](http://fooleap.org/sttv/)
+* [汕头广电](/sttv/)
 
 ## 工具链接
 

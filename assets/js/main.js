@@ -14,7 +14,7 @@ var head = document.getElementsByTagName('head')[0],
     page = { 
         layout: head.dataset.layout,
         title: document.title,
-        url: head.dataset.url,
+        url: location.pathname,
         id: head.dataset.id,
         category: head.dataset.category,
         tags: head.dataset.tags.split(',')

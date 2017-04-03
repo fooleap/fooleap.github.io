@@ -1,0 +1,166 @@
+---
+layout : null
+permalink: /sttv/
+title: 汕头电视台
+---
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>STTV</title>
+        <style>
+            html,body{
+                padding: 0;
+                margin: 0;
+                background-color: #252933;
+            }
+            .container {
+                margin: 0 auto;
+            }
+            #video{
+                margin: -1px;
+                background-color: #2D3132;
+                background-size: cover;
+                display: none;
+            }
+            #tips{
+                line-height: 40px;
+                color: #fff;
+                text-align: center;
+            }
+            #tips a{
+                color: #f90;
+            }
+            .control-title{
+                color: #fff;
+                font-size: 16px;
+                margin: 10px;
+            }
+            .control{
+                display: flex;
+                margin: 5px 5px;
+            }
+            .channel-input .channel-label{
+                float: left;
+            }
+            .channel-input{
+                display: none;
+            }
+            .channel-label{
+                display: inline-block;
+                flex: 1;
+                height: 40px;
+                background-color: #353942;
+                color: #a5a5a5;
+                font-size: 12px;
+                text-align: center;
+                line-height: 40px;
+                cursor: pointer;
+                border-radius: 5px;
+                margin: 0 5px;
+            }
+            .channel-input:checked + .channel-label{
+                color:#F76E03;
+                background-color: #51545c;
+            }
+        </style>
+    <body>
+        <div class="container" id="sttv">
+            <video id="video" webkit-playsinline="true" playsinline="true" autoplay controls></video>
+            <div id="tips"></div>
+            <h3 class="control-title">汕头电视台</h3>
+            <div class="control" id="control-tv">
+                <input class="channel-input" id="sttv1" type="radio" name="channel" />
+                <label class="channel-label" for="sttv1"></label>
+                <input class="channel-input" id="sttv2" type="radio" name="channel" />
+                <label class="channel-label" for="sttv2"></label>
+                <input class="channel-input" id="sttv3" type="radio" name="channel" />
+                <label class="channel-label" for="sttv3"></label>
+            </div>
+            <h3 class="control-title">汕头电台</h3>
+            <div class="control" id="control-radio">
+                <input class="channel-input" id="stradio1" type="radio" name="channel" />
+                <label class="channel-label" for="stradio1"></label>
+                <input class="channel-input" id="stradio2" type="radio" name="channel" />
+                <label class="channel-label" for="stradio2"></label>
+                <input class="channel-input" id="stradio3" type="radio" name="channel" />
+                <label class="channel-label" for="stradio3"></label>
+                <input class="channel-input" id="chradio" type="radio" name="channel" />
+                <label class="channel-label" for="chradio"></label>
+            </div>
+        </div>
+        <script>
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            }
+var channel = getQueryVariable('channel') ? getQueryVariable('channel') - 1 : 0;
+var request = new XMLHttpRequest();
+var sttv = document.getElementById('sttv');
+var video = document.getElementById('video');
+var tips = document.getElementById('tips');
+var channelInput = document.getElementsByClassName('channel-input');
+var channelLabel = document.getElementsByClassName('channel-label');
+function getWH (){
+    var ww = screen.width || window.innerWidth;
+    var wh = screen.height || window.innerHeight;
+    var width = ww > wh ? 640 : ww+2;
+    var height = ww > wh ? 480 : (ww+2)*128/171;
+    return {'width': width, 'height': height}
+}
+var cw = getWH().width;
+var ch = getWH().height;
+sttv.style.width = cw + 'px';
+
+function change(url,image){
+    video.style.display = 'block';
+    video.setAttribute('poster', image);
+    video.setAttribute('src',url);
+    video.play();
+}
+request.onreadystatechange = function(){
+    if(request.readyState == 4 && request.status == 200){
+        var resp = JSON.parse(request.response);
+        var data = [];
+        //http://http.hz.qingting.fm/3694737.mp3
+        //http://ls.qingting.fm/live/5022439/24k.m3u8
+        var chdt = [{'title':'澄海广播','liveurl':'http://ls.qingting.fm/live/5022439/24k.m3u8','thumburl':'http://wx.qlogo.cn/mmhead/Q3auHgzwzM66qQWb55ibKr10U7d0iaO4EIyGu30CgaqGMGUOSHUTwCzw/0'}];
+        data = data.concat(resp.data.tv, resp.data.radio,chdt);
+        for (var i = 0; i < data.length; i++){
+            channelInput[i].dataset.channel = i;
+            channelInput[i].value = data[i].liveurl;
+            channelInput[i].dataset.image = data[i].thumburl;
+            channelLabel[i].innerHTML = data[i].title.replace('汕头电视台','');
+            channelInput[i].addEventListener('change', function(i){
+                if( video.canPlayType('application/vnd.apple.mpegURL') !== '') {
+                    change(this.value, this.dataset.image);
+                } else {
+                    window.open(this.value, '_blank', 'width=640,height=512');
+                }
+                var index = parseInt(this.dataset.channel);
+                if (!!(window.history && history.pushState)){
+                    history.pushState({channel: (index+1) }, this.innerHTML, '?channel=' + (index+1) );
+                }
+            })
+        }
+        if( video.canPlayType('application/vnd.apple.mpegURL') !== '') {
+            video.width = cw;
+            video.height = ch;
+            channelInput[channel].checked = true;
+            change(data[channel].liveurl,data[channel].thumburl)
+        } else {
+            tips.innerHTML = 'Safari、Android、Edge 等原生支持 HLS 浏览器可直接播放<br>Firefox、Chrome 可安装 <a href="https://github.com/gramk/chrome-hls" target="_blank">Native HLS Extension</a>，切换频道小窗口播放';
+        }
+    }
+};
+request.open('GET', 'http://api.fooleap.org/sttv/livelist', false);
+request.send(null);
+        </script>
+    </body>
+</html>
