@@ -1,6 +1,35 @@
 @charset "utf-8";
 .comment{
     font: 13px/1.6 "Helvetica Neue", Helvetica, Arial, "微软雅黑", "Microsoft YaHei", sans-serif;
+    &.loading{
+        & > * {
+            display: none;
+        }
+        position: relative;
+        background:url(https://a.disquscdn.com/next/embed/assets/img/loader-bg.173909e4737a7481df14d5492b5eeb48.png) no-repeat!important;
+        display: block;
+        height: 52px;
+        width: 54px;
+        margin: 20px auto;
+        overflow: hidden;
+        box-sizing: border-box;
+        &:after{
+            content: "";
+            display:block;
+            box-sizing: border-box;
+            width: 26px;
+            height: 26px;
+            position: absolute;
+            top: 13px;
+            left: 15px;
+            border-width: 3px;
+            border-style: solid;
+            border-color: rgba(51, 54, 58, 0.4) transparent;
+            border-radius: 13px;
+            transform-origin: 50% 50% 0px;
+            animation:disqus-loader-spinner-animation .7s infinite linear!important
+        }
+    }
 }
 .comment.guestbook .comment-header{
     display: none;
@@ -534,32 +563,6 @@
 
 .comment-list {
     font-size: 13px;
-    &.loading{
-        position: relative;
-        background:url(https://a.disquscdn.com/next/embed/assets/img/loader-bg.173909e4737a7481df14d5492b5eeb48.png) no-repeat!important;
-        display: block;
-        height: 52px;
-        width: 54px;
-        margin: 20px auto;
-        overflow: hidden;
-        box-sizing: border-box;
-        &:after{
-            content: "";
-            display:block;
-            box-sizing: border-box;
-            width: 26px;
-            height: 26px;
-            position: absolute;
-            top: 13px;
-            left: 15px;
-            border-width: 3px;
-            border-style: solid;
-            border-color: rgba(51, 54, 58, 0.4) transparent;
-            border-radius: 13px;
-            transform-origin: 50% 50% 0px;
-            animation:disqus-loader-spinner-animation .7s infinite linear!important
-        }
-    }
     p {
         margin: 0;
     }

@@ -448,8 +448,7 @@ if ( page.layout == 'post' ) {
     }
 }
 
-/* 显示完整评论 */
-// 事件绑定
+// Disqus 事件绑定
 function disqus_config() {
     this.page.url = site.home + page.url;
     this.callbacks.onReady.push(function() {
@@ -457,15 +456,7 @@ function disqus_config() {
     });
 };
 
-function showComments() {
-    var d = document,
-        s = d.createElement('script');
-    s.src = '//fooleap.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-}
-
-
+// 访客信息
 function Guest() {
     this.init();
 }
@@ -541,13 +532,7 @@ function Comment () {
     this.hasBox = !!document.querySelector('.comment-box');
     this.box = this.hasBox ? document.querySelector('.comment-box').outerHTML : '';
     this.init();
-    //是否能连上 Disqus
-    /*
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://disqus.com/next/config.json', true);
-        xhr.onload = function(e) {
-        };
-        xhr.send(null);*/
+
 }
 
 /* Disqus 评论 */
@@ -555,6 +540,8 @@ Comment.prototype = {
 
     // 初始化
     init: function(){
+        // 加载动画
+        document.querySelector('.comment').classList.add('loading')
 
         // 评论计数
         var countArr = document.querySelectorAll('[data-disqus-url]');
@@ -587,6 +574,15 @@ Comment.prototype = {
                 }
             }
         }
+    },
+
+    // 加载 Disqus 评论
+    disqus: function(){
+        var d = document,
+            s = d.createElement('script');
+        s.src = '//fooleap.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
     },
 
     // 评论表单事件绑定
@@ -900,7 +896,7 @@ Comment.prototype = {
                     comment.count = res.posts;
                     document.getElementById('comment-count').innerHTML = res.posts + ' 条评论';
                     document.querySelector('.comment-tips-link').setAttribute('href', res.link);
-                    document.getElementById('comments').classList.remove('loading')
+                    document.querySelector('.comment').classList.remove('loading')
                     if (res.response == null) {
                         return;
                     }
@@ -1049,6 +1045,15 @@ Comment.prototype = {
     }
 
 }
+
+var xhr = new XMLHttpRequest();
+xhr.timeout = 1000;
+xhr.open('GET', 'https://disqus.com/next/config.json', true);
+xhr.onload = function() {
+};
+xhr.ontimeout = function(){
+};
+xhr.send(null);
 
 var guest = new Guest();
 var comment =  new Comment();
