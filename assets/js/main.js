@@ -449,10 +449,11 @@ if ( page.layout == 'post' ) {
 }
 
 // Disqus 事件绑定
+disqus_loaded = false;
 function disqus_config() {
     this.page.url = site.home + page.url;
     this.callbacks.onReady.push(function() {
-        console.info('disqus loaded');
+        disqus_loaded = true;
     });
 };
 
@@ -540,9 +541,6 @@ Comment.prototype = {
 
     // 初始化
     init: function(){
-        // 加载动画
-        document.querySelector('.comment').classList.add('loading')
-
         // 评论计数
         var countArr = document.querySelectorAll('[data-disqus-url]');
         if( countArr.length > 0 ){
@@ -555,6 +553,13 @@ Comment.prototype = {
 
         // 拉取列表
         if(this.hasBox){
+            document.getElementById('comment-toggle').addEventListener('change', function(){
+                if( !disqus_loaded ){
+                    comment.disqus(); 
+                }
+                document.getElementById('disqus_thread').style.display = this.checked ? 'block' : 'none';
+                document.querySelector('.comment').style.display =  this.checked ? 'none' : 'block';
+            })
             this.getlist();
         }
     },

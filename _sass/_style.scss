@@ -446,18 +446,21 @@ pre {
         width: 20px;
     }
     .post-source{
-        display: inline-block;
-        color: $white!important;
-        background-color: $darkgray;
-        border-radius: 2px;
-        border-bottom: none;
-        line-height: 20px;
-        height: 20px;
-        padding: 0 3px;
-        font-size: 12px;
-        margin: 0 5px;
-        &:hover{
+        display: flex;
+        .post-source-button{
+            display: block;
+            color: $white!important;
+            background-color: $darkgray;
+            border-radius: 2px;
             border-bottom: none;
+            line-height: 20px;
+            height: 20px;
+            padding: 0 3px;
+            font-size: 12px;
+            margin: 0 5px;
+            &:hover{
+                border-bottom: none;
+            }
         }
     }
     .post-tags {
