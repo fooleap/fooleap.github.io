@@ -553,13 +553,15 @@ Comment.prototype = {
 
         // 拉取列表
         if(this.hasBox){
-            document.getElementById('comment-toggle').addEventListener('change', function(){
-                if( !disqus_loaded ){
-                    comment.disqus(); 
-                }
-                document.getElementById('disqus_thread').style.display = this.checked ? 'block' : 'none';
-                document.querySelector('.comment').style.display =  this.checked ? 'none' : 'block';
-            })
+            if(document.getElementById('comment-toggle')){
+                document.getElementById('comment-toggle').addEventListener('change', function(){
+                    if( !disqus_loaded ){
+                        comment.disqus(); 
+                    }
+                    document.getElementById('disqus_thread').style.display = this.checked ? 'block' : 'none';
+                    document.querySelector('.comment').style.display =  this.checked ? 'none' : 'block';
+                })
+            }
             this.getlist();
         }
     },
