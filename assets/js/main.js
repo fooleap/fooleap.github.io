@@ -508,9 +508,9 @@ Guest.prototype = {
     submit: function(e){
         if( guest.logged_in == 'false' ){
             var item = e.currentTarget.closest('.comment-item') || e.currentTarget.closest('.comment-box');
-            name = item.querySelector('.comment-form-name').value;
-            email = item.querySelector('.comment-form-email').value;
-            avatar = item.querySelector('.comment-avatar-image').getAttribute('src');
+            var name = item.querySelector('.comment-form-name').value,
+            email = item.querySelector('.comment-form-email').value,
+            avatar = item.querySelector('.comment-avatar-image').getAttribute('src'),
             url = item.querySelector('.comment-form-url').value;
             if (/\S/i.test(name)  && /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(email)){
                 localStorage.setItem('name', name);
@@ -856,7 +856,6 @@ Comment.prototype = {
     load: function(post, i){
 
         post.url = post.url ? post.url : 'javascript:;';
-        post.createdAt = new Date(post.createdAt).getTime().toString().slice(0, -3);
 
         var parent = !post.parent ? {
             'name': '',
@@ -911,13 +910,35 @@ Comment.prototype = {
                         comment.load(post,i);
                     });
                     timeAgo();
-                } else {
-                    /*
-                    var query = 'url=' + page.url + '&title=' + page.title;;
-                    var xhrcreateThread = new XMLHttpRequest();
-                    xhrcreateThread.open('POST', site.api + '/disqus/createthread?' + query, true);
-                    xhrcreateThread.send();
-                    return;*/
+                } else if ( res.code === 2){
+                    var createHTML = '<div class="comment-header">';
+                    createHTML += '    <span class="comment-header-item">创建 Thread<\/span>';
+                    createHTML += '<\/div>';
+                    createHTML += '<div class="comment-thread-form">';
+                    createHTML += '<p>由于 Disqus 没有本文的相关 Thread，故需先创建 Thread<\/p>';
+                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">url:<\/label><input class="comment-form-input" id="thread-url" name="url" value="'+site.origin+page.url+'" \/><\/div>';
+                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">title:<\/label><input class="comment-form-input" id="thread-title" name="title" value="'+page.title+'" \/><\/div>';
+                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">slug:<\/label><input class="comment-form-input" id="thread-slug" name="slug" placeholder="（别名，选填）" \/><\/div>';
+                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">message:<\/label><textarea class="comment-form-textarea" id="thread-message" name="message">'+page.desc+'<\/textarea><\/div>';
+                    createHTML += '<button id="thread-submit" class="comment-form-submit">提交<\/button><\/div>'
+                    document.getElementById('comment').classList.remove('loading');
+                    document.getElementById('comment').innerHTML = createHTML;
+                    document.getElementById('thread-submit').addEventListener('click',function(){
+                        var threadQuery = 'url=' + document.getElementById('thread-url').value + '&title=' + document.getElementById('thread-title').value + '&slug=' + document.getElementById('thread-slug').value + '&message=' + document.getElementById('thread-message').value;
+                        var xhrcreateThread = new XMLHttpRequest();
+                        xhrcreateThread.open('POST', site.apipath + '/createthread.php', true);
+                        xhrcreateThread.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        xhrcreateThread.send(threadQuery);
+                        xhrcreateThread.onreadystatechange = function() {
+                            if (xhrcreateThread.readyState == 4 && xhrcreateThread.status == 200) {
+                                var resp = JSON.parse(xhrcreateThread.responseText);
+                                if( resp.code === 0 ) {
+                                    alert('创建 Thread 成功！');
+                                    location.reload();
+                                }
+                            }
+                        }
+                    },true);
                 }
                 if (/^#disqus|^#comment/.test(location.hash)) {
                     window.scrollTo(0, document.querySelector(location.hash).offsetTop);
@@ -1052,15 +1073,6 @@ Comment.prototype = {
     }
 
 }
-
-var xhr = new XMLHttpRequest();
-xhr.timeout = 1000;
-xhr.open('GET', 'https://disqus.com/next/config.json', true);
-xhr.onload = function() {
-};
-xhr.ontimeout = function(){
-};
-xhr.send(null);
 
 var guest = new Guest();
 var comment =  new Comment();
