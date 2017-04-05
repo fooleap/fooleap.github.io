@@ -506,12 +506,12 @@ Guest.prototype = {
 
     // 提交访客信息
     submit: function(e){
-        var item = e.currentTarget.closest('.comment-item') || e.currentTarget.closest('.comment-box');
-        name = item.querySelector('.comment-form-name').value;
-        email = item.querySelector('.comment-form-email').value;
-        avatar = item.querySelector('.comment-avatar-image').getAttribute('src');
-        url = item.querySelector('.comment-form-url').value;
         if( guest.logged_in == 'false' ){
+            var item = e.currentTarget.closest('.comment-item') || e.currentTarget.closest('.comment-box');
+            name = item.querySelector('.comment-form-name').value;
+            email = item.querySelector('.comment-form-email').value;
+            avatar = item.querySelector('.comment-avatar-image').getAttribute('src');
+            url = item.querySelector('.comment-form-url').value;
             if (/\S/i.test(name)  && /^([\w-_]+(?:\.[\w-_]+)*)@((?:[a-z0-9]+(?:-[a-zA-Z0-9]+)*)+\.[a-z]{2,6})$/i.test(email)){
                 localStorage.setItem('name', name);
                 localStorage.setItem('email', email);

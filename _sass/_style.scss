@@ -594,3 +594,8 @@ pre {
         display: table;
     }
 }
+
+.task-list-item {
+    list-style-type: none;
+    margin-left: -15px;
+}
