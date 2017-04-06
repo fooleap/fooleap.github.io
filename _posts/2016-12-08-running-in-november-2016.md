@@ -24,7 +24,7 @@ tags: ["跑步", "潮汕"]
 Nike+ 获取概览的 API 一次性限制在 30 次，所以下面的图表最后一天是没显示上去的，这个待解决。从图表中可以看到，有很多天都是 5 公里，在上个月，我跑步的标准长度就是 5 公里，5 公里配速最快则是 5 分钟 20 秒左右。我打算这个月把每次的标准跑量提高到 6 公里。
 
 <div class="iframe-container">
-    <iframe class="iframe" src="/running.html?month=201610"></iframe>
+    <iframe class="iframe" src="/running.html?month=201611"></iframe>
 </div>
 
 跑步最长距离则是[桂林线上半马](/guilin-marathon-online.html)，当天晚上还刷了个 3 公里。而最快配速则是有一天跑了 1 公里的疾速跑，配速是 4 分多钟，或许被 Nike+ 吃掉几秒，但还是感觉很慢，要是中学生的考试，那么这个速度是不及格的吧？我记得当年高考一千米跑步，我的成绩是 3 分 45 秒。

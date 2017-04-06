@@ -921,12 +921,12 @@ Comment.prototype = {
                     createHTML += '<div class="comment-form-item"><label class="comment-form-label">slug:<\/label><input class="comment-form-input" id="thread-slug" name="slug" placeholder="（别名，选填）" \/><\/div>';
                     createHTML += '<div class="comment-form-item"><label class="comment-form-label">message:<\/label><textarea class="comment-form-textarea" id="thread-message" name="message">'+page.desc+'<\/textarea><\/div>';
                     createHTML += '<button id="thread-submit" class="comment-form-submit">提交<\/button><\/div>'
-                    document.getElementById('comment').classList.remove('loading');
-                    document.getElementById('comment').innerHTML = createHTML;
+                    document.querySelector('.comment').classList.remove('loading')
+                    document.querySelector('.comment').innerHTML = createHTML;
                     document.getElementById('thread-submit').addEventListener('click',function(){
                         var threadQuery = 'url=' + document.getElementById('thread-url').value + '&title=' + document.getElementById('thread-title').value + '&slug=' + document.getElementById('thread-slug').value + '&message=' + document.getElementById('thread-message').value;
                         var xhrcreateThread = new XMLHttpRequest();
-                        xhrcreateThread.open('POST', site.apipath + '/createthread.php', true);
+                        xhrcreateThread.open('POST', site.api + '/disqus/createthread', true);
                         xhrcreateThread.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                         xhrcreateThread.send(threadQuery);
                         xhrcreateThread.onreadystatechange = function() {

@@ -38,9 +38,13 @@ title: 月跑量图
                 return(false);
             }
 var month = getQueryVariable('month');
-var running_year = parseInt(month.slice(0,-2));
 var running_month = parseInt(month.slice(4));
-var queryStr = 'start='+running_year+'-'+running_month+'-01&end='+running_year+'-'+(running_month+1)+'-01';
+var running_year = parseInt(month.slice(0,-2));
+var next_year = running_month == 12 ? running_year + 1 : running_year;
+next_month = running_month == 12 ? 1 : running_month + 1;
+running_month = running_month < 10 ? '0' + running_month : running_month;
+next_month = next_month < 10 ? '0' + next_month : next_month;
+var queryStr = 'start='+running_year+'-'+running_month+'-01&end='+next_year+'-'+next_month+'-01';
 
 var runningChart = document.getElementById('running');
 var myChart = echarts.init(runningChart);
