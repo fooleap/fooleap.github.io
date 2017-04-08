@@ -17,9 +17,9 @@ tags: [关于, 博客, fooleap, blog]
 
 请使用 Mozilla Firefox、Google Chrome 等现代浏览器浏览本博客。
 
-自 2011 年 02 月 09 日起，本站已运行 <script>document.write(Math.floor(((new Date()).getTime() / 1000 - {{ "2011-02-09" | date: "%s"}})/ (60 * 60 * 24)));</script> 天，截至 {% for post in site.posts limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %}，共有博文 {{ site.posts | size }} 篇。
+本博采用 [Jekyll](http://jekyllrb.com/) 搭建，[Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [七牛云存储](http://www.qiniu.com) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
 
-本博客采用 [Jekyll](http://jekyllrb.com/) 搭建，采用 [Markdown](http://daringfireball.net/projects/markdown/) 写作，托管于 [七牛云存储](http://www.qiniu.com) 和 [GitHub](https://github.com/fooleap/fooleap.github.io)，图片存储在[七牛](https://portal.qiniu.com/signup?code=3lmtscszx8zf4)。 
+自 2011 年 02 月 09 日起，本站已运行 <script>document.write(Math.floor(((new Date()).getTime() / 1000 - {{ "2011-02-09" | date: "%s"}})/ (60 * 60 * 24)));</script> 天，截至 {% for post in site.posts limit: 1 %}{{ post.date |  date: "%Y 年 %m 月 %d 日" }}{% endfor %}，共有博文 {{ site.posts | size }} 篇。
 
 即日起，本博客的原创内容，均采用知识共享组织（Creative Commons）的“署名-非商业性使用 3.0 中国大陆”（[CC BY-NC 3.0 CN](http://creativecommons.org/licenses/by-nc/3.0/cn/)）许可。
 

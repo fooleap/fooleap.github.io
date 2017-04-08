@@ -21,38 +21,33 @@ st=>start: 开始
 e=>end: 结束
 op1=>operation: POST 请求:>#op-1
 op2=>operation: GET 请求:>#op-2
-op3=>operation: DOM 操作:>#op-3
-cond1=>condition: 文件是否符合1:>#cond-1
+cond1=>condition: 文件是否符合:>#cond-1
 cond2=>condition: 身份通过验证:>#cond-2
-io1=>inputoutput: 返回数据1:>#io-1
-io2=>inputoutput: 返回数据2:>#io-2
-io3=>inputoutput: 返回数据3:>#io-3
+io1=>inputoutput: 返回数据:>#io-1
+io2=>inputoutput: 返回数据:>#io-2
+io3=>inputoutput: 返回数据:>#io-3
 
 st->op1->cond1
-cond1(no)->e
-cond1(yes)->cond2
-cond2(no)->io1->e
-cond2(yes)->io2(right)->op2(right)->io3(right)->op3(right)->e
+cond1(no,right)->e
+cond1(yes,down)->cond2
+cond2(no,right)->io1->e
+cond2(yes,down)->io2(right)->op2(right)->io3(right)->e
 ```
 
-图片的限制如下：
+> 类型及大小限制：JPEG, PNG or GIF and under 5MB
+{:id="cond-1" class="flow-content"}
 
-    类型及大小限制：JPEG, PNG or GIF and under 5MB
+> Disqus 账号处于登录状态
+{:id="cond-2" class="flow-content"}
 
-身份验证：
-
-    Disqus 账号处于登录状态
-
-未登录状态上传图片则返回：
-{:id="io-1"}
 ```json
 { 
     "code": 4, 
     "response": "You must be authenticated to perform this action"
 }
 ```
+{:id="io-1" class="flow-content"}
 
-数据2：
 ```json
 { 
     "code": 0, 
@@ -65,27 +60,27 @@ cond2(yes)->io2(right)->op2(right)->io3(right)->op3(right)->e
     }
 }
 ```
-{:id="io-2"}
+{:id="io-2" class="flow-content"}
 
+上传图片 POST 请求的接口为：https://uploads.services.disqus.com/api/3.0/media/create.json
 
-POST 请求 https://uploads.services.disqus.com/api/3.0/media/create.json
 ```json
 {
     "upload": "file",
-    "permanent": 1, //1->永久保存，0->临时保存，
+    "permanent": 1, 
     "api_key": "公钥"
 }
 ```
-{:id="op-1"}
+{:id="op-2" class="flow-content"}
 
-GET 请求 https://disqus.com/api/3.0/media/details.json
 ```json
 {
+    // GET 请求 https://disqus.com/api/3.0/media/details.json
     "url": "https://uploads.disquscdn.com/images/",
     "api_key": "公钥"
 }
 ```
-{:id="op-2"}
+{:id="op-2" class="flow-content"}
 
 返回后，只要将图片地址放进 message，评论发表后，系统便会自动识别放进 media 数组，便可在评论列表中显示成图片。
 

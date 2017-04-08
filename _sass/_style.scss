@@ -412,6 +412,12 @@ pre {
     max-width: 100%;
     height: 100%;
 }
+.flow-content{
+    display: none;
+    &:target{
+        display: block;
+    }
+}
 
 .post-extend {
     display: flex;

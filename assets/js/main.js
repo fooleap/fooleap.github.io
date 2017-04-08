@@ -15,6 +15,7 @@ var head = document.getElementsByTagName('head')[0],
         layout: head.dataset.layout,
         title: document.title,
         url: location.pathname,
+        desc: document.querySelector('[name="description"]').content,
         id: head.dataset.id,
         category: head.dataset.category,
         tags: head.dataset.tags.split(',')
@@ -916,7 +917,7 @@ Comment.prototype = {
                     createHTML += '<\/div>';
                     createHTML += '<div class="comment-thread-form">';
                     createHTML += '<p>由于 Disqus 没有本文的相关 Thread，故需先创建 Thread<\/p>';
-                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">url:<\/label><input class="comment-form-input" id="thread-url" name="url" value="'+site.origin+page.url+'" \/><\/div>';
+                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">url:<\/label><input class="comment-form-input" id="thread-url" name="url" value="'+site.home+page.url+'" \/><\/div>';
                     createHTML += '<div class="comment-form-item"><label class="comment-form-label">title:<\/label><input class="comment-form-input" id="thread-title" name="title" value="'+page.title+'" \/><\/div>';
                     createHTML += '<div class="comment-form-item"><label class="comment-form-label">slug:<\/label><input class="comment-form-input" id="thread-slug" name="slug" placeholder="（别名，选填）" \/><\/div>';
                     createHTML += '<div class="comment-form-item"><label class="comment-form-label">message:<\/label><textarea class="comment-form-textarea" id="thread-message" name="message">'+page.desc+'<\/textarea><\/div>';
