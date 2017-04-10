@@ -5,9 +5,6 @@ description: "在地图中，显示多个地点的时候，想要更好的区分
 date: 2015-10-08 18:00:00 +0800
 category: tech
 thumb: IMG_PATH/bmaps.png
-style: true
-scripts: ["http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de"]
-js: true
 tags: ["百度地图 API", 标注, JavaScript]
 ---
 
@@ -46,7 +43,9 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="map" id="map1"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=1"></iframe>
+</div>
 
 ## 通过 Image Sprites
 
@@ -72,7 +71,9 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="map" id="map2"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=2"></iframe>
+</div>
 
 ## 通过 HTML5 Canvas
 
@@ -116,7 +117,9 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="map" id="map3"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=3"></iframe>
+</div>
 
 ## 通过七牛 API
 
@@ -148,7 +151,9 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="map" id="map4"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=4"></iframe>
+</div>
 
 ### 裁剪图片
 
@@ -174,7 +179,9 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="map" id="map5"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=5"></iframe>
+</div>
 
 ## 几种方式的对比
 
@@ -234,111 +241,3 @@ tags: ["百度地图 API", 标注, JavaScript]
 **本文历史**
 
 * 2015 年 10 月 08 日 完成初稿
-
-<!--<style>
-    .map{max-width:640px;width:100%;height:384px}
-    </style>-->
-<!--<script>
-  var bmaps = document.querySelectorAll('.map');
-  for (var i = 0; i < bmaps.length; i++){
-    bmaps[i].style.height = bmaps[1].offsetWidth * 2 / 3 + 'px';
-  }
-  var map1 = new BMap.Map('map1');
-  map1.disableScrollWheelZoom() 
-  map1.disableDoubleClickZoom() 
-  map1.disableDragging();
-  map1.centerAndZoom(new BMap.Point(116.4, 23.4), 10);
-  var size1 = new BMap.Size(23, 25);
-  var size2 = new BMap.Size(11.5, 25);
-  var size3 = new BMap.Size(42, 25);
-  var size4 = new BMap.Size(31.5, 25);
-  var letter,
-      points = [],
-      icons = [],
-      markers = [];
-  var icons = [
-    new BMap.Icon('{{ site.IMG_PATH }}/marker_a.png', size1, {anchor: size2 }),
-    new BMap.Icon('{{ site.IMG_PATH }}/marker_b.png', size1, {anchor: size2 }),
-    new BMap.Icon('{{ site.IMG_PATH }}/marker_c.png', size1, {anchor: size2 })
-  ];
-  for (var i = 0; i < 3; i++){
-    points[i] = new BMap.Point(parseFloat('116.' + (i*3+1).toString()), 23.4);
-    markers[i] = new BMap.Marker(points[i], {icon: icons[i]});
-    map1.addOverlay(markers[i]);
-  }
-
-  var map2 = new BMap.Map('map2');
-  map2.centerAndZoom(new BMap.Point(116.4, 23.4), 10);
-  map2.disableScrollWheelZoom() 
-  map2.disableDoubleClickZoom() 
-  map2.disableDragging();
-  for (var i = 0; i < 3; i++){
-    points[i] = new BMap.Point(parseFloat('116.' + (i*3+1).toString()), 23.4);
-    icons[i] = new BMap.Icon('{{ site.IMG_PATH }}/markers.png', size3, {anchor: size4, imageOffset: new BMap.Size(20, -(i+3)*25)});
-    markers[i] = new BMap.Marker(points[i], {icon: icons[i]});
-    map2.addOverlay(markers[i]);
-  }
-
-  var map3 = new BMap.Map('map3');
-  var size31 = new BMap.Size(23, 25);
-  var size32 = new BMap.Size(11.5, 25);
-  map3.centerAndZoom(new BMap.Point(116.4, 23.4), 10);
-  map3.disableScrollWheelZoom() 
-  map3.disableDoubleClickZoom() 
-  map3.disableDragging();
-  var image = new Image();
-  image.crossOrigin = '*';
-  image.onload = function (){
-    var width = this.width;
-    var height = this.height;
-    for(var i = 0; i < 3; i++) {
-      letter = i + 71;
-      var canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-      var ctx = canvas.getContext('2d');
-          ctx.drawImage(this, 0, 0, width, height);
-          ctx.textAlign = 'center';
-          ctx.font = 'bold 10px sans-serif';
-          ctx.fillStyle = '#ffffff';
-          ctx.fillText(String.fromCharCode(letter), 9.5, height / 2);
-      points[i] = new BMap.Point(parseFloat('116.' + (i*3+1).toString()), 23.4);
-      icons[i] = new BMap.Icon(canvas.toDataURL(), size31, {anchor: size32});
-      markers[i] = new BMap.Marker(points[i], {icon: icons[i]});
-      map3.addOverlay(markers[i]);
-    }
-  }
-  image.src = '{{ site.IMG_PATH }}/marker.png';
-
-  var map4 = new BMap.Map('map4');
-  map4.centerAndZoom(new BMap.Point(116.4, 23.4), 10);
-  map4.disableScrollWheelZoom() 
-  map4.disableDoubleClickZoom() 
-  map4.disableDragging();
-  var letter;
-      points = [],
-      icons = [],
-      markers = [];
-  for (var i = 0; i < 3; i++){
-    letter = i + 74;
-    points[i] = new BMap.Point(parseFloat('116.' + (i*3+1).toString()), 23.4);
-    icons[i] = new BMap.Icon('{{ site.IMG_PATH }}/marker.png?watermark/2/fill/d2hpdGU=/dx/8/dy/8/text/' + btoa(String.fromCharCode(letter)), size1, {anchor: size2});
-    markers[i] = new BMap.Marker(points[i], {icon: icons[i]});
-    map4.addOverlay(markers[i]);
-  }
-
-  var map5 = new BMap.Map('map5');
-  map5.centerAndZoom(new BMap.Point(116.4, 23.4), 10);
-  map5.disableScrollWheelZoom() 
-  map5.disableDoubleClickZoom() 
-  map5.disableDragging();
-  var points = [],
-      icons = [],
-      markers = [];
-  for (var i = 0; i < 3; i++){
-    points[i] = new BMap.Point(parseFloat('116.' + (i*3+1).toString()), 23.4);
-    icons[i] = new BMap.Icon('{{ site.IMG_PATH }}/markers.png?imageMogr2/crop/!23x25a0a' + i * 25, size1, {anchor: size2});
-    markers[i] = new BMap.Marker(points[i], {icon: icons[i]});
-    map5.addOverlay(markers[i]);
-  }
-  </script>-->

@@ -6,9 +6,6 @@ date: 2015-08-23 21:00:00 +0800
 category: tech
 thumb: 'IMG_PATH/bmaps.png'
 tags: ['百度地图 API', 折线, 路线, JavaScript, 潮汕]
-style: true
-js: true
-scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de']
 ---
 
 * toc
@@ -42,7 +39,9 @@ map.centerAndZoom(point, 10);//设置中心坐标及默认缩放级别
 </script>
 {% endhighlight %}
 
-<div id="map01" class="map"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/bmaps-polyline.html?id=1"></iframe>
+</div>
 
 ## 创建坐标点
 
@@ -117,63 +116,12 @@ map.addOverlay(polyline);//将折线覆盖到地图上
 </script>
 {% endhighlight %}
 
-<div id="map02" class="map"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/bmaps-polyline.html?id=2"></iframe>
+</div>
 
 本文仅仅介绍使用百度地图 API 如何创建折线，若想制作更多更有趣的地图，还请参考百度地图 [JavaScript API 文档](http://developer.baidu.com/map/index.php?title=jspopular)。
 
 **本文历史**
 
 * 2015 年 08 月 23 日 完成初稿
-<!--<style>
-    .map{max-width:640px;width:100%;height:384px}
-    </style>-->
-  <!--<script>
-    var bmap1 = document.getElementById('map01');
-    var bmap2 = document.getElementById('map02');
-    var mapWidth = bmap1.offsetWidth;
-    bmap1.style.height = mapWidth*2/3 + 'px';
-    bmap2.style.height = mapWidth*2/3 + 'px';
-    if (mapWidth < 500){
-      var zoom = 9;
-    } else {
-      var zoom = 10;
-    }
-    var map01 = new BMap.Map("map01");
-    var map02 = new BMap.Map("map02");
-    var point = new BMap.Point(116.43,23.4);
-    var points = [ 
-    new BMap.Point(117.270588,23.812967), 
-    new BMap.Point(117.227815,23.814331), 
-    new BMap.Point(117.171450,23.800042), 
-    new BMap.Point(117.150759,23.793515), 
-    new BMap.Point(117.132366,23.791615), 
-    new BMap.Point(117.076916,23.764662), 
-    new BMap.Point(117.025117,23.754470), 
-    new BMap.Point(116.977697,23.738077), 
-    new BMap.Point(116.900202,23.699401), 
-    new BMap.Point(116.885028,23.689195), 
-    new BMap.Point(116.874584,23.679663), 
-    new BMap.Point(116.819681,23.632414), 
-    new BMap.Point(116.808133,23.624896), 
-    new BMap.Point(116.759631,23.604708), 
-    new BMap.Point(116.737952,23.593357), 
-    new BMap.Point(116.725047,23.587241), 
-    new BMap.Point(116.569681,23.536185), 
-    new BMap.Point(116.528263,23.443635), 
-    new BMap.Point(116.518568,23.425542), 
-    new BMap.Point(116.502531,23.414523), 
-    new BMap.Point(116.387604,23.369746), 
-    new BMap.Point(116.352543,23.347282), 
-    new BMap.Point(116.281609,23.327249), 
-    new BMap.Point(116.227475,23.293805), 
-    new BMap.Point(116.181042,23.246917), 
-    new BMap.Point(116.109265,23.135226), 
-    new BMap.Point(115.984812,23.055625), 
-    new BMap.Point(115.855352,23.005498), 
-    new BMap.Point(115.706745,22.938802), 
-    ];
-    var polyline = new BMap.Polyline(points);
-    map01.centerAndZoom(point, zoom);
-    map02.centerAndZoom(point, zoom);
-    map02.addOverlay(polyline);   
-  </script>-->

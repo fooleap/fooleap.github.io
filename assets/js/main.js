@@ -315,9 +315,7 @@ if( browser.mobile && page.url == '/' ){
 
 // 目录
 var toc = document.querySelector('.post-toc');
-var subTitles = document.querySelectorAll('.page-content h2,h3');
-var sectionIds = [];
-var sections = [];
+var subTitles = document.querySelectorAll('.page-content h2,.page-content h3');
 var clientHeight = document.documentElement.clientHeight;
 if (toc) {
     function tocShow() {
@@ -331,6 +329,8 @@ if (toc) {
         }
     }
     function tocScroll() {
+        var sectionIds = [];
+        var sections = [];
         for (var i = 0; i < subTitles.length; i++) {
             sectionIds.push(subTitles[i].getAttribute('id'));
             sections.push(subTitles[i].offsetTop);
@@ -341,7 +341,7 @@ if (toc) {
             if (i === subTitles.length - 1 && clientHeight > lob) {
                 pos = pos + (clientHeight - lob);
             }
-            if (sections[i] < pos && sections[i] < pos + clientHeight) {
+            if (sections[i] <= pos && sections[i] < pos + clientHeight) {
                 if (document.querySelector('.active')) {
                     document.querySelector('.active').classList.remove('active');
                 }
@@ -372,7 +372,6 @@ if (toc) {
                 links[i].setAttribute('href', '#' + note);
                 links[i].setAttribute('id', ref);
                 links[i].setAttribute('class', 'ref');
-                links[i].outerHTML = '<sup>' + links[i].outerHTML + '</sup>';
                 document.getElementById('refs').insertAdjacentHTML('beforeend', '<li id="' + note + '" class="note"><a href="#' + ref + '">^</a> <a href="' + noteHref + '" title="' + noteTitle + '" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
             } else {
                 links[i].setAttribute('target', '_blank');

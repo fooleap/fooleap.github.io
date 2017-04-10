@@ -6,9 +6,6 @@ date: 2015-08-24 15:30:00 +0800
 category: tech
 thumb: 'IMG_PATH/bmaps.png'
 tags: ["百度地图 API", 路书, 潮汕]
-style: true
-js: true
-scripts: ['http://api.map.baidu.com/api?v=2.0&ak=FCcc6261f101cd4ccefee22113a609de','http://api.map.baidu.com/library/LuShu/1.2/src/LuShu_min.js']
 ---
 
 * toc
@@ -128,99 +125,12 @@ function startlushu(){
 </script>
 {% endhighlight %}
 
-<div id="map" class="map"></div>
+<div class="iframe-container">
+    <iframe class="iframe" src="{{ site.IMG_PATH }}/bmaps-lushu.html"></iframe>
+</div>
 
 点击地图可启动路书。
 
 **本文历史**
 
 * 2015 年 08 月 24 日 完成初稿
-
-<!--<style>
-  .map{max-width:640px;width:100%;height:384px}
-  </style>-->
-<!--<script>
-  var bmap = document.getElementById('map');
-  var mapWidth = bmap.offsetWidth;
-  bmap.style.height = mapWidth*2/3 + 'px';
-  if (mapWidth < 500){
-    var zoom = 9;
-  } else {
-    var zoom = 10;
-  }
-  var map = new BMap.Map("map");
-  var point = new BMap.Point(116.43,23.43);
-  var points = [ 
-  new BMap.Point(117.270591,23.812975), 
-  new BMap.Point(117.227819,23.814327), 
-  new BMap.Point(117.171452,23.800036), 
-  new BMap.Point(117.132368,23.791609), 
-  new BMap.Point(117.076919,23.764658), 
-  new BMap.Point(117.024827,23.754510), 
-  new BMap.Point(116.981047,23.739533), 
-  new BMap.Point(116.939091,23.717617), 
-  new BMap.Point(116.900199,23.699399), 
-  new BMap.Point(116.885031,23.689196), 
-  new BMap.Point(116.874584,23.679668), 
-  new BMap.Point(116.811841,23.626940), 
-  new BMap.Point(116.759632,23.604713), 
-  new BMap.Point(116.725061,23.587160), 
-  new BMap.Point(116.651402,23.566650), 
-  new BMap.Point(116.595323,23.545934), 
-  new BMap.Point(116.565463,23.533553), 
-  new BMap.Point(116.552337,23.519046), 
-  new BMap.Point(116.544596,23.508704), 
-  new BMap.Point(116.537630,23.464337), 
-  new BMap.Point(116.528264,23.443634), 
-  new BMap.Point(116.518571,23.425543), 
-  new BMap.Point(116.502256,23.414608), 
-  new BMap.Point(116.429954,23.388459), 
-  new BMap.Point(116.388039,23.368854), 
-  new BMap.Point(116.352537,23.347284), 
-  new BMap.Point(116.281605,23.327247), 
-  new BMap.Point(116.227800,23.293717), 
-  new BMap.Point(116.214108,23.280499), 
-  new BMap.Point(116.180527,23.247139), 
-  new BMap.Point(116.107918,23.134458), 
-  new BMap.Point(116.040802,23.102683), 
-  new BMap.Point(116.005375,23.071510), 
-  new BMap.Point(115.979189,23.052335), 
-  new BMap.Point(115.874687,23.017842), 
-  new BMap.Point(115.732058,22.949055), 
-  new BMap.Point(115.650940,22.903134), 
-  new BMap.Point(115.559445,22.859811), 
-  ];
-  var markers = [
-    points[7],//饶平站
-    points[15],//潮汕站
-    points[23],//潮阳站
-    points[28],//普宁站
-    points[32]//葵潭站
-  ];
-  var icon1 = new BMap.Icon('{{ site.IMG_PATH }}/marker.png', new BMap.Size(23,25),{anchor: new BMap.Size(11, 25)});
-  var icon2 = new BMap.Icon('{{ site.IMG_PATH }}/power-car.png', new BMap.Size(30, 30), {anchor: new BMap.Size(15, 15)});
-  var polyline = new BMap.Polyline(points);
-  var lushu = new BMapLib.LuShu(map, points, {
-    landmarkPois:[
-      {lng:markers[0].lng,lat:markers[0].lat,html:'饶平站到了',pauseTime:1},
-      {lng:markers[1].lng,lat:markers[1].lat,html:'<img src="{{ site.IMG_PATH }}/chaoshan.jpg?imageView2/2/w/150" />潮汕站到了',pauseTime:2},
-      {lng:markers[2].lng,lat:markers[2].lat,html:'潮阳站到了',pauseTime:1},
-      {lng:markers[3].lng,lat:markers[3].lat,html:'普宁站到了',pauseTime:1},
-      {lng:markers[4].lng,lat:markers[4].lat,html:'葵潭站到了',pauseTime:1}
-    ],
-    defaultContent: '动车继续前行',
-    speed: 20000,
-    icon: icon2,
-    autoView: false,
-    enableRotation: false
-  });
-  map.addOverlay(polyline);
-  for (i=0;i<5;i++){
-    map.addOverlay(new BMap.Marker(markers[i],{icon:icon1}));
-  }
-  map.centerAndZoom(point, zoom);
-  map.addEventListener("click",startlushu);
-  function startlushu(){
-    lushu.start();
-  }
-  </script>-->

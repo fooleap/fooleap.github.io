@@ -13,9 +13,10 @@ analytics: 'UA-16717905-7'
 #timezone: CN
 highlighter: rouge
 permalink: /:title.html
-#permalink: /:title
 gems: 
-  - jekyll-paginate
+      - jekyll-paginate
+  - jekyll-coffeescript
+  - jekyll-github-metadata
   - jemoji
 paginate: 10
 IMG_PATH: http://source.fooleap.org
@@ -36,6 +37,7 @@ defaults:
       type: posts 
     values:
       is_post: true
+repository: fooleap/fooleap.github.io
 twitter_username: fooleap
 weibo_username: fooleap
 github_username: fooleap
