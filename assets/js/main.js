@@ -919,7 +919,7 @@ Comment.prototype = {
                         comment.root.forEach(function(item){
                              document.querySelector('.comment-list').appendChild(document.getElementById('comment-' + item));
                         })
-                        window.scrollTo(0, comment.offsetTop - 40);
+                        window.scrollTo(0, comment.offsetTop);
                     } else {
                         comment.count = res.posts;
                         document.getElementById('comment-count').innerHTML = res.posts + ' 条评论';
@@ -927,23 +927,23 @@ Comment.prototype = {
                     }
 
                     var loadmore = document.querySelector('.comment-loadmore');
-                    if( res.cursor.hasNext ){
-                        if (!loadmore){
-                            document.getElementById('comment').insertAdjacentHTML('beforeend', '<a href="javascript:;" class="comment-loadmore">加载更多评论</a>');
-                            document.querySelector('.comment-loadmore').addEventListener('click', function(){
-                                this.classList.add('loading');
-                                comment.offsetTop = this.offsetTop;
-                                comment.getlist();
-                            }, false);
-                        } else{
+                    comment.next = res.cursor.hasNext ? res.cursor.next : '';
+                    if ( res.cursor.hasNext ){
+                        if( !!loadmore ){
                             loadmore.classList.remove('loading');
+                        } else {
+                            document.getElementById('comment').insertAdjacentHTML('beforeend', '<a href="javascript:;" class="comment-loadmore">加载更多</a>');
                         }
-                        comment.next = res.cursor.next;
+                        document.querySelector('.comment-loadmore').addEventListener('click', function(){
+                            this.classList.add('loading');
+                            comment.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
+                            comment.getlist();
+                        }, {once: true});
                     } else {
-                        if(loadmore){
+                        if( !!loadmore ){
                             loadmore.parentNode.removeChild(loadmore);
                         }
-                    };
+                    }
 
                     timeAgo();
                     if (/^#disqus|^#comment/.test(location.hash) && !res.cursor.hasPrev ) {
