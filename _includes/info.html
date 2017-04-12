@@ -7,7 +7,7 @@
         </div>
         <div class="post-source">
             {% include svg/code.svg %}
-            <a class="post-source-button" target="_blank" title="{{ page.title }}" href="https://raw.githubusercontent.com/{{ site.github_username }}/{{ site.github_repo }}/master/_posts/{{ page.date | date: '%Y-%m-%d' }}{{ page.url | replace_first: '/','-' | replace_first: '.html', '.md' }}">源码</a>
+            <a class="post-source-button" target="_blank" title="{{ page.title }}" href="https://raw.githubusercontent.com/{{ site.github.owner_name }}/{{ site.github.repository_name }}/master/{{ page.path }}">源码</a>
         </div>
         {% include svg/tags.svg %}
         <ul class="post-tag-list">{% for tag in page.tags %}<li class="post-tag-item"><a class="post-tag-link" href="/tags.html#{{ tag }}" target="_blank" title="查看“{{ tag }}”的相关文章">{{ tag }}</a></li>{% endfor %}</ul>

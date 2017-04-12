@@ -2,7 +2,7 @@
 layout: post
 title: "Disqus API 基础"
 description: ""
-date: 2017-04-09 08:00:00+0800
+date: 2017-03-24 08:00:00+0800
 thumb: IMG_PATH/disqus.png
 category: tech
 tags: ["Disqus", "Disqus API"]
@@ -29,4 +29,3 @@ tags: ["Disqus", "Disqus API"]
 
 [1]: https://disqus.com/home/discussion/androidpolice/join_us_for_an_ama_with_disqus_at_11am_pst/#comment-2649731809 "We make money through a few different ways"
 [2]: {{ repo.html_url }} "{{ site.github.owner_name }}/{{ repo.name }}"
-

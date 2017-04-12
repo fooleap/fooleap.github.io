@@ -26,23 +26,13 @@ tags: [手机, 安卓, 华为]
 
 或许没有上面那么多，但我感觉都不是什么好东西。这个所谓 UC 浏览器可能是假的，删掉后，重启又出现，然后手机启动后不一会就自动黑屏出现荣耀的 Logo，如下小视频：
 
-<video class="video" poster="{{ site.IMG_PATH }}/hard-to-say-i-love-android-03.jpg" style="width:320px!important" controls>
-  <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.webm" type="video/webm" />
-  <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-01.ogv" type="video/ogg" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/hard-to-say-i-love-android-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="320" height="240"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/hard-to-say-i-love-android-01.mp4" poster="IMG_PATH/hard-to-say-i-love-android-03.jpg" %}
 
 只能通过抠电池才能解决，但开机后没一会又出现这样的情况。看来是被装上流氓软件了，我让老爸恢复出厂设置，可是并没有恢复成功。
 
 妹妹空闲时候，我教她进入 recovery 模式并双清，还是没法解决，重启后 app 依然存在。后来通过 QQ 远程下载固件，将其移入 SD 卡后，教她用 SD 卡强制刷机，进进退退，搞了两个晚上，然而依旧没有解决问题。
 
-<video class="video" poster="{{ site.IMG_PATH }}/hard-to-say-i-love-android-04.jpg" style="width:320px!important" controls>
-  <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.webm" type="video/webm" />
-  <source src="{{ site.IMG_PATH }}/hard-to-say-i-love-android-02.ogv" type="video/ogg" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/hard-to-say-i-love-android-02.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="320" height="240"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/hard-to-say-i-love-android-02.mp4" poster="IMG_PATH/hard-to-say-i-love-android-04.jpg" %}
 
 远水果然救不了近火，罢了，直接让爸爸拿去手机铺解决。
 

@@ -39,9 +39,7 @@ map.centerAndZoom(point, 10);//设置中心坐标及默认缩放级别
 </script>
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/bmaps-polyline.html?id=1"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/bmaps-polyline.html?id=1" %}
 
 ## 创建坐标点
 
@@ -116,9 +114,7 @@ map.addOverlay(polyline);//将折线覆盖到地图上
 </script>
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/bmaps-polyline.html?id=2"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/bmaps-polyline.html?id=2" %}
 
 本文仅仅介绍使用百度地图 API 如何创建折线，若想制作更多更有趣的地图，还请参考百度地图 [JavaScript API 文档](http://developer.baidu.com/map/index.php?title=jspopular)。
 

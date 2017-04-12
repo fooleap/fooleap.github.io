@@ -4,9 +4,6 @@ title: 路径坐标转换器
 description: "用于 KML 路径数据、Nike+ API 路径数据转换成高德或百度地图 JS API 用坐标数组"
 tags: [百度坐标, 'GPS 坐标', 火星坐标, WGS-84, GCJ-02, BD-09, 'Google Earth', 'Google Maps']
 permalink: /path-coord-converter/
-scripts: ["/assets/js/coordtransform.js","/assets/js/jszip.min.js"]
-style: true
-js: true
 ---
 
 <div id="coordtransform" class="cf">
@@ -58,7 +55,7 @@ js: true
 - [x] 2016 年 09 月 12 日 自选输入数据采用坐标
 - [] 支持导出 GPX 文件
 
-<!--<style>
+<style>
 #coordtransform input {
   display: none;
 }
@@ -140,8 +137,10 @@ js: true
 #map:empty{
     height: 0;
 }
-</style>-->
-<!--<script>
+</style>
+<script src="/assets/js/coordtransform.js">
+<script src="/assets/js/jszip.min.js">
+<script>
 var gps, gpsArrays, contents;
 var output = document.getElementById('output');
 
@@ -354,4 +353,4 @@ document.getElementById('submit').addEventListener('click', transform, false);
 output.addEventListener('drop', dropFile, false);
 output.addEventListener('dropend', prevent, false);
 output.addEventListener('dropover', prevent, false);
-</script>-->
+</script>

@@ -104,9 +104,7 @@ tags: ["潮汕", "跑步", "桂林", "马拉松"]
 
 此次半马跑步轨迹如下地图，这个地图以 Nike+ 记录一个点以 10 米计算，不是很准确，但 Nike+ 记录的结果也不准。
 
-<div class="iframe-container">
-    <iframe class="iframe" src="/running-line.html?nikeid=0283f84c-5df8-4172-843f-2aad4cb98f50"></iframe>
-</div>
+{% include media.html type="iframe" src="/running-line.html?nikeid=0283f84c-5df8-4172-843f-2aad4cb98f50" %}
 
 Nike+ 数据则如下表，跑之前就知道应该是超七分配，果不其然，速度压得很慢，但总算跑完。
 

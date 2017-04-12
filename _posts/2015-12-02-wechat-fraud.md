@@ -54,11 +54,7 @@ yyz8.cc 对应页面
 
 其对话中也都用了类似的两次跳转的短链接，作用在于公众号被封的时候，骗子依然可以在自己架的网站设置跳转到另一个新的公众号，就这短短的时间内，我已经见这骗子的 N 个不同的公众号了。
 
-<video class="video" poster="{{ site.IMG_PATH }}/wechat-fraud-01.mp4?vframe/jpg/offset/0" controls style="max-width:360px">
-  <source src="{{ site.IMG_PATH }}/wechat-fraud-01.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/wechat-fraud-01.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/wechat-fraud-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="360" height="540"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/wechat-fraud-01.mp4" poster="IMG_PATH/wechat-fraud-01.mp4?vframe/jpg/offset/0" %}
 
 天上不会掉馅饼，非可信商家搞的活动一般都不靠谱，切勿贪小失大……整个过程我好像也没损失什么，就是感觉不爽！
 

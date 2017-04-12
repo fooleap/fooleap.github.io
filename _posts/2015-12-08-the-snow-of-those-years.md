@@ -26,11 +26,7 @@ tags: [桂林, 杭州, 下雪]
 
 2013 年 2 月 9 日，早上就开始下雪了。那个冬天的空气糟透了，就算下雪天亦是。
 
-<video class="video" poster="{{ site.IMG_PATH }}/the-snow-of-those-years-01.mp4?vframe/jpg/offset/0" controls>
-  <source src="{{ site.IMG_PATH }}/the-snow-of-those-years-01.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/the-snow-of-those-years-01.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-snow-of-those-years-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/the-snow-of-those-years-01.mp4" poster="IMG_PATH/the-snow-of-those-years-01.mp4?vframe/jpg/offset/0" %}
 
 当天下午，见有些屋顶已有积雪，嗯，就算不出去，也得跑天台去看看有没有积雪。
 
@@ -57,11 +53,7 @@ tags: [桂林, 杭州, 下雪]
 
 2014 年 2 月 18 日早上，下起了不小的雪，就算上着班，也要偷懒一会跑去窗边拍天下雪。
 
-<video class="video" poster="{{ site.IMG_PATH }}/the-snow-of-those-years-02.mp4?vframe/jpg/offset/0" controls>
-  <source src="{{ site.IMG_PATH }}/the-snow-of-those-years-02.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/the-snow-of-those-years-02.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-snow-of-those-years-02.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/the-snow-of-those-years-02.mp4" poster="IMG_PATH/the-snow-of-those-years-02.mp4?vframe/jpg/offset/0" %}
 
 ![当天中午去吃午餐路上]({{ site.IMG_PATH }}/the-snow-of-those-years-08.jpg_640)
 当天中午去吃午餐路上

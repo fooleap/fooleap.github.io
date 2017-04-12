@@ -10,11 +10,7 @@ tags: [杭州, 雾霾, 潮汕]
 
 前天蓝天白云，这几年杭州的冬天很少见，于是我拍了下来，视频最后还可以看到远处的山。昨天天空又回到冬天日常，我又同个角度拍了下来，别说是山，连远处的建筑都模糊了。
 
-<video class="video" poster="{{ site.IMG_PATH }}/hangzhou-winter-sky-05.jpg?imageView2/1/w/640/h/360" controls>
-  <source src="{{ site.IMG_PATH }}/hangzhou-winter-sky-01.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/hangzhou-winter-sky-01.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/hangzhou-winter-sky-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/hangzhou-winter-sky-01.mp4" poster="IMG_PATH/hangzhou-winter-sky-05.jpg?imageView2/1/w/640/h/360" %}
 
 杭州是个美丽的城市，尤其是在温暖的春天。不过在我的印象中，杭州秋冬的雾霾很严重，至少这几年都是。
 

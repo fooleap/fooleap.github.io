@@ -58,12 +58,7 @@ tags: [上海, 南京路]
 
 这个人墙去年就有媒体报道，今年亦是，看看视频可能会更直观一些。
 
-<video class="video" poster="{{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road.mp4?vframe/jpg/offset/0" controls>
-  <source src="{{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road.webm" type="video/webm" />
-  <source src="{{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road.ogv" type="video/ogg" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/the-armed-police-of-shanghai-nanjing-road.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/the-armed-police-of-shanghai-nanjing-road.mp4" poster="IMG_PATH/the-armed-police-of-shanghai-nanjing-road.mp4?vframe/jpg/offset/1" %}
 
 **本文历史**
 

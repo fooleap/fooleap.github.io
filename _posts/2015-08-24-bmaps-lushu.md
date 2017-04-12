@@ -125,9 +125,7 @@ function startlushu(){
 </script>
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/bmaps-lushu.html"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/bmaps-lushu.html" %}
 
 点击地图可启动路书。
 

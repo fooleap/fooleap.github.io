@@ -43,9 +43,7 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=1"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/add-string-to-bmaps-api-markers.html?id=1" %}
 
 ## 通过 Image Sprites
 
@@ -71,9 +69,7 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=2"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/add-string-to-bmaps-api-markers.html?id=2" %}
 
 ## 通过 HTML5 Canvas
 
@@ -117,9 +113,7 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=3"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/add-string-to-bmaps-api-markers.html?id=3" %}
 
 ## 通过七牛 API
 
@@ -151,9 +145,7 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=4"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/add-string-to-bmaps-api-markers.html?id=4" %}
 
 ### 裁剪图片
 
@@ -179,9 +171,7 @@ tags: ["百度地图 API", 标注, JavaScript]
 </script>
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-string-to-bmaps-api-markers.html?id=5"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/add-string-to-bmaps-api-markers.html?id=5" %}
 
 ## 几种方式的对比
 

@@ -29,9 +29,7 @@ thumb: IMG_PATH/running-before-typhoon-is-coming-01.jpg
 
 晚上路况不是很好，有一段车挺多而且没路灯，尽管感觉跑起来有点危险也不爽，还是刷了五圈五公里。相信晨跑体验应该很不错，有时候早上跑步路过那边，就见以前的小学老校长在那运动。
 
-<div class="iframe-container">
-    <iframe class="iframe" src="/running-line.html?nikeid=320ba118-1eeb-4f52-80ea-34f9d4875bed"></iframe>
-</div>
+{% include media.html type="iframe" src="/running-line.html?nikeid=320ba118-1eeb-4f52-80ea-34f9d4875bed" %}
 此次跑步轨迹，点击动画
 
 这些天有阿皓陪着一起跑，跑量不高，也还算跑挺多的，基本上除了下雨天，都有跑一会，坚持了一段时间。最近两年肥了挺多的，但愿多跑跑，体重能下降些。

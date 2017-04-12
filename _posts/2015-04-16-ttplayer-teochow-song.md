@@ -29,13 +29,7 @@ tags: [潮剧, 潮语歌曲, 李小珍, 千千静听]
 
 听了那么多的李小珍，谈到李小珍，大多数潮汕人又似乎并不是很熟悉，只知道她是新加坡那边的。而网上的资料也甚少，在那个还能上 YouTube 的年代，我曾经看到一个关于她的采访，而那段视频拍摄的时间也不详。说到这，干脆将它传到 [墙内](http://www.tudou.com/programs/view/9_7gzmBLy7A/)，让更多的人了解。
 
-<video class="video" width="640" height="480" controls
-preload="auto" poster="{{site.IMG_PATH}}/ttplayer-teochow-song-03.jpg">
-    <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.mp4" type='video/mp4'>
-    <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.webm" type='video/webm'>
-    <source src="{{site.IMG_PATH}}/interview_lxz_with_in_teochew.ogv" type='video/ogg'>
-    <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/interview_lxz_with_in_teochew.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="480"></embed>
-</video>
+{% include media.html type="video" src="IMG_PATH/interview_lxz_with_in_teochew.mp4" poster="IMG_PATH/ttplayer-teochow-song-03.jpg" %}
 
 我也不清楚现在影碟铺还能不能买到李小珍的 CD 或 VCD 等，某宝上是还能看到一些的。而网络上有 RM 版本，看文件信息得知此前有人分享在 csfqw.com 上的，而现在下载到的则是由 [linjihong 收集](http://bbs.chaoshanren.com/thread-539921-1-1.html) 的。压缩的 RM 格式可能并不是很完美，但这可以说是网络上比较全的版本。根据网络上的 VCD 碟片排序，我又将它们命名排好。
 

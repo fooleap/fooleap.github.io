@@ -26,9 +26,7 @@ var map = new AMap.Map('map', {
 });
 {% endhighlight %}
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/add-google-satellite-layer-in-amap.html"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/add-google-satellite-layer-in-amap.html" %}
 
 在这里需要说明的是，Google 的切片图层中，`lyrs` 参数可以是
 

@@ -89,7 +89,7 @@ if (xhrExif.readyState == 4 && xhrExif.status == 200) {
 
 具体的实例见 http://runjs.cn/detail/b4q6pvet
 
-<iframe style="width: 100%; height: 460px" src="http://sandbox.runjs.cn/show/b4q6pvet" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+{% include media.html type="iframe" src="http://sandbox.runjs.cn/show/b4q6pvet" %}
 
 所用到的主要知识点可以看看阮一峰的 Ajax 教程[[3]][3]，使用 jQuery 或许会更加方便一点。而具体用到博客上，需要考虑的可能更多，这里就不多说了，有兴趣可以查看源码，欣赏鄙人写的那蹩脚的 JS。
 

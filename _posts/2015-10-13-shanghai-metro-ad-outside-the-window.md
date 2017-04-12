@@ -31,12 +31,7 @@ tags: [上海, 地铁, 广告]
 
 回过头再来看上海地铁在列车运行时的车窗外广告，刚看到感觉好神奇，为啥列车这么快的运行着，窗外的广告居然是动态的，那广告是否就在列车上的投影，所以列车运行它也会跟着动，但看着看着感觉并不是这样，发光的是在外面的墙上。
 
-<video class="video" poster="{{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.mp4?vframe/jpg/offset/0" controls>
-  <source src="{{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.webm" type="video/webm" />
-  <source src="{{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.ogv" type="video/ogg" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/shanghai-metro-ad-outside-the-window-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/shanghai-metro-ad-outside-the-window-01.mp4" poster="IMG_PATH/shanghai-metro-ad-outside-the-window-01.mp4?vframe/jpg/offset/0" %}
 
 我开始想到那是一整排无数个静态广告屏，一屏一帧，类似于连环画，列车高速运行就相当于连环画的快速翻书。站站之间都有的广告屏，而且展示广告时间并不短，那该用多少块广告屏连着啊，这让我惊叹，上海不愧我大天朝第一大都市，这该多壕。
 

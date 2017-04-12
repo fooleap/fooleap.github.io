@@ -12,11 +12,7 @@ tags: [微信, 小视频, iPhone, iOS]
 
 为什么说不必要？似乎 iOS 版微信 6.2 以后，微信小视频模块有些变化，替换后可能会出现发送失败的情况。我用的微信版本是 6.1.5 版，以下的环境为已越狱 iOS 6、6.1.5 版微信。
 
-<video class="video" poster="{{ site.IMG_PATH }}/replace-wechat-sight-01.mp4?vframe/jpg/offset/1" controls>
-  <source src="{{ site.IMG_PATH }}/replace-wechat-sight-01.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/replace-wechat-sight-01.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/replace-wechat-sight-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/replace-wechat-sight-01.mp4" poster="IMG_PATH/replace-wechat-sight-01.mp4?vframe/jpg/offset/1" %}
 
 ## 录制小视频并临时保存
 

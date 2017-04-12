@@ -2,7 +2,7 @@
 layout: post
 title: 我的黑莓 8700 之应用篇
 description: "想在老机 8700 上拍照看视频是不可能的事，用它听歌玩游戏也不会好选择，因为它只有 16M 的 RAM 和 64M 的 ROM。这个配置大大落后于现在的热门机型，廉颇老矣，尚能饭否？目前手机上的大多数应用都是基于互联网，使用手机便捷上网十分流行，特别是微博客，即时通信等服务。"
-categories: tech
+category: tech
 thumb: IMG_PATH/blackberry.png
 tags: [手机, 黑莓, "黑莓 8700"]
 ---

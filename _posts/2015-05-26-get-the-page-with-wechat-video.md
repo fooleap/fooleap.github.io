@@ -28,7 +28,7 @@ tags: [微信, WeChat, 腾讯视频, 网址]
 
 而鄙人需要的是其腾讯视频页面网址，仅需在那个地址后面加个参数 tiny 值为 0（默认是 1），即 `http://v.qq.com/iframe/player.html?vid=k0154l11os1&tiny=0`，接下来呢？自然是点击右下角腾讯视频的 Logo 便是视频页面网址。
 
-<iframe src="http://v.qq.com/iframe/player.html?vid=k0154l11os1&tiny=0&auto=0" width="640" height="540"></iframe>
+{% include media.html type="iframe" src="http://v.qq.com/iframe/player.html?vid=k0154l11os1&tiny=0&auto=0" %}
 
 **本文历史**
 

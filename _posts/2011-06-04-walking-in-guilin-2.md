@@ -13,11 +13,11 @@ tags: [桂林, 徒步]
 路上看到骑车的哥们，明显羡慕了，骑车就能更快到达一个地方了，步行确实有点慢。突发其想，好想拥有一辆自行车，平时可以更方便地逛桂林市区，还想假期回家可以骑回去，这是有可能的，这个梦可以想，不过一个人太激进了，要有人陪。
 下面是地图，先这样吧，慢慢再完善过程的图片等。
 
-<iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.knVPfTF9_VYs" width="640" height="427"></iframe>
+{% include media.html type="iframe" src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.knVPfTF9_VYs" %}
 
 批量上传图片后居然都倒着来，那就让历史回滚吧~
 
-<iframe width="640" height="427" src="http://s951.photobucket.com/user/Fooleap/embed/slideshow/Blog/05-29-2011"></iframe>
+{% include media.html type="iframe" src="http://s951.photobucket.com/user/Fooleap/embed/slideshow/Blog/05-29-2011" %}
 
 地图及图片可能需科学上网访问。
 

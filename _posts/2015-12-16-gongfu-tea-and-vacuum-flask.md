@@ -27,7 +27,7 @@ tags: [工夫茶, 潮汕, 保温瓶, 马拉松, 汕头马拉松]
 
 这里再扯几句题外话，如今马拉松赛愈来愈火，自己去前年参加了杭马。揭马从 2014 年开始举办，一直在想，啥时候汕头也举办马拉松赛，那该多好。今年终于如愿以偿，哪怕首届只有半马，其实也没有想象中那么开心，并没有报名参加（也不一定报得上）。
 
-汕马当天，汕头台没有直播，不过 [乐视体育进行了全程直播](http://sports.letv.com/video/24193660.html)。感觉都挺好的，唯一想吐槽的是举办之前汕头台的广告。《人生马拉松》很好听，可汕头台用粤语歌当广告背景音乐，真的是违和感十足。反而一广告公司的广告更好，就是有几个镜头并不是汕头的（以下视频）。
+汕马当天，汕头台没有直播，不过乐视体育进行了全程直播[[1]][1]。感觉都挺好的，唯一想吐槽的是举办之前汕头台的广告。《人生马拉松》很好听，可汕头台用粤语歌当广告背景音乐，真的是违和感十足。反而一广告公司的广告更好，就是有几个镜头并不是汕头的（以下视频）。
 
 <embed id="video" src="http://imgcache.qq.com/tencentvideo_v1/player/TencentPlayer.swf?vid=t0173bqcvmh&amp;auto=0" allowFullScreen="true" quality="high" width="640" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" />
 <script>
@@ -38,6 +38,10 @@ if(!isFlashSupported()){
 </script>
 
 真的不希望，由于粤语在粤省的强势，导致相对弱势的潮汕话逐渐没落。
+
+## 参考资料
+
+[1]: http://sports.letv.com/video/24193660.html "2015汕头半程马拉松 全场精彩回放"
 
 **本文历史**
 

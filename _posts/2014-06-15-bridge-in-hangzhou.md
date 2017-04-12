@@ -67,9 +67,7 @@ tags: [杭州, 文晖大桥, 西兴大桥, 复兴大桥]
 
 非机动车道也和钱江大桥一样的窄，私以为比钱江大桥更加危险，真的是一骑就停不下来，以下是一次骑车过桥的全程，我用手机拍了下来。
 
-<video class="video" controls poster="{{site.IMG_PATH}}//bridge-in-hangzhou-09.jpg">
-    <source src="{{site.IMG_PATH}}//the_third_bridge_of_qiantang.mp4" type="video/mp4" />
-</video>
+{% include media.html type="video" src="IMG_PATH/the_third_bridge_of_qiantang.mp4" poster="IMG_PATH/bridge-in-hangzhou-09.jpg" %}
 
 ## 复兴大桥
 

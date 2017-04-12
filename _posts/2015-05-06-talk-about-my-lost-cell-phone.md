@@ -59,9 +59,7 @@ tags: [手机, 金鸿公路, 宝奥城]
 
 不久，老妈来电话叫回家吃饭，此事到此结束，算是一个小插曲，遗憾的是，因手机丢失，没有好好看看宝奥城，顺便贴一个示意地图，点击启动路书。
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/talk-about-my-lost-cell-phone.html"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/talk-about-my-lost-cell-phone.html" %}
 
 **本文历史**
 

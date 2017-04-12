@@ -45,26 +45,7 @@
             </header>
             <section class="page-content">
 
-                {% if page.style or page.js %}
-
-                {% if page.style and page.js != true %}
-                {{ content_style[0] }}
-                {{ content_style[2] }}
-                {% endif %}
-
-                {% if page.js and page.style != true %}
-                {{ content_js[0] }}{{ content_js[2] }}
-                {% endif %}
-
-                {% if page.style and page.js  %}
-                {{ content_style[0] }}{{ content_js[2] }}
-                {% endif %}
-
-                {% else %}
-
                 {{ content }}
-
-                {% endif %}
 
             </section>
 
@@ -78,14 +59,5 @@
         <script src="/assets/js/raphael.min.js"></script>
         <script src="/assets/js/main.js"></script>
 
-        {% if page.scripts %}
-        {% for script in page.scripts %}
-        <script src="{{ script }}"></script>
-        {% endfor %}
-        {% endif %}
-
-        {% if page.js %}
-        <script>{{ content_js[1] }}script>
-        {% endif %}
     </body>
 </html>

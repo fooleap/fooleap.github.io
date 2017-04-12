@@ -10,9 +10,9 @@ tags: [MPD, MPC, 播放器]
 * toc
 {:toc}
 
-使用 i3 窗口管理器，感觉很舒服，更有帅帅的 i3status 点缀之，在 GitHub 搜了下，发现有个 [i3status 修改版](https://github.com/Gravemind/i3status)，可以显示 MPD 的播放状态，于是又用起 MPD。
+使用 i3 窗口管理器，感觉很舒服，更有帅帅的 i3status 点缀之，在 GitHub 搜了下，发现有个i3status 修改版[[1]][1]，可以显示 MPD 的播放状态，于是又用起 MPD。
 
-MPD ([Music Player Daemon](https://wiki.archlinux.org/index.php/Music_Player_Daemon)) 是一个实用的音乐播放器，以其独特的 C/S 结构获得人们的喜爱。充其量 MPD 只是作为一个守护进程（或者可以说服务）运行于后台，想要控制它的播放，还需要一个客户端，一般只选用 MPC (Music Player Command)， MPC 虽为命令行客户端，但已够用。
+MPD [[2]][2] 是一个实用的音乐播放器，以其独特的 C/S 结构获得人们的喜爱。充其量 MPD 只是作为一个守护进程（或者可以说服务）运行于后台，想要控制它的播放，还需要一个客户端，一般只选用 MPC (Music Player Command)， MPC 虽为命令行客户端，但已够用。
 
 下面一起来安装配置 MPD，获得恰到好处的使用体验
 
@@ -60,7 +60,7 @@ ExecStart=/usr/bin/mpd /home/fooleap/.mpdconf --no-daemon
 
 ## 均衡器
 
-播放器是有了，但 MPD 不带均衡器，在此使用 [Alsaequal](http://www.thedigitalmachine.net/alsaequal.html) 充当均衡器
+播放器是有了，但 MPD 不带均衡器，在此使用 Alsaequal[[3]][3] 充当均衡器
 
 安装
 
@@ -150,7 +150,7 @@ audio_output {
 
 ## 多媒体键
 
-使用 Thinkpad 多媒体键来代替常用的 mpc 命令再合适不过，这里通过 [Xbindkeys](https://wiki.archlinux.org/index.php/Xbindkeys) 来绑定
+使用 Thinkpad 多媒体键来代替常用的 mpc 命令再合适不过，这里通过 Xbindkeys[[4]][4] 来绑定
 
 安装 Xbindkeys
 
@@ -184,7 +184,7 @@ XF86AudioMute</code></pre>
 
 ## 键映射
 
-在此之前，可能需要通过 [Xmodmap](https://wiki.archlinux.org/index.php/Xmodmap) 修改键映射
+在此之前，可能需要通过 Xmodmap[[5]][5] 修改键映射
 
 <pre style="margin-bottom: 0; border-bottom:none; padding-bottom:8px;"><code>~/.Xmodmap</code></pre>
 <pre style="margin-top: 0; border-top:.1rem dashed #ccc; padding-top:8px;"><code>!Media
@@ -201,6 +201,15 @@ keycode 123 = XF86AudioRaiseVolume</code></pre>
 将 xmodmap ~/.Xmodmap & 添加到 ~/.xinitrc 使其随 X 启动
 
 ![i3status with mpd]({{site.IMG_PATH}}/installation-and-configuration-mpd-02.png)
+i3status with mpd
+
+## 参考资料
+
+[1]: https://github.com/Gravemind/i3status "i3status 修改版"
+[2]: https://wiki.archlinux.org/index.php/Music_Player_Daemon "Music Player Daemon"
+[3]: http://www.thedigitalmachine.net/alsaequal.html "Alsaequal"
+[4]: https://wiki.archlinux.org/index.php/Xbindkeys "Xbindkeys"
+[5]: https://wiki.archlinux.org/index.php/Xmodmap "Xmodmap"
 
 **本文历史**
 

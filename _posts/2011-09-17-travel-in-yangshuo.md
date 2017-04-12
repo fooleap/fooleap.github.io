@@ -4,23 +4,18 @@ title: 记阳朔一游
 description: "话说桂林山水甲天下，阳朔山水甲桂林。来桂林，乐满地可以不去，大圩古镇可以不去，龙胜漂流也可以不去，但似乎找不到任何理由不去阳朔，何况在桂林已经呆了一年还没去过，所以有了 9 月 11 日到 12 日，宿舍六人阳朔游之说。"
 category: life
 tags: [旅游, 桂林, 漓江, 西街, 阳朔, 骑行]
-style: true
-js: true
-scripts: "http://api.map.baidu.com/api?v=2.0&amp;ak=FCcc6261f101cd4ccefee22113a609de"
 ---
 
 话说桂林山水甲天下，阳朔山水甲桂林。来桂林，乐满地可以不去，大圩古镇可以不去，龙胜漂流也可以不去，但似乎找不到任何理由不去阳朔，何况在桂林已经呆了一年还没去过，所以有了 9 月 11 日到 12 日，宿舍六人阳朔游之说。
 
 做为穷学生，还是比较关心费用问题，去趟阳朔要花多少钱呢？路费门票等等。其实这次，我相信还是被坑了，不过旅游就是如此，想不花钱，徒步，骑车是选择！
 
-<iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.kKMMU3Qs-JaE" width="640" height="427"></iframe>
-
+{% include media.html type="iframe" src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.kKMMU3Qs-JaE" %}
 流水账，按时间先后顺序来说这次从桂林市区到阳朔县城的行程及其费用。
 
 首先，在桂林火车站前广场右侧搭乘中巴到阳朔，桂林火车站入口处会有不少大妈拉客，上车，到杨堤路口下车是 15 元，直接到阳朔汽车站是 18 元。
 
-<div id="hmap"></div>
-
+![坐车地点示意图](http://restapi.amap.com/v3/staticmap?location=110.283382,25.261683&zoom=16&size=640*427&markers=mid,,A:110.283382,25.261683&key=ee95e52bf08006f63fd29bcfbcf21df0)
 坐车地点示意图
 
 坚哥说他们去的时候是到杨堤坐竹筏的，说漓江就那段风景最好，因此便有想法，于是车到杨堤路口便下车了。
@@ -109,20 +104,3 @@ scripts: "http://api.map.baidu.com/api?v=2.0&amp;ak=FCcc6261f101cd4ccefee22113a6
 
 * 2011 年 09 月 17 日 创建文章
 * 2015 年 05 月 10 日 换图床
-
-<!--<style>
-    #hmap {width:100%;}
-    </style>-->
-<!--<script>
-    var bmap = document.getElementById('hmap');
-    var mapWidth = document.getElementById('hmap').offsetWidth
-    bmap.style.height = mapWidth*2/3 + 'px';
-    var map = new BMap.Map("hmap",{mapType: BMAP_HYBRID_MAP});
-	var point = new BMap.Point(110.2898120373,25.268058921597);
-	var marker = new BMap.Marker(point);
-    var icon1 = new BMap.Icon('http://7fv9cr.com1.z0.glb.clouddn.com/marker_sprite.png', new BMap.Size(39,25),{anchor: new BMap.Size(11, 25)});
-	map.centerAndZoom(point, 19);
-	map.addOverlay(marker);
-    marker.setIcon(icon1);
-	marker.setAnimation(BMAP_ANIMATION_BOUNCE)
-  </script>-->

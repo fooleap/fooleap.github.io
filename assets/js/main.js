@@ -345,7 +345,7 @@ if (toc) {
                 if (document.querySelector('.active')) {
                     document.querySelector('.active').classList.remove('active');
                 }
-                document.querySelector('[href="#' + sectionIds[i] + '"').classList.add('active');
+                document.querySelector('[href="#' + sectionIds[i] + '"]').classList.add('active');
             }
         }
     }

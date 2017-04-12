@@ -10,15 +10,11 @@ tags: [社会]
 
 落水的是妹妹最好的朋友又是自己最好朋友的堂妹，希望能尽快捞到。
 
-<video class="video" controls>
-  <source src="http://videofile1.cutv.com/originfileg/010061_t/2016/03/12/G15/G15fgfflggjkmmnjilg9x3_cug.mp4" type="video/mp4" />
-</video>
+{% include media.html type="video" src="http://videofile1.cutv.com/originfileg/010061_t/2016/03/12/G15/G15fgfflggjkmmnjilg9x3_cug.mp4" %}
 
 今天（3 月 13 日）中午于下游三公里处找到，愿逝者安息，生者坚强。
 
-<video class="video" controls>
-  <source src="http://videofile1.cutv.com/originfileg/010061_t/2016/03/14/G14/G14efeekffijlnjjifn91w_cug.mp4" type="video/mp4" />
-</video>
+{% include media.html type="video" src="http://videofile1.cutv.com/originfileg/010061_t/2016/03/14/G14/G14efeekffijlnjjifn91w_cug.mp4" %}
 
 ## 参考资料
 

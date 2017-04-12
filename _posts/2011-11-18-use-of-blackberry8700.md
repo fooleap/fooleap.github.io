@@ -8,7 +8,10 @@ tags: [手机, 工程模式, 热键大师, "黑莓 8700"]
 ---
 
 此前说过，黑莓是先结婚后恋爱的手机，刚开始使用黑莓那是相当不适应，慢慢的各种操作上手熟悉后，用起来就相当顺手了。黑莓手机的外观以全键盘闻名天下，没使用过全键盘手机的朋友需要一个适应期，而没使用过黑莓系统的朋友，用起黑莓就是个学习的过程，下面是我使用黑莓 8700 的心得，也可以说是使用习惯，这些总总也早有网友整理。
-黑莓是全键盘手机，全键盘手机相对于其他手机，优势相当明显，键入速度可与电脑键盘媲美，在各种程序里，功能键十分丰富。黑莓的各种快捷键可参考这篇文章：[黑莓 BlackBerry 实用快捷键大全](http://www.geedr.com/blackberry-shortcut-keys.html)
+
+黑莓是全键盘手机，全键盘手机相对于其他手机，优势相当明显，键入速度可与电脑键盘媲美，在各种程序里，功能键十分丰富。
+
+黑莓的各种快捷键可参考这篇文章：黑莓 BlackBerry 实用快捷键大全[[1]][1]
 
 **快速重启**
 
@@ -28,19 +31,19 @@ tags: [手机, 工程模式, 热键大师, "黑莓 8700"]
 |---
 |a|<u>A</u>ddress Book|通讯簿|
 |b|<u>B</u>rowser|浏览器|
-|c*|<u>C</u>ompose|编写|
+|c\*|<u>C</u>ompose|编写|
 |d|Memopa<u>d</u>|记事簿|
 |f|Pro<u>f</u>iles|情景设置|
-|k*|<u>K</u>eyboard Lock|锁定|
-|l*|Ca<u>l</u>endar|日历|
-|m*|<u>M</u>essages|消息|
+|k\*|<u>K</u>eyboard Lock|锁定|
+|l\*|Ca<u>l</u>endar|日历|
+|m\*|<u>M</u>essages|消息|
 |o|<u>O</u>ptions|选项|
-|p*|<u>P</u>hone|电话|
-|r*|Ala<u>r</u>m|闹钟|
+|p\*|<u>P</u>hone|电话|
+|r\*|Ala<u>r</u>m|闹钟|
 |s|<u>S</u>earch|搜索|
 |t|<u>T</u>ask|任务|
 |u|Calc<u>u</u>lator|计算器|
-|v*|Sa<u>v</u>ed Messages|保存的消息|
+|v\*|Sa<u>v</u>ed Messages|保存的消息|
 
 注：其中加星号表示中文状态通用。
 
@@ -71,12 +74,17 @@ tags: [手机, 工程模式, 热键大师, "黑莓 8700"]
 
 这个系统自带的功能十分强大，我一般只用它来强制关闭进程，如百度记事本假死时，清理内存等，相信第三方软件都没它好用。
 
-如下图依此按下 Alt，Shift，h 键时，启动 help me，进入获取 [eScreen Unlock Code](http://www.bber.info/escreen.htm) 的网站（源码：http://dl.getdropbox.com/u/1911810/sha1.htm，BerryBox 等软件亦提供）获取解锁码，在 help me 界面依次输入即可，更多可见 [黑莓工程模式 (eScreen) 详解](http://www.bber.info/post/blackberry_escreen)。
+如下图依此按下 Alt，Shift，h 键时，启动 help me，进入获取 eScreen Unlock Code[[2]][2] 的网站（源码：http://dl.getdropbox.com/u/1911810/sha1.htm，BerryBox 等软件亦提供）获取解锁码，在 help me 界面依次输入即可，更多可见 黑莓工程模式 (eScreen) 详解[[3]][3]。
 
 ![黑莓工程模式]({{site.IMG_PATH}}/use-of-blackberry8700-02.png)
 黑莓工程模式
 
-<del>待完善。..</del>
+
+## 参考资料
+
+[1]: http://www.geedr.com/blackberry-shortcut-keys.html "黑莓 BlackBerry 实用快捷键大全"
+[2]: http://www.bber.info/escreen.htm "eScreen Unlock Code"
+[3]: http://www.bber.info/post/blackberry_escreen "黑莓工程模式 (eScreen) 详解"
 
 **本文历史**
 

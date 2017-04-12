@@ -12,12 +12,11 @@ tags: [尧山, 桂林, 爬山]
 
 从没爬过这么高的山，尧山海拔 909.3 米，相对高度约 760 米，之前一直以为尧山五六百米高，爬到山顶才知道尧山有这么高，而在脚下也已经 150 米左右了，但是比起青海哥他家 2000 多米的海拔，明显是小巫见大巫，想起家里只有几米的海拔，有趣。从小到大，爬过的山也屈指可数，连离家最近的 [塔山](http://baike.baidu.com/item/塔山风景区/16295472) 都未曾爬过，只爬过 [礐石山](http://www.queshi.com/)，[莲花山](http://zh.wikipedia.org/wiki/ 莲花山_（汕头）)，还有海边那堆小山丘~在那可以直接看到近处的凤山（凤屿）和远处的南澳岛，真怀念去那煏卵的日子。.. 下面的图片都是去年照的，而去年春节去礐石还抓拍到惊险的一幕，详见 [此处](http://fooleap.blogbus.com/logs/64749512.html) 后三张，投递给汕头台今日视线之图片新闻，于去年国庆期间播出，详情 [点我](http://v.youku.com/v_show/id_XMjEyMzUyMTcy.html)，在视频的 20 分 50 秒。莲花山的网上没备份，没办法。
 
-<iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.kjxvvPw-gNxA" width="640" height="427"></iframe>
+{% include media.html type="iframe" src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.kjxvvPw-gNxA" %}
 
 ![礐石风景区]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-01.jpg_640)
 
 ![海边的小山丘]({{site.IMG_PATH}}/climbing-notes-for-yaoshan-02.jpg_640)
-
 
 回过头来说说那天爬的尧山，三十多度晴的天气，从没爬过尧山的我和富哥决定从西边爬上去，那条路明显没有南边的小道好走，石块碎石多，到高处比较陡，而且那天是在烈日之下，到了后面真的没走几步就休息一会，适合休息的阴凉处又不多……
 

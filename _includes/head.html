@@ -22,7 +22,5 @@
     <link rel="canonical" href="{{ page.url | replace: 'index.html','' | prepend: site.home }}" />
     <link rel="icon" href="/favicon.png" />
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="http://blog.fooleap.org/atom.xml" />
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" }}" />{% assign content_js = content | remove: "<!--<" | remove: "-->" | split: "script>" %}{% assign content_style = content | remove: "<!--<" | remove: "-->" | split: "style>" %}
-    {% if page.link %}<link rel="stylesheet" href="{{ page.link }}" />{% endif %}
-    {% if page.style %}<style type="text/css">{{ content_style[1] }}style>{% endif %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css" }}" />
 </head>

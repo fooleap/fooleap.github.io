@@ -18,9 +18,7 @@ tags: ["台风", "秋天"]
 
 9 号，各国预测路径都是趋向回旋，然而它还在徘徊。实时的简易路径如下。不得不感慨，秋台就像女人的心，难以琢磨。
 
-<div class="iframe-container">
-    <iframe class="iframe" src="{{ site.IMG_PATH }}/autumn-typhoon.html"></iframe>
-</div>
+{% include media.html type="iframe" src="IMG_PATH/autumn-typhoon.html" %}
 长的是莫兰蒂，短的是艾利
 
 虽然离秋天还有段时间，但这两天下雨加上冷空气影响降个几度，也是有点凉飕飕，晚上有点冷。

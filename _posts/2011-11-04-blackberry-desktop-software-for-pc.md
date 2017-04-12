@@ -16,18 +16,19 @@ Windows 平台上有官方的桌面管理器，可以有刷机，同步，备份
 使用 BBerSMSManager 可将短信保存为 txt 或者 excel 文件：先用官方桌面管理器将短信及电话簿分别导出备份为 ipd 文件，然后在 BBerSMSManager 里导入备份文件进行保存。
 
 ![备份短信]({{site.IMG_PATH}}/blackberry-desktop-software-for-pc.png)
+备份短信
 
-以上软件均可在此下载：[http://pan.baidu.com/s/1jHeJNDG](http://pan.baidu.com/s/1jHeJNDG) 7dqg
+以上软件均可在此下载：http://pan.baidu.com/s/1jHeJNDG  7dqg
 
-<del>[http://dl.dbank.com/c0t9va2u9u](http://dl.dbank.com/c0t9va2u9u)</del>
+~~http://dl.dbank.com/c0t9va2u9u~~
 
-<del>也可在此共享找到：[http://www.dbank.com/share/blackberry8700](http://www.dbank.com/share/blackberry8700)</del>
+~~也可在此共享找到：http://www.dbank.com/share/blackberry8700~~
 
 Linux 平台上主要使用 barry 对黑莓进行管理，linberry 我没用过。barry 的安装使用等可参考 felonwan 的这两篇文章：
 
-> “黑莓的 Linux 桌面管理器”-Barry 的安装：[http://blog.sina.com.cn/s/blog\_59cf67260100g6ga.html](http://blog.sina.com.cn/s/blog_59cf67260100g6ga.html)
+> “黑莓的 Linux 桌面管理器”-Barry 的安装：http://blog.sina.com.cn/s/blog_59cf67260100g6ga.html
 >
-> “黑莓的 Linux 桌面管理器”-Barry 的使用：[http://blog.sina.com.cn/s/blog\_59cf67260100en94.html](http://blog.sina.com.cn/s/blog_59cf67260100en94.html)
+> “黑莓的 Linux 桌面管理器”-Barry 的使用：http://blog.sina.com.cn/s/blog_59cf67260100en94.html
 
 Archlinux 上可通过 aur 安装 Barry：
 

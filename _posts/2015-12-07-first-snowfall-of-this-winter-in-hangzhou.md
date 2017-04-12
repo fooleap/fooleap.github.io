@@ -12,25 +12,13 @@ tags: [杭州, 下雪]
 
 那天中午我刚看到雪（雨夹雪），便跑到阳台去接，接到的却都是水。拿起三脚架、相机，拍了一小段视频。过了一段时间，雪更大了，又手持拍了一些，不懂是设备太烂或是技术不过关。视频如下，不做处理，只转换大小、格式。
 
-<video class="video" poster="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-01.mp4?vframe/jpg/offset/0" controls>
-  <source src="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-01.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-01.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/first-snowfall-of-this-winter-in-hangzhou-01.mp4" poster="IMG_PATH/first-snowfall-of-this-winter-in-hangzhou-01.mp4?vframe/jpg/offset/0" %}
 
-<video class="video" poster="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-02.mp4?vframe/jpg/offset/0" controls>
-  <source src="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-02.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-02.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-02.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/first-snowfall-of-this-winter-in-hangzhou-02.mp4" poster="IMG_PATH/first-snowfall-of-this-winter-in-hangzhou-02.mp4?vframe/jpg/offset/0" %}
 
 见有部分屋顶有小小的积雪，便跑到天台去看看，不过上去后只见一些冰水混合物。
 
-<video class="video" poster="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-03.mp4?vframe/jpg/offset/0" controls>
-  <source src="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-03.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-03.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/first-snowfall-of-this-winter-in-hangzhou-03.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="360"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/first-snowfall-of-this-winter-in-hangzhou-03.mp4" poster="IMG_PATH/first-snowfall-of-this-winter-in-hangzhou-03.mp4?vframe/jpg/offset/0" %}
 
 到了傍晚，有些屋顶，草坪逐渐积起了雪，出门特意抓了一把捏一下。当天晚上已经积了不少，还想着早点睡，第二天可以跑去西湖看断桥。
 

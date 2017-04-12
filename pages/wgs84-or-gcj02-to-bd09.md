@@ -4,10 +4,6 @@ title: 百度坐标转换器
 description: "GPS 坐标（WGS-84）或火星坐标（GCJ-02）批量转换为百度坐标（BD-09）"
 tags: [百度坐标, 'GPS 坐标', 火星坐标, WGS-84, GCJ-02, BD-09, 'Google Earth', 'Google Maps']
 permalink: /wgs84-or-gcj02-to-bd09/
-scripts: true
-jquery: true
-js: true
-style: true
 ---
 
 <h2 id="from-title">GPS 坐标集（WGS-84）</h2>
@@ -38,7 +34,7 @@ style: true
 <h2>百度坐标集（BD-09）</h2>
 <pre id="result"><code></code></pre>
 </div>
-<!--<style>
+<style>
     a:after{content:none!important;}
     body{
       overflow-y:scroll;
@@ -111,9 +107,9 @@ style: true
       .other{width:50%;float:left}
       #result{width:100%;border-radius:none;padding:0}
     }
-    </style>-->
+    </style>
 
-<!--<script>
+<script>
   $('#coords').height($('#coords').width()*2/3);
   var def_coords = '格式：经度,纬度;经度,纬度;...（亦可使用 Google Earth/Maps 路径导出的 KML 坐标集数据）';
   $('#coords').html(def_coords);
@@ -212,4 +208,4 @@ style: true
       }
     });
   });
-  </script>-->
+  </script>

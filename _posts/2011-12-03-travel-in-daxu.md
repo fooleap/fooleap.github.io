@@ -12,13 +12,13 @@ tags: [hosts, 大圩, 桂林, 骑行]
 
 刚开学不久买了辆自行车，不过不怎么骑，大二的课比较多，周六日又喜欢窝宿舍，罪过。[阳朔之游](/travel-in-yangshuo.html) 说过，在桂林期间，大圩古镇可以不去，不过我还是去了，还是骑车去的，那是 11 月 27 日，从学校骑到大圩用了 2 个半小时，二十公里左右。
 
-<iframe src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.k4f-9qadVq-k" width="640" height="384"></iframe>
+{% include media.html type="iframe" src="https://www.google.com/maps/d/embed?mid=zFVCPErrCRCw.k4f-9qadVq-k" %}
 
 * 08:00-11:00  从学校出发到大圩
 * 11:00-12:30  在古镇里逛了一个半小时
 * 13:00-15:30  饭后回校
 
-从东二环转到七里店一直到桂磨一级，那条路很宽敞，各种产业园也在那遍地开花。大圩新镇区和普通城镇没啥区别，古镇不大，房子也很老，就像家乡农村的老厝区，好多房子都已经没人住了，居住的大多是老人，小孩，有点像留守儿童。就不贴照片了，几张图片都放 [picasa 相册](https://picasaweb.google.com/fooleap/XTBtUB?authuser=0&authkey=Gv1sRgCP6eicW6zYutEw)。
+从东二环转到七里店一直到桂磨一级，那条路很宽敞，各种产业园也在那遍地开花。大圩新镇区和普通城镇没啥区别，古镇不大，房子也很老，就像家乡农村的老厝区，好多房子都已经没人住了，居住的大多是老人，小孩，有点像留守儿童。就不贴照片了，几张图片都放 [picasa 相册](https://get.google.com/albumarchive/106340993705258980585/album/AF1QipOW-xtCRtwMoh5TUVVsiNkubPARmgYHHx2HN1Qr?authKey=CP6eicW6zYutEw)。
 
 像我这样农村的孩子，下面这张图有没感觉到亲切呢？
 

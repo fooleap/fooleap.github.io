@@ -233,7 +233,7 @@ a[target="_blank"]:after {
 
 以上 JS 示例: http://runjs.cn/detail/kgsa53l1
 
-<iframe style="width: 100%; height: 300px" src="http://sandbox.runjs.cn/show/kgsa53l1" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+{% include media.html type="iframe" src="http://sandbox.runjs.cn/show/kgsa53l1" %}
 
 另外，本文就是使用自动生成参考资料的方式来书写，戳左下角“源码”按钮即可查看 Markdown 源码，如果没看到“源码”按钮，那么该换浏览器了。
 

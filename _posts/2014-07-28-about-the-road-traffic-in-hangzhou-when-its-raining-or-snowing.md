@@ -29,11 +29,7 @@ tags: [暴雨, 交通, 杭州]
 
 或许用视频更能来表现雨的大。
 
-<video class="video" poster="{{site.IMG_PATH}}/about-transportaion-01.mp4?vframe/jpg/offset/0" controls>
-  <source src="{{ site.IMG_PATH }}/about-transportaion-01.mp4" type="video/mp4" />
-  <source src="{{ site.IMG_PATH }}/about-transportaion-01.webm" type="video/webm" />
-  <embed src="{{ site.IMG_PATH }}/flvplayer.swf" allowFullScreen="true" FlashVars="vcastr_file={{ site.IMG_PATH }}/about-transportaion-01.flv&IsAutoPlay=0&IsContinue=1" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="640" height="640"></embed>  
-</video>
+{% include media.html type="video" src="IMG_PATH/about-transportaion-01.mp4" poster="IMG_PATH/about-transportaion-01.mp4?vframe/jpg/offset/0" %}
 
 公车经过在建高架的秋涛北路，平时半个小时车程开了近三个小时，公车上无奈的等待不想更多描述。下图为当晚到站下车，雨后空气清新，石桥路。
 
