@@ -1,0 +1,77 @@
+---
+layout : null
+permalink: /video.html
+title: 腾讯视频
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
+        <meta name="description" content="A foolish man could not always lose!" />
+        <meta name="keywords" content="fooleap, 前端, Linux, 潮汕" />
+        <meta name="author" content="fooleap" />
+        <meta name="renderer" content="webkit">
+        <style>
+            html,body, #mod_player{
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <script src="http://imgcache.qq.com/tencentvideo_v1/tvp/js/tvp.player_v2_html5.js"></script>
+    </head>
+    <body>
+        <div id="mod_player"></div>
+        <script>
+            function getQueryVariable(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            }
+            var vid = getQueryVariable('vid');
+            var mode = getQueryVariable('mode');
+            var width = document.documentElement.clientWidth;
+            var height;
+            switch (mode) {
+               case 'normal': 
+                    height = width/4*3 + 40;
+                    break;
+               case 'wide': 
+                    height = width/16*9 + 40;
+                    break;
+               default:
+                    break;
+            }
+            if( width < 640){
+                width = undefined;
+                height = undefined;
+            }
+            var video = new tvp.VideoInfo();
+            video.setVid(vid);
+            var player = new tvp.Player();
+            player.create({
+                width: width,
+                height: height,
+                video: video,
+                modId: 'mod_player',
+                vodFlashExtVars: {
+                    clientbar:0,
+                    searchpanel:0,
+                    showend:0
+                },
+                isHtml5UseUI: true,
+                isiPhoneShowPlaysinline: true,
+                autoplay: false
+                //playerType: 'html5',
+                //vodFlashSkin: 'http://imgcache.qq.com/minivideo_v1/vd/res/skins/TencentPlayerMiniSkin.swf',
+           });
+        </script>
+    </body>
+</html>

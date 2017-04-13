@@ -188,13 +188,13 @@ function wxchoose(){
                         var data = JSON.parse(this.responseText);
                         if ( data.DateTimeOriginal) {
                             var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
-                            var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2];
+                            var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
                             var model = data.Model ? data.Model.val : '无';
                             var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
                             var extime = data.ExposureTime ? data.ExposureTime.val : '无';
                             var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
                             var flength = data.FocalLength ? data.FocalLength.val : '无';
-                            document.querySelector('.post-content [src^="' + imageExif[i].slice(0,-5) + '"]').nextElementSibling.insertAdjacentHTML('beforeend', '<small class="post-image-exif">日期: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
+                            document.querySelector('.post-content [src^="' + imageExif[i].slice(0,-5) + '"]').nextElementSibling.insertAdjacentHTML('beforeend', '<small class="post-image-exif">时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
                         }
                     }
                 };
@@ -431,7 +431,7 @@ if ( page.layout == 'post' ) {
     }
     xhrPopular.send();
 
-    // 二维码 http://goo.gl/JzmGoq
+    /* 二维码 http://goo.gl/JzmGoq
     var qrscript = document.createElement('script');
     qrscript.type = 'text/javascript';
     qrscript.src = '/assets/js/qrcode.min.js';
@@ -445,7 +445,7 @@ if ( page.layout == 'post' ) {
             colorLight: '#ffffff',
             correctLevel: QRCode.CorrectLevel.M
         });
-    }
+    }*/
 }
 
 // Disqus 事件绑定

@@ -5,4 +5,8 @@
 </div>
 {% when "video" %}
 <video class="video" controls poster="{{ include.poster | replace_first: 'IMG_PATH', site.IMG_PATH }}" src="{{ include.src | replace_first: 'IMG_PATH', site.IMG_PATH }}"></video>
+{% when "video-qq" %}
+<div class="iframe-{{ include.mode }}-container">
+    <iframe class="iframe" src="/video.html?vid={{ include.vid }}&mode={{ include.mode }}"></iframe>
+</div>
 {% endcase %}
