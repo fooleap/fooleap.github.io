@@ -8,9 +8,9 @@ thumb: 'IMG_PATH/wechat.png'
 tags: [微信, WeChat, 腾讯视频, 网址]
 ---
 
-前段时间见[汕头电视台可网上看直播](sttv-online.html)，所以也想看看澄海电视台有没有在线渠道可以观看。
+前段时间见[汕头电视台可网上看直播](/sttv-online.html)，所以也想看看澄海电视台有没有在线渠道可以观看。
 
-寻找的结果自然是令人失望的，别说直播，点播也找不到，澄海电视台的官方微博似乎就仅有“[@CHTV 微博那些事](http://weibo.com/u/3605689590)”，更新不勤快。
+寻找的结果自然是令人失望的，别说直播，点播也找不到，澄海电视台的官方微博似乎就仅有“@CHTV 微博那些事[[1]][1]”，更新不勤快。
 
 最近在微信见“澄缘似海论坛”发的文章里有《澄海新闻》视频，起初还以为是录制，看了昨天的《澄海新闻》之后，才知道是澄海电视台最近也弄了个公众号，名曰“今日澄海”，每天都在推送文章。
 
@@ -26,9 +26,14 @@ tags: [微信, WeChat, 腾讯视频, 网址]
 ![微信视频地址]({{site.IMG_PATH}}/get-the-page-with-wechat-video-02.png)
 微信视频地址
 
-而鄙人需要的是其腾讯视频页面网址，仅需在那个地址后面加个参数 tiny 值为 0（默认是 1），即 `http://v.qq.com/iframe/player.html?vid=k0154l11os1&tiny=0`，接下来呢？自然是点击右下角腾讯视频的 Logo 便是视频页面网址。
+而鄙人需要的是其腾讯视频页面网址，仅需在那个地址后面加个参数 tiny 值为 0（默认是 1），即 `http://v.qq.com/iframe/player.html?vid=k0154l11os1&tiny=0`，接下来呢？自然是点击右下角腾讯视频的 Logo 便是视频页面网址，也就能找到视频上传者主页[[2]][2]。
 
-{% include media.html type="iframe" src="http://v.qq.com/iframe/player.html?vid=k0154l11os1&tiny=0&auto=0" %}
+{% include media.html type="video-qq" mode="normal" vid="k0154l11os1" %}
+
+## 参考资料
+
+[1]: http://weibo.com/u/3605689590 "CHTV 微博那些事"
+[2]: http://v.qq.com/vplus/c8e8709c2c744afb0742479233a1d9ba/videos "今日澄海"
 
 **本文历史**
 
