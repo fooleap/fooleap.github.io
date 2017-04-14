@@ -306,7 +306,7 @@ if( browser.mobile && page.url == '/' ){
                 }
                 document.querySelector('.post-list').insertAdjacentHTML('beforeend', html);
                 timeAgo();
-                comment.count(commentArr);
+                comment.list(commentArr);
                 pagination.classList.remove('loading');
             },1000);
         }
@@ -430,22 +430,6 @@ if ( page.layout == 'post' ) {
         }
     }
     xhrPopular.send();
-
-    /* 二维码 http://goo.gl/JzmGoq
-    var qrscript = document.createElement('script');
-    qrscript.type = 'text/javascript';
-    qrscript.src = '/assets/js/qrcode.min.js';
-    document.getElementsByTagName('head')[0].appendChild(qrscript);
-    qrscript.onload = function(){
-        new QRCode('qrcode', {
-            text: site.home + page.url,
-            width: 96,
-            height: 96,
-            colorDark: '#000000',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.M
-        });
-    }*/
 }
 
 // Disqus 事件绑定
@@ -550,7 +534,7 @@ Comment.prototype = {
             [].forEach.call(countArr, function(item,i){
                 commentArr[i] = item.dataset.disqusUrl;
             });
-            this.count(commentArr);
+            this.list(commentArr);
         }
 
         // 拉取列表
@@ -569,7 +553,7 @@ Comment.prototype = {
     },
 
     // 评论计数
-    count: function(commentArr){
+    list: function(commentArr){
         var commentLink = encodeURIComponent(commentArr.join(','));
         var xhrCommentCount = new XMLHttpRequest();
         xhrCommentCount.open('GET', site.api +'/disqus/list?link=' + commentLink, true);

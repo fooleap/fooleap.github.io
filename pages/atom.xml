@@ -19,7 +19,7 @@ permalink: /atom.xml
       <title>{{ post.title }}</title>
       <link href="{{ site.home }}{{ post.url }}" />
       <updated>{{ post.date | date_to_xmlschema }}</updated>
-      <id>{{ site.home }}{{ post.id }}</id>
+      <id>{{ post.id }}</id>
       <content type="html">{{ post.description | xml_escape }}</content>
     </entry>
   {% endfor %}

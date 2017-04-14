@@ -22,10 +22,19 @@ tags: ["Disqus", "Disqus API"]
 |post|评论，`post`有个重要属性——`parent`，是前端页面实现嵌套评论的前提|
 |user|用户，以上所有对象都有对应的 `author`，这个 `author` 由用户充当，`post` 的 `author` 可以匿名（anonymous）|
 
+|域名|说明
+|---
+|disqus.com|Disqus 主域名，API 用的也是这个域名，目前国内大多数地区无法访问
+|disquscdn.com|Disqus 静态资源 CDN，目前国内大多数地区可以访问
+|disq.us|Disqus 出站链接，目前国内大多数地区可以访问
+
+Disqus 的头像以及上传的图片放在是 `disquscdn.com` 的子域名下面，回复内容中的链接都将会被带上 `disq.us` 前缀以跳转。
 
 ## 参考资料
 
+{% comment %}
 {% assign repo = site.github.public_repositories | where: "name","disqus-php-api" | first %}
 
 [1]: https://disqus.com/home/discussion/androidpolice/join_us_for_an_ama_with_disqus_at_11am_pst/#comment-2649731809 "We make money through a few different ways"
 [2]: {{ repo.html_url }} "{{ site.github.owner_name }}/{{ repo.name }}"
+{% endcomment %}
