@@ -1,7 +1,7 @@
 {% case include.type %}
 {% when "iframe" %}
 <div class="iframe-container">
-    <iframe class="iframe" src="{{ include.src | replace_first: 'IMG_PATH', site.IMG_PATH }}"></iframe>
+    <iframe class="iframe" src="{{ include.src | replace_first: 'IMG_PATH', site.IMG_PATH | replace_first: 'API_PATH', site.api  }}"></iframe>
 </div>
 {% when "video" %}
 <video class="video" controls poster="{{ include.poster | replace_first: 'IMG_PATH', site.IMG_PATH }}" src="{{ include.src | replace_first: 'IMG_PATH', site.IMG_PATH }}"></video>

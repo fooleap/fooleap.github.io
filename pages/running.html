@@ -37,14 +37,24 @@ title: 月跑量图
                 }
                 return(false);
             }
-var month = getQueryVariable('month');
-var running_month = parseInt(month.slice(4));
-var running_year = parseInt(month.slice(0,-2));
-var next_year = running_month == 12 ? running_year + 1 : running_year;
-next_month = running_month == 12 ? 1 : running_month + 1;
-running_month = running_month < 10 ? '0' + running_month : running_month;
-next_month = next_month < 10 ? '0' + next_month : next_month;
-var queryStr = 'start='+running_year+'-'+running_month+'-01&end='+next_year+'-'+next_month+'-01';
+var date = getQueryVariable('date');
+
+var year = date.split('-')[0];
+var month = date.split('-')[1];
+
+var last = new Date(year, month, 0).getDate()
+var firstDay = year + '-' + month + '-01';  
+var lastDay = year + '-' + month + '-' + last;
+
+var act_date = [];
+for (var i = 1; i <= last; i++) {
+    if( i < 10 ){
+       var day =  year + '-'+ month +'-' + '0' + i;
+    } else {
+       var day =  year + '-'+ month +'-' + i;
+    }
+    act_date.push(day);
+}
 
 var runningChart = document.getElementById('running');
 var myChart = echarts.init(runningChart);
@@ -56,7 +66,7 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
         tooltip: {
             trigger: 'axis',
             formatter: function(params, ticket, callback) {
-                var res = running_year+'年'+running_month+'月' + params[0].name + '日<br>';
+                var res = year+'年'+ month+'月' + params[0].name + '日<br>';
                 for (var i = 0; i < params.length; i++) {
                     res += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:' + params[i].color + '"></span>' + params[i].seriesName + '：' + params[i].data.name + '<br/>';
                 }
@@ -83,10 +93,10 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
                 }
             }
         },
-        /*title: {
-            text: '10月跑量',
+        title: {
+            text: year+month,
             x: 'left'
-        },*/
+        },
         legend: {
             selected: {
                 '时速': false,
@@ -224,12 +234,11 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
 }
 
 var xhractivities = new XMLHttpRequest();
-xhractivities.open('GET', 'http://api.fooleap.org/nike/activities?'+queryStr, true);
+xhractivities.open('GET', 'http://api.fooleap.org/nike/activities?month=' + date, true);
 xhractivities.send();
 xhractivities.onreadystatechange = function() {
     if (xhractivities.readyState == 4 && xhractivities.status == 200) {
         var data = JSON.parse(xhractivities.responseText);
-        var act_date = data.output;
         var distance = [];
         var edate = [];
         var duration = [];
