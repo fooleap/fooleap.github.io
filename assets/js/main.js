@@ -216,7 +216,6 @@ function isFlashSupported() {
     return navigator.plugins['Shockwave Flash'] ? true : false;
 }
 
-var links = document.querySelectorAll('a');
 
 // Vim 键绑定
 /*
@@ -360,23 +359,31 @@ if (toc) {
     if (document.querySelectorAll('h2')[document.querySelectorAll('h2').length - 1].innerHTML === '参考资料') {
         document.querySelectorAll('h2')[document.querySelectorAll('h2').length - 1].insertAdjacentHTML('afterend', '<ol id="refs"></ol>');
     }
+    var links = document.getElementsByTagName('a');
+    var noteArr = [];
     for (var i = 0; i < links.length; i++) {
         if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) === false) {
             var numText = links[i].innerHTML;
             var num = numText.substring(1, numText.length - 1);
             if (!isNaN(num) && num) {
-                var note = 'note-' + num;
-                var ref = 'ref-' + num;
-                var noteTitle = links[i].getAttribute('title');
-                var noteHref = links[i].getAttribute('href');
-                links[i].setAttribute('href', '#' + note);
-                links[i].setAttribute('id', ref);
+                noteArr.push({
+                    num: num,
+                    title: links[i].getAttribute('title'),
+                    href: links[i].getAttribute('href')
+                });
                 links[i].setAttribute('class', 'ref');
-                document.getElementById('refs').insertAdjacentHTML('beforeend', '<li id="' + note + '" class="note"><a href="#' + ref + '">^</a> <a href="' + noteHref + '" title="' + noteTitle + '" class="exf-text" target="_blank">' + noteTitle + '</a></li>');
+                links[i].setAttribute('href', '#note-' + num);
+                links[i].setAttribute('id', 'ref-'+ num);
             } else {
                 links[i].setAttribute('target', '_blank');
             }
         }
+    }
+    noteArr = noteArr.sort(function (a, b) {
+        return +(a.num > b.num) || +(a.num === b.num ) - 1;
+    })
+    for(var i = 0; i < noteArr.length; i++){
+        document.getElementById('refs').insertAdjacentHTML('beforeend', '<li id="note-' + noteArr[i].num + '" class="note"><a href="#ref-' + noteArr[i].num + '">^</a> <a href="' + noteArr[i].href + '" title="' + noteArr[i].title + '" class="exf-text" target="_blank">' + noteArr[i].title + '</a></li>');
     }
 })();
 

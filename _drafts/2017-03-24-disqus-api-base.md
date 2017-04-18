@@ -32,9 +32,7 @@ Disqus 的头像以及上传的图片放在是 `disquscdn.com` 的子域名下�
 
 ## 参考资料
 
-{% comment %}
 {% assign repo = site.github.public_repositories | where: "name","disqus-php-api" | first %}
 
 [1]: https://disqus.com/home/discussion/androidpolice/join_us_for_an_ama_with_disqus_at_11am_pst/#comment-2649731809 "We make money through a few different ways"
 [2]: {{ repo.html_url }} "{{ site.github.owner_name }}/{{ repo.name }}"
-{% endcomment %}
