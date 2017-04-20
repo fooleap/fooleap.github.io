@@ -20,7 +20,7 @@ tags: ["潮汕", "跑步", "南宁", "马拉松"]
 
 五点半起床，六点半出门，带上之前买的水壶腰包[[1]][1]。我跑步的节奏是这样的，一般十公里内的距离，途中不需要补水，买的这个水壶腰包这次是第一次用。
 
-{% include media.html type="iframe" src="/running-line.html?nikeid=b606a605-fd09-4992-aff9-8af38911c569" %}
+{% include media.html type="iframe" src="API_PATH/nike/activity?id=b606a605-fd09-4992-aff9-8af38911c569" %}
 
 上面为这次跑步的路线图，跟[去年头的骑行一样](/spring-cycle-2015.html){:target="_blank"}，东湾头出发，行金鸿路。
 

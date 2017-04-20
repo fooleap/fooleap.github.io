@@ -892,6 +892,7 @@ Comment.prototype = {
                 if (res.code === 0) {
                     comment.thread = res.thread;
                     document.getElementById('comment').classList.remove('loading')
+                    document.querySelector('.comment-tips-link').setAttribute('href', res.link);
                     if (res.response == null) {
                         return;
                     }
@@ -913,7 +914,6 @@ Comment.prototype = {
                     } else {
                         comment.count = res.posts;
                         document.getElementById('comment-count').innerHTML = res.posts + ' 条评论';
-                        document.querySelector('.comment-tips-link').setAttribute('href', res.link);
                     }
 
                     var loadmore = document.querySelector('.comment-loadmore');
