@@ -15,16 +15,16 @@ tags: ["百度地图 API", 路书, 潮汕]
 
 很久以前，Google Maps 还能使用，要分享一些去徒步、骑行的线路地图十分方便，里面插上一些图片啥的也是毫无压力，鼠标点点就可以将线路图搞得有声有色，例如在 [这篇博文](/walking-in-guilin-1.html) 中所嵌入的地图。
 
-近几年，Google Maps 逐渐无法打开，偶尔抽风但尚能打开的 [Google 地图](http://ditu.google.cn) 已没有我的地图编辑分享功能。
+近几年，Google Maps 逐渐无法打开，偶尔抽风但尚能打开的 Google 地图[[1]][1] 已没有我的地图编辑分享功能。
 
 ![通过 Google Maps 分享的地图]({{ site.IMG_PATH }}/bmaps-lushu.png)
 通过 Google Maps 分享的地图
 
 现在要分享一些地图便变得不那么方便，鄙人并没有找到能够简单编辑线路，插上文字图片并在站外分享嵌入的地图服务代替品。
 
-* [搜狗路书](http://map.sogou.com/lushu/) 观其网站风格，似乎还停留在上个十年，已不开放，估计已经放弃
-* [行者路书](http://www.imxingzhe.com/lushu/) 功能比较简单，看起来像阉割版的 Google Maps 我的地图
-* [路书](https://lushu.com/) 感觉好文艺，旅行专用？还在内测中
+* **搜狗路书**[[2]][2] 观其网站风格，似乎还停留在上个十年，已不开放，估计已经放弃
+* **行者路书**[[3]][3] 功能比较简单，看起来像阉割版的 Google Maps 我的地图
+* **路书**[[4]][4] 感觉好文艺，旅行专用？还在内测中
 
 形形色色各种所谓的路书，我也不知道干嘛用的，旅行、运动偏多（掩面，自己不也是）。可是我想要的只是分享线路地图，简简单单只要能将地图嵌入到网站中。看了下路书的概念，大概就是记录旅行的一种流水帐，就是为旅行而准备的，而在这里，我的需求是骑行或者徒步完记录过程，虽然目的不一样，但需求是相同的。
 
@@ -34,15 +34,15 @@ tags: ["百度地图 API", 路书, 潮汕]
 
 按理说想展示更多的东西就需要学习更多，就鄙人而言，地点标注、信息说明、路线，基本上就足够了，而骑行徒步等运动，还真可以使用路书来展示。
 
-百度地图的路书功能可以是由百度提供的一个函数库来完成， 详细可以看百度地图 [JavaScript 开源库](http://developer.baidu.com/map/index.php?title=open/library) 的路书部分，可以自己修改其 JS 文件，获得更多自定义的功能。就不折腾太多，鄙人感觉使用这个已经足够地图的展示。
+百度地图的路书功能可以是由百度提供的一个函数库来完成， 详细可以看百度地图 JavaScript 开源库[[5]][5]的路书部分，可以自己修改其 JS 文件，获得更多自定义的功能。就不折腾太多，鄙人感觉使用这个已经足够地图的展示。
 
 ## 制作路书
 
 此前，在 [百度地图 API 绘制折线](/bmaps-polyline.html) 说过怎么绘制折线（路线），而百度路书的也和折线一样需要用到的点坐标数组。
 
-下面还以原地图为例，制作一个路书，展示动车自北向南横穿潮汕。路书的相关设置可以参考 [BMapLib.LuShu 类](http://api.map.baidu.com/library/LuShu/1.2/docs/symbols/BMapLib.LuShu.html)，除却 [百度地图 API 绘制折线](/bmaps-polyline.html) 所提到的，此实例还用到另外的 [Marker 类](http://developer.baidu.com/map/reference/index.php?title=Class:%E8%A6%86%E7%9B%96%E7%89%A9%E7%B1%BB/Marker)、[Icon 类](http://developer.baidu.com/map/reference/index.php?title=Class:%E8%A6%86%E7%9B%96%E7%89%A9%E7%B1%BB/Icon) 及 [Size 类](http://developer.baidu.com/map/reference/index.php?title=Class:%E5%9F%BA%E7%A1%80%E7%B1%BB/Size)。
+下面还以原地图为例，制作一个路书，展示动车自北向南横穿潮汕。路书的相关设置可以参考 BMapLib.LuShu 类[[6]][6]，除却 [百度地图 API 绘制折线](/bmaps-polyline.html) 所提到的，此实例还用到另外的 Marker 类[[7]][7]、Icon 类[[8]][8] 及 Size 类[[9]][9]。
 
-{% highlight javascript %}
+```html
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/library/LuShu/1.2/src/LuShu_min.js"></script>
 <div id="map"></div>
@@ -123,11 +123,23 @@ function startlushu(){
   lushu.start();//启动路书函数
 }
 </script>
-{% endhighlight %}
+```
 
 {% include media.html type="iframe" src="IMG_PATH/bmaps-lushu.html" %}
 
 点击地图可启动路书。
+
+## 参考资料
+
+[1]: http://ditu.google.cn "Google 地图"
+[2]: http://map.sogou.com/lushu/ "搜狗路书"
+[3]: http://www.imxingzhe.com/lushu/ "行者路书"
+[4]: https://lushu.com/ "路书"
+[5]: http://developer.baidu.com/map/index.php?title=open/library "百度地图 JavaScript 开源库"
+[6]: http://api.map.baidu.com/library/LuShu/1.2/docs/symbols/BMapLib.LuShu.html "BMapLib.LuShu 类"
+[7]: http://developer.baidu.com/map/reference/index.php?title=Class:%E8%A6%86%E7%9B%96%E7%89%A9%E7%B1%BB/Marker "Marker 类"
+[8]: http://developer.baidu.com/map/reference/index.php?title=Class:%E8%A6%86%E7%9B%96%E7%89%A9%E7%B1%BB/Icon "Icon 类"
+[9]: http://developer.baidu.com/map/reference/index.php?title=Class:%E5%9F%BA%E7%A1%80%E7%B1%BB/Size "Size 类"
 
 **本文历史**
 
