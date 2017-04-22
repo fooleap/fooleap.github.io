@@ -95,7 +95,7 @@ st(right)->op1(right)->op2(right)->op3(right)->e
 
 其中 `activityId` 是单次活动的 ID，在 Nike+ 官网查看源码、或点开某次活动后在地址栏，都可以找到。
 
-这个接口返回的数据挺详细，详细到感觉文件有点大，可以通过 `metrics` 这个参数过滤掉一些不需要的数据。具体的实例如下（只取经纬坐标的详细数据）：
+这个接口返回的数据挺详细，详细到感觉文件有点大，其中有 `metric` 所有类型名的数组 `metric_types`。需要详细数据时，可通过 `metrics` 这个参数来指定，默认指定 `all` 则代表获取所有数据。具体的实例如下（只取经纬坐标的详细数据）：
 
     https://api.nike.com/sport/v3/me/activity/e39a37be-d4e8-4ef7-82cc-0b255c0f2834?metrics=longitude,latitude
 
