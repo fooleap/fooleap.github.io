@@ -21,7 +21,6 @@ kramdown:
 gems: 
       - jekyll-paginate
       - jekyll-coffeescript
-      - jekyll-github-metadata
       - jemoji
 paginate: 10
 repository: fooleap/fooleap.github.io
