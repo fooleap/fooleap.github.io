@@ -4,7 +4,7 @@ title: "高德地图 API 叠加谷歌地图图层"
 description: "Google Earth 的卫星图一直比国内地图所用的卫星图要新一些，然而 Google 早已不在墙内，中文版的谷歌地图虽能访问，但路网数据各方面并没有国内地图的完善。"
 date: 2016-08-07 10:00:00+0800
 category: tech
-tags: ["潮汕", "高德地图", "谷歌地图"]
+tags: ["潮汕", "高德地图 API", "谷歌地图"]
 thumb: IMG_PATH/amap.png
 ---
 

@@ -12,7 +12,7 @@ title : 标签云
     {% for tag in site.tags %}
     {% assign count = tag | last | size %}
     {% if count  > 1 %}
-    <li><a class="tag-{{ tag | last | size }}" href="#{{ tag | first }}" style="font-size: {{ tag | last | size | times: 100 | divided_by: 30 }}px">{{ tag | first }}</a></li>
+    <li><a class="tag tag-{{ tag | last | size }}" href="#{{ tag | first }}" style="font-size: {{ tag | last | size | times: 100 | divided_by: 30 }}px">{{ tag | first }}</a></li>
     {% endif %}
     {% endfor %}
 </ul>

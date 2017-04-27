@@ -1,3 +1,5 @@
+'use strict';
+
 // closest & matches Polyfill
 !function(a){var c;if(a=a.Element)a=a.prototype,!(c=a.matches)&&(c=a.matchesSelector||a.mozMatchesSelector||a.msMatchesSelector||a.oMatchesSelector||a.webkitMatchesSelector||a.querySelectorAll&&function matches(a){a=(this.parentNode||this.document||this.ownerDocument).querySelectorAll(a);for(var b=a.length;0<=--b&&a.item(b)!==this;);return-1<b})&&(a.matches=c),!a.closest&&c&&(a.closest=function closest(a){for(var b=this;b;){if(1===b.nodeType&&b.matches(a))return b;b=b.parentNode}return null})}(Function("return this")());
 
@@ -162,11 +164,13 @@ function wxchoose(){
         if ( page.img > 0  && (new RegExp(site.img,'i')).test(item.getAttribute('src'))){
 
             //Lightbox
+            var itemTitle = item.title || item.parentElement.textContent.trim();
             item.dataset.jslghtbx = item.src.split(/_|\?/)[0];
-            item.dataset.jslghtbxCaption = item.getAttribute('alt');
+            item.dataset.jslghtbxCaption = item.alt;
             item.dataset.jslghtbxGroup = 'lightbox';
             item.classList.add('post-image');
-            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '<figcaption class="post-figcaption">&#9650; '+ item.parentElement.textContent.trim() +'</figcaption>');
+            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
+            document.querySelector('[data-index="'+i+'"]').insertAdjacentHTML('beforeend', '<figcaption class="post-figcaption">&#9650; '+ itemTitle +'</figcaption>');
 
             if( browser.wechat ){
                 document.getElementsByClassName('post-figure')[i].addEventListener('click',function(){
@@ -194,7 +198,7 @@ function wxchoose(){
                             var extime = data.ExposureTime ? data.ExposureTime.val : '无';
                             var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
                             var flength = data.FocalLength ? data.FocalLength.val : '无';
-                            document.querySelector('.post-content [src^="' + imageExif[i].slice(0,-5) + '"]').nextElementSibling.insertAdjacentHTML('beforeend', '<small class="post-image-exif">时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
+                            document.querySelector('[data-index="'+i+'"] .post-figcaption').insertAdjacentHTML('beforeend', '<small class="post-image-exif">时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
                         }
                     }
                 };
@@ -440,7 +444,7 @@ if ( page.layout == 'post' ) {
 }
 
 // Disqus 事件绑定
-disqus_loaded = false;
+var disqus_loaded = false;
 function disqus_config() {
     this.page.url = site.home + page.url;
     this.callbacks.onReady.push(function() {

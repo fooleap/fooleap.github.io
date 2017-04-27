@@ -109,6 +109,7 @@ permalink: /wgs84-or-gcj02-to-bd09/
     }
     </style>
 
+<script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 <script>
   $('#coords').height($('#coords').width()*2/3);
   var def_coords = '格式：经度,纬度;经度,纬度;...（亦可使用 Google Earth/Maps 路径导出的 KML 坐标集数据）';

@@ -29,6 +29,8 @@ tags: ["高德地图 API", "Nike+", "跑步"]
 
 网页端显示不比 App，尤其是还想嵌入在文章中的。一般是加载后，再给个点击事件激活动画效果。
 
+### 添加折线
+
 首先，把跑步折线显示出来，并显示起终点。在高德地图 API 文档中看到，可以使用 HTML 代码显示点标记的内容[[1]][1]，这样一来，起终点以及距离都直接写 HTML，样式直接用 CSS 写就行。也方便后续画线动画时实时显示已跑的距离。
 
 ```javascript
@@ -94,6 +96,8 @@ var distance = new AMap.Marker({
 
 到这里，CSS 稍微修饰一翻，便可正常显示出跑步的路线、起终点坐标以及跑步距离。
 
+### 添加动画
+
 接下来是复杂一点的画线动画，先分析动画需要显示的：
 
 * 画线效果为不断加长的折线
@@ -157,6 +161,8 @@ function drawline() {
     setTimeout(drawline, 40)
 }
 ```
+
+### 完善动画
 
 Nike+ 的坐标约为十米一记，一个半马两千个点，若一下子循环执行这么多次，一些浏览器可能性能不保，会影响到具体显示的效果。在这里需要做优化，将每次画线增加的距离改为可控。
 
@@ -232,7 +238,7 @@ function drawline(step) {
 
 加上 CSS，我将完整的实例扔在 GitHub[[2]][2]，需要自取。
 
-{% include media.html type="iframe" src="http://htmlpreview.github.io/?https://gist.githubusercontent.com/fooleap/2e524fd8d7164e090f0e25452fec734a/raw/e222154cf25426f472939034d7f8ff55a9ee92fb/use-amap-api-to-show-running-line.html" %}
+{% include media.html type="iframe" src="//cdn.rawgit.com/fooleap/2e524fd8d7164e090f0e25452fec734a/raw/e222154cf25426f472939034d7f8ff55a9ee92fb/use-amap-api-to-show-running-line.html" %}
 
 ## 参考资料
 

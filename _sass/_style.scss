@@ -587,6 +587,9 @@ pre {
 
 // 标签页
 .post-tags-list {
+    .tag{
+        color: $black;
+    }
     .tag-1,
     .tag-2,
     .tag-3 {
@@ -606,15 +609,6 @@ pre {
     .tag-11,
     .tag-12 {
         color: rgb(25, 25, 25);
-    }
-    .tag-13,
-    .tag-14,
-    .tag-15,
-    .tag-16,
-    .tag-17,
-    .tag-18,
-    .tag-33 {
-        color: $black;
     }
     display: none;
 }

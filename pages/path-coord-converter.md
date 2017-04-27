@@ -138,8 +138,8 @@ permalink: /path-coord-converter/
     height: 0;
 }
 </style>
-<script src="/assets/js/coordtransform.js">
-<script src="/assets/js/jszip.min.js">
+<script src="/assets/js/coordtransform.js"></script>
+<script src="/assets/js/jszip.min.js"></script>
 <script>
 var gps, gpsArrays, contents;
 var output = document.getElementById('output');
