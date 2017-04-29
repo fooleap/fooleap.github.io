@@ -46,7 +46,7 @@ tags: ["Markdown", "Liquid", "Jekyll"]
 
 ## 参考资料风格
 
-跟链接一样，Markdown 插图还提供了一种参考链接风格的插图方式[[1]][1]。
+跟链接一样，Markdown 插图还提供了一种参考资料风格的插图方式[[1]][1]。
 
 ```markdown
 ![alt text][id]

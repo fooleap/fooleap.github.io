@@ -5,6 +5,18 @@ title: 关于
 tags: [关于, 博客, fooleap, blog]
 ---
 
+<script>
+var toggleArr = document.querySelectorAll('.comment-toggle-item');
+[].forEach.call(toggleArr, function(item,i){
+    item.addEventListener('click', function(){
+        [].forEach.call(toggleArr, function(item,i){
+            item.classList.remove('active');
+        })
+        this.classList.add('active');
+    }, false);
+})
+</script>
+
 {% comment %}
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height="52" style="width:280px;margin:0;" src="http://music.163.com/outchain/player?type=2&id=165614&auto=0&height=32"></iframe>
 好多年前，在某个网站听到这首曲子的背景音乐，听着有感觉，便将其扒了下来（[fmmusic.mid]({{ site.IMG_PATH }}/fmmusic.mid)，当年的文件，MIDI 格式的），听得多了，就感觉对自己来说有某种特殊的意义，后来才知道它的名字及由来。

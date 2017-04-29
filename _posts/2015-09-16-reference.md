@@ -239,7 +239,10 @@ a[target="_blank"]:after {
 
 {% include media.html type="iframe" src="http://sandbox.runjs.cn/show/kgsa53l1" %}
 
-另外，本文就是使用自动生成参考资料的方式来书写，戳左下角“源码”按钮即可查看 Markdown 源码，如果没看到“源码”按钮，那么该换浏览器了。
+另外，本文就是使用自动生成参考资料的方式来书写，戳左下角“源码”按钮即可查看 Markdown 源码。
+
+以上实现有个问题，就是引用链接必须正序而不能乱序，解决方法可以在 GitHub 找到[[6]][6]。
+
 
 ## 参考资料
 
@@ -248,7 +251,9 @@ a[target="_blank"]:after {
 [3]: http://kramdown.gettalong.org/ "kramdown"
 [4]: http://daringfireball.net/projects/markdown/syntax#link "Links - Markdown: Syntax"
 [5]: http://www.w3school.com.cn/tags/att_global_data.asp "HTML data-* 属性"
+[6]: https://github.com/fooleap/fooleap.github.io/issues/2 "生成reference跳转，逻辑上似乎有一个小问题"
 
 **本文历史**
 
 * 2015 年 09 月 16 日 完成初稿
+* 2017 年 04 月 28 日 小修改

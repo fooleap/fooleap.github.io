@@ -449,6 +449,9 @@ function disqus_config() {
     this.page.url = site.home + page.url;
     this.callbacks.onReady.push(function() {
         disqus_loaded = true;
+        document.querySelector('.comment').style.display = 'none';
+        document.getElementById('comment').dataset.tips = '';
+        document.querySelector('.disqus').style.display = 'block';
     });
 };
 
@@ -527,6 +530,7 @@ function Comment () {
     this.imagesize = [];
     this.unload = [];
     this.next = '';
+    this.current = 'comment';
     this.hasBox = !!document.querySelector('.comment-box');
     this.box = this.hasBox ? document.querySelector('.comment-box').outerHTML : '';
     this.init();
@@ -548,19 +552,37 @@ Comment.prototype = {
             this.list(commentArr);
         }
 
-        // 拉取列表
+        var toggleBtn = document.getElementById('comment-toggle');
         if(this.hasBox){
-            if(document.getElementById('comment-toggle')){
-                document.getElementById('comment-toggle').addEventListener('change', function(){
-                    if( !disqus_loaded ){
-                        comment.disqus(); 
-                    }
-                    document.getElementById('disqus_thread').style.display = this.checked ? 'block' : 'none';
-                    document.getElementById('comment').style.display =  this.checked ? 'none' : 'block';
-                })
+            // 检测是否能连上 Disqus
+            document.getElementById('comment').dataset.tips = '正在检测能否连接 Disqus……';
+            var xhrConfig = new XMLHttpRequest();
+            xhrConfig.open('GET', '//disqus.com/next/config.json?' + new Date().getTime(), true);
+            xhrConfig.timeout = 1000;
+            xhrConfig.onload = function() {
+                document.getElementById('comment').dataset.tips = '连接成功，正在加载 Disqus 评论框……';
+                comment.current = 'disqus';
+                if(!!toggleBtn){toggleBtn.checked = true;}
+                comment.disqus();
             }
-            this.getlist();
+            xhrConfig.ontimeout = function() {
+                document.getElementById('comment').dataset.tips = '连接失败，正在加载简单评论框……';
+                comment.current = 'comment';
+                comment.getlist();
+                if(!!toggleBtn){toggleBtn.checked = false;}
+                document.getElementById('comment-toggle').checked = false;
+                xhrConfig.abort();
+            };
+            xhrConfig.onerror = function() {
+                document.getElementById('comment').dataset.tips = '连接失败，正在加载简单评论框……';
+                comment.current = 'comment';
+                if(!!toggleBtn){toggleBtn.checked = false;}
+                comment.getlist();
+            };
+            xhrConfig.send(null);
         }
+
+        if(!!toggleBtn){toggleBtn.addEventListener('click', this.toggle, false)}
     },
 
     // 评论计数
@@ -579,14 +601,30 @@ Comment.prototype = {
             }
         }
     },
+    
+    // 切换评论框
+    toggle: function(){
+        if( comment.current == 'disqus' ){
+            comment.current = 'comment';
+            comment.getlist();
+        } else {
+            comment.current = 'disqus';
+            comment.disqus();
+        }
+    },
 
     // 加载 Disqus 评论
     disqus: function(){
-        var d = document,
-            s = d.createElement('script');
-        s.src = '//fooleap.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
+        if(!disqus_loaded){
+            var d = document,
+                s = d.createElement('script');
+            s.src = '//fooleap.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        } else {
+            document.querySelector('.comment').style.display = 'none';
+            document.querySelector('.disqus').style.display = 'block';
+        }
     },
 
     // 评论表单事件绑定
@@ -670,16 +708,42 @@ Comment.prototype = {
     //emoji表情
     emoji: [
         {
-            code:':grin:',
-            title:'露齿笑',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f601.png'
-        },
-        {
+            code:':smile:',
+            title:'笑脸',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f604.png'
+        },{
+            code:':mask:',
+            title:'生病',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f637.png'
+        },{
             code:':joy:',
             title:'破涕为笑',
             url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f602.png'
-        },
-        {
+        },{
+            code:':stuck_out_tongue_closed_eyes:',
+            title:'吐舌',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f61d.png'
+        },{
+            code:':flushed:',
+            title:'脸红',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f633.png'
+        },{
+            code:':scream:',
+            title:'恐惧',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f631.png'
+        },{
+            code:':pensive:',
+            title:'失望',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f614.png'
+        },{
+            code:':unamused:',
+            title:'无语',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f612.png'
+        },{
+            code:':grin:',
+            title:'露齿笑',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f601.png'
+        },{
             code:':heart_eyes:',
             title:'色',
             url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png'
@@ -687,10 +751,6 @@ Comment.prototype = {
             code:':sweat:',
             title:'汗',
             url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f613.png'
-        },{
-            code:':unamused:',
-            title:'无语',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f612.png'
         },{
             code:':smirk:',
             title:'得意',
@@ -700,41 +760,17 @@ Comment.prototype = {
             title:'满意',
             url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60c.png'
         },{
-            code:':wx_smirk:',
-            title:'奸笑',
-            url: site.img + '/wx_emoji/2_02.png'
+            code:':rolling_eyes:',
+            title:'翻白眼',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f644.png'
         },{
-            code:':wx_hey:',
-            title:'嘿哈',
-            url: site.img + '/wx_emoji/2_04.png'
+            code:':ok_hand:',
+            title:'OK',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f44c.png'
         },{
-            code:':wx_facepalm:',
-            title:'捂脸',
-            url: site.img + '/wx_emoji/2_05.png'
-        },{
-            code:':wx_smart:',
-            title:'机智',
-            url: site.img + '/wx_emoji/2_06.png'
-        },{
-            code:':wx_tea:',
-            title:'茶',
-            url: site.img + '/wx_emoji/2_07.png'
-        },{
-            code:':wx_yeah:',
-            title:'耶',
-            url: site.img + '/wx_emoji/2_11.png'
-        },{
-            code:':wx_moue:',
-            title:'皱眉',
-            url: site.img + '/wx_emoji/2_12.png'
-        },{
-            code:':doge:',
-            title:'doge',
-            url: site.img + '/weibo/doge.png'
-        },{
-            code:':tanshou:',
-            title:'摊手',
-            url: site.img + '/weibo/tanshou.png'
+            code:':v:',
+            title:'胜利',
+            url:'//assets-cdn.github.com/images/icons/emoji/unicode/270c.png'
         }
     ],
     
@@ -762,8 +798,8 @@ Comment.prototype = {
 
     // 发表/回复评论
     post: function(e){
-        var item = e.currentTarget.closest('.comment-item') || e.currentTarget.closest('.comment-box') ;
-        var message = item.querySelector('.comment-form-textarea').value;
+        var item = e.currentTarget.closest('.comment-item') || e.currentTarget.closest('.comment-box');
+        var message = item.querySelector('.comment-form-textarea').value.replace('+','&#43;');
         var parentId = !!item.dataset.id ? item.dataset.id : '';
         var time = (new Date()).toJSON();
         var imgArr = item.getElementsByClassName('comment-image-item');
@@ -887,96 +923,102 @@ Comment.prototype = {
 
     // 获取评论列表
     getlist: function(){
-        var xhrListPosts = new XMLHttpRequest();
-        xhrListPosts.open('GET', site.api + '/disqus/getcomments?link=' + encodeURIComponent(page.url) + '&cursor=' + this.next, true);
-        xhrListPosts.send();
-        xhrListPosts.onreadystatechange = function() {
-            if (xhrListPosts.readyState == 4 && xhrListPosts.status == 200) {
-                var res = JSON.parse(xhrListPosts.responseText);
-                if (res.code === 0) {
-                    comment.thread = res.thread;
-                    document.getElementById('comment').classList.remove('loading')
-                    document.querySelector('.comment-tips-link').setAttribute('href', res.link);
-                    if (res.response == null) {
-                        return;
-                    }
-                    var posts = !!comment.unload ? res.response.concat(comment.unload) : res.response;
-                    comment.root = [];
-                    comment.unload = [];
-                    posts.forEach(function(post, i){
-                        comment.load(post,i);
-                        if(!post.parent){
-                            comment.root.unshift(post.id);
+        document.querySelector('.disqus').style.display = 'none';
+        document.querySelector('.comment').style.display = 'block';
+        if(!comment.count){
+            var xhrListPosts = new XMLHttpRequest();
+            xhrListPosts.open('GET', site.api + '/disqus/getcomments?link=' + encodeURIComponent(page.url) + '&cursor=' + this.next, true);
+            xhrListPosts.send();
+            xhrListPosts.onreadystatechange = function() {
+                if (xhrListPosts.readyState == 4 && xhrListPosts.status == 200) {
+                    document.getElementById('comment').dataset.tips = '';
+                    var res = JSON.parse(xhrListPosts.responseText);
+                    if (res.code === 0) {
+                        comment.thread = res.thread;
+                        document.querySelector('.comment').classList.remove('loading')
+                        document.querySelector('.comment-tips-link').setAttribute('href', res.link);
+                        if (res.response == null) {
+                            comment.count = res.posts;
+                            return;
                         }
-                    });
-                    // 兼容非首次获取
-                    if( res.cursor.hasPrev ){
-                        comment.root.forEach(function(item){
-                             document.querySelector('.comment-list').appendChild(document.getElementById('comment-' + item));
-                        })
-                        window.scrollTo(0, comment.offsetTop);
-                    } else {
-                        comment.count = res.posts;
-                        document.getElementById('comment-count').innerHTML = res.posts + ' 条评论';
-                    }
-
-                    var loadmore = document.querySelector('.comment-loadmore');
-                    comment.next = res.cursor.hasNext ? res.cursor.next : '';
-                    if ( res.cursor.hasNext ){
-                        if( !!loadmore ){
-                            loadmore.classList.remove('loading');
+                        var posts = !!comment.unload ? res.response.concat(comment.unload) : res.response;
+                        comment.root = [];
+                        comment.unload = [];
+                        posts.forEach(function(post, i){
+                            comment.load(post,i);
+                            if(!post.parent){
+                                comment.root.unshift(post.id);
+                            }
+                        });
+                        // 兼容非首次获取
+                        if( res.cursor.hasPrev ){
+                            comment.root.forEach(function(item){
+                                document.querySelector('.comment-list').appendChild(document.getElementById('comment-' + item));
+                            })
+                            window.scrollTo(0, comment.offsetTop);
                         } else {
-                            document.getElementById('comment').insertAdjacentHTML('beforeend', '<a href="javascript:;" class="comment-loadmore">加载更多</a>');
+                            comment.count = res.posts;
+                            document.getElementById('comment-count').innerHTML = res.posts + ' 条评论';
                         }
-                        document.querySelector('.comment-loadmore').addEventListener('click', function(){
-                            this.classList.add('loading');
-                            comment.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
-                            comment.getlist();
-                        }, {once: true});
-                    } else {
-                        if( !!loadmore ){
-                            loadmore.parentNode.removeChild(loadmore);
-                        }
-                    }
 
-                    timeAgo();
-                    if (/^#disqus|^#comment/.test(location.hash) && !res.cursor.hasPrev ) {
-                        window.scrollTo(0, document.querySelector(location.hash).offsetTop);
-                    }
-                } else if ( res.code === 2){
-                    var createHTML = '<div class="comment-header">';
-                    createHTML += '    <span class="comment-header-item">创建 Thread<\/span>';
-                    createHTML += '<\/div>';
-                    createHTML += '<div class="comment-thread-form">';
-                    createHTML += '<p>由于 Disqus 没有本文的相关 Thread，故需先创建 Thread<\/p>';
-                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">url:<\/label><input class="comment-form-input" id="thread-url" name="url" value="'+site.home+page.url+'" \/><\/div>';
-                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">title:<\/label><input class="comment-form-input" id="thread-title" name="title" value="'+page.title+'" \/><\/div>';
-                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">slug:<\/label><input class="comment-form-input" id="thread-slug" name="slug" placeholder="（别名，选填）" \/><\/div>';
-                    createHTML += '<div class="comment-form-item"><label class="comment-form-label">message:<\/label><textarea class="comment-form-textarea" id="thread-message" name="message">'+page.desc+'<\/textarea><\/div>';
-                    createHTML += '<button id="thread-submit" class="comment-form-submit">提交<\/button><\/div>'
-                    document.getElementById('comment').classList.remove('loading')
-                    document.getElementById('comment').innerHTML = createHTML;
-                    document.getElementById('thread-submit').addEventListener('click',function(){
-                        var threadQuery = 'url=' + document.getElementById('thread-url').value + '&title=' + document.getElementById('thread-title').value + '&slug=' + document.getElementById('thread-slug').value + '&message=' + document.getElementById('thread-message').value;
-                        var xhrcreateThread = new XMLHttpRequest();
-                        xhrcreateThread.open('POST', site.api + '/disqus/createthread', true);
-                        xhrcreateThread.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                        xhrcreateThread.send(threadQuery);
-                        xhrcreateThread.onreadystatechange = function() {
-                            if (xhrcreateThread.readyState == 4 && xhrcreateThread.status == 200) {
-                                var resp = JSON.parse(xhrcreateThread.responseText);
-                                if( resp.code === 0 ) {
-                                    alert('创建 Thread 成功！');
-                                    location.reload();
-                                }
+                        var loadmore = document.querySelector('.comment-loadmore');
+                        comment.next = res.cursor.hasNext ? res.cursor.next : '';
+                        if ( res.cursor.hasNext ){
+                            if( !!loadmore ){
+                                loadmore.classList.remove('loading');
+                            } else {
+                                document.querySelector('.comment').insertAdjacentHTML('beforeend', '<a href="javascript:;" class="comment-loadmore">加载更多</a>');
+                            }
+                            document.querySelector('.comment-loadmore').addEventListener('click', function(){
+                                this.classList.add('loading');
+                                comment.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
+                                comment.getlist();
+                            }, {once: true});
+                        } else {
+                            if( !!loadmore ){
+                                loadmore.parentNode.removeChild(loadmore);
                             }
                         }
-                    },true);
+
+                        timeAgo();
+                        if (/^#disqus|^#comment/.test(location.hash) && !res.cursor.hasPrev ) {
+                            window.scrollTo(0, document.querySelector(location.hash).offsetTop);
+                        }
+                    } else if ( res.code === 2){
+                        var createHTML = '<div class="comment-header">';
+                        createHTML += '    <span class="comment-header-item">创建 Thread<\/span>';
+                        createHTML += '<\/div>';
+                        createHTML += '<div class="comment-thread-form">';
+                        createHTML += '<p>由于 Disqus 没有本文的相关 Thread，故需先创建 Thread<\/p>';
+                        createHTML += '<div class="comment-form-item"><label class="comment-form-label">url:<\/label><input class="comment-form-input" id="thread-url" name="url" value="'+site.home+page.url+'" \/><\/div>';
+                        createHTML += '<div class="comment-form-item"><label class="comment-form-label">title:<\/label><input class="comment-form-input" id="thread-title" name="title" value="'+page.title+'" \/><\/div>';
+                        createHTML += '<div class="comment-form-item"><label class="comment-form-label">slug:<\/label><input class="comment-form-input" id="thread-slug" name="slug" placeholder="（别名，选填）" \/><\/div>';
+                        createHTML += '<div class="comment-form-item"><label class="comment-form-label">message:<\/label><textarea class="comment-form-textarea" id="thread-message" name="message">'+page.desc+'<\/textarea><\/div>';
+                        createHTML += '<button id="thread-submit" class="comment-form-submit">提交<\/button><\/div>'
+                        document.querySelector('.comment').classList.remove('loading')
+                        document.querySelector('.comment').innerHTML = createHTML;
+                        document.getElementById('thread-submit').addEventListener('click',function(){
+                            var threadQuery = 'url=' + document.getElementById('thread-url').value + '&title=' + document.getElementById('thread-title').value + '&slug=' + document.getElementById('thread-slug').value + '&message=' + document.getElementById('thread-message').value;
+                            var xhrcreateThread = new XMLHttpRequest();
+                            xhrcreateThread.open('POST', site.api + '/disqus/createthread', true);
+                            xhrcreateThread.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                            xhrcreateThread.send(threadQuery);
+                            xhrcreateThread.onreadystatechange = function() {
+                                if (xhrcreateThread.readyState == 4 && xhrcreateThread.status == 200) {
+                                    var resp = JSON.parse(xhrcreateThread.responseText);
+                                    if( resp.code === 0 ) {
+                                        alert('创建 Thread 成功！');
+                                        location.reload();
+                                    }
+                                }
+                            }
+                        },true);
+                    }
                 }
             }
-        }
-        xhrListPosts.onload = function(){
-            comment.form();
+            xhrListPosts.onload = function(){
+                comment.form();
+            }
         }
 
     },

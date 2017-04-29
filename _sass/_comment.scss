@@ -43,6 +43,26 @@
         margin: 0 5px;
     }
 }
+#comment{
+    position: relative;
+    margin-bottom: 40px;
+    &:before{
+        content: attr(data-tips);
+        display: block;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 80px;
+        text-align: center;
+        top: 60px;
+        text-align: center;
+        font-size: 14px;
+        color: #aeafb1;
+    }
+    .disqus{
+        display: none;
+    }
+}
 .comment{
     font: 13px/1.6 "Helvetica Neue", Helvetica, Arial, "微软雅黑", "Microsoft YaHei", sans-serif;
     min-height: 40px;
