@@ -117,7 +117,7 @@ if(browser.wechat && location.origin == site.home){
     xhrwesign.onreadystatechange = function() {
         if (xhrwesign.readyState==4 && xhrwesign.status==200)
         {
-            signPackage = JSON.parse(xhrwesign.responseText);
+            var signPackage = JSON.parse(xhrwesign.responseText);
             wx.config({
                 debug: false,
                 appId: signPackage.appId,
@@ -164,71 +164,73 @@ function wxchoose(){
 
 
     [].forEach.call(imageArr, function(item, i){
-        // Figure
-        var itemTitle = item.title || item.parentElement.textContent.trim();
-        item.dataset.jslghtbx = oImgArr[i];
-        item.dataset.jslghtbxCaption = item.alt;
-        item.dataset.jslghtbxGroup = 'lightbox';
-        item.classList.add('post-image');
-        item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
-        if( !!itemTitle ){
-            document.querySelector('[data-index="'+i+'"]').insertAdjacentHTML('beforeend', '<figcaption class="post-figcaption">&#9650; '+ itemTitle +'</figcaption>');
-        }
+        if( page.img > 0 ){
+            // Figure
+            var itemTitle = item.title || item.parentElement.textContent.trim();
+            item.dataset.jslghtbx = oImgArr[i];
+            item.dataset.jslghtbxCaption = item.alt;
+            item.dataset.jslghtbxGroup = 'lightbox';
+            item.classList.add('post-image');
+            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
+            if( !!itemTitle ){
+                document.querySelector('[data-index="'+i+'"]').insertAdjacentHTML('beforeend', '<figcaption class="post-figcaption">&#9650; '+ itemTitle +'</figcaption>');
+            }
 
-        if( browser.wechat ){
-            document.getElementsByClassName('post-figure')[i].addEventListener('click',function(){
-                wx.previewImage({
-                    current: oImgArr[i], 
-                    urls: oImgArr
-                });
-            })
-        }
+            if( browser.wechat ){
+                document.getElementsByClassName('post-figure')[i].addEventListener('click',function(){
+                    wx.previewImage({
+                        current: oImgArr[i], 
+                        urls: oImgArr
+                    });
+                })
+            }
 
-        if (item.src.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item.src)) {
+            if (item.src.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item.src)) {
 
-            //Exif
-            imageExif[i] = item.src.split(/_|\?/)[0] + '?exif';
-            xhrImageExif[i] = new XMLHttpRequest();
-            xhrImageExif[i].open('GET', imageExif[i], true);
-            xhrImageExif[i].onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200)
-                {
-                    var data = JSON.parse(this.responseText);
-                    if ( !!data.DateTimeOriginal ) {
-                        var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
-                        var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
-                        var model = data.Model ? data.Model.val : '无';
-                        var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
-                        var extime = data.ExposureTime ? data.ExposureTime.val : '无';
-                        var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
-                        var flength = data.FocalLength ? data.FocalLength.val : '无';
-                        document.querySelector('[data-index="'+i+'"] .post-figcaption').insertAdjacentHTML('beforeend', '<small class="post-image-exif">时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
-                    }
-                    if ( !!data.GPSLongitude ) {
-                        var olat = data.GPSLatitude.val.split(', ');
-                        var olng = data.GPSLongitude.val.split(', ');
-                        var lat=0, lng=0;
-                        for( var e = 0; e < olat.length; e++ ){
-                            lat += olat[e] / 60 ** e;
-                            lng += olng[e] / 60 ** e;
+                //Exif
+                imageExif[i] = item.src.split(/_|\?/)[0] + '?exif';
+                xhrImageExif[i] = new XMLHttpRequest();
+                xhrImageExif[i].open('GET', imageExif[i], true);
+                xhrImageExif[i].onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200)
+                    {
+                        var data = JSON.parse(this.responseText);
+                        if ( !!data.DateTimeOriginal ) {
+                            var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
+                            var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
+                            var model = data.Model ? data.Model.val : '无';
+                            var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
+                            var extime = data.ExposureTime ? data.ExposureTime.val : '无';
+                            var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
+                            var flength = data.FocalLength ? data.FocalLength.val : '无';
+                            document.querySelector('[data-index="'+i+'"] .post-figcaption').insertAdjacentHTML('beforeend', '<small class="post-image-exif">时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
                         }
-                        lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
-                        lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
-                        xhrRegeo[i] = new XMLHttpRequest();
-                        xhrRegeo[i].open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&location='+coordtransform.wgs84togcj02(lng, lat).join(','), true);
-                        xhrRegeo[i].onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200){
-                                var data = JSON.parse(this.responseText);
-                                if( data.info == 'OK' ){
-                                    document.querySelector('[data-index="'+i+'"] .post-image').title = '摄于' + data.regeocode.addressComponent.city + data.regeocode.addressComponent.district + data.regeocode.addressComponent.township;
+                        if ( !!data.GPSLongitude ) {
+                            var olat = data.GPSLatitude.val.split(', ');
+                            var olng = data.GPSLongitude.val.split(', ');
+                            var lat=0, lng=0;
+                            for( var e = 0; e < olat.length; e++ ){
+                                lat += olat[e] / Math.pow(60, e);
+                                lng += olng[e] / Math.pow(60, e);
+                            }
+                            lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
+                            lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
+                            xhrRegeo[i] = new XMLHttpRequest();
+                            xhrRegeo[i].open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&location='+coordtransform.wgs84togcj02(lng, lat).join(','), true);
+                            xhrRegeo[i].onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200){
+                                    var data = JSON.parse(this.responseText);
+                                    if( data.info == 'OK' ){
+                                        document.querySelector('[data-index="'+i+'"] .post-image').title = '摄于' + data.regeocode.addressComponent.city + data.regeocode.addressComponent.district + data.regeocode.addressComponent.township;
+                                    }
                                 }
                             }
+                            xhrRegeo[i].send(null);
                         }
-                        xhrRegeo[i].send(null);
                     }
-                }
-            };
-            xhrImageExif[i].send(null);
+                };
+                xhrImageExif[i].send(null);
+            }
         }
     });
 
