@@ -176,7 +176,7 @@ st(right)->op1(right)->op2(right)->op3(right)->e
 [4]: http://lbs.amap.com/api/webservice/guide/api/georegeo/#regeo "逆地理编码 &#124; 高德地图API"
 [5]: http://lbs.amap.com/api/webservice/guide/api/staticmaps "静态地图 &#124; 高德地图API"
 [6]: https://developer.qiniu.com/dora/api/1279/basic-processing-images-imageview2 "图片基本处理 - 七牛开发者中心"
-[7]: http://lbs.amap.com/api/javascript-api/reference/overlay#Marker "结合七牛和高德地图 API 显示照片位置 &#124; Fooleap's Blog"
+[7]: http://lbs.amap.com/api/javascript-api/reference/overlay#Marker "结合七牛和高德地图 API 显示照片位置 &#124; 高德地图API"
 [8]: https://gist.github.com/fooleap/e8435c2f1f6764a7672ffbf0fd6e4698 "结合七牛和高德地图 API 显示照片位置"
 [9]: http://cdn.rawgit.com/fooleap/e8435c2f1f6764a7672ffbf0fd6e4698/raw/9e9e4e381afb99e62b7029c3495596bd5d7c54ec/show-photo-location-with-qiniu-and-amap-api.html "结合七牛和高德地图 API 显示照片位置（预览）"
 
