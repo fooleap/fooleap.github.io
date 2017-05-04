@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "coordtransform": "^2.1.2",
+    "flowchart.js": "^1.6.6",
+    "webpack": "^2.4.1",
+    "webpack-raphael": "^2.1.4"
+  },
+  "name": "fooleap.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fooleap/fooleap.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fooleap/fooleap.github.io/issues"
+  },
+  "homepage": "https://github.com/fooleap/fooleap.github.io#readme",
+  "description": ""
+}

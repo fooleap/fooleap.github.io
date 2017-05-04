@@ -30,26 +30,19 @@ var head = document.getElementsByTagName('head')[0],
 var flowArr = document.getElementsByClassName('language-flow');
 if( flowArr.length > 0 ){
 
-    var fcscript = document.createElement('script');
-    fcscript.type = 'text/javascript';
-    fcscript.src = '/assets/js/flowchart.min.js';
-    document.getElementsByTagName('head')[0].appendChild(fcscript);
+    [].forEach.call(flowArr, function(item,i){
+        var flowId = 'flow-' + (i+1);
+        var div = document.createElement('div');
+        div.classList.add('flow');
+        div.setAttribute('id', flowId);
 
-    fcscript.onload = function(){
-        [].forEach.call(flowArr, function(item,i){
-            var flowId = 'flow-' + (i+1);
-            var div = document.createElement('div');
-            div.classList.add('flow');
-            div.setAttribute('id', flowId);
+        var pre = item.parentNode;
+        pre.insertAdjacentElement('beforebegin', div);
+        pre.style.display = 'none';
 
-            var pre = item.parentNode;
-            pre.insertAdjacentElement('beforebegin', div);
-            pre.style.display = 'none';
-
-            var diagram = flowchart.parse(item.innerText);
-            diagram.drawSVG(flowId);
-        })
-    }
+        var diagram = flowchart.parse(item.innerText);
+        diagram.drawSVG(flowId);
+    })
 
     window.addEventListener('load', function(){
         var linkArr = document.querySelectorAll('.flow a');

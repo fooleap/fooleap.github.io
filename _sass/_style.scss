@@ -85,11 +85,11 @@ body {
             border-bottom: 1px dashed $darkblue;
         }
         &:target{
-            background-color: rgb(230, 230, 230);
+            background-color: rgba(230, 230, 230, .5);
         }
     }
     .note:target{
-        background-color: rgb(230, 230, 230);
+        background-color: rgba(230, 230, 230, .5);
     }
     &:before {
         content: "";
@@ -263,11 +263,17 @@ body {
     }
     h2 {
         border-left: 4px solid $darkblue;
-        font-size: 16px;
         padding-left: 5px;
+        font-size: 16px;
+        &:hover:after, &:target:after{
+            content: " ¶";
+        }
     }
     h3 {
         font-size: 15px;
+        &:hover:after, &:target:after{
+            content: " ¶";
+        }
     }
     p a:not([href^="/"]) {
         vertical-align:super; 
@@ -326,9 +332,12 @@ body {
             .post-image-exif {
                 opacity: .7;
             }
+            .post-image {
+                box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+            }
         }
         .post-image {
-            cursor: zoom-in;
+            cursor: pointer;
             display: block;
             max-width: 100%;
             width: auto;
