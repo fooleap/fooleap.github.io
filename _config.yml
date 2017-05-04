@@ -7,10 +7,7 @@ keywords: [fooleap, 前端, Linux, 潮汕]
 description: 'A foolish man could not always lose!'
 
 permalink: /:title.html
-exclude: ['package.json', 'node_modules', 'media', 'update.lftp', 'pushbaidu.sh', '.htaccess']
-sass:
-    sass_dir: _sass
-    style: :compressed
+exclude: ['webpack.config.js','package.json', 'node_modules', 'src']
 highlighter: rouge
 markdown: kramdown
 kramdown: 
@@ -21,8 +18,7 @@ kramdown:
 gems: 
       - jekyll-paginate
       - jekyll-coffeescript
-      - jekyll-autoprefixer
-      - jemoji
+#      - jemoji
 paginate: 10
 repository: fooleap/fooleap.github.io
 

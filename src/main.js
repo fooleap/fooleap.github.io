@@ -1,3 +1,12 @@
+import './sass/style.scss'
+import './sass/navigation.scss'
+import './sass/github.scss'
+import './sass/comment.scss'
+import './sass/media.scss'
+var coordtransform = require('coordtransform');
+var raphael = require('webpack-raphael');
+var flowchart = require('flowchart.js');
+
 'use strict';
 
 // closest & matches Polyfill
@@ -465,7 +474,7 @@ if ( page.layout == 'post' ) {
 
 // Disqus 事件绑定
 var disqus_loaded = false;
-function disqus_config() {
+window.disqus_config = function () {
     this.page.url = site.home + page.url;
     this.callbacks.onReady.push(function() {
         disqus_loaded = true;
