@@ -5,6 +5,11 @@
         font: 14px/1.6 "Helvetica Neue", Helvetica, Arial, "微软雅黑", "Microsoft YaHei", sans-serif;
     }
 }
+@media screen and(max-width: 768px) {
+    .page-main{
+        margin: 0;
+    }
+}
 @media screen and(max-width: 450px) {
     body{
        background-color: #fff;
@@ -14,7 +19,6 @@
         right: 8px;
     }
     .page-main{
-        margin: 0;
         padding: 20px 0;
         box-shadow: none;
         &:before {

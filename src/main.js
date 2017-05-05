@@ -1,16 +1,75 @@
 import './sass/style.scss'
 import './sass/navigation.scss'
+import './sass/lightbox.scss'
 import './sass/github.scss'
 import './sass/comment.scss'
 import './sass/media.scss'
 var coordtransform = require('coordtransform');
 var raphael = require('webpack-raphael');
 var flowchart = require('flowchart.js');
+var loadingsvg = require('url-loader!./svg/loading.svg');
 
 'use strict';
 
-// closest & matches Polyfill
-!function(a){var c;if(a=a.Element)a=a.prototype,!(c=a.matches)&&(c=a.matchesSelector||a.mozMatchesSelector||a.msMatchesSelector||a.oMatchesSelector||a.webkitMatchesSelector||a.querySelectorAll&&function matches(a){a=(this.parentNode||this.document||this.ownerDocument).querySelectorAll(a);for(var b=a.length;0<=--b&&a.item(b)!==this;);return-1<b})&&(a.matches=c),!a.closest&&c&&(a.closest=function closest(a){for(var b=this;b;){if(1===b.nodeType&&b.matches(a))return b;b=b.parentNode}return null})}(Function("return this")());
+/**
+ * @see https://dom.spec.whatwg.org/#interface-element
+ * @see https://developer.mozilla.org/docs/Web/API/Element/matches#Polyfill
+ * @see https://gist.github.com/jonathantneal/3062955
+ * @see https://github.com/jonathantneal/closest
+ */
+
+(function(global){
+  var Element;
+  var ElementPrototype;
+  var matches;
+
+  if (Element = global.Element) {
+    ElementPrototype = Element.prototype;
+
+    /**
+     * @see https://dom.spec.whatwg.org/#dom-element-matches
+     */
+    if (!(matches = ElementPrototype.matches)) {
+      if ((
+        matches = ElementPrototype.matchesSelector ||
+          ElementPrototype.mozMatchesSelector ||
+          ElementPrototype.msMatchesSelector ||
+          ElementPrototype.oMatchesSelector ||
+          ElementPrototype.webkitMatchesSelector ||
+          (ElementPrototype.querySelectorAll && function matches(selectors) {
+            var element = this;
+            var nodeList = (element.parentNode || element.document || element.ownerDocument).querySelectorAll(selectors);
+            var index = nodeList.length;
+
+            while (--index >= 0 && nodeList.item(index) !== element) {}
+
+            return index > -1;
+          })
+      )) {
+        ElementPrototype.matches = matches;
+      }
+    }
+
+    /**
+     * @see https://dom.spec.whatwg.org/#dom-element-closest
+     */
+    if (!ElementPrototype.closest && matches) {
+      ElementPrototype.closest = function closest(selectors) {
+        var element = this;
+
+        while (element) {
+          if (element.nodeType === 1 && element.matches(selectors)) {
+            return element;
+          }
+
+          element = element.parentNode;
+        }
+
+        return null;
+      };
+    }
+  }
+}(Function('return this')()));
 
 var ua = navigator.userAgent;
 //全局变量
@@ -152,105 +211,97 @@ function wxchoose(){
 
 // 图片
 (function(){
-    var imageArr = document.querySelectorAll('.post-content img');
-    var xhrImageExif = [],
-        xhrRegeo = [],
-        imageExif = [],
-        oImgArr = [],
-        gpsArr = [];
-
+    var imageArr = document.querySelectorAll('.post-content img:not([class="emoji"])')
+    var image = {
+        "src" : [],
+        "title" : [],
+        "coord": [],
+        "xhrExif": []
+    };
     for(var i = 0; i < imageArr.length; i++){
-        oImgArr[i] =  new RegExp('\^'+site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
+        image.src[i] =  new RegExp('\^'+site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
     }
-    page.img = imageArr.length;
-
 
     [].forEach.call(imageArr, function(item, i){
-        if( page.img > 0 ){
-            // Figure
-            var itemTitle = item.title || item.parentElement.textContent.trim();
-            item.classList.add('post-image');
-            item.title = itemTitle;
-            item.dataset.src = oImgArr[i];
-            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
-            if( !!itemTitle ){
-                document.querySelector('[data-index="'+i+'"]').insertAdjacentHTML('beforeend', '<figcaption class="post-figcaption">&#9650; '+ itemTitle +'</figcaption>');
-            }
-	    document.querySelector('[data-index="'+i+'"] .post-image').addEventListener('click', function(){
-	        window.open(oImgArr[i]);
-	    });
+        // Figure
+        image.title[i] = item.title || item.parentElement.textContent.trim();
+        item.classList.add('post-image');
+        item.title = image.title[i];
+        item.dataset.src = image.src[i];
+        item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
+        if( !!image.title[i] ){
+            document.querySelector('[data-index="'+i+'"]').insertAdjacentHTML('beforeend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
+        }
+        document.querySelector('[data-index="'+i+'"] .post-image').addEventListener('click', function(){
+            window.open(image.src[i]);
+        });
 
-            if( browser.wechat ){
-                document.getElementsByClassName('post-figure')[i].addEventListener('click',function(){
-                    wx.previewImage({
-                        current: oImgArr[i], 
-                        urls: oImgArr
-                    });
-                })
-            }
+        if( browser.wechat ){
+            document.getElementsByClassName('post-figure')[i].addEventListener('click',function(){
+                wx.previewImage({
+                    current: image.src[i], 
+                    urls: image.src
+                });
+            })
+        }
 
-            if (item.src.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item.src)) {
-
-                //Exif
-                imageExif[i] = item.src.split(/_|\?/)[0] + '?exif';
-                xhrImageExif[i] = new XMLHttpRequest();
-                xhrImageExif[i].open('GET', imageExif[i], true);
-                xhrImageExif[i].onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200)
-                    {
-                        var data = JSON.parse(this.responseText);
-                        if ( !!data.DateTimeOriginal ) {
-                            var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
-                            var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
-                            var model = data.Model ? data.Model.val : '无';
-                            var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
-                            var extime = data.ExposureTime ? data.ExposureTime.val : '无';
-                            var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
-                            var flength = data.FocalLength ? data.FocalLength.val : '无';
-                            document.querySelector('[data-index="'+i+'"] .post-figcaption').insertAdjacentHTML('beforeend', '<small class="post-image-exif">时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
+        if (item.src.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item.src)) {
+            //Exif
+            var exif = item.src.split(/_|\?/)[0] + '?exif';
+            image.xhrExif[i] = new XMLHttpRequest();
+            image.xhrExif[i].open('GET', exif, true);
+            image.xhrExif[i].onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200)
+                {
+                    var data = JSON.parse(this.responseText);
+                    if ( !!data.DateTimeOriginal ) {
+                        var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
+                        var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
+                        var model = data.Model ? data.Model.val : '无';
+                        var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
+                        var extime = data.ExposureTime ? data.ExposureTime.val : '无';
+                        var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
+                        var flength = data.FocalLength ? data.FocalLength.val : '无';
+                        document.querySelector('[data-index="'+i+'"] .post-figcaption').insertAdjacentHTML('beforeend', '<small class="post-image-exif">时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
+                    }
+                    if ( !!data.GPSLongitude ) {
+                        var olat = data.GPSLatitude.val.split(', ');
+                        var olng = data.GPSLongitude.val.split(', ');
+                        var lat=0, lng=0;
+                        for( var e = 0; e < olat.length; e++ ){
+                            lat += olat[e] / Math.pow(60, e);
+                            lng += olng[e] / Math.pow(60, e);
                         }
-                        if ( !!data.GPSLongitude ) {
-                            var olat = data.GPSLatitude.val.split(', ');
-                            var olng = data.GPSLongitude.val.split(', ');
-                            var lat=0, lng=0;
-                            for( var e = 0; e < olat.length; e++ ){
-                                lat += olat[e] / Math.pow(60, e);
-                                lng += olng[e] / Math.pow(60, e);
-                            }
-                            lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
-                            lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
-                            xhrRegeo[i] = new XMLHttpRequest();
-                            xhrRegeo[i].open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&location='+coordtransform.wgs84togcj02(lng, lat).join(','), true);
-                            xhrRegeo[i].onreadystatechange = function() {
-                                if (this.readyState == 4 && this.status == 200){
-                                    var data = JSON.parse(this.responseText);
-                                    if( data.info == 'OK' ){
-                                        document.querySelector('[data-index="'+i+'"] .post-image').title = '摄于' + data.regeocode.addressComponent.city + data.regeocode.addressComponent.district + data.regeocode.addressComponent.township;
+                        lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
+                        lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
+                        image.coord[i] = coordtransform.wgs84togcj02(lng, lat).join(',');
+                    }
+                }
+            };
+            image.xhrExif[i].onload = function(){
+                if (i == imageArr.length -1){
+                    var xhrRegeo = new XMLHttpRequest();
+                    xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
+                    xhrRegeo.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200){
+                            var data = JSON.parse(this.responseText);
+                            if( data.info == 'OK' ){
+                                for (var m = 0, n = 0; m < imageArr.length; m++) {
+                                    if (typeof(image.coord[m])!='undefined') {
+                                        document.querySelector('[data-index="'+m+'"] .post-image').title = '摄于' + data.regeocodes[n].addressComponent.city + data.regeocodes[n].addressComponent.district + data.regeocodes[0].addressComponent.township;
+                                        n++;
                                     }
                                 }
                             }
-                            xhrRegeo[i].send(null);
                         }
                     }
-                };
-                xhrImageExif[i].send(null);
+                    xhrRegeo.send(null);
+                }
             }
+            image.xhrExif[i].send(null);
         }
     });
-
 })();
-
-// 判断是否支持 Flash http://goo.gl/cg206i
-function isFlashSupported() {
-    if (window.ActiveXObject) {
-        try {
-            if (new ActiveXObject('ShockwaveFlash.ShockwaveFlash'))
-                return true;
-        } catch (e) {}
-    }
-    return navigator.plugins['Shockwave Flash'] ? true : false;
-}
-
 
 // Vim 键绑定
 /*
@@ -301,11 +352,8 @@ function keysUp(event) {
 }
 window.addEventListener('keydown', keysDown, false);
 window.addEventListener('keyup', keysUp, false);
-*/
 
 if( browser.mobile && page.url == '/' ){
-    var pagination = document.querySelector('.pagination');
-    pagination.innerHTML = '';
     var pageNum = 0;
     var postData;
     var xhrPosts = new XMLHttpRequest();
@@ -346,6 +394,7 @@ if( browser.mobile && page.url == '/' ){
         }
     }
 }
+*/
 
 // 目录
 var toc = document.querySelector('.post-toc');
@@ -1156,7 +1205,7 @@ Comment.prototype = {
         xhrUpload.upload.addEventListener("load", function(e){
             loaded.style.width = 0;
             progress.style.width = 0;
-            var imageItem = '<li class="comment-image-item loading" data-image-size="' + size + '"><img class="comment-image-object" src="/assets/svg/loading.svg" /></li>';
+            var imageItem = '<li class="comment-image-item loading" data-image-size="' + size + '"><img class="comment-image-object" src="'+loadingsvg+'" /></li>';
             item.querySelector('.comment-image-list').insertAdjacentHTML('beforeend', imageItem);
         }, false);
 
@@ -1184,31 +1233,6 @@ Comment.prototype = {
 
 var guest = new Guest();
 var comment =  new Comment();
-
-// 标签云 http://goo.gl/OAvhn3
-if ( page.url == '/tags.html' ) {
-    var tagscript = document.createElement('script');
-    tagscript.type = 'text/javascript';
-    tagscript.src = '/assets/js/tagcanvas.min.js';
-    document.getElementsByTagName('head')[0].appendChild(tagscript);
-    tagscript.onload = function(){
-        TagCanvas.Start('tag-canvas', 'tags', {
-            textHeight: 25,
-            textColour: null,
-            //textFont:  ''
-            outlineColour: 'rgba(225, 225, 225, .3)',
-            outlineMethod: 'block',
-            bgRadius: 5,
-            reverse: true,
-            depth: 0.8,
-            Zoom: 1.5,
-            weight: true,
-            weightSizeMin: 10,
-            weightSizeMax: 25,
-            wheelZoom: false
-        });
-    }
-}
 
 // 统计
 setTimeout(function() {

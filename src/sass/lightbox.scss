@@ -1,20 +1,64 @@
 .lightbox-containter{
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0,0,0,.9);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-}
-.lightbox{
-    
+    margin: 0;
+    padding: 5%;
+    z-index: 10;
+    .lightbox{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        ul{
+            list-style-type: none;
+        }
+    }
 }
 
 .lightbox-main{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+    overflow: hidden;
+    .lightbox-list{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        transition: 1s transform;
+        transform: translateX(0);
+    }
+    .lightbox-item{
+        width: 100%;
+        height: 100%;
+        flex: none;
+        text-align: center;
+        .lightbox-item-image{
+            height: 100%;
+        }
+    }
 }
 
 .lightbox-thumb{
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    height: 80px;
+    margin-left: -90px;
     .lightbox-thumb-list{
+        display: flex;
+    }
+    .lightbox-thumb-item{
+        height: 80px;
+        width: 80px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 }

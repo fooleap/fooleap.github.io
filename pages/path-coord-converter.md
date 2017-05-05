@@ -138,7 +138,7 @@ permalink: /path-coord-converter/
     height: 0;
 }
 </style>
-<script src="/assets/js/jszip.min.js"></script>
+<script src="//cdn.bootcss.com/jszip/3.1.3/jszip.min.js"></script>
 <script>
 var gps, gpsArrays, contents;
 var output = document.getElementById('output');

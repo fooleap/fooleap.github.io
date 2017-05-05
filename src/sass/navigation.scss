@@ -29,8 +29,20 @@
             background-size: cover;
         }
     }
+    .navigation-label {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: none;
+    }
     .navigation-toggle{
         display: none;
+    }
+    .navigation-toggle:checked ~ .navigation-label {
+        display: block;
     }
     .navigation-toggle:checked ~ .navigation-list {
         transition: opacity .1s .2s ease-in-out;

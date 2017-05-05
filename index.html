@@ -19,8 +19,15 @@ layout: default
     {% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}
     {% endif %}
     {% endif %}
+
+    {% if thumbnail contains "svg" %}
+        {% assign thumbnail =  thumbnail %}
+    {% else %}
+        {% assign thumbnail =  thumbnail | append: "?imageView2/1/w/100/h/100/q/90" %}
+    {% endif %}
+
     <article class="post-item">
-        <img class="post-item-thumb" src="{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}" alt="{{ post.title }}" />
+        <i class="post-item-thumb" style="background-image:url({{ thumbnail }})"></i>
         <section class="post-item-summary">
             <h3 class="post-item-title"><a class="post-item-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
             <abbr class="post-item-date timeago" title="{{ post.date | date_to_xmlschema }}"></abbr>

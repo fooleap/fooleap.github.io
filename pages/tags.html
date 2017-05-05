@@ -37,3 +37,20 @@ title : 标签云
     </tbody>
 </table>
 {% endfor %}
+<script src="http://www.goat1000.com/tagcanvas.min.js"></script>
+<script>
+    TagCanvas.Start('tag-canvas', 'tags', {
+        textHeight: 25,
+        textColour: null,
+        outlineColour: 'rgba(225, 225, 225, .3)',
+        outlineMethod: 'block',
+        bgRadius: 5,
+        reverse: true,
+        depth: 0.8,
+        Zoom: 1.5,
+        weight: true,
+        weightSizeMin: 10,
+        weightSizeMax: 25,
+        wheelZoom: false
+    });
+</script>

@@ -6,19 +6,17 @@ title: Fooleap's Blog
 keywords: [fooleap, 前端, Linux, 潮汕]
 description: 'A foolish man could not always lose!'
 
+exclude: [node_modules, src, webpack.config.js, package.json]
+gems: [jekyll-paginate,jemoji]
+
 permalink: /:title.html
-exclude: ['webpack.config.js','package.json', 'node_modules', 'src']
 highlighter: rouge
 markdown: kramdown
 kramdown: 
-    auto_ids:       true
-    auto_id_prefix: 'id-'
-    toc_levels:     '2,3'
-    smart_quotes:   lsquo,rsquo,ldquo,rdquo
-gems: 
-      - jekyll-paginate
-      - jekyll-coffeescript
-#      - jemoji
+  auto_ids:       true
+  auto_id_prefix: 'id-'
+  toc_levels:     '2,3'
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
 paginate: 10
 repository: fooleap/fooleap.github.io
 

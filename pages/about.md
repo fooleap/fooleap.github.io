@@ -5,18 +5,6 @@ title: 关于
 tags: [关于, 博客, fooleap, blog]
 ---
 
-<script>
-var toggleArr = document.querySelectorAll('.comment-toggle-item');
-[].forEach.call(toggleArr, function(item,i){
-    item.addEventListener('click', function(){
-        [].forEach.call(toggleArr, function(item,i){
-            item.classList.remove('active');
-        })
-        this.classList.add('active');
-    }, false);
-})
-</script>
-
 {% comment %}
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height="52" style="width:280px;margin:0;" src="http://music.163.com/outchain/player?type=2&id=165614&auto=0&height=32"></iframe>
 好多年前，在某个网站听到这首曲子的背景音乐，听着有感觉，便将其扒了下来（[fmmusic.mid]({{ site.IMG_PATH }}/fmmusic.mid)，当年的文件，MIDI 格式的），听得多了，就感觉对自己来说有某种特殊的意义，后来才知道它的名字及由来。
@@ -56,6 +44,7 @@ var toggleArr = document.querySelectorAll('.comment-toggle-item');
 * 2016-07-01 国内解析到七牛云存储，后来干脆只解析到七牛
 * 2016-10-05 使用 Disqus API 解决评论问题
 * 2017-03-16 初步完成重写评论框 
+* 2017-05-04 使用 webpack 打包前端资源
 
 ## 参考资料
 
@@ -64,3 +53,28 @@ var toggleArr = document.querySelectorAll('.comment-toggle-item');
 [3]: http://www.qiniu.com "七牛云存储"
 [4]: https://github.com/ "GitHub"
 [5]: http://creativecommons.org/licenses/by-nc/3.0/cn/ "署名-非商业性使用 3.0 中国大陆"
+
+<div class="lightbox-containter">
+    <div class="lightbox">
+        <div class="lightbox-main">
+            <ul class="lightbox-list">
+            <li class="lightbox-item">
+            <img class="lightbox-item-image" src="http://source.fooleap.org/sunrise-at-peilong-cape-08.jpg" />
+            </li>
+            <li class="lightbox-item">
+            <img class="lightbox-item-image" src="http://source.fooleap.org/sunrise-at-peilong-cape-09.jpg" />
+            </li>
+            <li class="lightbox-item">
+            <img class="lightbox-item-image" src="http://source.fooleap.org/sunrise-at-peilong-cape-10.jpg" />
+            </li>
+            </ul>
+        </div>
+        <div class="lightbox-thumb">
+            <ul class="lightbox-thumb-list">
+            <li class="lightbox-thumb-item" style="background-image:url(http://source.fooleap.org/sunrise-at-peilong-cape-08.jpg_640)"></li>
+            <li class="lightbox-thumb-item" style="background-image:url(http://source.fooleap.org/sunrise-at-peilong-cape-09.jpg_640)"></li>
+            <li class="lightbox-thumb-item" style="background-image:url(http://source.fooleap.org/sunrise-at-peilong-cape-09.jpg_640)"></li>
+            </ul>
+        </div>
+    </div>
+</div>
