@@ -169,14 +169,16 @@ function wxchoose(){
         if( page.img > 0 ){
             // Figure
             var itemTitle = item.title || item.parentElement.textContent.trim();
-            item.dataset.jslghtbx = oImgArr[i];
-            item.dataset.jslghtbxCaption = item.alt;
-            item.dataset.jslghtbxGroup = 'lightbox';
             item.classList.add('post-image');
+            item.title = itemTitle;
+            item.dataset.src = oImgArr[i];
             item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
             if( !!itemTitle ){
                 document.querySelector('[data-index="'+i+'"]').insertAdjacentHTML('beforeend', '<figcaption class="post-figcaption">&#9650; '+ itemTitle +'</figcaption>');
             }
+	    document.querySelector('[data-index="'+i+'"] .post-image').addEventListener('click', function(){
+	        window.open(oImgArr[i]);
+	    });
 
             if( browser.wechat ){
                 document.getElementsByClassName('post-figure')[i].addEventListener('click',function(){
@@ -1182,36 +1184,6 @@ Comment.prototype = {
 
 var guest = new Guest();
 var comment =  new Comment();
-
-// lightbox http://goo.gl/aA9Y5K
-if (page.img > 0 && !browser.mobile) {
-    var lbscript = document.createElement('script');
-    lbscript.type = 'text/javascript';
-    lbscript.src = '/assets/js/lightbox.min.js';
-    document.getElementsByTagName('BODY')[0].appendChild(lbscript);
-    lbscript.onload =  function(){
-        var lightbox = new Lightbox();
-        var lightBoxOptions = {
-            boxId: false,
-            dimensions: true,
-            captions: true,
-            prevImg: false,
-            nextImg: false,
-            hideCloseBtn: true,
-            closeOnClick: true,
-            loadingAnimation: 100,
-            animElCount: 4,
-            preload: true,
-            carousel: true,
-            animation: 400,
-            nextOnClick: false,
-            responsive: true,
-            maxImgSize: .9,
-        }
-        lightbox.load(lightBoxOptions);
-    }
-}
-
 
 // 标签云 http://goo.gl/OAvhn3
 if ( page.url == '/tags.html' ) {

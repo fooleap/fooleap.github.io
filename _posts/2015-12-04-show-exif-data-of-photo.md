@@ -99,6 +99,10 @@ if (xhrExif.readyState == 4 && xhrExif.status == 200) {
 [2]: http://developer.qiniu.com/docs/v6/api/reference/fop/image/exif.html "EXIF信息（exif） | 七牛云存储"
 [3]: http://javascript.ruanyifeng.com/bom/ajax.html "Ajax -- JavaScript 标准参考教程（alpha）"
 
+**扩展阅读**
+
+* [结合七牛和高德地图 API 显示照片位置](/show-photo-location-with-qiniu-and-amap-api.html)
+
 **本文历史**
 
 * 2015 年 12 月 04 日 完成初稿

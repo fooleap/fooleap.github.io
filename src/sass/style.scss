@@ -275,10 +275,9 @@ body {
             content: " ¶";
         }
     }
-    p a:not([href^="/"]) {
+    p a:not([href^="/"]):not([target="_blank"]){
         vertical-align:super; 
         font-size: smaller;
-
     }
     blockquote {
         font-size: 13px;
@@ -332,9 +331,6 @@ body {
             .post-image-exif {
                 opacity: .7;
             }
-            .post-image {
-                box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
-            }
         }
         .post-image {
             cursor: pointer;
@@ -342,6 +338,9 @@ body {
             max-width: 100%;
             width: auto;
             overflow: hidden;
+            &:hover {
+                box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+            }
         }
         .post-figcaption{
             font-size: 14px;
