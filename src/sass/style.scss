@@ -317,25 +317,6 @@ body {
         max-width: 640px;
         position: relative;
         overflow: hidden;
-        .post-image-exif {
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: opacity .5s;
-            opacity: 0;
-            background-color: $black;
-            width: 100%;
-            height: 25px;
-            font: 13px/25px "Helvetica Neue", Helvetica, Arial;
-            padding: 0 3px;
-            color: $white;
-            overflow: hidden;
-        }
-        &:hover {
-            .post-image-exif {
-                opacity: .7;
-            }
-        }
         .post-image {
             cursor: pointer;
             display: block;
@@ -348,6 +329,27 @@ body {
         }
         .post-figcaption{
             font-size: 14px;
+            &:before{
+                content: attr(data-exif);
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: opacity .5s;
+                opacity: 0;
+                background-color: $black;
+                width: 100%;
+                height: 25px;
+                font: 13px/25px "Helvetica Neue", Helvetica, Arial;
+                padding: 0 3px;
+                color: $white;
+                overflow: hidden;
+            }
+        }
+        &:hover {
+            .post-figcaption[data-exif]:before{
+                opacity: .7;
+            }
         }
     }
 }

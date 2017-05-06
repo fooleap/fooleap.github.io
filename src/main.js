@@ -214,91 +214,130 @@ function wxchoose(){
     var imageArr = document.querySelectorAll('.post-content img:not([class="emoji"])')
     var image = {
         "src" : [],
+        "thumb" : [],
         "title" : [],
-        "coord": [],
-        "xhrExif": []
+        "coord": []
     };
     for(var i = 0; i < imageArr.length; i++){
+        image.thumb[i] = imageArr[i].src;
         image.src[i] =  new RegExp('\^'+site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
     }
-
+    image.jpg = image.src.filter(function(item){
+        return item.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item);
+    });
     [].forEach.call(imageArr, function(item, i){
-        // Figure
-        image.title[i] = item.title || item.parentElement.textContent.trim();
+        image.title[i] = item.title || item.parentElement.textContent.trim() || item.alt;
         item.classList.add('post-image');
-        item.title = image.title[i];
         item.dataset.src = image.src[i];
         item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
-        if( !!image.title[i] ){
-            document.querySelector('[data-index="'+i+'"]').insertAdjacentHTML('beforeend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
-        }
-        document.querySelector('[data-index="'+i+'"] .post-image').addEventListener('click', function(){
-            window.open(image.src[i]);
-        });
+        var imgdom = document.querySelector('.post-image[data-src="'+image.src[i]+'"]');;
+        imgdom.insertAdjacentHTML('afterend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
 
         if( browser.wechat ){
-            document.getElementsByClassName('post-figure')[i].addEventListener('click',function(){
+            imgdom.addEventListener('click',function(){
                 wx.previewImage({
                     current: image.src[i], 
                     urls: image.src
                 });
             })
+        } else {  
+            imgdom.addEventListener('click', function(){
+                if( !!document.querySelector('.lightbox-container') ){
+                    document.querySelector('.lightbox-container').style.display = 'block';
+                    document.querySelector('.lightbox-list').style.transform = 'translateX(-' + i + '00%)';
+                    var thumbArr  = document.querySelectorAll('.lightbox-thumb-item');
+                    [].forEach.call(thumbArr, function(thumb){
+                        thumb.style.opacity = .6;
+                    })
+                    thumbArr[i].style.opacity = 1;
+                    return;
+                }
+                var lightboxHTML = '<div class="lightbox-container"><div class="lightbox">'+
+                    '<div class="lightbox-main"><ul class="lightbox-list"></ul></div>'+
+                    '<div class="lightbox-thumb"><ul class="lightbox-thumb-list"></ul></div>'+
+                    '</div></div>';
+                document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', lightboxHTML);
+                var lightbox = document.querySelector('.lightbox-container');
+                var lightboxList = document.querySelector('.lightbox-list');
+                var thumbList = document.querySelector('.lightbox-thumb-list');
+                lightboxList.style.transform = 'translateX(-' + i + '00%)';
+                image.src.forEach(function(src, e){
+                    lightboxList.insertAdjacentHTML('beforeend', '<li class="lightbox-item"><img class="lightbox-item-image" src="'+image.src[e]+'" alt="'+image.title[e]+'" title="'+image.title[e]+'"></li>');
+                    thumbList.insertAdjacentHTML('beforeend', '<li class="lightbox-thumb-item" style="background-image:url('+image.thumb[e]+')"></li>');
+                })
+                lightbox.addEventListener('click', function(e){
+                    e.currentTarget.style.display = e.target == e.currentTarget ? 'none' : 'block';
+                })
+                var thumbArr  = document.querySelectorAll('.lightbox-thumb-item');
+                thumbList.style.marginLeft = '-' + thumbList.clientWidth / 2 + 'px';
+                thumbArr[i].style.opacity = 1;
+                [].forEach.call(thumbArr, function(item, i){
+                    var index = i;
+                    item.addEventListener('click', function(){
+                        [].forEach.call(thumbArr, function(thumb){
+                            thumb.style.opacity = .6;
+                        })
+                        this.style.opacity = 1;
+                        lightboxList.style.transform = ' translateX(-' + index + '00%)';
+                    }) 
+                })
+            })
         }
+    })
 
-        if (item.src.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item.src)) {
-            //Exif
-            var exif = item.src.split(/_|\?/)[0] + '?exif';
-            image.xhrExif[i] = new XMLHttpRequest();
-            image.xhrExif[i].open('GET', exif, true);
-            image.xhrExif[i].onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200)
-                {
-                    var data = JSON.parse(this.responseText);
-                    if ( !!data.DateTimeOriginal ) {
-                        var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
-                        var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
-                        var model = data.Model ? data.Model.val : '无';
-                        var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
-                        var extime = data.ExposureTime ? data.ExposureTime.val : '无';
-                        var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
-                        var flength = data.FocalLength ? data.FocalLength.val : '无';
-                        document.querySelector('[data-index="'+i+'"] .post-figcaption').insertAdjacentHTML('beforeend', '<small class="post-image-exif">时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength + '</small>');
+
+    //Exif
+    image.jpg.forEach(function(item, i){
+        var xhrExif = new XMLHttpRequest();
+        xhrExif.open('GET', item + '?exif', true);
+        xhrExif.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200)
+            {
+                var data = JSON.parse(this.responseText);
+                if ( !!data.DateTimeOriginal ) {
+                    var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
+                    var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
+                    var model = data.Model ? data.Model.val : '无';
+                    var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
+                    var extime = data.ExposureTime ? data.ExposureTime.val : '无';
+                    var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
+                    var flength = data.FocalLength ? data.FocalLength.val : '无';
+                    document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
+                }
+                if ( !!data.GPSLongitude ) {
+                    var olat = data.GPSLatitude.val.split(', ');
+                    var olng = data.GPSLongitude.val.split(', ');
+                    var lat=0, lng=0;
+                    for( var e = 0; e < olat.length; e++ ){
+                        lat += olat[e] / Math.pow(60, e);
+                        lng += olng[e] / Math.pow(60, e);
                     }
-                    if ( !!data.GPSLongitude ) {
-                        var olat = data.GPSLatitude.val.split(', ');
-                        var olng = data.GPSLongitude.val.split(', ');
-                        var lat=0, lng=0;
-                        for( var e = 0; e < olat.length; e++ ){
-                            lat += olat[e] / Math.pow(60, e);
-                            lng += olng[e] / Math.pow(60, e);
-                        }
-                        lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
-                        lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
-                        image.coord[i] = coordtransform.wgs84togcj02(lng, lat).join(',');
-                    }
-                    if (i == imageArr.length -1){
-                        var xhrRegeo = new XMLHttpRequest();
-                        xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
-                        xhrRegeo.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200){
-                                var data = JSON.parse(this.responseText);
-                                if( data.info == 'OK' ){
-                                    for (var m = 0, n = 0; m < imageArr.length; m++) {
-                                        if (typeof(image.coord[m])!='undefined') {
-                                            document.querySelector('[data-index="'+m+'"] .post-image').title = '摄于' + data.regeocodes[n].addressComponent.city + data.regeocodes[n].addressComponent.district + data.regeocodes[n].addressComponent.township;
-                                            n++;
-                                        }
+                    lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
+                    lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
+                    image.coord[i] = coordtransform.wgs84togcj02(lng, lat).join(',');
+                }
+                if (i == image.jpg.length -1){
+                    var xhrRegeo = new XMLHttpRequest();
+                    xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
+                    xhrRegeo.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200){
+                            var data = JSON.parse(this.responseText);
+                            if( data.info == 'OK' ){
+                                for (var m = 0, n = 0; m < image.jpg.length; m++) {
+                                    if (typeof(image.coord[m])!='undefined') {
+                                        document.querySelector('[data-index="'+m+'"] .post-image').title = '摄于' + data.regeocodes[n].addressComponent.city + data.regeocodes[n].addressComponent.district + data.regeocodes[n].addressComponent.township;
+                                        n++;
                                     }
                                 }
                             }
                         }
-                        xhrRegeo.send(null);
                     }
+                    xhrRegeo.send(null);
                 }
-            };
-            image.xhrExif[i].send(null);
-        }
-    });
+            }
+        };
+        xhrExif.send(null);
+    })
 })();
 
 // Vim 键绑定

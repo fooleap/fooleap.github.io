@@ -53,30 +53,3 @@ tags: [关于, 博客, fooleap, blog]
 [3]: http://www.qiniu.com "七牛云存储"
 [4]: https://github.com/ "GitHub"
 [5]: http://creativecommons.org/licenses/by-nc/3.0/cn/ "署名-非商业性使用 3.0 中国大陆"
-
-<!--
-<div class="lightbox-containter">
-    <div class="lightbox">
-        <div class="lightbox-main">
-            <ul class="lightbox-list">
-            <li class="lightbox-item">
-            <img class="lightbox-item-image" src="http://source.fooleap.org/sunrise-at-peilong-cape-08.jpg" />
-            </li>
-            <li class="lightbox-item">
-            <img class="lightbox-item-image" src="http://source.fooleap.org/sunrise-at-peilong-cape-09.jpg" />
-            </li>
-            <li class="lightbox-item">
-            <img class="lightbox-item-image" src="http://source.fooleap.org/sunrise-at-peilong-cape-10.jpg" />
-            </li>
-            </ul>
-        </div>
-        <div class="lightbox-thumb">
-            <ul class="lightbox-thumb-list">
-            <li class="lightbox-thumb-item" style="background-image:url(http://source.fooleap.org/sunrise-at-peilong-cape-08.jpg_640)"></li>
-            <li class="lightbox-thumb-item" style="background-image:url(http://source.fooleap.org/sunrise-at-peilong-cape-09.jpg_640)"></li>
-            <li class="lightbox-thumb-item" style="background-image:url(http://source.fooleap.org/sunrise-at-peilong-cape-09.jpg_640)"></li>
-            </ul>
-        </div>
-    </div>
-</div>
--->

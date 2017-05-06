@@ -1,4 +1,4 @@
-.lightbox-containter{
+.lightbox-container{
     background-color: rgba(0,0,0,.9);
     position: fixed;
     top: 0;
@@ -50,7 +50,6 @@
     bottom: -50px;
     left: 50%;
     height: 80px;
-    margin-left: -90px;
     .lightbox-thumb-list{
         display: flex;
     }
@@ -60,5 +59,6 @@
         background-position: 50% 50%;
         background-repeat: no-repeat;
         background-size: cover;
+        opacity: .6;
     }
 }
