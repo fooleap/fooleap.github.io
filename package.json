@@ -4,6 +4,7 @@
     "coordtransform": "^2.1.2",
     "css-loader": "^0.28.1",
     "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
     "flowchart.js": "^1.6.6",
     "node-sass": "^4.5.2",
     "postcss": "^5.2.17",

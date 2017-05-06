@@ -276,28 +276,26 @@ function wxchoose(){
                         lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
                         image.coord[i] = coordtransform.wgs84togcj02(lng, lat).join(',');
                     }
-                }
-            };
-            image.xhrExif[i].onload = function(){
-                if (i == imageArr.length -1){
-                    var xhrRegeo = new XMLHttpRequest();
-                    xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
-                    xhrRegeo.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200){
-                            var data = JSON.parse(this.responseText);
-                            if( data.info == 'OK' ){
-                                for (var m = 0, n = 0; m < imageArr.length; m++) {
-                                    if (typeof(image.coord[m])!='undefined') {
-                                        document.querySelector('[data-index="'+m+'"] .post-image').title = '摄于' + data.regeocodes[n].addressComponent.city + data.regeocodes[n].addressComponent.district + data.regeocodes[0].addressComponent.township;
-                                        n++;
+                    if (i == imageArr.length -1){
+                        var xhrRegeo = new XMLHttpRequest();
+                        xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
+                        xhrRegeo.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200){
+                                var data = JSON.parse(this.responseText);
+                                if( data.info == 'OK' ){
+                                    for (var m = 0, n = 0; m < imageArr.length; m++) {
+                                        if (typeof(image.coord[m])!='undefined') {
+                                            document.querySelector('[data-index="'+m+'"] .post-image').title = '摄于' + data.regeocodes[n].addressComponent.city + data.regeocodes[n].addressComponent.district + data.regeocodes[n].addressComponent.township;
+                                            n++;
+                                        }
                                     }
                                 }
                             }
                         }
+                        xhrRegeo.send(null);
                     }
-                    xhrRegeo.send(null);
                 }
-            }
+            };
             image.xhrExif[i].send(null);
         }
     });

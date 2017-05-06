@@ -54,6 +54,7 @@ tags: [关于, 博客, fooleap, blog]
 [4]: https://github.com/ "GitHub"
 [5]: http://creativecommons.org/licenses/by-nc/3.0/cn/ "署名-非商业性使用 3.0 中国大陆"
 
+<!--
 <div class="lightbox-containter">
     <div class="lightbox">
         <div class="lightbox-main">
@@ -78,3 +79,4 @@ tags: [关于, 博客, fooleap, blog]
         </div>
     </div>
 </div>
+-->
