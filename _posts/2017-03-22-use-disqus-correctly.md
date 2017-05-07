@@ -3,7 +3,7 @@ layout: post
 title: "科学使用 Disqus"
 description: "当初选择静态博客就是想更简单的备份博文，但静态博客的评论本身就是问题，还好有 Disqus，感觉还挺好。然而前段时间我却为博客评论操碎了心，因为 Disqus 被墙了。"
 date: 2017-03-22 13:00:00+0800
-thumb: IMG_PATH/disqus.png
+thumb: IMG_PATH/disqus.svg
 category: tech
 tags: ["Disqus", "Disqus API", "cURL"]
 ---

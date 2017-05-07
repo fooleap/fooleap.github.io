@@ -4,6 +4,8 @@ import './sass/lightbox.scss'
 import './sass/github.scss'
 import './sass/comment.scss'
 import './sass/media.scss'
+var elementClosest = require('element-closest');
+var timeago = require('timeago.js');
 var coordtransform = require('coordtransform');
 var raphael = require('webpack-raphael');
 var flowchart = require('flowchart.js');
@@ -11,69 +13,10 @@ var loadingsvg = require('url-loader!./svg/loading.svg');
 
 'use strict';
 
-/**
- * @see https://dom.spec.whatwg.org/#interface-element
- * @see https://developer.mozilla.org/docs/Web/API/Element/matches#Polyfill
- * @see https://gist.github.com/jonathantneal/3062955
- * @see https://github.com/jonathantneal/closest
- */
-
-(function(global){
-  var Element;
-  var ElementPrototype;
-  var matches;
-
-  if (Element = global.Element) {
-    ElementPrototype = Element.prototype;
-
-    /**
-     * @see https://dom.spec.whatwg.org/#dom-element-matches
-     */
-    if (!(matches = ElementPrototype.matches)) {
-      if ((
-        matches = ElementPrototype.matchesSelector ||
-          ElementPrototype.mozMatchesSelector ||
-          ElementPrototype.msMatchesSelector ||
-          ElementPrototype.oMatchesSelector ||
-          ElementPrototype.webkitMatchesSelector ||
-          (ElementPrototype.querySelectorAll && function matches(selectors) {
-            var element = this;
-            var nodeList = (element.parentNode || element.document || element.ownerDocument).querySelectorAll(selectors);
-            var index = nodeList.length;
-
-            while (--index >= 0 && nodeList.item(index) !== element) {}
-
-            return index > -1;
-          })
-      )) {
-        ElementPrototype.matches = matches;
-      }
-    }
-
-    /**
-     * @see https://dom.spec.whatwg.org/#dom-element-closest
-     */
-    if (!ElementPrototype.closest && matches) {
-      ElementPrototype.closest = function closest(selectors) {
-        var element = this;
-
-        while (element) {
-          if (element.nodeType === 1 && element.matches(selectors)) {
-            return element;
-          }
-
-          element = element.parentNode;
-        }
-
-        return null;
-      };
-    }
-  }
-}(Function('return this')()));
-
-var ua = navigator.userAgent;
-//全局变量
-var head = document.getElementsByTagName('head')[0],
+document.addEventListener("DOMContentLoaded", function(event) { 
+    var ua = navigator.userAgent;
+    //全局变量
+    var head = document.getElementsByTagName('head')[0],
     site = {
         home: head.dataset.home,
         api: head.dataset.api,
@@ -95,341 +38,311 @@ var head = document.getElementsByTagName('head')[0],
         wechat: ua.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
     };
 
-var flowArr = document.getElementsByClassName('language-flow');
-if( flowArr.length > 0 ){
+    var flowArr = document.getElementsByClassName('language-flow');
+    if( flowArr.length > 0 ){
 
-    [].forEach.call(flowArr, function(item,i){
-        var flowId = 'flow-' + (i+1);
-        var div = document.createElement('div');
-        div.classList.add('flow');
-        div.setAttribute('id', flowId);
+        [].forEach.call(flowArr, function(item,i){
+            var flowId = 'flow-' + (i+1);
+            var div = document.createElement('div');
+            div.classList.add('flow');
+            div.setAttribute('id', flowId);
 
-        var pre = item.parentNode;
-        pre.insertAdjacentElement('beforebegin', div);
-        pre.style.display = 'none';
+            var pre = item.parentNode;
+            pre.insertAdjacentElement('beforebegin', div);
+            pre.style.display = 'none';
 
-        var diagram = flowchart.parse(item.innerText);
-        diagram.drawSVG(flowId);
-    })
-
-    window.addEventListener('load', function(){
-        var linkArr = document.querySelectorAll('.flow a');
-        [].forEach.call(linkArr, function(link){
-            if(/^#/i.test(link.getAttribute('href'))){
-                link.setAttribute('target', '_self');
-            }
+            var diagram = flowchart.parse(item.innerText);
+            diagram.drawSVG(flowId);
         })
-    });
-}
 
-// timeago https://goo.gl/jlkyIS
-function timeAgo(selector) {
-    var templates = {
-        prefix: '',
-        suffix: '前',
-        seconds: '几秒',
-        minute: '1 分钟',
-        minutes: '%d 分钟',
-        hour: '1 小时',
-        hours: '%d 小时',
-        day: '1 天',
-        days: '%d 天',
-        month: '1 个月',
-        months: '%d 个月',
-        year: '1 年',
-        years: '%d 年'
-    };
-    var template = function(t, n) {
-        return templates[t] && templates[t].replace(/%d/i, Math.abs(Math.round(n)));
-    };
-
-    var timer = function(time) {
-        if (!time) return;
-        time = time.replace(/\.\d+/, '');
-        time = time.replace(/-/, '/').replace(/-/, '/');
-        time = time.replace(/T/, ' ').replace(/Z/, ' UTC');
-        time = time.replace(/([\+\-]\d\d)\:?(\d\d)/, ' $1$2'); // -04:00 -> -0400
-        time = new Date(time * 1000 || time);
-
-        var now = new Date();
-        var seconds = ((now.getTime() - time) * .001) >> 0;
-        var minutes = seconds / 60;
-        var hours = minutes / 60;
-        var days = hours / 24;
-        var years = days / 365;
-
-        return templates.prefix + (
-            seconds < 45 && template('seconds', seconds) || seconds < 90 && template('minute', 1) || minutes < 45 && template('minutes', minutes) || minutes < 90 && template('hour', 1) || hours < 24 && template('hours', hours) || hours < 42 && template('day', 1) || days < 30 && template('days', days) || days < 45 && template('month', 1) || days < 365 && template('months', days / 30) || years < 1.5 && template('year', 1) || template('years', years)) + templates.suffix;
-    };
-
-    var elements = document.querySelectorAll('.timeago');
-    for (var i in elements) {
-        var $this = elements[i];
-        if (typeof $this === 'object') {
-            $this.innerHTML = timer($this.getAttribute('title') || $this.getAttribute('datetime'));
-        }
-    }
-    setTimeout(timeAgo, 60000);
-}
-timeAgo();
-
-if(browser.wechat && location.origin == site.home){
-    var xhrwesign = new XMLHttpRequest();
-    xhrwesign.onreadystatechange = function() {
-        if (xhrwesign.readyState==4 && xhrwesign.status==200)
-        {
-            var signPackage = JSON.parse(xhrwesign.responseText);
-            wx.config({
-                debug: false,
-                appId: signPackage.appId,
-                timestamp: signPackage.timestamp,
-                nonceStr: signPackage.nonceStr,
-                signature: signPackage.signature,
-                jsApiList: [
-                    'chooseImage',
-                    'previewImage'
-                ]
-            });
-        }
-    }
-    xhrwesign.open('GET', site.api + '/wechat/jssdk?url='+ location.href, true);
-    xhrwesign.send();
-    wx.ready(function () {
-    });
-}
-
-function wxchoose(){
-    wx.chooseImage({
-        count: 1, // 默认9
-        sizeType: ['original', 'compressed'],
-        sourceType: ['album', 'camera'], 
-        success: function (res) {
-            var localIds = res.localIds; 
-        }
-    });
-}
-
-// 图片
-(function(){
-    var imageArr = document.querySelectorAll('.post-content img:not([class="emoji"])')
-    var image = {
-        "src" : [],
-        "thumb" : [],
-        "title" : [],
-        "coord": []
-    };
-    for(var i = 0; i < imageArr.length; i++){
-        image.thumb[i] = imageArr[i].src;
-        image.src[i] =  new RegExp('\^'+site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
-    }
-    image.jpg = image.src.filter(function(item){
-        return item.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item);
-    });
-    [].forEach.call(imageArr, function(item, i){
-        image.title[i] = item.title || item.parentElement.textContent.trim() || item.alt;
-        item.classList.add('post-image');
-        item.dataset.src = image.src[i];
-        item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
-        var imgdom = document.querySelector('.post-image[data-src="'+image.src[i]+'"]');;
-        imgdom.insertAdjacentHTML('afterend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
-
-        if( browser.wechat ){
-            imgdom.addEventListener('click',function(){
-                wx.previewImage({
-                    current: image.src[i], 
-                    urls: image.src
-                });
-            })
-        } else {  
-            imgdom.addEventListener('click', function(){
-                if( !!document.querySelector('.lightbox-container') ){
-                    document.querySelector('.lightbox-container').style.display = 'block';
-                    document.querySelector('.lightbox-list').style.transform = 'translateX(-' + i + '00%)';
-                    var thumbArr  = document.querySelectorAll('.lightbox-thumb-item');
-                    [].forEach.call(thumbArr, function(thumb){
-                        thumb.style.opacity = .6;
-                    })
-                    thumbArr[i].style.opacity = 1;
-                    return;
+        window.addEventListener('load', function(){
+            var linkArr = document.querySelectorAll('.flow a');
+            [].forEach.call(linkArr, function(link){
+                if(/^#/i.test(link.getAttribute('href'))){
+                    link.setAttribute('target', '_self');
                 }
-                var lightboxHTML = '<div class="lightbox-container"><div class="lightbox">'+
-                    '<div class="lightbox-main"><ul class="lightbox-list"></ul></div>'+
-                    '<div class="lightbox-thumb"><ul class="lightbox-thumb-list"></ul></div>'+
-                    '</div></div>';
-                document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', lightboxHTML);
-                var lightbox = document.querySelector('.lightbox-container');
-                var lightboxList = document.querySelector('.lightbox-list');
-                var thumbList = document.querySelector('.lightbox-thumb-list');
-                lightboxList.style.transform = 'translateX(-' + i + '00%)';
-                image.src.forEach(function(src, e){
-                    lightboxList.insertAdjacentHTML('beforeend', '<li class="lightbox-item"><img class="lightbox-item-image" src="'+image.src[e]+'" alt="'+image.title[e]+'" title="'+image.title[e]+'"></li>');
-                    thumbList.insertAdjacentHTML('beforeend', '<li class="lightbox-thumb-item" style="background-image:url('+image.thumb[e]+')"></li>');
+            })
+        });
+    }
+
+    timeago().render(document.querySelectorAll('.timeago'), 'zh_CN');
+
+    if(browser.wechat && location.origin == site.home){
+        var xhrwesign = new XMLHttpRequest();
+        xhrwesign.onreadystatechange = function() {
+            if (xhrwesign.readyState==4 && xhrwesign.status==200)
+            {
+                var signPackage = JSON.parse(xhrwesign.responseText);
+                wx.config({
+                    debug: false,
+                    appId: signPackage.appId,
+                    timestamp: signPackage.timestamp,
+                    nonceStr: signPackage.nonceStr,
+                    signature: signPackage.signature,
+                    jsApiList: [
+                        'chooseImage',
+                        'previewImage'
+                    ]
+                });
+            }
+        }
+        xhrwesign.open('GET', site.api + '/wechat/jssdk?url='+ location.href, true);
+        xhrwesign.send();
+        wx.ready(function () {
+        });
+    }
+
+    function wxchoose(){
+        wx.chooseImage({
+            count: 1, // 默认9
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'], 
+            success: function (res) {
+                var localIds = res.localIds; 
+            }
+        });
+    }
+
+    // 图片
+    (function(){
+        var imageArr = document.querySelectorAll('.post-content img:not([class="emoji"])')
+            var image = {
+                "src" : [],
+                "thumb" : [],
+                "title" : [],
+                "coord": []
+            };
+        for(var i = 0; i < imageArr.length; i++){
+            image.thumb[i] = imageArr[i].src;
+            image.src[i] =  new RegExp('\^'+site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
+        }
+        image.jpg = image.src.filter(function(item){
+            return item.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item);
+        });
+        [].forEach.call(imageArr, function(item, i){
+            image.title[i] = item.title || item.parentElement.textContent.trim() || item.alt;
+            item.title = image.title[i];
+            item.classList.add('post-image');
+            item.dataset.src = image.src[i];
+            item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
+            var imgdom = document.querySelector('.post-image[data-src="'+image.src[i]+'"]');;
+            imgdom.insertAdjacentHTML('afterend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
+
+            if( browser.wechat && browser.mobile ){
+                imgdom.addEventListener('click',function(){
+                    wx.previewImage({
+                        current: image.src[i], 
+                        urls: image.src
+                    });
                 })
-                lightbox.addEventListener('click', function(e){
-                    e.currentTarget.style.display = e.target == e.currentTarget ? 'none' : 'block';
-                })
-                var thumbArr  = document.querySelectorAll('.lightbox-thumb-item');
-                thumbList.style.marginLeft = '-' + thumbList.clientWidth / 2 + 'px';
-                thumbArr[i].style.opacity = 1;
-                [].forEach.call(thumbArr, function(item, i){
-                    var index = i;
-                    item.addEventListener('click', function(){
+            } else {  
+                imgdom.addEventListener('click', function(){
+                    if( !!document.querySelector('.lightbox-container') ){
+                        document.querySelector('.lightbox-container').style.display = 'block';
+                        document.querySelector('.lightbox-list').style.transform = 'translateX(-' + i + '00%)';
+                        var thumbArr  = document.querySelectorAll('.lightbox-thumb-item');
                         [].forEach.call(thumbArr, function(thumb){
                             thumb.style.opacity = .6;
                         })
-                        this.style.opacity = 1;
-                        lightboxList.style.transform = ' translateX(-' + index + '00%)';
-                    }) 
-                })
-            })
-        }
-    })
-
-
-    //Exif
-    image.jpg.forEach(function(item, i){
-        var xhrExif = new XMLHttpRequest();
-        xhrExif.open('GET', item + '?exif', true);
-        xhrExif.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200)
-            {
-                var data = JSON.parse(this.responseText);
-                if ( !!data.DateTimeOriginal ) {
-                    var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
-                    var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
-                    var model = data.Model ? data.Model.val : '无';
-                    var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
-                    var extime = data.ExposureTime ? data.ExposureTime.val : '无';
-                    var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
-                    var flength = data.FocalLength ? data.FocalLength.val : '无';
-                    document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
-                }
-                if ( !!data.GPSLongitude ) {
-                    var olat = data.GPSLatitude.val.split(', ');
-                    var olng = data.GPSLongitude.val.split(', ');
-                    var lat=0, lng=0;
-                    for( var e = 0; e < olat.length; e++ ){
-                        lat += olat[e] / Math.pow(60, e);
-                        lng += olng[e] / Math.pow(60, e);
+                        var thumb = document.querySelector('.lightbox-thumb');
+                        var thumbList = document.querySelector('.lightbox-thumb-list');
+                        var mainWidth = thumb.clientWidth;
+                        var thumbNum = parseInt( mainWidth / 80 );
+                        thumbList.style.marginLeft = thumbNum % 2 == 0 ? -(i - .5) * 80 + 'px': -i * 80 + 'px';
+                        thumbArr[i].style.opacity = 1;
+                        return;
                     }
-                    lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
-                    lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
-                    image.coord[i] = coordtransform.wgs84togcj02(lng, lat).join(',');
-                }
-                if (i == image.jpg.length -1){
-                    var xhrRegeo = new XMLHttpRequest();
-                    xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
-                    xhrRegeo.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200){
-                            var data = JSON.parse(this.responseText);
-                            if( data.info == 'OK' ){
-                                for (var m = 0, n = 0; m < image.jpg.length; m++) {
-                                    if (typeof(image.coord[m])!='undefined') {
-                                        document.querySelector('[data-index="'+m+'"] .post-image').title = '摄于' + data.regeocodes[n].addressComponent.city + data.regeocodes[n].addressComponent.district + data.regeocodes[n].addressComponent.township;
-                                        n++;
+                    var lightboxHTML = '<div class="lightbox-container"><div class="lightbox">'+
+                        '<div class="lightbox-main"><ul class="lightbox-list"></ul></div>'+
+                        '<div class="lightbox-thumb"><ul class="lightbox-thumb-list"></ul></div>'+
+                        '</div></div>';
+                    document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', lightboxHTML);
+                    var lightbox = document.querySelector('.lightbox-container');
+                    var lightboxList = document.querySelector('.lightbox-list');
+                    var thumbList = document.querySelector('.lightbox-thumb-list');
+                    var thumb = document.querySelector('.lightbox-thumb');
+                    var mainWidth = thumb.clientWidth;
+                    var thumbNum = parseInt( mainWidth / 80 );
+                    var intWidth =  thumbNum * 80;
+                    thumb.style.width = intWidth + 'px';
+                    thumb.style.left = (mainWidth - intWidth)/2 + 'px';
+                    thumbList.style.marginLeft = thumbNum % 2 == 0 ? -(i - .5) * 80 + 'px': -i * 80 + 'px';
+                    image.src.forEach(function(src, e){
+                        lightboxList.insertAdjacentHTML('beforeend', '<li class="lightbox-item"><img class="lightbox-item-image" src="'+image.src[e]+'" alt="'+image.title[e]+'" title="'+image.title[e]+'"></li>');
+                        thumbList.insertAdjacentHTML('beforeend', '<li class="lightbox-thumb-item" style="background-image:url('+image.thumb[e]+')"></li>');
+                    })
+                    lightboxList.style.transform = 'translateX(-' + i + '00%)';
+                    lightbox.addEventListener('click', function(e){
+                        e.currentTarget.style.display = e.target == e.currentTarget ? 'none' : 'block';
+                    })
+                    var thumbArr  = document.querySelectorAll('.lightbox-thumb-item');
+                    thumbArr[i].style.opacity = 1;
+                    [].forEach.call(thumbArr, function(item, m){
+                        var index = m;
+                        item.addEventListener('click', function(){
+                            [].forEach.call(thumbArr, function(thumb){
+                                thumb.style.opacity = .6;
+                            })
+                            this.style.opacity = 1;
+                            thumbList.style.marginLeft = thumbNum % 2 == 0 ? -(index-.5) * 80 + 'px': -index * 80 + 'px';
+                            lightboxList.style.transform = ' translateX(-' + index + '00%)';
+                        }) 
+                    })
+                    lightboxList.classList.add('active');
+                })
+            }
+        })
+
+
+        //Exif
+        image.jpg.forEach(function(item, i){
+            var xhrExif = new XMLHttpRequest();
+            xhrExif.open('GET', item + '?exif', true);
+            xhrExif.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200)
+                {
+                    var data = JSON.parse(this.responseText);
+                    if ( !!data.DateTimeOriginal ) {
+                        var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
+                        var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
+                        var model = data.Model ? data.Model.val : '无';
+                        var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
+                        var extime = data.ExposureTime ? data.ExposureTime.val : '无';
+                        var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
+                        var flength = data.FocalLength ? data.FocalLength.val : '无';
+                        document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
+                    }
+                    if ( !!data.GPSLongitude ) {
+                        var olat = data.GPSLatitude.val.split(', ');
+                        var olng = data.GPSLongitude.val.split(', ');
+                        var lat=0, lng=0;
+                        for( var e = 0; e < olat.length; e++ ){
+                            lat += olat[e] / Math.pow(60, e);
+                            lng += olng[e] / Math.pow(60, e);
+                        }
+                        lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
+                        lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
+                        image.coord[i] = coordtransform.wgs84togcj02(lng, lat).join(',');
+                    }
+                    if (i == image.jpg.length -1){
+                        var xhrRegeo = new XMLHttpRequest();
+                        xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
+                        xhrRegeo.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200){
+                                var data = JSON.parse(this.responseText);
+                                if( data.info == 'OK' ){
+                                    var address,city,dist,town;
+                                    for (var m = 0, n = 0; m < image.jpg.length; m++) {
+                                        address = data.regeocodes[n].addressComponent;
+                                        if (typeof(image.coord[m])!='undefined' && address) {
+                                            city = address.city ? address.city : '';
+                                            dist = address.district ? address.district : '';
+                                            town = address.township ? address.township : '';
+                                            document.querySelector('[data-index="'+m+'"] .post-image').title = '摄于' + city + dist + town;
+                                            n++;
+                                        }
                                     }
                                 }
                             }
                         }
+                        xhrRegeo.send(null);
                     }
-                    xhrRegeo.send(null);
                 }
-            }
-        };
-        xhrExif.send(null);
-    })
-})();
+            };
+            xhrExif.send(null);
+        })
+    })();
 
-// Vim 键绑定
-/*
-var inCombo = false;
-var lineHeight = 20;
-var keys = [];
-var row = 0;
+    // Vim 键绑定
+    /*
+       var inCombo = false;
+       var lineHeight = 20;
+       var keys = [];
+       var row = 0;
 
-function keysDown(event) {
-    keys[event.keyCode] = true;
-    if (keys[16] && keys[71]) {
-        window.scrollTo(0, document.body.scrollHeight);
+       function keysDown(event) {
+       keys[event.keyCode] = true;
+       if (keys[16] && keys[71]) {
+       window.scrollTo(0, document.body.scrollHeight);
+       }
+       if (keys[71]) {
+       if (!inCombo) {
+       inCombo = true;
+       setTimeout('inCombo = false;', 500);
+       } else {
+       window.scrollTo(0, 0);
+       }
+       }
+       if (keys[74]) {
+       if (row) {
+       window.scrollBy(0, lineHeight * row);
+       row = 0;
+       } else {
+       window.scrollBy(0, lineHeight);
+       }
+       }
+       if (keys[75]) {
+       if (row) {
+       window.scrollBy(0, -lineHeight * row);
+       row = 0;
+       } else {
+       window.scrollBy(0, -lineHeight);
+       }
+       }
+       if (event.keyCode >= 48 && event.keyCode <= 57) {
+       for (var i = 48; i <= 57; i++) {
+       keys[i] = i - 48;
+       }
+       row = parseInt(row.toString() + keys[event.keyCode].toString());
+       }
+       }
+
+       function keysUp(event) {
+       keys[event.keyCode] = false;
+       }
+       window.addEventListener('keydown', keysDown, false);
+       window.addEventListener('keyup', keysUp, false);
+
+       if( browser.mobile && page.url == '/' ){
+       var pageNum = 0;
+       var postData;
+       var xhrPosts = new XMLHttpRequest();
+       xhrPosts.open('GET', '/posts.json', true);
+       xhrPosts.onreadystatechange = function() {
+       if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
+       postData = JSON.parse(xhrPosts.responseText);
+       document.addEventListener('scroll', loadMore, false);
+       }
+       }
+       xhrPosts.send();
+       function loadMore (){
+       var pageMax = Math.ceil(postData.length/10);
+       if(document.body.offsetHeight-(document.documentElement.clientHeight +(document.documentElement.scrollTop || document.body.scrollTop )) == 0 && pageNum < pageMax){
+       pagination.classList.add('loading');
+       setTimeout(function(){
+       pageNum++;
+       var postMin = pageNum * 10;
+       var postMax = (pageNum + 1) * 10;
+       var html = '';
+       var commentArr = [];
+    for( var i = postMin; i < postMax && i < postData.length; i++){
+        html +='<article class="post-item">'+
+            '<img class="post-item-thumb" src="'+postData[i].thumb+'" alt="'+postData[i].title+'">'+
+            '<section class="post-item-summary">'+
+            '<h3 class="post-item-title"><a class="post-item-link" href="'+postData[i].url+'" title="'+postData[i].title+'">'+postData[i].title+'</a></h3>'+
+            '<abbr class="post-item-date timeago" datetime="'+postData[i].date+'"></abbr>'+
+            '</section>'+
+            '<a class="post-item-comment" title="查看评论" data-disqus-url="'+postData[i].url+'" href="'+postData[i].url+'#comments"></a>'+
+            '</article>';
+        commentArr.push(postData[i].url);
     }
-    if (keys[71]) {
-        if (!inCombo) {
-            inCombo = true;
-            setTimeout('inCombo = false;', 500);
-        } else {
-            window.scrollTo(0, 0);
-        }
-    }
-    if (keys[74]) {
-        if (row) {
-            window.scrollBy(0, lineHeight * row);
-            row = 0;
-        } else {
-            window.scrollBy(0, lineHeight);
-        }
-    }
-    if (keys[75]) {
-        if (row) {
-            window.scrollBy(0, -lineHeight * row);
-            row = 0;
-        } else {
-            window.scrollBy(0, -lineHeight);
-        }
-    }
-    if (event.keyCode >= 48 && event.keyCode <= 57) {
-        for (var i = 48; i <= 57; i++) {
-            keys[i] = i - 48;
-        }
-        row = parseInt(row.toString() + keys[event.keyCode].toString());
-    }
+    document.querySelector('.post-list').insertAdjacentHTML('beforeend', html);
+    timeago().render(document.querySelectorAll('.timeago'), 'zh_CN');
+    comment.list(commentArr);
+    pagination.classList.remove('loading');
+},1000);
 }
-
-function keysUp(event) {
-    keys[event.keyCode] = false;
 }
-window.addEventListener('keydown', keysDown, false);
-window.addEventListener('keyup', keysUp, false);
-
-if( browser.mobile && page.url == '/' ){
-    var pageNum = 0;
-    var postData;
-    var xhrPosts = new XMLHttpRequest();
-    xhrPosts.open('GET', '/posts.json', true);
-    xhrPosts.onreadystatechange = function() {
-        if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
-            postData = JSON.parse(xhrPosts.responseText);
-            document.addEventListener('scroll', loadMore, false);
-        }
-    }
-    xhrPosts.send();
-    function loadMore (){
-        var pageMax = Math.ceil(postData.length/10);
-        if(document.body.offsetHeight-(document.documentElement.clientHeight +(document.documentElement.scrollTop || document.body.scrollTop )) == 0 && pageNum < pageMax){
-            pagination.classList.add('loading');
-            setTimeout(function(){
-                pageNum++;
-                var postMin = pageNum * 10;
-                var postMax = (pageNum + 1) * 10;
-                var html = '';
-                var commentArr = [];
-                for( var i = postMin; i < postMax && i < postData.length; i++){
-                    html +='<article class="post-item">'+
-                        '<img class="post-item-thumb" src="'+postData[i].thumb+'" alt="'+postData[i].title+'">'+
-                        '<section class="post-item-summary">'+
-                        '<h3 class="post-item-title"><a class="post-item-link" href="'+postData[i].url+'" title="'+postData[i].title+'">'+postData[i].title+'</a></h3>'+
-                        '<abbr class="post-item-date timeago" title="'+postData[i].date+'"></abbr>'+
-                        '</section>'+
-                        '<a class="post-item-comment" title="查看评论" data-disqus-url="'+postData[i].url+'" href="'+postData[i].url+'#comments"></a>'+
-                        '</article>';
-                    commentArr.push(postData[i].url);
-                }
-                document.querySelector('.post-list').insertAdjacentHTML('beforeend', html);
-                timeAgo();
-                comment.list(commentArr);
-                pagination.classList.remove('loading');
-            },1000);
-        }
-    }
 }
 */
 
@@ -676,15 +589,18 @@ Comment.prototype = {
                 document.getElementById('comment').dataset.tips = '正在检测能否连接 Disqus……';
                 var xhrConfig = new XMLHttpRequest();
                 xhrConfig.open('GET', '//disqus.com/next/config.json?' + new Date().getTime(), true);
-                xhrConfig.timeout = 1000;
-                xhrConfig.onload = function() {
-                    document.getElementById('comment').dataset.tips = '连接成功，正在加载 Disqus 评论框……';
-                    comment.current = 'disqus';
-                    if(!!toggleBtn){toggleBtn.checked = true;}
-                    comment.disqus();
+                xhrConfig.timeout = 3000;
+                xhrConfig.onreadystatechange = function() {
+                    if (xhrConfig.readyState == 4 && xhrConfig.status == 200) {
+                        document.getElementById('comment').dataset.tips = '连接成功，正在加载 Disqus 评论框……';
+                        comment.current = 'disqus';
+                        if(!!toggleBtn){toggleBtn.checked = true;}
+                        comment.disqus();
+                    }
                 }
                 xhrConfig.ontimeout = function() {
-                    document.getElementById('comment').dataset.tips = '连接失败，正在加载简单评论框……';
+                    xhrConfig.abort();
+                    document.getElementById('comment').dataset.tips = '网络不佳，正在加载简单评论框……';
                     comment.current = 'comment';
                     comment.getlist();
                     if(!!toggleBtn){toggleBtn.checked = false;}
@@ -699,6 +615,7 @@ Comment.prototype = {
                 };
                 xhrConfig.send(null);
             } else {
+                document.getElementById('comment').dataset.tips = '正在加载简单评论框……';
                 this.getlist();
             }
 
@@ -723,7 +640,7 @@ Comment.prototype = {
             }
         }
     },
-    
+
     // 切换评论框
     toggle: function(){
         if( comment.current == 'disqus' ){
@@ -829,73 +746,73 @@ Comment.prototype = {
 
     //emoji表情
     emoji: [
-        {
-            code:':smile:',
-            title:'笑脸',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f604.png'
-        },{
-            code:':mask:',
-            title:'生病',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f637.png'
-        },{
-            code:':joy:',
-            title:'破涕为笑',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f602.png'
-        },{
-            code:':stuck_out_tongue_closed_eyes:',
-            title:'吐舌',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f61d.png'
-        },{
-            code:':flushed:',
-            title:'脸红',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f633.png'
-        },{
-            code:':scream:',
-            title:'恐惧',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f631.png'
-        },{
-            code:':pensive:',
-            title:'失望',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f614.png'
-        },{
-            code:':unamused:',
-            title:'无语',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f612.png'
-        },{
-            code:':grin:',
-            title:'露齿笑',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f601.png'
-        },{
-            code:':heart_eyes:',
-            title:'色',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png'
-        },{
-            code:':sweat:',
-            title:'汗',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f613.png'
-        },{
-            code:':smirk:',
-            title:'得意',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png'
-        },{
-            code:':relieved:',
-            title:'满意',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60c.png'
-        },{
-            code:':rolling_eyes:',
-            title:'翻白眼',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f644.png'
-        },{
-            code:':ok_hand:',
-            title:'OK',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f44c.png'
-        },{
-            code:':v:',
-            title:'胜利',
-            url:'//assets-cdn.github.com/images/icons/emoji/unicode/270c.png'
-        }
+    {
+        code:':smile:',
+        title:'笑脸',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f604.png'
+    },{
+        code:':mask:',
+        title:'生病',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f637.png'
+    },{
+        code:':joy:',
+        title:'破涕为笑',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f602.png'
+    },{
+        code:':stuck_out_tongue_closed_eyes:',
+        title:'吐舌',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f61d.png'
+    },{
+        code:':flushed:',
+        title:'脸红',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f633.png'
+    },{
+        code:':scream:',
+        title:'恐惧',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f631.png'
+    },{
+        code:':pensive:',
+        title:'失望',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f614.png'
+    },{
+        code:':unamused:',
+        title:'无语',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f612.png'
+    },{
+        code:':grin:',
+        title:'露齿笑',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f601.png'
+    },{
+        code:':heart_eyes:',
+        title:'色',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60d.png'
+    },{
+        code:':sweat:',
+        title:'汗',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f613.png'
+    },{
+        code:':smirk:',
+        title:'得意',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png'
+    },{
+        code:':relieved:',
+        title:'满意',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f60c.png'
+    },{
+        code:':rolling_eyes:',
+        title:'翻白眼',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f644.png'
+    },{
+        code:':ok_hand:',
+        title:'OK',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/1f44c.png'
+    },{
+        code:':v:',
+        title:'胜利',
+        url:'//assets-cdn.github.com/images/icons/emoji/unicode/270c.png'
+    }
     ],
-    
+
     // 邮箱验证
     verify: function(e){
         var email = e.currentTarget;
@@ -955,10 +872,10 @@ Comment.prototype = {
             'media': media
         };
         comment.load(post, comment.count);
-        timeAgo();
+        timeago().render(document.querySelectorAll('.timeago'), 'zh_CN');
 
         message += mediaStr;
-        
+
         comment.message = message;
 
         // 清空或移除评论框
@@ -992,7 +909,7 @@ Comment.prototype = {
                     comment.count += 1;
                     document.getElementById('comment-count').innerHTML = comment.count + ' 条评论';
                     comment.load(res.response, comment.count);
-                    timeAgo();
+                    timeago().render(document.querySelectorAll('.timeago'), 'zh_CN');
                     comment.form();
                 } else if (res.code === 2) {
                     if (res.response.indexOf('email') > -1) {
@@ -1031,11 +948,11 @@ Comment.prototype = {
         var html = '<li class="comment-item" data-index="'+(i+1)+'" data-id="'+post.id+'" data-name="'+ post.name+'" id="comment-' + post.id + '">';
         html += '<div class="comment-item-avatar"><img src="' + post.avatar + '"></div>';
         html += '<div class="comment-item-main">'
-        html += '<div class="comment-item-header"><a class="comment-item-name" rel="nofollow" target="_blank" href="' + url + '">' + post.name + '</a><span class="comment-item-bullet"> • </span><span class="comment-item-time timeago" datetime="' + post.createdAt + '"></span><span class="comment-item-bullet"> • </span><a class="comment-item-reply" href="javascript:;">回复</a></div>';
+            html += '<div class="comment-item-header"><a class="comment-item-name" rel="nofollow" target="_blank" href="' + url + '">' + post.name + '</a><span class="comment-item-bullet"> • </span><span class="comment-item-time timeago" datetime="' + post.createdAt + '"></span><span class="comment-item-bullet"> • </span><a class="comment-item-reply" href="javascript:;">回复</a></div>';
         html += '<div class="comment-item-content">' + messageHTML + mediaHTML + '</div>';
         html += '<ul class="comment-item-children"></ul>';
         html += '</div>'
-        html += '</li>';
+            html += '</li>';
         if (!!parent.dom) {
             parent.dom.insertAdjacentHTML(parent.insert, html);
         } else {
@@ -1047,7 +964,10 @@ Comment.prototype = {
     getlist: function(){
         document.querySelector('.disqus').style.display = 'none';
         document.querySelector('.comment').style.display = 'block';
-        if(!this.count){
+        if(!this.count || !!this.offsetTop){
+            if(disqus_loaded){
+                document.getElementById('comment').dataset.tips = '正在加载简单评论框……';
+            }
             var xhrListPosts = new XMLHttpRequest();
             xhrListPosts.open('GET', site.api + '/disqus/getcomments?link=' + encodeURIComponent(page.url) + '&cursor=' + this.next, true);
             xhrListPosts.send();
@@ -1058,7 +978,7 @@ Comment.prototype = {
                     if (res.code === 0) {
                         comment.thread = res.thread;
                         document.querySelector('.comment').classList.remove('loading')
-                        document.querySelector('.comment-tips-link').setAttribute('href', res.link);
+                            document.querySelector('.comment-tips-link').setAttribute('href', res.link);
                         if (res.response == null) {
                             comment.count = res.posts;
                             return;
@@ -1078,6 +998,7 @@ Comment.prototype = {
                                 document.querySelector('.comment-list').appendChild(document.getElementById('comment-' + item));
                             })
                             window.scrollTo(0, comment.offsetTop);
+                            comment.offsetTop = undefined;
                         } else {
                             comment.count = res.posts;
                             document.getElementById('comment-count').innerHTML = res.posts + ' 条评论';
@@ -1095,14 +1016,14 @@ Comment.prototype = {
                                 this.classList.add('loading');
                                 comment.offsetTop = document.documentElement.scrollTop || document.body.scrollTop;
                                 comment.getlist();
-                            }, {once: true});
+                            }, { once: true });
                         } else {
                             if( !!loadmore ){
                                 loadmore.parentNode.removeChild(loadmore);
                             }
                         }
 
-                        timeAgo();
+                        timeago().render(document.querySelectorAll('.timeago'), 'zh_CN');
                         if (/^#disqus|^#comment/.test(location.hash) && !res.cursor.hasPrev ) {
                             window.scrollTo(0, document.querySelector(location.hash).offsetTop);
                         }
@@ -1117,8 +1038,8 @@ Comment.prototype = {
                         createHTML += '<div class="comment-form-item"><label class="comment-form-label">slug:<\/label><input class="comment-form-input" id="thread-slug" name="slug" placeholder="（别名，选填）" \/><\/div>';
                         createHTML += '<div class="comment-form-item"><label class="comment-form-label">message:<\/label><textarea class="comment-form-textarea" id="thread-message" name="message">'+page.desc+'<\/textarea><\/div>';
                         createHTML += '<button id="thread-submit" class="comment-form-submit">提交<\/button><\/div>'
-                        document.querySelector('.comment').classList.remove('loading')
-                        document.querySelector('.comment').innerHTML = createHTML;
+                            document.querySelector('.comment').classList.remove('loading')
+                            document.querySelector('.comment').innerHTML = createHTML;
                         document.getElementById('thread-submit').addEventListener('click',function(){
                             var threadQuery = 'url=' + document.getElementById('thread-url').value + '&title=' + document.getElementById('thread-title').value + '&slug=' + document.getElementById('thread-slug').value + '&message=' + document.getElementById('thread-message').value;
                             var xhrcreateThread = new XMLHttpRequest();
@@ -1153,7 +1074,7 @@ Comment.prototype = {
         if( box ){
             box.parentNode.removeChild(box);
             var cancel = document.querySelector('.comment-item-cancel')
-            cancel.outerHTML = cancel.outerHTML.replace('cancel','reply');
+                cancel.outerHTML = cancel.outerHTML.replace('cancel','reply');
         }
 
         // 显示回复框
@@ -1288,7 +1209,7 @@ setTimeout(function() {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date();
             a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
+            m = s.getElementsByTagName(o)[0];
             a.async = 1;
             a.src = g;
             m.parentNode.insertBefore(a, m)
@@ -1298,3 +1219,4 @@ setTimeout(function() {
         ga('send', 'pageview');
     }
 }, 1000);
+});
