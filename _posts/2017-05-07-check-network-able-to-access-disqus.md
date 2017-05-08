@@ -63,7 +63,11 @@ cond1(no)->op3->e
 
 ## 具体代码
 
-我发现 Disqus 评论框加载的时候，都会请求一个小文件 `https://disqus.com/next/config.json`，经测试，这个文件不存在跨域的权限问题，在自己网站上亦可发送异步请求。
+我发现 Disqus 评论框加载的时候，都会请求一个小文件：
+
+    https://disqus.com/next/config.json
+
+经测试，这个文件不存在跨域的权限问题，在自己网站上亦可发送异步请求。
 
 在这里，直接使用XMLHttpRequest 这个 API 来发送请求便可，具体应用起来需要考虑的就没有上面流程图那么简单任性，必须配合 XMLHttpRequest 的具体事件来做一些适配，以下是一个简单的例子：
 
