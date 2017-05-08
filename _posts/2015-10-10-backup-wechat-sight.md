@@ -4,7 +4,7 @@ title: 备份 iOS 版微信小视频
 description: "微信很好很强大，还让几乎没上过网的长辈们开始触网，动不动就发图片、小视频过来，说到小视频，iPhone 的微信小视频应该如何备份呢？"
 date: 2015-10-10 10:00:00 +0800
 category: tech
-thumb: IMG_PATH/wechat.png
+thumb: IMG_PATH/wechat.svg
 tags: [微信, iPhone, WeChat, 小视频]
 ---
 

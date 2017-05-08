@@ -3,7 +3,7 @@ layout: post
 title: "更好的 Markdown 插图方式"
 description: "我都忘了多久之前，不再喜欢可视化编辑，写博文都喜欢直接编辑源码。使用 Jekyll 以来，采用 Markdown 语法插图比起之前用 HTML 要方便很多。最近忽然发现 Markdown 的插图方式不止一种，感觉参考资料风格的插图更加好用。"
 date: 2017-04-27 17:00:00+0800
-thumb: IMG_PATH/markdown.png
+thumb: IMG_PATH/markdown.svg
 category: tech
 tags: ["Markdown", "Liquid", "Jekyll"]
 ---

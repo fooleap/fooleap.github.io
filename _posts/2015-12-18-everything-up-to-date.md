@@ -3,7 +3,7 @@ layout: post
 title: 解决 Git 的 Everything up-to-date 问题
 description: "前几天，我更新完博客后进行 push 操作，上传数据到 GitHub 时，遇到一个问题，无论我怎么 commit，push 后依然返回提示 Everything up-to-date。"
 date: 2015-12-18 19:20:00 +0800
-thumb: IMG_PATH/git.png
+thumb: IMG_PATH/git.svg
 category: tech
 tags: [Git]
 ---

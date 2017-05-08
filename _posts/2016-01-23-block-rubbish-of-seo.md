@@ -3,7 +3,7 @@ layout: post
 title: 屏蔽 SEO 垃圾网站
 description: "现在用谷歌搜索的时候，若没掌握好技巧，很容易搜出 SEO 垃圾网站。就算把握好技巧，也难免会出现那样的网站。"
 date: 2016-01-23 23:30:00 +0800
-thumb: IMG_PATH/google.png
+thumb: IMG_PATH/google.svg
 category: tech
 tags: [Google, 谷歌, SEO, Firefox]
 ---

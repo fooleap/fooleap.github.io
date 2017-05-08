@@ -2,7 +2,7 @@
 layout: post
 title: 更改 RubyGems 镜像源问题
 date: 2016-03-29 11:30:00 +0800
-thumb: IMG_PATH/ruby.png
+thumb: IMG_PATH/ruby.svg
 category: tech
 tags: [RubyGems]
 ---

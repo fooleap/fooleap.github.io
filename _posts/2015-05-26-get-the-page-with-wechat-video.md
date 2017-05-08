@@ -4,7 +4,7 @@ title: 获取微信文章中腾讯视频的页面
 date: 2015-05-26 21:00:00 +0800
 description: "前段时间见汕头电视台可网上看直播，所以也想看看“澄海电视台”有没有在线渠道可以观看。"
 category: tech
-thumb: 'IMG_PATH/wechat.png'
+thumb: IMG_PATH/wechat.svg
 tags: [微信, WeChat, 腾讯视频, 网址]
 ---
 

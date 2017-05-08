@@ -2,7 +2,7 @@
 layout: post
 title: 为博客添加分享到微信功能
 description: "网页上所谓的分享到微信功能，充其量就是显示一个该网页或该网页手机版对应页面 URL 地址的二维码，让别人用微信去扫码，便可通过微信自身的功能进行分享。"
-thumb: IMG_PATH/wechat.png
+thumb: IMG_PATH/wechat.svg
 date: 2015-11-30 20:00:00 +0800
 category: tech
 tags: [微信, 二维码, JavaScript]

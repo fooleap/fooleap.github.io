@@ -3,7 +3,7 @@ layout: post
 title: "利用 Nike+ API 获取跑步路线数据"
 description: "常光临小博的博友不难发现，去年晒的几次跑步均有带上跑步路线地图，那么都是怎么实现的呢？这事暂且分两步来说，一是获取数据，二是显示地图。这篇主要讲获取数据部分。"
 date: 2017-04-20 19:20:00+0800
-thumb: IMG_PATH/nikeplus.png
+thumb: IMG_PATH/nikeplus.svg
 category: tech
 tags: ["Nike+", "Nike+ API", "PHP", "cURL"]
 ---

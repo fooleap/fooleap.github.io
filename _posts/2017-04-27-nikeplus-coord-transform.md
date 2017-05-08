@@ -3,7 +3,7 @@ layout: post
 title: "转换 Nike+ 的坐标数据"
 description: "前文已经提到，在取得 Nike+ API 提供的坐标数据之后，需要将坐标数据进行转换。Nike+ 数据采用的是 WGS84 坐标系统，若想用高德地图 API 来做显示，那么便需要将坐标转为 GCJ02 坐标系统对应的。"
 date: 2017-04-27 13:30:00+0800
-thumb: IMG_PATH/nikeplus.png
+thumb: IMG_PATH/nikeplus.svg
 category: tech
 tags: ["Nike+", "PHP"]
 ---

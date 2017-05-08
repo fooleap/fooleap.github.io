@@ -3,7 +3,7 @@ layout: post
 title: "将咕咚的数据导入到 Nike+"
 description: "上篇文章说到运动 APP，Nike+ Running 是我目前正在使用的运动 APP，使用起来还算比较舒服，如果没特殊情况的话，我想不会更换成其他的。"
 date: 2016-07-31 18:00:00 +0800
-thumb: IMG_PATH/nikeplus.png
+thumb: IMG_PATH/nikeplus.svg
 category: tech
 tags: ['Nike+', 咕咚, GPX ]
 ---

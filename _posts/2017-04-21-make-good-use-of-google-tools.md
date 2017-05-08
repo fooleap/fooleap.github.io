@@ -3,7 +3,7 @@ layout: post
 title: "善用 Google 搜索工具"
 description: "今天 Google Chrome 提示升级，升级后令人讨厌的事情发生了。除了几个国际大站，其他几乎所有的 HTTPS 链接打开皆会提示“您的连接不是私密连接”，就连百度都难逃一劫。"
 date: 2017-04-21 19:00:00+0800
-thumb: IMG_PATH/google.png
+thumb: IMG_PATH/google.svg
 category: tech
 tags: ["Google", "您的连接不是私密连接", "阿呆喵"]
 ---

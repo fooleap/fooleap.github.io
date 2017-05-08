@@ -2,7 +2,7 @@
 layout: post
 title: "使用 Git 管理静态网站"
 description: "本博使用 GitHub Pages，很喜欢使用 Git 这种方式管理网站，下面就一起来看看如何使用 Git 来管理静态网站"
-thumb: 'http://7fv9cr.com1.z0.glb.clouddn.com/git.png'
+thumb: IMG_PATH/git.svg
 category: tech
 tags: [Git, SSH, VPS]
 ---

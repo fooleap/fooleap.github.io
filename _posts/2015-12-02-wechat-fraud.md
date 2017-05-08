@@ -2,7 +2,7 @@
 layout: post
 title: 天上不会掉馅饼之微信诈骗
 description: "微信的免费领取陷阱。"
-thumb: IMG_PATH/wechat.png
+thumb: IMG_PATH/wechat.svg
 date: 2015-12-02 15:43:00 +0800
 category: life
 tags: [微信, 诈骗, 借贷宝]
