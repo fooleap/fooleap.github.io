@@ -172,6 +172,9 @@ body {
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-color: #fff;
+        &[data-src*="nike"]{
+            background-color: rgb(170,240,0);
+        }
     }
     .post-item-summary {
         margin: 0 10px;
@@ -182,6 +185,7 @@ body {
             font-size: 14.5px;
             color: $darkblue;
             font-weight: normal;
+            height: 25px;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
