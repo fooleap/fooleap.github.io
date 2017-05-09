@@ -4,15 +4,11 @@ permalink: /tags.html
 title : 标签云
 ---
 
-<canvas width="640" height="427" id="tag-canvas">
-  <p>您的浏览器不支持 canvas！</p>
-</canvas>
-
 <ul class="post-tags-list" id="tags">
     {% for tag in site.tags %}
     {% assign count = tag | last | size %}
-    {% if count  > 1 %}
-    <li><a class="tag tag-{{ tag | last | size }}" href="#{{ tag | first }}" style="font-size: {{ tag | last | size | times: 100 | divided_by: 30 }}px">{{ tag | first }}</a></li>
+    {% if count  > 2 %}
+    <li clsss="post-tags-item"><a class="tag tag-{{ tag | last | size }}" href="#{{ tag | first }}" style="font-size: {{ tag | last | size | times: 100 | divided_by: 40 }}px">{{ tag | first }}</a></li>
     {% endif %}
     {% endfor %}
 </ul>
@@ -37,20 +33,3 @@ title : 标签云
     </tbody>
 </table>
 {% endfor %}
-<script src="http://www.goat1000.com/tagcanvas.min.js"></script>
-<script>
-    TagCanvas.Start('tag-canvas', 'tags', {
-        textHeight: 25,
-        textColour: null,
-        outlineColour: 'rgba(225, 225, 225, .3)',
-        outlineMethod: 'block',
-        bgRadius: 5,
-        reverse: true,
-        depth: 0.8,
-        Zoom: 1.5,
-        weight: true,
-        weightSizeMin: 10,
-        weightSizeMax: 25,
-        wheelZoom: false
-    });
-</script>

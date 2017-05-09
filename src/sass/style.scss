@@ -609,8 +609,17 @@ pre {
 
 // 标签页
 .post-tags-list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    .post-tags-item{
+        margin: 0 5px;
+    }
     .tag{
         color: $black;
+        &:hover {
+            border-bottom: none;
+        }
     }
     .tag-1,
     .tag-2,
@@ -632,7 +641,6 @@ pre {
     .tag-12 {
         color: rgb(25, 25, 25);
     }
-    display: none;
 }
 
 .post-tags-table{
