@@ -16,7 +16,7 @@ var loadingsvg = require('url-loader!./svg/loading.svg');
 document.addEventListener("DOMContentLoaded", function(event) { 
     var ua = navigator.userAgent;
     //全局变量
-    var head = document.getElementsByTagName('head')[0],
+    var head = document.head,
     site = {
         home: head.dataset.home,
         api: head.dataset.api,
@@ -53,7 +53,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             pre.style.display = 'none';
 
             var diagram = flowchart.parse(item.innerText);
-            diagram.drawSVG(flowId);
+            diagram.drawSVG(flowId,{
+                'yes-text': '是',
+                'no-text': '否',
+            });
         })
 
         window.addEventListener('load', function(){
@@ -157,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         '<div class="lightbox-main"><ul class="lightbox-list"></ul></div>'+
                         '<div class="lightbox-thumb"><ul class="lightbox-thumb-list"></ul></div>'+
                         '</div></div>';
-                    document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend', lightboxHTML);
+                    document.body.insertAdjacentHTML('beforeend', lightboxHTML);
                     var lightbox = document.querySelector('.lightbox-container');
                     var lightboxList = document.querySelector('.lightbox-list');
                     var thumbList = document.querySelector('.lightbox-thumb-list');

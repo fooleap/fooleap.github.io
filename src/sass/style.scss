@@ -175,6 +175,9 @@ body {
         &[data-src*="nike"]{
             background-color: rgb(170,240,0);
         }
+        &[data-src*="node"]{
+            background-color: rgb(51,51,51);
+        }
     }
     .post-item-summary {
         margin: 0 10px;
