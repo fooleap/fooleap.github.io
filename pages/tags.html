@@ -8,28 +8,27 @@ title : 标签云
     {% for tag in site.tags %}
     {% assign count = tag | last | size %}
     {% if count  > 2 %}
-    <li clsss="post-tags-item"><a class="tag tag-{{ tag | last | size }}" href="#{{ tag | first }}" style="font-size: {{ tag | last | size | times: 100 | divided_by: 40 }}px">{{ tag | first }}</a></li>
+    {% assign fontsize = tag | last | size | times: 100 | divided_by: 30 %}
+    {% if fontsize < 12 %}
+        <li clsss="post-tags-item"><a class="tag tag-{{ tag | last | size }}" href="?tag={{ tag | first }}" style="font-size: 12px">{{ tag | first }}</a></li>
+    {% elsif fontsize > 28 %}
+        <li clsss="post-tags-item"><a class="tag tag-{{ tag | last | size }}" href="?tag={{ tag | first }}" style="font-size: 24px">{{ tag | first }}</a></li>
+    {% else %}
+        <li clsss="post-tags-item"><a class="tag tag-{{ tag | last | size }}" href="?tag={{ tag | first }}" style="font-size: {{ fontsize }}px">{{ tag | first }}</a></li>
+    {% endif %}
     {% endif %}
     {% endfor %}
 </ul>
-{% for tag in site.tags %}
-<table class="post-tags-table" id="{{ tag[0] }}">
+<table class="post-tags-table">
     <thead>
         <tr>
-            <th colspan=2>以下是标签为“{{ tag[0] }}”的所有文章</th>
+            <th colspan=2>以下是标签为“<span class="post-tags-text"></span>”的所有文章</th>
         </tr>
         <tr>
             <th>日期</th>
             <th>文章</th>
         </tr>
     </thead>
-    <tbody>
-        {% for post in tag[1] %}
-        <tr>
-            <td class="post-time"><time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y 年 %m 月 %d 日" }}</time></td>
-            <td><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></td>
-        </tr>
-        {% endfor %}
+    <tbody class="post-tags-tbody">
     </tbody>
 </table>
-{% endfor %}

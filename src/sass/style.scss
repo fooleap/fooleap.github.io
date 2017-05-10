@@ -643,13 +643,6 @@ pre {
     }
 }
 
-.post-tags-table{
-    display: none;
-    &:target {
-        display: table;
-    }
-}
-
 .task-list-item {
     list-style-type: none;
     margin-left: -15px;

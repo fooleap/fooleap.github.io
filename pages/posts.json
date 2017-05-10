@@ -2,34 +2,4 @@
 layout: null
 permalink: /posts.json
 ---
-[
-    {% for post in site.posts %}
-      {% if post.layout == "post" %}{
-        {% if post.thumb %}
-        {% assign thumbnail = post.thumb | replace:'IMG_PATH', site.IMG_PATH %}
-        {% else %}
-        {% if post.content contains site.IMG_PATH %}
-        {% assign images = post.content | split:'<img src="' %}
-        {% for image in images %}
-        {% if image contains site.IMG_PATH %}
-        {% if image contains 'imageView'%}
-        {% assign thumbnail = image | split:"?imageView" | first %}
-        {% else %}
-        {% assign thumbnail = image | split:'"' | first | remove:"_640" %}
-        {% endif %}
-        {% break %}
-        {% endif %}
-        {% endfor %}
-        {% else %}
-        {% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}
-        {% endif %}
-        {% endif %}
-      "category"  : "{{ post.category }}",
-      "title"    : "{{ post.title }}",
-      "url"      : "{{ post.url }}",
-      "date"     : "{{ post.date }}",
-      "thumb"     : "{{ thumbnail | append: '?imageView2/1/w/100/h/100/q/90'}}"
-      }{% unless forloop.last %},{% endunless %}
-      {% endif %}
-    {% endfor %}
-]
+[{% for post in site.posts %}{% if post.layout == "post" %}{{"{"}}{% if post.thumb %}{% assign thumbnail = post.thumb | replace:'IMG_PATH', site.IMG_PATH %}{% else %}{% if post.content contains site.IMG_PATH %}{% assign images = post.content | split:'<img src="' %}{% for image in images %}{% if image contains site.IMG_PATH %}{% if image contains 'imageView'%}{% assign thumbnail = image | split:"?imageView" | first %}{% else %}{% assign thumbnail = image | split:'"' | first | remove:"_640" %}{% endif %}{% break %}{% endif %}{% endfor %}{% else %}{% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}{% endif %}{% endif %}{% if thumbnail contains "svg" %}{% assign thumbnail =  thumbnail %}{% else %}{% assign thumbnail =  thumbnail | append: "?imageView2/1/w/100/h/100/q/90" %}{% endif %}"category":"{{ post.category }}","title":"{{ post.title }}","url":"{{ post.url }}","date":"{{ post.date }}","thumb":"{{ thumbnail }}","tags":[{{ post.tags | join: '","' | append: '"' | prepend: '"' }}]}{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}]
