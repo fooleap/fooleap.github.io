@@ -36,7 +36,7 @@
 
             <header class="page-header">
                 <hgroup class="page-hgroup">
-                <h1 class="page-title"><a class="page-title-link" href="{% if page.title %}{{ page.url }}{% else %}{{ site.home }}{% endif %}">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</a>{% if page.url == '/archive.html' %}<input class="page-search-input" type="text" placeholder="检索"/>{% endif %}</h1>
+                <h1 class="page-title"><a class="page-title-link" href="{% if page.title %}{{ page.url }}{% else %}{{ site.home }}{% endif %}">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</a>{% if page.url == '/archive.html' %}<input class="page-search-input" type="text" placeholder="搜索" />{% endif %}</h1>
                     <h2 class="page-subtitle">
                     {% if page.date %}
                     <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日 %R" }}</time>

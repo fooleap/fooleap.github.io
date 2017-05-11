@@ -92,6 +92,36 @@ xhr.send(null);
 
 采用超时的方法来判断是否能连接上 Disqus，是因为我想 3 秒内无法成功 `GET` 这个小文件，就算翻了墙，评论框的加载速度也不容乐观。
 
+## 更加合理
+
+加载 Disqus 评论框最初就是需要加载一个 js 文件，何不在根据它的状态来判断呢？`onload` 便是能加载，这不就能省去一步了吗？搞起：
+
+```javascript
+var disqus_onload = false;
+var disqus = document.createElement('script');
+disqus.src = '//shortname.disqus.com/embed.js';
+disqus.setAttribute('data-timestamp', +new Date());
+disqus.onload = function(){
+    disqus_onload = true;
+}
+disqus.onerror = function(){
+    disqus_onload = false;
+}
+document.head.appendChild(disqus);
+
+setTimeout(function(){
+    if ( !disqus_onload ){
+        disqus_onload = true;
+        // 加载自制评论框，隐藏掉 Disqus 原生评论框的 div
+    }
+}, 3000);
+```
+
+Disqus JS 文件三秒内没有 `onload`，则加载自制评论框。这里有一个 bug，有可能只是网速慢点，Disqus 评论框会继续加载，所以加载自制评论框的同时可以隐藏掉原生评论框。
+
+事实上，若灵活利用 Disqus 相关的回调函数，或许能带来更好的体验。比如说 `onReady` 时，给个可以切换的提示。
+
 **本文历史**
 
 * 2017 年 05 月 07 日 完成初稿
+* 2017 年 05 月 11 日 完善

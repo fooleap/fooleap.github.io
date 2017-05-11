@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             var pair = vars[i].split("=");
             if(pair[0] == variable){return pair[1];}
         }
-        return(false);
+        return false;
     }
 
     var flowArr = document.getElementsByClassName('language-flow');
@@ -602,7 +602,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     // 检测是否能连上 Disqus
                     document.getElementById('comment').dataset.tips = '正在检测能否连接 Disqus……';
                     var xhrConfig = new XMLHttpRequest();
-                    xhrConfig.open('GET', '//disqus.com/next/config.json?' + new Date().getTime(), true);
+                    xhrConfig.open('GET', '//disqus.com/next/config.json?' + Date.now(), true);
                     xhrConfig.timeout = 3000;
                     xhrConfig.onreadystatechange = function() {
                         if (xhrConfig.readyState == 4 && xhrConfig.status == 200) {
@@ -1207,42 +1207,49 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var comment =  new Comment();
 
     if ( location.pathname == '/archive.html' ){
-        document.querySelector('.page-search-input').addEventListener('keyup',function(){
-            var archiveArr = document.getElementsByClassName('archive-item-link');
-            for (var i = 0; i < archiveArr.length; i++){
-                if( archiveArr[i].title.toLowerCase().indexOf(this.value.toLowerCase()) > -1 ) {
-                    archiveArr[i].closest('li').style.display = 'block';
+        document.querySelector('.page-search-input').addEventListener('keyup',function(e){
+            var archive = document.getElementsByClassName('archive-item-link');
+            for (var i = 0; i < archive.length; i++){
+                if( archive[i].title.toLowerCase().indexOf(this.value.toLowerCase()) > -1 ) {
+                    archive[i].closest('li').style.display = 'block';
                 } else {
-                    archiveArr[i].closest('li').style.display = 'none';
+                    archive[i].closest('li').style.display = 'none';
                 }
+            }
+            if(e.keyCode == 13){
+                window.open('https://www.google.com/#q=site:blog.fooleap.org+'+this.value);
             }
         })
     }
 
     if ( location.pathname == '/tags.html' ){
-        var tag = decodeURI(getQuery('tag'));
-        document.querySelector('.post-tags-text').innerHTML = tag;
-        var xhrPosts = new XMLHttpRequest();
-        xhrPosts.open('GET', '/posts.json', true);
-        xhrPosts.onreadystatechange = function() {
-            if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
-                var postData = JSON.parse(xhrPosts.responseText);
-                var postHtml = '';
-                for ( var i = 0; i < postData.length; i++){
-                    var item = postData[i];
-                    if( item.tags.indexOf(tag) > -1){
-                        item.date = item.date.slice(0,10).split('-')
-                        item.date = item.date[0] + ' 年 ' + item.date[1] + ' 月 ' + item.date[2] + ' 日';
-                        postHtml += '<tr>'+
-                            '<td class="post-time"><time>'+item.date+'</time></td>'+
-                            '<td><a href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></td>'+
-                            '</tr>';
+        var tag = getQuery('tag');
+        if(tag){
+            tag = decodeURI(tag);
+            document.querySelector('.post-tags-table').style.display = 'table';
+            document.querySelector('.post-tags-text').innerHTML = tag;
+            var xhrPosts = new XMLHttpRequest();
+            xhrPosts.open('GET', '/posts.json', true);
+            xhrPosts.onreadystatechange = function() {
+                if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
+                    var postData = JSON.parse(xhrPosts.responseText);
+                    var postHtml = '';
+                    for ( var i = 0; i < postData.length; i++){
+                        var item = postData[i];
+                        if( item.tags.indexOf(tag) > -1){
+                            item.date = item.date.slice(0,10).split('-')
+                            item.date = item.date[0] + ' 年 ' + item.date[1] + ' 月 ' + item.date[2] + ' 日';
+                            postHtml += '<tr>'+
+                                '<td class="post-time"><time>'+item.date+'</time></td>'+
+                                '<td><a href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></td>'+
+                                '</tr>';
+                        }
                     }
+                    document.querySelector('.post-tags-tbody').innerHTML = postHtml;
                 }
-                document.querySelector('.post-tags-tbody').innerHTML = postHtml;
             }
+            xhrPosts.send(null);
         }
-        xhrPosts.send(null);
 
     }
     // 统计
@@ -1259,10 +1266,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
             (function(i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
                 i[r] = i[r] || function() {
-                    (i[r].q = i[r].q || []).push(arguments)
+                (i[r].q = i[r].q || []).push(arguments)
                 }, i[r].l = 1 * new Date();
                 a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
+                m = s.getElementsByTagName(o)[0];
                 a.async = 1;
                 a.src = g;
                 m.parentNode.insertBefore(a, m)

@@ -7,7 +7,7 @@ keywords: [fooleap, 前端, Linux, 潮汕]
 description: 'A foolish man could not always lose!'
 
 exclude: [node_modules, src, webpack.config.js, package.json, Gemfile, Gemfile.lock]
-gems: [jekyll-paginate,jemoji]
+gems: [jekyll-paginate, jemoji]
 
 permalink: /:title.html
 highlighter: rouge
