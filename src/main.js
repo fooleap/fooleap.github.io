@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             '<a class="post-item-comment" title="查看评论" data-disqus-url="'+postData[i].url+'" href="'+postData[i].url+'#comments"></a>'+
             '</article>';
         commentArr.push(postData[i].url);
-    }
+        }
     document.querySelector('.post-list').insertAdjacentHTML('beforeend', html);
     timeago().render(document.querySelectorAll('.timeago'), 'zh_CN');
     comment.list(commentArr);
@@ -1205,6 +1205,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     var guest = new Guest();
     var comment =  new Comment();
+
+    if ( location.pathname == '/archive.html' ){
+        document.querySelector('.page-search-input').addEventListener('keyup',function(){
+            var archiveArr = document.getElementsByClassName('archive-item-link');
+            for (var i = 0; i < archiveArr.length; i++){
+                if( archiveArr[i].title.toLowerCase().indexOf(this.value.toLowerCase()) > -1 ) {
+                    archiveArr[i].closest('li').style.display = 'block';
+                } else {
+                    archiveArr[i].closest('li').style.display = 'none';
+                }
+            }
+        })
+    }
 
     if ( location.pathname == '/tags.html' ){
         var tag = decodeURI(getQuery('tag'));

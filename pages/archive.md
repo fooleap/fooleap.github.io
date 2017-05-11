@@ -15,5 +15,5 @@ tags: [归档]
 {:class="archive-title"}
 {% endif %}
 {% endunless %}
-* {{ post.date | date: "%m-%d" }} &raquo; [{{ post.title }}]({{ post.url }} "{{ post.title }}")
+* {{ post.date | date: "%m-%d" }} &raquo; [{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}
 {% endfor %}

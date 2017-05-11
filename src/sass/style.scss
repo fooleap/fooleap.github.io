@@ -137,9 +137,22 @@ body {
         border-bottom: 1px solid #e7e7eb;
         font-weight: 400;
         font-size: 24px;
+        display: flex;
+        justify-content: space-between;
         .page-title-link {
             color: $black;
             border-bottom: none;
+            display: block;
+        }
+        .icon{
+            margin-top: 4px;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        .page-search-input {
+            padding: 0 5px;
         }
     }
     .page-subtitle {
