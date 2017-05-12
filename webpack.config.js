@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer'); 
@@ -5,8 +6,8 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
     entry: __dirname + '/src/main.js',
     output: {
-        path: __dirname + '/assets',
-        filename: 'main.min.js'
+        path: __dirname,
+        filename: 'assets/main.min.js'
     },
     module: {
         rules: [
@@ -17,6 +18,10 @@ module.exports = {
                     fallback: 'style-loader',
                 }),
             },
+            {
+                test: /\.html$/,
+                use: [ 'file-loader?name=[path][name].[ext]!extract-loader!html-loader' ]
+            }
         ],
     },
     plugins: [
@@ -24,10 +29,15 @@ module.exports = {
             options: {
                 postcss: [
                     autoprefixer(),
-                ]
+                ],
+                htmlLoader: {
+                    ignoreCustomFragments: [/\{\{.*?}}|{%.*?%}/],
+                    root: path.resolve(__dirname, 'assets'),
+                    attrs: []
+                }
             }
         }),
-        new ExtractTextPlugin('main.min.css'),
+        new ExtractTextPlugin('assets/main.min.css'),
         new webpack.optimize.UglifyJsPlugin({
             beautify: false,
             comments: false,
@@ -40,6 +50,6 @@ module.exports = {
                 screw_ie8 : true,
                 keep_fnames: true
             }
-        })
+        }),
     ]
 };

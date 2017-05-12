@@ -14,9 +14,8 @@ var loadingsvg = require('url-loader!./svg/loading.svg');
 'use strict';
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-    var ua = navigator.userAgent;
-    //全局变量
-    var head = document.head,
+    var ua = navigator.userAgent,
+        head = document.head,
         site = {
             home: head.dataset.home,
             api: head.dataset.api,

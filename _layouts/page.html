@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
-{% if page.url != '/guestbook.html' %}<section class="post-content">{% endif %}
+{% if page.url != '/guestbook.html' %}
+<section class="post-content">
+{% endif %}
 {{ content | replace_first:'id="markdown-toc"','class="post-toc"' | replace: '<li>[]', '<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled>' | replace: '<li>[x]', '<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked disabled>' }}
-{% if page.url != '/guestbook.html' %}</section>{% endif %}
+{% if page.url != '/guestbook.html' %}
+</section>
+{% endif %}
