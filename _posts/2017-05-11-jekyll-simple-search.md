@@ -87,7 +87,7 @@ cond2=>condition: 是否回车
 op3=>operation: 跳转到 Google
 
 st->io1(right)->cond1
-cond1(yes)->op1
+cond1(yes,right)->op1
 cond1(no)->op2
 op1->cond2
 op2->cond2
