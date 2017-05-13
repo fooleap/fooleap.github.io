@@ -4,7 +4,7 @@ title: "解决 Jemoji 的出错"
 description: "最近在 macOS 上安装 Jekyll 后，运行总是提示 Jemoji 出错，折腾到今晚才算解决这个小问题，解决方法其实很简单，原因就是 Ruby 的版本问题。"
 date: 2017-05-09 23:15:55+0800
 category: tech
-thumb: IMG_PATH/jekyll.png
+thumb: IMG_PATH/jekyll.svg
 tags: [Jekyll, Jemoji, Ruby]
 ---
 

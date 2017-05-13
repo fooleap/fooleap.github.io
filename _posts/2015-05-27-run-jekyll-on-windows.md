@@ -3,7 +3,7 @@ layout: post
 title: 在 Windows 上搭建 Jekyll 写作环境
 date: 2015-05-27 09:00:00 +0800
 description: "曾几何时，别说是 Jekyll，Windows 用户想要好好用一会 Ruby 也相当麻烦，安装时各种出错，但现在想在 Windows 上搭建一个可用的 Jekyll 写作环境还是挺简单的。"
-thumb: 'IMG_PATH/jekyll.png'
+thumb: IMG_PATH/jekyll.svg
 category: tech
 tags: [Jekyll, Ruby, Windows, wdm, 博客]
 ---
