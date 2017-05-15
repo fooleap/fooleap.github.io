@@ -1221,36 +1221,83 @@ document.addEventListener("DOMContentLoaded", function(event) {
         })
     }
 
-    if ( location.pathname == '/tags.html' ){
-        var tag = getQuery('tag');
-        if(tag){
-            tag = decodeURI(tag);
-            document.querySelector('.post-tags-table').style.display = 'table';
-            document.querySelector('.post-tags-text').innerHTML = tag;
-            var xhrPosts = new XMLHttpRequest();
-            xhrPosts.open('GET', '/posts.json', true);
-            xhrPosts.onreadystatechange = function() {
-                if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
-                    var postData = JSON.parse(xhrPosts.responseText);
-                    var postHtml = '';
-                    for ( var i = 0; i < postData.length; i++){
-                        var item = postData[i];
-                        if( item.tags.indexOf(tag) > -1){
-                            item.date = item.date.slice(0,10).split('-')
-                            item.date = item.date[0] + ' 年 ' + item.date[1] + ' 月 ' + item.date[2] + ' 日';
-                            postHtml += '<tr>'+
-                                '<td class="post-time"><time>'+item.date+'</time></td>'+
-                                '<td><a href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></td>'+
-                                '</tr>';
-                        }
-                    }
-                    document.querySelector('.post-tags-tbody').innerHTML = postHtml;
+    if ( location.pathname == '/search.html' ){
+        var keyword = getQuery('keyword');
+        var searchData;
+        var xhrSearch = new XMLHttpRequest();
+        xhrSearch.open('GET', '/search.json', true);
+        xhrSearch.onreadystatechange = function() {
+            if (xhrSearch.readyState == 4 && xhrSearch.status == 200) {
+                searchData = JSON.parse(xhrSearch.responseText);
+                if( keyword ){
+                    search(decodeURI(keyword));
                 }
             }
-            xhrPosts.send(null);
+        }
+        xhrSearch.send(null);
+
+        function search(keyword){
+            var result = [];
+            var total = result.length;
+            searchData.forEach(function(item){
+                var postContent = item.title + item.tags.join('') + item.content;
+                if(postContent.toLowerCase().indexOf(keyword.toLowerCase()) > -1){
+                    var content = item.content.toLowerCase().indexOf(keyword.toLowerCase());
+                }
+            })
         }
 
     }
+
+
+    if ( location.pathname == '/tags.html' ){
+        var keyword = getQuery('keyword');
+        var tagsData;
+        var xhrPosts = new XMLHttpRequest();
+        xhrPosts.open('GET', '/posts.json', true);
+        xhrPosts.onreadystatechange = function() {
+            if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
+                tagsData = JSON.parse(xhrPosts.responseText);
+                if(keyword){
+                    tags(decodeURI(keyword));
+                }
+            }
+        }
+        xhrPosts.send(null);
+        function tags (keyword){
+            document.querySelector('.post-tags-table').style.display = 'table';
+            document.querySelector('.post-tags-text').innerHTML = keyword;
+            var title = '标签：' + keyword + ' | Fooleap\'s Blog';
+            var url = '/tags.html?keyword=' + keyword;
+            var html = '';
+            tagsData.forEach(function(item){
+                if( item.tags.indexOf(keyword) > -1){
+                    var date = item.date.slice(0,10).split('-');
+                    date = date[0] + ' 年 ' + date[1] + ' 月 ' + date[2] + ' 日';
+                    html += '<tr>'+
+                        '<td class="post-time"><time>'+date+'</time></td>'+
+                        '<td><a href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></td>'+
+                        '</tr>';
+                }
+            })
+
+            document.querySelector('.post-tags-tbody').innerHTML = html;
+            document.title = title;
+            history.replaceState({ 
+                "title": title,
+                "url": url 
+            }, title, url);
+        }
+        var tagLinks = document.getElementsByClassName('tag');
+        var tagCount = tagLinks.length;
+        for (var i = 0; i < tagCount; i++){
+            tagLinks[i].addEventListener('click', function(e){
+                tags(e.currentTarget.title);
+                e.preventDefault();
+            }, false);
+        }
+    }
+
     // 统计
     setTimeout(function() {
         if ( location.origin === site.home ) {
