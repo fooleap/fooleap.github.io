@@ -1216,7 +1216,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             }
             if(e.keyCode == 13){
-                window.open('https://www.google.com/#q=site:blog.fooleap.org+'+this.value);
+                location.href = '/search.html?keyword='+this.value;
             }
         })
     }
@@ -1224,27 +1224,59 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if ( location.pathname == '/search.html' ){
         var keyword = getQuery('keyword');
         var searchData;
+        var input = document.querySelector('.search-input');
+        var result = document.querySelector('.search-result');
         var xhrSearch = new XMLHttpRequest();
         xhrSearch.open('GET', '/search.json', true);
         xhrSearch.onreadystatechange = function() {
             if (xhrSearch.readyState == 4 && xhrSearch.status == 200) {
                 searchData = JSON.parse(xhrSearch.responseText);
                 if( keyword ){
+                    input.value = decodeURI(keyword);
                     search(decodeURI(keyword));
+                } else {
+                    input.placeholder = "请输入关键词，回车搜索";
                 }
             }
         }
         xhrSearch.send(null);
 
+        document.querySelector('.search-input').addEventListener('keyup',function(e){
+            if(e.keyCode == 13){
+                search(decodeURI(this.value));
+            }
+        })
+
         function search(keyword){
-            var result = [];
+            result.innerHTML = '';
+            var title = '搜索：' + keyword + ' | Fooleap\'s Blog';
+            var url = '/search.html?keyword=' + keyword;
             var total = result.length;
+            var html = '';
             searchData.forEach(function(item){
                 var postContent = item.title + item.tags.join('') + item.content;
                 if(postContent.toLowerCase().indexOf(keyword.toLowerCase()) > -1){
-                    var content = item.content.toLowerCase().indexOf(keyword.toLowerCase());
+                    var index = item.content.toLowerCase().indexOf(keyword.toLowerCase());
+                    var first = index > 64 ? index - 64 : 0;
+                    var last = first + 128;
+                    html += '<div class="search-result-item">'+
+                        '      <i class="search-result-thumb" style="background-image:url('+item.thumb+')"></i>'+
+                        '      <div class="search-result-content">'+
+                        '        <div class="search-result-header">'+
+                        '           <div class="search-result-title"><a class="search-result-link" target="_blank" href="'+item.url+'">'+item.title+'</a></div>'+
+                        '           <div class="search-result-comment"></div>'+
+                        '        </div>'+
+                        '        <div class="search-result-desc">'+item.content.slice(first,last).replace(keyword,'<span class="search-result-highlight">'+keyword+'</span>')+'</div>'+
+                        '      </div>'+
+                        '    </div>';
                 }
             })
+            result.innerHTML = html;
+            document.title = title;
+            history.replaceState({ 
+                "title": title,
+                "url": url 
+            }, title, url);
         }
 
     }

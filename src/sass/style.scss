@@ -387,6 +387,44 @@ body {
         border-radius: 5px;
         font-size: 15px;
     }
+    .search-result-item{
+        display: flex;
+        margin: 15px 0;
+        height: 70px;
+        .search-result-thumb{
+            width: 70px;
+            height: 70px;
+            display: block;
+            overflow: hidden;
+            border-radius: 4px;
+            transition: all .5s;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-color: #fff;
+        }
+    }
+    .search-result-content{
+        flex: 1;
+        padding: 0 10px;
+        .search-result-header{
+            line-height: 22px;
+            height: 22px;
+        }
+        .search-result-desc{
+            font-size: 13px;
+            line-height: 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
+        .search-result-highlight {
+            display: inline-block;
+            background-color: rgba(255,255,0,.7);
+        }
+    }
 }
 // TOC
 .post-toc {
