@@ -1234,9 +1234,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 if( keyword ){
                     input.value = decodeURI(keyword);
                     search(decodeURI(keyword));
-                } else {
-                    input.placeholder = "请输入关键词，回车搜索";
                 }
+                input.placeholder = "请输入关键词，回车搜索";
             }
         }
         xhrSearch.send(null);
@@ -1257,16 +1256,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 var postContent = item.title + item.tags.join('') + item.content;
                 if(postContent.toLowerCase().indexOf(keyword.toLowerCase()) > -1){
                     var index = item.content.toLowerCase().indexOf(keyword.toLowerCase());
-                    var first = index > 64 ? index - 64 : 0;
-                    var last = first + 128;
+                    var realKeyword = item.content.substr(index, keyword.length);
+                    var first = index > 75 ? index - 75 : 0;
+                    var last = first + 150;
                     html += '<div class="search-result-item">'+
-                        '      <i class="search-result-thumb" style="background-image:url('+item.thumb+')"></i>'+
+                        '      <i class="search-result-thumb" data-src="'+item.thumb+'" style="background-image:url('+item.thumb+')"></i>'+
                         '      <div class="search-result-content">'+
                         '        <div class="search-result-header">'+
                         '           <div class="search-result-title"><a class="search-result-link" target="_blank" href="'+item.url+'">'+item.title+'</a></div>'+
                         '           <div class="search-result-comment"></div>'+
                         '        </div>'+
-                        '        <div class="search-result-desc">'+item.content.slice(first,last).replace(keyword,'<span class="search-result-highlight">'+keyword+'</span>')+'</div>'+
+                        '        <div class="search-result-desc">'+item.content.slice(first,last).replace(realKeyword,'<span class="search-result-highlight">'+realKeyword+'</span>')+'</div>'+
                         '      </div>'+
                         '    </div>';
                 }

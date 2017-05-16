@@ -153,6 +153,7 @@ body {
         }
         .page-search-input {
             padding: 0 5px;
+            width: 150px;
         }
     }
     .page-subtitle {
@@ -185,12 +186,6 @@ body {
         background-repeat: no-repeat;
         background-position: 50% 50%;
         background-color: #fff;
-        &[data-src*="nike"]{
-            background-color: rgb(170,240,0);
-        }
-        &[data-src*="node"]{
-            background-color: rgb(51,51,51);
-        }
     }
     .post-item-summary {
         margin: 0 10px;
@@ -376,20 +371,32 @@ body {
 }
 
 .search{
-    .search-input{
-        display: block;
+    .search-header{
         margin: 40px auto;
         width: 80%;
-        height: 40px;
-        line-height: 40px;
-        padding: 0 10px;
-        border: 1px solid #e5e5e5;
-        border-radius: 5px;
-        font-size: 15px;
+        position: relative;
+        .icon{
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 24px;
+            height: 24px;
+            fill: rgb(98,98,98);
+        }
+        .search-input{
+            display: block;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px 0 40px;
+            border: 1px solid #d5d5d5;
+            border-radius: 5px;
+            font-size: 15px;
+        }
     }
     .search-result-item{
         display: flex;
-        margin: 15px 0;
+        margin: 25px 0;
         height: 70px;
         .search-result-thumb{
             width: 70px;
@@ -408,17 +415,20 @@ body {
         flex: 1;
         padding: 0 10px;
         .search-result-header{
-            line-height: 22px;
-            height: 22px;
+            line-height: 26px;
+            height: 26px;
+            .search-result-title{
+                font-size: 15px;
+            }
         }
         .search-result-desc{
-            font-size: 13px;
-            line-height: 16px;
+            font-size: 14px;
+            line-height: 22px;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
         }
         .search-result-highlight {
             display: inline-block;
