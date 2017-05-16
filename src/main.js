@@ -1266,7 +1266,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                         '           <div class="search-result-title"><a class="search-result-link" target="_blank" href="'+item.url+'">'+item.title+'</a></div>'+
                         '           <div class="search-result-comment"></div>'+
                         '        </div>'+
-                        '        <div class="search-result-desc">'+item.content.slice(first,last).replace(realKeyword,'<span class="search-result-highlight">'+realKeyword+'</span>')+'</div>'+
+                        '        <div class="search-result-desc">'+item.content.slice(first,last).replace(new RegExp(realKeyword, 'g'),'<span class="search-result-highlight">'+realKeyword+'</span>')+'</div>'+
                         '      </div>'+
                         '    </div>';
                 }
