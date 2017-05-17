@@ -40,4 +40,4 @@ tags: [NTFS, macOS, Windows]
 
 * 2017 年 05 月 17 日 完成初稿
 
-[p1]: {{ site.IMG_PATH }}/nearly-lost-ntfs-data-on-macos-01.jpg?imageView2/2/w/960/q/90 "检查磁盘并自动修复错误"
+[p1]: {{ site.IMG_PATH }}/nearly-lost-ntfs-data-on-macos-01.jpg_640 "检查磁盘并自动修复错误"
