@@ -903,7 +903,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             // POST 操作
             var postQuery = 'thread=' + comment.thread + 
                 '&parent=' + parentId + 
-                '&message=' + message + 
+                '&message=' + encodeURIComponent(message) + 
                 '&name=' + guest.name + 
                 '&email=' + guest.email + 
                 '&url=' + guest.url +
