@@ -25,7 +25,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "jekyll": "webpack -p && jekyll s"
   },
   "repository": {
     "type": "git",

@@ -5,19 +5,7 @@ title : 标签云
 ---
 
 <ul class="post-tags-list" id="tags">
-    {% for tag in site.tags %}
-    {% assign count = tag | last | size %}
-    {% if count  > 2 %}
-    {% assign fontsize = tag | last | size | times: 100 | divided_by: 30 %}
-    {% if fontsize < 12 %}
-        <li clsss="post-tags-item"><a class="tag tag-{{ tag | last | size }}" href="{{ page.url }}?keyword={{ tag | first }}" title="{{ tag | first }}" style="font-size: 12px">{{ tag | first }}</a></li>
-    {% elsif fontsize > 28 %}
-        <li clsss="post-tags-item"><a class="tag tag-{{ tag | last | size }}" href="{{ page.url }}?keyword={{ tag | first }}" title="{{ tag | first }}" style="font-size: 24px">{{ tag | first }}</a></li>
-    {% else %}
-    <li clsss="post-tags-item"><a class="tag tag-{{ tag | last | size }}" href="{{ page.url }}?keyword={{ tag | first }}" title="{{ tag | first }}" style="font-size: {{ fontsize }}px">{{ tag | first }}</a></li>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
+    {% for tag in site.tags %}{% assign count = tag | last | size %}{% assign fontsize = count | times: 120 | divided_by: 30 %}{% if count  > 2 %}<li clsss="post-tags-item"><a class="tag" data-count="{{ count }}" href="{{ page.url }}?keyword={{ tag | first }}" title="{{ tag | first }}" style="font-size: {% if fontsize > 24 %}24{% else %}{{ fontsize }}{% endif %}px">{{ tag | first }}</a></li>{% endif %}{% endfor %}
 </ul>
 <table class="post-tags-table">
     <thead>
