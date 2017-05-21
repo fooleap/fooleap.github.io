@@ -437,37 +437,51 @@ document.addEventListener("DOMContentLoaded", function(event) {
     if ( page.layout == 'post' ) {
 
         // 相关文章
-        function randomPosts(){
-            var randomIndexUsed = [];
-            var counter = 0;
-            var numberOfPosts = 5;
-            var randomPosts = document.querySelector('#random-posts ul');
-            while (counter < numberOfPosts) {
-                var randomIndex = Math.floor(Math.random() * posts.length);
-                if (randomIndexUsed.indexOf(randomIndex) == '-1') {
-                    var postUrl = posts[randomIndex].url;
-                    var postTitle = posts[randomIndex].title;
-                    randomPosts.insertAdjacentHTML('beforeend', '<li class="post-extend-item"><a class="post-extend-link" href="' + postUrl + '" title="' + postTitle + '">' + postTitle + '</a></li>\n');
-                    randomIndexUsed.push(randomIndex);
-                    counter++;
-                }
-            }
-        }
-        var posts = [];
+        var postData;
         var xhrPosts = new XMLHttpRequest();
         xhrPosts.open('GET', '/posts.json', true);
         xhrPosts.onreadystatechange = function() {
             if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
-                var data = JSON.parse(xhrPosts.responseText);
-                for( var i = 0; i < data.length; i++){
-                    if( data[i].category == page.category && data[i].url != location.pathname ){
-                        posts.push(data[i]);
-                    }
-                }
-                randomPosts();
+                postData = JSON.parse(xhrPosts.responseText);
+                randomPosts(relatedPosts(page.tags, page.category));
             }
         }
-        xhrPosts.send();
+        xhrPosts.send(null);
+
+        function relatedPosts(tags, cat){
+            var posts = [];
+            var used = [];
+            postData.forEach(function(item, i){
+                if( item.tags.some(function(tag) {return tags.indexOf(tag) > -1;}) && item.url != location.pathname ){
+                    posts.push(item);
+                    used.push(i);
+                }
+            })
+            while (posts.length < 5) {
+                var index = Math.floor(Math.random() * postData.length);
+                var item = postData[index];
+                if( used.indexOf(index) == '-1' && item.category == cat && item.url != location.pathname ){
+                    posts.push(item);
+                    used.push(index);
+                }
+            }
+            return posts;
+        }
+
+        function randomPosts(posts){
+            var used = [];
+            var counter = 0;
+            var html = '';
+            while (counter < 5 ) {
+                var index = Math.floor(Math.random() * posts.length);
+                if (used.indexOf(index) == '-1') {
+                    html += '<li class="post-extend-item"><a class="post-extend-link" href="' + posts[index].url + '" title="' + posts[index].title + '">' + posts[index].title + '</a></li>\n';
+                    used.push(index);
+                    counter++;
+                }
+            }
+            document.querySelector('#random-posts ul').insertAdjacentHTML('beforeend', html);
+        }
 
         var xhrPopular = new XMLHttpRequest();
         xhrPopular.open('GET', site.api + '/disqus/popular', true);
