@@ -87,6 +87,13 @@ body {
         &:target{
             background-color: rgba(230, 230, 230, .5);
         }
+        &.post-tags-item{
+            padding-right: 5px;
+            color: $black;
+            &:hover {
+                border-bottom: none;
+            }
+        }
     }
     .note:target{
         background-color: rgba(230, 230, 230, .5);
@@ -672,7 +679,6 @@ pre {
     }
 }
 
-//
 .archive-title + ul li {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -680,27 +686,6 @@ pre {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
-
-// 标签页
-.post-tags-list {
-    display: inline-flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-    .post-tags-item{
-        margin: 0 5px;
-    }
-    .tag{
-        color: $black;
-        &:hover {
-            border-bottom: none;
-        }
-    }
-}
-
-.post-tags-table{
-    display: none;
-}
-
 .task-list-item {
     list-style-type: none;
     margin-left: -15px;

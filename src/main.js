@@ -1297,30 +1297,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         xhrPosts.send(null);
         function tags (keyword){
-            document.querySelector('.post-tags-table').style.display = 'table';
-            document.querySelector('.post-tags-text').innerHTML = keyword;
             var title = '标签：' + keyword + ' | Fooleap\'s Blog';
             var url = '/tags.html?keyword=' + keyword;
+            var tagsTable = document.getElementById('tags-table');
+            tagsTable.style.display = 'table';
+            tagsTable.querySelector('thead tr').innerHTML = '<th colspan=2>以下是标签为“'+keyword+'”的所有文章</th>';
             var html = '';
             tagsData.forEach(function(item){
                 if( item.tags.indexOf(keyword) > -1){
                     var date = item.date.slice(0,10).split('-');
                     date = date[0] + ' 年 ' + date[1] + ' 月 ' + date[2] + ' 日';
-                    html += '<tr>'+
-                        '<td class="post-time"><time>'+date+'</time></td>'+
-                        '<td><a href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></td>'+
-                        '</tr>';
+                    html += '<tr><td><time>'+date+'</time></td><td><a href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></td></tr>';
                 }
             })
-
-            document.querySelector('.post-tags-tbody').innerHTML = html;
+            tagsTable.getElementsByTagName('tbody')[0].innerHTML = html;
             document.title = title;
             history.replaceState({ 
                 "title": title,
                 "url": url 
             }, title, url);
         }
-        var tagLinks = document.getElementsByClassName('tag');
+        var tagLinks = document.getElementsByClassName('post-tags-item');
         var tagCount = tagLinks.length;
         for (var i = 0; i < tagCount; i++){
             tagLinks[i].addEventListener('click', function(e){
