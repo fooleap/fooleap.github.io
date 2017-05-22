@@ -179,6 +179,14 @@ body {
     color: $lightgray;
 }
 
+.post-list{
+    min-height: 680px;
+}
+.post-cat-tag{
+    &.active{
+        color: #000;
+    }
+}
 .post-item {
     display: flex;
     margin: 20px 0;

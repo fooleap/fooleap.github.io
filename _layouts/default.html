@@ -41,8 +41,10 @@
                     {% if page.date %}
                     <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日 %R" }}</time>
                         <span class="post-count">本文 {{ page.content | strip_html | strip_newlines | size }} 字，阅读全文约需 {{ page.content | strip_html | strip_newlines | size | divided_by: 400 | plus: 1 }} 分钟</span>
-                    {% elsif paginator %}
-                        {{ site.description }}
+                    {% elsif paginator or page.url == '/tech.html' or page.url == '/life.html' %}
+                        <a class="post-cat-tag{% if paginator %} active{% endif %}" href="/">全部</a>
+                        <a class="post-cat-tag{% if page.url == '/tech.html' %} active{% endif %}" href="/tech.html">技术</a>
+                        <a class="post-cat-tag{% if page.url == '/life.html' %} active{% endif %}" href="/life.html">生活</a>
                     {% else %}
                         {{ page.description }}
                     {% endif %}

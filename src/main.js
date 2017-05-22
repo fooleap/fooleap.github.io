@@ -1219,7 +1219,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var guest = new Guest();
     var comment =  new Comment();
 
-    if ( location.pathname == '/archive.html' ){
+    if ( page.url == '/archive.html' ){
         document.querySelector('.page-search-input').addEventListener('keyup',function(e){
             var archive = document.getElementsByClassName('archive-item-link');
             for (var i = 0; i < archive.length; i++){
@@ -1235,7 +1235,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         })
     }
 
-    if ( location.pathname == '/search.html' ){
+    if ( page.url == '/search.html' ){
         var keyword = getQuery('keyword');
         var searchData;
         var input = document.querySelector('.search-input');
@@ -1296,7 +1296,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
 
-    if ( location.pathname == '/tags.html' ){
+    if ( page.url == '/tags.html' ){
         var keyword = getQuery('keyword');
         var tagsData;
         var xhrPosts = new XMLHttpRequest();
@@ -1338,6 +1338,59 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 tags(e.currentTarget.title);
                 e.preventDefault();
             }, false);
+        }
+    }
+
+    if(page.url == '/tech.html' || page.url == '/life.html'){
+        var pageNum = getQuery('page') ? parseInt(getQuery('page')) : 1;
+        var postData, posts = [];
+        var xhrPosts = new XMLHttpRequest();
+        xhrPosts.open('GET', '/posts.json', true);
+        xhrPosts.onreadystatechange = function() {
+            if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
+                var category = page.url.slice(1, 5);
+                postData = JSON.parse(xhrPosts.responseText);
+                postData.forEach(function(item){
+                    if( item.category == category ){
+                        posts.push(item);
+                    }
+                })
+                turn(pageNum);
+            }
+        }
+        xhrPosts.send(null);
+
+        function turn(pageNum){
+            var html = '';
+            var total = posts.length;
+            var first = (pageNum - 1) * 10;
+            var last = total > pageNum * 10 ? pageNum * 10 : total;
+            for( var i = first; i < last; i++){
+                var item = posts[i];
+                html += '<article class="post-item">'+
+                    '    <i class="post-item-thumb" data-src="'+item.thumb+'" style="background-image:url('+item.thumb+')"></i>'+
+                    '    <section class="post-item-summary">'+
+                    '    <h3 class="post-item-title"><a class="post-item-link" href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></h3>'+
+                    '    <abbr class="post-item-date timeago" datetime="'+item.date+'"></abbr>'+
+                    '    </section>'+
+                    '    <a class="post-item-comment" title="查看评论" data-disqus-url="'+item.url+'" href="'+item.url+'#comments"></a>'+
+                    '</article>';
+            }
+            var totalPage = Math.ceil(total / 10);
+            var prev = pageNum > 1 ? pageNum - 1 : 0;
+            var next = pageNum < totalPage ? pageNum + 1 : 0;
+            var prevLink = !!prev ? '<a class="pagination-item-link" href="'+page.url+'?page='+ prev +'" data-page="'+prev+'">&laquo; 较新文章</a>' : '';
+            var nextLink = !!next ? '<a class="pagination-item-link" href="'+page.url+'?page='+ next +'" data-page="'+next+'">&laquo; 较旧文章</a>' : '';
+            html+='<nav class="pagination">'+
+                '<ul class="pagination-list">'+
+                '<li class="pagination-item">'+nextLink+'</li>'+
+                '<li class="pagination-item">'+pageNum+' / '+totalPage+'</li>'+
+                '<li class="pagination-item">'+prevLink+'</li>'+
+                '</ul>'+
+                '</nav>';
+            document.querySelector('.post-list').innerHTML = (html);
+            timeago().render(document.querySelectorAll('.timeago'), 'zh_CN');
+            comment = new Comment();
         }
     }
 
