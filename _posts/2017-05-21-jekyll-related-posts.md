@@ -32,13 +32,13 @@ io1=>inputoutput: 文章的 Tags 以及 Category
 io2=>inputoutput: 显示到页面
 cond1=>condition: 文章数量是否足够
 op1=>operation: 筛选出相关 Tag 的所有文章
-op2=>operation: 随机取尚缺数量的同类文章
+op2=>operation: 随机取同 Category 文章
 op3=>operation: 随机取 5 篇
 
 st->io1->op1->cond1
 cond1(yes,right)->op3
-cond1(no)->op2(right)->op3
-op3(right)->io2->e
+cond1(no)->op2->cond1
+op3->io2->e
 ```
 
 ## 详细代码
