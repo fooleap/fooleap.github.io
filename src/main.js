@@ -4,6 +4,7 @@ import './sass/lightbox.scss'
 import './sass/github.scss'
 import './sass/comment.scss'
 import './sass/media.scss'
+var wx = require('weixin-js-sdk');
 var elementClosest = require('element-closest');
 var timeago = require('timeago.js');
 var coordtransform = require('coordtransform');

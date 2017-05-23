@@ -18,7 +18,8 @@
     "timeago.js": "^3.0.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.4.1",
-    "webpack-raphael": "^2.1.4"
+    "webpack-raphael": "^2.1.4",
+    "weixin-js-sdk": "^1.2.0"
   },
   "name": "fooleap.github.io",
   "version": "1.0.0",

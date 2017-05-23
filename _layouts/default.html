@@ -17,14 +17,14 @@
         {% endif %}
         {% endfor %}
         {% else %}
-        {% assign thumbnail =  site.IMG_PATH | append: "/avatar.jpg" %}
+        {% assign thumbnail = site.IMG_PATH | append: "/avatar.jpg" %}
         {% endif %}
         {% endif %}
 
         {% if thumbnail contains "svg" %}
-        {% assign thumbnail =  thumbnail %}
+        {% assign thumbnail = thumbnail %}
         {% else %}
-        {% assign thumbnail =  thumbnail | append: "?imageView2/1/w/300/h/300/q/90" %}
+        {% assign thumbnail = thumbnail | append: "?imageView2/1/w/300/h/300/q/90" %}
         {% endif %}
         <div class="page-thumb">
             <img src="{{ thumbnail }}" alt="{{ page.title }}"/>
@@ -40,7 +40,7 @@
                     <h2 class="page-subtitle">
                     {% if page.date %}
                     <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日 %R" }}</time>
-                        <span class="post-count">本文 {{ page.content | strip_html | strip_newlines | size }} 字，阅读全文约需 {{ page.content | strip_html | strip_newlines | size | divided_by: 400 | plus: 1 }} 分钟</span>
+                        <span class="post-count">本文 {{ page.content | strip_html | strip_newlines | remove: " " | size }} 字，阅读全文约需 {{ page.content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} 分钟</span>
                     {% elsif paginator or page.url == '/tech.html' or page.url == '/life.html' %}
                         <a class="post-cat-tag{% if paginator %} active{% endif %}" href="/">全部</a>
                         <a class="post-cat-tag{% if page.url == '/tech.html' %} active{% endif %}" href="/tech.html">技术</a>
@@ -62,6 +62,5 @@
             </footer>
 
         </main>
-        <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     </body>
 </html>
