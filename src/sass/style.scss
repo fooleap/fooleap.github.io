@@ -182,9 +182,13 @@ body {
 .post-list{
     min-height: 680px;
 }
-.post-cat-tag{
+a.post-cat-tag{
+    margin-right: 8px;
     &.active{
         color: #000;
+    }
+    &:hover{
+        border-bottom: none;
     }
 }
 .post-item {

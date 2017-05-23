@@ -1361,6 +1361,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         xhrPosts.send(null);
 
         function turn(pageNum){
+            var cat = page.url == '/tech.html' ? '技术' : '生活';
+            var title = pageNum == 1 ? cat + ' | Fooleap\'s Blog' : cat + '：第' + pageNum + '页 | Fooleap\'s Blog';
+            var url = pageNum == 1 ? page.url : page.url + '?page=' + pageNum;
             var html = '';
             var total = posts.length;
             var first = (pageNum - 1) * 10;
@@ -1376,6 +1379,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     '    <a class="post-item-comment" title="查看评论" data-disqus-url="'+item.url+'" href="'+item.url+'#comments"></a>'+
                     '</article>';
             }
+
             var totalPage = Math.ceil(total / 10);
             var prev = pageNum > 1 ? pageNum - 1 : 0;
             var next = pageNum < totalPage ? pageNum + 1 : 0;
@@ -1388,9 +1392,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 '<li class="pagination-item">'+prevLink+'</li>'+
                 '</ul>'+
                 '</nav>';
+
+            scrollTo(0, 0);
             document.querySelector('.post-list').innerHTML = (html);
             timeago().render(document.querySelectorAll('.timeago'), 'zh_CN');
             comment = new Comment();
+            var link = document.getElementsByClassName('pagination-item-link');
+            for( var i = 0; i < link.length; i++ ){
+                link[i].addEventListener('click',function(e){
+                    var pageNum = parseInt(e.currentTarget.dataset.page);
+                    turn(pageNum);
+                    e.preventDefault();
+                })
+            }
+            document.title = title;
+            history.replaceState({ 
+                "title": title,
+                "url": url 
+            }, title, url);
         }
     }
 
