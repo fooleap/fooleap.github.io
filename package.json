@@ -21,9 +21,9 @@
     "webpack-raphael": "^2.1.4",
     "weixin-js-sdk": "^1.2.0"
   },
-  "name": "fooleap.github.io",
+  "name": "Fooleap's Blog",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "/assets/main.js",
   "devDependencies": {},
   "scripts": {
     "jekyll": "webpack -p && jekyll s"
@@ -32,11 +32,11 @@
     "type": "git",
     "url": "git+https://github.com/fooleap/fooleap.github.io.git"
   },
-  "author": "",
+  "author": "fooleap",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fooleap/fooleap.github.io/issues"
   },
   "homepage": "https://github.com/fooleap/fooleap.github.io#readme",
-  "description": ""
+  "description": "Fooleap's Blog"
 }
