@@ -60,7 +60,6 @@ st->op1(right)->cond1
 cond1(yes)->op2->e
 cond1(no)->op3->e
 ```
-
 ## 具体代码
 
 我发现 Disqus 评论框加载的时候，都会请求一个小文件：
@@ -121,7 +120,24 @@ Disqus JS 文件三秒内没有 `onload`，则加载自制评论框。这里有�
 
 事实上，若灵活利用 Disqus 相关的回调函数，或许能带来更好的体验。比如说 `onReady` 时，给个可以切换的提示。
 
+这些天感觉就算翻了墙，有时候访问 Disqus 还是挺慢的。我想了另一种方案，就是无论如何，同时加载两种评论框，Disqus 评论框做隐藏，监听 Disqus 的事件，当某个事件发生时切换至 Disqus 评论框。
+
+```flow
+st=>start: 开始
+e=>end: 结束
+op1=>operation: 加载两种评论框
+cond1=>condition: Disqus 加载失败
+op2=>operation: 某事件切换到 Disqus 评论框
+
+st->op1(right)->cond1
+cond1(no,right)->op2->e
+cond1(yes)->e
+```
+
+流程图看起来是否简单了很多？有时间我会把这些想法打成包。
+
 **本文历史**
 
 * 2017 年 05 月 07 日 完成初稿
 * 2017 年 05 月 11 日 完善
+* 2017 年 05 月 24 日 另一种方案
