@@ -3,7 +3,7 @@ port: 5678
 host: 0.0.0.0
 
 title: Fooleap's Blog
-keywords: [fooleap, 前端, Linux, 潮汕]
+keywords: [fooleap, 前端, 跑步, 潮汕]
 description: 'A foolish man could not always lose!'
 
 exclude: [webpack.config.js, package.json, Gemfile, Gemfile.lock, src, node_modules]

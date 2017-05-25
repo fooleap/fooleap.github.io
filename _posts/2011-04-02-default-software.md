@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 推荐及在用软件
-description: "Windows<br />Google Chrome：简洁高效的跨平台网页浏览器<br />Mozilla Firefox：中文称火狐，功能强大的浏览器，开源跨平台<br />Opera：高速小巧的跨平台浏览器"
+description: "推荐及在用软件"
 category: tech
 tags: [免费, 软件, 开源, 跨平台]
 ---
@@ -282,15 +282,12 @@ RSS 阅读
 
 **注**
 
-1 本文正不断完善中。..
+1. Windows 软件为推荐使用软件
 
-2 Windows 软件为推荐使用软件
-
-3 Linux 平台软件可见 Ubuntu 中文 Wiki 之[软件推荐](http://wiki.ubuntu.org.cn/Qref/Applications)
+2. Linux 平台软件可见 Ubuntu 中文 Wiki 之[软件推荐](http://wiki.ubuntu.org.cn/Qref/Applications)
 
 
 **本文历史**
 
-2011 年 02 月 11 日 创建文章
-
-2011 年 04 月 02 日 整理记录软件，调整分类
+* 2011 年 02 月 11 日 创建文章
+* 2011 年 04 月 02 日 整理记录软件，调整分类

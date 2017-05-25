@@ -20,7 +20,7 @@ permalink: /atom.xml
       <link href="{{ site.home }}{{ post.url }}" />
       <updated>{{ post.date | date_to_xmlschema }}</updated>
       <id>{{ post.id | remove: "/" }}</id>
-      <summary type="text">{{ post.description | xml_escape }}</summary>
+      <summary type="text">{% if post.description %}{{ post.description | xml_escape }}{% else %}{{ post.content | split: '</p>' | first | strip_html | xml_escape }}{% endif %}</summary>
     </entry>
   {% endfor %}
 </feed>
