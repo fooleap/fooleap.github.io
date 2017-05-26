@@ -12,32 +12,32 @@ var raphael = require('webpack-raphael');
 var flowchart = require('flowchart.js');
 var loadingsvg = require('url-loader!./svg/loading.svg');
 
-'use strict';
+var ua = navigator.userAgent,
+    head = document.head,
+    site = {
+        home: head.dataset.home,
+        api: head.dataset.api,
+        img: head.dataset.img,
+        tongji: head.dataset.tongji,
+        analytics: head.dataset.analytics,
+        emoji: '//assets-cdn.github.com/images/icons/emoji/unicode'
+    },
+    page = { 
+        layout: head.dataset.layout,
+        title: document.title,
+        url: location.pathname,
+        desc: document.querySelector('[name="description"]').content,
+        id: head.dataset.id,
+        category: head.dataset.category,
+        tags: head.dataset.tags.split(',')
+    },
+    browser = { 
+        mobile: !!ua.match(/AppleWebKit.*Mobile.*/),
+        wechat: ua.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
+    };
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-    var ua = navigator.userAgent,
-        head = document.head,
-        site = {
-            home: head.dataset.home,
-            api: head.dataset.api,
-            img: head.dataset.img,
-            tongji: head.dataset.tongji,
-            analytics: head.dataset.analytics,
-            emoji: '//assets-cdn.github.com/images/icons/emoji/unicode'
-        },
-        page = { 
-            layout: head.dataset.layout,
-            title: document.title,
-            url: location.pathname,
-            desc: document.querySelector('[name="description"]').content,
-            id: head.dataset.id,
-            category: head.dataset.category,
-            tags: head.dataset.tags.split(',')
-        },
-        browser = { 
-            mobile: !!ua.match(/AppleWebKit.*Mobile.*/),
-            wechat: ua.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
-        };
+    'use strict';
 
     function getQuery(variable) {
         var query = window.location.search.substring(1);
@@ -506,7 +506,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     window.disqus_config = function () {
         this.page.url = site.home + page.url;
         this.callbacks.onReady.push(function() {
+            comment.current = 'disqus';
             disqus_loaded = true;
+            var toggleBtn = document.getElementById('comment-toggle');
+            if(!!toggleBtn){toggleBtn.checked = true;}
             document.querySelector('.comment').style.display = 'none';
             document.getElementById('comment').dataset.tips = '';
             document.querySelector('.disqus').style.display = 'block';
@@ -611,45 +614,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
 
             var toggleBtn = document.getElementById('comment-toggle');
-            if(this.hasBox){
-                if(site.home == location.origin ){
-                    // 检测是否能连上 Disqus
-                    document.getElementById('comment').dataset.tips = '正在检测能否连接 Disqus……';
-                    var xhrConfig = new XMLHttpRequest();
-                    xhrConfig.open('GET', '//disqus.com/next/config.json?' + Date.now(), true);
-                    xhrConfig.timeout = 3000;
-                    xhrConfig.onreadystatechange = function() {
-                        if (xhrConfig.readyState == 4 && xhrConfig.status == 200) {
-                            document.getElementById('comment').dataset.tips = '连接成功，正在加载 Disqus 评论框……';
-                            comment.current = 'disqus';
-                            if(!!toggleBtn){toggleBtn.checked = true;}
-                            comment.disqus();
-                        }
-                    }
-                    xhrConfig.ontimeout = function() {
-                        xhrConfig.abort();
-                        document.getElementById('comment').dataset.tips = '网络不佳，正在加载简单评论框……';
-                        comment.current = 'comment';
-                        comment.getlist();
-                        if(!!toggleBtn){toggleBtn.checked = false;}
-                        document.getElementById('comment-toggle').checked = false;
-                        xhrConfig.abort();
-                    };
-                    xhrConfig.onerror = function() {
-                        document.getElementById('comment').dataset.tips = '连接失败，正在加载简单评论框……';
-                        comment.current = 'comment';
-                        if(!!toggleBtn){toggleBtn.checked = false;}
-                        comment.getlist();
-                    };
-                    xhrConfig.send(null);
-                } else {
-                    document.getElementById('comment').dataset.tips = '正在加载简单评论框……';
-                    this.getlist();
-                }
-
-            }
-
             if(!!toggleBtn){toggleBtn.addEventListener('click', this.toggle, false)}
+            if(this.hasBox){
+                this.current = 'comment';
+                this.getlist();
+                    this.disqus();
+                if( site.home == location.origin ){
+                    this.disqus();
+                }
+            }
         },
 
         // 评论计数
@@ -1414,31 +1387,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     }
 
-    // 统计
-    setTimeout(function() {
-        if ( location.origin === site.home ) {
-            var _hmt = _hmt || [];
-            (function() {
-                var hm = document.createElement('script');
-                hm.src = '//hm.baidu.com/hm.js?'+site.tongji;
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
-
-            (function(i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', site.analytics, 'auto');
-            ga('send', 'pageview');
-        }
-    }, 1000);
 });
+
+// 统计
+setTimeout(function() {
+    if ( site.home === location.origin ) {
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement('script');
+            hm.src = '//hm.baidu.com/hm.js?'+site.tongji;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', site.analytics, 'auto');
+        ga('send', 'pageview');
+    }
+}, 1000);

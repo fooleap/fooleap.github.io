@@ -21,11 +21,8 @@
         {% endif %}
         {% endif %}
 
-        {% if thumbnail contains "svg" %}
-        {% assign thumbnail = thumbnail %}
-        {% else %}
-        {% assign thumbnail = thumbnail | append: "?imageView2/1/w/300/h/300/q/90" %}
-        {% endif %}
+        {% if thumbnail contains "svg" %}{% assign thumbnail = thumbnail %}{% else %}{% assign thumbnail = thumbnail | append: "?imageView2/1/w/300/h/300/q/90" %}{% endif %}
+
         <div class="page-thumb">
             <img src="{{ thumbnail }}" alt="{{ page.title }}"/>
         </div>
