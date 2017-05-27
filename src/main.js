@@ -618,7 +618,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             if(this.hasBox){
                 this.current = 'comment';
                 this.getlist();
-                    this.disqus();
                 if( site.home == location.origin ){
                     this.disqus();
                 }
