@@ -1,6 +1,7 @@
 @charset "utf-8";
 .comment-toggle{
     display: flex;
+    font-size: 13px;
     .comment-toggle-input{
         display: none;
         &:checked + .comment-toggle-icon {
@@ -16,7 +17,6 @@
         height: 20px;
         background-color: #434343;
         border-radius: 10px;
-        box-sizing: border-box;
         cursor: pointer;
         padding: 2.5px 3px;
         transition: .3s all; 
@@ -38,43 +38,24 @@
         line-height: 20px;
         height: 20px;
         padding: 0 3px;
-        font-size: 12px;
         cursor: pointer;
         margin: 0 5px;
     }
 }
-#comment{
-    position: relative;
-    margin-bottom: 40px;
-    &:before{
-        content: attr(data-tips);
-        display: block;
-        position: absolute;
-        width: 100%;
-        left: 0;
-        top: 80px;
-        text-align: center;
-        top: 60px;
-        text-align: center;
-        font-size: 14px;
-        color: #aeafb1;
-    }
-    .disqus{
+.comment{
+    &#disqus_thread{
         display: none;
     }
-}
-.comment{
-    font: 13px/1.6 "Helvetica Neue", Helvetica, Arial, "微软雅黑", "Microsoft YaHei", sans-serif;
-    min-height: 40px;
+    font: 14px/1.6 "Helvetica Neue", Helvetica, Arial, "微软雅黑", "Microsoft YaHei", sans-serif;
     margin: 5px auto;
     word-wrap: break-word;
     .icon{
         max-width: 20px;
     }
     *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
     strong,b{
         font-weight:bold;
@@ -86,38 +67,83 @@
     abbr[title]{
         text-decoration:none
     }
+    .hide {
+        display: none;
+    }
     &.loading{
         & > * {
             display: none;
         }
         position: relative;
-        background:url(https://a.disquscdn.com/next/embed/assets/img/loader-bg.173909e4737a7481df14d5492b5eeb48.png) no-repeat!important;
         display: block;
         height: 52px;
-        width: 54px;
-        margin: 20px auto;
-        overflow: hidden;
-        box-sizing: border-box;
-        &:after{
-            content: "";
-            display:block;
+        width: 52px;
+        border: 5px solid rgb(157,158,161);
+        border-radius: 50%;
+        margin: 20px auto 40px;
+        &:before, &:after{
             box-sizing: border-box;
-            width: 26px;
-            height: 26px;
+            display: block;
+            content: "";
             position: absolute;
-            top: 13px;
-            left: 15px;
-            border-width: 3px;
+        }
+        &:before{
+            top: 35px;
+            left: -10px;
+            width: 0;
+            height: 0;
+            border-width: 11px 7px;
+            border-style: solid ;
+            border-color: rgb(157,158,161) transparent transparent;
+            transform: rotate(45deg);
+        }
+        &:after{
+            top: 32px;
+            left: -2px;
+            width: 0;
+            height: 0;
+            border-width: 9px 4px;
             border-style: solid;
-            border-color: rgba(51, 54, 58, 0.4) transparent;
-            border-radius: 13px;
-            transform-origin: 50% 50% 0px;
-            animation:disqus-loader-spinner-animation .7s infinite linear!important
+            border-color: #fff transparent transparent;
+            transform: rotate(45deg);
+        }
+        .loading-container{
+            color: rgb(157,158,161);
+            text-align: center;
+            display: block;
+            position: absolute;
+            left: -97px;
+            top: 100%;
+            height: 40px;
+            line-height: 40px;
+            width: 250px;
+            &:before,&:after{
+                display: block;
+                position: absolute;
+            }
+            &:before{
+                content: attr(data-tip);
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            &:after{
+                content: "";
+                box-sizing: border-box;
+                width: 26px;
+                height: 26px;
+                top: -34px;
+                left: 105px;
+                border-width: 3px;
+                border-style: solid;
+                border-color: rgb(157,158,161) transparent;
+                border-radius: 13px;
+                transform-origin: 50% 50% 0;
+                animation:disqus-loader-spinner-animation .7s infinite linear;
+            }
         }
     }
-}
-.comment.guestbook .comment-header{
-    display: none;
 }
 .comment-box{
     display: flex;
@@ -131,12 +157,15 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid rgb(231, 233, 238);
-    color: #656c7a;
     .comment-header-item {
+        color: #656c7a;
         display: inline-block;
         border-bottom: 2px solid #656c7a;
         margin-bottom: -2px;
         padding: 0 7px;
+        &#comment-link{
+            border-bottom-color: transparent!important;
+        }
     }
     .comment-show {
         width: 120px;
@@ -368,9 +397,6 @@
 
 
 .comment-form-wrapper {
-    .tips{
-        display: none;
-    }
     &.editing{
         + .comment-login{
             opacity: 1;
@@ -378,7 +404,7 @@
             margin-top: 10px;
         }
         .comment-form-textarea {
-            font: 13px/15px "Helvetica Neue", Helvetica, Arial,"微软雅黑","Microsoft YaHei";
+            font: 14px/16px "Helvetica Neue", Helvetica, Arial,"微软雅黑","Microsoft YaHei";
             height: 74px;
         }
         .comment-image{
@@ -399,56 +425,6 @@
         }
         .comment-form-submit{
             opacity: 1;
-        }
-       .tips{
-           position: relative;
-           display: block;
-           .comment-tips{
-               position: absolute;
-               width: 125px;
-               height: 70px;
-               font-size: 12px;
-               border-radius: 4px;
-               top: 50%;
-               margin-top: -35px;
-               left: -125px;
-               background-color: #fff;
-               border: 2px solid #c2c6cc;
-               padding: 5px;
-               line-height: 15px;
-               display: none;
-               cursor: text;
-               &:before{
-                   content: "";
-                   width: 0;
-                   height: 0;
-                   position: absolute;
-                   right: -8px;
-                   top: 50%;
-                   margin-top: -8px;
-                   border-style: solid;
-                   border-width: 8px 0 8px 8px;
-                   border-color: transparent #c2c6cc;
-               }
-               &:after{
-                   content: "";
-                   width: 0;
-                   height: 0;
-                   position: absolute;
-                   right: -5px;
-                   top: 50%;
-                   margin-top: -5px;
-                   border-style: solid;
-                   border-width: 5px 0 5px 5px;
-                   border-color: transparent #fff;
-               }
-           }
-        }
-        #tips-input:checked + .tips{
-            .comment-tips{
-                display: block;
-
-            }
         }
     }
     &.focus{
@@ -485,9 +461,6 @@
             height: 0;
             opacity: 0;
             margin-top: -40px;
-        }
-        .tips {
-            display: none;
         }
         .exit {
             display: block;
@@ -549,7 +522,6 @@
     text-align: center;
     color: #656c7a;
     line-height: 32px;
-    font-size: 14px;
     .comment-form-submit{
         background-color: rgba(29,47,58,.6);
         border: none;
@@ -587,7 +559,7 @@
         transition: all .2s linear;
         padding: 2px 10px;
         border-radius: 4px;
-        font-size: 13px;
+        font-size: 14px;
         height: 64px;
         margin: 0 5px;
         width: 30px; 
@@ -604,7 +576,7 @@
     transition: all .2s linear;
     padding: 0 10px;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 14px;
     height: 32px;
     margin: 0 5px;
     width: 30px; 
@@ -643,7 +615,7 @@
 }
 
 .comment-list {
-    font-size: 13px;
+    font-size: 14px;
     p {
         margin: 0;
     }
@@ -710,7 +682,7 @@
     .comment-item-content {
         min-height: 40px;
         padding: 5px 0;
-        font-size: 13px;
+        font-size: 14px;
         .at{
             padding-right: 4px;
         }

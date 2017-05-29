@@ -3,7 +3,6 @@
     "autoprefixer": "^6.7.7",
     "coordtransform": "^2.1.2",
     "css-loader": "^0.28.1",
-    "element-closest": "^2.0.2",
     "extract-loader": "^0.1.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
@@ -13,15 +12,15 @@
     "path": "^0.12.7",
     "postcss": "^5.2.17",
     "postcss-loader": "^1.3.3",
+    "query-string": "^4.3.4",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
-    "timeago.js": "^3.0.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.4.1",
     "webpack-raphael": "^2.1.4",
     "weixin-js-sdk": "^1.2.0"
   },
-  "name": "Fooleap's Blog",
+  "name": "fooleap",
   "version": "1.0.0",
   "main": "/assets/main.js",
   "devDependencies": {},
@@ -38,5 +37,5 @@
     "url": "https://github.com/fooleap/fooleap.github.io/issues"
   },
   "homepage": "https://github.com/fooleap/fooleap.github.io#readme",
-  "description": "Fooleap's Blog"
+  "description": ""
 }
