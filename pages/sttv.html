@@ -141,7 +141,7 @@ request.onreadystatechange = function(){
                 if( video.canPlayType('application/vnd.apple.mpegURL') !== '') {
                     change(this.value, this.dataset.image);
                 } else {
-                    window.open(this.value, '_blank', 'width=640,height=512');
+                    window.open(this.value, 'sttv', 'width=640,height=512');
                 }
                 var index = parseInt(this.dataset.channel);
                 if (!!(window.history && history.pushState)){

@@ -201,9 +201,9 @@
 
         // 配置
         _.opts = typeof(arguments[1]) == 'object' ? arguments[1] : arguments[0];
-        _.dom =  d.getElementById(typeof(arguments[0]) == 'string' ? arguments[0] : (!!_.opts.dom ? _.opts.dom : 'comment'));
-        _.opts.site = !!_.opts.site ? _.opts.site : location.hostname;
-        _.opts.url = location.pathname;
+        _.dom =  d.getElementById(typeof(arguments[0]) == 'string' ? arguments[0] : 'comment');
+        _.opts.site = !!_.opts.site ? _.opts.site : location.origin;
+        _.opts.url = !!_.opts.url ? _.opts.url : location.pathname;
         _.opts.title = !!_.opts.title ? _.opts.title : d.title;
         _.opts.desc =  !!_.opts.desc ? _.opts.desc : (!!d.querySelector('[name="description"]') ? d.querySelector('[name="description"]').content : '');
         _.opts.mode = !!_.opts.mode ? _.opts.mode : 1;
@@ -211,7 +211,7 @@
         _.opts.toggle = !!_.opts.toggle ? d.getElementById(_.opts.toggle) : null;
 
         // emoji 表情
-        _.opts.emoji_path = !!_.opts.emoji_path ? _.opts.emoji_path : '//assets-cdn.github.com/images/icons/emoji/unicode';
+        _.opts.emoji_path = !!_.opts.emoji_path ? _.opts.emoji_path : 'https://assets-cdn.github.com/images/icons/emoji/unicode';
         _.emoji = _._emoji();
 
         // 默认状态
@@ -229,19 +229,21 @@
             count: 0,           // 评论数
             imageSize: [],      // 已上传图片大小
             disqusLoaded: false,// Disqus 已加载
-            disqusOnload: false,// Disqus 脚本 onload
         };
 
         // Disqus 评论框设置
         window.disqus_config = function () {
             this.page.url = _.opts.site + _.opts.url;
+            this.page.title = _.opts.title;
             this.callbacks.onReady.push(function() {
                 _.stat.current = 'disqus';
                 _.stat.disqusLoaded = true;
                 _.dom.querySelector('#idisqus').style.display = 'none';
                 _.dom.querySelector('#disqus_thread').style.display = 'block';
-                if(!!_.opts.toggle){
+                if( _.opts.mode == 3 && !!_.opts.toggle) {
+                    _.opts.toggle.disabled = '';
                     _.opts.toggle.checked = true;
+                    _.opts.toggle.addEventListener('change', _.toggle.bind(_), false);
                 }
             });
         }
@@ -326,15 +328,21 @@
         _.guest = new Guest(_.dom);
         _.box = _.dom.querySelector('.comment-box').outerHTML.replace(/<label class="comment-actions-label exit"(.|\n)*<\/label>\n/,'').replace('comment-form-wrapper','comment-form-wrapper editing').replace(/加入讨论……/,'');
 
-        if(!!_.opts.toggle){
-            _.opts.toggle.addEventListener('change', _.toggle.bind(_), false);
-        }
 
-        if(_.opts.mode == 1){
-            _.disqus();
-        } else {
-            _.getlist();
-            _.disqus();
+        switch(_.opts.mode){
+            case 1:
+                _.disqus();
+                break;
+            case 2: 
+                _.getlist();
+                break;
+            case 3: 
+                _.getlist();
+                _.disqus();
+                break;
+            default:
+                _.disqus();
+                break;
         }
     }
 
@@ -342,15 +350,18 @@
     iDisqus.prototype.toggle = function(){
         var _ = this;
         if( _.stat.current == 'disqus' ){
-            _.getlist();
+            _.stat.current = 'idisqus';
+            _.dom.querySelector('#idisqus').style.display = 'block';
+            _.dom.querySelector('#disqus_thread').style.display = 'none';
         } else {
             _.disqus();
         }
-    },
+    }
 
     // 加载 Disqus 评论
     iDisqus.prototype.disqus = function(){
         var _ = this;
+        var _tip = _.dom.querySelector('.loading-container').dataset.tip;
         if(_.opts.site != location.origin){
             //console.log('本地环境不加载 Disqus 评论框！');
             if( _.opts.mode == 1 ){
@@ -359,31 +370,44 @@
             return;
         }
         if(!_.stat.disqusLoaded ){
-            if(_.stat.loaded){
-                _.dom.querySelector('#idisqus').classList.add('loading')
-            }
-            _.dom.querySelector('.loading-container').dataset.tip = _.stat.loading ? '正在加载评论……' : '尝试连接 Disqus……';
+            _tip = '尝试连接 Disqus……';
+
             var s = d.createElement('script');
             s.src = '//'+_.opts.forum+'.disqus.com/embed.js';
             s.dataset.timestamp = Date.now();
-            (d.head || d.body).appendChild(s);
             s.onload = function(){
-                _.stat.disqusOnload = true;
-                _.dom.querySelector('.loading-container').dataset.tip = _.stat.loading ? '正在加载评论……' : '连接成功，加载 Disqus 评论框……'
+                _.stat.disqusLoaded = true;
+                _tip = '连接成功，加载 Disqus 评论框……'
             } 
-            setTimeout(function(){
-                if(!_.stat.disqusOnload){
-                    if (_.opts.mode == 1){
-                        _.dom.querySelector('.loading-container').dataset.tip = '连接超时，加载简易评论框……';
-                        _.stat.current = _.stat.loaded ? 'disqus' : 'idisqus';
-                    }
-                    if (_.opts.mode == 2 && _.stat.loaded){
-                        _.dom.querySelector('.loading-container').dataset.tip = '连接超时，切换回简易评论框……';
-                    }
-                    s.remove();
+            s.onerror = function(){
+                if( _.opts.mode == 1){
+                    _tip = '连接失败，加载简易评论框……';
                     _.getlist();
                 }
-            }, _.opts.timeout);
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '//disqus.com/next/config.json?' + Date.now(), true);
+            xhr.timeout = _.opts.timeout;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    (d.head || d.body).appendChild(s);
+                }
+            }
+            xhr.ontimeout = function () {
+                xhr.abort();
+                if( _.opts.mode == 1){
+                    _tip = '连接超时，加载简易评论框……';
+                    _.getlist();
+                }
+            }
+            xhr.onerror = function() {
+                if( _.opts.mode == 1){
+                    _tip = '连接失败，加载简易评论框……';
+                    _.getlist();
+                }
+            }
+            xhr.send();
         } else {
             _.stat.current = 'disqus';
             _.dom.querySelector('#idisqus').style.display = 'none';
@@ -407,7 +431,10 @@
                     var data  = JSON.parse(resp);
                     var posts = data.response;
                     posts.forEach(function(item){
-                        d.querySelector('[data-disqus-url="'+getLocation(item.link).pathname+'"]').innerHTML = item.posts == 0 ? '' : item.posts;
+                        var el = d.querySelector('[data-disqus-url="'+getLocation(item.link).pathname+'"]')
+                        if(!!el ){
+                            el.innerHTML = item.posts;
+                        }
                     });
                 }, function(){
                     alert('获取数据失败！')
@@ -516,16 +543,6 @@
         _.stat.loading = true;
         _.dom.querySelector('#idisqus').style.display = 'block';
         _.dom.querySelector('#disqus_thread').style.display = 'none';
-        if(_.stat.current == 'disqus'){
-            _.stat.current = 'idisqus';
-            if(_.stat.loaded ){
-                return;
-            }
-            _.dom.querySelector('.loading-container').dataset.tip = '切换至简易评论框……'
-        }
-        if( !_.stat.loaded){
-            _.dom.querySelector('#idisqus').classList.add('loading');
-        }
         getAjax(
             _.opts.api + '/getcomments.php?link=' + _.opts.url + (!!_.stat.next ? '&cursor=' + _.stat.next : ''),
             function(resp){
@@ -537,10 +554,8 @@
                     _.dom.querySelector('#idisqus').classList.remove('loading');
                     _.dom.querySelector('#comment-link').href = data.link;
                     _.dom.querySelector('#comment-count').innerHTML = _.stat.count + ' 条评论';
-                    if (data.response == null) {
-                        return;
-                    }
-                    var posts = _.stat.unload.length > 0 ? data.response.concat(_.stat.unload) : data.response;
+                    var loadmore = _.dom.querySelector('.comment-loadmore');
+                    var posts = _.stat.unload.length > 0 ? data.response.concat(_.stat.unload) : (!!data.response ? data.response : []);
                     _.stat.unload = [];
                     _.stat.root = [];
                     posts.forEach(function(item){
@@ -550,7 +565,6 @@
                         }
                     });
 
-                    var loadmore = _.dom.querySelector('.comment-loadmore');
                     if ( data.cursor.hasPrev ){
                         _.stat.root.forEach(function(item){
                             _.dom.querySelector('.comment-list').appendChild(_.dom.querySelector('#comment-' + item));
@@ -571,6 +585,9 @@
                     } else {
                         _.stat.next = null;
                         loadmore.classList.add('hide');
+                    }
+                    if (posts.length == 0) {
+                        return;
                     }
 
                     window.scrollTo(0, _.stat.offsetTop);
@@ -753,15 +770,15 @@
                     _.stat.imageSize.push(size);
                     var imageUrl = data.response[filename].url;
                     var image = new Image();
-                    image.src = data.url+'?imageView2/2/h/200';
+                    image.src = imageUrl;
                     image.onload = function(){
-                        item.querySelector('[data-image-size="'+size+'"]').innerHTML = '<img class="comment-image-object" src="'+image.src+'">';
+                        item.querySelector('[data-image-size="'+size+'"]').innerHTML = '<img class="comment-image-object" src="'+imageUrl+'">';
                         item.querySelector('[data-image-size="'+size+'"]').dataset.imageUrl = imageUrl;
                         item.querySelector('[data-image-size="'+size+'"]').classList.remove('loading');
                         item.querySelector('[data-image-size="'+size+'"]').addEventListener('click', _.remove.bind(_), false);
                     }
                 } else {
-
+                    alert('图片上传失败');
                 }
             }
         };

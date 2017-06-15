@@ -2,7 +2,7 @@ import './sass/style.scss'
 import './sass/navigation.scss'
 import './sass/lightbox.scss'
 import './sass/github.scss'
-import './sass/comment.scss'
+import './sass/iDisqus.scss'
 import './sass/media.scss'
 
 const wx = require('weixin-js-sdk');
@@ -10,7 +10,7 @@ const coordtransform = require('coordtransform');
 const raphael = require('webpack-raphael');
 const flowchart = require('flowchart.js');
 const queryString = require('query-string');
-const disqus = require('./idisqus.js');
+const disqus = require('./iDisqus.js');
 
 // TimeAgo https://coderwall.com/p/uub3pw/javascript-timeago-func-e-g-8-hours-ago
 function timeAgo(selector) {
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         forum: 'fooleap',
         site: 'http://blog.fooleap.org',
         api: 'http://api.fooleap.org/disqus',
-        mode: 2,
+        mode: 3,
         timeout: 3000,
         popular: document.getElementById('popular-posts'),
         slug: page.url.slice(1).split('.')[0],
@@ -679,12 +679,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
 setTimeout(function() {
     if ( site.home === location.origin ) {
         var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement('script');
-            hm.src = '//hm.baidu.com/hm.js?'+site.tongji;
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
+        var s = document.getElementsByTagName("script")[0];
+        var hm = document.createElement('script');
+        hm.src = '//hm.baidu.com/hm.js?'+site.tongji;
+        s.parentNode.insertBefore(hm, s);
+        var bp = document.createElement('script');
+        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        s.parentNode.insertBefore(bp, s);
 
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
