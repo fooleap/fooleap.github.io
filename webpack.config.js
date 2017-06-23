@@ -25,18 +25,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: [
-                    autoprefixer(),
-                ],
-                htmlLoader: {
-                    ignoreCustomFragments: [/\{\{.*?}}|{%.*?%}/],
-                    root: path.resolve(__dirname, 'assets'),
-                    attrs: []
-                }
-            }
-        }),
         new ExtractTextPlugin('assets/main.min.css'),
         new webpack.optimize.UglifyJsPlugin({
             beautify: false,
