@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     for (var i = 0; i < links.length; i++) {
         if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) === false) {
             var numText = links[i].innerHTML;
-            var num = numText.substring(1, numText.length - 1);
+            var num = parseInt(numText.substring(1, numText.length - 1));
             if (!isNaN(num) && num) {
                 noteArr.push({
                     num: num,
