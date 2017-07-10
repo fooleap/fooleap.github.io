@@ -666,15 +666,10 @@ pre {
             height: 100px;
             overflow: hidden;
             background-color: $white;
-            padding: 5px;
+            padding: 10px;
             border: 1px solid $lightgray;
             border-radius: 5px;
             box-shadow: 1px 1px 2px rgb(150, 150, 150);
-            .post-qrcode-image{
-                margin: -6px;
-                width: 100px;
-                max-width: none;
-            }
         }
         .post-qrcode-input {
             display: none;

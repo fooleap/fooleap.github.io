@@ -6,6 +6,7 @@ date: 2017-07-05 17:23:05+0800
 thumb: IMG_PATH/amap.png
 category: tech
 tags: ["七牛", "高德地图 API", "GPS"]
+wechat: http://mp.weixin.qq.com/s/cUCY5kdfwXVK-bNw0_gbLg
 ---
 
 * toc

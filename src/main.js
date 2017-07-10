@@ -1,8 +1,8 @@
-import './sass/style.scss'
-import './sass/navigation.scss'
-import './sass/lightbox.scss'
-import './sass/github.scss'
-import './sass/media.scss'
+import './sass/style.scss';
+import './sass/navigation.scss';
+import './sass/lightbox.scss';
+import './sass/github.scss';
+import './sass/media.scss';
 
 const wx = require('weixin-js-sdk');
 const coordtransform = require('coordtransform');
@@ -10,6 +10,7 @@ const raphael = require('webpack-raphael');
 const flowchart = require('flowchart.js');
 const queryString = require('query-string');
 const iDisqus = require('disqus-php-api');
+const QRCode = require('davidshimjs-qrcodejs');
 
 // TimeAgo https://coderwall.com/p/uub3pw/javascript-timeago-func-e-g-8-hours-ago
 function timeAgo(selector) {
@@ -160,7 +161,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
         slug: page.url.slice(1).split('.')[0],
         init: true,
         toggle: 'comment-toggle',
-        sort: 'newest'
+        sort: 'newest',
+        emoji_path: 'http://api.fooleap.org/disqus/emojione/apple/'
     });
 
     disq.count();
@@ -475,6 +477,18 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
 
         disq.popular();
+
+        // 微信二维码
+        var qrcodeUrl = document.getElementById('qrcode').dataset.qrcodeUrl;
+        var qrcode = new QRCode('qrcode', {
+            text: qrcodeUrl,
+            width: 80,
+            height: 80,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.L,
+            useSVG: true
+        });
     }
 
 
