@@ -53,7 +53,7 @@ body {
     color: $default;
     background-color: $lightblue;
     overflow-y: scroll;
-    font: 14.5px/1.6 "Helvetica Neue", Helvetica, Arial, "Source Han Sans CN", "黑体", SimHei, sans-serif;
+    font: 14.5px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .page-thumb {
@@ -508,13 +508,12 @@ a.post-cat-tag{
 pre,
 code {
     font-size: 12px;
-    font-family: Consolas, sans-serif;
-    background-color: rgb(230, 230, 230);
+    font-family: monaco, Consolas, monospace;
+    background-color: rgb(245, 245, 245);
     overflow: auto;
     padding: 5px 10px;
     word-wrap: break-word;
     white-space: pre-wrap;
-    border-radius: 3px;
 }
 
 code {

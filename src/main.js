@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         forum: 'fooleap',
         site: 'http://blog.fooleap.org',
         api: 'http://api.fooleap.org/disqus',
+        url: page.url,
         mode: 3,
         timeout: 3000,
         popular: document.getElementById('popular-posts'),
