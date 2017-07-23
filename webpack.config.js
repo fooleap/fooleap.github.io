@@ -6,8 +6,8 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
     entry: __dirname + '/src/main.js',
     output: {
-        path: __dirname,
-        filename: 'assets/main.min.js'
+        path: __dirname + '/assets',
+        filename: 'main.min.js'
     },
     module: {
         rules: [
@@ -25,7 +25,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new ExtractTextPlugin('assets/main.min.css'),
+        new ExtractTextPlugin('main.min.css'),
         new webpack.optimize.UglifyJsPlugin({
             beautify: false,
             comments: false,

@@ -163,7 +163,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
         init: true,
         toggle: 'comment-toggle',
         sort: 'newest',
-        emoji_path: 'http://api.fooleap.org/disqus/emojione/apple/'
+        emoji_path: 'http://api.fooleap.org/disqus/emojione/apple/',
+        emoji_preview: true,
+        badge: '博主'
     });
 
     disq.count();

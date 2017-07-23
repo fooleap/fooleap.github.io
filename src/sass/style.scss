@@ -696,6 +696,10 @@ pre {
     margin-left: -15px;
 }
 
+#comment a:hover{
+    border-bottom: none;
+}
+
 .comment-toggle{
     display: flex;
     font-size: 13px;
