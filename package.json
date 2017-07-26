@@ -5,9 +5,8 @@
   "dependencies": {
     "coordtransform": "^2.1.2",
     "davidshimjs-qrcodejs": "0.0.2",
-    "disqus-php-api": "fooleap/disqus-php-api",
+    "disqus-php-api": "github:fooleap/disqus-php-api",
     "flowchart.js": "^1.6.6",
-    "query-string": "^4.3.4",
     "webpack-raphael": "^2.1.4",
     "weixin-js-sdk": "^1.2.0"
   },

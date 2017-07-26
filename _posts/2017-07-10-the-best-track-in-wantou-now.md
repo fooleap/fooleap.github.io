@@ -43,7 +43,7 @@ wechat: http://mp.weixin.qq.com/s/yMlAhGL9i79NEBAXWNpmqQ
 
 跑着跑着就流畅起来了，最终刷了 10 圈左右，Nike+ Running 3 公里。
 
-{% include media.html type="iframe" src="API_PATH/nike/activity?id=2102000000008196964900003362905023485428" %}
+{% include media.html type="iframe" src="/running-map.html?id=2102000000008196964900003362905023485428" %}
 
 看了不准笑，那时候的我，就是一个不折不扣的死胖子。
 
@@ -62,7 +62,6 @@ wechat: http://mp.weixin.qq.com/s/yMlAhGL9i79NEBAXWNpmqQ
 本来澄海的运动场所就很有限，农村更是少。如果晚上或者周末能对外开放，那该多好。不过根据政策，最近几年，也有逐渐对外开放的趋势，隔壁龙湖区的中小学就已全部开放[[2]][2]。目前湾头中学每天早上学生上学之前也是开放的，相信其跑道也会在不久之后铺上塑胶。
 
 ![南湾小学升旗台][p14]
-
 
 ## 参考资料
 

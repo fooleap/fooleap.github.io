@@ -8,7 +8,6 @@ const wx = require('weixin-js-sdk');
 const coordtransform = require('coordtransform');
 const raphael = require('webpack-raphael');
 const flowchart = require('flowchart.js');
-const queryString = require('query-string');
 const iDisqus = require('disqus-php-api');
 const QRCode = require('davidshimjs-qrcodejs');
 
@@ -98,7 +97,16 @@ function timeAgo(selector) {
     }
 })(window.Element.prototype);
 
-var parsed = queryString.parse(location.search);
+function getQuery(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+}
+
 var ua = navigator.userAgent,
     head = document.head,
     site = {
@@ -384,8 +392,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
                                 if( data.info == 'OK' ){
                                     var address,city,dist,town;
                                     for (var m = 0, n = 0; m < image.jpg.length; m++) {
-                                        address = data.regeocodes[n].addressComponent;
-                                        if (typeof(image.coord[m])!='undefined' && address) {
+                                        address = data.regeocodes[n];
+                                        if (typeof(image.coord[m])!='undefined' && !!address) {
+                                            address = address.addressComponent;
                                             city = address.city ? address.city : '';
                                             dist = address.district ? address.district : '';
                                             town = address.township ? address.township : '';
@@ -512,7 +521,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 
     if ( page.url == '/search.html' ){
-        var keyword = parsed.keyword;
+        var keyword = getQuery('keyword');
         var searchData;
         var input = document.querySelector('.search-input');
         var result = document.querySelector('.search-result');
@@ -573,7 +582,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     if ( page.url == '/tags.html' ){
-        var keyword = parsed.keyword;
+        var keyword = getQuery('keyword');
         var tagsData;
         var xhrPosts = new XMLHttpRequest();
         xhrPosts.open('GET', '/posts.json', true);
@@ -618,7 +627,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 
     if(page.url == '/tech.html' || page.url == '/life.html'){
-        var pageNum = parsed.page ? parseInt(parsed.page) : 1;
+        var pageNum = !!getQuery('page') ? parseInt(getQuery('page')) : 1;
         var postData, posts = [];
         var xhrPosts = new XMLHttpRequest();
         xhrPosts.open('GET', '/posts.json', true);

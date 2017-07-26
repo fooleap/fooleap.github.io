@@ -11,7 +11,7 @@ tags: ["潮汕", "湾头", "跑步"]
 
 在跑之前一天，看到微博上一跑步爱好者每天打卡，动不动就 10+ 公里。对比自己今年跑的步距离大多数在 5 公里以内，感觉是应该跑长一点。即使第二天起床七点左右，晚了一点，也想要跑这条线路，一路下来距离并不远。
 
-{% include media.html type="iframe" src="API_PATH/nike/activity?id=2141000000000204313500000096560114941451" %}
+{% include media.html type="iframe" src="/running-map.html?id=2141000000000204313500000096560114941451" %}
 在这日长夜短的时节，早些时候下雨，七点太阳早已高高挂起，有部分蓝天白云。
 
 ![蓝天白云]({{site.IMG_PATH}}/the-first-run-through-shangcun-market-of-2016-01.jpg_640)
