@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         init: true,
         toggle: 'comment-toggle',
         sort: 'newest',
-        emoji_path: 'http://api.fooleap.org/disqus/emojione/apple/',
+        emoji_path: 'http://api.fooleap.org/emoji/unicode/',
         emoji_preview: true,
         badge: '博主'
     });
@@ -659,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     '    <i class="post-item-thumb" data-src="'+item.thumb+'" style="background-image:url('+item.thumb+')"></i>'+
                     '    <section class="post-item-summary">'+
                     '    <h3 class="post-item-title"><a class="post-item-link" href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></h3>'+
-                    '    <abbr class="post-item-date timeago" datetime="'+item.date+'"></abbr>'+
+                    '    <time class="post-item-date timeago" datetime="'+item.date+'"></time>'+
                     '    </section>'+
                     '    <a class="post-item-comment" title="查看评论" data-disqus-url="'+item.url+'" href="'+item.url+'#comments"></a>'+
                     '</article>';

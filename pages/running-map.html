@@ -1,0 +1,249 @@
+---
+layout: null
+permalink: /running-map.html
+title: 跑步路径
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>跑步路径</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
+        <meta name="description" content="A foolish man could not always lose!" />
+        <meta name="keywords" content="fooleap, 前端, Linux, 潮汕" />
+        <meta name="author" content="fooleap" />
+        <meta name="renderer" content="webkit">
+        <style>
+            html,body, #map{
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+            }
+            .init{
+                position: relative;
+            }
+            @keyframes rotate {
+                0%,
+                100% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+            .init:before,
+            .init:after{
+                content: "";
+                position: absolute;
+                display: block;
+                z-index: 999;
+            }
+            .init:before{
+                left: 0;
+                top: 0;
+                background-color: #fff;
+                width: 100%;
+                height: 100%;
+            }
+            .init:after{
+                left: 50%;
+                top: 50%;
+                margin-top: -20px;
+                margin-left: -20px;
+                width: 40px;
+                height: 40px;;
+                background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="83.543px" height="83.709px" viewBox="0 0 83.543 83.709" enable-background="new 0 0 83.543 83.709" xml:space="preserve"><circle fill="none" stroke="#E2E2E2" stroke-width="6" cx="41.875" cy="41.75" r="38.625"/><path fill="none" stroke="#7F7F7F" stroke-width="6" d="M3.25,41.75c0-21.332,17.293-38.625,38.625-38.625" /></svg>');
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                animation: rotate .8s linear infinite;
+            }
+            .marker-circle{
+                width: 9px;
+                height: 9px;
+                border: 3px solid #fff;
+                border-radius: 50%;
+                box-shadow: 1px 1px 0 rgba(0,0,0,.4);
+            }
+            .marker-circle.green{
+                background-color: #60AB43;
+            }
+            .marker-circle.red{
+                background-color: #f80000;
+            }
+            .marker-circle.black{
+                background-color: #000000;
+            }
+            .running-distance{
+                background-color: #000;
+                font-size: 12px;
+                font-family: 'AlternateBoldFont', 'MHei PRC Bold';
+                color: #fff;
+                width: 50px;
+                height: 24px;
+                line-height: 24px;
+                text-align: right;
+                border-top-left-radius: 12px;
+                border-bottom-left-radius: 12px;
+                position: relative;
+                white-space: nowrap;
+            }
+            .running-distance:after{
+                content: "";
+                right: -24px;
+                top: 0;
+                position: absolute;
+                height: 0;
+                width: 0;
+                border: 12px solid transparent;
+                border-left-color: #000;
+            }
+            .running-distance .running-number{
+                color: #83DD00;
+            }
+        </style>
+        <script src="//webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"></script>
+    </head>
+    <body>
+        <div id="map" class="init" title="点击地图启动轨迹动画"></div>
+        <script>
+
+            function getQuery(variable) {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            }
+
+            function mapInit(lineArr){
+
+                // 坐标总数，起终点坐标
+                var count = lineArr.length;
+                var first = lineArr[0];
+                var last = lineArr[count - 1];
+
+                // 构造地图对象
+                var map = new AMap.Map('map');
+
+                // 跑步路线折线
+                var polyline = new AMap.Polyline({
+                    map: map,
+                    path: lineArr,
+                    lineJoin: 'round',
+                    strokeColor: "#52EE06",
+                    strokeOpacity: 1,
+                    strokeWeight: 3,
+                    strokeStyle: "solid"
+                });
+                // 地图自适应
+                map.setFitView(); 
+
+                // 起点
+                new AMap.Marker({
+                    map: map,
+                    position: first,
+                    zIndex: 11,
+                    offset: new AMap.Pixel(-8, -8),
+                    content: '<div class="marker-circle green"></div>'
+                });
+
+                // 终点
+                new AMap.Marker({
+                    map: map,
+                    position: last,
+                    zIndex: 11,
+                    offset: new AMap.Pixel(-8, -8),
+                    content: '<div class="marker-circle red"></div>'
+                });
+
+                // 距离
+                var distance = new AMap.Marker({
+                    map: map,
+                    position: last,
+                    zIndex: 10,
+                    offset: new AMap.Pixel(-64, -12),
+                    // 采用 Polyline 类的 getLength() 方法直接获取折线长度
+                    content: '<div class="running-distance"><span class="running-number">' + (polyline.getLength()/1000).toFixed(1) + '</span>公里</div>'
+                });
+                // 变化的折线
+                var runPolyline = new AMap.Polyline({
+                    map: map,
+                    lineJoin: 'round',
+                    strokeColor: "#52EE06",
+                    strokeOpacity: 1,
+                    strokeWeight: 3,
+                    strokeStyle: "solid",
+                });
+
+                // 移动的点标记
+                var current = new AMap.Marker({
+                    map: map,
+                    zIndex: 12,
+                    visible: false,
+                    offset: new AMap.Pixel(-8, -8),
+                    content: '<div class="marker-circle black"></div>'
+                });
+
+                var running = false;
+                var i = 0;
+                // 地图事件
+                map.on('complete', function(){
+                    document.getElementById('map').classList.remove('init');
+                }).on('click', function() {
+                    // 将上面上面折线改为黑色透明作为底层
+                    polyline.setOptions({
+                        strokeColor: '#000000',
+                        strokeOpacity: 0.2
+                    });
+                    // 显示画线点标记
+                    current.show();
+                    running = running == false ? true : false;
+                    var step = parseInt(count/50);
+                    step = step == 0 ? 1 : step;
+                    drawline(step);
+                })
+
+                // 画线动画
+                function drawline(step) {
+                    if ( i < count / step ) {
+                        if( running == true ){
+                            var start = i * step;
+                            var end = (i + 1) * step >= count ? count - 1 : (i + 1) * step;
+                            current.setPosition(lineArr[end]);
+                            runPolyline.setPath(lineArr.slice(0, end+1));
+                            distance.setContent('<div class="running-distance"><span class="running-number">' + (runPolyline.getLength()/1000).toFixed(1) + '</span>公里</div>');
+                            i++;
+                        } else {
+                            return;
+                        }
+                    } else{
+                        current.hide();
+                        i = 0;
+                        running = false;
+                        return;
+                    }
+                    setTimeout(function(){
+                        drawline(step);
+                    }, 40)
+                }
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://api.fooleap.org/nike/activity?id='+getQuery('id'), true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200)
+                {
+                    var lineArr = JSON.parse(xhr.responseText);
+                    mapInit(lineArr);
+                }
+            }
+            xhr.send();
+        </script>
+
+    </body>
+</html>

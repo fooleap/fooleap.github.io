@@ -17,6 +17,8 @@ kramdown:
   auto_id_prefix: 'id-'
   toc_levels:     '2,3'
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
+emoji:
+    src: 'http://api.fooleap.org'
 paginate: 10
 repository: fooleap/fooleap.github.io
 

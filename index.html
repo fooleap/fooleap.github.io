@@ -31,7 +31,7 @@ layout: default
         <i class="post-item-thumb" data-src="{{ thumbnail }}" style="background-image:url({{ thumbnail }})"></i>
         <section class="post-item-summary">
             <h3 class="post-item-title"><a class="post-item-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-            <abbr class="post-item-date timeago" datetime="{{ post.date | date_to_xmlschema }}"></abbr>
+            <time class="post-item-date timeago" datetime="{{ post.date | date_to_xmlschema }}"></time>
         </section>
         <a class="post-item-comment" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comments"></a>
     </article>
