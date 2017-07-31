@@ -5,7 +5,7 @@ description: "最近在 macOS 上安装 Jekyll 后，运行总是提示 Jemoji �
 date: 2017-05-09 23:15:55+0800
 category: tech
 thumb: IMG_PATH/jekyll.svg
-tags: [Jekyll, Jemoji, Ruby]
+tags: [Jekyll, Jemoji, Ruby, Emoji]
 ---
 
 * toc
@@ -75,7 +75,7 @@ $ jekyll s
 
 此时，`json` 的默认版本是 `1.8.3`。
 
-对了，Jemoji 是什么玩意？请查看——[Jekyll 的 emoji 插件](/jemoji.html)
+对了，Jemoji 是什么玩意？请查看——[Jekyll 的 Emoji 插件](/jemoji.html)
 
 ## 参考资料
 

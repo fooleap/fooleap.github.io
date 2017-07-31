@@ -1,15 +1,15 @@
+const iDisqus = require('disqus-php-api');
+const wx = require('weixin-js-sdk');
+const coordtransform = require('coordtransform');
+const raphael = require('webpack-raphael');
+const flowchart = require('flowchart.js');
+const QRCode = require('davidshimjs-qrcodejs');
+
 import './sass/style.scss';
 import './sass/navigation.scss';
 import './sass/lightbox.scss';
 import './sass/github.scss';
 import './sass/media.scss';
-
-const wx = require('weixin-js-sdk');
-const coordtransform = require('coordtransform');
-const raphael = require('webpack-raphael');
-const flowchart = require('flowchart.js');
-const iDisqus = require('disqus-php-api');
-const QRCode = require('davidshimjs-qrcodejs');
 
 // TimeAgo https://coderwall.com/p/uub3pw/javascript-timeago-func-e-g-8-hours-ago
 function timeAgo(selector) {
@@ -146,7 +146,8 @@ if(browser.wechat && location.origin == site.home){
                 signature: signPackage.signature,
                 jsApiList: [
                     'chooseImage',
-                    'previewImage'
+                    'previewImage',
+                    //'setBounceBackground'
                 ]
             });
         }

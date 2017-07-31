@@ -65,7 +65,7 @@ wechat: http://mp.weixin.qq.com/s/yMlAhGL9i79NEBAXWNpmqQ
 
 ## 参考资料
 
-[1]: http://www.stchedu.cn/xxjj/fandaxxjj.asp?xxmc=%C4%CF%CD%E5%D0%A1%D1%A7 "南湾小学"
+[1]: http://official.weixiao100.cn/custom/v3/index.html?schoolCode=72248144-0 "南湾小学"
 [2]: http://st.southcn.com/content/2017-07/06/content_173872838.htm "龙湖区75所公办学校体育场地和设施免费向社会开放"
 
 **本文历史**
