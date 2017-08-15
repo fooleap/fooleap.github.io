@@ -362,14 +362,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 if (this.readyState == 4 && this.status == 200)
                 {
                     var data = JSON.parse(this.responseText);
+                    function parseVal (odata){
+                        if(!!odata){
+                            return odata.val;
+                        } else {
+                            return '无';
+                        }
+                    }
                     if ( !!data.DateTimeOriginal ) {
                         var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
                         var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
-                        var model = data.Model ? data.Model.val : '无';
-                        var fnum = data.FNumber ? data.FNumber.val.split(/\//)[1] : '无';
-                        var extime = data.ExposureTime ? data.ExposureTime.val : '无';
-                        var iso = data.ISOSpeedRatings ? data.ISOSpeedRatings.val.split(/,\s/)[0] : '无';
-                        var flength = data.FocalLength ? data.FocalLength.val : '无';
+                        var model = parseVal(data.Model);
+                        var fnum = parseVal(data.FNumber);
+                        var extime = parseVal(data.ExposureTime);
+                        var iso = parseVal(data.ISOSpeedRatings);
+                        var flength = parseVal(data.FocalLength);
                         document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
                     }
                     if ( !!data.GPSLongitude ) {

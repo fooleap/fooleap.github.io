@@ -291,7 +291,7 @@ a.post-cat-tag{
     ol {
       margin-left: 25px;
       font-size: 14px;
-      font-family: monospace;
+      font-family: Arial, sans-serif;
     }
     >*{
         margin: 18px 0;
@@ -310,7 +310,7 @@ a.post-cat-tag{
             content: " ¶";
         }
     }
-    p a:not([href^="/"]):not([target="_blank"]){
+    * a:not([href^="/"]):not([target="_blank"]){
         vertical-align:super; 
         font-size: smaller;
     }
