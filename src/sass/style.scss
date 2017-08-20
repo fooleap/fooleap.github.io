@@ -37,6 +37,10 @@ video {
 
 img{
     max-width: 100%;
+    image-rendering:   -o-crisp-edges;         /* Opera */
+    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
 }
 
 html {
@@ -53,7 +57,8 @@ body {
     color: $default;
     background-color: $lightblue;
     overflow-y: scroll;
-    font: 14.5px/1.6 -apple-system, BlinkMacSystemFont, source-han-sans-simplified-c,"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;
+    font: 15px/1.6 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Roboto,Arial,source-han-sans-simplified-c,sans-serif;
+    transition: font-family .3s;
 }
 
 .page-thumb {
@@ -161,7 +166,7 @@ body {
         color: $lightgray;
         font-weight: 300;
         width: 100%;
-        font-size: 13px;
+        font-size: 14px;
     }
     .post-time {
         word-spacing: -1px;
@@ -206,7 +211,7 @@ a.post-cat-tag{
         height: 50px;
         line-height: 25px;
         .post-item-title {
-            font-size: 14.5px;
+            font-size: 15px;
             color: $darkblue;
             font-weight: normal;
             height: 25px;
@@ -219,7 +224,7 @@ a.post-cat-tag{
         .post-item-date {
             color: $lightgray;
             opacity: 0;
-            font-size: 13px;
+            font-size: 14px;
             transition: .5s all;
             &:not(:empty) {
                 opacity: 1;
@@ -232,7 +237,7 @@ a.post-cat-tag{
         text-decoration: none;
         text-align: center;
         color: $white;
-        font: 600 14px/18px "Helvetica Neue",Helvetica, Arial;
+        font: 600 14px/18px Arial, Sans-serif;
         border-radius: 10px;
         width: 30px;
         height: 18px;
@@ -241,6 +246,9 @@ a.post-cat-tag{
         &:not(:empty) {
             background-color: rgb(150, 215, 245);
             opacity: 1;
+        }
+        &[data-count="0"] {
+            opacity: 0;
         }
         &:hover {
             background-color: $darkblue;
@@ -258,7 +266,7 @@ a.post-cat-tag{
 }
 .pagination-list {
     margin: 10px auto;
-    font-size: 13px;
+    font-size: 15px;
     list-style-type: none;
     overflow: hidden;
     display: flex;
@@ -290,8 +298,7 @@ a.post-cat-tag{
     ul,
     ol {
       margin-left: 25px;
-      font-size: 14px;
-      font-family: Arial, sans-serif;
+      font-size: 15px;
     }
     >*{
         margin: 18px 0;
@@ -299,23 +306,23 @@ a.post-cat-tag{
     h2 {
         border-left: 4px solid $darkblue;
         padding-left: 5px;
-        font-size: 16px;
+        font-size: 18px;
         &:hover:after, &:target:after{
             content: " ¶";
         }
     }
     h3 {
-        font-size: 15px;
+        font-size: 16px;
         &:hover:after, &:target:after{
             content: " ¶";
         }
     }
-    * a:not([href^="/"]):not([target="_blank"]){
+    * a:not([href*="blog.fooleap.org"]):not([href^="/"]):not([target="_blank"]){
         vertical-align:super; 
         font-size: smaller;
     }
     blockquote {
-        font-size: 13px;
+        font-size: 14px;
         padding: 5px 10px;
         opacity: .6;
         border-left: 5px solid $darkgray;

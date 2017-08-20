@@ -4,16 +4,29 @@ permalink: /archive.html
 title: 归档
 tags: [归档]
 ---
+{% for post in site.posts reversed %}
+    {% assign year = post.date | date: '%Y' %}
+    {% assign nyear = post.next.date | date: '%Y' %}
+    {% if year != nyear %}
+        {% assign count = count | append: ', ' %}
+        {% assign counts = counts | append: count %}
+        {% assign count = 1 %}
+    {% else %}
+        {% assign count = count | plus: 1 %}
+    {% endif %}
+{% endfor %}
+
+{% assign counts = counts | split: ', ' | reverse %}
+{% assign i = 0 %}
 
 {% for post in site.posts %}
-{% unless post %}
-{% else %}
-{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+{% assign year = post.date | date: '%Y' %}
+{% assign nyear = post.next.date | date: '%Y' %}
 {% if year != nyear %}
-## {{ post.date | date: '%Y' }}
-{:class="archive-title"}
+## {{ post.date | date: '%Y' }} ({{ counts[i] }})
+{:.archive-title}
+{% assign i = i | plus: 1 %}
+{% else %}
 {% endif %}
-{% endunless %}
-* {{ post.date | date: "%m-%d" }} &raquo; [{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}
+* {{ post.date | date: '%m-%d' }} &raquo; [{{ post.title }}]({{ post.url }} "{{ post.title }}"){:.archive-item-link}
 {% endfor %}

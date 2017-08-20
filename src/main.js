@@ -119,7 +119,7 @@ var ua = navigator.userAgent,
     },
     page = { 
         layout: head.dataset.layout,
-        title: document.title,
+        title: head.dataset.title,
         url: location.pathname,
         desc: document.querySelector('[name="description"]').content,
         id: head.dataset.id,
@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         forum: 'fooleap',
         site: 'http://blog.fooleap.org',
         api: 'http://api.fooleap.org/disqus',
+        title:  page.title,
         url: page.url,
         mode: 3,
         timeout: 3000,
@@ -608,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             var url = '/tags.html?keyword=' + keyword;
             var tagsTable = document.getElementById('tags-table');
             tagsTable.style.display = 'table';
-            tagsTable.querySelector('thead tr').innerHTML = '<th colspan=2>以下是标签为“'+keyword+'”的所有文章</th>';
+            tagsTable.querySelector('thead tr').innerHTML = '<th colspan=2>以下是标签含有“'+keyword+'”的所有文章</th>';
             var html = '';
             tagsData.forEach(function(item){
                 if( item.tags.indexOf(keyword) > -1){
@@ -708,9 +709,18 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 });
 
+
 // 统计
 setTimeout(function() {
     if ( site.home === location.origin ) {
+        (function(d) {
+            var config = {
+                kitId: 'rir3gzo',
+                async: true
+            },
+                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+
         var _hmt = _hmt || [];
         var s = document.getElementsByTagName("script")[0];
         var hm = document.createElement('script');

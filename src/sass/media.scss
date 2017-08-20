@@ -1,13 +1,10 @@
 @charset "utf-8";
 // Firefox hack
 @media screen and (min--moz-device-pixel-ratio:0) {
-    body {
-        font: 14px/1.6 "Helvetica Neue", Helvetica, Arial, "微软雅黑", "Microsoft YaHei", sans-serif;
-    }
 }
 @media screen and(max-width: 768px) {
     .page-main{
-        margin: 0;
+        margin: 0!important;
     }
 }
 @media screen and(max-width: 450px) {
