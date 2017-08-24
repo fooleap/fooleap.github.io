@@ -52,7 +52,7 @@ title: 链接
 * [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
 * [Weidan's Life](http://liweidan.cn/){:title="@珠海"}
-* [博客物语 \| Blog.PS](https://blog.ps/)
+* [博客尾巴\|38blog.com](https://38blog.com/){:title="这里是Naifu的精神角落……"}
 * [大喇叭](http://blog.jiangqiwen.cn/){:title="@浙江"}
 * [常阳时光](https://cyhour.com/){:title="@肇庆"}
 * [当下](http://fueis.com/){:title="@日本"}
