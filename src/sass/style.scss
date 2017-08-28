@@ -216,10 +216,17 @@ a.post-cat-tag{
             font-weight: normal;
             height: 25px;
             overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
+            position: relative;
+            &:after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: 0; 
+                width: 20%;
+                height: 25px;
+                background-color: transparent;
+                background-image: linear-gradient(to right,rgba(255,255,255,0),#ffffff 50%)
+            }
         }
         .post-item-date {
             color: $lightgray;

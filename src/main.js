@@ -127,8 +127,10 @@ var ua = navigator.userAgent,
         tags: head.dataset.tags.split(',')
     },
     browser = { 
-        mobile: !!ua.match(/AppleWebKit.*Mobile.*/),
-        wechat: ua.toLowerCase().match(/MicroMessenger/i) == 'micromessenger'
+        macos: /Mac/i.test(navigator.platform),
+        windows: /Win/i.test(navigator.platform),
+        mobile: /AppleWebKit.*Mobile.*/i.test(ua),
+        wechat: /MicroMessenger/i.test(ua),
     };
 
 // 微信 SDK
@@ -243,8 +245,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
     for (var i = 0; i < links.length; i++) {
         if (links[i].hostname != location.hostname && /^javascript/.test(links[i].href) === false) {
             var numText = links[i].innerHTML;
-            var num = parseInt(numText.substring(1, numText.length - 1));
-            if (!isNaN(num) && num) {
+            if (/\[[0-9]*\]/.test(numText)) {
+                var num = parseInt(numText.slice(1,-1));
                 noteArr.push({
                     num: num,
                     title: links[i].title,
@@ -709,17 +711,20 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 });
 
+// 思源字体
+if( browser.windows ){
+    (function(d) {
+        var config = {
+            kitId: 'rir3gzo',
+            async: true
+        },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+}
 
 // 统计
-setTimeout(function() {
-    if ( site.home === location.origin ) {
-        (function(d) {
-            var config = {
-                kitId: 'rir3gzo',
-                async: true
-            },
-                h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-        })(document);
+if ( site.home === location.origin ) {
+    setTimeout(function() {
 
         var _hmt = _hmt || [];
         var s = document.getElementsByTagName("script")[0];
@@ -744,5 +749,5 @@ setTimeout(function() {
 
         ga('create', site.analytics, 'auto');
         ga('send', 'pageview');
-    }
-}, 1000);
+    }, 1000);
+}

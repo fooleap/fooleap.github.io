@@ -6,6 +6,7 @@
     height: 40px;
     z-index: 2;
     .navigation-avatar {
+        transition: transform .3s;
         border-radius: 50%;
         width: 40px;
         height: 40px;
@@ -46,19 +47,18 @@
         -webkit-tap-highlight-color: transparent;
     }
     .navigation-toggle:checked ~ .navigation-list {
-        transition: opacity .1s .2s ease-in-out;
+        pointer-events: auto;
+        transform: rotate(0);
         opacity: 1;
-        width: 160px;
-        height: 210px;
-        border-radius: 5px 25px 5px 5px;
     }
     .navigation-toggle:checked ~ .navigation-avatar {
-        transition: transform .3s;
         transform: rotate(360deg);
     }
 }
 
 .navigation-list {
+    transition: all .3s;
+    pointer-events: none;
     list-style: none;
     position: absolute;
     top: 0;
@@ -67,6 +67,11 @@
     background-color: rgb(80, 80, 80);
     opacity: 0;
     overflow: hidden;
+    transform-origin: calc( 100% - 20px ) 20px;
+    transform: rotate(-90deg);
+    width: 160px;
+    height: 210px;
+    border-radius: 5px 25px 5px 5px;
     .navigation-item {
         position: relative;
         height: 42px;
