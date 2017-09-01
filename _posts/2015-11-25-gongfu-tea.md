@@ -3,7 +3,8 @@ layout: post
 title: 工夫茶的二三事
 description: "身为潮汕人，对茶总有一份特殊的感情，总离不开从小到大耳濡目染的工夫茶，而工夫茶的范围有些大，恐怕是鄙人之手难以描绘的，在此只能挑几点简单说说。"
 category: life
-date: 2015-11-25 21:25:00 +800
+thumb: IMG_PATH/gongfu-tea-01.jpg
+date: 2015-11-25 21:25:00+0800
 tags: [潮汕, 工夫茶, 潮州工夫茶]
 ---
 
@@ -18,7 +19,9 @@ tags: [潮汕, 工夫茶, 潮州工夫茶]
 
 貌似大众认知偏向于功夫茶，那么到底是工夫茶还是功夫茶呢？或许是因为李小龙，“功夫”一词被人们所熟知，听到“工夫茶”三字便感觉理所当然是“功夫茶”，可能有部分人还会顺便脑补电视上四川那边，几乎每次表演都会响起类似《精忠报国》之类音乐的长嘴壶茶艺表演。称长嘴壶茶艺为功夫茶估计没有或很少人有疑议，电视节目也不乏以此为题。
 
-事实上，工夫茶流行的潮汕地区，不存在这个争议，因为潮州音中工和功读音不尽相同[[2]][2]，自古以来就叫工夫茶，戳 <a href="javascript:gongfu();" style="cursor:pointer;color:#333;" id="play-gongfu-tea"><i class="icon-volume-up"></i></a> 听“工夫茶”潮汕话发音。方言论看起来似乎靠谱，可会不会潮汕人本身一开始就说错？进而习惯。想要进一步深究，可能得说到“工夫”和“功夫“的具体区别，鄙人水平有限，这里就不乱扯，这方面《潮州工夫茶》有提到[[3]][3]，看来“工夫茶”就是工夫茶无误。
+事实上，工夫茶流行的潮汕地区，不存在这个争议，因为潮州音中工和功读音不尽相同[[2]][2]，自古以来就叫工夫茶，戳下面语言可听“工夫茶”潮汕话发音。方言论看起来似乎靠谱，可会不会潮汕人本身一开始就说错？进而习惯。想要进一步深究，可能得说到“工夫”和“功夫“的具体区别，鄙人水平有限，这里就不乱扯，这方面《潮州工夫茶》有提到[[3]][3]，看来“工夫茶”就是工夫茶无误。
+
+<audio controls src="{{ site.IMG_PATH }}/gongfu-tea.mp3" type="audio/mpeg"></audio>
 
 现在年轻一代的潮汕人，也有不少并不清楚工夫茶的正名，有时候对的不一定就是好的，或许随着时代变迁，因约定俗成而妥协，工夫茶最后会被功夫茶所替代。倘若有一天官方词典如同取消六安“lu”读法[[4]][4]般将“工夫茶”抹掉而保留“功夫茶”，潮汕人总会抗议的，如果对这有兴趣，不妨去知乎看各方大侠“撕逼”[[5]][5]。
 
@@ -112,7 +115,7 @@ tags: [潮汕, 工夫茶, 潮州工夫茶]
 
 有关对潮州工夫茶的误解[[26]][26]，可看郑凯涛的视频，及真假潮汕工夫茶对比[[27]][27]。
 
-<embed id="video" src="http://imgcache.qq.com/tencentvideo_v1/player/TencentPlayer.swf?vid=x01765w90to&amp;auto=0" allowFullScreen="true" quality="high" width="640" height="400" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" />
+{% include media.html type="video-qq" vid="x01765w90to" mode="wide" %}
 
 关于工夫茶，这里推荐几个链接，虽然都是茶商，但内容真不错。
 
@@ -166,21 +169,3 @@ tags: [潮汕, 工夫茶, 潮州工夫茶]
 * 2015 年 09 月 03 日 完成初稿
 * 2015 年 11 月 25 日 更新在谢掌柜淘宝店买的茶图
 * 2015 年 12 月 19 日 添加正小滔的内容
-
-<audio id="gongfu-tea">
-  <source src="{{ site.IMG_PATH }}/gongfu-tea.mp3" type="audio/mpeg">
-  <source src="{{ site.IMG_PATH }}/gongfu-tea.ogg" type="audio/ogg">
-</audio>
-
-<script>
-  function gongfu(){
-    var gongfuTea=document.getElementById("gongfu-tea");
-    gongfuTea.play();
-  };
-  if(!isFlashSupported()){
-    var music=document.getElementById('music');
-    var video=document.getElementById('video');
-    music.outerHTML = '<audio controls><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.mp3" type="audio/mpeg"><source src="{{ site.IMG_PATH }}/黎田康子-一壶好茶一壶月.ogg" type="audio/ogg"></audio>';
-    video.outerHTML = '<iframe frameborder="0" width="100%" src="http://v.qq.com/iframe/player.html?vid=x01765w90to&tiny=0&auto=0" allowfullscreen="1"></iframe>';
-  }
-</script>
