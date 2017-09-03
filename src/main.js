@@ -289,7 +289,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
             item.dataset.src = image.src[i];
             item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
             var imgdom = document.querySelector('.post-image[data-src="'+image.src[i]+'"]');;
-            imgdom.insertAdjacentHTML('afterend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
+            if( new RegExp('\^'+site.img,'i').test(image.src[i])){
+                imgdom.insertAdjacentHTML('afterend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
+            }
 
             if( browser.wechat && browser.mobile ){
                 imgdom.addEventListener('click',function(){

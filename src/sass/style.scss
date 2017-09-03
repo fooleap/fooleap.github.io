@@ -254,7 +254,7 @@ a.post-cat-tag{
             background-color: rgb(150, 215, 245);
             opacity: 1;
         }
-        &[data-count="0"] {
+        &[data-disqus-count="0"] {
             opacity: 0;
         }
         &:hover {
