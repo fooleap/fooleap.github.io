@@ -160,6 +160,10 @@ if(browser.wechat && location.origin == site.home){
     });
 }
 
+window.addEventListener('beforeunload', function (event) {
+    document.getElementById('menu').checked = false;
+});
+
 document.addEventListener('DOMContentLoaded', function(event) { 
     'use strict';
     var disq = new iDisqus('comment', {

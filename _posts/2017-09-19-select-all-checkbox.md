@@ -6,7 +6,7 @@ thumb: IMG_PATH/js.svg
 category: tech
 tags: ["Checkbox", "JavaScript"]
 ---
-最近工作更忙了，博客已经十来天没更新了，今晚有空闲，懒得扒太麻烦的话题，且聊一下简单的 JS 效果，这篇主要说的是选择框的全选联动。
+最近工作更忙了，博客已经十来天没更新了，今晚有空闲，懒得扒太麻烦的话题，聊一下简单的 JS 效果，这篇主要说的是选择框的全选联动。
 
 我这里所说的全选联动是：
 
@@ -25,17 +25,13 @@ tags: ["Checkbox", "JavaScript"]
 
 这个 CSS 一般没法实现，但 CSS 的奇淫技巧，也不是第一次见识了，或许会有办法？这里还是说下 JS 实现。
 
-第一个很好实现，只要全选选择框触发 change 事件便做判断及操作即可。
+第一个很好实现，只要全选选择框触发 change 事件时执行操作即可。
 
 ```js
 var checkboxes = document.getElementsByClassName('checkbox');
 document.getElementById('selectAll').addEventListener('change', function(e) {
   for (var i = 0; i < checkboxes.length; i++) {
-    if (!!e.target.checked) {
-      checkboxes[i].checked = true;
-    } else {
-      checkboxes[i].checked = false;
-    }
+    checkboxes[i].checked = e.target.checked;
   }
 }, false)
 ```
@@ -56,7 +52,7 @@ for (var i = 0; i < checkboxes.length; i++) {
 }
 ```
 
-{% include media.html type="iframe" src="//jsfiddle.net/fooleap/2bbky4gf/embedded/result,js,html/" %}
+{% include media.html type="iframe" src="//jsfiddle.net/fooleap/2bbky4gf/1/embedded/result,js,html/" %}
 
 这本是最常见的功能，购物车、后台管理等常用，本篇有些凑字数的感觉。
 
