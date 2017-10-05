@@ -4,12 +4,7 @@ const coordtransform = require('coordtransform');
 const raphael = require('webpack-raphael');
 const flowchart = require('flowchart.js');
 const QRCode = require('davidshimjs-qrcodejs');
-
-import './sass/style.scss';
-import './sass/navigation.scss';
-import './sass/lightbox.scss';
-import './sass/github.scss';
-import './sass/media.scss';
+import './sass/main.scss';
 
 // TimeAgo https://coderwall.com/p/uub3pw/javascript-timeago-func-e-g-8-hours-ago
 function timeAgo(selector) {
@@ -297,69 +292,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 imgdom.insertAdjacentHTML('afterend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
             }
 
-            if( browser.wechat && browser.mobile ){
-                imgdom.addEventListener('click',function(){
+            imgdom.addEventListener('click',function(){
+                if( browser.wechat && browser.mobile ){
                     wx.previewImage({
                         current: image.src[i], 
                         urls: image.src
                     });
-                })
-            } else {  
-                imgdom.addEventListener('click', function(){
-                    if( !!document.querySelector('.lightbox-container') ){
-                        document.querySelector('.lightbox-container').style.display = 'block';
-                        document.querySelector('.lightbox-list').style.transform = 'translateX(-' + i + '00%)';
-                        var thumbArr  = document.querySelectorAll('.lightbox-thumb-item');
-                        [].forEach.call(thumbArr, function(thumb){
-                            thumb.style.opacity = .6;
-                        })
-                        var thumb = document.querySelector('.lightbox-thumb');
-                        var thumbList = document.querySelector('.lightbox-thumb-list');
-                        var mainWidth = thumb.clientWidth;
-                        var thumbNum = parseInt( mainWidth / 80 );
-                        thumbList.style.marginLeft = thumbNum % 2 == 0 ? -(i - .5) * 80 + 'px': -i * 80 + 'px';
-                        thumbArr[i].style.opacity = 1;
-                        return;
-                    }
-                    var lightboxHTML = '<div class="lightbox-container"><div class="lightbox">'+
-                        '<div class="lightbox-main"><ul class="lightbox-list"></ul></div>'+
-                        '<div class="lightbox-thumb"><ul class="lightbox-thumb-list"></ul></div>'+
-                        '</div></div>';
-                    document.body.insertAdjacentHTML('beforeend', lightboxHTML);
-                    var lightbox = document.querySelector('.lightbox-container');
-                    var lightboxList = document.querySelector('.lightbox-list');
-                    var thumbList = document.querySelector('.lightbox-thumb-list');
-                    var thumb = document.querySelector('.lightbox-thumb');
-                    var mainWidth = thumb.clientWidth;
-                    var thumbNum = parseInt( mainWidth / 80 );
-                    var intWidth =  thumbNum * 80;
-                    thumb.style.width = intWidth + 'px';
-                    thumb.style.left = (mainWidth - intWidth)/2 + 'px';
-                    thumbList.style.marginLeft = thumbNum % 2 == 0 ? -(i - .5) * 80 + 'px': -i * 80 + 'px';
-                    image.src.forEach(function(src, e){
-                        lightboxList.insertAdjacentHTML('beforeend', '<li class="lightbox-item"><img class="lightbox-item-image" src="'+image.src[e]+'" alt="'+image.title[e]+'" title="'+image.title[e]+'"></li>');
-                        thumbList.insertAdjacentHTML('beforeend', '<li class="lightbox-thumb-item" style="background-image:url('+image.thumb[e]+')"></li>');
-                    })
-                    lightboxList.style.transform = 'translateX(-' + i + '00%)';
-                    lightbox.addEventListener('click', function(e){
-                        e.currentTarget.style.display = e.target == e.currentTarget ? 'none' : 'block';
-                    })
-                    var thumbArr  = document.querySelectorAll('.lightbox-thumb-item');
-                    thumbArr[i].style.opacity = 1;
-                    [].forEach.call(thumbArr, function(item, m){
-                        var index = m;
-                        item.addEventListener('click', function(){
-                            [].forEach.call(thumbArr, function(thumb){
-                                thumb.style.opacity = .6;
-                            })
-                            this.style.opacity = 1;
-                            thumbList.style.marginLeft = thumbNum % 2 == 0 ? -(index-.5) * 80 + 'px': -index * 80 + 'px';
-                            lightboxList.style.transform = ' translateX(-' + index + '00%)';
-                        }) 
-                    })
-                    lightboxList.classList.add('active');
-                })
-            }
+                } else {  
+                    window.open(image.src[i]);
+                }
+            })
         })
 
 
