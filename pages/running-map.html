@@ -81,7 +81,7 @@ title: 跑步路径
                 background-color: #000000;
             }
             .running-distance{
-                background-color: #000;
+                background-color: rgba(0,0,0,.8);
                 font-size: 12px;
                 color: #fff;
                 width: 50px;
@@ -101,7 +101,7 @@ title: 跑步路径
                 height: 0;
                 width: 0;
                 border: 12px solid transparent;
-                border-left-color: #000;
+                border-left-color: rgba(0,0,0,.8);
             }
             .running-distance .running-number{
                 color: #83DD00;
@@ -229,7 +229,7 @@ title: 跑步路径
                 new AMap.Marker({
                     map: map,
                     position: first,
-                    zIndex: 11,
+                    zIndex: 10,
                     offset: new AMap.Pixel(-8, -8),
                     content: '<div class="marker-circle green"></div>'
                 });
@@ -238,7 +238,7 @@ title: 跑步路径
                 new AMap.Marker({
                     map: map,
                     position: last,
-                    zIndex: 11,
+                    zIndex: 12,
                     offset: new AMap.Pixel(-8, -8),
                     content: '<div class="marker-circle red"></div>'
                 });
@@ -247,7 +247,7 @@ title: 跑步路径
                 var distance = new AMap.Marker({
                     map: map,
                     position: last,
-                    zIndex: 10,
+                    zIndex: 11,
                     offset: new AMap.Pixel(-64, -12),
                     // 采用 Polyline 类的 getLength() 方法直接获取折线长度
                     content: '<div class="running-distance"><span class="running-number">' + (polyline.getLength()/1000).toFixed(1) + '</span>公里</div>'
@@ -265,7 +265,7 @@ title: 跑步路径
                 // 移动的点标记
                 var current = new AMap.Marker({
                     map: map,
-                    zIndex: 12,
+                    zIndex: 10,
                     visible: false,
                     offset: new AMap.Pixel(-8, -8),
                     content: '<div class="marker-circle black"></div>'
