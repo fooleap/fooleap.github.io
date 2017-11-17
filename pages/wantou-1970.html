@@ -1,0 +1,109 @@
+---
+layout: null
+permalink: /wantou-1970.html
+title: 1970 
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>跑步路径</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
+        <meta name="description" content="A foolish man could not always lose!" />
+        <meta name="keywords" content="fooleap, 前端, Linux, 潮汕" />
+        <meta name="author" content="fooleap" />
+        <meta name="renderer" content="webkit">
+        <style>
+            html,body, #map{
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                font-family: arial, sans-serif;
+            }
+            *{
+                box-sizing: border-box;
+            }
+            .form{
+                position: fixed;
+                width: 400px;
+                margin-left: -200px;
+                top: 100px;
+                left: 50%;
+            }
+            .form-item{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .form-item > *{
+                display: block;
+                flex: 1;
+                margin: 10px;
+                line-height: 25px;
+                height: 25px;
+            }
+            .form-item-label{
+                width: 80px;
+                flex: none;
+            }
+        </style>
+        <script src="//webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"></script>
+    </head>
+    <body>
+        <div id="map"></div>
+        <div class="form">
+            <div class="form-item" id="bound-sw">
+                <label class="form-item-label">西南</label>
+                <input class="form-item-input" type="text" />
+                <input class="form-item-input" type="text" />
+            </div>
+            <div class="form-item" id="bound-ne">
+                <label class="form-item-label">东北</label>
+                <input class="form-item-input" type="text" />
+                <input class="form-item-input" type="text" />
+            </div>
+        </div>
+        <script>
+            var imageLayer = new AMap.ImageLayer({
+                url: 'http://source.fooleap.org/wantou1970.jpg',
+                bounds: new AMap.Bounds(
+                    [116.788324, 23.458350],
+                    [116.846325, 23.502121]
+                ),
+                zooms: [14, 18]
+            });
+            var ib = imageLayer.getBounds();
+            var sw = document.getElementById('bound-sw').querySelectorAll('.form-item-input');
+            var ne = document.getElementById('bound-ne').querySelectorAll('.form-item-input');
+            ne[0].value = ib.northeast.lng;
+            ne[1].value = ib.northeast.lat;
+            sw[0].value = ib.southwest.lng;
+            sw[1].value = ib.southwest.lat;
+            var inputs = document.querySelectorAll('.form-item-input');
+            for(var i = 0; i < inputs.length; i++){
+                inputs[i].addEventListener('input',function(){
+                    imageLayer.setBounds(
+                        new AMap.Bounds(
+                            [sw[0].value,sw[1].value],
+                            [ne[0].value,ne[1].value]
+                        )
+                    )
+                },false);
+            }
+            //var roadNetLayer = new AMap.TileLayer.RoadNet(); //定义一个路网图层
+            var map = new AMap.Map('map', {
+                resizeEnable: true,
+                center: [116.813316, 23.475858],
+                zoom: 15,
+                layers: [
+                    new AMap.TileLayer(),
+                    imageLayer,
+                    //roadNetLayer
+                ]
+            });
+            //map.setFitView(); 
+        </script>
+    </body>
+</html>
