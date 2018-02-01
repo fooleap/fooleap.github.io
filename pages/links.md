@@ -52,17 +52,18 @@ title: 链接
 * [Terry's Blog](http://terrychen.info/){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com/){:title="刘樟宏@深圳"}
 * [Weidan's Life](http://liweidan.cn/){:title="@珠海"}
-* [廿三克](https://23g.org/){:title="这里是Naifu的精神角落……"}
 * [大喇叭](http://blog.jiangqiwen.cn/){:title="@浙江"}
 * [常阳时光](https://cyhour.com/){:title="@肇庆"}
 * [当下](http://fueis.com/){:title="@日本"}
 * [古博](http://gubo.org){:title="许凯@桂林"}
+* [孤独病志](https://ziji.im/){:title="与自己所处的现在谈谈…"}
 * [广西大学Linux协会](http://www.gxlinux.com){:title="广西大学Linux协会"}
 * [乱步集](http://mrkod.com){:title="MR.KOD@杭州"}
 * [奶牛博客](http://www.nenew.net){:title="奶牛@淄博"}
 * [软件小子](http://bzdiao.com){:title="Bruse@西安"}
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
 * [以梦为马，奔向远方](http://linhai1990.com/){:title="石明鑫@昆明"}
+* [印&#124;纪](http://fyzgxy.cn/){:title="发生着，记录着，回忆着"}
 * [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
 * [贼头's Blog](http://www.makiller.com){:title="马震南@南宁"}
 

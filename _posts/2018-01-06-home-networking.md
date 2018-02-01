@@ -29,6 +29,10 @@ tags: [网络, TP-LINK, "面板 AP"]
 
 一段时间使用下来，面板 AP 效果低于预期，信号确实没无线路由好，但基本够用，可能那种大的双频会更好。
 
+后面逐渐意识到百兆 AP 不够用，遂多买了个千兆 AP。
+
+![网络拓扑图][p2]
+
 ## 参考资料
 
 [1]: http://service.tp-link.com.cn/detail_article_2358.html "大户型无线覆盖方案"
@@ -36,5 +40,7 @@ tags: [网络, TP-LINK, "面板 AP"]
 **本文历史**
 
 * 2018 年 01 月 06 日 完成初稿
+* 2018 年 02 月 08 日 添加简单的网络拓扑图
 
 [p1]: {{ site.IMG_PATH }}/home-networking-01.png "用于网络的双绞线"
+[p2]: {{ site.IMG_PATH }}/home-networking-02.png_640 "网络拓扑图"
