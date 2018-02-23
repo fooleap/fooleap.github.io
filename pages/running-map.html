@@ -329,12 +329,17 @@ title: 跑步路径
                 }
             }
 
+            var isLast = !getQuery('id');
+            var reqUrl = isLast ? 'http://api.fooleap.org/nike/activity' : 'http://api.fooleap.org/nike/activity?id='+getQuery('id');
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://api.fooleap.org/nike/activity?id='+getQuery('id'), true);
+            xhr.open('GET', reqUrl, true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200)
                 {
                     var data = JSON.parse(xhr.responseText);
+                    if( isLast ){
+                        history.pushState(null, null, '?id='+data.id);
+                    }
                     // 网页标题
                     document.title = data.title;
                     document.querySelector('.running-start').innerHTML = data.start;
