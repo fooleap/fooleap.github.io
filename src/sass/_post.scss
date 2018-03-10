@@ -567,16 +567,16 @@ pre {
     .post-extend-content {
         flex: 1;
         width: 50%;
-        .post-extend-list {
-            padding: 10px 0 10px 10px;
-            list-style: none;
-        }
-        .post-extend-item {
+    }
+    .post-extend-list {
+        padding: 10px 0 10px 10px;
+        list-style: none;
+        li {
             margin: 2px 0;
             height: 20px;
             overflow: hidden;
         }
-        .post-extend-link {
+        a {
             display: inline-block;
             line-height: 20px;
             height: 20px;

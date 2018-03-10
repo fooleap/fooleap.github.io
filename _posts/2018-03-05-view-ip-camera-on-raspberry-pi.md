@@ -10,7 +10,7 @@ tags: [树莓派, 网络摄像头, 监控, 萤石]
 
 萤石是海康威视的家用品牌，之前帮二叔买了一款感觉还不错，后来就买了一款萤石 C5S 家里用。为了在 2 楼客厅可以看实时监控，入了基本款的录像机萤石 N1，外接个显示器，顺便也有了录像功能。
 
-本来打开手机 APP 能看实时监控也是挺方便的，3 楼客厅便没放上监控显示，但每次想看都得几秒才能打开那粗糙的 APP，屡试不爽。所以最近买了个显示器，配合吃灰已久的树莓派一代 B+，撸了一个监控显示。
+本来打开手机 APP 能看实时监控也是挺方便的，3 楼客厅便没放上监控显示，但每次想看都得几秒才能打开那粗糙的 APP，屡试不爽。于是就有打算使用吃灰已久的树莓派一代 B+，撸一个监控显示。
 
 ## 我的树莓派
 
@@ -72,13 +72,19 @@ omxplayer --live -n -1 --avdict rtsp_transport:tcp rtsp://[camera_url]
 
 针对我所遇到的问题，画面定格时 omxplayer 并没退出，参考复制了一些代码，干脆一不做二不休，每 20 分钟重新运行一次，延迟几秒后，杀死原有的 screen 进程。
 
-在淘宝上买了个廉价外壳，几近完美。
+在淘宝上买了个廉价外壳，几近完美。对比当初赠送的那种自己拼装的，这种成型简单的感觉很好。
 
 ![锈迹斑斑的树莓派][p5]
 
 ![完美贴合外壳][p6]
 
 ![外壳开孔准确][p7]
+
+显示器则是入了京东自有品牌 dostyle 21.5 寸的，胜在便宜，且有 HDMI 接口，够用。
+
+最终大致效果如下图，画面就打码了，也没什么好看。后面电源线什么的还没弄好，打算和树莓派一起缠好，贴在显示器后面。
+
+![树莓派监控显示效果][p8]
 
 ## 参考资料
 
@@ -88,6 +94,7 @@ omxplayer --live -n -1 --avdict rtsp_transport:tcp rtsp://[camera_url]
 
 * 2018 年 03 月 05 日 完成初稿
 * 2018 年 03 月 06 日 添加图片，更新黑历史等
+* 2018 年 03 月 11 日 树莓派监控显示效果
 
 [p1]: {{ site.IMG_PATH }}/view-ip-camera-on-raspberry-pi-01.jpg_640 "Raspberry Pi Model B+"
 [p2]: {{ site.IMG_PATH }}/view-ip-camera-on-raspberry-pi-02.jpg_640 "朋友的老式显示器"
@@ -96,3 +103,4 @@ omxplayer --live -n -1 --avdict rtsp_transport:tcp rtsp://[camera_url]
 [p5]: {{ site.IMG_PATH }}/view-ip-camera-on-raspberry-pi-05.jpg_640 "锈迹斑斑的树莓派"
 [p6]: {{ site.IMG_PATH }}/view-ip-camera-on-raspberry-pi-06.jpg_640 "完美贴合外壳"
 [p7]: {{ site.IMG_PATH }}/view-ip-camera-on-raspberry-pi-07.jpg_640 "外壳开孔准确"
+[p8]: {{ site.IMG_PATH }}/view-ip-camera-on-raspberry-pi-08.jpg_640 "树莓派监控显示效果"

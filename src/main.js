@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         api: 'http://api.fooleap.org/disqus',
         title:  page.title,
         url: page.url,
-        mode: 3,
+        mode: 2,
         timeout: 3000,
         popular: document.getElementById('popular-posts'),
         slug: page.url.slice(1).split('.')[0],
@@ -175,8 +175,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         toggle: 'comment-toggle',
         sort: 'newest',
         emoji_path: 'http://api.fooleap.org/emoji/unicode/',
-        emoji_preview: true,
-        badge: '博主'
     });
 
     disq.count();
