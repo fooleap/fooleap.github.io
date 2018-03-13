@@ -130,7 +130,7 @@ request.onreadystatechange = function(){
         var data = [];
         //http://http.hz.qingting.fm/3694737.mp3
         //http://ls.qingting.fm/live/5022439/24k.m3u8
-        var chdt = [{'title':'澄海广播','liveurl':'http://ls.qingting.fm/live/5022439/24k.m3u8','thumburl':'http://wx.qlogo.cn/mmhead/Q3auHgzwzM66qQWb55ibKr10U7d0iaO4EIyGu30CgaqGMGUOSHUTwCzw/0'}];
+        var chdt = [{'title':'澄海广播','liveurl':'https://ls.qingting.fm/live/5022439/24k.m3u8','thumburl':'https://wx.qlogo.cn/mmhead/Q3auHgzwzM66qQWb55ibKr10U7d0iaO4EIyGu30CgaqGMGUOSHUTwCzw/0'}];
         data = data.concat(resp.data.tv, resp.data.radio,chdt);
         for (var i = 0; i < data.length; i++){
             channelInput[i].dataset.channel = i;
@@ -159,7 +159,7 @@ request.onreadystatechange = function(){
         }
     }
 };
-request.open('GET', 'http://api.fooleap.org/sttv/livelist.php', false);
+request.open('GET', '//api.fooleap.org/sttv/livelist.php', false);
 request.send(null);
         </script>
     </body>

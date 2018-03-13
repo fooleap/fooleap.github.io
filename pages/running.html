@@ -234,7 +234,7 @@ function echart(edate, distance, duration, speed, pace, steps, cal) {
 }
 
 var xhractivities = new XMLHttpRequest();
-xhractivities.open('GET', 'http://api.fooleap.org/nike/activities?month=' + date, true);
+xhractivities.open('GET', '//api.fooleap.org/nike/activities?month=' + date, true);
 xhractivities.send();
 xhractivities.onreadystatechange = function() {
     if (xhractivities.readyState == 4 && xhractivities.status == 200) {

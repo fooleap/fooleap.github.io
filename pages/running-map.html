@@ -1,14 +1,14 @@
 ---
 layout: null
 permalink: /running-map.html
-title: 跑步路径
+title: 跑步路径地图
 ---
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>跑步路径</title>
+        <title>跑步路径地图</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
         <meta name="description" content="A foolish man could not always lose!" />
         <meta name="keywords" content="fooleap, 前端, Linux, 潮汕" />
@@ -196,11 +196,65 @@ title: 跑步路径
             function getQuery(variable) {
                 var query = window.location.search.substring(1);
                 var vars = query.split("&");
-                for (var i=0;i<vars.length;i++) {
+                for (var i=0; i<vars.length; i++) {
                     var pair = vars[i].split("=");
                     if(pair[0] == variable){return pair[1];}
                 }
                 return(false);
+            }
+    
+            function hsl2hex (h, s, l) {
+            
+                var r, g, b, m, c, x;
+            
+                if (!isFinite(h)) h = 0;
+                if (!isFinite(s)) s = 0;
+                if (!isFinite(l)) l = 0;
+            
+                h /= 60;
+                if (h < 0) h = 6 - (-h % 6);
+                h %= 6;
+            
+                s = Math.max(0, Math.min(1, s / 100));
+                l = Math.max(0, Math.min(1, l / 100));
+                c = (1 - Math.abs((2 * l) - 1)) * s;
+                x = c * (1 - Math.abs((h % 2) - 1));
+            
+                if (h < 1) {
+                    r = c;
+                    g = x;
+                    b = 0;
+                } else if (h < 2) {
+                    r = x;
+                    g = c;
+                    b = 0;
+                } else if (h < 3) {
+                    r = 0;
+                    g = c;
+                    b = x;
+                } else if (h < 4) {
+                    r = 0;
+                    g = x;
+                    b = c;
+                } else if (h < 5) {
+                    r = x;
+                    g = 0;
+                    b = c;
+                } else {
+                    r = c;
+                    g = 0;
+                    b = x;
+                }
+            
+                m = l - c / 2;
+                r = Math.round((r + m) * 255);
+                g = Math.round((g + m) * 255);
+                b = Math.round((b + m) * 255);
+                var tohex = function(num){
+                    var hexNum = num.toString(16);
+                    return hexNum.length == 1 ? '0' + hexNum : hexNum;
+                }
+                return '#'+tohex(r)+tohex(g)+tohex(b);
             }
 
             function mapInit(data){
@@ -213,6 +267,7 @@ title: 跑步路径
                 var first = lineArr[0];
                 var last = lineArr[count - 1];
 
+                // 静态图
                 var n = parseInt(count / 500) || 1;
                 var sLineArr = [];
                 for (var i = 0, j = 0; i < count; i = i + n, j++){
@@ -220,7 +275,7 @@ title: 跑步路径
                         return parseFloat(i.toFixed(4));
                     })
                 }
-                var imgSrc = 'http://restapi.amap.com/v3/staticmap?key=ee95e52bf08006f63fd29bcfbcf21df0&scale=1&size=640*640&paths=3,0x52EE06,1,,:' + sLineArr.join(';');
+                var imgSrc = '//restapi.amap.com/v3/staticmap?key=ee95e52bf08006f63fd29bcfbcf21df0&scale=1&size=640*640&paths=3,0x52EE06,1,,:' + sLineArr.join(';');
                 document.getElementById('static-map').src = imgSrc;
 
                 // 构造地图对象
@@ -266,9 +321,11 @@ title: 跑步路径
                     // 采用 Polyline 类的 getLength() 方法直接获取折线长度
                     content: '<div class="running-distance"><span class="running-number">' + (polyline.getLength()/1000).toFixed(1) + '</span>公里</div>'
                 });
+
                 // 变化的折线
                 var runPolyline = new AMap.Polyline({
                     map: map,
+                    visible: false,
                     lineJoin: 'round',
                     strokeColor: "#52EE06",
                     strokeOpacity: 1,
@@ -285,12 +342,42 @@ title: 跑步路径
                     content: '<div class="marker-circle black"></div>'
                 });
 
+                // 步进距离
+                var speedArr = [];
+                var colorArr = [];
+                for( var i = 0; i < count - 1; i++){
+                    runPolyline.setPath([lineArr[i],lineArr[i+1]]);
+                    var stepLength = runPolyline.getLength();
+                    if(stepLength > 5){
+                        speed = 100;
+                    } else if(stepLength < 1){
+                        speed = 0;
+                    } else {
+                        speed = parseInt(stepLength / 5 * 100);
+                    }
+                    speedArr.push(speed);
+                }
+                for( var i = 0; i < count - 1; i += 50){
+                    i = i > count - 1 ? count - 1 : i;
+                    var colorCount = speedArr[i+50] - speedArr[i];
+                    if (Math.abs(colorCount) > 50){
+                        speedArr[i+50] = colorCount > 0 ? speedArr[i] + 50 : speedArr[i] - 50;
+                    }
+                    for( var e = i; e < count - 1 && e < i + 50;  e++){
+                        colorArr[e] = e == i ? speedArr[i] : colorArr[e-1] + (speedArr[i+50] - speedArr[i])/50;
+                    }
+                }
+
                 var running = false;
                 var i = 0;
+                var curpoly = [];
                 // 地图事件
                 map.on('complete', function(){
                     document.getElementById('map').classList.remove('init');
                 }).on('click', function() {
+                    for(var i = 0; i < curpoly.length;i++){
+                        map.remove(curpoly[i]);
+                    }
                     // 将上面上面折线改为黑色透明作为底层
                     polyline.setOptions({
                         strokeColor: '#000000',
@@ -299,7 +386,8 @@ title: 跑步路径
                     // 显示画线点标记
                     current.show();
                     running = running == false ? true : false;
-                    var step = parseInt(count/50);
+                    //var step = parseInt(count/50);
+                    var step = 10;
                     step = step == 0 ? 1 : step;
                     drawline(step);
                 })
@@ -313,6 +401,16 @@ title: 跑步路径
                             current.setPosition(lineArr[end]);
                             runPolyline.setPath(lineArr.slice(0, end+1));
                             distance.setContent('<div class="running-distance"><span class="running-number">' + (runPolyline.getLength()/1000).toFixed(1) + '</span>公里</div>');
+                            curpoly[i] = new AMap.Polyline({
+                                map: map,
+                                lineJoin: 'round',
+                                path: lineArr.slice(start-1, end+1),
+                                strokeColor: hsl2hex(colorArr[end], 100, 60),
+                                strokeOpacity: 1,
+                                strokeWeight: 3,
+                                zIndex: 10,
+                                strokeStyle: "solid"
+                            });
                             i++;
                         } else {
                             return;
@@ -325,12 +423,13 @@ title: 跑步路径
                     }
                     setTimeout(function(){
                         drawline(step);
-                    }, 40)
+                    //}, 40)
+                    }, 10)
                 }
             }
 
             var isLast = !getQuery('id');
-            var reqUrl = isLast ? 'http://api.fooleap.org/nike/activity' : 'http://api.fooleap.org/nike/activity?id='+getQuery('id');
+            var reqUrl = isLast ? '//api.fooleap.org/nike/activity' : '//api.fooleap.org/nike/activity?id='+getQuery('id');
             var xhr = new XMLHttpRequest();
             xhr.open('GET', reqUrl, true);
             xhr.onreadystatechange = function() {

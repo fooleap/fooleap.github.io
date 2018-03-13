@@ -10,8 +10,8 @@ tags: [关于, 博客, fooleap, blog]
 好多年前，在某个网站听到这首曲子的背景音乐，听着有感觉，便将其扒了下来（[fmmusic.mid]({{ site.IMG_PATH }}/fmmusic.mid)，当年的文件，MIDI 格式的），听得多了，就感觉对自己来说有某种特殊的意义，后来才知道它的名字及由来。
 {% endcomment %}
 
-* 博客网址：[http://blog.fooleap.org](http://blog.fooleap.org)
-* Atom 订阅：[http://blog.fooleap.org/atom.xml](/atom.xml)
+* 博客网址：[https://blog.fooleap.org](https://blog.fooleap.org)
+* Atom 订阅：[https://blog.fooleap.org/atom.xml](/atom.xml)
 
 分享技术、记录点滴，这是 fooleap 的个人博客。
 
@@ -27,7 +27,7 @@ tags: [关于, 博客, fooleap, blog]
 
 潮汕人，拖延症、强迫症患者，喜欢喝茶、喜欢拍照、喜欢跑步、喜欢骑行。
 
-* WeChat: fooleap（[微信二维码](http://blog.fooleap.org/wechat?qrcode/1)）
+* WeChat: fooleap（[微信二维码](https://blog.fooleap.org/wechat?qrcode/1)）
 * Email: fooleap(at)gmail.com
 
 ## 博客进程
@@ -48,7 +48,7 @@ tags: [关于, 博客, fooleap, blog]
 
 ## 参考资料
 
-[1]: http://jekyllrb.com/ "Jekyll"
+[1]: https://jekyllrb.com/ "Jekyll"
 [2]: http://daringfireball.net/projects/markdown/ "Markdown"
 [3]: http://www.qiniu.com "七牛云存储"
 [4]: https://github.com/ "GitHub"

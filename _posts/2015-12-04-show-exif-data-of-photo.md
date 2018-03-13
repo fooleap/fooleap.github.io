@@ -24,12 +24,12 @@ exif-js[[1]][1] 是一个提供读取相片 Exif 数据功能的 JS 库，兼容
 
 直接在图片 URL 后加 `exif` 指示符即可获取到相关 JSON 字符串，例如：
 
-![金鸿路上的风景](http://source.fooleap.org/show-exif-data-of-photo.jpg_640)
+![金鸿路上的风景]({{ site.IMG_PATH }}/show-exif-data-of-photo.jpg_640)
 金鸿路上的风景
 
 以上相片的 Exif 数据如下：
 
-    http://source.fooleap.org/show-exif-data-of-photo.jpg?exif
+    https://source.fooleap.org/show-exif-data-of-photo.jpg?exif
 
 鄙人所取的那几个数据，对应格式化后如下：
 
@@ -65,14 +65,14 @@ exif-js[[1]][1] 是一个提供读取相片 Exif 数据功能的 JS 库，兼容
 将以上数据取出来显示在网页里，可以用 JavaScript 实现，若 HTML 如下：
 
 {% highlight html %}
-<img src="http://source.fooleap.org/show-exif-data-of-photo.jpg_640" id="photo" />
+<img src="https://source.fooleap.org/show-exif-data-of-photo.jpg_640" id="photo" />
 {% endhighlight %}
 
 那么 JavaScript 可以这么写：
 
 {% highlight javascript %}
 var xhrExif = new XMLHttpRequest();
-xhrExif.open('GET', 'http://source.fooleap.org/show-exif-data-of-photo.jpg?exif', false);
+xhrExif.open('GET', 'https://source.fooleap.org/show-exif-data-of-photo.jpg?exif', false);
 xhrExif.send(null);
 var exif = JSON.parse(xhrExif.responseText);
 if (xhrExif.readyState == 4 && xhrExif.status == 200) {
@@ -88,8 +88,6 @@ if (xhrExif.readyState == 4 && xhrExif.status == 200) {
 {% endhighlight %}
 
 具体的实例见 http://runjs.cn/detail/b4q6pvet
-
-{% include media.html type="iframe" src="http://sandbox.runjs.cn/show/b4q6pvet" %}
 
 所用到的主要知识点可以看看阮一峰的 Ajax 教程[[3]][3]，使用 jQuery 或许会更加方便一点。而具体用到博客上，需要考虑的可能更多，这里就不多说了，有兴趣可以查看源码，欣赏鄙人写的那蹩脚的 JS。
 

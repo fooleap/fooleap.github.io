@@ -49,7 +49,7 @@ body {
     color: $default;
     background-color: $lightblue;
     overflow-y: scroll;
-    font: 15px/1.6 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Roboto,Arial,source-han-sans-simplified-c,sans-serif;
+    font: 13px/1.6 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Roboto,Arial,source-han-sans-simplified-c,sans-serif;
     transition: font-family .3s;
 }
 
@@ -134,7 +134,7 @@ body {
         margin-bottom: 10px;
         border-bottom: 1px solid #e7e7eb;
         font-weight: 400;
-        font-size: 24px;
+        font-size: 20px;
         display: flex;
         justify-content: space-between;
         .page-title-link {
@@ -158,7 +158,7 @@ body {
         color: $lightgray;
         font-weight: 300;
         width: 100%;
-        font-size: 14px;
+        font-size: 13px;
     }
     .post-time {
         word-spacing: -1px;
@@ -203,7 +203,7 @@ a.post-cat-tag{
         height: 50px;
         line-height: 25px;
         .post-item-title {
-            font-size: 15px;
+            font-size: 14px;
             color: $darkblue;
             font-weight: normal;
             height: 25px;
@@ -223,7 +223,7 @@ a.post-cat-tag{
         .post-item-date {
             color: $lightgray;
             opacity: 0;
-            font-size: 14px;
+            font-size: 13px;
             transition: .5s all;
             &:not(:empty) {
                 opacity: 1;
@@ -236,7 +236,7 @@ a.post-cat-tag{
         text-decoration: none;
         text-align: center;
         color: $white;
-        font: 600 14px/18px Arial, Sans-serif;
+        font: 600 13px/18px Arial, Sans-serif;
         border-radius: 10px;
         width: 30px;
         height: 18px;
@@ -265,7 +265,7 @@ a.post-cat-tag{
 }
 .pagination-list {
     margin: 10px auto;
-    font-size: 15px;
+    font-size: 13px;
     list-style-type: none;
     overflow: hidden;
     display: flex;
@@ -297,7 +297,7 @@ a.post-cat-tag{
     ul,
     ol {
       margin-left: 25px;
-      font-size: 15px;
+      font-size: 13px;
     }
     >*{
         margin: 18px 0;
@@ -305,13 +305,13 @@ a.post-cat-tag{
     h2 {
         border-left: 4px solid $darkblue;
         padding-left: 5px;
-        font-size: 18px;
+        font-size: 16px;
         &:hover:after, &:target:after{
             content: " ¶";
         }
     }
     h3 {
-        font-size: 16px;
+        font-size: 15px;
         &:hover:after, &:target:after{
             content: " ¶";
         }
@@ -322,7 +322,7 @@ a.post-cat-tag{
         font-size: smaller;
     }
     blockquote {
-        font-size: 14px;
+        font-size: 13px;
         padding: 5px 10px;
         opacity: .6;
         border-left: 5px solid $darkgray;
@@ -374,7 +374,7 @@ a.post-cat-tag{
             }
         }
         .post-figcaption{
-            font-size: 14px;
+            font-size: 13px;
             &:before{
                 content: attr(data-exif);
                 display: block;
@@ -421,7 +421,7 @@ a.post-cat-tag{
             padding: 0 10px 0 36px;
             border: 1px solid #d5d5d5;
             border-radius: 5px;
-            font-size: 15px;
+            font-size: 13px;
         }
     }
     .search-result-item{
@@ -448,11 +448,11 @@ a.post-cat-tag{
             line-height: 26px;
             height: 26px;
             .search-result-title{
-                font-size: 15px;
+                font-size: 14px;
             }
         }
         .search-result-desc{
-            font-size: 14px;
+            font-size: 13px;
             line-height: 22px;
             overflow: hidden;
             text-overflow: ellipsis;

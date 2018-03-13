@@ -163,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
     'use strict';
     var disq = new iDisqus('comment', {
         forum: 'fooleap',
-        site: 'http://blog.fooleap.org',
-        api: 'http://api.fooleap.org/disqus',
+        site: 'https://blog.fooleap.org',
+        api: 'https://api.fooleap.org/disqus',
         title:  page.title,
         url: page.url,
         mode: 2,
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         init: true,
         toggle: 'comment-toggle',
         sort: 'newest',
-        emoji_path: 'http://api.fooleap.org/emoji/unicode/',
+        emoji_path: '//api.fooleap.org/emoji/unicode/',
     });
 
     disq.count();
@@ -274,10 +274,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
         };
         for(var i = 0; i < imageArr.length; i++){
             image.thumb[i] = imageArr[i].src;
-            image.src[i] =  new RegExp('\^'+site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
+            image.src[i] =  new RegExp(site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
         }
         image.jpg = image.src.filter(function(item){
-            return item.indexOf('.jpg') > -1 && new RegExp('\^'+site.img,'i').test(item);
+            return item.indexOf('.jpg') > -1 && new RegExp(site.img,'i').test(item);
         });
         [].forEach.call(imageArr, function(item, i){
             image.title[i] = item.title || item.parentElement.textContent.trim() || item.alt;
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             item.dataset.src = image.src[i];
             item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
             var imgdom = document.querySelector('.post-image[data-src="'+image.src[i]+'"]');;
-            if( new RegExp('\^'+site.img,'i').test(image.src[i])){
+            if( new RegExp(site.img,'i').test(image.src[i])){
                 imgdom.insertAdjacentHTML('afterend', '<figcaption class="post-figcaption">&#9650; '+ image.title[i] +'</figcaption>');
             }
 
@@ -302,72 +302,79 @@ document.addEventListener('DOMContentLoaded', function(event) {
             })
         })
 
-
-        //Exif
-        image.jpg.forEach(function(item, i){
-            var xhrExif = new XMLHttpRequest();
-            xhrExif.open('GET', item + '?exif', true);
-            xhrExif.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200)
-                {
-                    var data = JSON.parse(this.responseText);
-                    function parseVal (odata){
-                        if(!!odata){
-                            return odata.val;
-                        } else {
-                            return '无';
+        var getExif = function (index){
+            if( index < image.jpg.length ){
+                var item = image.jpg[index];
+                var xhrExif = new XMLHttpRequest();
+                xhrExif.open('GET', item + '?exif', true);
+                xhrExif.onreadystatechange = function() {
+                    if (this.readyState == 4){
+                        if  (this.status == 200){
+                            var data = JSON.parse(this.responseText);
+                            var parseVal = function(odata){
+                                if(!!odata){
+                                    return odata.val;
+                                } else {
+                                    return '无';
+                                }
+                            }
+                            if ( !!data.DateTimeOriginal ) {
+                                var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
+                                var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
+                                var model = parseVal(data.Model);
+                                var fnum = parseVal(data.FNumber);
+                                var extime = parseVal(data.ExposureTime);
+                                var iso = parseVal(data.ISOSpeedRatings);
+                                var flength = parseVal(data.FocalLength);
+                                document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
+                            }
+                            if ( !!data.GPSLongitude ) {
+                                var olat = data.GPSLatitude.val.split(', ');
+                                var olng = data.GPSLongitude.val.split(', ');
+                                var lat=0, lng=0;
+                                for( var e = 0; e < olat.length; e++ ){
+                                    lat += olat[e] / Math.pow(60, e);
+                                    lng += olng[e] / Math.pow(60, e);
+                                }
+                                lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
+                                lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
+                                image.coord[index] = coordtransform.wgs84togcj02(lng, lat).join(',');
+                            }
                         }
+                        index ++;
+                        getExif(index);
                     }
-                    if ( !!data.DateTimeOriginal ) {
-                        var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
-                        var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
-                        var model = parseVal(data.Model);
-                        var fnum = parseVal(data.FNumber);
-                        var extime = parseVal(data.ExposureTime);
-                        var iso = parseVal(data.ISOSpeedRatings);
-                        var flength = parseVal(data.FocalLength);
-                        document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
-                    }
-                    if ( !!data.GPSLongitude ) {
-                        var olat = data.GPSLatitude.val.split(', ');
-                        var olng = data.GPSLongitude.val.split(', ');
-                        var lat=0, lng=0;
-                        for( var e = 0; e < olat.length; e++ ){
-                            lat += olat[e] / Math.pow(60, e);
-                            lng += olng[e] / Math.pow(60, e);
-                        }
-                        lat = data.GPSLatitudeRef.val == 'S' ? -lat: lat;
-                        lng = data.GPSLongitudeRef.val == 'W' ? -lng: lng;
-                        image.coord[i] = coordtransform.wgs84togcj02(lng, lat).join(',');
-                    }
-                    if (i == image.jpg.length -1){
-                        var xhrRegeo = new XMLHttpRequest();
-                        xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
-                        xhrRegeo.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200){
-                                var data = JSON.parse(this.responseText);
-                                if( data.info == 'OK' ){
-                                    var address,city,dist,town;
-                                    for (var m = 0, n = 0; m < image.jpg.length; m++) {
-                                        address = data.regeocodes[n];
-                                        if (typeof(image.coord[m])!='undefined' && !!address) {
-                                            address = address.addressComponent;
-                                            city = address.city ? address.city : '';
-                                            dist = address.district ? address.district : '';
-                                            town = address.township ? address.township : '';
-                                            document.querySelector('[data-index="'+m+'"] .post-image').title = '摄于' + city + dist + town;
-                                            n++;
-                                        }
-                                    }
+                }
+                xhrExif.send();
+            } else {
+                var xhrRegeo = new XMLHttpRequest();
+                xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location='+image.coord.filter(function(){return true}).join('|'), true);
+                xhrRegeo.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200){
+                        var data = JSON.parse(this.responseText);
+                        if( data.info == 'OK' ){
+                            var address,city,dist,town;
+                            for (var m = 0, n = 0; m < image.jpg.length; m++) {
+                                address = data.regeocodes[n];
+                                if ( m in image.coord && !!address) {
+                                    address = address.addressComponent;
+                                    city = address.city ? address.city : '';
+                                    dist = address.district ? address.district : '';
+                                    town = address.township ? address.township : '';
+                                    document.querySelector('[data-src="'+image.jpg[m]+'"]').title = '摄于' + city + dist + town;
+                                    n++;
                                 }
                             }
                         }
-                        xhrRegeo.send(null);
                     }
                 }
-            };
-            xhrExif.send(null);
-        })
+                xhrRegeo.send();
+            }
+        }
+
+        if( image.jpg.length > 0){
+            getExif(0);
+        }
 
         // 流程图
         var flowArr = document.getElementsByClassName('language-flow');
@@ -678,7 +685,7 @@ if ( site.home === location.origin ) {
         hm.src = '//hm.baidu.com/hm.js?'+site.tongji;
         s.parentNode.insertBefore(hm, s);
         var bp = document.createElement('script');
-        bp.src = '//push.zhanzhang.baidu.com/push.js';
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
         s.parentNode.insertBefore(bp, s);
 
         (function(i, s, o, g, r, a, m) {
