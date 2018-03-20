@@ -28,7 +28,7 @@ tags: ["跑步", "潮汕"]
 
 从表中信息，对比起来最明显的跑量又涨了，差点破 200 K，配速也更快，直接杀至五分半配。只因为更认真地跑步了，出门一般都有带上腰包，除了要拍照，手机不再拿在手上。
 
-{% include media.html type="iframe" src="/running.html?date=2016-12" %}
+{% include media.html type="iframe" src="/running-chart.html?date=2016-12" %}
 
 跑量一多，减肥也是给力的，掐指一算，去年 12 月份体重降了 3 ~ 4 斤。
 

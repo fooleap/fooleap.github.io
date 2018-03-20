@@ -590,6 +590,46 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
     }
 
+    // 跑步
+    if( page.url == '/running.html' ){
+        var start_time = new Date();
+        var posts = [];
+        var runningList = document.querySelector('.running-list');
+        var loadMoreBtn = document.querySelector('.running-loadmore-link');
+        var loadMore = function(){
+            loadMoreBtn.style.display = 'none';
+            var postsHtml = '';
+            var xhrPosts = new XMLHttpRequest();
+            xhrPosts.open('GET', '//api.fooleap.org/nike/posts.php?start_time='+start_time.toISOString(), true);
+            xhrPosts.onreadystatechange = function() {
+                if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
+                    posts = JSON.parse(xhrPosts.responseText);
+                    posts.forEach(function(item){
+                        start_time = new Date(item.published);
+                        postsHtml+='<div class="running-item">'+
+                            '<a class="running-item-thumb" href="/running-map.html?id='+item.object.id+'" target="_blank" title="'+item.tags.text+'"><img class="running-item-image" src="'+item.tags.image.url+'"></a>'+
+                            '<div class="running-item-date">'+start_time.toLocaleDateString() +'</div>'+
+                        '</div>';
+                    })
+
+                    runningList.insertAdjacentHTML('beforeend',postsHtml);
+                    if( posts.length < 12 ){
+                        loadMoreBtn.innerHTML = '没有更多啦';
+                        loadMoreBtn.style.display = 'inline';
+                        loadMoreBtn.style.pointerEvents = 'none';
+                    } else {
+                        loadMoreBtn.style.display = 'inline';
+                    }
+
+                    start_time.setTime(start_time.getTime() -1);
+                }
+            }
+            xhrPosts.send(null);
+        }
+        loadMoreBtn.addEventListener('click', loadMore, false);
+        loadMore();
+    }
+
     if(page.url == '/tech.html' || page.url == '/life.html'){
         var pageNum = !!getQuery('page') ? parseInt(getQuery('page')) : 1;
         var postData, posts = [];

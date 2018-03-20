@@ -386,8 +386,8 @@ title: 跑步路径地图
                     // 显示画线点标记
                     current.show();
                     running = running == false ? true : false;
-                    //var step = parseInt(count/50);
-                    var step = 10;
+                    var step = parseInt(count/200);
+                    //var step = 10;
                     step = step == 0 ? 1 : step;
                     drawline(step);
                 })
