@@ -102,31 +102,6 @@ function getQuery(variable) {
     return(false);
 }
 
-var ua = navigator.userAgent,
-    head = document.head,
-    site = {
-        home: head.dataset.home,
-        api: head.dataset.api,
-        img: head.dataset.img,
-        tongji: head.dataset.tongji,
-        analytics: head.dataset.analytics,
-        emoji: '//assets-cdn.github.com/images/icons/emoji/unicode'
-    },
-    page = { 
-        layout: head.dataset.layout,
-        title: head.dataset.title,
-        url: location.pathname,
-        desc: document.querySelector('[name="description"]').content,
-        id: head.dataset.id,
-        category: head.dataset.category,
-        tags: head.dataset.tags.split(',')
-    },
-    browser = { 
-        macos: /Mac/i.test(navigator.platform),
-        windows: /Win/i.test(navigator.platform),
-        mobile: /AppleWebKit.*Mobile.*/i.test(ua),
-        wechat: /MicroMessenger/i.test(ua),
-    };
 
 // 微信 SDK
 if(browser.wechat && location.origin == site.home){
@@ -630,14 +605,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
         loadMore();
     }
 
-    if(page.url == '/tech.html' || page.url == '/life.html'){
+    if(page.url == '/tech.html' || page.url == '/life.html' || page.url == '/album.html'){
         var pageNum = !!getQuery('page') ? parseInt(getQuery('page')) : 1;
         var postData, posts = [];
         var xhrPosts = new XMLHttpRequest();
+        var category = page.url.slice(1, -5);
         xhrPosts.open('GET', '/posts.json', true);
         xhrPosts.onreadystatechange = function() {
             if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
-                var category = page.url.slice(1, 5);
                 postData = JSON.parse(xhrPosts.responseText);
                 postData.forEach(function(item){
                     if( item.category == category ){
@@ -650,7 +625,18 @@ document.addEventListener('DOMContentLoaded', function(event) {
         xhrPosts.send(null);
 
         function turn(pageNum){
-            var cat = page.url == '/tech.html' ? '技术' : '生活';
+            var cat = '';
+            switch(page.url){
+                case '/tech.html':
+                    cat = '技术';
+                    break;
+                case '/life.html':
+                    cat = '生活';
+                    break;
+                case '/album.html':
+                    cat = '相册';
+                    break;
+            }
             var title = pageNum == 1 ? cat + ' | Fooleap\'s Blog' : cat + '：第' + pageNum + '页 | Fooleap\'s Blog';
             var url = pageNum == 1 ? page.url : page.url + '?page=' + pageNum;
             var html = '';
@@ -703,17 +689,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 
 });
-
-// 思源字体
-if( browser.windows ){
-    (function(d) {
-        var config = {
-            kitId: 'rir3gzo',
-            async: true
-        },
-            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-    })(document);
-}
 
 // 统计
 if ( site.home === location.origin ) {

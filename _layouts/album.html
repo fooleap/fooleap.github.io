@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<article class="album-content">
+    <ul class="photo-list">
+        {% for image in page.images %}
+        <li class="photo-item">
+        {% if forloop.index < 10 %}
+            {% assign url = site.IMG_PATH 
+            | append: page.id 
+            | append: "-0" 
+            | append: forloop.index 
+            | append: ".jpg" %}
+        {% else %}
+            {% assign url = site.IMG_PATH 
+            | append: page.id 
+            | append: "-" 
+            | append: forloop.index 
+            | append: ".jpg" %}
+        {% endif %}
+            {% assign thumb = url | append: "_thumb" %}
+            <a class="photo-item-thumb" href="{{ url }}" title="{{ image.title }}" target="_blank">
+                <img class="photo-item-image" src="{{ thumb }}" alt="{{ image.title }}"/>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</article>
+{% include extend.html %}
+{% include info.html %}
+<div id="comment"></div>

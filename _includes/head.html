@@ -1,15 +1,4 @@
-<head
-    data-home="{{ site.home }}" 
-    data-api="{{ site.api }}"
-    data-img="{{ site.IMG_PATH }}" 
-    data-tags="{{ page.tags | join: "," }}" 
-    data-layout="{{ page.layout }}" 
-    data-id="{{ page.id }}" 
-    data-title="{{ page.title }}" 
-    data-category="{{ page.category }}" 
-    data-tongji="{{ site.tongji }}" 
-    data-analytics='{{ site.analytics }}'
-    >
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>{% if paginator and paginator.page != 1 %}第{{ paginator.page }}页 | {{ site.title }}{% elsif page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
@@ -24,5 +13,31 @@
     <link rel="icon" href="/favicon.ico" />
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="https://blog.fooleap.org/atom.xml" />
     <link rel="stylesheet" href="/assets/main.min.css" />
+    <script>
+        var ua = navigator.userAgent,
+            head = document.head,
+            site = {
+                home: '{{ site.home }}',
+                api: '{{ site.api }}',
+                img: '{{ site.IMG_PATH }}',
+                tongji: '{{ site.tongji }}',
+                analytics: '{{ site.analytics }}',
+            },
+            page = { 
+                layout: '{{ page.layout }}',
+                title: '{{ page.title }}',
+                url: location.pathname,
+                desc: document.querySelector('[name="description"]').content,
+                id: '{{ page.id }}',
+                category: '{{ page.category }}',
+                tags: ['{{ page.tags | join: "','" }}']
+            },
+            browser = { 
+                macos: /Mac/i.test(navigator.platform),
+                windows: /Win/i.test(navigator.platform),
+                mobile: /AppleWebKit.*Mobile.*/i.test(ua),
+                wechat: /MicroMessenger/i.test(ua),
+            };
+    </script>
     <script src="/assets/main.min.js"></script>
 </head>

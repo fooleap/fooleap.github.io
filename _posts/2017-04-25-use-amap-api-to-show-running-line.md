@@ -238,7 +238,7 @@ function drawline(step) {
 
 加上 CSS，我将完整的实例扔在 GitHub[[2]][2]，需要自取。
 
-{% include media.html type="iframe" src="//cdn.rawgit.com/fooleap/2e524fd8d7164e090f0e25452fec734a/raw/e222154cf25426f472939034d7f8ff55a9ee92fb/use-amap-api-to-show-running-line.html" %}
+{% include media.html type="iframe" src="//htmlpreview.github.io/?https://gist.githubusercontent.com/fooleap/2e524fd8d7164e090f0e25452fec734a/raw/fc28961a7b322d59d8e8f669bda9730dcccec61b/use-amap-api-to-show-running-line.html" %}
 
 ## 参考资料
 

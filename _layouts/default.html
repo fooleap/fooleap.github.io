@@ -2,7 +2,7 @@
 layout: compress
 ---
 <!DOCTYPE html>
-<html>
+<html lang="zh-cmn-Hans">
 
 {% include head.html %}
 
@@ -43,11 +43,19 @@ layout: compress
                     {% if page.date %}
                     <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: "%Y 年 %m 月 %d 日 %R" }}</time>
                         <span class="post-count">本文 {{ page.content | strip_html | strip_newlines | remove: " " | size }} 字，阅读全文约需 {{ page.content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} 分钟</span>
-                    {% elsif paginator or page.url == '/tech.html' or page.url == '/life.html' or page.url == '/running.html' %}
+                    {% elsif paginator 
+                    or page.url == '/tech.html' 
+                    or page.url == '/life.html' 
+                    or page.url == '/album.html' 
+                    or page.url == '/running.html' 
+                    %}
                         <div class="post-cats">
                             <a class="post-cat-tag{% if paginator %} active{% endif %}" href="/">全部</a>
                             <a class="post-cat-tag{% if page.url == '/tech.html' %} active{% endif %}" href="/tech.html">技术</a>
                             <a class="post-cat-tag{% if page.url == '/life.html' %} active{% endif %}" href="/life.html">生活</a>
+                            {% comment %}
+                            <a class="post-cat-tag{% if page.url == '/album.html' %} active{% endif %}" href="/album.html">相册</a>
+                            {% endcomment %}
                             <a class="post-cat-tag{% if page.url == '/running.html' %} active{% endif %}" href="/running.html">跑步</a>
                         </div>
                     {% else %}

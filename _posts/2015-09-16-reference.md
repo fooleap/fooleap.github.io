@@ -237,8 +237,6 @@ a[target="_blank"]:after {
 
 以上 JS 示例: http://runjs.cn/detail/kgsa53l1
 
-{% include media.html type="iframe" src="http://sandbox.runjs.cn/show/kgsa53l1" %}
-
 另外，本文就是使用自动生成参考资料的方式来书写，戳左下角“源码”按钮即可查看 Markdown 源码。
 
 以上实现有个问题，就是引用链接必须正序而不能乱序，解决方法可以在 GitHub 找到[[6]][6]。

@@ -49,7 +49,9 @@ body {
     color: $default;
     background-color: $lightblue;
     overflow-y: scroll;
-    font: 13px/1.6 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Roboto,Arial,source-han-sans-simplified-c,sans-serif;
+    font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
     transition: font-family .3s;
 }
 
@@ -152,6 +154,10 @@ body {
         .page-search-input {
             padding: 0 5px;
             width: 150px;
+            border: 1px solid #e7e7eb;
+            border-radius: 0;
+            font-size: 12px;
+            color: 333;
         }
     }
     .page-subtitle {
@@ -236,7 +242,6 @@ a.post-cat-tag{
         text-decoration: none;
         text-align: center;
         color: $white;
-        font: 600 13px/18px Arial, Sans-serif;
         border-radius: 10px;
         width: 30px;
         height: 18px;
@@ -386,7 +391,8 @@ a.post-cat-tag{
                 background-color: $black;
                 width: 100%;
                 height: 25px;
-                font: 13px/25px "Helvetica Neue", Helvetica, Arial;
+                font-size: 12px;
+                line-height: 25px;
                 padding: 0 3px;
                 color: $white;
                 overflow: hidden;
