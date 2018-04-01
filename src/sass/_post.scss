@@ -27,6 +27,20 @@ video {
     margin: 0!important;
 }
 
+.cf {
+    zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: '';
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+
 img{
     max-width: 100%;
     image-rendering:   -o-crisp-edges;         /* Opera */
@@ -186,6 +200,9 @@ a.post-cat-tag{
     }
     &:hover{
         border-bottom: none;
+    }
+    &:last-child{
+        float: right;
     }
 }
 .post-item {

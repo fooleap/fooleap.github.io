@@ -14,7 +14,7 @@ tags: [热水壶]
 
 把手那很好拆，直接用螺丝刀轻轻一撬，就可以连盖子都拆出来，一颗螺丝把开关卸下，从开关外表也看不出什么问题。直接把开关也拆，弹片一下子掉下来，还是看不出问题，差点装不回去。
 
-网上搜了一下，好像控制开关弹跳主要是下面这弹片，这水壶烧开断电似乎是蒸气控制的。
+网上搜了一下，好像控制开关弹跳主要是下面这弹片，这水壶烧开断电似乎是水蒸气控制的。
 
 ![开关的弹片][p2]
 
@@ -24,8 +24,8 @@ tags: [热水壶]
 
 [1]: https://cyhour.com/686/ "金灶电热水壶维修记"
 
-[p1]: {{ site.IMG_PATH }}/disassemble-the-kettle-01.jpg "底部内部"
-[p2]: {{ site.IMG_PATH }}/disassemble-the-kettle-02.jpg "开关的弹片"
+[p1]: {{ site.IMG_PATH }}/disassemble-the-kettle-01.jpg_640 "底部内部"
+[p2]: {{ site.IMG_PATH }}/disassemble-the-kettle-02.jpg_640 "开关的弹片"
 
 **本文历史**
 
