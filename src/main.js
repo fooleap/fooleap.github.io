@@ -567,7 +567,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     // 跑步
     if( page.url == '/running.html' ){
-        var start_time = new Date();
+        var start_time = new Date(), queryStr = '';
         var posts = [];
         var runningList = document.querySelector('.running-list');
         var loadMoreBtn = document.querySelector('.running-loadmore-link');
@@ -575,7 +575,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             loadMoreBtn.style.display = 'none';
             var postsHtml = '';
             var xhrPosts = new XMLHttpRequest();
-            xhrPosts.open('GET', '//api.fooleap.org/nike/posts.php?start_time='+start_time.toISOString(), true);
+            xhrPosts.open('GET', '//api.fooleap.org/nike/posts.php'+queryStr, true);
             xhrPosts.onreadystatechange = function() {
                 if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
                     posts = JSON.parse(xhrPosts.responseText);
@@ -597,6 +597,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     }
 
                     start_time.setTime(start_time.getTime() -1);
+                    queryStr = '?start_time='+start_time.toISOString();
                 }
             }
             xhrPosts.send(null);

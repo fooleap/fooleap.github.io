@@ -194,7 +194,7 @@ xhr.send();
 
 想要在网页中实现跟苹果相册地图差不多样式且可控的地图，这就得用到高德地图 JS API，主要是用到点标记[[8]][8]，这里就不多废话了，直接上图。
 
-{% include media.html type="iframe" src="http://source.fooleap.org/show-photo-location-with-qiniu-and-amap-api-01.html?location=116.781381,23.48378&amp;image=http://source.fooleap.org/show-photo-location-on-map-with-qiniu-and-amap-api.jpg" %}
+{% include media.html type="iframe" src="//source.fooleap.org/show-photo-location-with-qiniu-and-amap-api-01.html?location=116.781381,23.48378&amp;image=//source.fooleap.org/show-photo-location-on-map-with-qiniu-and-amap-api.jpg" %}
 
 具体实例跟上面所提到的，我全放在 Gist，可查看[[9]][9]，也可直接预览[[10]][10]。
 

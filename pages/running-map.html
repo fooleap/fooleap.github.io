@@ -412,7 +412,7 @@ title: 跑步路径地图
                     current.show();
                     // 没动即动，在动即停
                     running = !running ? true : false;
-                    var step = parseInt(count/200);
+                    var step = parseInt(count/150);
                     //var step = 10;
                     step = step == 0 ? 1 : step;
                     drawline(step);
@@ -433,7 +433,7 @@ title: 跑步路径地图
                                 map: map,
                                 lineJoin: 'round',
                                 path: lineArr.slice(start-1, end+1),
-                                strokeColor: hsl2hex(getcolor[end], 100, 60),
+                                strokeColor: hsl2hex(getcolor[end-1], 100, 60),
                                 strokeOpacity: 1,
                                 strokeWeight: 3,
                                 zIndex: 10,

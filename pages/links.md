@@ -64,6 +64,7 @@ title: 链接
 * [软件小子](http://bzdiao.com){:title="Bruse@西安"}
 * [我道](http://www.4zen.top){:title="1900@自贡"}
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
+* [无题](http://wuti.me){:title="@深圳"}
 * [以梦为马，奔向远方](http://linhai1990.com){:title="石明鑫@昆明"}
 * [印&#124;纪](http://leiminnet.cn){:title="发生着，记录着，回忆着"}
 * [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
