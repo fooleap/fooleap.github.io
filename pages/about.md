@@ -19,7 +19,7 @@ tags: [关于, 博客, fooleap, blog]
 
 本博采用 Jekyll[[1]][1] 搭建，Markdown[[2]][2] 写作，托管于七牛云存储[[3]][3]和GitHub[[4]][4]。 
 
-自 2011 年 02 月 09 日起，本站已运行 <script>document.write(Math.floor((Date.now() / 1000 - {{ "2011-02-09" | date: "%s" }}) / (60 * 60 * 24)));</script> 天，截至 {{ site.time | date: "%Y 年 %m 月 %d 日" }}，写了博文 {{ site.posts.size }} 篇，{% assign count = 0 %}{% for post in site.posts %}{% assign single_count = post.content | strip_html | strip_newlines | remove: ' ' | size %}{% assign count = count | plus: single_count %}{% endfor %}{% if count > 10000 %}{{ count | divided_by: 10000 }} 万 {{ count | modulo: 10000 }}{% else %}{{ count }}{% endif %} 字。
+自 2011 年 02 月 09 日起，本站已运行 <span id="days"></span> 天，截至 {{ site.time | date: "%Y 年 %m 月 %d 日" }}，写了博文 {{ site.posts.size }} 篇，{% assign count = 0 %}{% for post in site.posts %}{% assign single_count = post.content | strip_html | strip_newlines | remove: ' ' | size %}{% assign count = count | plus: single_count %}{% endfor %}{% if count > 10000 %}{{ count | divided_by: 10000 }} 万 {{ count | modulo: 10000 }}{% else %}{{ count }}{% endif %} 字。
 
 即日起，本博客的原创内容，均采用知识共享组织（Creative Commons）的“署名-非商业性使用 3.0 中国大陆”（CC BY-NC 3.0 CN[[5]][5]）许可。
 
@@ -53,3 +53,17 @@ tags: [关于, 博客, fooleap, blog]
 [3]: http://www.qiniu.com "七牛云存储"
 [4]: https://github.com/ "GitHub"
 [5]: http://creativecommons.org/licenses/by-nc/3.0/cn/ "署名-非商业性使用 3.0 中国大陆"
+
+<script>
+var days = 0, daysMax = Math.floor((Date.now() / 1000 - {{ "2011-02-09" | date: "%s" }}) / (60 * 60 * 24));
+(function daysCount(){
+    if(days > daysMax){
+        document.getElementById('days').innerHTML = daysMax;
+        return;
+    } else {
+        document.getElementById('days').innerHTML = days;
+        days += 10;
+        setTimeout(daysCount, 1); 
+    }
+})();
+</script>

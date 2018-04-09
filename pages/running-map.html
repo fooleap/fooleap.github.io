@@ -300,6 +300,7 @@ title: 跑步路径地图
                     strokeWeight: 3,
                     strokeStyle: "solid"
                 });
+
                 // 地图自适应
                 map.setFitView(); 
 
@@ -391,13 +392,7 @@ title: 跑步路径地图
                     return showPointArr;
                 }
 
-                var running = false;
-                var i = 0;
-                var curpoly = [];
-                // 地图事件
-                map.on('complete', function(){
-                    document.getElementById('map').classList.remove('init');
-                }).on('click', function() {
+                var drawToggle = function (){
                     if( !running && i == 0 ){
                         for( var cur in curpoly ){
                             map.remove(curpoly[cur]);
@@ -416,7 +411,16 @@ title: 跑步路径地图
                     //var step = 10;
                     step = step == 0 ? 1 : step;
                     drawline(step);
-                })
+                }
+
+                var running = false;
+                var i = 0;
+                var curpoly = [];
+                // 地图事件
+                map.on('complete', function(){
+                    document.getElementById('map').classList.remove('init');
+                    drawToggle();
+                }).on('click', drawToggle)
 
                 var getcolor = paint();
                 // 画线动画

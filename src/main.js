@@ -6,6 +6,22 @@ const flowchart = require('flowchart.js');
 const QRCode = require('davidshimjs-qrcodejs');
 import './sass/main.scss';
 
+Date.prototype.Format = function (fmt) { 
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
 // TimeAgo https://coderwall.com/p/uub3pw/javascript-timeago-func-e-g-8-hours-ago
 function timeAgo(selector) {
 
@@ -56,8 +72,8 @@ function timeAgo(selector) {
     }
     // update time every minute
     setTimeout(timeAgo, 60000);
-
 }
+
 
 // matches & closest polyfill https://github.com/jonathantneal/closest
 (function (ElementProto) {
@@ -583,7 +599,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                         start_time = new Date(item.published);
                         postsHtml+='<div class="running-item">'+
                             '<a class="running-item-thumb" href="/running-map.html?id='+item.object.id+'" target="_blank" title="'+item.tags.text+'"><img class="running-item-image" src="'+item.tags.image.url+'"></a>'+
-                            '<div class="running-item-date">'+start_time.toLocaleDateString() +'</div>'+
+                            '<div class="running-item-date">'+start_time.Format('yyyy-MM-dd') +'</div>'+
                         '</div>';
                     })
 
