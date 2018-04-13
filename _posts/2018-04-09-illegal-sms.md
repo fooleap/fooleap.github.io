@@ -3,6 +3,7 @@ layout: post
 title: 我发了违法短信？
 date: 2018-04-09 22:56:09+0800
 category: life
+thumb: IMG_PATH/chinamobile.svg
 tags: [iOS, 短信, 移动, 10086]
 ---
 

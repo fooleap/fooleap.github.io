@@ -1,10 +1,5 @@
 <section class="post-info">
     <div class="post-tags">
-        <div class="comment-toggle">
-            <input type="checkbox" id="comment-toggle" class="comment-toggle-input" disabled/>
-            <label class="comment-toggle-icon" for="comment-toggle"></label>
-            <label class="comment-toggle-button" for="comment-toggle">评论框</label>
-        </div>
         <div class="post-source">
             {% include svg/code.svg %}
             <a class="post-source-button" target="_blank" title="{{ page.title }}" href="https://raw.githubusercontent.com/{{ site.repository }}/master/{{ page.path }}">源码</a>
@@ -15,11 +10,23 @@
     <div class="post-share">
         <input class="post-qrcode-input" type="checkbox" id="qrcode-toggle" />
         <div class="post-qrcode" id="qrcode" data-qrcode-url="{% if page.wechat %}{{ page.wechat }}{% else %}{{ site.home | append: page.url }}{% endif %}"></div>
-        <label class="post-share-item wechat" title="分享到微信" for="qrcode-toggle">{% include svg/wechat.svg %}</label>
-        <a class="post-share-item weibo" target="_blank" title="分享到微博" href="http://service.weibo.com/share/share.php?title={{ page.title }} | {{ site.title }} via @{{ site.nickname }}&amp;url={{ site.home }}{{ page.url }}&amp;type=3&amp;searchPic=1">{% include svg/weibo.svg %}</a>
-        <a class="post-share-item qzone" target="_blank" title="分享到 QQ 空间" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ site.home }}{{ page.url }}&amp;title={{ page.title }} | {{ site.title }}&amp;summary={% if page.description %}{{ page.description }}{% else %}{% endif %}&amp;site={{ site.home }}">{% include svg/qzone.svg %}</a>
-        <a class="post-share-item twitter" target="_blank" title="Share to Twitter" href="https://twitter.com/intent/tweet?url={{ site.home }}{{ page.url }}&amp;text={{ page.title }}｜{{ site.title }}&amp;via={{ site.nickname }}">{% include svg/twitter.svg %}</a>
-        <a class="post-share-item facebook" target="_blank" title="Share to Facebook" href="http://www.facebook.com/sharer.php?u={{ site.home }}{{ page.url }}&amp;t={{ page.title }} | {{ site.title }}">{% include svg/facebook.svg %}</a>
-        <a class="post-share-item gplus" target="_blank" title="Share to Google+" href="https://plus.google.com/share?url={{ site.home }}{{ page.url }}">{% include svg/gplus.svg %}</a>
+        <label class="post-share-item wechat" title="分享到微信" for="qrcode-toggle">
+            {% include svg/wechat.svg %}
+        </label>
+        <a class="post-share-item weibo" target="_blank" title="分享到微博" href="http://service.weibo.com/share/share.php?title={{ page.title }} | {{ site.title }} via @{{ site.nickname }}&amp;url={{ site.home }}{{ page.url }}&amp;type=3&amp;searchPic=1">
+            {% include svg/weibo.svg %}
+        </a>
+        <a class="post-share-item qzone" target="_blank" title="分享到 QQ 空间" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ site.home }}{{ page.url }}&amp;title={{ page.title }} | {{ site.title }}&amp;summary={% if page.description %}{{ page.description }}{% else %}{% endif %}&amp;site={{ site.home }}">
+            {% include svg/qzone.svg %}
+        </a>
+        <a class="post-share-item twitter" target="_blank" title="Share to Twitter" href="https://twitter.com/intent/tweet?url={{ site.home }}{{ page.url }}&amp;text={{ page.title }}｜{{ site.title }}&amp;via={{ site.nickname }}">
+            {% include svg/twitter.svg %}
+        </a>
+        <a class="post-share-item facebook" target="_blank" title="Share to Facebook" href="http://www.facebook.com/sharer.php?u={{ site.home }}{{ page.url }}&amp;t={{ page.title }} | {{ site.title }}">
+            {% include svg/facebook.svg %}
+        </a>
+        <a class="post-share-item gplus" target="_blank" title="Share to Google+" href="https://plus.google.com/share?url={{ site.home }}{{ page.url }}">
+            {% include svg/gplus.svg %}
+        </a>
     </div>
 </section>

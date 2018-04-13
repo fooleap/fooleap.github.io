@@ -1,8 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer'); 
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: __dirname + '/src/main.js',
@@ -10,27 +10,33 @@ module.exports = {
         path: __dirname + '/assets',
         filename: 'main.min.js'
     },
+    stats: {
+        entrypoints: false,
+        children: false
+    },
     module: {
         rules: [
             {
                 test: /\.(scss|css)$/,
-                use: ExtractTextPlugin.extract({
-                    use:[
-                        'css-loader',
-                        'sass-loader',
-                        {loader: 'postcss-loader', options: { plugins: () => [ require('autoprefixer') ] }}
-                    ],
-                    fallback: 'style-loader'
-                }),
-            },
-            {
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {loader: 'postcss-loader', options: { plugins: () => [ require('autoprefixer') ] }},
+                    'sass-loader'
+                ]
+            },{
+                test: /\.(woff|woff2)$/,
+                use: [ 'file-loader?name=[name].[ext]' ]
+            },{
                 test: /\.html$/,
                 use: [ 'file-loader?name=[path][name].[ext]!extract-loader!html-loader' ]
             }
         ],
     },
     plugins: [
-        new ExtractTextPlugin('main.min.css'),
+        new MiniCssExtractPlugin({
+            filename: 'main.min.css'
+        })
     ],
     optimization: {
         minimizer: [

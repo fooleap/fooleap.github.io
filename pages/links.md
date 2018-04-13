@@ -63,6 +63,7 @@ title: 链接
 * [逆旅](http://1900.live){:title="1900@自贡"}
 * [奶牛博客](http://www.nenew.net){:title="奶牛@淄博"}
 * [软件小子](http://bzdiao.com){:title="Bruse@西安"}
+* [褪色的梦](https://fadedream.com){:title=""}
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
 * [无题](http://wuti.me){:title="@深圳"}
 * [以梦为马，奔向远方](http://linhai1990.com){:title="石明鑫@昆明"}

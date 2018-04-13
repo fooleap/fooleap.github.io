@@ -668,7 +668,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     '    <h3 class="post-item-title"><a class="post-item-link" href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></h3>'+
                     '    <time class="post-item-date timeago" datetime="'+item.date+'"></time>'+
                     '    </section>'+
-                    '    <a class="post-item-comment" title="查看评论" data-disqus-url="'+item.url+'" href="'+item.url+'#comments"></a>'+
+                    '    <a class="post-item-comment" title="查看评论" data-disqus-url="'+item.url+'" href="'+item.url+'#comment"></a>'+
                     '</article>';
             }
 

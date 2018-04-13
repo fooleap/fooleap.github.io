@@ -39,7 +39,9 @@ video {
     }
 }
 
-
+h1,h2,h3,h4,h5,h6{
+    font-weight: 400;
+}
 
 img{
     max-width: 100%;
@@ -63,10 +65,13 @@ body {
     color: $default;
     background-color: $lightblue;
     overflow-y: scroll;
-    font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+    font-family: Roboto, "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-weight: 400;
     font-size: 13px;
     line-height: 1.6;
     transition: font-family .3s;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
 }
 
 .page-thumb {
@@ -149,7 +154,7 @@ body {
         padding-bottom: 10px;
         margin-bottom: 10px;
         border-bottom: 1px solid #e7e7eb;
-        font-weight: 400;
+        font-weight: 500;
         font-size: 20px;
         display: flex;
         justify-content: space-between;
@@ -176,7 +181,6 @@ body {
     }
     .page-subtitle {
         color: $lightgray;
-        font-weight: 300;
         width: 100%;
         font-size: 13px;
     }
@@ -228,7 +232,6 @@ a.post-cat-tag{
         .post-item-title {
             font-size: 14px;
             color: $darkblue;
-            font-weight: normal;
             height: 25px;
             overflow: hidden;
             position: relative;
@@ -261,20 +264,28 @@ a.post-cat-tag{
         color: $white;
         border-radius: 10px;
         width: 30px;
-        height: 18px;
+        height: 16px;
+        font-weight: 500;
+        line-height: 16px;
         opacity: 0;
-        transition: .5s all;
         &:not(:empty) {
-            background-color: rgb(150, 215, 245);
             opacity: 1;
+            background-color: rgb(150, 215, 245);
         }
         &[data-disqus-count="0"] {
             opacity: 0;
+            pointer-events: none;
         }
         &:hover {
             background-color: $darkblue;
             border-bottom: none;
         }
+    }
+}
+
+@for $i from 1 through 10{
+    .post-item:nth-child(#{$i}) .post-item-comment{
+        transition: .3s .05s * $i all;
     }
 }
 
@@ -338,8 +349,8 @@ a.post-cat-tag{
             content: " ¶";
         }
     }
-     a:not([href*="blog.fooleap.org"]):not([href^="#"]):not([href^="/"]):not([target="_blank"]),
-     a[href^="#note"]{
+    a:not([href*="blog.fooleap.org"]):not([href^="#"]):not([href^="/"]):not([target="_blank"]),
+    a[href^="#note"]{
         vertical-align:super;
         font-size: smaller;
     }
@@ -503,7 +514,7 @@ a.post-cat-tag{
     &:before {
         content: '目录';
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 30px;
         height: 30px;
     }
@@ -543,7 +554,7 @@ a.post-cat-tag{
 pre,
 code {
     font-size: 12px;
-    font-family: monaco, Consolas, monospace;
+    font-family: "Roboto Mono", Consolas, monospace;
     background-color: rgb(245, 245, 245);
     overflow: auto;
     padding: 5px 10px;
@@ -609,6 +620,7 @@ pre {
 }
 
 .post-info {
+    font-size: 12px;
     line-height: 20px;
     height: 20px;
     display: flex;
@@ -627,8 +639,7 @@ pre {
             border-bottom: none;
             line-height: 20px;
             height: 20px;
-            padding: 0 3px;
-            font-size: 12px;
+            padding: 0 2px;
             margin: 0 5px;
             &:hover{
                 border-bottom: none;
@@ -652,8 +663,7 @@ pre {
             border-bottom: none;
             line-height: 20px;
             height: 20px;
-            padding: 0 3px;
-            font-size: 12px;
+            padding: 0 2px;
         }
     }
     // Share
@@ -664,7 +674,7 @@ pre {
             width: 20px;
             height: 20px;
             margin: 0 3px;
-            color: rgb(51, 51, 51);
+            color: $darkgray;
             cursor: pointer;
             &:hover{
                 border-bottom: none;
@@ -672,6 +682,7 @@ pre {
         }
         .icon{
             transition: all .3s;
+            fill: $darkgray;
         }
         .wechat:hover .icon {
             fill: rgb(81, 195, 50);
