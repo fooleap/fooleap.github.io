@@ -708,7 +708,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 });
 
 // 统计
-if ( site.home === location.origin ) {
+if ( site.home === location.origin && window.parent == window ) {
     setTimeout(function() {
 
         var _hmt = _hmt || [];

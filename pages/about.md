@@ -27,7 +27,7 @@ tags: [关于, 博客, fooleap, blog]
 
 潮汕人，拖延症、强迫症患者，喜欢喝茶、喜欢拍照、喜欢跑步、喜欢骑行。
 
-* WeChat: fooleap（[微信二维码](https://blog.fooleap.org/wechat?qrcode/1)）
+* WeChat: fooleap（[二维码]({{ site.IMG_PATH }}/wechat.jpg)）
 * Email: fooleap(at)gmail.com
 
 ## 博客进程
@@ -44,7 +44,13 @@ tags: [关于, 博客, fooleap, blog]
 * 2016-07-01 国内解析到七牛云存储，后来干脆只解析到七牛
 * 2016-10-05 使用 Disqus API 解决评论问题
 * 2017-03-16 初步完成重写评论框 
-* 2017-05-04 使用 webpack 打包前端资源
+* 2017-05-04 使用 WebPack 打包前端资源
+
+## 付款捐赠
+
+若您觉得鄙人所创造的内容对您有所帮助，可考虑略表心意，支持本博。
+
+![微信付款二维码]({{ site.IMG_PATH }}/wechat-pay.jpg){:style="width: 100%; max-width: 320px;"}
 
 ## 参考资料
 
