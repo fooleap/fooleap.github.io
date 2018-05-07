@@ -707,6 +707,55 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 });
 
+var loadWebfont = function(){
+    var html = document.documentElement;
+    var script = document.getElementsByTagName('script')[0];
+
+    var tkConfig = {
+        kitId: 'rir3gzo',
+        timeout: 3000,
+        async: true,
+        loading: function() {
+            console.log(1);
+        },
+        active: function() {
+            console.log(2);
+        },
+        inactive: function() {
+            console.log(3);
+        }
+    };
+
+    var tkTimer = setTimeout(function(){
+        html.classList.remove('wf-loading');
+        html.classList.add('wf-inactive');
+    }, tkConfig.timeout);
+
+    var tkScript = document.createElement('script');
+    var tkState, tkFlag = false;
+
+    html.classList.add('wf-loading');
+
+    tkScript.src = 'https://use.typekit.net/'+tkConfig.kitId+'.js';
+    tkScript.async = true;
+    tkScript.onload = tkScript.onreadystatechange = function(){
+        tkState = this.readyState;
+        if(tkFlag || tkState && tkState != 'complete' && tkState != 'loaded'){
+            return;
+        }
+        tkFlag = true;
+        clearTimeout( tkTimer );
+        try{
+
+            Typekit.load(tkConfig)
+
+        } catch (e){
+
+        }
+    };
+    script.parentNode.insertBefore(tkScript,script)
+}
+
 // 统计
 if ( site.home === location.origin && window.parent == window ) {
     setTimeout(function() {

@@ -39,6 +39,10 @@
   "bugs": {
     "url": "https://github.com/fooleap/fooleap.github.io/issues"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "homepage": "https://github.com/fooleap/fooleap.github.io#readme",
   "description": ""
 }

@@ -31,7 +31,6 @@ title: 链接
 
 * [Ruby China](https://ruby-china.org) 国内最权威的 Ruby 社区
 * [V2EX](https://www.v2ex.com) 创意工作者们的社区
-* [博客志](http://www.wuxianlandao.com/bokezhi) 记录互联网上值得记住的博客
 * [番茄土豆](https://pomotodo.com) 开始完成了不起的工作
 * [个站商店](http://storeweb.cn) 个人网站的商店，这里是我们的“个人网站”共享与发布平台
 * [好多视频网](http://haoduoshipin.com) Web 开发小技巧
