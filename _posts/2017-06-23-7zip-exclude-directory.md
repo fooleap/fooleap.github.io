@@ -15,16 +15,50 @@ tags: ["7-Zip", "node_modules"]
 
 语法看着不大明白，但对照例子，照葫芦画瓢总该可以。压缩文件时，排除特定目录的解决方法如下：
 
-假设压缩目录 `foo` ，并排除其根目录下的 `bar` 目录，当前为 `foo` 所在目录，则可：
+例如当前目录下有 foo 这个目录，其结构是这样的
 
-    7z a foo.zip foo -x!foo\bar
+```bash
+$ tree
+.
+`-- foo
+    |-- bar
+    |   `-- hello.txt
+    |   `-- world.txt
+    `-- hello.txt
 
-前提是把 7-Zip 的安装目录扔到系统环境变量。
+2 directories, 3 files
+```
+
+排除 bar 目录，则
+
+    7z a foo.7z foo -x!foo\bar
+
+排除 foo/hello.txt 文件，则
+
+    7z a foo.7z foo -x!foo\hello.txt
+
+排除所有 hello.txt 文件，则
+
+    7z a foo.7z foo -xr!hello.txt
+
+排除所有 txt 文件，则
+
+    7z a foo.7z foo -xr!*.txt
+
+排除所有目录文件，则
+
+    7z a foo.7z foo -xr!*
+
+所用到的另外一个参数是递归 -r[[2]][2]。
+
+以上前提是把 7-Zip 的安装目录扔到系统环境变量。
 
 ## 参考资料
 
 [1]: https://sevenzip.osdn.jp/chm/cmdline/switches/exclude.htm "-x (Exclude filenames) switch"
+[2]: https://sevenzip.osdn.jp/chm/cmdline/switches/recurse.htm "-r (Recurse subdirectories) switch"
 
 **本文历史**
 
 * 2017 年 06 月 23 日 完成初稿
+* 2018 年 08 月 24 日 完善例子
