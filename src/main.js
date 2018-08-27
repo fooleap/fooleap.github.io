@@ -4,6 +4,7 @@ const coordtransform = require('coordtransform');
 const raphael = require('webpack-raphael');
 const flowchart = require('flowchart.js');
 const QRCode = require('davidshimjs-qrcodejs');
+import 'iDisqus.css';
 import './sass/main.scss';
 
 Date.prototype.Format = function (fmt) { 
@@ -160,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         url: page.url,
         mode: 2,
         timeout: 3000,
-        popular: document.getElementById('popular-posts'),
         slug: page.url.slice(1).split('.')[0],
         init: true,
         toggle: 'comment-toggle',
@@ -349,9 +349,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
                                 address = data.regeocodes[n];
                                 if ( m in image.coord && !!address) {
                                     address = address.addressComponent;
-                                    city = address.city ? address.city : '';
-                                    dist = address.district ? address.district : '';
-                                    town = address.township ? address.township : '';
+                                    city = address.city || '';
+                                    dist = address.district || '';
+                                    town = address.township || '';
                                     document.querySelector('[data-src="'+image.jpg[m]+'"]').title = '摄于' + city + dist + town;
                                     n++;
                                 }
@@ -442,8 +442,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
             }
             document.querySelector('#random-posts').insertAdjacentHTML('beforeend', html);
         }
-
-        disq.popular();
 
         // 微信二维码
         var qrcodeUrl = document.getElementById('qrcode').dataset.qrcodeUrl;

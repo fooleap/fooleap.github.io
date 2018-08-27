@@ -65,11 +65,7 @@ body {
     color: $default;
     background-color: $lightblue;
     overflow-y: scroll;
-    font-family: Roboto, "PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.6;
-    transition: font-family .3s;
+    font: 400 14px/1.6 Roboto, Arial, "Noto Sans SC Sliced", "微软雅黑", sans-serif;
     text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
 }
@@ -99,12 +95,12 @@ body {
         &:target{
             background-color: rgba(230, 230, 230, .5);
         }
-        &.post-tags-item{
-            padding-right: 5px;
-            color: $black;
-            &:hover {
-                border-bottom: none;
-            }
+    }
+    .post-tags-item{
+        padding-right: 5px;
+        color: $black;
+        &:hover {
+            border-bottom: none;
         }
     }
     .note:target{
@@ -122,7 +118,7 @@ body {
         width: 250px;
     }
     table {
-        font-size: 12px;
+        font-size: 13px;
         text-align: left;
         border-collapse: collapse;
         border-spacing: 0;
@@ -147,12 +143,9 @@ body {
     }
 }
 
-
 .page-header {
     .page-title {
-        line-height: 1.2;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
+        padding-bottom: 5px;
         border-bottom: 1px solid #e7e7eb;
         font-weight: 500;
         font-size: 16px;
@@ -175,17 +168,30 @@ body {
             width: 150px;
             border: 1px solid #e7e7eb;
             border-radius: 0;
-            font-size: 12px;
+            font-size: 13px;
             color: 333;
         }
     }
     .page-subtitle {
         color: $lightgray;
         width: 100%;
-        font-size: 12px;
+        font-size: 13px;
+        line-height: 2;
     }
     .post-time {
         word-spacing: -1px;
+    }
+    .post-cat-tag{
+        margin-right: 8px;
+        &.active{
+            color: #000;
+        }
+        &:hover{
+            border-bottom: none;
+        }
+        &:last-child{
+            float: right;
+        }
     }
 }
 
@@ -196,18 +202,6 @@ body {
 
 .post-list{
     min-height: 680px;
-}
-a.post-cat-tag{
-    margin-right: 8px;
-    &.active{
-        color: #000;
-    }
-    &:hover{
-        border-bottom: none;
-    }
-    &:last-child{
-        float: right;
-    }
 }
 
 .post-item {
@@ -250,7 +244,7 @@ a.post-cat-tag{
         .post-item-date {
             color: $lightgray;
             opacity: 0;
-            font-size: 12px;
+            font-size: 13px;
             transition: .5s all;
             &:not(:empty) {
                 opacity: 1;
@@ -267,6 +261,7 @@ a.post-cat-tag{
         width: 30px;
         height: 16px;
         font-weight: 500;
+        font-size: 13px;
         line-height: 16px;
         opacity: 0;
         &:not(:empty) {
@@ -282,13 +277,7 @@ a.post-cat-tag{
             border-bottom: none;
         }
     }
-    @for $i from 1 through 10{
-        &:nth-child(#{$i}) .post-item-comment{
-            transition: .3s .05s * $i all;
-        }
-    }
 }
-
 
 // Pagination
 .pagination{
@@ -299,31 +288,32 @@ a.post-cat-tag{
         margin: 20px auto;
     }
     .pagination-list {
-        margin: 10px auto;
-        font-size: 12px;
         list-style-type: none;
+        margin: 10px auto;
+        font-size: 13px;
         overflow: hidden;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         height: 30px;
         line-height: 30px;
         color: $darkgray;
+    }
+    .pagination-item{
+        padding: 0 10px;
         text-align: center;
-        .pagination-item:first-child,
-        .pagination-item:last-child{
-            width: 120px;
-        }
-        .pagination-item:first-child{
+        width: 100px;
+        &:first-child{
             text-align: left;
         }
-        .pagination-item:last-child{
+        &:last-child{
             text-align: right;
         }
-        .pagination-item-link {
-            color: $darkgray;
-            &:hover{
-                border-bottom-color: $darkgray;
-            }
+    }
+    .pagination-item-link {
+        color: $darkgray;
+        &:hover{
+            border-bottom-color: $darkgray;
         }
     }
 }
@@ -333,7 +323,7 @@ a.post-cat-tag{
     ul,
     ol {
       margin-left: 25px;
-      font-size: 12px;
+      font-size: 13px;
     }
     >*{
         margin: 18px 0;
@@ -358,7 +348,7 @@ a.post-cat-tag{
         font-size: smaller;
     }
     blockquote {
-        font-size: 12px;
+        font-size: 13px;
         padding: 5px 10px;
         opacity: .6;
         border-left: 5px solid $darkgray;
@@ -410,7 +400,7 @@ a.post-cat-tag{
             }
         }
         .post-figcaption{
-            font-size: 12px;
+            font-size: 13px;
             &:before{
                 content: attr(data-exif);
                 display: block;
@@ -422,7 +412,7 @@ a.post-cat-tag{
                 background-color: $black;
                 width: 100%;
                 height: 25px;
-                font-size: 12px;
+                font-size: 13px;
                 line-height: 25px;
                 padding: 0 3px;
                 color: $white;
@@ -458,7 +448,7 @@ a.post-cat-tag{
             padding: 0 10px 0 36px;
             border: 1px solid #d5d5d5;
             border-radius: 5px;
-            font-size: 12px;
+            font-size: 13px;
         }
     }
     .search-result-item{
@@ -489,7 +479,7 @@ a.post-cat-tag{
             }
         }
         .search-result-desc{
-            font-size: 12px;
+            font-size: 13px;
             line-height: 22px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -516,7 +506,7 @@ a.post-cat-tag{
     padding: 5px;
     &:before {
         content: '目录';
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 500;
         line-height: 30px;
         height: 30px;
@@ -527,7 +517,7 @@ a.post-cat-tag{
             display: inline-block;
             width: 100%;
             color: $default;
-            font-size: 12px;
+            font-size: 13px;
             text-indent: 5px;
             &:hover {
                 border-radius: 3px;
@@ -547,7 +537,7 @@ a.post-cat-tag{
             margin: 0;
             padding: 0;
             a {
-                font-size: 12px;
+                font-size: 13px;
                 line-height: 25px;
             }
         }
@@ -626,7 +616,7 @@ pre {
 }
 
 .post-info {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 20px;
     height: 20px;
     display: flex;
@@ -754,7 +744,7 @@ pre {
 
 .comment-toggle{
     display: flex;
-    font-size: 12px;
+    font-size: 13px;
     .comment-toggle-input{
         display: none;
         &:checked + .comment-toggle-icon {

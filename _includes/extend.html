@@ -1,12 +1,17 @@
 <section class="post-extend">
     <section class="post-extend-content">
-        <h4 class="post-extend-title">猜你喜欢</h4>
-        <ul id="random-posts" class="post-extend-list">
+        <h4 class="post-extend-title">最近更新</h4>
+        <ul id="recent-posts" class="post-extend-list">
+            {% for post in site.posts offset: 0 limit: 5  %}
+                <li class="post-extend-item">
+                    <a class="post-extend-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
         </ul>
     </section>
     <section class="post-extend-content">
-        <h4 class="post-extend-title">最近热门</h4>
-        <ul id="popular-posts" class="post-extend-list">
+        <h4 class="post-extend-title">猜你喜欢</h4>
+        <ul id="random-posts" class="post-extend-list">
         </ul>
     </section>
 </section>

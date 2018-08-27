@@ -25,13 +25,15 @@ module.exports = {
                     'sass-loader'
                 ]
             },{
-                test: /\.(woff|woff2)$/,
-                use: [ 'file-loader?name=[name].[ext]' ]
-            },{
                 test: /\.html$/,
                 use: [ 'file-loader?name=[path][name].[ext]!extract-loader!html-loader' ]
             }
         ],
+    },
+    resolve: {
+        alias: {
+            'iDisqus.css': "disqus-php-api/dist/iDisqus.css"
+        }
     },
     plugins: [
         new MiniCssExtractPlugin({
