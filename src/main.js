@@ -4,7 +4,6 @@ const coordtransform = require('coordtransform');
 const raphael = require('webpack-raphael');
 const flowchart = require('flowchart.js');
 const QRCode = require('davidshimjs-qrcodejs');
-import 'iDisqus.css';
 import './sass/main.scss';
 
 Date.prototype.Format = function (fmt) { 

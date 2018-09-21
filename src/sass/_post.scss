@@ -89,12 +89,6 @@ body {
     word-wrap: break-word;
     a {
         color: $darkblue;
-        &:hover{
-            border-bottom: 1px dashed $darkblue;
-        }
-        &:target{
-            background-color: rgba(230, 230, 230, .5);
-        }
     }
     .post-tags-item{
         padding-right: 5px;
@@ -177,6 +171,9 @@ body {
         width: 100%;
         font-size: 13px;
         line-height: 2;
+        &:hover{
+            border-bottom: none;
+        }
     }
     .post-time {
         word-spacing: -1px;
@@ -202,6 +199,14 @@ body {
 
 .post-list{
     min-height: 680px;
+    a {
+        &:hover{
+            border-bottom: 1px dashed $darkblue;
+        }
+        &:target{
+            background-color: rgba(230, 230, 230, .5);
+        }
+    }
 }
 
 .post-item {
@@ -320,6 +325,14 @@ body {
 
 // Post
 .post-content {
+    a {
+        &:hover{
+            border-bottom: 1px dashed $darkblue;
+        }
+        &:target{
+            background-color: rgba(230, 230, 230, .5);
+        }
+    }
     ul,
     ol {
       margin-left: 25px;
@@ -738,58 +751,17 @@ pre {
     margin-left: -15px;
 }
 
-#comment a:hover{
-    border-bottom: none;
-}
-
-.comment-toggle{
-    display: flex;
+.comment-tips{
+    margin: 20px 0 10px;
+    height: 30px;
+    text-align: center;
+    background-color: #f3f3f3;
+    border-radius: 3px;
+    color: #333;
+    line-height: 20px;
+    padding: 5px 0;
     font-size: 13px;
-    .comment-toggle-input{
-        display: none;
-        &:checked + .comment-toggle-icon {
-            background-color: #2aa0ff;
-            &:before{
-                margin-left: 11px;
-            }
-        }
-        &:disabled ~ .comment-toggle-icon,
-        &:disabled ~ .comment-toggle-button{
-            display: none;
-        }
-    }
-    .comment-toggle-icon{
-        display: block;
-        width: 32px;
-        height: 20px;
-        background-color: #434343;
-        border-radius: 10px;
-        cursor: pointer;
-        padding: 2.5px 3px;
-        transition: .3s all; 
-        &:before{
-            transition: .3s all; 
-            content: "";
-            display: block;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: #fff;
-        }
-    }
-    .comment-toggle-button{
-        display: block;
-        color: #fff !important;
-        background-color: #434343;
-        border-radius: 2px;
-        line-height: 20px;
-        height: 20px;
-        padding: 0 3px;
-        cursor: pointer;
-        margin: 0 5px;
-    }
 }
-
 .comment-guestbook .comment-header{
     display: none;
 }
