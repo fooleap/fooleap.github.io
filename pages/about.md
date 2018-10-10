@@ -46,14 +46,17 @@ tags: [关于, 博客, fooleap, blog]
 * 2016-10-05 使用 Disqus API 解决评论问题
 * 2017-03-16 初步完成重写评论框 
 * 2017-05-04 使用 WebPack 打包前端资源
+* 2018-10-12 添加完善微信赞赏码
 
-## 付款捐赠
+## 赞赏奖励
 
 若您觉得鄙人所创造的内容对您有所帮助，可考虑略表心意，支持本博。
 
-![微信付款二维码]({{ site.IMG_PATH }}/wechat-pay.jpg){:style="width: 100%; max-width: 320px;"}
+以下是微信赞赏码：
 
-### 捐赠列表
+![微信赞赏码]({{ site.IMG_PATH }}/wechat-reward.png){:width="150"}
+
+### 财主列表
 
 * [1900](http://1900.live)
 * [Lexus](http://leiminnet.cn)

@@ -692,6 +692,15 @@ pre {
         .icon{
             transition: all .3s;
             fill: $darkgray;
+            &+ .icon{
+                display: none;
+            }
+        }
+        .paycode:hover .icon {
+            display: none;
+            &+ .icon{
+                display: inline-block;
+            }
         }
         .wechat:hover .icon {
             fill: rgb(81, 195, 50);
@@ -725,7 +734,22 @@ pre {
             border-radius: 5px;
             box-shadow: 1px 1px 2px rgb(150, 150, 150);
         }
-        .post-qrcode-input {
+        .post-paycode{
+            display: none;
+            background-image: url(//source.fooleap.org/wechat-reward.png);
+            width: 150px;
+            height: 150px;
+            background-size: cover;
+            background-color: #fff;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+            border-radius: 5px;
+            position: absolute;
+            bottom: 30px;
+            left: -50%;
+            margin-left: 75px;
+        }
+        .post-qrcode-input,
+        .post-paycode-input {
             display: none;
         }
         .post-qrcode-input:checked{
@@ -734,6 +758,17 @@ pre {
             }
             ~ .wechat .icon {
                 fill: rgb(81, 195, 50);
+            }
+        }
+        .post-paycode-input:checked{
+            + .post-paycode{
+                display: block;
+            }
+            ~ .paycode .icon {
+                display: none;
+                &+ .icon{
+                    display: inline-block;
+                }
             }
         }
     }
