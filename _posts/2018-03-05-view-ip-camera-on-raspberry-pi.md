@@ -72,6 +72,10 @@ omxplayer --live -n -1 --avdict rtsp_transport:tcp rtsp://[camera_url]
 
 针对我所遇到的问题，画面定格时 omxplayer 并没退出，参考复制了一些代码，干脆一不做二不休，每 20 分钟重新运行一次，延迟几秒后，杀死原有的 screen 进程。
 
+最近（10 月份）重装了树莓派的系统，发现原贴楼主已经将自己的方案整合打包，并可做为守护进程。现在只需在原贴下载 [displaycameras-0.8.3.1.tar.gz](https://community.ubnt.com/ubnt/attachments/ubnt/airVision_board/54835/7/displaycameras-0.8.3.1.tar.gz) 查看 README 安装，并根据自己的实际情况修改配置文件即可。使用最新的代码，对萤石已完美支持，不会出现停住的情况（自动重启）。
+
+## 具体效果
+
 在淘宝上买了个廉价外壳，几近完美。对比当初赠送的那种自己拼装的，这种成型简单的感觉很好。
 
 ![锈迹斑斑的树莓派][p5]
@@ -95,6 +99,7 @@ omxplayer --live -n -1 --avdict rtsp_transport:tcp rtsp://[camera_url]
 * 2018 年 03 月 05 日 完成初稿
 * 2018 年 03 月 06 日 添加图片，更新黑历史等
 * 2018 年 03 月 11 日 树莓派监控显示效果
+* 2018 年 10 月 21 日 更新完善
 
 [p1]: {{ site.IMG_PATH }}/view-ip-camera-on-raspberry-pi-01.jpg_640 "Raspberry Pi Model B+"
 [p2]: {{ site.IMG_PATH }}/view-ip-camera-on-raspberry-pi-02.jpg_640 "朋友的老式显示器"

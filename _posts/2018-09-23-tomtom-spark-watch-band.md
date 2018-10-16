@@ -28,5 +28,5 @@ tags: [TomTom, 表带]
 
 * 2018 年 09 月 23 日 完成初稿
 
-[p1]: {{ site.IMG_PATH }}/tomtom-spark-watch-band-01.jpg "标配的表带断了"
-[p2]: {{ site.IMG_PATH }}/tomtom-spark-watch-band-02.jpg "淘宝买的替换表带"
+[p1]: {{ site.IMG_PATH }}/tomtom-spark-watch-band-01.jpg_640 "标配的表带断了"
+[p2]: {{ site.IMG_PATH }}/tomtom-spark-watch-band-02.jpg_640 "淘宝买的替换表带"

@@ -44,7 +44,7 @@ title: 链接
 * [anoulin2009](http://blog.twodong.com){:title="梁东宇@梧州"}
 * [Blackeeper's blog ](http://www.blackeeper.com){:title="李东升@深圳"}
 * [Conan06's blog](http://blog.conan06.com){:title="Conan06@北京"}
-* [DWF &middot; keeping](https://dengwenfeng.com)
+* [D's blog](https://doublesand.github.io){:title="邓文丰"}
 * [Mugbya's Blog](http://blog.mugbya.cn)
 * [misshu's blog](http://blog.wuhuting.com){:title="吴胡婷@北京"}
 * [Mr.He](http://mrhe.net){:title="何承周@安徽"}
@@ -52,6 +52,7 @@ title: 链接
 * [Terry's Blog](http://terrychen.info){:title="陈敏@北京"}
 * [UbuntuSoft](http://www.ubuntusoft.com){:title="刘樟宏@深圳"}
 * [Weidan's Life](http://liweidan.cn){:title="@珠海"}
+* [阿川的个人博客](https://achuan.io){:title="阿川"}
 * [大喇叭](http://blog.jiangqiwen.cn){:title="@浙江"}
 * [常阳时光](https://cyhour.com){:title="@肇庆"}
 * [代码笔记](http://www.jiangjiaolong.com){:title="代码笔记"}
@@ -60,6 +61,7 @@ title: 链接
 * [广西大学Linux协会](http://www.gxlinux.com){:title="广西大学Linux协会"}
 * [灰常记忆](https://bestcherish.com){:title="@西安"}
 * [嘉美伯爵](https://blog.gaozhe.top){:title="高哲@北京"}
+* [柯扬博客](http://blog.kukeyang.com){:title="柯扬博客"}
 * [乱步集](http://mrkod.com){:title="MR.KOD@杭州"}
 * [奶牛博客](http://www.nenew.net){:title="奶牛@淄博"}
 * [逆旅](http://1900.live){:title="1900@自贡"}
@@ -70,6 +72,7 @@ title: 链接
 * [无题](http://wuti.me){:title="@深圳"}
 * [以梦为马，奔向远方](http://linhai1990.com){:title="石明鑫@昆明"}
 * [印&#124;纪](http://leiminnet.cn){:title="发生着，记录着，回忆着"}
+* [有呀](https://nuoea.com){:title="归臧"}
 * [臧超博客](http://www.geooll.com){:title="臧超@青岛"}
 * [张刚的博客](http://www.zhanggang.net){:title="张刚@长沙"}
 * [贼头's Blog](http://www.makiller.com){:title="马震南@南宁"}

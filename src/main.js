@@ -595,8 +595,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     posts.forEach(function(item){
                         start_time = new Date(item.published);
                         postsHtml+='<div class="running-item">'+
-                            '<a class="running-item-thumb" href="/running-map.html?id='+item.object.id+'" target="_blank" title="'+item.tags.text+'"><img class="running-item-image" src="'+item.tags.image.url+'"></a>'+
-                            '<div class="running-item-date">'+start_time.Format('yyyy-MM-dd') +'</div>'+
+                            '<a class="running-item-thumb" href="'+item.tags.image.url+'" target="_blank" title="'+item.tags.text+'"><img class="running-item-image" src="'+item.tags.image.thumb+'"></a>'+
+                            '<a class="running-item-date" href="/running-map.html?id='+item.object.id+'" target="_blank" title="跑步详情">'+start_time.Format('yyyy-MM-dd') +'</a>'+
                         '</div>';
                     })
 
