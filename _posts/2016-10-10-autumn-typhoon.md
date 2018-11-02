@@ -18,8 +18,10 @@ tags: ["台风", "秋天"]
 
 9 号，各国预测路径都是趋向回旋，然而它还在徘徊。实时的简易路径如下。不得不感慨，秋台就像女人的心，难以琢磨。
 
-{% include media.html type="iframe" src="IMG_PATH/autumn-typhoon.html" %}
+![长的是莫兰蒂，短的是艾利]({{ site.IMG_PATH}}/antumn-typhoon-07.jpg_640)
 长的是莫兰蒂，短的是艾利
+
+浙江水利台风路径的 API 不支持 HTTPS，只能[点此看地图](http://source.fooleap.org/autumn-typhoon.html){:target="_blank"}。
 
 虽然离秋天还有段时间，但这两天下雨加上冷空气影响降个几度，也是有点凉飕飕，晚上有点冷。
 
@@ -51,8 +53,8 @@ tags: ["台风", "秋天"]
 ![14 号云层厚厚的天空]({{ site.IMG_PATH}}/antumn-typhoon-04.jpg_640)
 14 号云层厚厚的天空
 
-![14 号奇特的夕阳]({{ site.IMG_PATH}}/antumn-typhoon-05.jpg_640)
-14 号奇特的夕阳
+![14 号奇特的晚霞]({{ site.IMG_PATH}}/antumn-typhoon-05.jpg_640)
+14 号奇特的晚霞
 
 那时天气预报都是暴雨级别，15 号，莫兰蒂来势汹汹登陆厦门，福建浙江措不及防，也就是新闻里面说的那样，但整个过程，潮汕几乎无风无雨。
 
@@ -67,3 +69,4 @@ tags: ["台风", "秋天"]
 
 * 2016 年 10 月 10 日 完成初稿
 * 2016 年 10 月 13 日 添加莫兰蒂部分
+* 2018 年 11 月 04 日 替换地图为图片

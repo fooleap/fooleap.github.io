@@ -97,6 +97,11 @@ body {
             border-bottom: none;
         }
     }
+    #tags-table{
+      thead tr:last-child th:first-child {
+        width: 150px;
+      }
+    }
     .note:target{
         background-color: rgba(230, 230, 230, .5);
     }
@@ -425,7 +430,7 @@ body {
                 background-color: $black;
                 width: 100%;
                 height: 25px;
-                font-size: 13px;
+                font-size: 12px;
                 line-height: 25px;
                 padding: 0 3px;
                 color: $white;
@@ -796,7 +801,4 @@ pre {
     line-height: 20px;
     padding: 5px 0;
     font-size: 13px;
-}
-.comment-guestbook .comment-header{
-    display: none;
 }

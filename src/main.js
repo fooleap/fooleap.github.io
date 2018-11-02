@@ -140,7 +140,7 @@ if(browser.wechat && location.origin == site.home){
             });
         }
     }
-    xhrwesign.open('GET', site.api + '/wechat/jssdk?url='+ location.href, true);
+    xhrwesign.open('GET', site.api + '/wechat/jssdk.php?url='+ location.href, true);
     xhrwesign.send();
     wx.ready(function () {
     });
@@ -153,9 +153,9 @@ window.addEventListener('beforeunload', function (event) {
 document.addEventListener('DOMContentLoaded', function(event) { 
     'use strict';
     var disq = new iDisqus('comment', {
-        forum: 'fooleap',
-        site: 'https://blog.fooleap.org',
-        api: 'https://api.fooleap.org/disqus',
+        forum: site.forum,
+        site: site.home,
+        api: site.api + '/disqus',
         title:  page.title,
         url: page.url,
         mode: 2,
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         init: true,
         toggle: 'comment-toggle',
         sort: 'newest',
-        emoji_path: '//api.fooleap.org/emoji/unicode/',
+        emoji_path: site.api + '/emoji/unicode/',
     });
 
     disq.count();
@@ -311,12 +311,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
                             if ( !!data.DateTimeOriginal ) {
                                 var datetime = data.DateTimeOriginal.val.split(/\:|\s/);
                                 var date = datetime[0] + '-' + datetime[1] + '-' + datetime[2] + ' ' + datetime[3] +':'+ datetime[4];
+                                var make = parseVal(data.Make);
                                 var model = parseVal(data.Model);
                                 var fnum = parseVal(data.FNumber);
                                 var extime = parseVal(data.ExposureTime);
                                 var iso = parseVal(data.ISOSpeedRatings);
                                 var flength = parseVal(data.FocalLength);
-                                document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
+                                document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + (model.indexOf(make) > -1 ? '' : make) + ' ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
                             }
                             if ( !!data.GPSLongitude ) {
                                 var olat = data.GPSLatitude.val.split(', ');
@@ -499,7 +500,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
         function search(keyword){
             result.innerHTML = '';
-            var title = '搜索：' + keyword + ' | Fooleap\'s Blog';
+            var title = '搜索：' + keyword + ' | ' + site.title;
             var url = '/search.html?keyword=' + keyword;
             var total = result.length;
             var html = '';
@@ -548,7 +549,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
         xhrPosts.send(null);
         function tags (keyword){
-            var title = '标签：' + keyword + ' | Fooleap\'s Blog';
+            var title = '标签：' + keyword + ' | ' + site.title;
             var url = '/tags.html?keyword=' + keyword;
             var tagsTable = document.getElementById('tags-table');
             tagsTable.style.display = 'table';
@@ -588,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             loadMoreBtn.style.display = 'none';
             var postsHtml = '';
             var xhrPosts = new XMLHttpRequest();
-            xhrPosts.open('GET', '//api.fooleap.org/nike/posts.php'+queryStr, true);
+            xhrPosts.open('GET', site.api+'/nike/posts.php'+queryStr, true);
             xhrPosts.onreadystatechange = function() {
                 if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
                     posts = JSON.parse(xhrPosts.responseText);
@@ -651,7 +652,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                     cat = '相册';
                     break;
             }
-            var title = pageNum == 1 ? cat + ' | Fooleap\'s Blog' : cat + '：第' + pageNum + '页 | Fooleap\'s Blog';
+            var title = pageNum == 1 ? cat + ' | ' + site.title : cat + '：第' + pageNum + '页 | ' + site.title;
             var url = pageNum == 1 ? page.url : page.url + '?page=' + pageNum;
             var html = '';
             var total = posts.length;
