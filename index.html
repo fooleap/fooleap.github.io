@@ -5,11 +5,12 @@ layout: default
 <section class="post-list">
     {% for post in paginator.posts %}
 
+    {% assign images = post.content | split:'<img src="' %}
+    {% assign imageSize = images | size | minus: 1 %}
     {% if post.thumb %}
-    {% assign thumbnail = post.thumb | replace: 'IMG_PATH', site.IMG_PATH %}
+        {% assign thumbnail = post.thumb | replace: 'IMG_PATH', site.IMG_PATH %}
     {% else %}
         {% if post.content contains site.IMG_PATH %}
-            {% assign images = post.content | split:'<img src="' %}
             {% for image in images %}
                 {% if image contains site.IMG_PATH %}
                 {% assign thumbnail = image | split: '?imageView' | first | split: '"' | first | remove: '_640' %}
@@ -30,7 +31,7 @@ layout: default
     <article class="post-item">
         <i class="post-item-thumb" data-src="{{ thumbnail }}" style="background-image:url({{ thumbnail }})"></i>
         <section class="post-item-summary">
-            <h3 class="post-item-title"><a class="post-item-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+            <h3 class="post-item-title"><a class="post-item-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}{% if imageSize > 0 %}[{{ imageSize }}P]{% endif %}</a></h3>
             <time class="post-item-date timeago" datetime="{{ post.date | date_to_xmlschema }}"></time>
         </section>
         <a class="post-item-comment" title="查看评论" data-disqus-url="{{ post.url }}" href="{{ post.url }}#comment"></a>

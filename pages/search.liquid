@@ -3,11 +3,12 @@ layout: compress
 permalink: /search.json
 ---
 [{% for post in site.posts %}{
+    {% assign images = post.content | split:'<img src="' %}
+    {% assign imageSize = images | size | minus: 1 %}
     {% if post.thumb %}
         {% assign thumbnail = post.thumb | replace:'IMG_PATH', site.IMG_PATH %}
     {% else %}
         {% if post.content contains site.IMG_PATH %}
-            {% assign images = post.content | split:'<img src="' %}
             {% for image in images %}
                 {% if image contains site.IMG_PATH %}
                     {% if image contains 'imageView'%}
@@ -40,6 +41,7 @@ permalink: /search.json
     "date":{{ post.date | jsonify }},
     "thumb":{{ thumbnail | jsonify }},
     "tags":{{ post.tags | jsonify }},
+    "images":{{ imageSize | jsonify }},
     "content":{{ content | strip_html | strip_newlines | strip | remove: '  ' | jsonify }}
     }{% unless forloop.last %},{% endunless %}
 {% endfor %}]

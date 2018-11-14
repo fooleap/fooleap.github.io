@@ -264,7 +264,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
         };
         for(var i = 0; i < imageArr.length; i++){
             image.thumb[i] = imageArr[i].src;
-            image.src[i] =  new RegExp(site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
+            image.src[i] =  imageArr[i].dataset.src;
+            //new RegExp(site.img,'i').test(imageArr[i].src) ? imageArr[i].src.split(/_|\?/)[0] : imageArr[i].src;
         }
         image.jpg = image.src.filter(function(item){
             return item.indexOf('.jpg') > -1 && new RegExp(site.img,'i').test(item);
@@ -273,7 +274,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
             image.title[i] = item.title || item.parentElement.textContent.trim() || item.alt;
             item.title = image.title[i];
             item.classList.add('post-image');
-            item.dataset.src = image.src[i];
             item.parentElement.outerHTML = item.parentElement.outerHTML.replace('<p>','<figure class="post-figure" data-index='+i+'>').replace('</p>','</figure>').replace(item.parentElement.textContent, '');
             var imgdom = document.querySelector('.post-image[data-src="'+image.src[i]+'"]');;
             if( new RegExp(site.img,'i').test(image.src[i])){
@@ -663,7 +663,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 html += '<article class="post-item">'+
                     '    <i class="post-item-thumb" data-src="'+item.thumb+'" style="background-image:url('+item.thumb+')"></i>'+
                     '    <section class="post-item-summary">'+
-                    '    <h3 class="post-item-title"><a class="post-item-link" href="'+item.url+'" title="'+item.title+'">'+item.title+'</a></h3>'+
+                    '    <h3 class="post-item-title"><a class="post-item-link" href="'+item.url+'" title="'+item.title+'">'+item.title+(item.images > 0 ? '['+item.images+'P]' : '')+'</a></h3>'+
                     '    <time class="post-item-date timeago" datetime="'+item.date+'"></time>'+
                     '    </section>'+
                     '    <a class="post-item-comment" title="查看评论" data-disqus-url="'+item.url+'" href="'+item.url+'#comment"></a>'+

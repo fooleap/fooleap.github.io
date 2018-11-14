@@ -3,7 +3,20 @@ layout: default
 ---
 
 <article class="post-content">
-    {{ content | replace_first:'id="markdown-toc"','class="post-toc"' }}
+  {% assign content = content | replace_first:'id="markdown-toc"','class="post-toc"' %}
+  {% if content contains site.IMG_PATH %}
+    {% assign images = content | split:'<img src="' %}
+    {% for image in images %}
+      {% if image contains site.IMG_PATH %}
+        {% assign thumbSrc = image | split: '" ' | first %}
+        {% assign imageSrc = thumbSrc | split: '?imageView' | first | remove: "_640" %}
+        {% assign newImage = thumbSrc | prepend: '" data-url="' | prepend: thumbSrc | append: '" data-src="' | append: imageSrc %}
+        {% assign content = content | replace: thumbSrc, newImage %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+  {{ content }}
 </article>
 {% include extend.html %}
 {% include info.html %}
