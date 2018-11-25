@@ -1,3 +1,25 @@
+<section class="wechat-related">
+  {% if page.wechat %}
+  <div class="wechat-related-item">
+    <input class="wechat-related-checkbox" type="checkbox" id="wechat-article"/>
+    <label class="wechat-related-btn" title="公众号文章" for="wechat-article">
+    {% include svg/wechat.svg %}
+    微信文章
+    </label>
+    <div class="wechat-qrcode" id="wechat-qrcode" data-qrcode-url="{{ page.wechat }}"></div>
+  </div>
+  {% endif %}
+
+  <div class="wechat-related-item">
+    <input class="wechat-related-checkbox" type="checkbox" id="wechat-paycode"/>
+    <label class="wechat-related-btn" title="微信赞赏码" for="wechat-paycode">
+      {% include svg/reward.svg %}
+      {% include svg/reward_a.svg %} 喜欢作者
+    </label>
+    <div class="wechat-paycode"></div>
+  </div>
+</section>
+
 <section class="post-extend">
     <section class="post-extend-content">
         <h4 class="post-extend-title">最近更新</h4>

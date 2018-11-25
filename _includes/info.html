@@ -8,14 +8,8 @@
         <ul class="post-tag-list">{% for tag in page.tags %}<li class="post-tag-item"><a class="post-tag-link" href="/tags.html?keyword={{ tag }}" target="_blank" title="查看“{{ tag }}”的相关文章">{{ tag }}</a></li>{% endfor %}</ul>
     </div>
     <div class="post-share">
-        <input class="post-paycode-input" type="checkbox" id="paycode-toggle" />
-        <div class="post-paycode"></div>
-        <label class="post-share-item paycode" title="微信赞赏码" for="paycode-toggle">
-            {% include svg/reward.svg %}
-            {% include svg/reward_a.svg %}
-        </label>
         <input class="post-qrcode-input" type="checkbox" id="qrcode-toggle" />
-        <div class="post-qrcode" id="qrcode" data-qrcode-url="{% if page.wechat %}{{ page.wechat }}{% else %}{{ site.home | append: page.url }}{% endif %}"></div>
+        <div class="post-qrcode" id="qrcode" data-qrcode-url="{{ site.home | append: page.url }}"></div>
         <label class="post-share-item wechat" title="分享到微信" for="qrcode-toggle">
             {% include svg/wechat.svg %}
         </label>
