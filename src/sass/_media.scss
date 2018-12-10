@@ -80,11 +80,14 @@
         .page-content{
             padding: 0 7px;
         }
-        .video{
-            margin: 0 -7px;
+        .video, .iframe-container{
+            max-width: calc(100% + 14px)!important;
+            width: calc(100% + 14px)!important;
+            margin: 18px -7px!important;
         }
         .post-figure{
-            margin: 0 -7px;
+            margin: 18px -7px;
+            border-radius: 0;
             .post-image-exif{
                 font-size: 10px;
                 line-height: 20px;

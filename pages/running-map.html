@@ -81,26 +81,29 @@ title: 跑步路径地图
                 background-color: #000000;
             }
             .running-distance{
-                background-color: rgba(0,0,0,.8);
-                font-size: 12px;
-                color: #fff;
-                width: 50px;
-                height: 24px;
-                line-height: 24px;
-                text-align: right;
-                border-top-left-radius: 12px;
-                border-bottom-left-radius: 12px;
-                position: relative;
-                white-space: nowrap;
+              background-color: rgba(0,0,0,.8);
+              font-size: 12px;
+              color: #fff;
+              width: 50px;
+              height: 20px;
+              line-height: 20px;
+              padding: 0 3px 0 5px;
+              text-align: right;
+              border-top-left-radius: 10px;
+              border-bottom-left-radius: 10px;
+              position: absolute;
+              white-space: nowrap;
+              left: -10px;
+              top: 2px;
             }
             .running-distance:after{
                 content: "";
-                right: -24px;
+                right: -20px;
                 top: 0;
                 position: absolute;
                 height: 0;
                 width: 0;
-                border: 12px solid transparent;
+                border: 10px solid transparent;
                 border-left-color: rgba(0,0,0,.8);
             }
             .running-distance .running-number{
@@ -114,7 +117,7 @@ title: 跑步路径地图
                 align-items: center;
                 width: 90%;
                 max-width: 480px;
-                height: 36px;
+                height: 32px;
                 background-color: rgba(0,0,0,.8);
                 color: #fff;
                 border-radius: 4px;
@@ -153,10 +156,10 @@ title: 跑步路径地图
                 background-color: rgba(0,0,0,.8);
                 color: #fff;
                 display: inline-block;
-                border-radius: 12px;
+                border-radius: 10px;
                 position: fixed;
-                line-height: 24px;
-                height: 24px;
+                line-height: 20px;
+                height: 20px;
                 padding: 0 12px;
                 font-size: 13px;
                 top: 5%;

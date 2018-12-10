@@ -407,6 +407,28 @@ body {
         max-width: 640px;
         position: relative;
         overflow: hidden;
+        border-radius: 4px;
+        &[data-exif]:before{
+          content: attr(data-exif);
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: opacity .5s;
+          opacity: 0;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, .6), transparent);
+          width: 100%;
+          height: 25px;
+          font-size: 12px;
+          line-height: 25px;
+          padding: 0 15px;
+          color: $white;
+          overflow: hidden;
+          box-sizing: border-box;
+        }
+        &[data-exif]:hover:before{
+          opacity: .7;
+        }
         .post-image {
             cursor: pointer;
             display: block;
@@ -418,29 +440,17 @@ body {
             }
         }
         .post-figcaption{
-            font-size: 13px;
-            &:before{
-                content: attr(data-exif);
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                transition: opacity .5s;
-                opacity: 0;
-                background-color: $black;
-                width: 100%;
-                height: 25px;
-                font-size: 12px;
-                line-height: 25px;
-                padding: 0 3px;
-                color: $white;
-                overflow: hidden;
-            }
-        }
-        &:hover {
-            .post-figcaption[data-exif]:before{
-                opacity: .7;
-            }
+          position: absolute;
+          display: block;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          color: #fff;
+          padding: 0 5px;
+          line-height: 30px;
+          text-shadow: 0 0 1px rgba(0,0,0,.3);
+          font-size: 12px;
+          background: linear-gradient(to right, rgba(0, 0, 0, .8), transparent);
         }
     }
 }
@@ -716,7 +726,7 @@ pre {
   }
   .wechat-qrcode,
   .wechat-paycode{
-    padding: 5px;
+    padding: 10px;
     display: none;
     width: 120px;
     height: 120px;

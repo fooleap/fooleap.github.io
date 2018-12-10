@@ -47,6 +47,7 @@
           color: #333;
           height: 36px;
           line-height: 18px;
+          overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
           -webkit-line-clamp: 2;
@@ -54,6 +55,7 @@
         }
     }
 }
+  
 
 .running-loadmore{
     padding: 10px 0 40px;

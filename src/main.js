@@ -5,6 +5,7 @@ const raphael = require('webpack-raphael');
 const flowchart = require('flowchart.js');
 const QRCode = require('davidshimjs-qrcodejs');
 import './sass/main.scss';
+var _hmt = _hmt || [];
 
 Date.prototype.Format = function (fmt) { 
     var o = {
@@ -40,6 +41,7 @@ function timeAgo(selector) {
         year: "1年",
         years: "%d年"
     };
+    
     var template = function (t, n) {
         return templates[t] && templates[t].replace(/%d/i, Math.abs(Math.round(n)));
     };
@@ -317,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                                 var extime = parseVal(data.ExposureTime);
                                 var iso = parseVal(data.ISOSpeedRatings);
                                 var flength = parseVal(data.FocalLength);
-                                document.querySelector('.post-image[data-src="' + item + '"] + .post-figcaption').dataset.exif = '时间: ' + date + ' 器材: ' + (model.indexOf(make) > -1 ? '' : make) + ' ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
+                                document.querySelector('.post-image[data-src="' + item + '"]').closest('.post-figure').dataset.exif = '时间: ' + date + ' 器材: ' + (model.indexOf(make) > -1 ? '' : make) + ' ' + model + ' 光圈: ' + fnum + ' 快门: ' + extime + ' 感光度: ' + iso + ' 焦距: ' + flength;
                             }
                             if ( !!data.GPSLongitude ) {
                                 var olat = data.GPSLatitude.val.split(', ');
@@ -541,6 +543,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 "title": title,
                 "url": url 
             }, title, url);
+            if ( site.home === location.origin && window.parent == window ) {
+                _hmt.push(['_trackPageview', url]);
+            }
         }
 
     }
@@ -580,6 +585,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 "title": title,
                 "url": url 
             }, title, url);
+            if ( site.home === location.origin && window.parent == window ) {
+                _hmt.push(['_trackPageview', url]);
+            }
         }
         var tagLinks = document.getElementsByClassName('post-tags-item');
         var tagCount = tagLinks.length;
@@ -712,9 +720,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
             }
             document.title = title;
             history.replaceState({ 
-                "title": title,
-                "url": url 
+              "title": title,
+              "url": url 
             }, title, url);
+            if ( site.home === location.origin && window.parent == window ) {
+                _hmt.push(['_trackPageview', url]);
+            }
         }
     }
 
@@ -773,7 +784,6 @@ var loadWebfont = function(){
 if ( site.home === location.origin && window.parent == window ) {
     setTimeout(function() {
 
-        var _hmt = _hmt || [];
         var s = document.getElementsByTagName("script")[0];
         var hm = document.createElement('script');
         hm.src = '//hm.baidu.com/hm.js?'+site.tongji;
