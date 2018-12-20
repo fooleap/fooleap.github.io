@@ -24,7 +24,7 @@ tags: [Vim, 剪切板, "Arch Linux"]
 
 ### 粘贴文本
 
-当我们在其他地方选择文本后，想粘贴到 Vim，一般都会切换到插入模式点鼠标中键或 `Shift` + `Insert`，完成复制粘贴的过程。
+当我们在其他地方选择文本后，想粘贴到 Vim，一般都会切换到插入模式点鼠标中键或 `Shift` + `Insert`，完成复制粘贴的过程[[1]][1]。
 
 但有些时候，比如说复制在网页一些代码，粘贴时有时会出现不对齐，前面未加注释代码却被加上注释，这样一些恼人的问题。
 
@@ -45,7 +45,7 @@ Vim 不是通过 `Ctrl` + `c`, `Ctrl` + `x`, `Ctrl`  + `v` 来实现复制、剪
 >
 > 若在 X11 中使用该寄存器，另见 x11-selection。
 
-顺着思路 `:h x11-selection`，里面详细地介绍了 Vim 提供的使用 X11 主选择缓冲区和剪切板的方法，它们是通过 `"*` 和 `"+` 两个寄存器来实现。
+顺着思路 `:h x11-selection`，里面详细地介绍了 Vim 提供的使用 X11 主选择缓冲区和剪切板的方法，它们是通过 `"*` 和 `"+` 两个寄存器来实现[[2]][2]。
 
 大致可以明白，在 Windows 上只能通过 Clipboard，而可爱的 X11 却还给了我们 Primary，所以有了选中即复制，鼠标中间即粘贴这么神奇的粘贴操作。
 
@@ -75,7 +75,7 @@ Vim 不是通过 `Ctrl` + `c`, `Ctrl` + `x`, `Ctrl`  + `v` 来实现复制、剪
 
     # pacman -S gvim
 
-也可通过 ABS 这种方便的编译系统，重新编译 Vim
+也可通过 ABS 这种方便的编译系统[[3]][3]，重新编译 Vim
 
     # pacman -S abs
     # abs extra/vim
@@ -104,12 +104,26 @@ pkgname=('vim'<del> 'gvim' 'vim-runtime'</del>)
 
 重新进行验证，果然生效
 
-## 参考资料
+## unnamed
 
-* [Copy and paste from the system clipboard with vim](http://maxolasersquad.blogspot.com/2012/01/copy-and-paste-from-system-clipboard.html)
-* [X Selections, Cut Buffers, and Kill Rings.](http://www.jwz.org/doc/x-cut-and-paste.html)
-* [Arch Build System](https://wiki.archlinux.org/index.php/Arch_Build_System)
+你或许可以在 <code>.vimrc</code> 设置：
+
+   set clipboard=unnamed
+
+版本的高也可以用，据说跨平台[[4]][4]
+
+   set clipboard^=unnamed,unnamedplus
+
+直接共享系统剪切板，也是个不错的选择，就不用区记什么寄存器了。
+
+## 参考资料
 
 **本文历史**
 
 * 2013 年 01 月 24 日 完成初稿
+* 2018 年 12 月 21 日 添加 clipboard = unnamed
+
+[1]: http://www.jwz.org/doc/x-cut-and-paste.html "X Selections, Cut Buffers, and Kill Rings."
+[2]: http://maxolasersquad.blogspot.com/2012/01/copy-and-paste-from-system-clipboard.html "Copy and paste from the system clipboard with vim"
+[3]: https://wiki.archlinux.org/index.php/Arch_Build_System "Arch Build System"
+[4]: https://stackoverflow.com/questions/30691466/what-is-difference-between-vims-clipboard-unnamed-and-unnamedplus-settings "What is difference between Vim's clipboard “unnamed” and “unnamedplus” settings?"

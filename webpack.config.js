@@ -41,7 +41,7 @@ module.exports = {
         })
     ],
     optimization: {
-        minimizer: [
+        /*minimizer: [
             new UglifyJSPlugin({
                 uglifyOptions: { 
                     warnings: false,
@@ -52,6 +52,6 @@ module.exports = {
                     ie8: false
                 }
             })
-        ]
+        ]*/
     }
 };
