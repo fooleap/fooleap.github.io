@@ -7,7 +7,32 @@
     margin: 0!important;
   }
 }
+@media screen and(min-width: 450px) {
+  .iframe-wide-container,
+  .iframe-normal-container {
+    margin-top: -50px;
+    pointer-events: none;
+    .iframe{
+      pointer-events: auto;
+      margin-bottom: -50px;
+    }
+  }
+}
 @media screen and(max-width: 450px) {
+  .post-content {
+    .iframe-normal-container {
+      padding-bottom: 75%;
+    }
+    .iframe-wide-container {
+      padding-bottom: 56.25%;
+    }
+    .iframe-normal-container,
+    .iframe-wide-container {
+      max-width: calc(100% + 14px)!important;
+      width: calc(100% + 14px)!important;
+      margin: 18px -7px!important;
+    }
+  }
   .running-table-container{
     table{
       td,th{

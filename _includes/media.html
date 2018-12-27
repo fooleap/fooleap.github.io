@@ -6,8 +6,8 @@
 {% when "video" %}
 <video class="video" controls poster="{{ include.poster | replace_first: 'IMG_PATH', site.IMG_PATH }}" src="{{ include.src | replace_first: 'IMG_PATH', site.IMG_PATH }}"></video>
 {% when "video-qq" %}
-<div class="iframe-{{ include.mode }}-container">
-    <iframe class="iframe" src="/video.html?vid={{ include.vid }}&mode={{ include.mode }}"></iframe>
+<div class="iframe-{{ include.mode }}-container {{ include.mode }}">
+    <iframe class="iframe" frameborder="0" src="https://v.qq.com/txp/iframe/player.html?vid={{ include.vid }}" allowFullScreen="true"></iframe>
 </div>
 {% else %}
 <iframe src="{{ include.src }}" width="{{ include.width }}" height="{{ include.height }}" seamless="seamless" scrolling="no" frameborder="0"></iframe>

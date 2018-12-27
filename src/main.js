@@ -631,6 +631,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
           case 'fastest.run.continuous.half_marathon':
             theadHtml += '<th>半马</th>';
             break;
+          case 'fastest.run.continuous.marathon':
+            theadHtml += '<th>全马</th>';
+            break;
           case 'longest.run.distance.activity':
             theadHtml += '<th>最远记录</th>';
             break;
@@ -643,7 +646,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             var distance = (record.value / 1000).toFixed(2);
             tbodyHtml += '<td>'+distance+' 公里</td>';
           }
-          if(/5k|10k|half_marathon|duration/.test(record.type_id)){
+          if(/5k|10k|marathon|duration/.test(record.type_id)){
             var duration = record.value;
             var totalMinute = parseInt(duration / 60)
             var durationSecond = parseInt(duration % 60)
