@@ -350,12 +350,14 @@ body {
     border-left: 4px solid $darkblue;
     padding-left: 5px;
     font-size: 14px;
+    font-weight: 500;
     &:hover:after, &:target:after{
       content: " ¶";
     }
   }
   h3 {
     font-size: 13px;
+    font-weight: 500;
     &:hover:after, &:target:after{
       content: " ¶";
     }
@@ -536,7 +538,7 @@ body {
   &:before {
     content: '目录';
     font-size: 13px;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 30px;
     height: 30px;
   }
@@ -549,14 +551,12 @@ body {
       font-size: 13px;
       text-indent: 5px;
       &:hover {
-        border-radius: 3px;
-        background-color: rgb(230, 230, 230);
+        font-weight: bold;
         border-bottom: none;
       }
     }
     .active {
-      background-color: rgb(230, 230, 230);
-      border-radius: 3px;
+      font-weight: bold;
     }
     li {
       margin-left: 10px;
