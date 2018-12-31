@@ -748,7 +748,7 @@ if(page.url == '/tech.html' || page.url == '/life.html' || page.url == '/album.h
       html += '<article class="post-item">'+
         '    <i class="post-item-thumb" data-src="'+item.thumb+'" style="background-image:url('+item.thumb+')"></i>'+
         '    <section class="post-item-summary">'+
-        '    <h3 class="post-item-title"><a class="post-item-link" href="'+item.url+'" title="'+item.title+'">'+item.title+(item.images > 0 ? '['+item.images+'P]' : '')+'</a></h3>'+
+        '    <h3 class="post-item-title"><a class="post-item-link" href="'+item.url+'" title="'+item.title+'">'+item.title+(item.images > 0 && item.category == 'life' ? '['+item.images+'P]' : '')+'</a></h3>'+
         '    <time class="post-item-date timeago" datetime="'+item.date+'"></time>'+
         '    </section>'+
         '    <a class="post-item-comment" title="查看评论" data-disqus-url="'+item.url+'" href="'+item.url+'#comment"></a>'+
