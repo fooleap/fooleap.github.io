@@ -19,6 +19,9 @@
   }
 }
 @media screen and(max-width: 450px) {
+  .post-life .post-item{
+    width: 50%;
+  }
   .post-content {
     .iframe-normal-container {
       padding-bottom: 75%;

@@ -144,12 +144,38 @@ body {
 
 .page-header {
   .page-title {
+    position: relative;
     padding-bottom: 5px;
-    border-bottom: 1px solid #e7e7eb;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #e7e7eb;
     font-weight: 500;
     font-size: 16px;
     display: flex;
     justify-content: space-between;
+    &:before{
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 2px;
+      background-color: #7db9de;
+    }
+    &:after{
+      display: inline-block;
+      position: absolute;
+      bottom: -7px;
+      color: #7db9de;
+      background-color: #fff;
+      padding: 0 3px;
+      font-size: 12px;
+      line-height: 1;
+      opacity: 0;
+      transition: .3s opacity;
+    }
+    &:hover:after{
+      opacity: .6;
+    }
     .page-title-link {
       color: $black;
       border-bottom: none;
@@ -285,6 +311,47 @@ body {
     &:hover {
       background-color: $darkblue;
       border-bottom: none;
+    }
+  }
+}
+
+.post-life{
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 0;
+  margin: 0 -5px;
+  .post-item{
+    flex: none;
+    padding: 0 5px;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    width: 33.3333%;
+  }
+  .post-item-thumb{
+    background-size: contain;
+    width: 100%;
+    height: 0;
+    padding-top: 67%;
+  }
+  .post-item-summary{
+    margin: 3px 0 0;
+    height: 25px;
+    font-size: 13px;
+    flex: none;
+  }
+  .post-item-footer{
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .post-item-cmt{
+    color: #333;
+    &:hover{
+      border-bottom: none;
+    }
+    span:empty + span{
+      display: none;
     }
   }
 }
