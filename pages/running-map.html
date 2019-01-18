@@ -5,502 +5,506 @@ title: 跑步路径地图
 ---
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>跑步路径地图</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
-        <meta name="description" content="A foolish man could not always lose!" />
-        <meta name="keywords" content="fooleap, 前端, Linux, 潮汕" />
-        <meta name="author" content="fooleap" />
-        <meta name="renderer" content="webkit">
-        <style>
-            html,body, #map{
-                margin: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #fff;
-                font-family: arial, sans-serif;
-            }
-            .running-image{
-                display: none;
-            }
-            .init{
-                position: relative;
-            }
-            @keyframes rotate {
-                0%,
-                100% {
-                    transform: rotate(0deg);
-                }
-                100% {
-                    transform: rotate(360deg);
-                }
-            }
-            .init:before,
-            .init:after{
-                content: "";
-                position: absolute;
-                display: block;
-                z-index: 999;
-            }
-            .init:before{
-                left: 0;
-                top: 0;
-                background-color: #fff;
-                width: 100%;
-                height: 100%;
-            }
-            .init:after{
-                left: 50%;
-                top: 50%;
-                margin-top: -20px;
-                margin-left: -20px;
-                width: 40px;
-                height: 40px;;
-                background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="83.543px" height="83.709px" viewBox="0 0 83.543 83.709" enable-background="new 0 0 83.543 83.709" xml:space="preserve"><circle fill="none" stroke="#E2E2E2" stroke-width="6" cx="41.875" cy="41.75" r="38.625"/><path fill="none" stroke="#7F7F7F" stroke-width="6" d="M3.25,41.75c0-21.332,17.293-38.625,38.625-38.625" /></svg>');
-                background-position: center center;
-                background-size: cover;
-                background-repeat: no-repeat;
-                animation: rotate .8s linear infinite;
-            }
-            .marker-circle{
-                width: 9px;
-                height: 9px;
-                border: 3px solid #fff;
-                border-radius: 50%;
-                box-shadow: 1px 1px 0 rgba(0,0,0,.4);
-            }
-            .marker-circle.green{
-                background-color: #60AB43;
-            }
-            .marker-circle.red{
-                background-color: #f80000;
-            }
-            .marker-circle.black{
-                background-color: #000000;
-            }
-            .running-distance{
-              background-color: rgba(0,0,0,.8);
-              font-size: 12px;
-              color: #fff;
-              width: 50px;
-              height: 20px;
-              line-height: 20px;
-              padding: 0 3px 0 5px;
-              text-align: right;
-              border-top-left-radius: 10px;
-              border-bottom-left-radius: 10px;
-              position: absolute;
-              white-space: nowrap;
-              left: -10px;
-              top: 2px;
-            }
-            .running-distance:after{
-                content: "";
-                right: -20px;
-                top: 0;
-                position: absolute;
-                height: 0;
-                width: 0;
-                border: 10px solid transparent;
-                border-left-color: rgba(0,0,0,.8);
-            }
-            .running-distance .running-number{
-                color: #83DD00;
-            }
-            .running-info-container{
-                font-size: 14px;
-                box-sizing: border-box;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                width: 90%;
-                max-width: 480px;
-                height: 32px;
-                background-color: rgba(0,0,0,.8);
-                color: #fff;
-                border-radius: 4px;
-                position: fixed;
-                bottom: 6%;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            .running-info-item{
-                flex: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .running-info .icon{
-                width: 20px;
-                height: 20px;
-                vertical-align: middle;
-                display: block;
-                background-size: cover;
-            }
-            .running-info .icon-duration{
-                background-image: url('data:image/svg+xml;utf8,<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch --><title>Duration</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Duration" sketch:type="MSArtboardGroup" fill="#fff"><g id="Imported-Layers" sketch:type="MSLayerGroup" transform="translate(11.000000, 8.000000)"><path d="M22.4251429,0.6307 L26.1584762,0.6307 L26.1584762,7.41848571 L22.4251429,7.41848571 L22.4251429,0.6307 Z" id="Fill-1" sketch:type="MSShapeGroup"></path><path d="M20.4700952,0.378571429 L27.9367619,0.378571429 L27.9367619,3.71 L20.4700952,3.71 L20.4700952,0.378571429 Z" id="Fill-2" sketch:type="MSShapeGroup"></path><path d="M24.3314286,52.5078571 C11.3074286,52.5078571 0.712380952,41.9782714 0.712380952,29.0364286 C0.712380952,16.0938286 11.3074286,5.565 24.3314286,5.565 C37.3546667,5.565 47.9504762,16.0938286 47.9504762,29.0364286 C47.9504762,41.9782714 37.3546667,52.5078571 24.3314286,52.5078571 L24.3314286,52.5078571 Z M24.3314286,8.59357143 C12.9881905,8.59357143 3.76,17.7640857 3.76,29.0364286 C3.76,40.3080143 12.9881905,49.4792857 24.3314286,49.4792857 C35.6739048,49.4792857 44.9028571,40.3080143 44.9028571,29.0364286 C44.9028571,17.7640857 35.6739048,8.59357143 24.3314286,8.59357143 L24.3314286,8.59357143 Z" id="Fill-3" sketch:type="MSShapeGroup"></path><path d="M37.2769524,10.7749 L41.4262857,14.6787286 L44.2468571,11.7175429 L40.0975238,7.81371429 L37.2769524,10.7749" id="Fill-4" sketch:type="MSShapeGroup"></path><path d="M22.4251429,22.3357143 L26.1584762,22.3357143 L26.1584762,34.6392857 L22.4251429,34.6392857 L22.4251429,22.3357143 Z" id="Fill-5" sketch:type="MSShapeGroup"></path><path d="M27.8537143,29.3074857 C27.8537143,31.3116429 26.2194286,32.9357143 24.2034286,32.9357143 C22.1866667,32.9357143 20.552381,31.3116429 20.552381,29.3074857 C20.552381,27.3040857 22.1866667,25.6800143 24.2034286,25.6800143 C26.2194286,25.6800143 27.8537143,27.3040857 27.8537143,29.3074857" id="Fill-6" sketch:type="MSShapeGroup"></path></g></g></g></svg>');
-            }
-            .running-info .icon-pace{
-                background-image: url('data:image/svg+xml;utf8,<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch --><title>Pace</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Pace" sketch:type="MSArtboardGroup" fill="#fff"><g sketch:type="MSLayerGroup" transform="translate(10.000000, 12.000000)" id="Group"><g sketch:type="MSShapeGroup"><path d="M24,0 C10.72,0 0,10.72 0,24 C0,27.04 0.64,30.08 1.6,32.64 C1.76,33.28 2.24,33.92 2.4,34.4 C4.32,38.4 7.2,41.6 10.72,44 C11.36,44.32 12,44.8 12.48,44.96 C16,47.04 20,48 24,48 C28,48 31.84,47.04 35.2,45.12 C35.84,44.8 36.48,44.32 36.96,44.16 C40.48,41.76 43.52,38.56 45.28,34.56 C45.76,33.92 45.92,33.28 46.08,32.8 C47.36,30.08 48,27.2 48,24 C48,10.72 37.12,0 24,0 L24,0 Z M32.32,42.88 C29.92,44.16 26.88,44.64 24,44.64 C21.12,44.64 18.24,43.84 15.36,42.88 L13.92,42.08 C9.92,39.84 6.72,36.32 4.96,32.16 L4.32,30.56 C3.68,28.64 3.36,26.56 3.36,24.32 C3.36,12.8 12.64,3.68 24,3.68 C35.36,3.68 44.64,12.8 44.64,24 C44.64,26.24 44.16,28.16 43.68,30.24 L42.88,32 C41.12,36.16 38.08,39.84 34.08,41.92 L32.32,42.88 L32.32,42.88 Z" id="Shape"></path><circle id="Oval" cx="24" cy="8.64" r="1.76"></circle><path d="M32.64,9.28 C31.84,8.96 30.88,9.12 30.24,9.92 C29.76,10.72 30.08,11.68 30.88,12.32 C31.68,12.64 32.64,12.48 33.28,11.68 C33.6,10.72 33.44,9.6 32.64,9.28 L32.64,9.28 Z" id="Shape"></path><path d="M36.48,14.72 C35.68,15.04 35.52,16.16 35.84,17.12 C36.16,18.08 37.28,18.08 38.24,17.76 C39.04,17.44 39.2,16.32 38.88,15.36 C38.4,14.56 37.12,14.4 36.48,14.72 L36.48,14.72 Z" id="Shape"></path><path d="M37.6,24 C37.6,24.96 38.4,25.76 39.36,25.76 C40.32,25.76 41.12,24.96 41.12,24 C41.12,23.04 40.32,22.24 39.36,22.24 C38.4,22.24 37.6,23.2 37.6,24 L37.6,24 Z" id="Shape"></path><path d="M17.76,9.76 C17.44,8.96 16.32,8.8 15.36,9.12 C14.56,9.6 14.4,10.56 14.72,11.52 C15.04,12.32 16.16,12.48 17.12,12.16 C17.92,11.84 18.24,10.72 17.76,9.76 L17.76,9.76 Z" id="Shape"></path><path d="M11.36,14.72 C10.56,14.4 9.6,14.56 8.96,15.36 C8.64,16.16 8.8,17.12 9.6,17.76 C10.4,18.08 11.36,17.92 12,17.12 C12.64,16.32 12.48,15.36 11.36,14.72 L11.36,14.72 Z" id="Shape"></path><path d="M8.64,22.4 C7.68,22.4 6.88,23.2 6.88,24.16 C6.88,25.12 7.68,25.92 8.64,25.92 C9.6,25.92 10.4,25.12 10.4,24.16 C10.4,23.2 9.6,22.4 8.64,22.4 L8.64,22.4 Z" id="Shape"></path><path d="M26.24,25.92 L26.24,25.92 C25.44,26.72 24,26.72 23.52,25.92 C21.28,23.04 17.12,17.6 17.28,17.28 C17.6,16.96 23.36,21.12 26.08,23.36 C26.88,24 27.04,25.28 26.24,25.92 L26.24,25.92 Z" id="Shape"></path><path d="M26.56,26.4 C27.84,24.96 27.52,22.88 26.08,21.6 C24.64,20.32 22.56,20.64 21.28,21.92 C20,23.36 20.32,25.6 21.6,26.72 C23.2,27.84 25.44,27.84 26.56,26.4 L26.56,26.4 Z" id="Shape"></path></g></g></g></g></svg>');
-            }
-            .running-info .icon-distance{
-                background-image: url('data:image/svg+xml;utf8,<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch --><title>Distance</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Distance" sketch:type="MSArtboardGroup" fill="#fff"><g sketch:type="MSLayerGroup" transform="translate(14.000000, 11.000000)" id="Shape"><path d="M11.8461538,18.4866667 C11.8461538,15.04 23.3846154,15.6666667 23.3846154,6.73666667 L29.3846154,6.73666667 C29.5384615,6.73666667 29.5384615,6.58 29.3846154,6.42333333 L20,0 L19.6923077,0 L10.6153846,6.26666667 C10.4615385,6.26666667 10.6153846,6.58 10.6153846,6.58 L16.6153846,6.58 C16.6153846,10.0266667 12.7692308,11.28 11.3846154,11.75 C9.23076923,12.3766667 0,14.1 0,19.27 C0,28.8266667 22.3076923,25.2233333 22.3076923,30.55 C22.3076923,32.9 16.7692308,33.84 13.2307692,36.19 C9.69230769,38.54 5.53846154,43.5533333 5.53846154,46.3733333 C5.53846154,46.53 5.69230769,46.8433333 5.84615385,46.8433333 L31.3846154,46.8433333 C31.5384615,46.8433333 31.8461538,46.6866667 31.8461538,46.3733333 C32.1538462,39.95 39.8461538,39.01 39.8461538,31.1766667 C40.1538462,17.86 11.8461538,22.56 11.8461538,18.4866667 L11.8461538,18.4866667 Z" sketch:type="MSShapeGroup"></path></g></g></g></svg>');
-            }
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>跑步路径地图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.3, user-scalable=no" />
+    <meta name="description" content="A foolish man could not always lose!" />
+    <meta name="keywords" content="fooleap, 前端, Linux, 潮汕" />
+    <meta name="author" content="fooleap" />
+    <meta name="renderer" content="webkit">
+    <style>
+     html,body, #map{
+       margin: 0;
+       width: 100%;
+       height: 100%;
+       background-color: #fff;
+       font-family: arial, sans-serif;
+     }
+     .running-image{
+       display: none;
+     }
+     .init{
+       position: relative;
+     }
+     @keyframes rotate {
+       0%,
+       100% {
+         transform: rotate(0deg);
+       }
+       100% {
+         transform: rotate(360deg);
+       }
+     }
+     .init:before,
+     .init:after{
+       content: "";
+       position: absolute;
+       display: block;
+       z-index: 999;
+     }
+     .init:before{
+       left: 0;
+       top: 0;
+       background-color: #fff;
+       width: 100%;
+       height: 100%;
+     }
+     .init:after{
+       left: 50%;
+       top: 50%;
+       margin-top: -20px;
+       margin-left: -20px;
+       width: 40px;
+       height: 40px;;
+       background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="83.543px" height="83.709px" viewBox="0 0 83.543 83.709" enable-background="new 0 0 83.543 83.709" xml:space="preserve"><circle fill="none" stroke="#E2E2E2" stroke-width="6" cx="41.875" cy="41.75" r="38.625"/><path fill="none" stroke="#7F7F7F" stroke-width="6" d="M3.25,41.75c0-21.332,17.293-38.625,38.625-38.625" /></svg>');
+       background-position: center center;
+       background-size: cover;
+       background-repeat: no-repeat;
+       animation: rotate .8s linear infinite;
+     }
+     .marker-circle{
+       width: 9px;
+       height: 9px;
+       border: 3px solid #fff;
+       border-radius: 50%;
+       box-shadow: 1px 1px 0 rgba(0,0,0,.4);
+     }
+     .marker-circle.green{
+       background-color: #60AB43;
+     }
+     .marker-circle.red{
+       background-color: #f80000;
+     }
+     .marker-circle.black{
+       background-color: #000000;
+     }
+     .running-distance{
+       background-color: rgba(0,0,0,.8);
+       font-size: 12px;
+       color: #fff;
+       width: 50px;
+       height: 20px;
+       line-height: 20px;
+       padding: 0 3px 0 5px;
+       text-align: right;
+       border-top-left-radius: 10px;
+       border-bottom-left-radius: 10px;
+       position: absolute;
+       white-space: nowrap;
+       left: -10px;
+       top: 2px;
+     }
+     .running-distance:after{
+       content: "";
+       right: -20px;
+       top: 0;
+       position: absolute;
+       height: 0;
+       width: 0;
+       border: 10px solid transparent;
+       border-left-color: rgba(0,0,0,.8);
+     }
+     .running-distance .running-number{
+       color: #83DD00;
+     }
+     .running-info-container{
+       font-size: 14px;
+       box-sizing: border-box;
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+       width: 90%;
+       max-width: 480px;
+       height: 32px;
+       background-color: rgba(0,0,0,.8);
+       color: #fff;
+       border-radius: 4px;
+       position: fixed;
+       bottom: 6%;
+       left: 50%;
+       transform: translateX(-50%);
+     }
+     .running-info-item{
+       flex: 1;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     }
+     .running-info .icon{
+       width: 20px;
+       height: 20px;
+       vertical-align: middle;
+       display: block;
+       background-size: cover;
+     }
+     .running-info .icon-duration{
+       background-image: url('data:image/svg+xml;utf8,<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch --><title>Duration</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Duration" sketch:type="MSArtboardGroup" fill="#fff"><g id="Imported-Layers" sketch:type="MSLayerGroup" transform="translate(11.000000, 8.000000)"><path d="M22.4251429,0.6307 L26.1584762,0.6307 L26.1584762,7.41848571 L22.4251429,7.41848571 L22.4251429,0.6307 Z" id="Fill-1" sketch:type="MSShapeGroup"></path><path d="M20.4700952,0.378571429 L27.9367619,0.378571429 L27.9367619,3.71 L20.4700952,3.71 L20.4700952,0.378571429 Z" id="Fill-2" sketch:type="MSShapeGroup"></path><path d="M24.3314286,52.5078571 C11.3074286,52.5078571 0.712380952,41.9782714 0.712380952,29.0364286 C0.712380952,16.0938286 11.3074286,5.565 24.3314286,5.565 C37.3546667,5.565 47.9504762,16.0938286 47.9504762,29.0364286 C47.9504762,41.9782714 37.3546667,52.5078571 24.3314286,52.5078571 L24.3314286,52.5078571 Z M24.3314286,8.59357143 C12.9881905,8.59357143 3.76,17.7640857 3.76,29.0364286 C3.76,40.3080143 12.9881905,49.4792857 24.3314286,49.4792857 C35.6739048,49.4792857 44.9028571,40.3080143 44.9028571,29.0364286 C44.9028571,17.7640857 35.6739048,8.59357143 24.3314286,8.59357143 L24.3314286,8.59357143 Z" id="Fill-3" sketch:type="MSShapeGroup"></path><path d="M37.2769524,10.7749 L41.4262857,14.6787286 L44.2468571,11.7175429 L40.0975238,7.81371429 L37.2769524,10.7749" id="Fill-4" sketch:type="MSShapeGroup"></path><path d="M22.4251429,22.3357143 L26.1584762,22.3357143 L26.1584762,34.6392857 L22.4251429,34.6392857 L22.4251429,22.3357143 Z" id="Fill-5" sketch:type="MSShapeGroup"></path><path d="M27.8537143,29.3074857 C27.8537143,31.3116429 26.2194286,32.9357143 24.2034286,32.9357143 C22.1866667,32.9357143 20.552381,31.3116429 20.552381,29.3074857 C20.552381,27.3040857 22.1866667,25.6800143 24.2034286,25.6800143 C26.2194286,25.6800143 27.8537143,27.3040857 27.8537143,29.3074857" id="Fill-6" sketch:type="MSShapeGroup"></path></g></g></g></svg>');
+     }
+     .running-info .icon-pace{
+       background-image: url('data:image/svg+xml;utf8,<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch --><title>Pace</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Pace" sketch:type="MSArtboardGroup" fill="#fff"><g sketch:type="MSLayerGroup" transform="translate(10.000000, 12.000000)" id="Group"><g sketch:type="MSShapeGroup"><path d="M24,0 C10.72,0 0,10.72 0,24 C0,27.04 0.64,30.08 1.6,32.64 C1.76,33.28 2.24,33.92 2.4,34.4 C4.32,38.4 7.2,41.6 10.72,44 C11.36,44.32 12,44.8 12.48,44.96 C16,47.04 20,48 24,48 C28,48 31.84,47.04 35.2,45.12 C35.84,44.8 36.48,44.32 36.96,44.16 C40.48,41.76 43.52,38.56 45.28,34.56 C45.76,33.92 45.92,33.28 46.08,32.8 C47.36,30.08 48,27.2 48,24 C48,10.72 37.12,0 24,0 L24,0 Z M32.32,42.88 C29.92,44.16 26.88,44.64 24,44.64 C21.12,44.64 18.24,43.84 15.36,42.88 L13.92,42.08 C9.92,39.84 6.72,36.32 4.96,32.16 L4.32,30.56 C3.68,28.64 3.36,26.56 3.36,24.32 C3.36,12.8 12.64,3.68 24,3.68 C35.36,3.68 44.64,12.8 44.64,24 C44.64,26.24 44.16,28.16 43.68,30.24 L42.88,32 C41.12,36.16 38.08,39.84 34.08,41.92 L32.32,42.88 L32.32,42.88 Z" id="Shape"></path><circle id="Oval" cx="24" cy="8.64" r="1.76"></circle><path d="M32.64,9.28 C31.84,8.96 30.88,9.12 30.24,9.92 C29.76,10.72 30.08,11.68 30.88,12.32 C31.68,12.64 32.64,12.48 33.28,11.68 C33.6,10.72 33.44,9.6 32.64,9.28 L32.64,9.28 Z" id="Shape"></path><path d="M36.48,14.72 C35.68,15.04 35.52,16.16 35.84,17.12 C36.16,18.08 37.28,18.08 38.24,17.76 C39.04,17.44 39.2,16.32 38.88,15.36 C38.4,14.56 37.12,14.4 36.48,14.72 L36.48,14.72 Z" id="Shape"></path><path d="M37.6,24 C37.6,24.96 38.4,25.76 39.36,25.76 C40.32,25.76 41.12,24.96 41.12,24 C41.12,23.04 40.32,22.24 39.36,22.24 C38.4,22.24 37.6,23.2 37.6,24 L37.6,24 Z" id="Shape"></path><path d="M17.76,9.76 C17.44,8.96 16.32,8.8 15.36,9.12 C14.56,9.6 14.4,10.56 14.72,11.52 C15.04,12.32 16.16,12.48 17.12,12.16 C17.92,11.84 18.24,10.72 17.76,9.76 L17.76,9.76 Z" id="Shape"></path><path d="M11.36,14.72 C10.56,14.4 9.6,14.56 8.96,15.36 C8.64,16.16 8.8,17.12 9.6,17.76 C10.4,18.08 11.36,17.92 12,17.12 C12.64,16.32 12.48,15.36 11.36,14.72 L11.36,14.72 Z" id="Shape"></path><path d="M8.64,22.4 C7.68,22.4 6.88,23.2 6.88,24.16 C6.88,25.12 7.68,25.92 8.64,25.92 C9.6,25.92 10.4,25.12 10.4,24.16 C10.4,23.2 9.6,22.4 8.64,22.4 L8.64,22.4 Z" id="Shape"></path><path d="M26.24,25.92 L26.24,25.92 C25.44,26.72 24,26.72 23.52,25.92 C21.28,23.04 17.12,17.6 17.28,17.28 C17.6,16.96 23.36,21.12 26.08,23.36 C26.88,24 27.04,25.28 26.24,25.92 L26.24,25.92 Z" id="Shape"></path><path d="M26.56,26.4 C27.84,24.96 27.52,22.88 26.08,21.6 C24.64,20.32 22.56,20.64 21.28,21.92 C20,23.36 20.32,25.6 21.6,26.72 C23.2,27.84 25.44,27.84 26.56,26.4 L26.56,26.4 Z" id="Shape"></path></g></g></g></g></svg>');
+     }
+     .running-info .icon-distance{
+       background-image: url('data:image/svg+xml;utf8,<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch --><title>Distance</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Distance" sketch:type="MSArtboardGroup" fill="#fff"><g sketch:type="MSLayerGroup" transform="translate(14.000000, 11.000000)" id="Shape"><path d="M11.8461538,18.4866667 C11.8461538,15.04 23.3846154,15.6666667 23.3846154,6.73666667 L29.3846154,6.73666667 C29.5384615,6.73666667 29.5384615,6.58 29.3846154,6.42333333 L20,0 L19.6923077,0 L10.6153846,6.26666667 C10.4615385,6.26666667 10.6153846,6.58 10.6153846,6.58 L16.6153846,6.58 C16.6153846,10.0266667 12.7692308,11.28 11.3846154,11.75 C9.23076923,12.3766667 0,14.1 0,19.27 C0,28.8266667 22.3076923,25.2233333 22.3076923,30.55 C22.3076923,32.9 16.7692308,33.84 13.2307692,36.19 C9.69230769,38.54 5.53846154,43.5533333 5.53846154,46.3733333 C5.53846154,46.53 5.69230769,46.8433333 5.84615385,46.8433333 L31.3846154,46.8433333 C31.5384615,46.8433333 31.8461538,46.6866667 31.8461538,46.3733333 C32.1538462,39.95 39.8461538,39.01 39.8461538,31.1766667 C40.1538462,17.86 11.8461538,22.56 11.8461538,18.4866667 L11.8461538,18.4866667 Z" sketch:type="MSShapeGroup"></path></g></g></g></svg>');
+     }
 
-            .running-info .icon-heart{
-                background-image: url('data:image/svg+xml;utf8,<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch --><title>HeartRate</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="HeartRate" sketch:type="MSArtboardGroup" fill="#fff"><g sketch:type="MSLayerGroup" transform="translate(10.000000, 11.000000)" id="Shape"><path d="M34.1366667,0 C30.5433333,0 27.2766667,1.47 24.5,3.43 C21.8866667,1.14333333 18.62,0 14.8633333,0 C6.53333333,0 0,6.53333333 0,14.8633333 C0,29.7266667 24.5,49 24.5,49 C24.5,49 49,29.7266667 49,14.8633333 C49,6.69666667 42.3033333,0 34.1366667,0 L34.1366667,0 Z M14.8633333,3.43 C17.4766667,3.43 20.09,4.41 22.2133333,6.04333333 L24.5,8.16666667 L26.7866667,6.20666667 C28.7466667,4.41 31.5233333,3.59333333 34.1366667,3.59333333 C40.5066667,3.59333333 45.57,8.65666667 45.57,15.0266667 C45.57,16.8233333 44.9166667,19.11 44.1,21.2333333 L28.5833333,21.2333333 L26.2966667,25.97 L19.4366667,12.0866667 L14.8633333,21.2333333 L4.9,21.2333333 C4.08333333,18.9466667 3.43,16.9866667 3.43,15.0266667 C3.43,8.49333333 8.49333333,3.43 14.8633333,3.43 L14.8633333,3.43 Z M24.5,44.4266667 C19.4366667,40.0166667 11.27,32.34 6.69666667,24.5 L16.8233333,24.5 L19.2733333,19.6 L26.1333333,33.6466667 L30.38,24.5 L41.9766667,24.5 C37.73,32.34 29.5633333,40.0166667 24.5,44.4266667 L24.5,44.4266667 Z" sketch:type="MSShapeGroup"></path></g></g></g></svg>')
+     .running-info .icon-heart{
+       background-image: url('data:image/svg+xml;utf8,<svg width="70px" height="70px" viewBox="0 0 70 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch --><title>HeartRate</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="HeartRate" sketch:type="MSArtboardGroup" fill="#fff"><g sketch:type="MSLayerGroup" transform="translate(10.000000, 11.000000)" id="Shape"><path d="M34.1366667,0 C30.5433333,0 27.2766667,1.47 24.5,3.43 C21.8866667,1.14333333 18.62,0 14.8633333,0 C6.53333333,0 0,6.53333333 0,14.8633333 C0,29.7266667 24.5,49 24.5,49 C24.5,49 49,29.7266667 49,14.8633333 C49,6.69666667 42.3033333,0 34.1366667,0 L34.1366667,0 Z M14.8633333,3.43 C17.4766667,3.43 20.09,4.41 22.2133333,6.04333333 L24.5,8.16666667 L26.7866667,6.20666667 C28.7466667,4.41 31.5233333,3.59333333 34.1366667,3.59333333 C40.5066667,3.59333333 45.57,8.65666667 45.57,15.0266667 C45.57,16.8233333 44.9166667,19.11 44.1,21.2333333 L28.5833333,21.2333333 L26.2966667,25.97 L19.4366667,12.0866667 L14.8633333,21.2333333 L4.9,21.2333333 C4.08333333,18.9466667 3.43,16.9866667 3.43,15.0266667 C3.43,8.49333333 8.49333333,3.43 14.8633333,3.43 L14.8633333,3.43 Z M24.5,44.4266667 C19.4366667,40.0166667 11.27,32.34 6.69666667,24.5 L16.8233333,24.5 L19.2733333,19.6 L26.1333333,33.6466667 L30.38,24.5 L41.9766667,24.5 C37.73,32.34 29.5633333,40.0166667 24.5,44.4266667 L24.5,44.4266667 Z" sketch:type="MSShapeGroup"></path></g></g></g></svg>')
+     }
+     .running-start{
+       background-color: rgba(0,0,0,.8);
+       color: #fff;
+       display: inline-block;
+       border-radius: 10px;
+       position: fixed;
+       line-height: 20px;
+       height: 20px;
+       padding: 0 12px;
+       font-size: 13px;
+       top: 5%;
+       left: 5%;
+     }
+    </style>
+    <script src="//webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"></script>
+    <script>
+      if(top == window){
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?fa7ec982118ebd236663169678264582";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  </head>
+  <body>
+    <div class="running-image">
+      <img id="static-map" />
+    </div>
+    <div id="map" class="init" title="点击地图启动轨迹动画"></div>
+    <div class="running-start"></div>
+    <div class="running-info">
+      <div class="running-info-container">
+        <div class="running-info-item" id="distance" title="距离">
+          <i class="icon icon-distance"></i>
+          <span class="running-info-text"></span>
+        </div>
+        <div class="running-info-item" id="duration" title="时间">
+          <i class="icon icon-duration"></i>
+          <span class="running-info-text"></span>
+        </div>
+        <div class="running-info-item" id="pace" title="配速">
+          <i class="icon icon-pace"></i>
+          <span class="running-info-text"></span>
+        </div>
+        <div class="running-info-item" id="heartRate" title="平均心率">
+          <i class="icon icon-heart"></i>
+          <span class="running-info-text"></span>
+        </div>
+      </div>
+    </div>
+    <script>
+
+      function getQuery(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0; i<vars.length; i++) {
+          var pair = vars[i].split("=");
+          if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+      }
+
+      function hsl2hex (h, s, l) {
+
+        var r, g, b, m, c, x;
+
+        if (!isFinite(h)) h = 0;
+        if (!isFinite(s)) s = 0;
+        if (!isFinite(l)) l = 0;
+
+        h /= 60;
+        if (h < 0) h = 6 - (-h % 6);
+        h %= 6;
+
+        s = Math.max(0, Math.min(1, s / 100));
+        l = Math.max(0, Math.min(1, l / 100));
+        c = (1 - Math.abs((2 * l) - 1)) * s;
+        x = c * (1 - Math.abs((h % 2) - 1));
+
+        if (h < 1) {
+          r = c;
+          g = x;
+          b = 0;
+        } else if (h < 2) {
+          r = x;
+          g = c;
+          b = 0;
+        } else if (h < 3) {
+          r = 0;
+          g = c;
+          b = x;
+        } else if (h < 4) {
+          r = 0;
+          g = x;
+          b = c;
+        } else if (h < 5) {
+          r = x;
+          g = 0;
+          b = c;
+        } else {
+          r = c;
+          g = 0;
+          b = x;
+        }
+
+        m = l - c / 2;
+        r = Math.round((r + m) * 255);
+        g = Math.round((g + m) * 255);
+        b = Math.round((b + m) * 255);
+        var tohex = function(num){
+          var hexNum = num.toString(16);
+          return hexNum.length == 1 ? '0' + hexNum : hexNum;
+        }
+        return '#'+tohex(r)+tohex(g)+tohex(b);
+      }
+
+      function mapInit(data){
+
+
+        // 坐标数组
+        var lineArr = data.metrics.coord;
+        // 坐标总数，起终点坐标
+        var count = lineArr.length;
+        var first = lineArr[0];
+        var last = lineArr[count - 1];
+
+        // 静态图
+        var n = parseInt(count / 500) || 1;
+        var sLineArr = [];
+        for (var i = 0, j = 0; i < count; i = i + n, j++){
+          sLineArr[j] = lineArr[i].map(function(i){
+            return parseFloat(i.toFixed(4));
+          })
+        }
+        var imgSrc = '//restapi.amap.com/v3/staticmap?key=ee95e52bf08006f63fd29bcfbcf21df0&scale=1&size=640*640&paths=3,0x52EE06,1,,:' + sLineArr.join(';');
+        document.getElementById('static-map').src = imgSrc;
+
+        // 构造地图对象
+        var map = new AMap.Map('map', {
+          viewMode: '3D',
+          pitch: 45,
+          showBuildingBlock:true
+        });
+
+        // 跑步路线折线
+        var polyline = new AMap.Polyline({
+          map: map,
+          path: lineArr,
+          lineJoin: 'round',
+          strokeColor: "#52EE06",
+          strokeOpacity: 1,
+          strokeWeight: 3,
+          strokeStyle: "solid"
+        });
+
+        // 地图自适应
+        map.setFitView(); 
+
+        // 起点
+        new AMap.Marker({
+          map: map,
+          position: first,
+          zIndex: 10,
+          offset: new AMap.Pixel(-8, -8),
+          content: '<div class="marker-circle green"></div>'
+        });
+
+        // 终点
+        new AMap.Marker({
+          map: map,
+          position: last,
+          zIndex: 12,
+          offset: new AMap.Pixel(-8, -8),
+          content: '<div class="marker-circle red"></div>'
+        });
+
+        // 距离
+        var distance = new AMap.Marker({
+          map: map,
+          position: last,
+          zIndex: 11,
+          offset: new AMap.Pixel(-64, -12),
+          // 采用 Polyline 类的 getLength() 方法直接获取折线长度
+          content: '<div class="running-distance"><span class="running-number">' + (polyline.getLength()/1000).toFixed(1) + '</span>公里</div>'
+        });
+
+        // 变化的折线
+        var runPolyline = new AMap.Polyline({
+          map: map,
+          visible: false,
+          lineJoin: 'round',
+          strokeColor: "#52EE06",
+          strokeOpacity: 1,
+          strokeWeight: 3,
+          strokeStyle: "solid",
+        });
+
+        // 移动的点标记
+        var current = new AMap.Marker({
+          map: map,
+          zIndex: 10,
+          visible: false,
+          offset: new AMap.Pixel(-8, -8),
+          content: '<div class="marker-circle black"></div>'
+        });
+
+        function paint( showPointArr) {
+          // 步进距离
+          var speedArr = [];
+          for( var i = 0; i < count - 1; i++){
+            runPolyline.setPath([lineArr[i],lineArr[i+1]]);
+            var stepLength = runPolyline.getLength();
+            if(stepLength > 5){
+              speed = 100;
+            } else if(stepLength < 1){
+              speed = 0;
+            } else {
+              speed = parseInt(stepLength / 5 * 100);
             }
-            .running-start{
-                background-color: rgba(0,0,0,.8);
-                color: #fff;
-                display: inline-block;
-                border-radius: 10px;
-                position: fixed;
-                line-height: 20px;
-                height: 20px;
-                padding: 0 12px;
-                font-size: 13px;
-                top: 5%;
-                left: 5%;
-            }
-        </style>
-        <script src="//webapi.amap.com/maps?v=1.3&key=29076a35fd5abd25add2eb561488a73f"></script>
-        <script>
-          if(top == window){
-            var _hmt = _hmt || [];
-            (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?fa7ec982118ebd236663169678264582";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-            })();
+            speedArr.push(speed);
           }
-        </script>
-    </head>
-    <body>
-        <div class="running-image">
-            <img id="static-map" />
-        </div>
-        <div id="map" class="init" title="点击地图启动轨迹动画"></div>
-        <div class="running-start"></div>
-        <div class="running-info">
-            <div class="running-info-container">
-                <div class="running-info-item" id="distance" title="距离">
-                    <i class="icon icon-distance"></i>
-                    <span class="running-info-text"></span>
-                </div>
-                <div class="running-info-item" id="duration" title="时间">
-                    <i class="icon icon-duration"></i>
-                    <span class="running-info-text"></span>
-                </div>
-                <div class="running-info-item" id="pace" title="配速">
-                    <i class="icon icon-pace"></i>
-                    <span class="running-info-text"></span>
-                </div>
-                <div class="running-info-item" id="heartRate" title="平均心率">
-                    <i class="icon icon-heart"></i>
-                    <span class="running-info-text"></span>
-                </div>
-            </div>
-        </div>
-        <script>
-
-            function getQuery(variable) {
-                var query = window.location.search.substring(1);
-                var vars = query.split("&");
-                for (var i=0; i<vars.length; i++) {
-                    var pair = vars[i].split("=");
-                    if(pair[0] == variable){return pair[1];}
-                }
-                return(false);
+          var colorArr = [];
+          for( var i = 0; i < count - 1; i += 50){
+            i = i > count - 1 ? count - 1 : i;
+            var colorCount = speedArr[i+50] - speedArr[i];
+            if (Math.abs(colorCount) > 50){
+              speedArr[i+50] = colorCount > 0 ? speedArr[i] + 50 : speedArr[i] - 50;
             }
-    
-            function hsl2hex (h, s, l) {
-            
-                var r, g, b, m, c, x;
-            
-                if (!isFinite(h)) h = 0;
-                if (!isFinite(s)) s = 0;
-                if (!isFinite(l)) l = 0;
-            
-                h /= 60;
-                if (h < 0) h = 6 - (-h % 6);
-                h %= 6;
-            
-                s = Math.max(0, Math.min(1, s / 100));
-                l = Math.max(0, Math.min(1, l / 100));
-                c = (1 - Math.abs((2 * l) - 1)) * s;
-                x = c * (1 - Math.abs((h % 2) - 1));
-            
-                if (h < 1) {
-                    r = c;
-                    g = x;
-                    b = 0;
-                } else if (h < 2) {
-                    r = x;
-                    g = c;
-                    b = 0;
-                } else if (h < 3) {
-                    r = 0;
-                    g = c;
-                    b = x;
-                } else if (h < 4) {
-                    r = 0;
-                    g = x;
-                    b = c;
-                } else if (h < 5) {
-                    r = x;
-                    g = 0;
-                    b = c;
-                } else {
-                    r = c;
-                    g = 0;
-                    b = x;
-                }
-            
-                m = l - c / 2;
-                r = Math.round((r + m) * 255);
-                g = Math.round((g + m) * 255);
-                b = Math.round((b + m) * 255);
-                var tohex = function(num){
-                    var hexNum = num.toString(16);
-                    return hexNum.length == 1 ? '0' + hexNum : hexNum;
-                }
-                return '#'+tohex(r)+tohex(g)+tohex(b);
+            for( var e = i; e < count - 1 && e < i + 50;  e++){
+              colorArr[e] = e == i ? speedArr[i] : colorArr[e-1] + (speedArr[i+50] - speedArr[i])/50;
             }
+          }
+          return colorArr;
+        }
 
-            function mapInit(data){
+        function showPoint(){
+          var step = parseInt(count/200);
+          var showPointArr = [0];
+          for ( var i = 0 ; i < count / step; i++) {
+            var start = i * step;
+            var end = (i + 1) * step >= count ? count - 1 : (i + 1) * step;
+            showPointArr.push(end);
+          }
+          return showPointArr;
+        }
 
-
-                // 坐标数组
-                var lineArr = data.metrics.coord;
-                // 坐标总数，起终点坐标
-                var count = lineArr.length;
-                var first = lineArr[0];
-                var last = lineArr[count - 1];
-
-                // 静态图
-                var n = parseInt(count / 500) || 1;
-                var sLineArr = [];
-                for (var i = 0, j = 0; i < count; i = i + n, j++){
-                    sLineArr[j] = lineArr[i].map(function(i){
-                        return parseFloat(i.toFixed(4));
-                    })
-                }
-                var imgSrc = '//restapi.amap.com/v3/staticmap?key=ee95e52bf08006f63fd29bcfbcf21df0&scale=1&size=640*640&paths=3,0x52EE06,1,,:' + sLineArr.join(';');
-                document.getElementById('static-map').src = imgSrc;
-
-                // 构造地图对象
-                var map = new AMap.Map('map');
-
-                // 跑步路线折线
-                var polyline = new AMap.Polyline({
-                    map: map,
-                    path: lineArr,
-                    lineJoin: 'round',
-                    strokeColor: "#52EE06",
-                    strokeOpacity: 1,
-                    strokeWeight: 3,
-                    strokeStyle: "solid"
-                });
-
-                // 地图自适应
-                map.setFitView(); 
-
-                // 起点
-                new AMap.Marker({
-                    map: map,
-                    position: first,
-                    zIndex: 10,
-                    offset: new AMap.Pixel(-8, -8),
-                    content: '<div class="marker-circle green"></div>'
-                });
-
-                // 终点
-                new AMap.Marker({
-                    map: map,
-                    position: last,
-                    zIndex: 12,
-                    offset: new AMap.Pixel(-8, -8),
-                    content: '<div class="marker-circle red"></div>'
-                });
-
-                // 距离
-                var distance = new AMap.Marker({
-                    map: map,
-                    position: last,
-                    zIndex: 11,
-                    offset: new AMap.Pixel(-64, -12),
-                    // 采用 Polyline 类的 getLength() 方法直接获取折线长度
-                    content: '<div class="running-distance"><span class="running-number">' + (polyline.getLength()/1000).toFixed(1) + '</span>公里</div>'
-                });
-
-                // 变化的折线
-                var runPolyline = new AMap.Polyline({
-                    map: map,
-                    visible: false,
-                    lineJoin: 'round',
-                    strokeColor: "#52EE06",
-                    strokeOpacity: 1,
-                    strokeWeight: 3,
-                    strokeStyle: "solid",
-                });
-
-                // 移动的点标记
-                var current = new AMap.Marker({
-                    map: map,
-                    zIndex: 10,
-                    visible: false,
-                    offset: new AMap.Pixel(-8, -8),
-                    content: '<div class="marker-circle black"></div>'
-                });
-
-                function paint( showPointArr) {
-                    // 步进距离
-                    var speedArr = [];
-                    for( var i = 0; i < count - 1; i++){
-                        runPolyline.setPath([lineArr[i],lineArr[i+1]]);
-                        var stepLength = runPolyline.getLength();
-                        if(stepLength > 5){
-                            speed = 100;
-                        } else if(stepLength < 1){
-                            speed = 0;
-                        } else {
-                            speed = parseInt(stepLength / 5 * 100);
-                        }
-                        speedArr.push(speed);
-                    }
-                    var colorArr = [];
-                    for( var i = 0; i < count - 1; i += 50){
-                        i = i > count - 1 ? count - 1 : i;
-                        var colorCount = speedArr[i+50] - speedArr[i];
-                        if (Math.abs(colorCount) > 50){
-                            speedArr[i+50] = colorCount > 0 ? speedArr[i] + 50 : speedArr[i] - 50;
-                        }
-                        for( var e = i; e < count - 1 && e < i + 50;  e++){
-                            colorArr[e] = e == i ? speedArr[i] : colorArr[e-1] + (speedArr[i+50] - speedArr[i])/50;
-                        }
-                    }
-                    return colorArr;
-                }
-
-                function showPoint(){
-                    var step = parseInt(count/200);
-                    var showPointArr = [0];
-                    for ( var i = 0 ; i < count / step; i++) {
-                        var start = i * step;
-                        var end = (i + 1) * step >= count ? count - 1 : (i + 1) * step;
-                        showPointArr.push(end);
-                    }
-                    return showPointArr;
-                }
-
-                var drawToggle = function (){
-                    if( !running && i == 0 ){
-                        for( var cur in curpoly ){
-                            map.remove(curpoly[cur]);
-                        }
-                    }
-                    // 将上面上面折线改为黑色透明作为底层
-                    polyline.setOptions({
-                        strokeColor: '#000000',
-                        strokeOpacity: 0.2
-                    });
-                    // 显示画线点标记
-                    current.show();
-                    // 没动即动，在动即停
-                    running = !running ? true : false;
-                    var step = parseInt(count/150);
-                    //var step = 10;
-                    step = step == 0 ? 1 : step;
-                    drawline(step);
-                }
-
-                var running = false;
-                var i = 0;
-                var curpoly = [];
-                // 地图事件
-                map.on('complete', function(){
-                    document.getElementById('map').classList.remove('init');
-                    drawToggle();
-                }).on('click', drawToggle)
-
-                var getcolor = paint();
-                // 画线动画
-                function drawline(step) {
-                    // 动画没结束
-                    if ( i < count / step ) {
-                        if( running == true ){
-                            var start = i * step;
-                            var end = (i + 1) * step >= count ? count - 1 : (i + 1) * step;
-                            current.setPosition(lineArr[end]);
-                            runPolyline.setPath(lineArr.slice(0, end+1));
-                            distance.setContent('<div class="running-distance"><span class="running-number">' + (runPolyline.getLength()/1000).toFixed(1) + '</span>公里</div>');
-                            curpoly[i] = new AMap.Polyline({
-                                map: map,
-                                lineJoin: 'round',
-                                path: lineArr.slice(start-1, end+1),
-                                strokeColor: hsl2hex(getcolor[end-1], 100, 60),
-                                strokeOpacity: 1,
-                                strokeWeight: 3,
-                                zIndex: 10,
-                                strokeStyle: "solid"
-                            });
-                            i++;
-                        } else {
-                            return;
-                        }
-                    } else{
-                        current.hide();
-                        i = 0;
-                        running = false;
-                        return;
-                    }
-                    setTimeout(function(){
-                        drawline(step);
-                    //}, 40)
-                    }, 10)
-                }
+        var drawToggle = function (){
+          if( !running && i == 0 ){
+            for( var cur in curpoly ){
+              map.remove(curpoly[cur]);
             }
+          }
+          // 将上面上面折线改为黑色透明作为底层
+          polyline.setOptions({
+            strokeColor: '#000000',
+            strokeOpacity: 0.2
+          });
+          // 显示画线点标记
+          current.show();
+          // 没动即动，在动即停
+          running = !running ? true : false;
+          var step = parseInt(count/150);
+          //var step = 10;
+          step = step == 0 ? 1 : step;
+          drawline(step);
+        }
 
-            var isLast = !getQuery('id');
-            var reqUrl = isLast ? '//api.fooleap.org/nike/activity' : '//api.fooleap.org/nike/activity?id='+getQuery('id');
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', reqUrl, true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState == 4 && xhr.status == 200)
-                {
-                    var data = JSON.parse(xhr.responseText);
-                    if( isLast ){
-                        history.pushState(null, null, '?id='+data.id);
-                    }
-                    // 网页标题
-                    document.title = data.title;
-                    document.querySelector('.running-start').innerHTML = data.start;
+        var running = false;
+        var i = 0;
+        var curpoly = [];
+        // 地图事件
+        map.on('complete', function(){
+          document.getElementById('map').classList.remove('init');
+          drawToggle();
+        }).on('click', drawToggle)
 
-                    var formatNum = function (num){
-                        num = parseInt(num);
-                        return num < 10 ? '0' + num.toString() : num.toString();
-                    }
-
-                    var distance = data.distance.toFixed(2) + 'km';
-                    var durationMinute = data.duration > 3600 ? parseInt(data.duration / 3600) + ':' + formatNum(data.duration % 3600 / 60) : parseInt(data.duration / 60);
-                    var duration = durationMinute + ':' + formatNum(data.duration % 60);
-                    var pace = parseInt(data.pace).toString() + '\'' + formatNum(data.pace % 1 * 60) + '"';
-                    var heartRate = !!data['heart_rate'] ? data['heart_rate'].toFixed(0) + 'bpm' : '--';
-
-                    document.querySelector('#distance .running-info-text').innerHTML = distance;
-                    document.querySelector('#duration .running-info-text').innerHTML = duration;
-                    document.querySelector('#pace .running-info-text').innerHTML = pace;
-                    document.querySelector('#heartRate .running-info-text').innerHTML = heartRate;
-
-                    mapInit(data);
-                }
+        var getcolor = paint();
+        // 画线动画
+        function drawline(step) {
+          // 动画没结束
+          if ( i < count / step ) {
+            if( running == true ){
+              var start = i * step;
+              var end = (i + 1) * step >= count ? count - 1 : (i + 1) * step;
+              current.setPosition(lineArr[end]);
+              runPolyline.setPath(lineArr.slice(0, end+1));
+              distance.setContent('<div class="running-distance"><span class="running-number">' + (runPolyline.getLength()/1000).toFixed(1) + '</span>公里</div>');
+              curpoly[i] = new AMap.Polyline({
+                map: map,
+                lineJoin: 'round',
+                path: lineArr.slice(start-1, end+1),
+                strokeColor: hsl2hex(getcolor[end-1], 100, 60),
+                strokeOpacity: 1,
+                strokeWeight: 3,
+                zIndex: 10,
+                strokeStyle: "solid"
+              });
+              i++;
+            } else {
+              return;
             }
-            xhr.send();
-        </script>
+          } else{
+            current.hide();
+            i = 0;
+            running = false;
+            return;
+          }
+          setTimeout(function(){
+            drawline(step);
+            //}, 40)
+          }, 10)
+        }
+      }
 
-    </body>
+      var isLast = !getQuery('id');
+      var reqUrl = isLast ? '//api.fooleap.org/nike/activity' : '//api.fooleap.org/nike/activity?id='+getQuery('id');
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', reqUrl, true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200)
+        {
+          var data = JSON.parse(xhr.responseText);
+          if( isLast ){
+            history.pushState(null, null, '?id='+data.id);
+          }
+          // 网页标题
+          document.title = data.title;
+          document.querySelector('.running-start').innerHTML = data.start;
+
+          var formatNum = function (num){
+            num = parseInt(num);
+            return num < 10 ? '0' + num.toString() : num.toString();
+          }
+
+          var distance = data.distance.toFixed(2) + 'km';
+          var durationMinute = data.duration > 3600 ? parseInt(data.duration / 3600) + ':' + formatNum(data.duration % 3600 / 60) : parseInt(data.duration / 60);
+          var duration = durationMinute + ':' + formatNum(data.duration % 60);
+          var pace = parseInt(data.pace).toString() + '\'' + formatNum(data.pace % 1 * 60) + '"';
+          var heartRate = !!data['heart_rate'] ? data['heart_rate'].toFixed(0) + 'bpm' : '--';
+
+          document.querySelector('#distance .running-info-text').innerHTML = distance;
+          document.querySelector('#duration .running-info-text').innerHTML = duration;
+          document.querySelector('#pace .running-info-text').innerHTML = pace;
+          document.querySelector('#heartRate .running-info-text').innerHTML = heartRate;
+
+          mapInit(data);
+        }
+      }
+      xhr.send();
+    </script>
+
+  </body>
 </html>

@@ -823,7 +823,7 @@ var loadWebfont = function () {
   var script = document.getElementsByTagName('script')[0];
 
   var tkConfig = {
-    kitId: 'rir3gzo',
+    kitId: 'yov1qsh',
     timeout: 3000,
     async: true,
     loading: function () {
@@ -866,6 +866,8 @@ var loadWebfont = function () {
   };
   script.parentNode.insertBefore(tkScript, script)
 }
+
+loadWebfont();
 
 // 统计
 if (site.home === location.origin && window.parent == window) {

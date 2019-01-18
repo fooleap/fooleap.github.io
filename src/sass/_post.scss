@@ -65,7 +65,7 @@ body {
   color: $default;
   background-color: $lightblue;
   overflow-y: scroll;
-  font: 400 14px/1.6 Roboto, Arial, "Noto Sans SC Sliced", "微软雅黑", sans-serif;
+  font: 400 14px/1.6 Roboto, Arial, source-han-sans-cjk-sc, "微软雅黑", sans-serif;
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
 }
@@ -643,7 +643,7 @@ body {
 pre,
 code {
   font-size: 12px;
-  font-family: "Roboto Mono", Consolas, monospace;
+  font-family: "Roboto Mono", Consolas, source-han-sans-cjk-sc, monospace;
   background-color: rgb(245, 245, 245);
   overflow: auto;
   padding: 5px 10px;

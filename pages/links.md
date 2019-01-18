@@ -70,7 +70,7 @@ title: 链接
 * [褪色的梦](https://fadedream.com){:title=""}
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
 * [无题](http://wuti.me){:title="@深圳"}
-* [小宇博客](https://sunxyu.cn){:title="@台州"}
+* [小宇博客](https://kisxy.com){:title="@台州"}
 * [以梦为马，奔向远方](http://linhai1990.com){:title="石明鑫@昆明"}
 * [印&#124;纪](http://leiminnet.cn){:title="发生着，记录着，回忆着"}
 * [有呀](https://nuoea.com){:title="归臧"}
