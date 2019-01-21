@@ -175,9 +175,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var endYear = Date.parse(curYear+'-12-31 23:59:59');
   var yearProgress = (Date.now() - startYear) / (endYear - startYear) * 100;
   var widthProgress = yearProgress.toFixed(2) + '%'
-  document.styleSheets[0].addRule('.page-title:before', 'width:'+widthProgress);
-  document.styleSheets[0].addRule('.page-title:after', 'left:'+widthProgress);
-  document.styleSheets[0].addRule('.page-title:after', 'content:"' + parseInt(yearProgress) + '%"');
+  var styles = document.styleSheets;
+  styles[styles.length-1].insertRule('.page-title:before{width:'+widthProgress+'}',0);
+  styles[styles.length-1].insertRule('.page-title:after{left:'+widthProgress+'}',0);
+  styles[styles.length-1].insertRule('.page-title:after{content:"' + parseInt(yearProgress) + '%"}',0);
 
   function wxchoose() {
     wx.chooseImage({
@@ -827,13 +828,13 @@ var loadWebfont = function () {
     timeout: 3000,
     async: true,
     loading: function () {
-      console.log(1);
+      //console.log(1);
     },
     active: function () {
-      console.log(2);
+      //console.log(2);
     },
     inactive: function () {
-      console.log(3);
+      //console.log(3);
     }
   };
 
