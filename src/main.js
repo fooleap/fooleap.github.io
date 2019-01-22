@@ -171,8 +171,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
   timeAgo();
 
   var curYear = new Date().getFullYear();
-  var startYear = Date.parse(curYear+'-01-01 00:00:00');
-  var endYear = Date.parse(curYear+'-12-31 23:59:59');
+  var startYear = Date.parse('01 Jan '+curYear+' 00:00:00');
+  var endYear = Date.parse('31 Dec '+curYear+' 23:59:59');
   var yearProgress = (Date.now() - startYear) / (endYear - startYear) * 100;
   var widthProgress = yearProgress.toFixed(2) + '%'
   var styles = document.styleSheets;
@@ -818,57 +818,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
   }
 })
-
-var loadWebfont = function () {
-  var html = document.documentElement;
-  var script = document.getElementsByTagName('script')[0];
-
-  var tkConfig = {
-    kitId: 'yov1qsh',
-    timeout: 3000,
-    async: true,
-    loading: function () {
-      //console.log(1);
-    },
-    active: function () {
-      //console.log(2);
-    },
-    inactive: function () {
-      //console.log(3);
-    }
-  };
-
-  var tkTimer = setTimeout(function () {
-    html.classList.remove('wf-loading');
-    html.classList.add('wf-inactive');
-  }, tkConfig.timeout);
-
-  var tkScript = document.createElement('script');
-  var tkState, tkFlag = false;
-
-  html.classList.add('wf-loading');
-
-  tkScript.src = 'https://use.typekit.net/' + tkConfig.kitId + '.js';
-  tkScript.async = true;
-  tkScript.onload = tkScript.onreadystatechange = function () {
-    tkState = this.readyState;
-    if (tkFlag || tkState && tkState != 'complete' && tkState != 'loaded') {
-      return;
-    }
-    tkFlag = true;
-    clearTimeout(tkTimer);
-    try {
-
-      Typekit.load(tkConfig)
-
-    } catch (e) {
-
-    }
-  };
-  script.parentNode.insertBefore(tkScript, script)
-}
-
-loadWebfont();
 
 // 统计
 if (site.home === location.origin && window.parent == window) {
