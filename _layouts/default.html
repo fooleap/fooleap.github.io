@@ -15,7 +15,7 @@ layout: compress
         {% assign images = page.content | split:'<img src="' %}
         {% for image in images %}
         {% if image contains site.IMG_PATH %}
-        {% assign thumbnail = image | split:"?imageView" | first | split: '"' | first | remove: "_640" %}
+        {% assign thumbnail = image | split:"?imageView" | first | split: '"' | first | remove: "_640v" | remove: "_640" %}
         {% break %}
         {% endif %}
         {% endfor %}

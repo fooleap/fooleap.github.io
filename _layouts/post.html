@@ -8,7 +8,7 @@ layout: default
     {% for image in images %}
       {% if image contains site.IMG_PATH %}
         {% assign thumbSrc = image | split: '" ' | first %}
-        {% assign imageSrc = thumbSrc | split: '?imageView' | first | remove: "_640" %}
+        {% assign imageSrc = thumbSrc | split: '?imageView' | first | remove: "_640v" | remove: "_640" %}
         {% assign newImage = thumbSrc | prepend: '" data-url="' | prepend: thumbSrc | append: '" data-src="' | append: imageSrc %}
         {% if thumbSrc contains site.IMG_PATH and newImage contains site.IMG_PATH %}
             {% assign content = content | replace: thumbSrc, newImage %}

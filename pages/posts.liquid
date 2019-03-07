@@ -14,7 +14,7 @@ permalink: /posts.json
                     {% if image contains 'imageView'%}
                         {% assign thumbnail = image | split:"?imageView" | first %}
                     {% else %}
-                        {% assign thumbnail = image | split:'"' | first | remove:"_640" %}
+                        {% assign thumbnail = image | split:'"' | first | remove:"_640v" | remove:"_640" %}
                     {% endif %}
                     {% break %}
                 {% endif %}
