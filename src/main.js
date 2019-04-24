@@ -176,9 +176,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var yearProgress = (Date.now() - startYear) / (endYear - startYear) * 100;
   var widthProgress = yearProgress.toFixed(2) + '%'
   var styles = document.styleSheets;
-  styles[styles.length-1].insertRule('.page-title:before{width:'+widthProgress+'}',0);
-  styles[styles.length-1].insertRule('.page-title:after{left:'+widthProgress+'}',0);
-  styles[styles.length-1].insertRule('.page-title:after{content:"' + parseInt(yearProgress) + '%"}',0);
+  styles[styles.length-1].insertRule('.page-header .page-title:before{width:'+widthProgress+'}',0);
+  styles[styles.length-1].insertRule('.page-header .page-title:after{left:'+widthProgress+'}',0);
+  styles[styles.length-1].insertRule('.page-header .page-title:after{content:"' + parseInt(yearProgress) + '%"}',0);
 
   function wxchoose() {
     wx.chooseImage({
@@ -672,6 +672,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
     xhrBest.send()
 
+
+    var isToday = function(date1, date2){
+      return date1.getYear() == date2.getYear() &&
+      date1.getMonth() == date2.getMonth() &&
+      date1.getDay() == date2.getDay();
+    }
+    var isRunToday = false;
     var start_time = new Date(), queryStr = '';
     var posts = [];
     var runningList = document.querySelector('.running-list');
@@ -684,8 +691,15 @@ document.addEventListener('DOMContentLoaded', function (event) {
       xhrPosts.onreadystatechange = function () {
         if (xhrPosts.readyState == 4 && xhrPosts.status == 200) {
           posts = JSON.parse(xhrPosts.responseText);
-          posts.forEach(function (item) {
+          posts.forEach(function (item, index) {
             start_time = new Date(item.published);
+            if(index == 0 && queryStr == ''){
+              var runHtml = '<span class="page-title-desc">没跑</span>';
+              if( isToday(start_time, new Date())){
+                runHtml = '<span class="page-title-desc">跑了</span>';
+              }
+              document.querySelector('.page-title').insertAdjacentHTML('beforeend', runHtml);
+            }
             postsHtml += '<div class="running-item">' +
               '<a class="running-item-thumb" href="' + item.tags.image.url + '" target="_blank"><img class="running-item-image" src="' + item.tags.image.thumb + '"></a>' +
               '<div class="running-item-intro">' +

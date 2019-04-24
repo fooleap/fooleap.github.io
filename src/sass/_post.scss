@@ -144,22 +144,24 @@ body {
 
 .page-header {
   .page-title {
+    border-bottom: 2px solid #e7e7eb;
+    display: flex;
     position: relative;
     padding-bottom: 5px;
     margin-bottom: 5px;
-    border-bottom: 2px solid #e7e7eb;
     font-weight: 500;
     font-size: 16px;
-    display: flex;
-    justify-content: space-between;
+    align-items: flex-end;
     &:before{
       content: "";
+      width: 0;
+      height: 2px;
       display: block;
       position: absolute;
       bottom: -2px;
       left: 0;
-      height: 2px;
       background-color: #7db9de;
+      transition: .5s .5s all ease-out;
     }
     &:after{
       display: inline-block;
@@ -180,6 +182,11 @@ body {
       color: $black;
       border-bottom: none;
       display: block;
+    }
+    .page-title-desc {
+      color: #666;
+      font-size: 13px;
+      font-weight: 400;
     }
     .icon{
       margin-top: 4px;
@@ -945,4 +952,12 @@ pre {
   line-height: 20px;
   padding: 5px 0;
   font-size: 13px;
+}
+
+.jd-ads{
+  overflow: hidden;
+  height: 120px;
+  script[src*="//u-x.jd.com/"] + div{
+    margin-left: -86px;
+  }
 }
