@@ -152,6 +152,14 @@ window.addEventListener('beforeunload', function (event) {
 });
 
 document.addEventListener('DOMContentLoaded', function (event) {
+
+  if (browser.mobile) {
+    var jdlink = document.querySelector('.jd-ads-link')
+    if (jdlink) {
+      jdlink.href = jdlink.dataset.mobileUrl
+    }
+  }
+
   var disq = new iDisqus('comment', {
     forum: site.forum,
     site: site.home,
@@ -456,24 +464,24 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // 微信二维码
     var qrcode = new QRCode('qrcode', {
       text: document.getElementById('qrcode').dataset.qrcodeUrl,
-      width: 80,
-      height: 80,
+      width: 160,
+      height: 160,
       colorDark: '#000000',
       colorLight: '#ffffff',
       correctLevel: QRCode.CorrectLevel.L,
-      useSVG: true
+      useSVG: false
     });
 
     var wechatQrcode = document.getElementById('wechat-qrcode');
     if (wechatQrcode) {
       var qrcode = new QRCode('wechat-qrcode', {
         text: document.getElementById('wechat-qrcode').dataset.qrcodeUrl,
-        width: 80,
-        height: 80,
+        width: 240,
+        height: 240,
         colorDark: '#000000',
         colorLight: '#ffffff',
         correctLevel: QRCode.CorrectLevel.L,
-        useSVG: true
+        useSVG: false
       });
     }
   }
@@ -831,6 +839,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       }
     }
   }
+
 })
 
 // 统计

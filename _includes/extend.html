@@ -1,43 +1,41 @@
 <section class="wechat-related">
   {% if page.wechat %}
   <div class="wechat-related-item">
-    <input class="wechat-related-checkbox" type="checkbox" id="wechat-article"/>
-    <label class="wechat-related-btn" title="公众号文章" for="wechat-article">
-    {% include svg/wechat.svg %}
-    微信文章
-    </label>
-    <div class="wechat-qrcode" id="wechat-qrcode" data-qrcode-url="{{ page.wechat }}"></div>
+    <div class="wechat-related-code wechat-qrcode" id="wechat-qrcode" data-qrcode-url="{{ page.wechat }}"></div>
+    <a class="wechat-related-title" href="{{ page.wechat }}" target="_blank">
+      {% include svg/wechat.svg %} 公众号文章
+    </a>
   </div>
   {% endif %}
 
   <div class="wechat-related-item">
-    <input class="wechat-related-checkbox" type="checkbox" id="wechat-paycode"/>
-    <label class="wechat-related-btn" title="微信赞赏码" for="wechat-paycode">
-      {% include svg/reward.svg %}
-      {% include svg/reward_a.svg %} 喜欢作者
-    </label>
-    <div class="wechat-paycode"></div>
+    <div class="wechat-related-code wechat-paycode"></div>
+    <div class="wechat-related-title">
+      {% include svg/reward_a.svg %} 赞赏作者
+    </div>
   </div>
 </section>
 
 <section class="jd-ads">
-  <script type="text/javascript">var jd_union_unid="35476128",jd_ad_ids="507:6",jd_union_pid="CMSkxrmlLRCgpfUQGgAg/dni2QYqAA==";var jd_width=0;var jd_height=0;var jd_union_euid="";var p="AhQPXB5SEgoUB2VEH0hfIlgRRgYlXVZaCCsfSlpMWGVEH0hfInMhWAZFfVZUNXATTEdPcS1MP0cGc0FZF2sVBBoBXR5eFwcSN1cfXhMFEgRcK2tKRk9aZVA1FDJNQwhGaxUGFgBWHlsUARQAUhprFDIiNw%3D%3D";</script><script type="text/javascript" charset="utf-8" src="//u-x.jd.com/static/js/auto.js"></script>
+  <a href="https://u.jd.com/pVmR0m" data-mobile-url="https://u.jd.com/bNW5SV" class="jd-ads-link" target="_blank">
+    <img class="jd-ads-image" src="//source.fooleap.org/jdredbag.png">
+  </a>
 </section>
 
 <section class="post-extend">
-    <section class="post-extend-content">
-        <h4 class="post-extend-title">最近更新</h4>
-        <ul id="recent-posts" class="post-extend-list">
-            {% for post in site.posts offset: 0 limit: 5  %}
-                <li class="post-extend-item">
-                    <a class="post-extend-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
-    <section class="post-extend-content">
-        <h4 class="post-extend-title">猜你喜欢</h4>
-        <ul id="random-posts" class="post-extend-list">
-        </ul>
-    </section>
+  <section class="post-extend-content">
+    <h4 class="post-extend-title">最近更新</h4>
+    <ul id="recent-posts" class="post-extend-list">
+      {% for post in site.posts offset: 0 limit: 5  %}
+      <li class="post-extend-item">
+        <a class="post-extend-link" href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="post-extend-content">
+    <h4 class="post-extend-title">猜你喜欢</h4>
+    <ul id="random-posts" class="post-extend-list">
+    </ul>
+  </section>
 </section>
