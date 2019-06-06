@@ -5,7 +5,7 @@ date: 2019-02-24 15:38:00+0800
 category: life
 thumb: IMG_PATH//i-still-running-at-the-spring-festival-12.jpg
 wechat: https://mp.weixin.qq.com/s/YWNg1hZcdik4DKP7W5tPmg
-tags: [跑步, 小结, 春节]
+tags: [半月更, 跑步, 春节]
 ---
 
 每次提笔都会唏嘘一番时间过得真快，这一晃元宵也已过去。这都 2 月底了，上半月跑步半月更都还没见影，赶紧来说说。

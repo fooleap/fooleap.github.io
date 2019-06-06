@@ -5,7 +5,7 @@ date: 2019-05-18 00:25:21+0800
 thumb: IMG_PATH/sweat-after-running-06.jpg
 wechat: https://mp.weixin.qq.com/s/5HyC--kdJEUB8NWrkjtNOA
 category: life
-tags: [跑步, 小结, 夏天]
+tags: [半月更, 跑步, 夏天]
 ---
 
 4 月上半月入夏之后，还凉下来一段时间，而 5 月上半月，除了假期后那几个雨天稍凉，如今可能会一直热下去。看这几天有下了或大或小的阵雨，但气温也没有一点要下降的意思，闷热感十足。同样的跑量，酷热之下明显更难完成，有时候跑到后面会感受到有一种坚持的体验。

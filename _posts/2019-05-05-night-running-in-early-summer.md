@@ -5,7 +5,7 @@ date: 2019-05-05 22:25:21+0800
 thumb: IMG_PATH/night-running-in-early-summer-03.jpg
 wechat: https://mp.weixin.qq.com/s/c-Lwz8BH7xLsW0wG515WOA
 category: life
-tags: [跑步, 小结, 夏天]
+tags: [半月更, 跑步, 夏天, 夜跑]
 ---
 
 夏天是南国一年中最长的一个季节，也是跑步最难熬的一个季节。初夏的当前，天气还好并不很热。跑起步来还是蛮舒服的，晚上要比白天凉，因此夜跑是个好选择。

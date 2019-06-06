@@ -4,7 +4,7 @@ title: 从春天跑到夏天
 date: 2019-04-17 07:27:40+0800
 category: life
 wechat: https://mp.weixin.qq.com/s/aehdMC6m1SQSZ7n7l6YU9w
-tags: [跑步, 小结, 夏天]
+tags: [半月更, 跑步, 夏天]
 ---
 
 最近下了些雨，天气又凉下来，但汕头已在本月初一下子入夏了，这个夏天比往年来得更早一些。可以说这个上半月，我从春天跑到了夏天。

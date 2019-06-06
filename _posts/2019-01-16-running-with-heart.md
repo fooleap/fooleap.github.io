@@ -5,7 +5,7 @@ date: 2019-01-16 21:05:46+0800
 thumb: IMG_PATH/running-with-heart-03.jpg
 wechat: https://mp.weixin.qq.com/s/JfN_r88mtGv2gc4RrhTKwQ
 category: life
-tags: [跑步, 小结]
+tags: [半月更, 跑步]
 ---
 
 最近的博文，跑步的偏多，再这么下去，这都快变成跑步博客。也许是因为跑步的也就贴贴图，好写不费时，内容相对积极。写博是从心而发，跑步则是随心而跑。

@@ -4,7 +4,7 @@ title: 晨雾中奔跑
 date: 2019-04-06 09:25:27+0800
 category: life
 wechat: https://mp.weixin.qq.com/s/015mFkEIdun5tGEI4LEQcQ
-tags: [跑步, 小结, 晨雾]
+tags: [半月更, 跑步, 晨雾]
 ---
 
 3 月下半月总算不下雨，我也恢复了往日的节奏，无惊无险地完成掉 3 月份的跑量，然而在配速及起跑时间上，仍没有进步。

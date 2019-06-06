@@ -5,7 +5,7 @@ date: 2019-02-02 09:48:08+0800
 thumb: IMG_PATH/running-at-sunrise-03.jpg
 wechat: https://mp.weixin.qq.com/s/o-VcBIxxyOAwKyeOIRCtQQ
 category: life
-tags: [跑步, 小结, 日出]
+tags: [半月更, 跑步, 日出]
 ---
 
 按照惯例，梳理一下 1 月下半月的跑步情况。总的来说按时完成目标，但节奏有点拖沓。

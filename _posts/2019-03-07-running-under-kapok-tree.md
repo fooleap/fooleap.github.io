@@ -5,7 +5,7 @@ date: 2019-03-07 14:05:00+0800
 category: life
 thumb: IMG_PATH/running-under-kapok-tree-12.jpg
 wechat: https://mp.weixin.qq.com/s/dxhpbwmmY_9bOIv8J65blw
-tags: [跑步, 小结, 木棉]
+tags: [半月更, 跑步, 木棉]
 ---
 
 刚刚过去的 2 月份，是一年中最短的一个月，这个月我跑了 104.79 公里，可以说刚好达到之前定下的 100 公里的目标，按时完成任务的体验相当不错，尤其是在这种正能量的事情上。
