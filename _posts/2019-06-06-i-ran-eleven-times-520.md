@@ -73,7 +73,7 @@ tags: [半月更, 跑步, 520]
 
 5 月 25 日，又是一个金凤花开的季节，宫边墘的金凤花。
 
-![5 月 25 日，北湾宫边墘的金凤花][p9]
+![5 月 25 日，北湾宫边池墘的金凤花][p9]
 
 5 月 27 日晚，两三天雨后，不得不感叹没雨真好，开启下半月第一次夜跑，绕了一圈。
 
@@ -125,7 +125,7 @@ tags: [半月更, 跑步, 520]
 [p6]: {{ site.IMG_PATH }}/i-ran-eleven-times-520-06.jpg_640 "5 月 31 日，南湾大堤脚"
 [p7]: {{ site.IMG_PATH }}/i-ran-eleven-times-520-07.jpg_640 "5 月 24 日，北湾仙树宫"
 [p8]: {{ site.IMG_PATH }}/i-ran-eleven-times-520-08.jpg_640 "5 月 29 日，北湾仙树宫"
-[p9]: {{ site.IMG_PATH }}/i-ran-eleven-times-520-09.jpg_640 "5 月 25 日，北湾宫边墘的金凤花"
+[p9]: {{ site.IMG_PATH }}/i-ran-eleven-times-520-09.jpg_640 "5 月 25 日，北湾宫边池墘的金凤花"
 [p10]: {{ site.IMG_PATH }}/i-ran-eleven-times-520-10.jpg_640 "5 月 27 日，莲东路新寮路段"
 [p11]: {{ site.IMG_PATH }}/i-ran-eleven-times-520-11.jpg_640 "5 月 27 日，莲东路上村路段"
 [p12]: {{ site.IMG_PATH }}/i-ran-eleven-times-520-12.jpg_640 "5 月 28 日，北湾文化公园"
