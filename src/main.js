@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         xhrExif.send();
       } else {
         var xhrRegeo = new XMLHttpRequest();
-        xhrRegeo.open('GET', '//restapi.amap.com/v3/geocode/regeo?key=890ae1502f6ab57aaa7d73d32f2c8cc1&batch=true&location=' + image.coord.filter(function () { return true }).join('|'), true);
+        xhrRegeo.open('GET', site.api + '/regeo.php?coords=' + image.coord.filter(function () { return true }).join('|'), true);
         xhrRegeo.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             var data = JSON.parse(this.responseText);
