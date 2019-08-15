@@ -63,6 +63,7 @@ title: 链接
 * [灰常记忆](https://bestcherish.com){:title="@西安"}
 * [嘉美伯爵](https://blog.gaozhe.top){:title="高哲@北京"}
 * [柯扬博客](http://blog.kukeyang.com){:title="柯扬博客"}
+* [林海草原](https://lhcy.org){:title="以梦为马，奔向远方"}
 * [乱步集](http://mrkod.com){:title="MR.KOD@杭州"}
 * [奶牛博客](http://www.nenew.net){:title="奶牛@淄博"}
 * [逆旅](http://1900.live){:title="1900@自贡"}
@@ -71,7 +72,6 @@ title: 链接
 * [我是王掌柜](http://since1989.org){:title="王亚平@上海"}
 * [无题](http://wuti.me){:title="@深圳"}
 * [小宇博客](https://kisxy.com){:title="@台州"}
-* [以梦为马，奔向远方](http://linhai1990.com){:title="石明鑫@昆明"}
 * [印&#124;纪](http://leiminnet.cn){:title="发生着，记录着，回忆着"}
 * [有呀](https://nuoea.com){:title="归臧"}
 * [臧超博客](http://www.geooll.com){:title="臧超@青岛"}
