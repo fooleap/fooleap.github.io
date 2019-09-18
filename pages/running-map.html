@@ -470,7 +470,7 @@ title: 跑步路径地图
       }
 
       var isLast = !getQuery('id');
-      var reqUrl = isLast ? '//api.fooleap.org/nike/activity' : '//api.fooleap.org/nike/activity?id='+getQuery('id');
+      var reqUrl = isLast ? '//api.fooleap.org/nike/activity.php' : '//api.fooleap.org/nike/activity.php?id='+getQuery('id');
       var xhr = new XMLHttpRequest();
       xhr.open('GET', reqUrl, true);
       xhr.onreadystatechange = function() {
