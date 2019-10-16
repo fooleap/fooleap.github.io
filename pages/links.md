@@ -40,6 +40,7 @@ title: 链接
 
 ## 友情链接
 
+* [Ajioy's World &#124; 张品名的小世界](https://ajioy.cn){:title="@深圳"}
 * [Anton's Blog](http://ashat.org){:title="@四川"}
 * [anoulin2009](http://blog.twodong.com){:title="梁东宇@梧州"}
 * [Blackeeper's blog ](http://www.blackeeper.com){:title="李东升@深圳"}
