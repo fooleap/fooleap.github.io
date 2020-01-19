@@ -54,7 +54,6 @@ title: 链接
 * [UbuntuSoft](http://www.ubuntusoft.com){:title="刘樟宏@深圳"}
 * [Weidan's Life](http://liweidan.cn){:title="@珠海"}
 * [阿川的个人博客](https://achuan.io){:title="阿川"}
-* [博客哔哔](https://blog.bb){:title="用文字交换世界…"}
 * [大喇叭](http://blog.jiangqiwen.cn){:title="@浙江"}
 * [常阳时光](https://cyhour.com){:title="@肇庆"}
 * [代码笔记](http://www.jiangjiaolong.com){:title="代码笔记"}
@@ -65,6 +64,7 @@ title: 链接
 * [嘉美伯爵](https://blog.gaozhe.top){:title="高哲@北京"}
 * [柯扬博客](http://blog.kukeyang.com){:title="柯扬博客"}
 * [林海草原](https://lhcy.org){:title="以梦为马，奔向远方"}
+* [忙碌](https://mang.lu){:title="源自生活的点点滴滴和碎碎念"}
 * [乱步集](http://mrkod.com){:title="MR.KOD@杭州"}
 * [奶牛博客](http://www.nenew.net){:title="奶牛@淄博"}
 * [逆旅](http://1900.live){:title="1900@自贡"}
