@@ -58,7 +58,7 @@ title: 链接
 * [常阳时光](https://cyhour.com){:title="@肇庆"}
 * [代码笔记](http://www.jiangjiaolong.com){:title="代码笔记"}
 * [当下](http://fueis.com){:title="@日本"}
-* [古博](http://gubo.org){:title="许凯@桂林"}
+* [古博](http://gubo.org){:title="@桂林"}
 * [瓠樽](https://blog.dylanwu.space){:title="以瓠為樽而浮乎江湖"}
 * [灰常记忆](https://bestcherish.com){:title="@西安"}
 * [嘉美伯爵](https://blog.gaozhe.top){:title="高哲@北京"}
