@@ -145,6 +145,8 @@ tags: ["潮汕", "培隆", "培隆角", "日出"]
 
 ![海堤之外的路线]({{ site.IMG_PATH }}/sunrise-at-peilong-cape-24.jpg_640)
 
+若寻培隆角位置，可前往高德导航（[高德培隆角位置](https://surl.amap.com/khp2zau1fh)），链接坐标再往东就是培隆角，金鸿桥脚走堤顶亦可达。
+
 ## 参考资料
 
 [1]: http://weibo.com/2101955343/DAbc2iD8p "培隆角日出"

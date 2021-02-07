@@ -28,6 +28,8 @@ tags: [春节, 培隆]
 
 {% include media.html type="video" src="IMG_PATH/peilong-cape-in-the-spring-festival-05.mp4" %}
 
+若寻培隆角位置，可前往高德导航（[高德培隆角位置](https://surl.amap.com/khp2zau1fh)），链接坐标再往东就是培隆角，金鸿桥脚走堤顶亦可达。
+
 **本文历史**
 
 * 2019 年 04 月 21 日 完成初稿
