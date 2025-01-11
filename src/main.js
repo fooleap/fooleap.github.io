@@ -1,11 +1,12 @@
-var iDisqus = require('disqus-php-api');
-var wx = require('weixin-js-sdk');
-var coordtransform = require('coordtransform');
-var raphael = require('webpack-raphael');
-var flowchart = require('flowchart.js');
-var QRCode = require('davidshimjs-qrcodejs');
-import './sass/main.scss';
-var _hmt = _hmt || [];
+import iDisqus from 'disqus-php-api'
+import wx from 'weixin-js-sdk'
+import coordtransform from 'coordtransform'
+import flowchart from 'flowchart.js'
+import QRCode from 'davidshimjs-qrcodejs'
+import 'iDisqus.css'
+import './sass/main.scss'
+
+var _hmt = _hmt || []
 
 Date.prototype.Format = function (fmt) {
   var o = {
@@ -870,3 +871,15 @@ if (site.home === location.origin && window.parent == window) {
     ga('send', 'pageview');
   }, 1000);
 }
+
+const updateZoom = () => {
+  const scale = (window.innerHeight / 966).toFixed(2)
+  if (window.innerHeight > 966) {
+    document.documentElement.style.setProperty('zoom', parseFloat(scale))
+  } else {
+    document.documentElement.style.removeProperty('zoom')
+  }
+}
+
+updateZoom()
+window.addEventListener('resize', updateZoom)

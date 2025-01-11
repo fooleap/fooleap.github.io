@@ -1,5 +1,5 @@
 @charset "utf-8";
-// Utility
+@use 'colors' as *;
 * {
   margin: 0;
   padding: 0;
@@ -43,12 +43,12 @@ h1,h2,h3,h4,h5,h6{
   font-weight: 400;
 }
 
-img{
+img {
   max-width: 100%;
-  image-rendering:   -o-crisp-edges;         /* Opera */
-  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+  -ms-interpolation-mode: nearest-neighbor;
 }
 
 html {
@@ -65,7 +65,7 @@ body {
   color: $default;
   background-color: $lightblue;
   overflow-y: scroll;
-  font: 400 14px/1.6 -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  font: 400 14px/1.6 Helvetica, MaoKenTangYuan (beta), 寒蝉全圆体, -apple-system, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
 }
@@ -77,9 +77,9 @@ body {
 .page-main{
   display: block;
   background-color: $white;
-  max-width: 768px;
+  max-width: 697px;
   width: 100%;
-  padding: 48px 64px;
+  padding: 36px 48px;
   margin: 32px auto;
   position: relative;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
@@ -240,6 +240,7 @@ body {
 
 .post-list{
   min-height: 680px;
+  padding: 20px 0 0;
   a {
     &:hover{
       border-bottom: 1px dashed $darkblue;
@@ -252,7 +253,9 @@ body {
 
 .post-item {
   display: flex;
-  margin: 20px 0;
+  + .post-item {
+    margin-top: 20px;
+  }
   .post-item-thumb {
     display: block;
     width: 50px;
@@ -376,7 +379,7 @@ body {
   }
   .pagination-list {
     list-style-type: none;
-    margin: 10px auto;
+    margin: 10px auto 4.01px;
     font-size: 13px;
     overflow: hidden;
     display: flex;

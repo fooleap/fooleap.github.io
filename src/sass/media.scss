@@ -2,12 +2,13 @@
 // Firefox hack
 @media screen and (min--moz-device-pixel-ratio:0) {
 }
-@media screen and(max-width: 768px) {
+
+@media screen and (max-width: 768px) {
   .page-main{
     margin: 0!important;
   }
 }
-@media screen and(min-width: 450px) {
+@media screen and (min-width: 450px) {
   .iframe-wide-container,
   .iframe-normal-container {
     margin-top: -50px;
@@ -18,7 +19,7 @@
     }
   }
 }
-@media screen and(max-width: 450px) {
+@media screen and (max-width: 450px) {
   .post-life .post-item{
     width: 50%;
   }
