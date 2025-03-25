@@ -1405,10 +1405,10 @@ vite-plugin-font@^4.0.0:
     minimatch "^10.0.1"
     unplugin "^1.12.0"
 
-vite@^6.0.7:
-  version "6.0.7"
-  resolved "https://registry.npmmirror.com/vite/-/vite-6.0.7.tgz#f0f8c120733b04af52b4a1e3e7cb54eb851a799b"
-  integrity sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==
+vite@^6.0.12:
+  version "6.0.12"
+  resolved "https://registry.npmmirror.com/vite/-/vite-6.0.12.tgz#0e3de2441057011f7c20bf018ea16d3824bdbd6b"
+  integrity sha512-gzLogvGSgX2xyAt0J5qhJ7SmdO5aLdShABkU8Ev7dIl8AcrlFSLcj9GHReSq9pGJF/q5C4CZKdtDlkC6DyvQ3w==
   dependencies:
     esbuild "^0.24.2"
     postcss "^8.4.49"
